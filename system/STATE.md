@@ -1,15 +1,18 @@
 # STATE — working memory ของ system นี้
 - **System:** Dial (`@dial/tokens`, `@dial/react`)
-- **Phase ปัจจุบัน:** 3 (Layout + Atoms) — Wave 2 (W2 Atoms-Core: Text/Heading/Icon/Button/IconButton/Link/Badge/Avatar/Spinner/Skeleton/Kbd/Image) เขียนโค้ดเสร็จ + qa-a11y ตีกลับ 5 blocking contrast finding → **แก้ครบทั้ง 5 แล้ว (D-014)**, verify gate ผ่านหมด (lint/build/test 138/138/tsc 0 error) รอ qa-a11y ยืนยันรอบ 2 ก่อนปิด Wave 2
-- **งานล่าสุดที่เสร็จ:** D-014 — แก้ 5 blocking findings จาก qa-a11y (Wave 2): (1) Badge solid dark-mode text contrast (เพิ่ม `color.text.onRoleSolid` flip-per-theme), (2) Button outline border แทบมองไม่เห็น (เพิ่ม `color.border.interactive` = neutral.500), (3) Button danger contrast fail ทั้ง 2 theme (`action.danger.default` light 600→700, dark 700→400 + `text.onDanger` dark→neutral.950), (4) Link default contrast fail light (`action.primary.default` light 600→700, root cause เดียวกับ #3), (5) เพิ่ม `@media (prefers-contrast: more)` จริงใน build/css/light.css ผ่าน postbuild script ใหม่ (`packages/tokens/scripts/postbuild-contrast-media.mjs`) คู่กับ manual `[data-contrast="more"]` attribute เดิม — วัด contrast จริงจาก hex ที่ build ออกมาทุกคู่ ผ่าน AA/3:1 หมดทั้ง light/dark
-- **งานถัดไป:** ส่งต่อให้ qa-a11y ตรวจรอบ 2 (verify 5 finding fixed) → ถ้า PASS ปิด WAVE REPORT ของ W2 (git commit + tag wave-2 + system-sheet refresh) แล้วเริ่ม WAVE PLAN ของ wave ถัดไป
-- **System Sheet:** `system/sheets/sheet-2026-08-08.png` (ล่าสุด, มี Wave 1 preview) · `system/sheets/sheet-2026-08-08-phase2.png` (archive ก่อน Wave 1)
-- **Storybook:** ติดตั้งแล้วที่ `apps/storybook/` — เปิดดู interactive ด้วย `pnpm storybook` (dev server localhost:6006) หรือดู static build ที่ `apps/storybook/storybook-static/index.html`
-- **Git:** repo init แล้วที่ root, commit แรก `ced3223`, tag `wave-1` — ยังไม่มี remote (local only)
-- **Wave ปัจจุบัน:** — (ระหว่าง W1 ปิดกับ W2 เริ่ม) · **Component ผ่าน QA:** 10/10 (Box, Flex, Stack, Grid, Container, Center, Spacer, Divider, AspectRatio, VisuallyHidden)
+- **Phase ปัจจุบัน:** 3 (Layout + Atoms) — Wave 2 (W2 Atoms-Core) ปิดสมบูรณ์ (QA PASS 12/12 ยืนยันรอบ 2 แล้ว, commit+tag wave-2, System Sheet refresh แล้ว) → พร้อมเริ่ม WAVE PLAN ของ W3 Forms-Core
+- **งานล่าสุดที่เสร็จ:** qa-a11y ตรวจรอบ 2 ยืนยัน D-014 แก้จริงทั้ง 5 finding (คำนวณ contrast ใหม่เองจาก build CSS ไม่เชื่อตัวเลขที่รายงานมา — ทุกคู่ผ่าน AA/3:1, ไม่มี regression, primitive ramp ไม่เพี้ยน, accent scarcity ยังคุมอยู่) → ปิด WAVE REPORT: แก้ `.gitignore` เพิ่ม `packages/*/dist/` (เจอ build artifact หลุดเข้า git ตอน commit) + commit `010158e` + `git tag wave-2` → refresh System Sheet เพิ่ม section Wave 2 (Button/Outline/Badge/Avatar/Kbd preview ด้วยสีจริงที่แก้แล้ว จาก brand.500→700)
+- **งานถัดไป:** เริ่ม WAVE PLAN ของ W3 Forms-Core (Input, Textarea, Checkbox, Radio, Switch, Label, FormField, HelperText, Fieldset, InputGroup, PinInput) — wave แรกที่มี controlled/uncontrolled duality จริง (input ทุกตัวต้องรองรับทั้งคู่ตาม §7) และเป็นจุดที่ควรพิจารณายืม behavior จาก React Aria จริงจัง (checkbox/radio/switch มี edge case a11y เยอะกว่า native element เปล่า)
+- **System Sheet:** `system/sheets/sheet-2026-08-08.png` (ล่าสุด, มี Wave 1+2 preview) · archive: `sheet-2026-08-08-wave1.png`, `sheet-2026-08-08-phase2.png`
+- **Storybook:** ติดตั้งแล้วที่ `apps/storybook/` — เปิดดู interactive ด้วย `pnpm storybook` (dev server localhost:6006) หรือดู static build ที่ `apps/storybook/storybook-static/index.html` (ยังไม่ rebuild หลัง Wave 2 — เพิ่ม 12 stories ใหม่ ต้องรัน `pnpm build-storybook` ใหม่ถ้าจะดู static)
+- **Git:** repo init ที่ root, commits: `ced3223` (wave-1), `010158e` (wave-2) — tags `wave-1`, `wave-2` — ยังไม่มี remote (local only)
+- **Wave ปัจจุบัน:** — (ระหว่าง W2 ปิดกับ W3 เริ่ม) · **Component ผ่าน QA:** 22/22 (Wave 1: Box/Flex/Stack/Grid/Container/Center/Spacer/Divider/AspectRatio/VisuallyHidden · Wave 2: Text/Heading/Icon/Button/IconButton/Link/Badge/Avatar/Spinner/Skeleton/Kbd/Image)
 - **ค้าง/blocked:** ไม่มี
 ## Log ย่อ (ใหม่สุดบน ≤15 บรรทัด)
+- 2026-08-08 ปิด WAVE REPORT W2: commit 010158e + tag wave-2, system-sheet refresh (เพิ่ม Wave 2 preview), แก้ .gitignore (dist/ หลุดเข้า git)
+- 2026-08-08 qa-a11y รอบ 2: PASS ทั้ง 5 finding ของ D-014 (คำนวณ contrast ใหม่เอง ไม่มี regression)
 - 2026-08-08 D-014: แก้ 5 blocking QA findings ของ W2 (badge solid text, button outline border, button danger + link primary contrast, prefers-contrast media query) — lint/build/test/tsc ผ่านหมด
+- 2026-08-08 D-013: auto-approve W2 API (ข้าม batch review)
 - 2026-08-08 ปิด WAVE REPORT W1: git init+commit+tag wave-1, system-sheet refresh (เพิ่ม Wave 1 preview)
 - 2026-08-08 Storybook ติดตั้งจริงที่ apps/storybook/ ผูก token CSS จริง build-storybook ผ่าน
 - 2026-08-08 Wave 1 (10 layout primitives) ผ่าน QA เต็มรูปแบบ (แก้ 2 findings: Divider border, Box/Container logical props)
