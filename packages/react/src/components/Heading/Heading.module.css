@@ -1,0 +1,22 @@
+/**
+ * Heading — D-005 heading type scale (flat 1.2 ratio) + D-006 default text color.
+ * Visual size is chosen via `data-size`, independent of the semantic tag the component renders.
+ */
+.heading {
+  font-family: var(--ds-font-family-sans);
+  line-height: var(--ds-line-height-heading);
+  color: var(--ds-text-color-default);
+  margin: 0;
+}
+
+.heading[data-size='sm'] { font-size: var(--ds-font-size-lg); }
+.heading[data-size='md'] { font-size: var(--ds-font-size-xl); }
+.heading[data-size='lg'] { font-size: var(--ds-font-size-2xl); }
+.heading[data-size='xl'] { font-size: var(--ds-font-size-3xl); }
+.heading[data-size='2xl'] { font-size: var(--ds-font-size-4xl); }
+.heading[data-size='3xl'] { font-size: var(--ds-font-size-5xl); }
+
+.heading[data-weight='regular'] { font-weight: var(--ds-font-weight-regular); }
+.heading[data-weight='medium'] { font-weight: var(--ds-font-weight-medium); }
+.heading[data-weight='semibold'] { font-weight: var(--ds-font-weight-semibold); }
+.heading[data-weight='bold'] { font-weight: var(--ds-font-weight-bold); }

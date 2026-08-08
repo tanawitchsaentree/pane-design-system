@@ -1,5 +1,6 @@
 node_modules/
 packages/*/build/
+packages/*/dist/
 .turbo/
 *.log
 apps/storybook/storybook-static/

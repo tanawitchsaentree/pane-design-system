@@ -22,22 +22,24 @@
       "onDanger": { "$type": "color", "$value": "{color.base.white}" },
       "onSuccess": { "$type": "color", "$value": "{color.base.white}" },
       "onWarning": { "$type": "color", "$value": "{color.base.white}" },
-      "onInfo": { "$type": "color", "$value": "{color.base.white}" }
+      "onInfo": { "$type": "color", "$value": "{color.base.white}" },
+      "onRoleSolid": { "$type": "color", "$value": "{color.base.white}" }
     },
     "border": {
-      "$description": "D-008 rule 1: border.hairline replaces decorative shadow as the sole definition/edge cue for card/button/input in normal flow. hairlineStrong is +2 ramp stops darker, used by @media (prefers-contrast: more) per braun-flat.md rule 5, and by contrast-more.json.",
+      "$description": "D-008 rule 1: border.hairline replaces decorative shadow as the sole definition/edge cue for card/button/input in normal flow. hairlineStrong is +2 ramp stops darker, used by @media (prefers-contrast: more) per braun-flat.md rule 5, and by contrast-more.json. interactive (D-014, QA W2 Wave 2 finding #2) is a separate, darker step reserved for borders that ARE the visible boundary of a focusable/interactive control (e.g. Button outline) — hairline (neutral.200, ~1.3:1 on canvas) was designed for quiet layout dividers, not for a 3:1 WCAG non-text/UI-component boundary; neutral.500 measures 3.72:1 on canvas / 3.96:1 on raised, passing.",
       "hairline": { "$type": "color", "$value": "{color.neutral.200}" },
       "hairlineStrong": { "$type": "color", "$value": "{color.neutral.400}" },
+      "interactive": { "$type": "color", "$value": "{color.neutral.500}" },
       "subtle": { "$type": "color", "$value": "{color.neutral.100}" },
       "focus": { "$type": "color", "$value": "{color.brand.600}" },
       "danger": { "$type": "color", "$value": "{color.danger.600}" }
     },
     "action": {
-      "$description": "D-006 action.primary = brand.600 · D-001/braun-flat accent-scarcity rule: use action.primary only on the single most important interactive element per view. States use fill/border shifts, never shadow (braun-flat rule 4).",
+      "$description": "D-006 action.primary = brand.700 (supersedes brand.600 — see D-014, QA W2 Wave 2 findings #3/#4: brand.600 measured 4.02:1 as TEXT/border on bg.canvas, below the 4.5:1 AA text minimum; brand.700 measures 6.38:1) · D-001/braun-flat accent-scarcity rule: use action.primary only on the single most important interactive element per view. States use fill/border shifts, never shadow (braun-flat rule 4). action.danger.default likewise moved 600->700 (D-014) for the same reason (danger.600 was 4.46:1 on canvas, just under AA).",
       "primary": {
-        "default": { "$type": "color", "$value": "{color.brand.600}" },
-        "hover": { "$type": "color", "$value": "{color.brand.700}" },
-        "active": { "$type": "color", "$value": "{color.brand.800}" },
+        "default": { "$type": "color", "$value": "{color.brand.700}" },
+        "hover": { "$type": "color", "$value": "{color.brand.800}" },
+        "active": { "$type": "color", "$value": "{color.brand.900}" },
         "disabled": { "$type": "color", "$value": "{color.neutral.300}" }
       },
       "neutral": {
@@ -47,9 +49,9 @@
         "disabled": { "$type": "color", "$value": "{color.neutral.100}" }
       },
       "danger": {
-        "default": { "$type": "color", "$value": "{color.danger.600}" },
-        "hover": { "$type": "color", "$value": "{color.danger.700}" },
-        "active": { "$type": "color", "$value": "{color.danger.800}" },
+        "default": { "$type": "color", "$value": "{color.danger.700}" },
+        "hover": { "$type": "color", "$value": "{color.danger.800}" },
+        "active": { "$type": "color", "$value": "{color.danger.900}" },
         "disabled": { "$type": "color", "$value": "{color.neutral.300}" }
       }
     },
@@ -58,6 +60,39 @@
       "warning": { "$type": "color", "$value": "{color.warning.700}" },
       "danger": { "$type": "color", "$value": "{color.danger.600}" },
       "info": { "$type": "color", "$value": "{color.info.600}" }
+    },
+    "role": {
+      "$description": "Wave 2 (D-013) addition — non-interactive role-tinted surfaces for Badge (solid/subtle/outline x neutral/brand/success/warning/danger/info, D-006). 'brand' reuses the accent ramp but Badge is informational-only (not clickable), so this does NOT count against the D-001/braun-flat accent-scarcity rule the way an interactive action.primary element would — still used sparingly by convention. solid = high-contrast fill+white text (readable on its own); subtle = light tint bg + darker-step text (readable on canvas, no separate border needed); subtleText mirrors the solid hue at a darker step for AA contrast on the light tint.",
+      "neutral": {
+        "solid": { "$type": "color", "$value": "{color.neutral.700}" },
+        "subtleBg": { "$type": "color", "$value": "{color.neutral.100}" },
+        "subtleText": { "$type": "color", "$value": "{color.neutral.700}" }
+      },
+      "brand": {
+        "solid": { "$type": "color", "$value": "{color.brand.600}" },
+        "subtleBg": { "$type": "color", "$value": "{color.brand.100}" },
+        "subtleText": { "$type": "color", "$value": "{color.brand.700}" }
+      },
+      "success": {
+        "solid": { "$type": "color", "$value": "{color.success.600}" },
+        "subtleBg": { "$type": "color", "$value": "{color.success.100}" },
+        "subtleText": { "$type": "color", "$value": "{color.success.700}" }
+      },
+      "warning": {
+        "solid": { "$type": "color", "$value": "{color.warning.700}" },
+        "subtleBg": { "$type": "color", "$value": "{color.warning.100}" },
+        "subtleText": { "$type": "color", "$value": "{color.warning.800}" }
+      },
+      "danger": {
+        "solid": { "$type": "color", "$value": "{color.danger.600}" },
+        "subtleBg": { "$type": "color", "$value": "{color.danger.100}" },
+        "subtleText": { "$type": "color", "$value": "{color.danger.700}" }
+      },
+      "info": {
+        "solid": { "$type": "color", "$value": "{color.info.600}" },
+        "subtleBg": { "$type": "color", "$value": "{color.info.100}" },
+        "subtleText": { "$type": "color", "$value": "{color.info.700}" }
+      }
     },
     "overlay": {
       "$description": "braun-flat.md — systematic hover/pressed cue via thin alpha over fill instead of shadow. Light theme uses black alpha (darkens on top of light fill); scrim is black in both themes.",

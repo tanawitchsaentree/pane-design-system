@@ -1,0 +1,55 @@
+/**
+ * Badge — D-006 color roles, D-008/braun-flat: no decorative shadow, outline variant uses
+ * hairline-width border (color varies by role, width stays the single hairline token).
+ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ds-font-family-sans);
+  font-weight: var(--ds-font-weight-medium);
+  line-height: var(--ds-line-height-body);
+  border-radius: var(--ds-radius-full);
+  border-style: solid;
+  border-width: var(--ds-border-width-hairline);
+  border-color: transparent;
+  white-space: nowrap;
+}
+
+.badge[data-size='sm'] {
+  font-size: var(--ds-font-size-xs);
+  padding-block: var(--ds-space-0);
+  padding-inline: var(--ds-space-100);
+  min-block-size: var(--ds-size-icon-md);
+}
+.badge[data-size='md'] {
+  font-size: var(--ds-font-size-sm);
+  padding-block: var(--ds-space-0);
+  padding-inline: var(--ds-space-200);
+  min-block-size: var(--ds-size-icon-lg);
+}
+
+/* solid */
+.badge[data-variant='solid'][data-color='neutral'] { background-color: var(--ds-badge-solid-bg-neutral); color: var(--ds-badge-solid-text); }
+.badge[data-variant='solid'][data-color='brand'] { background-color: var(--ds-badge-solid-bg-brand); color: var(--ds-badge-solid-text); }
+.badge[data-variant='solid'][data-color='success'] { background-color: var(--ds-badge-solid-bg-success); color: var(--ds-badge-solid-text); }
+.badge[data-variant='solid'][data-color='warning'] { background-color: var(--ds-badge-solid-bg-warning); color: var(--ds-badge-solid-text); }
+.badge[data-variant='solid'][data-color='danger'] { background-color: var(--ds-badge-solid-bg-danger); color: var(--ds-badge-solid-text); }
+.badge[data-variant='solid'][data-color='info'] { background-color: var(--ds-badge-solid-bg-info); color: var(--ds-badge-solid-text); }
+
+/* subtle */
+.badge[data-variant='subtle'][data-color='neutral'] { background-color: var(--ds-badge-subtle-bg-neutral); color: var(--ds-badge-subtle-text-neutral); }
+.badge[data-variant='subtle'][data-color='brand'] { background-color: var(--ds-badge-subtle-bg-brand); color: var(--ds-badge-subtle-text-brand); }
+.badge[data-variant='subtle'][data-color='success'] { background-color: var(--ds-badge-subtle-bg-success); color: var(--ds-badge-subtle-text-success); }
+.badge[data-variant='subtle'][data-color='warning'] { background-color: var(--ds-badge-subtle-bg-warning); color: var(--ds-badge-subtle-text-warning); }
+.badge[data-variant='subtle'][data-color='danger'] { background-color: var(--ds-badge-subtle-bg-danger); color: var(--ds-badge-subtle-text-danger); }
+.badge[data-variant='subtle'][data-color='info'] { background-color: var(--ds-badge-subtle-bg-info); color: var(--ds-badge-subtle-text-info); }
+
+/* outline */
+.badge[data-variant='outline'] { background-color: transparent; }
+.badge[data-variant='outline'][data-color='neutral'] { border-color: var(--ds-badge-outline-border-neutral); color: var(--ds-badge-outline-text-neutral); }
+.badge[data-variant='outline'][data-color='brand'] { border-color: var(--ds-badge-outline-border-brand); color: var(--ds-badge-outline-text-brand); }
+.badge[data-variant='outline'][data-color='success'] { border-color: var(--ds-badge-outline-border-success); color: var(--ds-badge-outline-text-success); }
+.badge[data-variant='outline'][data-color='warning'] { border-color: var(--ds-badge-outline-border-warning); color: var(--ds-badge-outline-text-warning); }
+.badge[data-variant='outline'][data-color='danger'] { border-color: var(--ds-badge-outline-border-danger); color: var(--ds-badge-outline-text-danger); }
+.badge[data-variant='outline'][data-color='info'] { border-color: var(--ds-badge-outline-border-info); color: var(--ds-badge-outline-text-info); }

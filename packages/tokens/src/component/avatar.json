@@ -1,0 +1,8 @@
+{
+  "$description": "Wave 2 (D-013) component tokens for Avatar. Aliases semantic/* only. Fallback (initials) uses the same 'quiet neutral fill' treatment as Badge's neutral-subtle so an avatar without an image doesn't read as an error state or draw the eye (D-001 accent scarcity keeps brand off decorative avatars).",
+  "avatar": {
+    "fallbackBg": { "$type": "color", "$value": "{color.role.neutral.subtleBg}" },
+    "fallbackText": { "$type": "color", "$value": "{color.role.neutral.subtleText}" },
+    "border": { "$type": "color", "$value": "{color.border.hairline}" }
+  }
+}

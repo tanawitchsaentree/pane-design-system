@@ -1,0 +1,51 @@
+/**
+ * Avatar — D-004 avatar size scale (24/32/40/48/64/96), D-008 hairline border instead of
+ * decorative shadow, D-001 accent scarcity: fallback fill uses a quiet neutral tint, never the
+ * brand accent, so a placeholder avatar never competes visually with a real primary action.
+ */
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-style: solid;
+  border-width: var(--ds-border-width-hairline);
+  border-color: var(--ds-avatar-border);
+  background-color: var(--ds-avatar-fallback-bg);
+}
+
+.avatar[data-shape='circle'] { border-radius: var(--ds-radius-full); }
+.avatar[data-shape='square'] { border-radius: var(--ds-radius-md); }
+
+.avatar[data-size='xs'] { inline-size: var(--ds-size-avatar-xs); block-size: var(--ds-size-avatar-xs); }
+.avatar[data-size='sm'] { inline-size: var(--ds-size-avatar-sm); block-size: var(--ds-size-avatar-sm); }
+.avatar[data-size='md'] { inline-size: var(--ds-size-avatar-md); block-size: var(--ds-size-avatar-md); }
+.avatar[data-size='lg'] { inline-size: var(--ds-size-avatar-lg); block-size: var(--ds-size-avatar-lg); }
+.avatar[data-size='xl'] { inline-size: var(--ds-size-avatar-xl); block-size: var(--ds-size-avatar-xl); }
+.avatar[data-size='2xl'] { inline-size: var(--ds-size-avatar-2xl); block-size: var(--ds-size-avatar-2xl); }
+
+.image {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 100%;
+  block-size: 100%;
+  font-family: var(--ds-font-family-sans);
+  font-weight: var(--ds-font-weight-medium);
+  color: var(--ds-avatar-fallback-text);
+  text-transform: uppercase;
+}
+
+.avatar[data-size='xs'] .fallback,
+.avatar[data-size='sm'] .fallback { font-size: var(--ds-font-size-xs); }
+.avatar[data-size='md'] .fallback,
+.avatar[data-size='lg'] .fallback { font-size: var(--ds-font-size-sm); }
+.avatar[data-size='xl'] .fallback,
+.avatar[data-size='2xl'] .fallback { font-size: var(--ds-font-size-lg); }

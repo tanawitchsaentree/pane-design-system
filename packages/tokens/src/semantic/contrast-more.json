@@ -4,6 +4,7 @@
     "border": {
       "hairline": { "$type": "color", "$value": "{color.neutral.400}" },
       "hairlineStrong": { "$type": "color", "$value": "{color.neutral.600}" },
+      "interactive": { "$type": "color", "$value": "{color.neutral.600}" },
       "subtle": { "$type": "color", "$value": "{color.neutral.300}" },
       "focus": { "$type": "color", "$value": "{color.brand.700}" },
       "danger": { "$type": "color", "$value": "{color.danger.700}" }

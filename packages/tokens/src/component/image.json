@@ -1,0 +1,7 @@
+{
+  "$description": "Wave 2 (D-013) component tokens for Image. Aliases semantic/* only — a hairline border token for the optional rounded-frame case (no decorative shadow, D-008) and a subtle surface fill shown while the image itself is still loading/broken (avoids a jarring blank/white box).",
+  "image": {
+    "border": { "$type": "color", "$value": "{color.border.hairline}" },
+    "bg": { "$type": "color", "$value": "{color.surface.inset}" }
+  }
+}

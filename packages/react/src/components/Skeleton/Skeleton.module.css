@@ -1,0 +1,47 @@
+/**
+ * Skeleton — D-009 motion (shimmer sweep uses duration/easing tokens), D-008: no decorative
+ * shadow used to imply depth — the shimmer is a background-position sweep between two adjacent
+ * neutral steps (skeleton.base/skeleton.shimmer), same "lightness communicates state" logic as
+ * the rest of this system's surfaces.
+ */
+.skeleton {
+  display: inline-block;
+  background-color: var(--ds-skeleton-base);
+  background-image: linear-gradient(
+    90deg,
+    var(--ds-skeleton-base) 0%,
+    var(--ds-skeleton-shimmer) 50%,
+    var(--ds-skeleton-base) 100%
+  );
+  background-size: 200% 100%;
+  animation: ds-skeleton-shimmer var(--ds-duration-slower) var(--ds-cubic-bezier-standard) infinite;
+}
+
+.skeleton[data-variant='text'] {
+  inline-size: 100%;
+  block-size: var(--ds-font-size-md);
+  border-radius: var(--ds-radius-sm);
+}
+.skeleton[data-variant='circle'] {
+  inline-size: var(--ds-size-avatar-md);
+  block-size: var(--ds-size-avatar-md);
+  border-radius: var(--ds-radius-full);
+}
+.skeleton[data-variant='rect'] {
+  inline-size: 100%;
+  block-size: var(--ds-size-avatar-2xl);
+  border-radius: var(--ds-radius-md);
+}
+
+@keyframes ds-skeleton-shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+    background-image: none;
+    background-color: var(--ds-skeleton-base);
+  }
+}

@@ -33,4 +33,56 @@ export type { AspectRatioProps, AspectRatioPreset } from './components/AspectRat
 export { VisuallyHidden } from './components/VisuallyHidden';
 export type { VisuallyHiddenProps } from './components/VisuallyHidden';
 
-export type { SpaceToken } from './types';
+// Wave 2 (W2 Atoms-Core, D-013): Text, Heading, Icon, Button, IconButton, Link, Badge, Avatar,
+// Spinner, Skeleton, Kbd, Image. Built in the order recommended by production-run (least- to
+// most-dependent): Text/Heading/Icon/Kbd/Badge (independent) -> Button -> IconButton (extends
+// Button) -> Link -> Avatar -> Spinner -> Skeleton -> Image (uses AspectRatio from Wave 1).
+
+export { Text } from './components/Text';
+export type { TextProps } from './components/Text';
+
+export { Heading } from './components/Heading';
+export type { HeadingProps, HeadingLevel, HeadingSize } from './components/Heading';
+
+export { Icon } from './components/Icon';
+export type { IconProps } from './components/Icon';
+
+export { Kbd } from './components/Kbd';
+export type { KbdProps } from './components/Kbd';
+
+export { Badge } from './components/Badge';
+export type { BadgeProps, BadgeVariant, BadgeSize } from './components/Badge';
+
+export { Spinner } from './components/Spinner';
+export type { SpinnerProps } from './components/Spinner';
+
+export { Button } from './components/Button';
+export type { ButtonProps, ButtonVariant } from './components/Button';
+
+export { IconButton } from './components/IconButton';
+export type { IconButtonProps } from './components/IconButton';
+
+export { Link } from './components/Link';
+export type { LinkProps, LinkVariant } from './components/Link';
+
+export { Avatar } from './components/Avatar';
+export type { AvatarProps, AvatarShape } from './components/Avatar';
+
+export { Skeleton } from './components/Skeleton';
+export type { SkeletonProps, SkeletonVariant } from './components/Skeleton';
+
+export { Image } from './components/Image';
+export type { ImageProps } from './components/Image';
+
+export type {
+  SpaceToken,
+  FontSizeToken,
+  FontWeightToken,
+  TextColorToken,
+  IconSizeToken,
+  AvatarSizeToken,
+  ControlSizeToken,
+  RadiusToken,
+  ColorRoleToken,
+  ActionIntent,
+} from './types';

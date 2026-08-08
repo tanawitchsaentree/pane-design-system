@@ -1,0 +1,30 @@
+/**
+ * Icon — D-004 icon size scale (16/20/24/32). Default color is `currentColor` (no `data-color`
+ * attribute set) so an icon paired with text inherits that text's color automatically; an
+ * explicit semantic color role is opt-in via `data-color`.
+ */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  inline-size: var(--ds-size-icon-md);
+  block-size: var(--ds-size-icon-md);
+  color: currentColor;
+  line-height: 0;
+}
+
+.icon > svg {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.icon[data-size='sm'] { inline-size: var(--ds-size-icon-sm); block-size: var(--ds-size-icon-sm); }
+.icon[data-size='md'] { inline-size: var(--ds-size-icon-md); block-size: var(--ds-size-icon-md); }
+.icon[data-size='lg'] { inline-size: var(--ds-size-icon-lg); block-size: var(--ds-size-icon-lg); }
+.icon[data-size='xl'] { inline-size: var(--ds-size-icon-xl); block-size: var(--ds-size-icon-xl); }
+
+.icon[data-color='default'] { color: var(--ds-icon-color); }
+.icon[data-color='subtle'] { color: var(--ds-text-color-subtle); }
+.icon[data-color='disabled'] { color: var(--ds-text-color-disabled); }
+.icon[data-color='inverse'] { color: var(--ds-text-color-inverse); }

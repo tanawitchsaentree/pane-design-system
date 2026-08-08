@@ -8,21 +8,25 @@
 
 const PRIMITIVE = "src/primitive/**/*.json";
 const SEMANTIC_SHARED = ["src/semantic/space.json", "src/semantic/size.json", "src/semantic/typography.json", "src/semantic/motion.json", "src/semantic/layout.json"];
+// Wave 2 (D-013): component/**/*.json alias semantic/* exclusively (never primitive/* directly,
+// see ds-conventions + CLAUDE.md 3-layer rule). Loaded last in every theme so their {color.action.*}
+// etc. references resolve against that theme's semantic values.
+const COMPONENT = "src/component/**/*.json";
 
 const THEMES = {
   light: {
     selector: ":root",
-    source: [PRIMITIVE, ...SEMANTIC_SHARED, "src/semantic/light.json"],
+    source: [PRIMITIVE, ...SEMANTIC_SHARED, "src/semantic/light.json", COMPONENT],
   },
   dark: {
     selector: '[data-theme="dark"]',
-    source: [PRIMITIVE, ...SEMANTIC_SHARED, "src/semantic/dark.json"],
+    source: [PRIMITIVE, ...SEMANTIC_SHARED, "src/semantic/dark.json", COMPONENT],
   },
   "light-contrast-more": {
     selector: '[data-theme="light"][data-contrast="more"]',
     // contrast-more.json only overrides color.border.* — load light.json first, then let contrast-more.json's
     // border tokens win because it's listed last (Style Dictionary merges in source-array order).
-    source: [PRIMITIVE, ...SEMANTIC_SHARED, "src/semantic/light.json", "src/semantic/contrast-more.json"],
+    source: [PRIMITIVE, ...SEMANTIC_SHARED, "src/semantic/light.json", "src/semantic/contrast-more.json", COMPONENT],
   },
 };
 

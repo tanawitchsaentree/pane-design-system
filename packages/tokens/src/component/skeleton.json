@@ -1,0 +1,7 @@
+{
+  "$description": "Wave 2 (D-013) component tokens for Skeleton. Aliases semantic/* only. base/shimmer are two adjacent neutral steps so the shimmer animation is a lightness sweep between them — no shadow involved (D-008/braun-flat rule 1).",
+  "skeleton": {
+    "base": { "$type": "color", "$value": "{color.surface.inset}" },
+    "shimmer": { "$type": "color", "$value": "{color.border.hairline}" }
+  }
+}

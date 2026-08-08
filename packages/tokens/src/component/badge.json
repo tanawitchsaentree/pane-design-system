@@ -1,0 +1,53 @@
+{
+  "$description": "Wave 2 (D-013) component tokens for Badge. Aliases semantic/color.role.* (added this wave) exclusively — never primitive/* directly. Badge is non-interactive (no hover/active/focus state per ds-conventions state list — it is not focusable), so unlike Button there is only one state per variant. solid.text uses semantic color.text.onRoleSolid (D-014, QA W2 Wave 2 finding #1) instead of a hardcoded {color.base.white} — dark theme's role.*.solid backgrounds are light 300/400 steps meant to be read with DARK text, so a hardcoded white text failed AA (2.0-2.7:1) on every dark role; onRoleSolid flips per theme the same way text.onPrimary already does (white in light, neutral.950 in dark).",
+  "badge": {
+    "solid": {
+      "bg": {
+        "neutral": { "$type": "color", "$value": "{color.role.neutral.solid}" },
+        "brand": { "$type": "color", "$value": "{color.role.brand.solid}" },
+        "success": { "$type": "color", "$value": "{color.role.success.solid}" },
+        "warning": { "$type": "color", "$value": "{color.role.warning.solid}" },
+        "danger": { "$type": "color", "$value": "{color.role.danger.solid}" },
+        "info": { "$type": "color", "$value": "{color.role.info.solid}" }
+      },
+      "text": { "$type": "color", "$value": "{color.text.onRoleSolid}" }
+    },
+    "subtle": {
+      "bg": {
+        "neutral": { "$type": "color", "$value": "{color.role.neutral.subtleBg}" },
+        "brand": { "$type": "color", "$value": "{color.role.brand.subtleBg}" },
+        "success": { "$type": "color", "$value": "{color.role.success.subtleBg}" },
+        "warning": { "$type": "color", "$value": "{color.role.warning.subtleBg}" },
+        "danger": { "$type": "color", "$value": "{color.role.danger.subtleBg}" },
+        "info": { "$type": "color", "$value": "{color.role.info.subtleBg}" }
+      },
+      "text": {
+        "neutral": { "$type": "color", "$value": "{color.role.neutral.subtleText}" },
+        "brand": { "$type": "color", "$value": "{color.role.brand.subtleText}" },
+        "success": { "$type": "color", "$value": "{color.role.success.subtleText}" },
+        "warning": { "$type": "color", "$value": "{color.role.warning.subtleText}" },
+        "danger": { "$type": "color", "$value": "{color.role.danger.subtleText}" },
+        "info": { "$type": "color", "$value": "{color.role.info.subtleText}" }
+      }
+    },
+    "outline": {
+      "$description": "Transparent bg, hairline-width border tinted per role (still no drop-shadow — D-008/braun-flat rule 1).",
+      "border": {
+        "neutral": { "$type": "color", "$value": "{color.role.neutral.solid}" },
+        "brand": { "$type": "color", "$value": "{color.role.brand.solid}" },
+        "success": { "$type": "color", "$value": "{color.role.success.solid}" },
+        "warning": { "$type": "color", "$value": "{color.role.warning.solid}" },
+        "danger": { "$type": "color", "$value": "{color.role.danger.solid}" },
+        "info": { "$type": "color", "$value": "{color.role.info.solid}" }
+      },
+      "text": {
+        "neutral": { "$type": "color", "$value": "{color.role.neutral.subtleText}" },
+        "brand": { "$type": "color", "$value": "{color.role.brand.subtleText}" },
+        "success": { "$type": "color", "$value": "{color.role.success.subtleText}" },
+        "warning": { "$type": "color", "$value": "{color.role.warning.subtleText}" },
+        "danger": { "$type": "color", "$value": "{color.role.danger.subtleText}" },
+        "info": { "$type": "color", "$value": "{color.role.info.subtleText}" }
+      }
+    }
+  }
+}

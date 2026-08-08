@@ -44,4 +44,10 @@ for (const cfg of configs) {
   await sd.buildAllPlatforms();
 }
 
+// D-014 (QA W2 Wave 2 finding #5): Style Dictionary itself only emits the manual
+// [data-theme="light"][data-contrast="more"] toggle. Append the real `@media (prefers-contrast:
+// more)` auto-detect block to light.css so OS/browser-level contrast preference works without a
+// dev having to set the data attribute. See postbuild-contrast-media.mjs for the full rationale.
+await import("./postbuild-contrast-media.mjs");
+
 console.log("\n@dial/tokens build complete -> packages/tokens/build/{css,scss,json,ts,tailwind}");

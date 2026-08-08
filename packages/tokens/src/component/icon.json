@@ -1,0 +1,6 @@
+{
+  "$description": "Wave 2 (D-013) component tokens for Icon. Aliases semantic/* only. Default color is 'currentColor' behavior (handled in component CSS, not a token) — this file only supplies the one token Icon needs when a consumer explicitly asks for the semantic default text color instead of inheriting.",
+  "icon": {
+    "color": { "$type": "color", "$value": "{color.text.default}" }
+  }
+}
