@@ -125,3 +125,61 @@ export type { FormFieldProps } from './components/FormField';
 
 export { PinInput } from './components/PinInput';
 export type { PinInputProps } from './components/PinInput';
+
+// Wave 4 (W4 Web Overlays, D-018/D-017): Popover, Tooltip, Dialog, Drawer, Toast, Snackbar. Built
+// in the order recommended by production-run (establish the Radix-Popper pattern first, then the
+// Radix-Dialog pattern, then the provider pattern): Popover -> Tooltip (share positioning
+// primitive shape) -> Dialog (heaviest, most-depended-on by later waves) -> Drawer (reuses
+// Dialog's Radix state machine, only the CSS entrance/exit animation differs, D-018) -> Toast
+// (provider pattern) -> Snackbar (reuses Toast's ToastProvider/context, D-018 Reuse Check).
+
+export { Popover } from './components/Popover';
+export type {
+  PopoverRootProps,
+  PopoverTriggerProps,
+  PopoverAnchorProps,
+  PopoverContentProps,
+  PopoverCloseProps,
+  PopoverArrowProps,
+} from './components/Popover';
+
+export { Tooltip } from './components/Tooltip';
+export type {
+  TooltipProviderProps,
+  TooltipRootProps,
+  TooltipTriggerProps,
+  TooltipContentProps,
+} from './components/Tooltip';
+
+export { Dialog } from './components/Dialog';
+export type {
+  DialogSize,
+  DialogRootProps,
+  DialogTriggerProps,
+  DialogContentProps,
+  DialogTitleProps,
+  DialogDescriptionProps,
+  DialogCloseProps,
+} from './components/Dialog';
+
+export { Drawer } from './components/Drawer';
+export type {
+  DrawerPlacement,
+  DrawerRootProps,
+  DrawerTriggerProps,
+  DrawerContentProps,
+  DrawerTitleProps,
+  DrawerDescriptionProps,
+  DrawerCloseProps,
+} from './components/Drawer';
+
+export { ToastProvider, useToast, ToastAction } from './components/Toast';
+export type {
+  ToastOptions,
+  ToastVariant,
+  ToastProviderProps,
+  ToastActionElementProps,
+} from './components/Toast';
+
+export { useSnackbar } from './components/Snackbar';
+export type { SnackbarOptions } from './components/Snackbar';

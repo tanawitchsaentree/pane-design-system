@@ -1,0 +1,14 @@
+{
+  "$description": "Wave 4 (W4 Web Overlays, D-018) component tokens for Dialog. Reused verbatim by Drawer (Reuse Check, D-018 impact note: Drawer is 'the same Radix Dialog primitive, only the CSS slide animation differs' — Drawer.module.css imports these same var names, no separate drawer.json needed). bg/border/text mirror Popover's surface-ladder treatment (same 'floating panel' visual language across every overlay in this system) but shadow steps up to `shadow.elevation.lg` (braun-flat rule 2: modal is explicitly the heaviest-permitted elevation in the system, floating furthest above content) and adds `overlay.scrim` for the backdrop (D-002/§4.4 scrim token, alpha-black/white already proven safe since Button's overlay.hover/pressed reuse the same primitive family). Contrast self-check: text.default on surface.overlay = 14.85:1 (light) / 11.11:1 (dark) — both far above 4.5:1. border.hairline on surface.overlay = 1.48:1 (light) — expected, this is the panel's internal quiet-divider edge (e.g. header/footer separators inside the dialog), not the panel's own outer boundary against the page (that boundary is carried by shadow.elevation.lg + scrim + the surface-lightness jump, same non-color-alone reasoning Divider/Popover already rely on for hairline). Close button reuses IconButton (Wave 2) — no separate close-button color token needed here, IconButton already carries its own self-checked ghost/ ButtonProps token chain.",
+  "dialog": {
+    "content": {
+      "bg": { "$type": "color", "$value": "{color.surface.overlay}" },
+      "border": { "$type": "color", "$value": "{color.border.hairline}" },
+      "text": { "$type": "color", "$value": "{color.text.default}" },
+      "shadow": { "$type": "shadow", "$value": "{shadow.elevation.lg}" }
+    },
+    "overlay": {
+      "scrim": { "$type": "color", "$value": "{color.overlay.scrim}" }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+/**
+ * Toast — D-018. bg/border/text/shadow from toast.json (surface-ladder + shadow.elevation.md,
+ * braun-flat rule 2's explicit toast exception). z-index: toast(1700, BLUEPRINT §4.8) — the
+ * highest layer in the system, so a toast is never hidden behind an open Dialog/Popover/Drawer.
+ * variant.* (accent bar + not-color-alone cue) reuses the already-locked `color.feedback.*`
+ * tokens (D-006) — see toast.json for the full contrast self-check table.
+ * Motion (D-009, real measurable travel): enters by sliding up from `translateY(16px)` to `0`
+ * while fading in, over `duration-base` (200ms) decelerate; exits by sliding back down + fading
+ * out over `duration-fast` (100ms) accelerate — matching every other overlay's enter/exit
+ * asymmetry in this wave. `prefers-reduced-motion` drops the translate, opacity-only fade at
+ * `duration-fast`.
+ */
+.viewport {
+  position: fixed;
+  z-index: var(--ds-z-index-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-stack-sm);
+  max-inline-size: var(--ds-container-sm);
+  padding: var(--ds-space-inset-md);
+  margin: 0;
+  list-style: none;
+  outline: none;
+}
+.viewport[data-side='bottom'] { inset-block-end: 0; }
+.viewport[data-side='top'] { inset-block-start: 0; }
+.viewport[data-align='right'] { inset-inline-end: 0; }
+.viewport[data-align='left'] { inset-inline-start: 0; }
+
+.root {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: start;
+  gap: var(--ds-space-inline-md);
+  padding: var(--ds-space-inset-md);
+  border-radius: var(--ds-radius-md);
+  border-style: solid;
+  border-width: var(--ds-border-width-hairline);
+  border-color: var(--ds-toast-content-border);
+  background-color: var(--ds-toast-content-bg);
+  color: var(--ds-toast-content-text);
+  box-shadow: var(--ds-toast-content-shadow);
+  will-change: transform, opacity;
+}
+
+.root[data-state='open'] {
+  animation: ds-toast-enter var(--ds-duration-base) var(--ds-cubic-bezier-decelerate);
+}
+.root[data-state='closed'] {
+  animation: ds-toast-exit var(--ds-duration-fast) var(--ds-cubic-bezier-accelerate);
+}
+.root[data-swipe='move'] {
+  transform: translateX(var(--radix-toast-swipe-move-x));
+}
+.root[data-swipe='cancel'] {
+  transform: translateX(0);
+  transition: transform var(--ds-duration-fast) var(--ds-cubic-bezier-standard);
+}
+.root[data-swipe='end'] {
+  animation: ds-toast-swipe-out var(--ds-duration-fast) var(--ds-cubic-bezier-accelerate);
+}
+
+.accent {
+  inline-size: var(--ds-border-width-thick);
+  block-size: 100%;
+  border-radius: var(--ds-radius-full);
+  background-color: var(--ds-toast-variant-default);
+}
+.root[data-variant='success'] .accent { background-color: var(--ds-toast-variant-success); }
+.root[data-variant='warning'] .accent { background-color: var(--ds-toast-variant-warning); }
+.root[data-variant='danger'] .accent { background-color: var(--ds-toast-variant-danger); }
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-stack-sm);
+  min-inline-size: 0;
+}
+
+.title {
+  font: var(--ds-text-heading-sm);
+  margin: 0;
+}
+
+.description {
+  font: var(--ds-text-body-sm);
+  color: var(--ds-toast-content-text-subtle);
+  margin: 0;
+}
+
+.action {
+  align-self: center;
+}
+
+.closeButton {
+  align-self: start;
+}
+
+@keyframes ds-toast-enter {
+  from { opacity: var(--ds-opacity-0); transform: translateY(var(--ds-space-200)); }
+  to { opacity: var(--ds-opacity-100); transform: translateY(0); }
+}
+@keyframes ds-toast-exit {
+  from { opacity: var(--ds-opacity-100); transform: translateY(0); }
+  to { opacity: var(--ds-opacity-0); transform: translateY(var(--ds-space-200)); }
+}
+@keyframes ds-toast-swipe-out {
+  from { opacity: var(--ds-opacity-100); }
+  to { opacity: var(--ds-opacity-0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root[data-state='open'] {
+    animation: ds-toast-enter-reduced var(--ds-duration-fast) linear;
+  }
+  .root[data-state='closed'] {
+    animation: ds-toast-exit-reduced var(--ds-duration-fast) linear;
+  }
+  @keyframes ds-toast-enter-reduced {
+    from { opacity: var(--ds-opacity-0); }
+    to { opacity: var(--ds-opacity-100); }
+  }
+  @keyframes ds-toast-exit-reduced {
+    from { opacity: var(--ds-opacity-100); }
+    to { opacity: var(--ds-opacity-0); }
+  }
+}

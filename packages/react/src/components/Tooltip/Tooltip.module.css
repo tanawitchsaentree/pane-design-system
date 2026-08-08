@@ -1,0 +1,57 @@
+/**
+ * Tooltip — D-018, smallest/quietest overlay in the wave. No shadow.elevation (per component
+ * doc in Tooltip.tsx — a text hint doesn't need floating-panel weight). z-index reuses
+ * popover(1500, BLUEPRINT §4.8) — a tooltip never needs to out-stack an actual popover but must
+ * clear dropdown/sticky content underneath it.
+ * Motion: D-009 — 100ms fast fade+4px slide on enter (deliberately quicker than Popover's 200ms
+ * since a tooltip should feel instantaneous, not "opened"), matching exit timing on the way out;
+ * `prefers-reduced-motion` collapses to an opacity-only fade, never removed entirely.
+ */
+.content {
+  z-index: var(--ds-z-index-popover);
+  max-inline-size: var(--ds-space-900);
+  padding-block: var(--ds-space-100);
+  padding-inline: var(--ds-space-200);
+  border-radius: var(--ds-radius-sm);
+  background-color: var(--ds-tooltip-content-bg);
+  color: var(--ds-tooltip-content-text);
+  font: var(--ds-text-body-xs);
+  will-change: transform, opacity;
+}
+
+.content[data-state='delayed-open'] {
+  animation: ds-tooltip-enter var(--ds-duration-fast) var(--ds-cubic-bezier-decelerate);
+}
+.content[data-state='closed'] {
+  animation: ds-tooltip-exit var(--ds-duration-fast) var(--ds-cubic-bezier-accelerate);
+}
+
+@keyframes ds-tooltip-enter {
+  from { opacity: var(--ds-opacity-0); transform: translateY(-4px); }
+  to { opacity: var(--ds-opacity-100); transform: translateY(0); }
+}
+@keyframes ds-tooltip-exit {
+  from { opacity: var(--ds-opacity-100); transform: translateY(0); }
+  to { opacity: var(--ds-opacity-0); transform: translateY(-4px); }
+}
+
+.arrow {
+  fill: var(--ds-tooltip-content-bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content[data-state='delayed-open'] {
+    animation: ds-tooltip-enter-reduced var(--ds-duration-fast) linear;
+  }
+  .content[data-state='closed'] {
+    animation: ds-tooltip-exit-reduced var(--ds-duration-fast) linear;
+  }
+  @keyframes ds-tooltip-enter-reduced {
+    from { opacity: var(--ds-opacity-0); }
+    to { opacity: var(--ds-opacity-100); }
+  }
+  @keyframes ds-tooltip-exit-reduced {
+    from { opacity: var(--ds-opacity-100); }
+    to { opacity: var(--ds-opacity-0); }
+  }
+}

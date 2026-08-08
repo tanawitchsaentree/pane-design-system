@@ -1,0 +1,9 @@
+{
+  "$description": "Wave 4 (W4 Web Overlays, D-018) component tokens for Tooltip. Reuse Check: Tooltip is a thin text-hint panel, one step quieter than Popover — it deliberately reuses `color.role.neutral.solid` + `color.text.onRoleSolid` (the same theme-flipping high-contrast pair Badge/Checkbox/Switch already use, D-014) instead of the surface-ladder treatment Popover/Dialog use, because a tooltip needs to pop against ANY underlying content immediately on hover, not sit as a 'raised surface' the way a panel with interactive content does. No `shadow.elevation` here (per the brief: tooltip is 'a text hint บางๆ' — small ephemeral hint, not a floating panel that needs elevation shadow; braun-flat rule 2 permits shadow for popover/modal/toast but does not require it for every overlay, and D-001 accent-scarcity-adjacent minimalism favors the plainest treatment that still reads clearly). Contrast self-check: text.onRoleSolid on role.neutral.solid = 9.39:1 (light: white #ffffff on neutral.700 #494641) / 7.94:1 (dark: neutral.950 #242220 on neutral.300 #bbb7b0) — both clear the 4.5:1 text minimum with large margin.",
+  "tooltip": {
+    "content": {
+      "bg": { "$type": "color", "$value": "{color.role.neutral.solid}" },
+      "text": { "$type": "color", "$value": "{color.text.onRoleSolid}" }
+    }
+  }
+}
