@@ -1,0 +1,14 @@
+/**
+ * HelperText — layout reset only. `Text`'s `color="subtle"` reads `var(--ds-text-color-subtle)`
+ * for the color it renders (Reuse Check, D-015) — for `tone="error"` this rule overrides that one
+ * custom property on the `<p>` ancestor instead of fighting CSS-module specificity across two
+ * separate stylesheets: custom properties cascade to descendants, so the nested `Text` span picks
+ * up the overridden value transparently. Error contrast self-checked in helperText.json (D-015).
+ */
+.helperText {
+  margin: var(--ds-space-0);
+}
+
+.helperText[data-tone='error'] {
+  --ds-text-color-subtle: var(--ds-helper-text-text-error);
+}

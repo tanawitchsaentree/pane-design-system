@@ -86,3 +86,42 @@ export type {
   ColorRoleToken,
   ActionIntent,
 } from './types';
+
+// Wave 3 (W3 Forms-Core, D-015): Label, HelperText, Input, Textarea, Checkbox, Radio, Switch,
+// Fieldset, InputGroup, FormField, PinInput. Built in the order recommended by production-run
+// (least- to most-dependent): Label/HelperText (reuse Text) -> Input -> Textarea (mirrors Input)
+// -> Checkbox -> Radio (mirrors Checkbox) -> Switch -> Fieldset -> InputGroup (reuses Flex from
+// Wave 1) -> FormField (composes Label+control+HelperText) -> PinInput (most complex, built last).
+
+export { Label } from './components/Label';
+export type { LabelProps } from './components/Label';
+
+export { HelperText } from './components/HelperText';
+export type { HelperTextProps, HelperTextTone } from './components/HelperText';
+
+export { Input } from './components/Input';
+export type { InputProps } from './components/Input';
+
+export { Textarea } from './components/Textarea';
+export type { TextareaProps, TextareaResize } from './components/Textarea';
+
+export { Checkbox } from './components/Checkbox';
+export type { CheckboxProps } from './components/Checkbox';
+
+export { Radio } from './components/Radio';
+export type { RadioProps } from './components/Radio';
+
+export { Switch } from './components/Switch';
+export type { SwitchProps } from './components/Switch';
+
+export { Fieldset } from './components/Fieldset';
+export type { FieldsetProps } from './components/Fieldset';
+
+export { InputGroup } from './components/InputGroup';
+export type { InputGroupProps } from './components/InputGroup';
+
+export { FormField } from './components/FormField';
+export type { FormFieldProps } from './components/FormField';
+
+export { PinInput } from './components/PinInput';
+export type { PinInputProps } from './components/PinInput';

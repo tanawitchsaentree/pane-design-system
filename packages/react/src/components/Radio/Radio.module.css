@@ -1,0 +1,87 @@
+/**
+ * Radio — same token pattern as Checkbox (radio.json, D-015 contrast self-check + accent
+ * scarcity rule 3): selected dot uses `role.neutral.solid`, not the scarce brand accent. No
+ * decorative shadow (braun-flat rule 1). The dot is a real shape (not color alone) per
+ * BLUEPRINT §7 non-color-cue requirement.
+ */
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: var(--ds-size-control-sm);
+  min-block-size: var(--ds-size-control-sm);
+  cursor: var(--ds-cursor-pointer);
+}
+
+.wrapper[data-disabled] {
+  cursor: var(--ds-cursor-not-allowed);
+}
+
+.input {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.ring {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  inline-size: var(--ds-size-icon-lg);
+  block-size: var(--ds-size-icon-lg);
+  border-radius: var(--ds-radius-full);
+  border-style: solid;
+  border-width: var(--ds-border-width-hairline);
+  border-color: var(--ds-radio-border-default);
+  background-color: transparent;
+  transition: var(--ds-transition-fast);
+  transition-property: border-color, border-width;
+}
+
+.dot {
+  inline-size: 50%;
+  block-size: 50%;
+  border-radius: var(--ds-radius-full);
+  background-color: transparent;
+  transition: var(--ds-transition-fast);
+  transition-property: background-color;
+}
+
+/* hover — non-shadow cue: border widens (braun-flat rule 4) */
+.wrapper:not([data-disabled]):hover .ring {
+  border-width: var(--ds-border-width-thick);
+}
+
+/* focus-visible — dedicated focusRing token, not a shadow ring */
+.input:focus-visible ~ .ring {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+/* checked */
+.input:checked ~ .ring {
+  border-color: var(--ds-radio-dot-checked);
+}
+.input:checked ~ .ring .dot {
+  background-color: var(--ds-radio-dot-checked);
+}
+
+/* disabled */
+.input:disabled ~ .ring {
+  border-color: var(--ds-radio-border-disabled);
+}
+.input:disabled:checked ~ .ring .dot {
+  background-color: var(--ds-radio-dot-disabled);
+}
+.input:disabled:checked ~ .ring {
+  border-color: var(--ds-radio-dot-disabled);
+}

@@ -1,0 +1,55 @@
+/**
+ * InputGroup — same token pairing as Input (input.json, D-015 contrast self-check already
+ * verified there): recessed `surface.inset` fill + `border.interactive` border on the OUTER
+ * group frame. To avoid a double border/fill when an `Input`/`Textarea` is nested inside (both
+ * read the same `--ds-input-*` custom properties from `input.json`), this component overrides
+ * those two custom properties to `transparent` for its descendants — CSS custom properties
+ * cascade through the DOM regardless of CSS-module boundaries, so the nested control's own
+ * wrapper picks up the override and renders borderless/fill-less, leaving the group's outer frame
+ * as the only visible border+fill (same "override the token var, not the paint" technique
+ * HelperText already uses for its error tone). No decorative shadow (D-008/braun-flat rule 1).
+ */
+.group {
+  position: relative;
+  inline-size: 100%;
+  background-color: var(--ds-color-surface-inset);
+  border-style: solid;
+  border-width: var(--ds-border-width-hairline);
+  border-color: var(--ds-color-border-interactive);
+  border-radius: var(--ds-radius-md);
+  overflow: hidden;
+  /* Overrides the two custom properties Input/Textarea read from input.json for every
+     descendant (custom properties cascade past CSS-module boundaries) — so a nested Input's
+     own wrapper renders borderless/fill-less and this group's outer frame is the only chrome
+     visible, avoiding a double border/fill. */
+  --ds-input-border-default: transparent;
+  --ds-input-bg-default: transparent;
+}
+
+.group:focus-within {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+.control {
+  flex: 1;
+  display: flex;
+  min-inline-size: 0;
+}
+
+.adornment {
+  display: inline-flex;
+  align-items: center;
+  padding-inline: var(--ds-space-300);
+  color: var(--ds-text-color-subtle);
+  background-color: var(--ds-color-surface-raised);
+  flex-shrink: 0;
+}
+
+.adornment[data-position='prefix'] {
+  border-inline-end: var(--ds-border-width-hairline) solid var(--ds-color-border-hairline);
+}
+
+.adornment[data-position='suffix'] {
+  border-inline-start: var(--ds-border-width-hairline) solid var(--ds-color-border-hairline);
+}

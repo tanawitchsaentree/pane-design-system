@@ -1,0 +1,14 @@
+{
+  "$description": "Wave 3 (W3 Forms-Core, D-015) component tokens for Checkbox. Aliases semantic/* only. Checked/indeterminate fill deliberately uses `color.role.neutral.solid` (the same non-scarce role token Badge's neutral-solid variant uses), NOT `color.action.primary` — braun-flat.md rule 3 (accent scarcity) reserves the brand accent for 'the single most important interactive element per view' and qa-a11y's own checklist flags >1-2 accent uses per story; a checkbox list routinely renders many checked items in one view, so spending the scarce accent there would fail that check by design. `role.neutral.solid` + `text.onRoleSolid` (the D-014 theme-flipping pair: white-on-dark-fill in light, near-black-on-light-fill in dark) self-checks at 8.20:1/9.39:1 (light) and 7.94:1/7.94:1 (dark) for fill-vs-canvas and icon-vs-fill respectively — comfortably clears both the 3:1 UI and 4.5:1 text minimums in both themes. border.default reuses `color.border.interactive` (D-014, same reasoning as Button outline/Input) — 3.96:1 (light) / 3.54:1 (dark) against `color.surface.raised`, the surface step this control is expected to sit on. The check/indeterminate mark is a real icon glyph (not color alone) per BLUEPRINT §7 non-color-cue requirement.",
+  "checkbox": {
+    "border": {
+      "default": { "$type": "color", "$value": "{color.border.interactive}" },
+      "disabled": { "$type": "color", "$value": "{color.border.hairline}" }
+    },
+    "bg": {
+      "checked": { "$type": "color", "$value": "{color.role.neutral.solid}" },
+      "disabled": { "$type": "color", "$value": "{color.surface.inset}" }
+    },
+    "icon": { "$type": "color", "$value": "{color.text.onRoleSolid}" }
+  }
+}

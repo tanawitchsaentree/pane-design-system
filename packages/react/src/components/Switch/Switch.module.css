@@ -1,0 +1,84 @@
+/**
+ * Switch — same accent-scarcity reasoning as Checkbox/Radio (switch.json, D-015 contrast
+ * self-check): track-on uses `role.neutral.solid`, not the brand accent. No decorative shadow
+ * (braun-flat rule 1). On/off has a real non-color cue — the thumb's `inset-inline-start`
+ * position physically changes (braun-flat rule 4) — independent of the track's color swap.
+ */
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: var(--ds-size-control-sm);
+  min-block-size: var(--ds-size-control-sm);
+  cursor: var(--ds-cursor-pointer);
+}
+
+.wrapper[data-disabled] {
+  cursor: var(--ds-cursor-not-allowed);
+}
+
+.input {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.track {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  inline-size: var(--ds-size-avatar-lg);
+  block-size: var(--ds-size-icon-lg);
+  border-radius: var(--ds-radius-full);
+  border-style: solid;
+  border-width: var(--ds-border-width-hairline);
+  border-color: var(--ds-switch-track-border);
+  background-color: var(--ds-switch-track-off);
+  transition: var(--ds-transition-fast);
+  transition-property: background-color, border-color, border-width;
+  flex-shrink: 0;
+}
+
+.thumb {
+  position: absolute;
+  inset-inline-start: var(--ds-border-width-thick);
+  inline-size: var(--ds-size-icon-md);
+  block-size: var(--ds-size-icon-md);
+  border-radius: var(--ds-radius-full);
+  background-color: var(--ds-switch-thumb-default);
+  transition: var(--ds-transition-fast);
+  transition-property: inset-inline-start;
+}
+
+/* hover — non-shadow cue: border widens (braun-flat rule 4) */
+.wrapper:not([data-disabled]):hover .track {
+  border-width: var(--ds-border-width-thick);
+}
+
+/* focus-visible — dedicated focusRing token, not a shadow ring */
+.input:focus-visible ~ .track {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+/* checked (on) — thumb physically slides to the end, track fill swaps */
+.input:checked ~ .track {
+  background-color: var(--ds-switch-track-on);
+}
+.input:checked ~ .track .thumb {
+  inset-inline-start: calc(100% - var(--ds-size-icon-md) - var(--ds-border-width-thick));
+}
+
+/* disabled */
+.input:disabled ~ .track {
+  background-color: var(--ds-switch-track-disabled);
+  border-color: var(--ds-switch-track-disabled);
+}

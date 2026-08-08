@@ -1,0 +1,82 @@
+/**
+ * Input — braun-flat.md in full:
+ * - rule 1: no decorative shadow — the recessed `surface.inset` fill + `border.interactive`
+ *   border (input.json, D-015 contrast self-check) are the only definition cues.
+ * - rule 4: hover is a non-shadow cue (border-width steps from hairline to thick, not a color-only
+ *   change); focus-visible uses the dedicated focusRing token via `:focus-within` on the wrapper
+ *   (the ref/native focus lands on the inner `<input>`, so the ring must be driven from the
+ *   ancestor that actually draws the border).
+ * Logical properties only (RTL-ready, ds-conventions).
+ */
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-inline-sm);
+  inline-size: 100%;
+  background-color: var(--ds-input-bg-default);
+  border-style: solid;
+  border-width: var(--ds-border-width-hairline);
+  border-color: var(--ds-input-border-default);
+  border-radius: var(--ds-radius-md);
+  padding-inline: var(--ds-space-300);
+  transition: var(--ds-transition-fast);
+  transition-property: border-color, border-width;
+}
+
+.wrapper:hover:not([data-disabled]) {
+  border-width: var(--ds-border-width-thick);
+}
+
+.wrapper:focus-within:not([data-disabled]) {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+.wrapper[data-invalid] {
+  border-color: var(--ds-input-border-invalid);
+}
+
+.wrapper[data-disabled] {
+  border-color: var(--ds-input-border-disabled);
+  cursor: var(--ds-cursor-not-allowed);
+}
+
+.wrapper[data-readonly] {
+  cursor: var(--ds-cursor-default);
+}
+
+/* sizes — D-004 size.control.* (sm40/md48/lg56/xl64) */
+.wrapper[data-size='sm'] { block-size: var(--ds-size-control-sm); }
+.wrapper[data-size='md'] { block-size: var(--ds-size-control-md); }
+.wrapper[data-size='lg'] { block-size: var(--ds-size-control-lg); }
+.wrapper[data-size='xl'] { block-size: var(--ds-size-control-xl); }
+
+.input {
+  flex: 1;
+  inline-size: 100%;
+  block-size: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--ds-input-text-default);
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-md);
+  line-height: var(--ds-line-height-body);
+}
+
+.input::placeholder {
+  color: var(--ds-input-text-placeholder);
+}
+
+.input:disabled {
+  color: var(--ds-input-text-disabled);
+  cursor: var(--ds-cursor-not-allowed);
+}
+
+.adornment {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--ds-input-text-placeholder);
+}
