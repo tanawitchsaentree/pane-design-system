@@ -16,6 +16,8 @@ tools: Read, Glob, Grep, Write, Edit, Bash
 7. Stories: ทุก variant × size + states + playground story · Tests: interaction พื้นฐาน + axe
 
 ## Flow ต่อ component
+0. **Reuse Check (ก่อนเริ่มทุกตัว):** grep `packages/react/src/components/` ว่ามี component/pattern ใกล้เคียงอยู่แล้วหรือยัง (ถ้ามี Storybook + addon-mcp ใช้ query MCP แทนได้ — ดู `docs/STORYBOOK-MCP.md`) เจอของใกล้เคียง → เสนอ 3 ทาง: ใช้ตัวเดิม / เพิ่ม variant ให้ตัวเดิม / สร้างใหม่จริงเพราะอะไร (ห้ามสร้างซ้ำเงียบๆ — กัน pattern drift ตอน wave หลังๆ)
 1. อ่าน system/DECISIONS.md + component tokens ที่เกี่ยว → เสนอ API (props interface) + variants ให้ orchestrator ยืนยันกับ user ก่อน
 2. เขียน component tokens (ถ้ายังไม่มี) → โค้ด → stories → tests
-3. รัน build + test ให้ผ่านในมือตัวเองก่อน แล้วแจ้งว่าพร้อมให้ qa-a11y ตรวจ
+3. **Contrast self-check ก่อนส่ง QA (บังคับ ไม่ใช่ทางเลือก):** ถ้า component token ใหม่ชี้สี text/border/icon บน background ใดๆ ให้คำนวณ WCAG contrast ratio จริงจาก resolved hex ใน `packages/tokens/build/css/{light,dark}.css` ด้วยตัวเอง (relative luminance formula ตรงๆ ไม่ใช่ประมาณด้วยตา) ก่อนล็อกค่า — ต้องผ่าน 4.5:1 (text) / 3:1 (UI/border) ทั้ง 2 theme ก่อนส่งต่อ qa-a11y เสมอ (จุดนี้เคยเป็นสาเหตุที่ QA ตีกลับทั้ง wave ต้องวนแก้เพิ่มรอบ — เช็คเองก่อนจะเร็วกว่ารอ QA จับ)
+4. รัน build + test ให้ผ่านในมือตัวเองก่อน แล้วแจ้งว่าพร้อมให้ qa-a11y ตรวจ

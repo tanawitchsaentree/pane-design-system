@@ -11,11 +11,15 @@ description: รันการผลิต component จำนวนมาก (
 1. WAVE PLAN (1 ข้อความ)   → รายชื่อ + ลำดับ + สิ่งที่จะ reuse + ประเมินขนาดงาน (S/M/L ต่อตัว)
 2. BATCH API REVIEW (1 เอกสาร) → props/variants/sizes ของทุกตัวใน wave รวมไฟล์เดียว
                                   ↳ USER CHECKPOINT เดียว: แก้ตรงไหนบอก แล้ว lock ทั้งชุด (D-xxx เดียว)
-3. EXECUTE                  → inner loop รายตัว: engineer→hook lint→qa gate→docs
+                                  (ถ้า user สั่ง auto-approve ข้าม checkpoint นี้ได้ — component-engineer เดาตาม pattern มาตรฐาน + lock เป็น decision เดียวหลังทำเสร็จ)
+3. EXECUTE                  → inner loop รายตัว: **reuse check → engineer (รวม contrast self-check ก่อนส่ง)** → hook lint → qa gate → docs
                               ห้ามถาม user ยกเว้นชน STOP CONDITION
 4. WAVE REPORT (1 ข้อความ)  → ผ่าน/ตก/ข้อสังเกต + อัพเดต STATE + commit + tag wave-N
                                   ↳ USER CHECKPOINT: อนุมัติ wave ถัดไป
 ```
+
+## Reuse Check (ก่อนสร้างทุกตัว — กัน component ซ้ำ/pattern drift)
+เจอ component/pattern ใกล้เคียงที่มีอยู่แล้ว → เสนอ user 3 ทาง: **ใช้ตัวเดิม** / **เพิ่ม variant ให้ตัวเดิม** / **สร้างใหม่จริงเพราะ...** (ห้ามสร้างใหม่เงียบๆ) — ถ้ามี Storybook + addon-mcp ใช้ query MCP ได้ (ดู `docs/STORYBOOK-MCP.md`) ไม่มีก็ grep source ปกติ ไม่ block งาน
 
 ## STOP CONDITIONS (เจอแล้วหยุดถาม ห้ามดันต่อ)
 - component เดิมตก QA ครบ 3 รอบ
