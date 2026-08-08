@@ -80,6 +80,7 @@ export const Content = forwardRef<ElementRef<typeof PopoverPrimitive.Content>, P
         side={side}
         sideOffset={sideOffset}
         className={classes}
+        data-ds-surface
         {...rest}
       >
         {children}

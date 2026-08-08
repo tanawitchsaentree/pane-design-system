@@ -1,14 +1,21 @@
 # STATE — working memory ของ system นี้
 - **System:** Dial (`@dial/tokens`, `@dial/react`)
-- **Phase ปัจจุบัน:** 3 (Layout + Atoms + Forms + Overlays) — Wave 4 (W4 Web Overlays) ผ่าน QA เต็มรูปแบบ**ตั้งแต่รอบแรก** (0 fix round — ครั้งแรกในทั้ง 4 wave) → พร้อมปิด wave แล้วเริ่ม W5 Selection
-- **งานล่าสุดที่เสร็จ:** Wave 4 6 ตัว (Popover/Tooltip/Dialog/Drawer/Toast/Snackbar) ตาม D-017 (scope=web overlays, ตัด mobile-only) + D-018 (auto-approve) — ยืม Radix (`@radix-ui/react-{dialog,popover,tooltip,toast}`) สำหรับ focus trap/portal/positioning ตาม §7 · qa-a11y ตัดสินชี้ขาด 1 จุด borderline (`border.interactive` บน `surface.overlay` dark = 2.99:1, ต่ำกว่า 3:1 เล็กน้อย) ว่า**ยอมรับได้**เพราะเป็น decorative accent bar ไม่ใช่ boundary จริง (panel ใช้ shadow.elevation+lightness jump แทน) — ไม่ใช่การเบี่ยงมาตรฐาน มีเกณฑ์ชัดว่าใช้ได้เฉพาะ non-boundary case · 268/268 test ผ่าน, motion verified มี travel distance จริง (ไม่พลาดแบบ Switch ใน Wave 3)
-- **งานถัดไป:** ปิด WAVE REPORT W4 (commit + tag wave-4 + system-sheet refresh) → เริ่ม WAVE PLAN ของ W5 Selection (Select, Combobox, Autocomplete, MultiSelect, Menu/Dropdown, ContextMenu, Listbox, RadioCards, Rating, TagInput) — ใช้ Popover จาก Wave 4 เป็น base ได้เลย (Reuse)
-- **System Sheet:** `system/sheets/sheet-2026-08-08.png` (ล่าสุด, มี Wave 1+2+3 preview — ยังไม่มี Wave 4) · archive: `sheet-2026-08-08-wave1.png`, `sheet-2026-08-08-wave2.png`, `sheet-2026-08-08-phase2.png`
-- **Storybook:** ติดตั้งแล้วที่ `apps/storybook/` — เปิดดู interactive ด้วย `pnpm storybook` (dev server localhost:6006) หรือดู static build ที่ `apps/storybook/storybook-static/index.html` (ยังไม่ rebuild หลัง Wave 2-4)
-- **Git:** repo init ที่ root, commits: `ced3223`(wave-1), `010158e`(wave-2), `7045c25`+`aaa7aea`(v14 merge), `35e5735`+`1e13068`(wave-3), `cddaaab`(D-017 scope) — tags `wave-1`, `wave-2`, `wave-3` — ยังไม่มี remote (local only) — Wave 4 ยังไม่ commit
-- **Wave ปัจจุบัน:** — (ระหว่าง W4 ปิดกับ W5 เริ่ม) · **Component ผ่าน QA:** 39/39 (Wave 1: 10 layout · Wave 2: 12 atoms · Wave 3: 11 forms · Wave 4: 6 overlays — Popover/Tooltip/Dialog/Drawer/Toast/Snackbar)
-- **ค้าง/blocked:** ไม่มี
+- **Phase ปัจจุบัน:** 3 (Layout + Atoms + Forms + Overlays) — Wave 1-4 ปิดครบแล้ว (39/104 components) + **hardening pass เสร็จสมบูรณ์** (lint v2, conformance harness เขียว, honesty audit, docs debt, governance) → รอไฟเขียว user ก่อนเริ่ม W5 Selection
+- **งานล่าสุดที่เสร็จ:** Hardening pass ครบ A2-E (A1 git remote เลื่อนตาม user):
+  - **B (lint v2):** พบ 26 violation ย้อนหลัง (6 regression จริง — hardcoded 1px ใน visually-hidden clip pattern ของ Checkbox/Radio/Spinner/Switch/VisuallyHidden + Skeleton inline style ค่าดีไซน์, อีก 20 เป็น false-positive จาก comment wording) แก้ครบ lint=0/tsc=0/test=268/268
+  - **C (conformance):** ติดตั้ง Playwright จริง (chromium/webkit/firefox + forced-colors + reduced-motion projects) copy harness จาก patch + เขียนเพิ่ม 5 spec ใหม่ (w2-atoms, w3-checkbox-indeterminate, w4-drawer, w4-popover, w4-tooltip) — **เจอบั๊กจริงที่ jsdom มองไม่เห็น 2 จุด: Switch thumb และ Radio checked-dot หายไปใน forced-colors mode** (root cause เดียวกับ Divider bug ของ Wave 1 — ใช้ background-color แทน border) แก้แล้วด้วยการเพิ่ม border จริง — ยืนยันด้วยตัวเองซ้ำ: 86 passed, 9 skipped (gated by project), 0 failed
+  - **Honesty audit:** เจอคำเคลมเกินจริง 5 จุด → 2 ลดเป็น `UNVERIFIED:` (PinInput/InputGroup — ไม่มี automated contrast checker ในระบบจริง) + 3 อัพเป็น verified-ด้วยหลักฐานจริง (Radio/Switch forced-colors fix, Dialog motion) อ้าง spec file จริงที่จะ fail ถ้าพฤติกรรมหายไป — ยืนยันด้วยตัวเอง spot-check ตรงตามที่รายงาน
+  - **D (governance+docs):** EXCEPTIONS.md ใหม่ + E-001 เติมครบ (Toast.module.css:68), System Sheet แสดง "AA · 1 exception" ไม่ประกาศ AA ลอยๆ, D-020 (ปฏิเสธ Portable Core retrofit) + D-021 (formalize E-001) lock แล้ว, เขียน packages/spec/*.md ครบ 39/39 ตัว
+  - **E (rule upgrade):** ต่อท้าย component-engineer.md (Self-Check 4 ข้อ + Honesty Rule), qa-a11y.md (checklist 9-12), ds-conventions/SKILL.md (DoD 10-11 + Exception Policy) ครบตาม patch
+- **งานถัดไป:** commit ทั้งหมด + tag `hardening-1` → ส่งรายงานสรุปให้ user → **รอไฟเขียวก่อนเริ่ม W5 Selection** (Select/Combobox/Autocomplete/MultiSelect/Menu/ContextMenu/Listbox/RadioCards/Rating/TagInput — ทุกตัวต้องมี conformance spec ตั้งแต่วันแรกตาม ORDERS ไม่ใช่เพิ่มทีหลัง)
+- **System Sheet:** `system/sheets/sheet-2026-08-08.png` (ล่าสุด, แสดง "AA · 1 exception") · archive: `sheet-2026-08-08-wave{1,2,3,4}.png`, `sheet-2026-08-08-phase2.png`
+- **Storybook:** ติดตั้งแล้วที่ `apps/storybook/` — เปิดดู interactive ด้วย `pnpm storybook` (dev server localhost:6006)
+- **Conformance:** `packages/conformance/` ติดตั้งแล้ว — รัน `cd packages/conformance && npx playwright test` (ต้องมี storybook build/dev server ก่อน ตาม webServer config ใน playwright.config.ts)
+- **Git:** repo init ที่ root, commits ครบถึง `35a7afe` (wave-4 sheet refresh) — tags `wave-1`..`wave-4` — hardening pass ยังไม่ commit (รอ tag `hardening-1`) — **A1 (git remote + push) ยังเลื่อนตาม user — local-only**
+- **Wave ปัจจุบัน:** — (ระหว่าง hardening ปิดกับ W5 เริ่ม) · **Component ผ่าน QA:** 39/104 (Wave 1: 10 layout · Wave 2: 12 atoms · Wave 3: 11 forms · Wave 4: 6 overlays)
+- **ค้าง/blocked:** รอไฟเขียว user ก่อนเริ่ม W5 (ตาม ORDERS ห้ามข้าม)
 ## Log ย่อ (ใหม่สุดบน ≤15 บรรทัด)
+- 2026-08-08 Hardening pass เสร็จสมบูรณ์: lint v2 (6 regression แก้), conformance เขียว (86/86, เจอ 2 บั๊กจริง forced-colors), honesty audit (5 claim แก้), docs 39/39, governance (EXCEPTIONS.md+D-020/D-021), rule upgrade E1-E3
 - 2026-08-08 Wave 4 ผ่าน QA ตั้งแต่รอบแรก (0 fix round) — Radix behavior, motion verified, 1 borderline contrast ตัดสินยอมรับได้
 - 2026-08-08 D-017/D-018: scope W4=web overlays (ตัด mobile-only), auto-approve API
 - 2026-08-08 ปิด WAVE REPORT W3: commit 35e5735 + tag wave-3, system-sheet refresh (เพิ่ม Wave 3 preview)

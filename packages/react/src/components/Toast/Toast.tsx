@@ -94,6 +94,7 @@ export function ToastProvider({ children, duration = 5000, placement = 'bottom-r
             key={t.id}
             className={styles.root}
             data-variant={t.variant ?? 'default'}
+            data-ds-surface
             open={t.open}
             duration={t.duration ?? duration}
             onOpenChange={(open) => {

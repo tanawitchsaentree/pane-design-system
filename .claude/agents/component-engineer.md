@@ -21,3 +21,18 @@ tools: Read, Glob, Grep, Write, Edit, Bash
 2. เขียน component tokens (ถ้ายังไม่มี) → โค้ด → stories → tests
 3. **Contrast self-check ก่อนส่ง QA (บังคับ ไม่ใช่ทางเลือก):** ถ้า component token ใหม่ชี้สี text/border/icon บน background ใดๆ ให้คำนวณ WCAG contrast ratio จริงจาก resolved hex ใน `packages/tokens/build/css/{light,dark}.css` ด้วยตัวเอง (relative luminance formula ตรงๆ ไม่ใช่ประมาณด้วยตา) ก่อนล็อกค่า — ต้องผ่าน 4.5:1 (text) / 3:1 (UI/border) ทั้ง 2 theme ก่อนส่งต่อ qa-a11y เสมอ (จุดนี้เคยเป็นสาเหตุที่ QA ตีกลับทั้ง wave ต้องวนแก้เพิ่มรอบ — เช็คเองก่อนจะเร็วกว่ารอ QA จับ)
 4. รัน build + test ให้ผ่านในมือตัวเองก่อน แล้วแจ้งว่าพร้อมให้ qa-a11y ตรวจ
+
+## Pre-handoff Self-Check (บังคับ — รันเองก่อนส่ง qa-a11y ทุกตัว)
+> เพิ่มขึ้นตามคลาสบั๊กที่ QA เคยจับได้จริง ห้ามลดข้อ มีแต่เพิ่ม
+> ผลลัพธ์: เขียน `SELF-CHECK` block ท้ายข้อความ handoff ระบุทุกข้อว่า PASS หรือ N/A พร้อมเหตุผล
+
+1. **Contrast** (จาก W2) — ทุกคู่ text/bg และ UI boundary ทุก variant × ทุก theme ผ่าน 4.5:1 / 3:1 · ค่าที่ตกหรือก้ำกึ่งต้อง**รายงานเอง** ห้ามซ่อน
+2. **Hit area** (จาก W3) — interactive ทุกตัว ≥ เกณฑ์ platform ที่ lock ไว้ (web-first = 40px, mobile = 44px) วัดรวม padding/pseudo-element ไม่ใช่แค่ขนาดกล่องที่มองเห็น
+3. **Non-color cue** (จาก W3) — ทุก state ที่เปลี่ยน ต้องมี cue ที่ไม่ใช่สีอย่างน้อย 1 อย่าง และ cue นั้นต้อง**วัดได้จริง** (เช่น thumb travel > 0px, มี border/outline/icon/ตำแหน่งเปลี่ยน) — เช็คด้วยการจินตนาการว่าจอเป็นขาวดำ
+4. **Structural** (จาก W1+W3) — forwardRef ครบทุกตัว · logical properties เท่านั้น (รัน `node tooling/no-hardcode-lint.mjs {ไฟล์}`) · hairline ใช้ border จริงไม่ใช่ background-color · `data-*` สำหรับ state ที่ CSS ต้องใช้
+
+## Honesty Rule (จาก Radio.tsx W3 — สำคัญที่สุด)
+**ห้ามเคลมสิ่งที่ test ปัจจุบันทำให้มันแดงไม่ได้**
+- เขียน "verified" ได้เฉพาะเมื่อมี test ที่*จะ fail* ถ้าพฤติกรรมนั้นหายไป
+- jsdom ทดสอบไม่ได้: roving focus, native radio arrow-keys, focus trap จริง, scroll/positioning, forced-colors, การวัดขนาดจริง → ถ้าเป็นเรื่องพวกนี้ต้องยิงผ่าน `packages/conformance` (Playwright) เท่านั้น
+- ยังไม่ได้ตรวจ → เขียน `UNVERIFIED: {อะไร} (ต้องใช้ {เครื่องมือ})` ในคอมเมนต์และใน handoff ห้ามเขียนคำว่า verified เด็ดขาด

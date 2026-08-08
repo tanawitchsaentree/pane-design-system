@@ -22,11 +22,11 @@ describe('Skeleton', () => {
     expect(screen.getByTestId('skeleton')).toHaveAttribute('data-variant', 'circle');
   });
 
-  it('applies width/height as inline style', () => {
+  it('applies width/height as CSS custom properties consumed by the module CSS', () => {
     render(<Skeleton data-testid="skeleton" width={120} height="2rem" />);
     const el = screen.getByTestId('skeleton');
-    expect(el.style.inlineSize).toBe('120px');
-    expect(el.style.blockSize).toBe('2rem');
+    expect(el.style.getPropertyValue('--ds-skeleton-inline-size')).toBe('120px');
+    expect(el.style.getPropertyValue('--ds-skeleton-block-size')).toBe('2rem');
   });
 
   it('forwards ref to the underlying DOM node', () => {

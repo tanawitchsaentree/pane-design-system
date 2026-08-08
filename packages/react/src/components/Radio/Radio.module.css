@@ -3,6 +3,14 @@
  * scarcity rule 3): selected dot uses `role.neutral.solid`, not the scarce brand accent. No
  * decorative shadow (braun-flat rule 1). The dot is a real shape (not color alone) per
  * BLUEPRINT §7 non-color-cue requirement.
+ * Forced-colors fix (hardening pass Group C, same class of bug as the Wave 1 Divider regression
+ * and the Switch thumb below): the checked dot used `background-color` only, so under
+ * `forced-colors: active` it flattened to the same system `Canvas` white as everything else and
+ * disappeared (confirmed visually via a throwaway Playwright screenshot before this fix). A real
+ * `border` survives forced-colors (repainted with `CanvasText`) so the dot stays visible. Now
+ * guarded by a real assertion, not just a comment: `packages/conformance/specs/w3-forms.spec.ts`
+ * ("Switch/Radio: checked state มี border จริง") checks `getComputedStyle(dot).borderWidth > 0`
+ * under the `forced-colors` Playwright project and fails if this regresses.
  */
 .wrapper {
   position: relative;
@@ -20,10 +28,10 @@
 
 .input {
   position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
+  inline-size: var(--ds-border-width-hairline);
+  block-size: var(--ds-border-width-hairline);
   padding: 0;
-  margin: -1px;
+  margin: calc(-1 * var(--ds-border-width-hairline));
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
@@ -48,12 +56,16 @@
 }
 
 .dot {
+  box-sizing: border-box;
   inline-size: 50%;
   block-size: 50%;
   border-radius: var(--ds-radius-full);
+  border-style: solid;
+  border-width: 0;
+  border-color: var(--ds-radio-dot-checked);
   background-color: transparent;
   transition: var(--ds-transition-fast);
-  transition-property: background-color;
+  transition-property: background-color, border-width;
 }
 
 /* hover — non-shadow cue: border widens (braun-flat rule 4) */
@@ -72,6 +84,7 @@
   border-color: var(--ds-radio-dot-checked);
 }
 .input:checked ~ .ring .dot {
+  border-width: calc(var(--ds-size-icon-lg) * 0.25);
   background-color: var(--ds-radio-dot-checked);
 }
 

@@ -3,6 +3,15 @@
  * self-check): track-on uses `role.neutral.solid`, not the brand accent. No decorative shadow
  * (braun-flat rule 1). On/off has a real non-color cue — the thumb's `inset-inline-start`
  * position physically changes (braun-flat rule 4) — independent of the track's color swap.
+ * Forced-colors fix (hardening pass Group C, same class of bug as the Wave 1 Divider regression):
+ * the thumb used `background-color` only, so `forced-colors: active` mode flattened it to the
+ * same system `Canvas` white as the track and made it disappear entirely (confirmed visually via
+ * a throwaway Playwright screenshot before this fix). A real `border` (not just background)
+ * survives forced-colors because the browser repaints borders with `CanvasText`, giving the thumb
+ * an outline against the track regardless of the OS high-contrast palette. Now guarded by a real
+ * assertion: `packages/conformance/specs/w3-forms.spec.ts` ("Switch/Radio: checked state มี
+ * border จริง") checks `getComputedStyle(thumb).borderWidth > 0` under the `forced-colors`
+ * Playwright project and fails if this regresses.
  */
 .wrapper {
   position: relative;
@@ -20,10 +29,10 @@
 
 .input {
   position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
+  inline-size: var(--ds-border-width-hairline);
+  block-size: var(--ds-border-width-hairline);
   padding: 0;
-  margin: -1px;
+  margin: calc(-1 * var(--ds-border-width-hairline));
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
@@ -53,6 +62,9 @@
   inline-size: var(--ds-size-icon-md);
   block-size: var(--ds-size-icon-md);
   border-radius: var(--ds-radius-full);
+  border-style: solid;
+  border-width: var(--ds-border-width-hairline);
+  border-color: var(--ds-switch-thumb-default);
   background-color: var(--ds-switch-thumb-default);
   transition: var(--ds-transition-fast);
   transition-property: inset-inline-start;

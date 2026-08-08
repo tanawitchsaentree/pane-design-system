@@ -34,8 +34,9 @@ const COLOR_VAR: Record<Exclude<IconProps['color'], undefined>, string | undefin
 /**
  * Icon — sizes/colors an arbitrary SVG child via CSS vars (D-004 icon size scale). Ships no icon
  * set of its own.
- * Anatomy: single root `span` wrapping the consumer-supplied SVG (set to `width/height: 100%` by
- * the wrapper's `inline-size`/`block-size` so any SVG fills the chosen size box).
+ * Anatomy: single root `span` wrapping the consumer-supplied SVG (the SVG itself is set to
+ * `inline-size`/`block-size: 100%` by the wrapper's own `inline-size`/`block-size` so it fills
+ * the chosen size box).
  * A11y: `label` set -> `role="img"` + `aria-label` (icon is meaningful on its own); `label`
  * omitted -> `aria-hidden="true"` (icon is decorative, relies on adjacent text for meaning).
  */

@@ -1,7 +1,11 @@
 /**
- * InputGroup — same token pairing as Input (input.json, D-015 contrast self-check already
- * verified there): recessed `surface.inset` fill + `border.interactive` border on the OUTER
- * group frame. To avoid a double border/fill when an `Input`/`Textarea` is nested inside (both
+ * InputGroup — same token pairing as Input (input.json): recessed `surface.inset` fill +
+ * `border.interactive` border on the OUTER group frame.
+ * UNVERIFIED: input.json's own description cites specific contrast ratios for this border/bg
+ * pairing but no automated test computes or re-checks them (same gap noted in
+ * PinInput.module.css) — needs a scripted WCAG contrast-ratio check over built theme CSS, which
+ * does not exist yet in this repo.
+ * To avoid a double border/fill when an `Input`/`Textarea` is nested inside (both
  * read the same `--ds-input-*` custom properties from `input.json`), this component overrides
  * those two custom properties to `transparent` for its descendants — CSS custom properties
  * cascade through the DOM regardless of CSS-module boundaries, so the nested control's own

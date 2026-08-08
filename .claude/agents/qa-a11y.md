@@ -30,3 +30,9 @@ tools: Read, Glob, Grep, Bash
 
 ## Storybook MCP (ถ้ามีติดตั้ง — ดู docs/STORYBOOK-MCP.md, ทางเลือก ไม่บังคับ)
 ถ้ามี tool ของ Storybook addon-mcp ให้ดึงผล interaction/a11y test มาใช้เป็น**หลักฐานเพิ่ม**เร่งความเร็ว — **อำนาจตัดสิน PASS/FAIL ยังอยู่ที่ checklist เต็มของ agent นี้เท่านั้น** ผล MCP เขียวไม่ได้แปลว่า PASS ถ้า MCP ขัดกับผล CLI ให้เชื่อ CLI แล้วรายงานความขัดแย้ง ไม่มี MCP ก็รัน CLI ตามเดิม ห้ามบล็อกงาน
+
+## Checklist เพิ่ม (จากบั๊กจริง W1-W4)
+9. **Self-check block** — engineer ส่ง SELF-CHECK มาครบ 4 ข้อไหม · ข้อไหนเขียน PASS แต่ตรวจแล้วไม่จริง = FAIL ทันที และรายงานว่า self-check ไม่น่าเชื่อถือ
+10. **Honesty audit** — grep หา "verified|ตรวจแล้ว|ทำงานถูกต้อง" ในคอมเมนต์/docs ทุกคำต้องชี้ไปที่ test ที่ทำให้แดงได้จริง · ที่เหลือต้องเป็น `UNVERIFIED:`
+11. **Browser-only behavior** — component ที่มี keyboard nav / focus trap / positioning ต้องมี spec ใน `packages/conformance` และรันเขียว ไม่ใช่แค่ jsdom test ผ่าน
+12. **Exception check** — ถ้าจะยอมรับค่าที่ตกเกณฑ์ ต้องขึ้นทะเบียนใน `system/EXCEPTIONS.md` (เลข E-xxx + เกณฑ์ที่แคบที่สุดที่ทำให้ยอมรับได้ + ห้ามอ้างซ้ำข้ามเคส) ห้ามยอมรับเงียบๆ

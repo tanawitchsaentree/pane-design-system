@@ -34,3 +34,13 @@ Token ของมัน: `packages/tokens/src/component/{name}.json`
 
 ## ลำดับ dependency (ห้ามข้าม)
 Layout primitives (Box, Stack, Grid, Container) → Tier 1 atoms → Tier 2 molecules → Tier 3 organisms
+
+## Honesty Rule (บังคับทั้งระบบ)
+ห้ามเคลมสิ่งที่ test ปัจจุบันทำให้มันแดงไม่ได้ · คำว่า verified ใช้ได้เฉพาะเมื่อมี test ที่จะ fail ถ้าพฤติกรรมหายไป · ที่เหลือเขียน `UNVERIFIED: {อะไร} (ต้องใช้ {เครื่องมือ})`
+
+## Definition of Done เพิ่ม (ข้อ 10-11 ต่อจาก Anatomy Contract 9 ข้อ)
+10. **Docs content เขียนตอนสร้าง ไม่ใช่ตอน Phase 6** — `packages/spec/{name}.md` ต้องมี: usage 3-5 บรรทัด, Do/Don't อย่างละ 2-3, a11y notes (keyboard map + SR behavior), props table, related components · Phase 6 มีหน้าที่แค่ประกอบเป็นเว็บ
+11. **Browser-only behavior มี conformance spec** — keyboard nav / focus trap / positioning / non-color cue / hit area ต้องมีไฟล์ใน `packages/conformance/specs/` และรันเขียว
+
+## Exception Policy
+ค่าที่ตกเกณฑ์แต่จะยอมรับ ต้องขึ้นทะเบียน `system/EXCEPTIONS.md` (E-xxx) พร้อมขอบเขตที่แคบที่สุด · System Sheet ต้องแสดง "AA · {n} exception" ห้ามประกาศ AA ลอยๆ

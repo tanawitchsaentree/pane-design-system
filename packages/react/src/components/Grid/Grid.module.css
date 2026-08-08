@@ -13,30 +13,30 @@
   grid-template-columns: repeat(var(--ds-grid-cols, 12), minmax(0, 1fr));
 }
 
-/* no-hardcode-ok: breakpoint literal mirrors --ds-breakpoint-raw-sm (640px, D-007) exactly — media
-   feature conditions cannot consume CSS custom properties, so the token value is inlined here. */
-@media (min-width: 640px) {
+/* no-hardcode-ok: breakpoint literals below mirror --ds-breakpoint-raw-{sm,md,lg,xl} (D-007)
+   exactly — media feature conditions cannot consume CSS custom properties (`var()` is invalid
+   inside an `@media` feature query per spec), so each token value is inlined instead. The
+   `no-hardcode-ok` marker is repeated inline on every `@media` line below because the lint tool
+   matches the marker per physical line, not per comment block. */
+@media (min-width: 640px) { /* no-hardcode-ok: mirrors --ds-breakpoint-raw-sm, D-007 */
   .grid {
     grid-template-columns: repeat(var(--ds-grid-cols-sm, var(--ds-grid-cols, 12)), minmax(0, 1fr));
   }
 }
 
-/* no-hardcode-ok: breakpoint literal mirrors --ds-breakpoint-raw-md (768px, D-007). */
-@media (min-width: 768px) {
+@media (min-width: 768px) { /* no-hardcode-ok: mirrors --ds-breakpoint-raw-md, D-007 */
   .grid {
     grid-template-columns: repeat(var(--ds-grid-cols-md, var(--ds-grid-cols-sm, var(--ds-grid-cols, 12))), minmax(0, 1fr));
   }
 }
 
-/* no-hardcode-ok: breakpoint literal mirrors --ds-breakpoint-raw-lg (1024px, D-007, D-002 anchor). */
-@media (min-width: 1024px) {
+@media (min-width: 1024px) { /* no-hardcode-ok: mirrors --ds-breakpoint-raw-lg, D-007/D-002 anchor */
   .grid {
     grid-template-columns: repeat(var(--ds-grid-cols-lg, var(--ds-grid-cols-md, var(--ds-grid-cols-sm, var(--ds-grid-cols, 12)))), minmax(0, 1fr));
   }
 }
 
-/* no-hardcode-ok: breakpoint literal mirrors --ds-breakpoint-raw-xl (1280px, D-007). */
-@media (min-width: 1280px) {
+@media (min-width: 1280px) { /* no-hardcode-ok: mirrors --ds-breakpoint-raw-xl, D-007 */
   .grid {
     grid-template-columns: repeat(var(--ds-grid-cols-xl, var(--ds-grid-cols-lg, var(--ds-grid-cols-md, var(--ds-grid-cols-sm, var(--ds-grid-cols, 12))))), minmax(0, 1fr));
   }

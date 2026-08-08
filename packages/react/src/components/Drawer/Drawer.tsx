@@ -63,7 +63,7 @@ export const Content = forwardRef<ElementRef<typeof DialogPrimitive.Content>, Dr
     return (
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay className={styles.overlay} />
-        <DialogPrimitive.Content ref={ref} className={classes} data-placement={placement} {...rest}>
+        <DialogPrimitive.Content ref={ref} className={classes} data-placement={placement} data-ds-surface {...rest}>
           {!hideCloseButton && (
             <DialogPrimitive.Close asChild className={styles.closeButton}>
               <IconButton aria-label={closeLabel} size="sm" variant="ghost">

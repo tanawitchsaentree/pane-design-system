@@ -1,9 +1,13 @@
 /**
- * PinInput -- each cell reuses the exact Input token pairing (input.json, D-015 contrast
- * self-check already verified there: border.interactive at 3.47:1/4.20:1, invalid border at
- * 6.05:1/6.87:1, both against surface.inset, light/dark). No decorative shadow (D-008/braun-flat
- * rule 1); hover/focus follow the same non-shadow cue pattern as Input (border-width step /
- * dedicated focusRing token).
+ * PinInput -- each cell reuses the exact Input token pairing (input.json). No decorative shadow
+ * (D-008/braun-flat rule 1); hover/focus follow the same non-shadow cue pattern as Input
+ * (border-width step / dedicated focusRing token).
+ * UNVERIFIED: the 3.47:1/4.20:1 (border.interactive) and 6.05:1/6.87:1 (invalid border) contrast
+ * ratios cited in input.json's own description are a manual calculation recorded in prose, not
+ * something any automated test currently computes or re-checks — nothing fails if a future token
+ * edit regresses these numbers (needs a scripted WCAG contrast-ratio check over the built theme
+ * CSS, e.g. a Node script reading `packages/tokens/build/css/*.css` and computing relative
+ * luminance for each border/bg pair; does not exist yet in this repo).
  */
 .group {
   display: inline-flex;

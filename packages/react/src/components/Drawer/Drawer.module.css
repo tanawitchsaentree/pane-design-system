@@ -38,7 +38,7 @@
   will-change: transform, opacity;
 }
 
-/* left/right: full-height side panel */
+/* side placements (start/end edges) — full-height panel */
 .content[data-placement='left'],
 .content[data-placement='right'] {
   inset-block: 0;

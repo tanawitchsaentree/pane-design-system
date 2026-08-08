@@ -3,12 +3,16 @@
  * (surface-ladder + shadow.elevation.lg, braun-flat rule 2's explicit modal exception).
  * z-index: modal(1400, BLUEPRINT §4.8) — intentionally BELOW popover(1500)/toast(1700) so a
  * popover or toast triggered from inside an open dialog still renders on top of it.
- * Motion (D-009, verified real travel — not a 0-duration opacity flip like the Switch regression
- * D-016 fixed): overlay fades 0->1 opacity over `duration-base` (200ms) standard easing; content
- * both fades AND scales from 0.96->1 (a real, visible scale transform, not just opacity) over the
- * same 200ms with decelerate easing on enter, 100ms accelerate on exit. `prefers-reduced-motion`
- * drops the scale (kept only for enter, per D-009) down to a plain opacity fade at 100ms so a
- * state change is still visibly announced without motion.
+ * Motion (D-009 — not a 0-duration opacity flip like the Switch regression D-016 fixed): overlay
+ * fades 0->1 opacity over `duration-base` (200ms) standard easing; content both fades AND scales
+ * from 0.96->1 (a real, visible scale transform, not just opacity) over the same 200ms with
+ * decelerate easing on enter, 100ms accelerate on exit. `prefers-reduced-motion` drops the scale
+ * (kept only for enter, per D-009) down to a plain opacity fade at 100ms so a state change is
+ * still visibly announced without motion. The scale-not-just-opacity claim is verified by
+ * `packages/conformance/specs/w4-overlays.spec.ts` ("Dialog: enter animation มี scale transform
+ * จริง"), which samples the dialog's real bounding-box width across the animation and fails if it
+ * ever stops changing (i.e. regresses to opacity-only) — skipped only on the `reduced-motion`
+ * project where dropping the scale is the intended behavior.
  */
 .overlay {
   position: fixed;

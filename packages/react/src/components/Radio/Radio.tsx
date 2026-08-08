@@ -9,11 +9,14 @@ export type RadioProps = Omit<ComponentPropsWithoutRef<'input'>, 'type' | 'size'
  * as Checkbox (D-015: native input keeps correct Tab/Arrow-key group behavior for free — the
  * browser already roves focus between same-`name` radios, so no Radix/React Aria roving-tabindex
  * code is needed). Arrow-key roving focus between same-`name` radios is native browser behavior,
- * not something this component implements or can unit-test: jsdom (used by our Vitest suite)
- * does not fully implement native radio-group arrow-key roving focus, so Radio.test.tsx only
- * verifies Tab-based focus movement.
- * Manual QA note: verify ArrowUp/ArrowDown/ArrowLeft/ArrowRight navigation between grouped
- * radios in a real browser session before relying on it — it is not covered by the unit suite.
+ * not something this component implements — jsdom (used by our Vitest suite) does not fully
+ * implement native radio-group arrow-key roving focus, so Radio.test.tsx can only ever verify
+ * Tab-based focus movement (an honest limit of jsdom, not something to work around there).
+ * Arrow-key roving focus itself IS verified, but by a real Chromium/WebKit/Firefox instance, not
+ * Vitest: see `packages/conformance/specs/w3-forms.spec.ts` ("Radio: arrow key ย้าย focus จริง"),
+ * which drives `forms-radio--default` with real keyboard events across all 5 Playwright projects
+ * (chromium/webkit/firefox/forced-colors/reduced-motion) and asserts focus actually lands on the
+ * second radio after ArrowDown — that test fails if this ever regresses.
  * Controlled/uncontrolled duality: a group of Radios is controlled by giving
  * each the same `name` and using `checked`+`onChange` (controlled) or `defaultChecked`
  * (uncontrolled) per input, exactly like plain HTML radio groups — no group-level wrapper state

@@ -11,6 +11,7 @@
     "build-storybook": "pnpm --filter storybook build-storybook"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "playwright": "^1.62.1",
     "turbo": "^2.0.0"
   }

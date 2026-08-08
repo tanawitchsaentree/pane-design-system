@@ -26,7 +26,7 @@ export const Switch = forwardRef<ElementRef<'input'>, SwitchProps>(function Swit
     <label className={classes} data-disabled={disabled ? '' : undefined}>
       <input ref={ref} type="checkbox" role="switch" className={styles.input} disabled={disabled} {...rest} />
       <span className={styles.track} aria-hidden="true">
-        <span className={styles.thumb} />
+        <span className={styles.thumb} data-testid="switch-thumb" />
       </span>
     </label>
   );

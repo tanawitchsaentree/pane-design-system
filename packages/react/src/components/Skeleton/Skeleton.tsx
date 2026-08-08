@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import type { ComponentPropsWithoutRef, ElementRef } from 'react';
+import type { ComponentPropsWithoutRef, CSSProperties, ElementRef } from 'react';
 import styles from './Skeleton.module.css';
 
 export type SkeletonVariant = 'text' | 'circle' | 'rect';
@@ -14,6 +14,10 @@ export interface SkeletonProps extends ComponentPropsWithoutRef<'span'> {
   /** Block-size — same escape-hatch treatment as `width`. */
   height?: string | number;
 }
+
+// CSS custom properties (unlike known style keys such as `width`) never get React's automatic
+// `px` suffix for a bare number, so a numeric prop needs the unit added explicitly here.
+const toCssLength = (value: string | number): string => (typeof value === 'number' ? `${value}px` : value);
 
 /**
  * Skeleton — loading placeholder shape. Pure CSS shimmer animation (D-009 motion tokens), no
@@ -30,13 +34,20 @@ export const Skeleton = forwardRef<ElementRef<'span'>, SkeletonProps>(function S
 ) {
   const classes = className ? `${styles.skeleton} ${className}` : styles.skeleton;
 
+  // Consumer-supplied arbitrary dimensions travel as CSS custom properties (same escape-hatch
+  // pattern as Grid's `--ds-grid-cols*`) rather than direct `inlineSize`/`blockSize` style keys,
+  // so the CSS Module owns the actual `inline-size`/`block-size` declarations.
+  const sizeVars: CSSProperties = {};
+  if (width !== undefined) (sizeVars as Record<string, string>)['--ds-skeleton-inline-size'] = toCssLength(width);
+  if (height !== undefined) (sizeVars as Record<string, string>)['--ds-skeleton-block-size'] = toCssLength(height);
+
   return (
     <span
       ref={ref}
       className={classes}
       data-variant={variant}
       aria-hidden="true"
-      style={{ inlineSize: width, blockSize: height, ...style }}
+      style={{ ...sizeVars, ...style }}
       {...rest}
     />
   );

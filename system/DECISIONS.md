@@ -138,3 +138,17 @@
 - **เพราะ:** qa-a11y คำนวณ contrast ใหม่เองยืนยันตัวเลขตรงกับที่ component-engineer รายงาน (ไม่ over-claim) แล้วตัดสินโดยเทียบกับ pattern ที่ระบบยอมรับไว้แล้ว (Divider's border.hairline บน surface.overlay วัดได้ 1.48:1 ซึ่งต่ำกว่านี้อีกแต่ QA ก็ยอมรับตั้งแต่ D-014 เพราะเป็น quiet internal divider ไม่ใช่ boundary) — 3 variant อื่น (success/warning/danger) ของ Toast ผ่าน 4.5:1+ สบายอยู่แล้ว มีแค่ default variant เดียวที่ borderline
 - **ตัวเลือกที่ตัดทิ้ง:** แก้ `color.border.interactive` ให้เข้มขึ้นเพื่อผ่าน 3:1 เต็ม — ตัดทิ้งเพราะ token นี้ใช้ระดับระบบ (Button outline, Input, Checkbox, Switch ที่ผ่าน QA ไปแล้วใน Wave 2-3) แก้ตรงนี้จะกระทบทุก component ที่อ้างอิงย้อนหลัง โดยที่ปัญหาจริงอยู่แค่ context การใช้งานของ Toast เท่านั้น (แก้ context ถูกกว่าแก้ token กลาง)
 - **กระทบ:** ไม่มีการเปลี่ยน token — เป็น judgment call ที่บันทึกไว้เพื่อไม่ต้อง relitigate ทีหลัง ถ้ามี component ใหม่ในอนาคตอยากใช้ `border.interactive` เป็น boundary จริงในบริบทที่ contrast ต่ำกว่า 3:1 ต้องกลับมาดู decision นี้ก่อนว่าเข้าเกณฑ์ที่ยอมรับได้หรือไม่
+
+### D-020: ปฏิเสธ Portable Core retrofit จาก v14
+- **วันที่:** 2026-08-08 · **Phase:** 3 (governance, หลัง Wave 4)
+- **เลือก:** ไม่ retrofit ระบบ Dial ให้เป็น Portable Core / multi-framework-adapter ตาม pattern ของ v14 kit drop (packages/spec+conformance แยกจาก React, adapter บาง) แม้จะ merge ส่วนอื่นของ v14 ไปแล้ว (Reuse Check, contrast self-check, MCP note)
+- **เพราะ:** ระบบเดินไปแล้ว 2 wave เต็มบน React ล้วน (Wave 1-2 ตอนตัดสินใจนี้) การรื้อโครงกลางทางจะเสียเวลามากกว่าที่ได้ประโยชน์คืนในระยะสั้น
+- **ตัวเลือกที่ตัดทิ้ง:** retrofit ทันที (ปลอดภัยกว่าในระยะยาวถ้าต้องรองรับ framework อื่นจริง แต่ costly ตอนนี้)
+- **กระทบ:** **สำคัญที่สุด — บันทึกต้นทุนของการเลื่อนไว้ชัดๆ** ถ้าอนาคตต้องรองรับ framework อื่น (Vue/Svelte/WC) ต้อง extract CSS/spec ออกจาก React ย้อนหลังทั้ง 39+ component ที่มีอยู่ ณ ตอนนั้น — ยิ่งเลื่อนนานยิ่งมี component มากขึ้นที่ต้อง extract ยิ่งแพงขึ้นเรื่อยๆ ไม่ใช่ cost คงที่
+
+### D-021: ยอมรับ E-001 (accent bar contrast 2.99:1) พร้อมขอบเขตแคบสุด
+- **วันที่:** 2026-08-08 · **Phase:** 3 (governance, หลัง Wave 4)
+- **เลือก:** ยอมรับ exception E-001 ตามที่บันทึกใน EXCEPTIONS.md — ขอบเขต: ใช้ได้เฉพาะ decorative accent ที่ไม่ทำหน้าที่ boundary/state และมี cue อื่นที่ผ่านเกณฑ์อยู่ในบริเวณเดียวกันแล้ว
+- **เพราะ:** อ้างอิง D-019 ที่ qa-a11y ตัดสินไปแล้ว — entry นี้คือการทำให้ decision เป็นทางการผ่าน EXCEPTIONS registry ตาม governance policy ใหม่ (ไม่ใช่ตัดสินใจใหม่ แค่ formalize สิ่งที่ตัดสินแล้ว)
+- **ตัวเลือกที่ตัดทิ้ง:** แก้ token ให้ผ่าน 3:1 เต็ม (ตัดทิ้งด้วยเหตุผลเดียวกับ D-019 — token ใช้ระดับระบบ แก้จะกระทบ component อื่นที่ผ่าน QA แล้ว)
+- **กระทบ:** เหมือน D-019 — ไม่มี token เปลี่ยน แค่ทำให้ decision นี้ query ได้จาก EXCEPTIONS.md แทนที่จะฝังอยู่ใน DECISIONS.md อย่างเดียว

@@ -4,3 +4,5 @@ packages/*/dist/
 .turbo/
 *.log
 apps/storybook/storybook-static/
+packages/conformance/test-results/
+packages/conformance/playwright-report/

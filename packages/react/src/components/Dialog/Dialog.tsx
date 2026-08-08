@@ -78,7 +78,7 @@ export const Content = forwardRef<ElementRef<typeof DialogPrimitive.Content>, Di
     return (
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay className={styles.overlay} />
-        <DialogPrimitive.Content ref={ref} className={classes} data-size={size} {...rest}>
+        <DialogPrimitive.Content ref={ref} className={classes} data-size={size} data-ds-surface {...rest}>
           {!hideCloseButton && (
             <DialogPrimitive.Close asChild className={styles.closeButton}>
               <IconButton aria-label={closeLabel} size="sm" variant="ghost">
