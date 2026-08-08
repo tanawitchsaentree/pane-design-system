@@ -1,0 +1,83 @@
+{
+  "$description": "Light theme semantic layer. Traces to D-006 (color roles), D-008 (no decorative shadow, hairline instead, shadow reserved for floating layers), braun-flat.md (surface ladder, overlay hover/pressed). Elevation rule: surfaces get BRIGHTER as they float higher (canvas -> raised -> overlay), and DARKER when recessed (inset) — same physical logic reused symmetrically in dark.json.",
+  "color": {
+    "surface": {
+      "$description": "Elevation ladder (braun-flat.md) using only warm-neutral steps, brightness = elevation. No decorative shadow is used to communicate elevation (D-008) — lightness step does that job instead.",
+      "canvas": { "$type": "color", "$value": "{color.neutral.50}" },
+      "inset": { "$type": "color", "$value": "{color.neutral.100}" },
+      "raised": { "$type": "color", "$value": "{color.neutral.25}" },
+      "overlay": { "$type": "color", "$value": "{color.neutral.0}" }
+    },
+    "bg": {
+      "$description": "D-006 exact mapping: bg.canvas = neutral.50, bg.surface = neutral.0/25 — expressed here as aliases into the surface.* ladder so there is one source of truth for the ramp step.",
+      "canvas": { "$type": "color", "$value": "{color.surface.canvas}" },
+      "surface": { "$type": "color", "$value": "{color.surface.raised}" }
+    },
+    "text": {
+      "default": { "$type": "color", "$value": "{color.neutral.900}" },
+      "subtle": { "$type": "color", "$value": "{color.neutral.600}" },
+      "disabled": { "$type": "color", "$value": "{color.neutral.400}" },
+      "inverse": { "$type": "color", "$value": "{color.neutral.50}" },
+      "onPrimary": { "$type": "color", "$value": "{color.base.white}" },
+      "onDanger": { "$type": "color", "$value": "{color.base.white}" },
+      "onSuccess": { "$type": "color", "$value": "{color.base.white}" },
+      "onWarning": { "$type": "color", "$value": "{color.base.white}" },
+      "onInfo": { "$type": "color", "$value": "{color.base.white}" }
+    },
+    "border": {
+      "$description": "D-008 rule 1: border.hairline replaces decorative shadow as the sole definition/edge cue for card/button/input in normal flow. hairlineStrong is +2 ramp stops darker, used by @media (prefers-contrast: more) per braun-flat.md rule 5, and by contrast-more.json.",
+      "hairline": { "$type": "color", "$value": "{color.neutral.200}" },
+      "hairlineStrong": { "$type": "color", "$value": "{color.neutral.400}" },
+      "subtle": { "$type": "color", "$value": "{color.neutral.100}" },
+      "focus": { "$type": "color", "$value": "{color.brand.600}" },
+      "danger": { "$type": "color", "$value": "{color.danger.600}" }
+    },
+    "action": {
+      "$description": "D-006 action.primary = brand.600 · D-001/braun-flat accent-scarcity rule: use action.primary only on the single most important interactive element per view. States use fill/border shifts, never shadow (braun-flat rule 4).",
+      "primary": {
+        "default": { "$type": "color", "$value": "{color.brand.600}" },
+        "hover": { "$type": "color", "$value": "{color.brand.700}" },
+        "active": { "$type": "color", "$value": "{color.brand.800}" },
+        "disabled": { "$type": "color", "$value": "{color.neutral.300}" }
+      },
+      "neutral": {
+        "default": { "$type": "color", "$value": "{color.neutral.100}" },
+        "hover": { "$type": "color", "$value": "{color.neutral.200}" },
+        "active": { "$type": "color", "$value": "{color.neutral.300}" },
+        "disabled": { "$type": "color", "$value": "{color.neutral.100}" }
+      },
+      "danger": {
+        "default": { "$type": "color", "$value": "{color.danger.600}" },
+        "hover": { "$type": "color", "$value": "{color.danger.700}" },
+        "active": { "$type": "color", "$value": "{color.danger.800}" },
+        "disabled": { "$type": "color", "$value": "{color.neutral.300}" }
+      }
+    },
+    "feedback": {
+      "success": { "$type": "color", "$value": "{color.success.600}" },
+      "warning": { "$type": "color", "$value": "{color.warning.700}" },
+      "danger": { "$type": "color", "$value": "{color.danger.600}" },
+      "info": { "$type": "color", "$value": "{color.info.600}" }
+    },
+    "overlay": {
+      "$description": "braun-flat.md — systematic hover/pressed cue via thin alpha over fill instead of shadow. Light theme uses black alpha (darkens on top of light fill); scrim is black in both themes.",
+      "hover": { "$type": "color", "$value": "#0000000A" },
+      "pressed": { "$type": "color", "$value": "#00000014" },
+      "scrim": { "$type": "color", "$value": "#00000080" }
+    }
+  },
+  "shadow": {
+    "$description": "D-008 + braun-flat rule 2 — ONLY for modal/popover/toast/dropdown. Never for card/button/input/badge in normal flow.",
+    "elevation": {
+      "sm": { "$type": "shadow", "$value": "{shadowRaw.elevation.sm}" },
+      "md": { "$type": "shadow", "$value": "{shadowRaw.elevation.md}" },
+      "lg": { "$type": "shadow", "$value": "{shadowRaw.elevation.lg}" }
+    }
+  },
+  "focusRing": {
+    "$description": "a11y-critical, single spec per D-006/blueprint §4.8 — brand.600 validated at 4.02:1 non-text contrast against surface.canvas (passes WCAG 3:1 UI-boundary minimum).",
+    "color": { "$type": "color", "$value": "{color.brand.600}" },
+    "width": { "$type": "dimension", "$value": "{borderWidth.thick}" },
+    "offset": { "$type": "dimension", "$value": "2px" }
+  }
+}

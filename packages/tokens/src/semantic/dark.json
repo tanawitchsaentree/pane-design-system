@@ -1,0 +1,91 @@
+{
+  "$description": "Dark theme semantic layer. D-008 rule 5 (braun-flat.md): dark mode uses the surface-lightness ladder instead of shadow, higher = lighter/more elevated, exactly mirroring light.json but inverted. Same accent-scarcity + hairline-not-shadow rules apply (D-001, D-008).",
+  "color": {
+    "surface": {
+      "canvas": { "$type": "color", "$value": "{color.neutral.950}" },
+      "inset": { "$type": "color", "$value": "{color.neutral.975}" },
+      "raised": { "$type": "color", "$value": "{color.neutral.900}" },
+      "overlay": { "$type": "color", "$value": "{color.neutral.800}" }
+    },
+    "bg": {
+      "canvas": { "$type": "color", "$value": "{color.surface.canvas}" },
+      "surface": { "$type": "color", "$value": "{color.surface.raised}" }
+    },
+    "text": {
+      "default": { "$type": "color", "$value": "{color.neutral.50}" },
+      "subtle": { "$type": "color", "$value": "{color.neutral.300}" },
+      "disabled": { "$type": "color", "$value": "{color.neutral.600}" },
+      "inverse": { "$type": "color", "$value": "{color.neutral.900}" },
+      "onPrimary": { "$type": "color", "$value": "{color.neutral.950}" },
+      "onDanger": { "$type": "color", "$value": "{color.base.white}" },
+      "onSuccess": { "$type": "color", "$value": "{color.base.white}" },
+      "onWarning": { "$type": "color", "$value": "{color.base.white}" },
+      "onInfo": { "$type": "color", "$value": "{color.base.white}" }
+    },
+    "border": {
+      "hairline": { "$type": "color", "$value": "{color.neutral.800}" },
+      "hairlineStrong": { "$type": "color", "$value": "{color.neutral.600}" },
+      "subtle": { "$type": "color", "$value": "{color.neutral.900}" },
+      "focus": { "$type": "color", "$value": "{color.brand.400}" },
+      "danger": { "$type": "color", "$value": "{color.danger.400}" }
+    },
+    "action": {
+      "$description": "Dark mode swaps to a lighter brand step (400) so on-fill text can stay dark and legible (D-006 accent-scarcity rule still applies — one primary action per view). hover/active step further up the light-ward direction.",
+      "primary": {
+        "default": { "$type": "color", "$value": "{color.brand.400}" },
+        "hover": { "$type": "color", "$value": "{color.brand.300}" },
+        "active": { "$type": "color", "$value": "{color.brand.200}" },
+        "disabled": { "$type": "color", "$value": "{color.neutral.700}" }
+      },
+      "neutral": {
+        "default": { "$type": "color", "$value": "{color.neutral.800}" },
+        "hover": { "$type": "color", "$value": "{color.neutral.700}" },
+        "active": { "$type": "color", "$value": "{color.neutral.600}" },
+        "disabled": { "$type": "color", "$value": "{color.neutral.900}" }
+      },
+      "danger": {
+        "default": { "$type": "color", "$value": "{color.danger.700}" },
+        "hover": { "$type": "color", "$value": "{color.danger.600}" },
+        "active": { "$type": "color", "$value": "{color.danger.500}" },
+        "disabled": { "$type": "color", "$value": "{color.neutral.700}" }
+      }
+    },
+    "feedback": {
+      "success": { "$type": "color", "$value": "{color.success.400}" },
+      "warning": { "$type": "color", "$value": "{color.warning.400}" },
+      "danger": { "$type": "color", "$value": "{color.danger.400}" },
+      "info": { "$type": "color", "$value": "{color.info.400}" }
+    },
+    "overlay": {
+      "$description": "Dark theme uses white alpha (lightens on top of dark fill) — mirrors light.json's black alpha.",
+      "hover": { "$type": "color", "$value": "#FFFFFF0F" },
+      "pressed": { "$type": "color", "$value": "#FFFFFF1F" },
+      "scrim": { "$type": "color", "$value": "#00000099" }
+    }
+  },
+  "shadow": {
+    "$description": "D-008 rule 5 — dark mode still declares elevation tokens for API symmetry, but in practice the surface-lightness ladder does the visual work; shadow stays reserved for modal/popover/toast/dropdown only, using a darker/lower-alpha composite so it's visible against a dark canvas.",
+    "elevation": {
+      "sm": { "$type": "shadow", "$value": { "color": "#0000004D", "offsetX": "0px", "offsetY": "1px", "blur": "3px", "spread": "0px" } },
+      "md": {
+        "$type": "shadow",
+        "$value": [
+          { "color": "#00000059", "offsetX": "0px", "offsetY": "4px", "blur": "8px", "spread": "0px" },
+          { "color": "#0000004D", "offsetX": "0px", "offsetY": "1px", "blur": "2px", "spread": "0px" }
+        ]
+      },
+      "lg": {
+        "$type": "shadow",
+        "$value": [
+          { "color": "#00000066", "offsetX": "0px", "offsetY": "12px", "blur": "24px", "spread": "-4px" },
+          { "color": "#0000004D", "offsetX": "0px", "offsetY": "2px", "blur": "4px", "spread": "0px" }
+        ]
+      }
+    }
+  },
+  "focusRing": {
+    "color": { "$type": "color", "$value": "{color.brand.400}" },
+    "width": { "$type": "dimension", "$value": "{borderWidth.thick}" },
+    "offset": { "$type": "dimension", "$value": "2px" }
+  }
+}

@@ -1,0 +1,25 @@
+# STATE — working memory ของ system นี้
+- **System:** Dial (`@dial/tokens`, `@dial/react`)
+- **Phase ปัจจุบัน:** 3 (Layout + Atoms) — Wave 1 (W1 Layout+Primitives) ผ่าน QA เต็มรูปแบบแล้ว 10/10 ตัว + Storybook ติดตั้งแล้ว → รอ WAVE REPORT ปิด wave + system-sheet refresh ก่อนเริ่ม wave ถัดไป
+- **งานล่าสุดที่เสร็จ:** qa-a11y gate รอบแรกตีกลับ 2 findings (Divider ใช้ background-color แทน border จริง จะหายใน forced-colors mode, Box/Container มี physical property หลุดที่ lint จับไม่ทัน) → component-engineer แก้แล้ว → qa-a11y rerun เต็ม gate จริงอีกครั้ง = **VERDICT: PASS ทั้ง 10 ตัว** (lint 0 violation, test 51/51, logical properties สะอาดทั้ง wave, forced-colors ผ่านจริงด้วย border) · docs-publisher ติดตั้ง Storybook จริงที่ `apps/storybook/` (v8.6.18 + @storybook/react-vite) ผูก token CSS จริง (light/dark/contrast-more) + build-storybook ผ่านจริง compile ครบ 10 stories
+- **งานถัดไป:** ปิด WAVE REPORT ของ W1 (commit + tag wave-1) → refresh system-sheet ให้เห็น Wave 1 preview → เริ่ม WAVE PLAN ของ W2 Atoms-Core (Text, Heading, Icon, Button, IconButton, Link, Badge, Avatar, Spinner, Skeleton, Kbd, Image) — ทุก component ตั้งแต่ wave นี้ต้องมี component token (`component/{name}.json`) alias เฉพาะ `semantic/*` ห้ามชี้ `primitive/*` ตรง (กฎเหล็ก §3.1)
+- **System Sheet:** `system/sheets/sheet-2026-08-08.png` — ยังเป็นเวอร์ชัน Phase 1-2 (ยังไม่มี component preview ของ Wave 1) — ต้อง refresh ก่อนปิด WAVE REPORT ตาม CLAUDE.md
+- **Storybook:** ติดตั้งแล้วที่ `apps/storybook/` — เปิดดู interactive ด้วย `pnpm storybook` (dev server localhost:6006) หรือดู static build ที่ `apps/storybook/storybook-static/index.html` (build ผ่านแล้ว ไม่ต้อง build ใหม่ถ้าไม่มีโค้ดเปลี่ยน)
+- **Wave ปัจจุบัน:** W1 Layout+Primitives (ปิดรอ WAVE REPORT) · **Component เขียนโค้ดจริงแล้ว:** 10/10 · **Component ผ่าน QA:** 10/10 (Box, Flex, Stack, Grid, Container, Center, Spacer, Divider, AspectRatio, VisuallyHidden)
+- **ค้าง/blocked:** ไม่มี
+## Log ย่อ (ใหม่สุดบน ≤15 บรรทัด)
+- 2026-08-08 Storybook ติดตั้งจริงที่ apps/storybook/ ผูก token CSS จริง build-storybook ผ่าน
+- 2026-08-08 Wave 1 (10 layout primitives) ผ่าน QA เต็มรูปแบบ (แก้ 2 findings: Divider border, Box/Container logical props)
+- 2026-08-08 Wave 1 เขียนโค้ดจริงเสร็จ: lint/typecheck/test/build ผ่านหมด
+- 2026-08-08 Phase 2 เสร็จ: token-architect ส่ง DTCG 3 ชั้น + Style Dictionary build จริง + token preview
+- 2026-08-08 D-011: ชื่อ system/package = Dial
+- 2026-08-08 D-010: density baseline = comfortable
+- 2026-08-08 D-009: motion = default blueprint (ไม่มีหลักฐานให้บิด)
+- 2026-08-08 D-008: radius soft-round + ไม่มี decorative shadow (hairline แทน) + recipe ใหม่ braun-flat.md
+- 2026-08-08 D-007: grid/breakpoints = default, lg เป็น anchor ตาม D-002
+- 2026-08-08 D-006: color = warm neutral ramp จาก cream + accent orange สงวนจุดเดียว
+- 2026-08-08 D-005: typography base16 ratio แบน 1.2, font เดียวทั้ง heading/body
+- 2026-08-08 D-004: sizing scale — control height หนาแบบ Braun (md=48)
+- 2026-08-08 D-003: spacing base unit = 8px
+- 2026-08-08 D-002: platform = web-first
+- 2026-08-08 D-001: style = Braun-derived ล้วน (ทางเลือก ก. จาก 3 ref ที่ user ให้)

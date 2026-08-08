@@ -1,0 +1,97 @@
+{
+  "color": {
+    "$description": "Primitive color ramps — raw values only, no meaning. Derived in OKLCH per D-006. Traceable to D-001 (Braun-derived warm mood, single accent) and D-006 (neutral warm ramp from cream, brand orange/coral ramp, desaturated role ramps).",
+    "neutral": {
+      "$description": "Warm neutral ramp (D-006) — hue ~75° in OKLCH, anchored at cream #F2EFE9-ish (50) and warm near-black (950). Extra steps 0/25/975 added for surface ladder (braun-flat.md).",
+      "0": { "$type": "color", "$value": "#FEFDFC" },
+      "25": { "$type": "color", "$value": "#F8F6F4" },
+      "50": { "$type": "color", "$value": "#F2EFEB" },
+      "100": { "$type": "color", "$value": "#EBE7E2" },
+      "200": { "$type": "color", "$value": "#D6D2CC" },
+      "300": { "$type": "color", "$value": "#BBB7B0" },
+      "400": { "$type": "color", "$value": "#9C9791" },
+      "500": { "$type": "color", "$value": "#7E7A74" },
+      "600": { "$type": "color", "$value": "#615D57" },
+      "700": { "$type": "color", "$value": "#494641" },
+      "800": { "$type": "color", "$value": "#35322F" },
+      "900": { "$type": "color", "$value": "#282623" },
+      "950": { "$type": "color", "$value": "#242220" },
+      "975": { "$type": "color", "$value": "#181715" }
+    },
+    "brand": {
+      "$description": "Accent orange/coral ramp (D-006) — derived from knob color in Braun reference. Anchor: 500 = #E8622D (approximate mid from ref image, judgment call — not an exact decision value). Reserved for single most-important interactive element per view (D-001 accent scarcity).",
+      "50": { "$type": "color", "$value": "#FFEFE9" },
+      "100": { "$type": "color", "$value": "#FFE0D4" },
+      "200": { "$type": "color", "$value": "#FCC4B0" },
+      "300": { "$type": "color", "$value": "#F5A387" },
+      "400": { "$type": "color", "$value": "#EB825C" },
+      "500": { "$type": "color", "$value": "#E8622D" },
+      "600": { "$type": "color", "$value": "#C94D16" },
+      "700": { "$type": "color", "$value": "#9C3200" },
+      "800": { "$type": "color", "$value": "#742000" },
+      "900": { "$type": "color", "$value": "#541500" },
+      "950": { "$type": "color", "$value": "#380C00" }
+    },
+    "success": {
+      "$description": "Standard green hue, desaturated to fit calm Braun mood (D-006). No specific decision anchors exact hex — derived judgment call using same ramp construction as brand.",
+      "50": { "$type": "color", "$value": "#EFF5EF" },
+      "100": { "$type": "color", "$value": "#E0ECE0" },
+      "200": { "$type": "color", "$value": "#C5D9C5" },
+      "300": { "$type": "color", "$value": "#A5C4A5" },
+      "400": { "$type": "color", "$value": "#86B086" },
+      "500": { "$type": "color", "$value": "#669C68" },
+      "600": { "$type": "color", "$value": "#4E7F50" },
+      "700": { "$type": "color", "$value": "#3B633C" },
+      "800": { "$type": "color", "$value": "#2B4A2C" },
+      "900": { "$type": "color", "$value": "#1F341F" },
+      "950": { "$type": "color", "$value": "#132113" }
+    },
+    "warning": {
+      "$description": "Standard amber/gold hue, desaturated (D-006). Derived judgment call.",
+      "50": { "$type": "color", "$value": "#F7F3EC" },
+      "100": { "$type": "color", "$value": "#F0E6DA" },
+      "200": { "$type": "color", "$value": "#E1D0BA" },
+      "300": { "$type": "color", "$value": "#D0B694" },
+      "400": { "$type": "color", "$value": "#BF9D6E" },
+      "500": { "$type": "color", "$value": "#B1823B" },
+      "600": { "$type": "color", "$value": "#936823" },
+      "700": { "$type": "color", "$value": "#745016" },
+      "800": { "$type": "color", "$value": "#563B10" },
+      "900": { "$type": "color", "$value": "#3C2A0D" },
+      "950": { "$type": "color", "$value": "#271A07" }
+    },
+    "danger": {
+      "$description": "Standard red hue, desaturated (D-006). Derived judgment call.",
+      "50": { "$type": "color", "$value": "#FAF1F0" },
+      "100": { "$type": "color", "$value": "#F5E3E1" },
+      "200": { "$type": "color", "$value": "#E9CAC7" },
+      "300": { "$type": "color", "$value": "#DCAEA9" },
+      "400": { "$type": "color", "$value": "#CE918B" },
+      "500": { "$type": "color", "$value": "#C96E68" },
+      "600": { "$type": "color", "$value": "#A85650" },
+      "700": { "$type": "color", "$value": "#85413D" },
+      "800": { "$type": "color", "$value": "#63302C" },
+      "900": { "$type": "color", "$value": "#46221F" },
+      "950": { "$type": "color", "$value": "#2D1513" }
+    },
+    "info": {
+      "$description": "Standard blue hue, desaturated (D-006). Derived judgment call.",
+      "50": { "$type": "color", "$value": "#EDF5F9" },
+      "100": { "$type": "color", "$value": "#DCEAF4" },
+      "200": { "$type": "color", "$value": "#BDD7E7" },
+      "300": { "$type": "color", "$value": "#99C1D9" },
+      "400": { "$type": "color", "$value": "#74ABCC" },
+      "500": { "$type": "color", "$value": "#5595B9" },
+      "600": { "$type": "color", "$value": "#3D799A" },
+      "700": { "$type": "color", "$value": "#2C5E79" },
+      "800": { "$type": "color", "$value": "#20465A" },
+      "900": { "$type": "color", "$value": "#18313F" },
+      "950": { "$type": "color", "$value": "#0E1F29" }
+    },
+    "base": {
+      "$description": "Pure white/black for on-accent text and scrims — not part of any hue ramp.",
+      "white": { "$type": "color", "$value": "#FFFFFF" },
+      "black": { "$type": "color", "$value": "#000000" }
+    }
+  }
+}

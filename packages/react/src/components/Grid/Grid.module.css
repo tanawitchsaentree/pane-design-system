@@ -1,0 +1,80 @@
+/**
+ * Grid — extends Box (D-012). 12-column default (D-007). Column count is a structural number,
+ * not a design token dimension, so it travels as a CSS custom property (`--ds-grid-cols*`) set
+ * inline by the component from its `columns` prop — never a hardcoded px/hex value.
+ *
+ * Responsive `columns` (object `{sm,md,lg,xl}`) needs `@media` breakpoint conditions. CSS custom
+ * properties cannot be read inside an `@media` feature query in current browser support, so the
+ * breakpoint numbers below are the literal values of `--ds-breakpoint-raw-{sm,md,lg,xl}`
+ * (packages/tokens/build/css/light.css) — kept in lockstep with D-007, not invented here.
+ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--ds-grid-cols, 12), minmax(0, 1fr));
+}
+
+/* no-hardcode-ok: breakpoint literal mirrors --ds-breakpoint-raw-sm (640px, D-007) exactly — media
+   feature conditions cannot consume CSS custom properties, so the token value is inlined here. */
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(var(--ds-grid-cols-sm, var(--ds-grid-cols, 12)), minmax(0, 1fr));
+  }
+}
+
+/* no-hardcode-ok: breakpoint literal mirrors --ds-breakpoint-raw-md (768px, D-007). */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(var(--ds-grid-cols-md, var(--ds-grid-cols-sm, var(--ds-grid-cols, 12))), minmax(0, 1fr));
+  }
+}
+
+/* no-hardcode-ok: breakpoint literal mirrors --ds-breakpoint-raw-lg (1024px, D-007, D-002 anchor). */
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(var(--ds-grid-cols-lg, var(--ds-grid-cols-md, var(--ds-grid-cols-sm, var(--ds-grid-cols, 12)))), minmax(0, 1fr));
+  }
+}
+
+/* no-hardcode-ok: breakpoint literal mirrors --ds-breakpoint-raw-xl (1280px, D-007). */
+@media (min-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(var(--ds-grid-cols-xl, var(--ds-grid-cols-lg, var(--ds-grid-cols-md, var(--ds-grid-cols-sm, var(--ds-grid-cols, 12))))), minmax(0, 1fr));
+  }
+}
+
+.grid[data-gap='0'] {
+  gap: var(--ds-space-0);
+}
+.grid[data-gap='100'] {
+  gap: var(--ds-space-100);
+}
+.grid[data-gap='200'] {
+  gap: var(--ds-space-200);
+}
+.grid[data-gap='300'] {
+  gap: var(--ds-space-300);
+}
+.grid[data-gap='400'] {
+  gap: var(--ds-space-400);
+}
+.grid[data-gap='500'] {
+  gap: var(--ds-space-500);
+}
+.grid[data-gap='600'] {
+  gap: var(--ds-space-600);
+}
+.grid[data-gap='700'] {
+  gap: var(--ds-space-700);
+}
+.grid[data-gap='800'] {
+  gap: var(--ds-space-800);
+}
+.grid[data-gap='900'] {
+  gap: var(--ds-space-900);
+}
+.grid[data-gap='1000'] {
+  gap: var(--ds-space-1000);
+}
+.grid[data-gap='1100'] {
+  gap: var(--ds-space-1100);
+}

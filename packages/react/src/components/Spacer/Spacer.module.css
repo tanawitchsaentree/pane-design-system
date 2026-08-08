@@ -1,0 +1,71 @@
+/**
+ * Spacer — extends Box (D-012). With no `size`, it grows to fill available space along the
+ * parent flex axis (`flex: 1`) — a reasonable default for "push the rest apart" layouts since
+ * plain CSS has no way to inherit "the parent's main-axis dimension" directly.
+ * With `size`, it becomes a fixed-dimension block in both axes using a space.* token.
+ */
+.spacer {
+  flex: 1 0 0%;
+  align-self: stretch;
+}
+
+.spacer[data-size='0'] {
+  flex: 0 0 auto;
+  inline-size: var(--ds-space-0);
+  block-size: var(--ds-space-0);
+}
+.spacer[data-size='100'] {
+  flex: 0 0 auto;
+  inline-size: var(--ds-space-100);
+  block-size: var(--ds-space-100);
+}
+.spacer[data-size='200'] {
+  flex: 0 0 auto;
+  inline-size: var(--ds-space-200);
+  block-size: var(--ds-space-200);
+}
+.spacer[data-size='300'] {
+  flex: 0 0 auto;
+  inline-size: var(--ds-space-300);
+  block-size: var(--ds-space-300);
+}
+.spacer[data-size='400'] {
+  flex: 0 0 auto;
+  inline-size: var(--ds-space-400);
+  block-size: var(--ds-space-400);
+}
+.spacer[data-size='500'] {
+  flex: 0 0 auto;
+  inline-size: var(--ds-space-500);
+  block-size: var(--ds-space-500);
+}
+.spacer[data-size='600'] {
+  flex: 0 0 auto;
+  inline-size: var(--ds-space-600);
+  block-size: var(--ds-space-600);
+}
+.spacer[data-size='700'] {
+  flex: 0 0 auto;
+  inline-size: var(--ds-space-700);
+  block-size: var(--ds-space-700);
+}
+.spacer[data-size='800'] {
+  flex: 0 0 auto;
+  inline-size: var(--ds-space-800);
+  block-size: var(--ds-space-800);
+}
+.spacer[data-size='900'] {
+  flex: 0 0 auto;
+  inline-size: var(--ds-space-900);
+  block-size: var(--ds-space-900);
+}
+.spacer[data-size='1000'] {
+  flex: 0 0 auto;
+  inline-size: var(--ds-space-1000);
+  block-size: var(--ds-space-1000);
+}
+.spacer[data-size='1100'] {
+  flex: 0 0 auto;
+  inline-size: var(--ds-space-1100);
+  block-size: var(--ds-space-1100);
+}

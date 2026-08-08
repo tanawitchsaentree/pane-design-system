@@ -1,0 +1,10 @@
+{
+  "ratio": {
+    "$description": "Blueprint §3.4/§4.2 aspect ratio checklist — standard set for media/thumbnail/skeleton. No decision restricts this, using blueprint defaults.",
+    "square": { "$type": "number", "$value": 1 },
+    "video": { "$type": "number", "$value": 1.7778 },
+    "photo": { "$type": "number", "$value": 1.3333 },
+    "portrait": { "$type": "number", "$value": 0.75 },
+    "golden": { "$type": "number", "$value": 1.618 }
+  }
+}

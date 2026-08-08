@@ -1,0 +1,29 @@
+/**
+ * Container — extends Box (D-012), centers content and caps width per breakpoint (D-007).
+ * Centered by default via logical `margin-inline: auto`. Horizontal breathing room uses the
+ * grid gutter token so a Container never touches the viewport edge on narrow screens.
+ */
+.container {
+  inline-size: 100%;
+  margin-inline: auto;
+  padding-inline: var(--ds-grid-gutter);
+}
+
+.container[data-size='sm'] {
+  max-inline-size: var(--ds-container-sm);
+}
+.container[data-size='md'] {
+  max-inline-size: var(--ds-container-md);
+}
+.container[data-size='lg'] {
+  max-inline-size: var(--ds-container-lg);
+}
+.container[data-size='xl'] {
+  max-inline-size: var(--ds-container-xl);
+}
+.container[data-size='2xl'] {
+  max-inline-size: var(--ds-container-2xl);
+}
+.container[data-size='full'] {
+  max-inline-size: none;
+}

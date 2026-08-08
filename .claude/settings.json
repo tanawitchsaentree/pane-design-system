@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node tooling/no-hardcode-lint.mjs || echo 'HOOK: no-hardcode lint FAILED — แก้ให้ผ่านก่อนไปต่อ'"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$CLAUDE_TOOL_INPUT\" | grep -q 'system/DECISIONS.md'; then echo 'HOOK WARNING: กำลังแก้ system/DECISIONS.md — ต้องผ่าน skill lock-decision และประเมิน impact ก่อน'; fi"
+          }
+        ]
+      }
+    ]
+  }
+}

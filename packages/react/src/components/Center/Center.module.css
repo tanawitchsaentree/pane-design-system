@@ -1,0 +1,6 @@
+/**
+ * Center — extends Flex (D-012), fixes align/justify to center internally.
+ * No new tokens: relies entirely on Flex's data-attribute-driven CSS.
+ */
+.center {
+}

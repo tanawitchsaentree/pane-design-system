@@ -1,0 +1,26 @@
+{
+  "name": "@dial/tokens",
+  "version": "0.1.0",
+  "description": "Design tokens for Dial — DTCG JSON source, built with Style Dictionary into CSS vars, Tailwind preset, SCSS, TS types, and JSON.",
+  "license": "UNLICENSED",
+  "main": "./build/json/tokens.json",
+  "types": "./build/ts/tokens.d.ts",
+  "exports": {
+    "./css": "./build/css/variables.css",
+    "./tailwind": "./build/tailwind/preset.cjs",
+    "./scss": "./build/scss/_variables.scss",
+    "./json": "./build/json/tokens.json",
+    "./types": "./build/ts/tokens.d.ts"
+  },
+  "files": [
+    "build",
+    "src"
+  ],
+  "scripts": {
+    "build": "node ./scripts/build.mjs",
+    "clean": "rm -rf build"
+  },
+  "devDependencies": {
+    "style-dictionary": "^4.4.0"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "storybook",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Storybook workshop for @dial/react (BLUEPRINT: Storybook = workshop, apps/docs = docs site).",
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@dial/react": "workspace:*",
+    "@dial/tokens": "workspace:*",
+    "storybook": "8.6.18",
+    "@storybook/react": "8.6.18",
+    "@storybook/react-vite": "8.6.18",
+    "@storybook/addon-essentials": "8.6.18",
+    "@storybook/blocks": "8.6.18",
+    "@storybook/test": "8.6.18",
+    "@storybook/addon-interactions": "8.6.18",
+    "vite": "^5.4.21"
+  }
+}

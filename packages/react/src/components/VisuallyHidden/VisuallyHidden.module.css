@@ -1,0 +1,17 @@
+/**
+ * VisuallyHidden — independent utility (D-012). Standard "clip" pattern: visually hidden but
+ * still present for screen readers (unlike `display: none`, which removes it from the a11y tree
+ * too). No component tokens — this is a structural technique, not a themed surface.
+ */
+.visuallyHidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}

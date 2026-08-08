@@ -1,0 +1,17 @@
+{
+  "name": "dial-design-system",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Monorepo root for the Dial design system (@dial/tokens, @dial/react) — see system/DECISIONS.md D-011.",
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "build": "turbo run build",
+    "tokens:build": "pnpm --filter @dial/tokens build",
+    "storybook": "pnpm --filter storybook storybook",
+    "build-storybook": "pnpm --filter storybook build-storybook"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1",
+    "turbo": "^2.0.0"
+  }
+}

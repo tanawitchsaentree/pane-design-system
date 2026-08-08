@@ -1,0 +1,33 @@
+/**
+ * AspectRatio — extends Box (D-012). Preset ratios bind to `ratio.*` tokens (packages/tokens
+ * generates --ds-ratio-square/video/photo/portrait/golden). A numeric ratio prop is a user-
+ * supplied escape hatch (not a system value) and is applied via inline style, same treatment as
+ * the `style` prop everywhere else in this system — not a component-authored raw value.
+ */
+.aspectRatio {
+  position: relative;
+  inline-size: 100%;
+}
+
+.aspectRatio[data-ratio='square'] {
+  aspect-ratio: var(--ds-ratio-square);
+}
+.aspectRatio[data-ratio='video'] {
+  aspect-ratio: var(--ds-ratio-video);
+}
+.aspectRatio[data-ratio='photo'] {
+  aspect-ratio: var(--ds-ratio-photo);
+}
+.aspectRatio[data-ratio='portrait'] {
+  aspect-ratio: var(--ds-ratio-portrait);
+}
+.aspectRatio[data-ratio='golden'] {
+  aspect-ratio: var(--ds-ratio-golden);
+}
+
+.aspectRatio > * {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+}

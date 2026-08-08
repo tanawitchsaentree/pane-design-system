@@ -1,0 +1,13 @@
+{
+  "opacity": {
+    "$description": "Blueprint §4.8 default opacity scale (0-100). No decision overrides this.",
+    "0": { "$type": "number", "$value": 0 },
+    "5": { "$type": "number", "$value": 0.05 },
+    "10": { "$type": "number", "$value": 0.10 },
+    "20": { "$type": "number", "$value": 0.20 },
+    "40": { "$type": "number", "$value": 0.40 },
+    "60": { "$type": "number", "$value": 0.60 },
+    "80": { "$type": "number", "$value": 0.80 },
+    "100": { "$type": "number", "$value": 1.0 }
+  }
+}

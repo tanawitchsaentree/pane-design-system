@@ -1,0 +1,12 @@
+{
+  "$description": "prefers-contrast: more theme — braun-flat.md rule 5: 'border เข้มขึ้น 2 stop (ไม่มีเงาให้ปิดอยู่แล้วตามกฎ 1)'. Kept intentionally simple per token-architect task scope (not exhaustive): this file only overrides the border.* group on top of semantic/light.json — everything else (bg/text/action/overlay/shadow) is inherited from light.json at the theme-composition step in Style Dictionary config. A dark+contrast-more combination can be added later the same way if needed (not generated now — no evidence of demand yet).",
+  "color": {
+    "border": {
+      "hairline": { "$type": "color", "$value": "{color.neutral.400}" },
+      "hairlineStrong": { "$type": "color", "$value": "{color.neutral.600}" },
+      "subtle": { "$type": "color", "$value": "{color.neutral.300}" },
+      "focus": { "$type": "color", "$value": "{color.brand.700}" },
+      "danger": { "$type": "color", "$value": "{color.danger.700}" }
+    }
+  }
+}
