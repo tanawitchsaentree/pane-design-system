@@ -1,0 +1,80 @@
+/**
+ * Listbox — braun-flat.md: no decorative shadow (rule 1); the root's `border.hairline` is the
+ * only definition the panel needs (it is not a floating layer itself — Select will be the W5
+ * sibling that puts this inside a Popover, which IS allowed elevation per braun-flat rule 2).
+ * Selected-option non-color cue is the checkmark glyph's presence/absence (BLUEPRINT §7) — the
+ * background-color change on `data-selected`/hover is a secondary reinforcement, never the only
+ * cue. Hit area: each option's `min-block-size` is `size.control.sm` (40px, D-002 web-first
+ * minimum) regardless of how little text it contains, measured via padding not just visible
+ * glyph size — verified by `expectHitArea` in `packages/conformance/specs/w5-listbox.spec.ts`.
+ */
+.root {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: var(--ds-space-100);
+  border-style: solid;
+  border-width: var(--ds-border-width-hairline);
+  border-color: var(--ds-listbox-root-border);
+  border-radius: var(--ds-radius-md);
+  background-color: var(--ds-listbox-root-bg);
+  max-block-size: var(--ds-space-1100);
+  overflow-y: auto;
+}
+
+.root:focus {
+  outline: none;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: var(--ds-space-200);
+  min-block-size: var(--ds-size-control-sm);
+  padding-inline: var(--ds-space-300);
+  padding-block: var(--ds-space-100);
+  border-radius: var(--ds-radius-sm);
+  color: var(--ds-listbox-option-text);
+  cursor: var(--ds-cursor-pointer);
+  transition: var(--ds-transition-fast);
+  transition-property: background-color;
+}
+
+.optionLabel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* hover — non-shadow cue: overlay wash (braun-flat rule 4), same token Button already uses */
+.option:not([data-disabled]):hover {
+  background-color: var(--ds-listbox-option-bg-hover);
+}
+
+/* focus-visible — dedicated focusRing token, not a shadow ring (React Aria sets tabindex/focus,
+   this file only supplies the visual ring on top of it) */
+.option[data-focus-visible] {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: calc(var(--ds-focus-ring-offset) * -1);
+}
+
+/* selected — background reinforces, but the checkmark glyph below is the real non-color cue */
+.option[data-selected] {
+  background-color: var(--ds-listbox-option-bg-selected);
+  font-weight: var(--ds-font-weight-medium);
+}
+
+.checkmark {
+  flex-shrink: 0;
+  inline-size: var(--ds-size-icon-sm);
+  block-size: var(--ds-size-icon-sm);
+  color: var(--ds-listbox-option-checkmark);
+}
+
+/* disabled */
+.option[data-disabled] {
+  color: var(--ds-listbox-option-text-disabled);
+  cursor: var(--ds-cursor-not-allowed);
+}

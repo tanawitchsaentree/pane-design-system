@@ -1,0 +1,16 @@
+{
+  "$description": "Wave 5 (W5 Selection) component tokens for Listbox — the template for the rest of the wave (Select/Combobox/MultiSelect/RadioCards/TagInput reuse this same option-token shape). Same accent-scarcity reasoning as checkbox.json/radio.json/switch.json: the selected option's non-color cue (a checkmark glyph) uses `color.text.default`, not the scarce brand accent, because a listbox commonly renders several selected options at once (multi-select) and a single view should not read as having many 'primary action' elements (braun-flat rule 3). Option hover/focus surface reuses the existing `color.overlay.hover` alpha wash (same token Button already uses for its non-shadow hover cue) instead of a new opaque fill, so hover state composes correctly over both the default option background and the selected option's `surface.inset` background. Root border reuses `color.border.hairline` (braun-flat rule 1 — no decorative shadow on the listbox surface itself; it is not a floating layer, so no `shadow.elevation.*` here either, contrast with Popover.Content which is a floating layer per braun-flat rule 2).",
+  "listbox": {
+    "root": {
+      "border": { "$type": "color", "$value": "{color.border.hairline}" },
+      "bg": { "$type": "color", "$value": "{color.surface.raised}" }
+    },
+    "option": {
+      "text": { "$type": "color", "$value": "{color.text.default}" },
+      "textDisabled": { "$type": "color", "$value": "{color.text.disabled}" },
+      "bgHover": { "$type": "color", "$value": "{color.overlay.hover}" },
+      "bgSelected": { "$type": "color", "$value": "{color.surface.inset}" },
+      "checkmark": { "$type": "color", "$value": "{color.text.default}" }
+    }
+  }
+}

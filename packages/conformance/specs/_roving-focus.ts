@@ -98,8 +98,25 @@ export async function expectTypeahead(
   await expect(items.nth(expectedIndex)).toBeFocused();
 }
 
-/** Scroll-into-view: option ที่อยู่นอกจอ (ใน scroll container) ต้องเลื่อนให้เห็นเมื่อ arrow ไปถึง */
-export async function expectScrollIntoView(page: Page, container: Locator, targetItem: Locator) {
+/**
+ * Scroll-into-view: option ที่อยู่นอกจอ (ใน scroll container) ต้องเลื่อนให้เห็นเมื่อ arrow ไปถึง
+ *
+ * `focusTarget` (default: `el.focus()` ตรงๆ ผ่าน `evaluate`) คือวิธีที่ใช้ย้าย focus ไปที่
+ * `targetItem` — ปรับพารามิเตอร์นี้ได้ถ้า behavior engine ของ component นั้นแยกแยะ "focus
+ * modality" (React Aria's `useSelectableCollection` เป็นตัวอย่างจริงที่เจอ: มันเรียก
+ * `scrollIntoViewport` เฉพาะตอน modality เป็น `'keyboard'` เท่านั้น — raw `el.focus()` ผ่าน
+ * `evaluate()` ไม่ trigger scroll เลยเพราะไม่ใช่ event ที่เกิดจาก keydown จริง, ยืนยันด้วยการรันจริง
+ * ตอนสร้าง Listbox: `el.focus()` ตรงๆ scrollTop คงที่ 0 แต่กด `End` (real keyboard event) แล้ว
+ * scrollTop ขยับจริง) — ห้าม copy ทั้งฟังก์ชันไปแก้แยกตาม roving-focus.md "เมื่อไหร่ที่เขียนใหม่ได้"
+ * ให้ผ่าน parameter นี้แทนเสมอ
+ */
+export async function expectScrollIntoView(
+  page: Page,
+  container: Locator,
+  targetItem: Locator,
+  opts: { focusTarget?: () => Promise<void> } = {},
+) {
+  const { focusTarget = () => targetItem.evaluate((el) => el.focus()) } = opts;
   const containerBox = await container.boundingBox();
   expect(containerBox, 'scroll container ต้องมี bounding box จริง').toBeTruthy();
 
@@ -112,12 +129,29 @@ export async function expectScrollIntoView(page: Page, container: Locator, targe
   // ถ้า target มองเห็นอยู่แล้วก่อน scroll แปลว่า test นี้ไม่ได้พิสูจน์ scroll-into-view จริง
   expect(wasVisible, 'target item ต้องอยู่นอกจอก่อนเริ่ม ไม่งั้น test นี้ไม่ได้พิสูจน์ scroll behavior').toBe(false);
 
-  await targetItem.evaluate((el) => el.focus());
+  await focusTarget();
   const after = await targetItem.boundingBox();
   expect(after, 'target item ต้องมี bounding box จริงหลัง focus').toBeTruthy();
   const nowVisible =
     after!.y >= containerBox!.y && after!.y + after!.height <= containerBox!.y + containerBox!.height;
   expect(nowVisible, 'target item ต้องเลื่อนเข้ามาในจอของ scroll container หลัง focus').toBe(true);
+}
+
+/**
+ * Tab-out (roving-focus.md contract ข้อ 8): Tab จาก option ที่ active อยู่ต้องออกจาก widget ทั้งชุด
+ * ไปยัง element ถัดไปในหน้า (`after`) — ไม่ใช่ไล่ไปที่ option ตัวถัดไป (นั่นคือหน้าที่ของ Arrow key
+ * เท่านั้น) roving tabindex ที่ถูกต้อง (มี option แค่ 1 ตัวที่ tabindex="0" ตัวอื่น "-1") คือสิ่งที่
+ * ทำให้ Tab ข้าม option ทั้งหมดไปเจอ `after` ในครั้งเดียว — ถ้า option หลายตัวมี tabindex="0" พร้อมกัน
+ * (roving tabindex พัง) Tab จะไปเจอ option ตัวถัดไปก่อน ไม่ใช่ `after`
+ */
+export async function expectTabOut(page: Page, items: Locator, after: Locator) {
+  await items.first().waitFor({ state: 'visible' });
+  await items.first().focus();
+  await page.keyboard.press('Tab');
+  await expect(
+    after,
+    'Tab จาก option ที่ active ต้องออกจาก widget ทั้งชุดไปยัง element ถัดไปในหน้าทันที ไม่ใช่ไปที่ option ตัวถัดไป',
+  ).toBeFocused();
 }
 
 /** aria-selected sync กับ state จริง — ไม่ใช่แค่ CSS class ที่มองด้วยตาเหมือนเลือกอยู่ */

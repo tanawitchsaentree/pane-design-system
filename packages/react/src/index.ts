@@ -183,3 +183,12 @@ export type {
 
 export { useSnackbar } from './components/Snackbar';
 export type { SnackbarOptions } from './components/Snackbar';
+
+// Wave 5 (W5 Selection, D-022): Listbox is the template for the rest of the wave (Select,
+// Combobox, MultiSelect, RadioCards, TagInput reuse its React Aria collection/behavior pattern
+// and its Roving Focus conformance contract — see packages/conformance/specs/_patterns/
+// roving-focus.md). First component in the system built on React Aria instead of Radix (Radix
+// has no standalone listbox primitive).
+
+export { Listbox } from './components/Listbox';
+export type { ListboxProps } from './components/Listbox';
