@@ -143,14 +143,38 @@ export async function expectScrollIntoView(
  * เท่านั้น) roving tabindex ที่ถูกต้อง (มี option แค่ 1 ตัวที่ tabindex="0" ตัวอื่น "-1") คือสิ่งที่
  * ทำให้ Tab ข้าม option ทั้งหมดไปเจอ `after` ในครั้งเดียว — ถ้า option หลายตัวมี tabindex="0" พร้อมกัน
  * (roving tabindex พัง) Tab จะไปเจอ option ตัวถัดไปก่อน ไม่ใช่ `after`
+ *
+ * เจตนาใช้ option ตัวกลาง (ไม่ใช่ตัวแรก) เป็นจุดเริ่ม active แล้วพิสูจน์ด้วย **round-trip**
+ * (Tab ออก แล้ว Shift+Tab กลับเข้า) ต้องได้ option ตัวเดิม — นี่คือ assertion ที่พิสูจน์ roving-focus
+ * "memory" จริง (มี option เดียวที่ tabindex="0" ค้างอยู่ที่ตัวที่ active ก่อนหน้า) การเช็คแค่ปลายทาง
+ * ตอน Tab ออกอย่างเดียว (ไม่ round-trip, เริ่มจาก option ตัวแรกซึ่ง degenerate เกินไป) **พิสูจน์ไม่พอ**:
+ * เคยเจอจริงว่า mutate ให้ทุก option มี `tabindex="0"` พร้อมกัน (roving tabindex พังเต็มๆ) ทำให้ Tab
+ * แวะที่ option ตัวสุดท้ายของ DOM ก่อน (extra focus hop ที่ screen reader จะได้ยิน) แล้ว browser
+ * default ค่อยพาไป `after` ต่อ — ปลายทางตอน forward-Tab ยังดูเหมือนถูก (`after` โฟกัสจริง) แต่พฤติกรรม
+ * เสียไปแล้วจริงๆ — Shift+Tab กลับเข้ามาจะเผยว่าเสีย เพราะ landing ที่ option สุดท้ายของ DOM (memory
+ * หาย) ไม่ใช่ option ตัวกลางที่เพิ่ง active อยู่ (memory ที่ถูกต้อง) — ดู Gate Proof log ใน
+ * w5-listbox.spec.ts ข้อ 7 สำหรับหลักฐานการทดลองจริงในเบราว์เซอร์ (ไม่ใช่แค่อ่านซอร์ส React Aria)
  */
 export async function expectTabOut(page: Page, items: Locator, after: Locator) {
   await items.first().waitFor({ state: 'visible' });
-  await items.first().focus();
+  const n = await items.count();
+  expect(n, 'ต้องมี option มากกว่า 2 ตัวถึงเลือก "ตัวกลาง" ที่ไม่ degenerate ได้จริง').toBeGreaterThan(2);
+  const midIndex = Math.floor(n / 2);
+  const midItem = items.nth(midIndex);
+
+  await midItem.click();
   await page.keyboard.press('Tab');
   await expect(
     after,
     'Tab จาก option ที่ active ต้องออกจาก widget ทั้งชุดไปยัง element ถัดไปในหน้าทันที ไม่ใช่ไปที่ option ตัวถัดไป',
+  ).toBeFocused();
+
+  await page.keyboard.press('Shift+Tab');
+  await expect(
+    midItem,
+    'Shift+Tab กลับเข้า widget ต้องคืน focus ให้ option ตัวที่ active ก่อนหน้า (roving-tabindex memory) ' +
+      'ไม่ใช่ option ตัวแรก/ตัวสุดท้ายของ DOM เฉยๆ — ถ้า landing ผิดตัว แสดงว่า roving tabindex พังจริง ' +
+      'แม้ forward-Tab ปลายทางจะดูถูกก็ตาม',
   ).toBeFocused();
 }
 

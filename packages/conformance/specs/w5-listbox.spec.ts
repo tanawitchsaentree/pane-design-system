@@ -136,14 +136,42 @@ test('Listbox: selectionMode="multiple" — เลือกหลาย option �
 //    ชั่วคราวใน Option()) -> รันเทสต์ -> แดงจริง (attribute หายไปทั้งหมด, `toHaveAttribute`
 //    fail ตั้งแต่ก่อน select ด้วยซ้ำ) -> คืนกลับ -> เขียวอีกครั้ง (ยืนยันแล้ว)
 // 7. expectTabOut (เพิ่มทีหลัง จาก qa-a11y finding — roving-focus.md contract ข้อ 8 ไม่มี test มา
-//    ก่อนหน้านี้) — พยายาม mutate 2 แบบแยกกันก่อน ทั้งคู่ไม่แดง (false negative ที่ควรบันทึกไว้ ไม่ใช่
-//    ปิดบัง): (a) เพิ่ม `tabIndex={0}` ลงทุก option เฉยๆ — ไม่แดง เพราะ React Aria's ตัว `tab()`
-//    handler เดินหา "last tabbable descendant" เองแล้ว focus ไปตรงนั้นก่อน Tab เกิดขึ้นจริง (ไม่ได้
-//    พึ่ง tabindex ของแต่ละ option เป็นตัวตัดสินอย่างเดียว) (b) ลบ `{...listBoxProps}` ออกจาก root
-//    เฉยๆ (ไม่แก้ tabIndex) — ก็ไม่แดง เพราะ `optionProps`'s roving tabindex ที่เหลือ (มีแค่ 1 ตัวเป็น
-//    "0") ก็เพียงพอให้ browser default Tab behavior ออกจาก widget ถูกต้องได้เองอยู่แล้ว — ต้อง mutate
-//    ทั้งสองอย่างพร้อมกัน (`tabIndex={0}` ทุก option + ลบ `{...listBoxProps}`) ถึงแดงจริง (`toBeFocused()
-//    ` timeout, focus ค้างไม่ไปที่ "After listbox") -> คืนกลับทั้งคู่ -> เขียวอีกครั้ง (ยืนยันแล้ว) —
-//    บทเรียน: helper นี้พิสูจน์ invariant ที่เกิดจาก 2 mechanism ร่วมกัน (tab handler + per-option
-//    tabindex) mutation เดี่ยวๆ ไม่พอที่จะพิสูจน์ Gate Proof ได้ครบ ต้องมองหา "compound invariant"
-//    แบบนี้ในการเขียน Gate Proof ของ helper อื่นๆ ต่อไปด้วย
+//    ก่อนหน้านี้) — เวอร์ชันแรกของ helper (เช็คแค่ปลายทาง forward-Tab อย่างเดียว, เริ่มจาก option ตัว
+//    แรกซึ่ง degenerate) mutate เดี่ยว 2 แบบไม่แดงทั้งคู่ — user สั่งให้เคลียร์ให้จบว่าเป็น "redundancy
+//    จริง" หรือ "test อ่อน" ด้วยการเปิดเบราว์เซอร์จริงดู ไม่ใช่อ่านซอร์ส (ดู debug spec ที่รันแล้วลบทิ้ง
+//    ใน conversation — สรุปผลจริงที่พิสูจน์ได้ด้านล่าง):
+//
+//    (a) `tabIndex={0}` ลงทุก option — สืบด้วย focusin event log จริงในเบราว์เซอร์: forward-Tab แวะที่
+//    option ตัวสุดท้ายของ DOM (Elderberry) ก่อนไปถึง `after` จริง (extra focus hop ที่ screen reader
+//    จะประกาศ) และ Shift+Tab กลับเข้ามาหลัง Tab ออกไปจาก option ตัวกลาง (Cherry) landing ผิดที่
+//    (Elderberry แทน Cherry) — **นี่คือ degradation จริง ไม่ใช่ redundancy** ปลายทาง forward-Tab เดิม
+//    ที่เช็คแค่ "`after` โฟกัสจริงไหม" ผ่านได้เพราะเป็น assertion ที่อ่อนเกินไป ไม่ใช่เพราะพฤติกรรมถูก
+//    100% → **แก้ helper แล้ว**: เปลี่ยนมาเช็ค option ตัวกลาง (ไม่ใช่ตัวแรก, กัน degenerate) + เพิ่ม
+//    round-trip assertion (Shift+Tab กลับเข้าต้อง landing ที่ option ตัวเดิมที่ active ก่อน Tab ออก —
+//    นี่คือสิ่งที่พิสูจน์ roving-tabindex "memory" จริง) — mutate (a) เดี่ยวๆ กับ helper ใหม่ →
+//    **แดงจริงแล้ว** ("Shift+Tab กลับเข้า widget ต้องคืน focus ให้ option ตัวที่ active ก่อนหน้า...")
+//
+//    (b) ลบ `{...listBoxProps}` ออกจาก root เฉยๆ — สืบด้วย focus log เดียวกัน: forward-Tab ออกจาก
+//    widget ถูกต้องจริง (ไม่มี extra hop) และ Shift+Tab กลับเข้ามา landing ที่ option[0] (Apple) ซึ่ง
+//    ก็คือตัวที่ active อยู่จริง (เพราะ mutation นี้ทำให้ Arrow-key navigation พังไปแล้วตั้งแต่ก่อน Tab
+//    — active ค้างที่ option[0] ตลอด ไม่เคยขยับไป Cherry) — **นี่คือ redundancy จริง**: ชั้นที่ cover
+//    คือ `optionProps` (จาก `useOption`, ตั้ง roving tabindex ต่อ option โดยตรง) ทำหน้าที่ทดแทน
+//    `listBoxProps`'s tab-handler ได้เพียงพอสำหรับ invariant ที่ helper นี้พิสูจน์ — แต่ mutation (b)
+//    เพียงอย่างเดียวถูกจับได้แล้วโดย test อื่น (ข้อ 3/4 expectHomeEnd/expectTypeahead ซึ่งพึ่ง
+//    `collectionProps` บน root เหมือนกัน) ไม่ใช่ blind spot ที่ไม่มี test คลุมเลย — mutate (b) เดี่ยวๆ
+//    กับ helper ใหม่ → ยังเขียวถูกต้อง (ไม่ false-negative เพราะเป็น redundancy จริง ไม่ใช่ helper อ่อน)
+//
+//    Layer map: `optionProps` (per-option tabindex, จาก useOption) เพียงพอเองสำหรับ Tab-out invariant
+//    พื้นฐาน — `listBoxProps`'s tab handler (จาก useSelectableCollection) เป็น extra safety net ที่
+//    ป้องกัน edge case ของ nested-tabbable-children ใน collection (ไม่เกิดกับ Listbox เพราะ option ไม่
+//    มี tabbable child) → Tab-out ของ Listbox โดยเฉพาะพึ่ง `optionProps` เป็นหลัก ไม่ใช่ `listBoxProps`
+//
+//    Mutate ทั้งคู่พร้อมกัน (`tabIndex={0}` ทุก option + ลบ `{...listBoxProps}`) → แดงจริง (เหมือนเดิม)
+//    -> revert ทั้งคู่ -> เขียวอีกครั้ง (ยืนยันแล้ว, รันซ้ำหลังแก้ helper)
+//
+//    บทเรียน (ตามที่ user สั่งให้ codify เป็น Gate Proof Rule เพิ่ม): helper ที่ครอบพฤติกรรมซึ่งมีหลาย
+//    ชั้น cover กัน (compound invariant) ต้อง mutate **ทั้งเดี่ยวและรวม** แล้วสำหรับทุกกรณีที่ mutation
+//    เดี่ยวไม่แดง ต้อง**เปิดดูจริง**ว่าพฤติกรรมยังถูก 100% (= redundancy, บันทึก layer map) หรือเสีย
+//    บางส่วนแต่ assertion จับไม่ได้ (= test อ่อน, ต้องเพิ่ม assertion) — "ไม่แดงตอน mutate เดี่ยว" ไม่ใช่
+//    ข้อสรุปที่ปลอดภัยจะปิดเคสได้เองโดยไม่ตรวจ ดู ds-conventions/SKILL.md Gate Proof Rule (compound
+//    invariant clause) สำหรับกฎเวอร์ชันทั่วไป

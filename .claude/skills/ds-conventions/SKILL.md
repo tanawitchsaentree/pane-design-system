@@ -51,6 +51,31 @@ Layout primitives (Box, Stack, Grid, Container) → Tier 1 atoms → Tier 2 mole
 
 **กฎที่ไม่เคยเห็นตัวเองแดง = ยังไม่พิสูจน์ว่ามีอยู่จริง** — ห้ามส่งมอบ lint rule/conformance helper ใหม่โดยไม่ผ่านขั้นตอนนี้ ไม่ว่าจะดูสมเหตุสมผลแค่ไหนตอนเขียน (v3's logical-property regex ก็ "ดูสมเหตุสมผล" ตอนเขียนเหมือนกัน)
 
+### Compound Invariant Clause (เพิ่มจาก Listbox's `expectTabOut` — mutation เดี่ยวไม่แดง 2 รอบ)
+> ที่มา: `expectTabOut` (roving-focus.md ข้อ 8) mutate เดี่ยว 2 แบบ (`tabIndex={0}` ทุก option / ลบ
+> `listBoxProps` จาก root) ไม่แดงทั้งคู่ — ตอนแรกเกือบสรุปว่า "helper ใช้ได้ เพราะพฤติกรรมมีหลายชั้น
+> cover กัน (redundancy)" **โดยไม่ได้เปิดเบราว์เซอร์พิสูจน์จริง** user สั่งให้เคลียร์ก่อนว่าอันไหนคือ
+> redundancy จริง อันไหนคือ test อ่อน — ผลจริง: (a) เป็น degradation จริงที่ assertion เดิมจับไม่ได้
+> (test อ่อน) (b) เป็น redundancy จริง (คนละ layer cover กันจริง) — ทั้งสองแบบมีทั้งคู่ ต้องแยกแยะทีละ
+> เคส ห้ามเดา
+
+**ถ้า helper/rule ครอบพฤติกรรมที่มีมากกว่า 1 mechanism ทำงานร่วมกัน (เช่น per-item property + parent
+collection handler) ต้องทำตามลำดับนี้ ไม่ใช่ mutate รวมแล้วถือว่าจบ:**
+1. **Mutate เดี่ยวทีละ mechanism** ก่อนเสมอ (ไม่ mutate รวมตั้งแต่แรก) แล้วรัน test
+2. **ถ้า mutation เดี่ยวไม่แดง ห้ามสรุปเองว่า "redundancy เลยไม่เป็นไร"** — ต้อง**เปิดดูพฤติกรรมจริงใน
+   เบราว์เซอร์** (เช่น log focus event sequence, inspect DOM attribute หลัง mutate) แล้วตอบให้ได้ว่า:
+   - **พฤติกรรมยังถูก 100% จริง** (ไม่ใช่แค่ assertion ที่เช็คอยู่ผ่าน) → เป็น **redundancy จริง** — บันทึก
+     **layer map** ไว้ในกฎ/helper นั้นว่า mechanism ไหน cover mechanism ไหน (เช่น "`optionProps`'s
+     per-item tabindex เพียงพอเองสำหรับ invariant นี้ — `listBoxProps`'s handler เป็น extra safety net
+     สำหรับเคส nested-tabbable-children ที่ component นี้ไม่มี")
+   - **พฤติกรรมเสียบางส่วนจริง แต่ assertion เดิมไม่ครอบ degradation ระดับนั้น** → เป็น **test อ่อน** —
+     ต้องเพิ่ม/แก้ assertion ให้จับ degradation นั้นได้ (ไม่ใช่แค่เช็คปลายทางที่ยัง "ดูถูก" อยู่ผิวๆ)
+3. **Mutate รวมทุก mechanism พร้อมกัน** เพื่อพิสูจน์ compound failure ด้วย (ทำเพิ่ม ไม่ใช่ทำแทนขั้น 1-2)
+4. **Revert ทุกอย่าง ยืนยันเขียว** ตามขั้นตอนปกติของ Gate Proof Rule ข้อ 3
+
+**"Mutate เดี่ยวไม่แดง" ไม่ใช่ข้อสรุปในตัวมันเอง** — เป็นแค่จุดเริ่มของการสืบต่อว่าเป็น redundancy หรือ
+test อ่อน ห้ามปิดเคสโดยไม่ทำขั้น 2 ให้จบด้วยหลักฐานจากการรันจริง (ไม่ใช่อ่าน node_modules/docs เดา)
+
 ## Definition of Done เพิ่ม (ข้อ 10-11 ต่อจาก Anatomy Contract 9 ข้อ)
 10. **Docs content เขียนตอนสร้าง ไม่ใช่ตอน Phase 6** — `packages/spec/{name}.md` ต้องมี: usage 3-5 บรรทัด, Do/Don't อย่างละ 2-3, a11y notes (keyboard map + SR behavior), props table, related components · Phase 6 มีหน้าที่แค่ประกอบเป็นเว็บ
 11. **Browser-only behavior มี conformance spec** — keyboard nav / focus trap / positioning / non-color cue / hit area ต้องมีไฟล์ใน `packages/conformance/specs/` และรันเขียว
