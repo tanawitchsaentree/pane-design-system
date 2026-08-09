@@ -3,8 +3,9 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
-import type { Selection } from '@react-types/shared';
+import type { Key } from '@react-types/shared';
 import { Listbox } from './Listbox';
+import { FormField } from '../FormField/FormField';
 
 // Honesty Rule (component-engineer.md): jsdom has no real layout/scroll, so it cannot prove
 // roving-tabindex-after-Arrow-key, Home/End jump, typeahead, or scroll-into-view — those are
@@ -60,14 +61,14 @@ describe('Listbox', () => {
   });
 
   it('works as an uncontrolled listbox via defaultSelectedKeys', () => {
-    render(<BasicListbox defaultSelectedKeys={['Banana']} />);
+    render(<BasicListbox defaultSelectedKeys={new Set(['Banana'])} />);
     expect(screen.getByRole('option', { name: 'Apple' })).toHaveAttribute('aria-selected', 'false');
     expect(screen.getByRole('option', { name: 'Banana' })).toHaveAttribute('aria-selected', 'true');
   });
 
   it('works as a controlled listbox via selectedKeys+onSelectionChange, syncing aria-selected on click', async () => {
     function Controlled() {
-      const [selected, setSelected] = useState<Selection>(new Set(['Apple']));
+      const [selected, setSelected] = useState<ReadonlySet<Key>>(new Set(['Apple']));
       return (
         <Listbox aria-label="Fruit" selectedKeys={selected} onSelectionChange={setSelected}>
           {items.map((fruit) => (
@@ -134,8 +135,47 @@ describe('Listbox', () => {
   });
 
   it('has no axe violations in multiple-selection mode with a selection present', async () => {
-    const { container } = render(<BasicListbox selectionMode="multiple" defaultSelectedKeys={['Apple', 'Cherry']} />);
+    const { container } = render(
+      <BasicListbox selectionMode="multiple" defaultSelectedKeys={new Set(['Apple', 'Cherry'])} />,
+    );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+
+  it('onSelectionChange always hands back a real Set, never the string "all"', async () => {
+    // Real-browser Mod+A select-all is proven in w5-listbox.spec.ts (jsdom cannot dispatch a
+    // keyboard event useSelectableCollection reacts to the same way a live browser does). What
+    // jsdom CAN prove is that normalizeSelection() runs on every call, not just the 'all' case —
+    // selecting a single option here exercises the exact same code path Mod+A hits internally.
+    const onSelectionChange = vi.fn();
+    render(
+      <Listbox aria-label="Fruit" selectionMode="multiple" onSelectionChange={onSelectionChange}>
+        {items.map((fruit) => (
+          <Listbox.Item key={fruit}>{fruit}</Listbox.Item>
+        ))}
+      </Listbox>,
+    );
+    await userEvent.click(screen.getByRole('option', { name: 'Apple' }));
+    expect(onSelectionChange).toHaveBeenCalledTimes(1);
+    const received = onSelectionChange.mock.calls[0][0];
+    expect(received).toBeInstanceOf(Set);
+    expect(received.has('Apple')).toBe(true);
+  });
+
+  it('does not require aria-label when nested inside FormField (FormField supplies aria-labelledby)', () => {
+    render(
+      <FormField label="Favorite fruit">
+        <Listbox>
+          {items.map((fruit) => (
+            <Listbox.Item key={fruit}>{fruit}</Listbox.Item>
+          ))}
+        </Listbox>
+      </FormField>,
+    );
+    // getByRole with { name } asserts the accessible name resolves to exactly this string — if
+    // FormField's aria-labelledby wiring were missing or duplicated, this would either throw
+    // (no accessible name) or resolve to something other than the clean label text.
+    const listbox = screen.getByRole('listbox', { name: 'Favorite fruit' });
+    expect(within(listbox).getAllByRole('option')).toHaveLength(3);
   });
 });

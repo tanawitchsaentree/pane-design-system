@@ -48,6 +48,31 @@
   white-space: nowrap;
 }
 
+/* Listbox.Section — role=presentation wrapper li (React Aria's useListBoxSection wiring, see
+   Listbox.tsx module doc's Anatomy note) */
+.section:not(:first-child) {
+  margin-block-start: var(--ds-space-200);
+}
+
+.sectionHeading {
+  display: block;
+  padding-inline: var(--ds-space-300);
+  padding-block: var(--ds-space-100);
+  color: var(--ds-listbox-section-heading-text);
+  font: var(--ds-text-body-xs);
+  font-weight: var(--ds-font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-letter-spacing-wide);
+}
+
+.sectionGroup {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 /* hover — non-shadow cue: overlay wash (braun-flat rule 4), same token Button already uses */
 .option:not([data-disabled]):hover {
   background-color: var(--ds-listbox-option-bg-hover);

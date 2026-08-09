@@ -102,6 +102,47 @@ test('Listbox: selectionMode="multiple" — เลือกหลาย option �
   await expect(apple).toHaveAttribute('aria-selected', 'true');
 });
 
+test('Listbox: Mod+A เลือกทุก option จริง (React Aria built-in select-all, ค่าที่มาจาก "all" ของ Selection type)', async ({ page }) => {
+  // API review item 4: ยืนยันว่า 'all' เป็น use case จริง (ไม่ใช่ dead code ที่ตัดทิ้งได้) ก่อนตัดสิน
+  // ว่า normalizeSelection() ควรมีอยู่แทนการลบ 'all' ออกจาก public API เฉยๆ
+  await page.goto(story('selection-listbox--multiple'));
+  const options = page.getByRole('option');
+  await options.first().focus();
+  await page.keyboard.press('Control+a');
+  const states = await options.evaluateAll((els) => els.map((el) => el.getAttribute('aria-selected')));
+  expect(states.every((s) => s === 'true'), 'Mod+A ต้องเลือกทุก option จริง').toBe(true);
+});
+
+test('Listbox: ใน FormField ไม่ต้องมี aria-label — accessible name มาจาก FormField เดียว ไม่ซ้ำ (API review item 2)', async ({ page }) => {
+  await page.goto(story('selection-listbox--in-form-field'));
+  const listbox = page.getByRole('listbox');
+  // getByRole ด้วย exact name ยืนยันว่า accessible name resolve ตรงกับ label เป๊ะๆ (ไม่มีคำซ้ำ เช่น
+  // "Favorite fruit Favorite fruit" ที่จะเกิดถ้า aria-label และ aria-labelledby ชนกันแบบผิด)
+  await expect(listbox).toHaveAccessibleName('Favorite fruit');
+  // ยืนยันเพิ่มว่า element ที่ผูก accessible name คือ label เดียวจริงๆ ไม่ใช่ label + helper/อื่นถูกต่อกัน
+  const labelledbyId = await listbox.getAttribute('aria-labelledby');
+  expect(labelledbyId, 'FormField ต้อง wire aria-labelledby ให้ Listbox จริง (ไม่ใช่ปล่อยให้ไม่มี accessible name เลย)').toBeTruthy();
+  // useId() generates ids like ":r0:" ที่มี ":" ซึ่งเป็น illegal character ใน CSS id selector ธรรมดา
+  // — ใช้ page.locator('[id="..."]') attribute selector แทน #id เพื่อไม่ต้อง escape เอง
+  const labelElements = await page.locator(`[id="${labelledbyId}"]`).count();
+  expect(labelElements, 'aria-labelledby ต้องชี้ไปที่ element เดียว ไม่ใช่หลาย id ที่ต่อกันเป็น double-announce').toBe(1);
+});
+
+test('Listbox.Section: role=group + aria-labelledby ชี้หัวข้อ section ถูกต้อง (API review item 3)', async ({ page }) => {
+  await page.goto(story('selection-listbox--with-sections'));
+  const groups = page.getByRole('group');
+  await expect(groups).toHaveCount(2);
+  const citrusGroup = page.getByRole('group', { name: 'Citrus' });
+  const stoneFruitGroup = page.getByRole('group', { name: 'Stone fruit' });
+  await expect(citrusGroup.getByRole('option')).toHaveCount(2);
+  await expect(stoneFruitGroup.getByRole('option')).toHaveCount(2);
+  // heading เองต้อง role=presentation (ARIA ห้าม heading เป็น direct child ของ listbox ตรงๆ ตามที่
+  // useListBoxSection คอมเมนต์ไว้ในซอร์ส — ต้องซ่อนจาก AT แล้วใช้แค่เป็น visual label ผ่าน
+  // aria-labelledby ของ group เท่านั้น)
+  const headings = page.locator('[role="presentation"]');
+  await expect(headings.first()).toBeVisible();
+});
+
 // --- Gate Proof (ds-conventions/SKILL.md) — mutate ทุก helper ที่ import มาแล้ว confirm ว่าแดงได้
 // จริงก่อนถือว่า helper เหล่านี้ใช้งานได้ ผลการ mutate-confirm-revert (รันมือ ไม่ใช่ automated เพราะ
 // ต้อง mutate โค้ด component จริงชั่วคราว) บันทึกไว้ที่นี่เพื่อ reproduce ได้รอบหน้า:
@@ -175,3 +216,15 @@ test('Listbox: selectionMode="multiple" — เลือกหลาย option �
 //    บางส่วนแต่ assertion จับไม่ได้ (= test อ่อน, ต้องเพิ่ม assertion) — "ไม่แดงตอน mutate เดี่ยว" ไม่ใช่
 //    ข้อสรุปที่ปลอดภัยจะปิดเคสได้เองโดยไม่ตรวจ ดู ds-conventions/SKILL.md Gate Proof Rule (compound
 //    invariant clause) สำหรับกฎเวอร์ชันทั่วไป
+// 8. Mod+A select-all test — mutate ไม่จำเป็นเพราะ test นี้พิสูจน์ "'all' เป็น use case จริง" (item 4
+//    ของ API review) ไม่ใช่พิสูจน์ regression-catch ของ helper ใหม่ — ถ้าอยาก gate-proof จริง mutate
+//    วิธีคือลบ `disallowSelectAll` default (React Aria's เอง ไม่ใช่โค้ดเรา) ซึ่งไม่ใช่โค้ดที่ระบบนี้
+//    control ได้ — ข้ามตาม Gate Proof Rule scope (กฎบังคับกับ helper/lint rule ที่เราเขียน ไม่ใช่ทุก
+//    assertion ที่อ้างอิง engine behavior โดยตรง)
+// 9. FormField integration test — mutate จริง: ลบ `'aria-labelledby': labelId` ออกจาก
+//    `FormField.tsx`'s `cloneElement` ชั่วคราว -> รันเทสต์ -> แดงจริง (`toHaveAccessibleName` ได้ "" ว่าง
+//    เพราะ `<ul role=listbox>` ไม่ใช่ labelable element, `htmlFor`/`id` เพียงอย่างเดียวไม่พอ) -> คืนกลับ
+//    -> เขียวอีกครั้ง (ยืนยันแล้ว)
+// 10. Listbox.Section test — mutate จริง: ลบ `{...groupProps}` ออกจาก section's `<ul>` ใน
+//    `Listbox.tsx` ชั่วคราว -> รันเทสต์ -> แดงจริง (`getByRole('group')` เจอ 0 element เพราะไม่มี
+//    `role="group"` เหลืออยู่เลย) -> คืนกลับ -> เขียวอีกครั้ง (ยืนยันแล้ว)

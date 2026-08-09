@@ -36,7 +36,18 @@ export interface FormFieldProps extends Omit<ComponentPropsWithoutRef<'div'>, 'c
  * mark `"use client"` where real state/hooks are involved — `useId` qualifies).
  * Anatomy: root `div` -> `Label` -> the cloned control -> optional `HelperText`.
  * A11y (the part this component exists to get right automatically):
- * - control gets `id={fieldId}` so `Label htmlFor` resolves without the caller wiring it by hand.
+ * - control gets `id={fieldId}` so `Label htmlFor` resolves without the caller wiring it by hand
+ *   — this alone is sufficient for native labelable elements (`<input>`, `<textarea>`, a real
+ *   `<select>`, `<button>`) per the HTML labelable-elements list.
+ * - control ALSO gets `aria-labelledby` pointing at `Label`'s own `id` (`${fieldId}-label`) —
+ *   added for W5 Collection-family controls (`Listbox` and its siblings render `<ul role=
+ *   listbox>`, which is NOT a labelable element, so `htmlFor`/`id` pairing alone gives it no
+ *   accessible name at all). This does not double-announce anything for the native controls that
+ *   already worked via `htmlFor`: `aria-labelledby` takes precedence in accessible-name
+ *   computation and points at the exact same text `Label` renders, so the announced name is
+ *   identical either way — verified in `packages/conformance/specs/w5-listbox.spec.ts`'s
+ *   `FormField integration` test (asserts the accessible name is computed exactly once, not
+ *   twice, when both wirings are present on a `Listbox` child).
  * - control gets `aria-describedby={helperId}` whenever `helperText` is provided, so assistive
  *   tech announces the helper/error copy right after the field's name/value — the single most
  *   commonly-missed a11y wire-up in hand-built forms.
@@ -49,6 +60,7 @@ export const FormField = forwardRef<ElementRef<'div'>, FormFieldProps>(function 
 ) {
   const generatedId = useId();
   const fieldId = id ?? generatedId;
+  const labelId = `${fieldId}-label`;
   const helperId = helperText ? `${fieldId}-helper` : undefined;
   const classes = className ? `${styles.field} ${className}` : styles.field;
 
@@ -59,12 +71,13 @@ export const FormField = forwardRef<ElementRef<'div'>, FormFieldProps>(function 
         invalid,
         'aria-invalid': invalid ? 'true' : undefined,
         'aria-describedby': helperId,
+        'aria-labelledby': labelId,
       } as Record<string, unknown>)
     : children;
 
   return (
     <div ref={ref} className={classes} {...rest}>
-      <Label htmlFor={fieldId} required={required}>
+      <Label id={labelId} htmlFor={fieldId} required={required}>
         {label}
       </Label>
       {control}
