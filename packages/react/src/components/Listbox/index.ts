@@ -1,2 +1,2 @@
 export { Listbox } from './Listbox';
-export type { ListboxProps } from './Listbox';
+export type { ListboxProps, Key } from './Listbox';

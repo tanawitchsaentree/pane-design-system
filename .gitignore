@@ -6,3 +6,4 @@ packages/*/dist/
 apps/storybook/storybook-static/
 packages/conformance/test-results/
 packages/conformance/playwright-report/
+*.tsbuildinfo

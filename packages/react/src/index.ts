@@ -192,7 +192,7 @@ export type { SnackbarOptions } from './components/Snackbar';
 // built on React Aria instead of Radix (Radix has no standalone listbox primitive).
 
 export { Listbox } from './components/Listbox';
-export type { ListboxProps } from './components/Listbox';
+export type { ListboxProps, Key } from './components/Listbox';
 
 // RadioCards (D-023: native <input type=radio> grouped by `name`, no Radix/React Aria — a radio
 // group's roving focus/Arrow-key cycling is native browser behavior, same reasoning as Radio.tsx)
