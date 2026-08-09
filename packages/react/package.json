@@ -21,7 +21,9 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "!src/**/*.test.tsx",
+    "!src/**/*.stories.tsx"
   ],
   "sideEffects": [
     "**/*.css"
@@ -31,7 +33,9 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint:no-hardcode": "node ../../tooling/no-hardcode-lint.mjs"
+    "lint:no-hardcode": "cd ../.. && node tooling/no-hardcode-lint.mjs",
+    "pack-verify": "node ../../tooling/pack-verify.mjs",
+    "prepublishOnly": "pnpm run lint:no-hardcode && pnpm run typecheck && pnpm run test && pnpm run build && pnpm run pack-verify"
   },
   "peerDependencies": {
     "react": "^18.3.1 || ^19.0.0",

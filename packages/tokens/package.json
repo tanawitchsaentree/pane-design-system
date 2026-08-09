@@ -31,7 +31,9 @@
   ],
   "scripts": {
     "build": "node ./scripts/build.mjs",
-    "clean": "rm -rf build"
+    "clean": "rm -rf build",
+    "pack-verify": "node ../../tooling/pack-verify.mjs",
+    "prepublishOnly": "pnpm run build && pnpm run pack-verify"
   },
   "devDependencies": {
     "style-dictionary": "^4.4.0"
