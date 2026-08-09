@@ -5,6 +5,24 @@ description: มาตรฐานกลางของ design system นี้ 
 
 # DS Conventions
 
+## Rigor Tiers (ORDERS C1 — เลิกทำทุก component เท่ากัน)
+> ที่มา: user สั่งให้ลดต้นทุนการผลิต 3-5 เท่าหลัง Wave 5 — Anatomy Contract 9 ข้อ + full QA gate ทุกตัว
+> เท่ากันไม่ว่าจะเป็น `Spacer` (ไม่มี behavior อะไรเลย) หรือ `Listbox` (React Aria + roving focus +
+> ARIA pattern เต็ม) เป็นการเผา token ผิดที่ — component ที่ไม่มีอะไรให้พังไม่ควรผ่าน pipeline
+> เดียวกับตัวที่พังได้หลายมิติ
+
+| Tier | ตัวอย่าง | ต้องมี | ไม่ต้องมี |
+|---|---|---|---|
+| **T1 static** | Spacer, Divider, VisuallyHidden, Center, AspectRatio, Skeleton, Badge | lint, tsc, story, spec doc, contrast check | conformance spec, Gate Proof, QA รันซ้ำ (diff-review พอ) |
+| **T2 interactive** | Button, Input, Card, Alert, Avatar, Link | + unit test (interaction + axe), QA review **diff** ไม่ใช่รันซ้ำทั้งชุด | Gate Proof mutation, conformance spec (ยกเว้นมี hover-only cue ที่ forced-colors ต้อง verify) |
+| **T3 keyboard/focus** | Listbox, Select, Combobox, Menu, Dialog, Drawer | ทุกอย่าง + conformance (Playwright) + Gate Proof (mutation เดี่ยว+รวม ตาม Compound Invariant Clause) | — (ครบทุกข้อ ไม่มีข้อยกเว้น) |
+
+**เกณฑ์ตัดสิน tier (T1↔T3 ตามที่ user กำหนดไว้ตรงๆ — T1↔T2 boundary เป็นส่วนที่ขาด ต้องเติมเองให้ชัดก่อนใช้จริง เขียนไว้ตรงนี้เพื่อไม่ให้ agent แต่ละตัวตีความเองคนละแบบ):**
+- **T1 vs สูงกว่า:** component มี interactivity จริงไหม (มี `onClick`/`onChange`/state ที่เปลี่ยนตาม user action) — **ไม่มีเลย = T1** (ต่อให้มี `:hover` ใน CSS ก็นับเป็น decorative ไม่ใช่ interactivity ถ้าไม่ได้ผูกกับ prop/state อะไร)
+- **T2 vs T3:** ถามคำถามนี้ — component มี **focus management** (focus trap, focus restore) / **keyboard nav ที่เกินกว่า native Tab** (arrow-key, roving tabindex, typeahead) / **overlay หรือ portal** / **state ที่ซับซ้อนพอจนต้องมี ARIA live region หรือ state machine** ข้อใดข้อหนึ่งไหม → **มีอย่างใดอย่างหนึ่ง = T3** ทันที (ไม่ต้องมีครบทุกข้อ) · **ไม่มีเลยแต่ผ่านเกณฑ์ T1 ไม่ได้ (มี interactivity จริง) = T2** — ตัวอย่าง: Button มี `onClick`+states แต่ keyboard behavior ทั้งหมดมาจาก native `<button>` เปล่าๆ ไม่มี roving/overlay → T2 · Listbox มี roving tabindex+typeahead จาก React Aria → T3 ทันทีแม้จะไม่มี overlay ของตัวเอง
+- **เมื่อไม่แน่ใจ:** เลือก tier สูงกว่า ไม่ใช่ต่ำกว่า (ผิดพลาดด้านเข้มงวดเกินไป ปลอดภัยกว่าหลวมเกินไป)
+- **Component ที่ QA เจอ finding จริงระหว่าง diff-review (T1/T2)** ต้อง escalate เป็นรันซ้ำเต็มรอบทันที ไม่ใช่แก้แล้วถือว่าจบ — diff-review คือการประหยัดต้นทุนสำหรับ component ที่ "ไม่ค่อยพัง" ไม่ใช่ใบอนุญาตให้ปิดตาข้าม finding ที่เจอจริง
+
 ## Anatomy Contract — Definition of Done ของทุก component (ครบ 9 ข้อเท่านั้นถึงนับว่าเสร็จ)
 1. Anatomy: ชิ้นส่วนภายในมีชื่อครบ
 2. Variants ประกาศครบ (เช่น Button: solid/outline/ghost/link × primary/neutral/danger)
@@ -78,7 +96,7 @@ test อ่อน ห้ามปิดเคสโดยไม่ทำขั�
 
 ## Definition of Done เพิ่ม (ข้อ 10-11 ต่อจาก Anatomy Contract 9 ข้อ)
 10. **Docs content เขียนตอนสร้าง ไม่ใช่ตอน Phase 6** — `packages/spec/{name}.md` ต้องมี: usage 3-5 บรรทัด, Do/Don't อย่างละ 2-3, a11y notes (keyboard map + SR behavior), props table, related components · Phase 6 มีหน้าที่แค่ประกอบเป็นเว็บ
-11. **Browser-only behavior มี conformance spec** — keyboard nav / focus trap / positioning / non-color cue / hit area ต้องมีไฟล์ใน `packages/conformance/specs/` และรันเขียว
+11. **Browser-only behavior มี conformance spec** — keyboard nav / focus trap / positioning / non-color cue / hit area ต้องมีไฟล์ใน `packages/conformance/specs/` และรันเขียว (ข้อนี้ใช้กับ T2/T3 เท่านั้นตาม Rigor Tiers ด้านบน — T1 component ไม่มี browser-only behavior ให้ทดสอบตั้งแต่แรกโดยนิยาม ไม่ใช่ได้รับการยกเว้น)
 
 ## Exception Policy
 ค่าที่ตกเกณฑ์แต่จะยอมรับ ต้องขึ้นทะเบียน `system/EXCEPTIONS.md` (E-xxx) พร้อมขอบเขตที่แคบที่สุด · System Sheet ต้องแสดง "AA · {n} exception" ห้ามประกาศ AA ลอยๆ

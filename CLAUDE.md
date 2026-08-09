@@ -27,7 +27,7 @@ Blueprint ฉบับเต็ม: `docs/BLUEPRINT.md` (อ่านเมื�
 | 0 Intake | `intake` | `system/reports/extraction-*.md` | vibe หรือเป๊ะ / ref ไหนเป็นหลัก |
 | 1 Foundations | `foundation-inference` | ข้อเสนอ scales ทีละเรื่อง | lock ทุกเรื่อง (7-8 รอบ) |
 | 2 Tokens | `token-architect` | `packages/tokens/` DTCG 3 ชั้น + build | review token preview |
-| 3-5 Components | skill `production-run` (waves) | component ครบ contract ทีละ wave | BATCH API REVIEW หัว wave + อนุมัติท้าย wave |
+| 3-5 Components | skill `production-run` (waves) | component ครบ contract ทีละ wave | BATCH API REVIEW หัว wave เดียว (ORDERS C4 — เลิก checkpoint ท้าย wave, ยกเว้นแม่แบบ pattern ใหม่ที่มี Template Checkpoint ของตัวเอง) |
 | 6 Publish | `docs-publisher` | docs site, Storybook, npm | ชื่อ package/scope |
 
 ## การใช้ Subagents
