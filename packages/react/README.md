@@ -52,16 +52,17 @@ Every form control follows the same controlled/uncontrolled duality as its nativ
 
 **Selection (partial)** — `Listbox`, `RadioCards`, `Rating`
 
-44 named exports in total. Every one has passed this system's full accessibility gate: real-browser keyboard/focus tests (not just jsdom), a non-color cue for every state that isn't conveyed by color alone, forced-colors mode support, and WCAG AA contrast verified against the actual built token values.
+**Data Display (partial)** — `Card`, `Alert`, `Table`, `Stat` — pulled forward ahead of catalog order because a real page (`examples/demo-app`) needed `Card` within one build; `Table` here is basic (no sorting/filtering/virtualization — that's `DataGrid`, planned for v1.0 on top of TanStack Table/Virtual).
+
+48 named exports in total. Every one has passed this system's accessibility gate, scaled to how much rigor the component actually needs: real-browser keyboard/focus tests for anything with focus management or keyboard navigation beyond native Tab, a non-color cue for every state that isn't conveyed by color alone, forced-colors mode support, and WCAG AA contrast verified against the actual built token values.
 
 ## What's NOT in v0.1 yet
 
 - **Select, Combobox, MultiSelect, TagInput, Menu/Dropdown, ContextMenu** — the rest of the Selection wave; in progress
-- **Card, Alert, Table** — planned for v0.2
-- **Navigation** (Tabs, Breadcrumbs, Pagination, NavMenu) and richer **data display** (Table sorting/filtering, Timeline, Stat) — planned for v0.3
+- **Navigation** (Tabs, Breadcrumbs, Pagination, NavMenu) and the rest of **data display** (List, DescriptionList, Timeline, Tag/Chip, EmptyState, Progress, Meter) and **advanced input** (Slider, FileUpload, ColorPicker, etc.) — planned for v0.3
 - **X-class components** (DataGrid, Charts, DatePicker, RichText editor) — planned for v1.0, each wrapping a proven headless engine rather than being hand-built
 
-See the repo's roadmap for the full S → M → L → XL plan.
+See `docs/ROADMAP.md` for the full S → M → L → XL plan.
 
 ## Peer dependencies
 
