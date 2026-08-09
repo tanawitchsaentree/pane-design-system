@@ -14,6 +14,9 @@
 //   (verified: `padding-inline-start: 24px` เคยผ่าน "✓ clean" ตอนนี้ถูกจับแล้ว, สแกนทั้งระบบ
 //   197 ไฟล์ไม่มี false positive ใหม่จากการแก้นี้ — โค้ดจริงทุกตัวใช้ var(--ds-*) อยู่แล้ว)
 // ใช้: node tooling/no-hardcode-lint.mjs [files...]
+// ⚠ Gate Proof Rule (ds-conventions/SKILL.md): ถ้าแก้ RULES/regex/heuristic ใดในไฟล์นี้ ต้องเพิ่ม
+//   case ใน tooling/no-hardcode-lint.selftest.mjs ที่ mutate ให้ผิดจริงแล้ว confirm ว่าแดง ก่อน
+//   ถือว่าใช้งานได้ — รัน `node tooling/no-hardcode-lint.selftest.mjs` ให้ผ่านทุกครั้งที่แก้ไฟล์นี้
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, extname } from 'node:path';
 

@@ -36,3 +36,4 @@ tools: Read, Glob, Grep, Bash
 10. **Honesty audit** — grep หา "verified|ตรวจแล้ว|ทำงานถูกต้อง" ในคอมเมนต์/docs ทุกคำต้องชี้ไปที่ test ที่ทำให้แดงได้จริง · ที่เหลือต้องเป็น `UNVERIFIED:`
 11. **Browser-only behavior** — component ที่มี keyboard nav / focus trap / positioning ต้องมี spec ใน `packages/conformance` และรันเขียว ไม่ใช่แค่ jsdom test ผ่าน
 12. **Exception check** — ถ้าจะยอมรับค่าที่ตกเกณฑ์ ต้องขึ้นทะเบียนใน `system/EXCEPTIONS.md` (เลข E-xxx + เกณฑ์ที่แคบที่สุดที่ทำให้ยอมรับได้ + ห้ามอ้างซ้ำข้ามเคส) ห้ามยอมรับเงียบๆ
+13. **Gate Proof (เมื่อมีการแก้ `tooling/no-hardcode-lint.mjs` หรือ `packages/conformance/specs/_helpers.ts`/`_contrast.ts`):** ต้องรัน `node tooling/no-hardcode-lint.selftest.mjs` (หรือ self-test ที่เทียบเท่าของ conformance helper ที่แก้) ให้ผ่านก่อน — ถ้าเพิ่ม rule ใหม่/แก้ regex แล้วไม่มี case ทดสอบใน self-test = FAIL ทันที (ดู Gate Proof Rule ใน ds-conventions/SKILL.md — no-hardcode-lint มีรูสองรอบมาแล้วเพราะไม่มีขั้นตอนนี้)

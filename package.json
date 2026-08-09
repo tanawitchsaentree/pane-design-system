@@ -8,7 +8,9 @@
     "build": "turbo run build",
     "tokens:build": "pnpm --filter @dial/tokens build",
     "storybook": "pnpm --filter storybook storybook",
-    "build-storybook": "pnpm --filter storybook build-storybook"
+    "build-storybook": "pnpm --filter storybook build-storybook",
+    "lint": "node tooling/no-hardcode-lint.mjs",
+    "lint:selftest": "node tooling/no-hardcode-lint.selftest.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.62.1",
