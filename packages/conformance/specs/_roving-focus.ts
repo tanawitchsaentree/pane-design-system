@@ -1,11 +1,22 @@
 import { expect, type Page, type Locator } from '@playwright/test';
 
 // Roving Focus Pattern helpers — role="option" (Listbox family: Listbox, Select, Combobox,
-// MultiSelect, RadioCards, TagInput). ห้ามก๊อปไฟล์นี้ไปเขียนใหม่ที่ component อื่น — import ตรงๆ
-// เสมอ ดู packages/conformance/specs/_patterns/roving-focus.md สำหรับเหตุผลและ ARIA contract เต็ม
+// MultiSelect, TagInput's suggestion popup). ห้ามก๊อปไฟล์นี้ไปเขียนใหม่ที่ component อื่น — import
+// ตรงๆ เสมอ ดู packages/conformance/specs/_patterns/roving-focus.md สำหรับเหตุผลและ ARIA contract
+// เต็ม
 //
 // Menu/Dropdown, ContextMenu (role="menuitem") ใช้ behavior คนละสัญญา (Enter ปิดเมนูทันที,
 // ไม่มี aria-selected ค้าง) — ห้ามใช้ helper พวกนี้กับ menuitem-pattern เด็ดขาด ดู README เดียวกัน
+//
+// RadioCards ไม่ได้อยู่ใน "Listbox family" นี้ (แก้ตาม D-023 ที่ lock หลังไฟล์นี้เขียนขึ้นครั้งแรก —
+// คอมเมนต์เดิมพา RadioCards ไว้ผิดกลุ่ม): มันเป็น native `<input type=radio>` grouped by `name`
+// (role="radio", ไม่ใช่ role="option") — roving tabindex/Arrow-key เป็น browser native behavior
+// ล้วนๆ ไม่ใช่ React Aria's `useSelectableCollection` ที่ set `tabindex` DOM attribute ต่อ item
+// อย่างที่ Listbox family ทำ (verified ด้วยการเปิดเบราว์เซอร์จริงตอนสร้าง RadioCards: native radio
+// ไม่ตั้ง `tabindex` attribute ให้ item ไหนเลย ตลอดทั้งก่อน/หลัง focus/Arrow — ต่างจาก Listbox ที่
+// `expectRovingTabindex` เช็ค attribute นั้นได้จริง) — RadioCards มี conformance spec ของตัวเอง
+// (`w5-radiocards.spec.ts`) ที่ assert พฤติกรรมด้วย `document.activeElement`/`checked` โดยตรง
+// ไม่ import helper จากไฟล์นี้
 
 /** roving tabindex: มีแค่ 1 item ที่ tabindex="0" ในแต่ละเวลา ตัวอื่น tabindex="-1" ทั้งหมด */
 export async function expectRovingTabindex(page: Page, items: Locator) {

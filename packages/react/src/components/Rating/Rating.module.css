@@ -1,0 +1,103 @@
+/**
+ * Rating — braun-flat.md in full:
+ * - rule 1: no decorative shadow — the outline/filled star swap plus `border.interactive`/
+ *   `role.neutral.solid` color pair are the only definition cues (rating.json contrast
+ *   self-check).
+ * - rule 3 (accent scarcity): selected stars use `role.neutral.solid`, never the scarce brand
+ *   accent — a single Rating routinely shows several selected stars in one view (a 4-star rating
+ *   has 4 filled stars at once), same reasoning as Checkbox/Radio/Switch's checked fill.
+ * - rule 4 (non-color cue): selected vs unselected is a real shape swap (filled `<svg>` shown,
+ *   outline `<svg>` hidden, or vice versa, via `data-state` on `.visual` below) — not a color
+ *   change alone. This is what keeps the two states distinguishable under `forced-colors` mode,
+ *   where `--ds-rating-star-selected`/`--ds-rating-star-unselected` collapse to the same system
+ *   color: the two `<svg>` children still differ structurally (fill-only path vs stroked-only
+ *   path), so the shape itself still reads as "filled" vs "outline" even with color removed.
+ * Native `<input>` is visually hidden by composing the shared `visuallyHidden` clip pattern from
+ * the VisuallyHidden component (same technique as Checkbox/Radio/Switch, D-015/D-016) instead of
+ * duplicating the raw clip CSS.
+ * Hit area: `.star` (the `<label>`, i.e. the real click target — see Checkbox/Radio/Switch's own
+ * `.wrapper` for the identical pattern) has `min-inline-size`/`min-block-size:
+ * var(--ds-size-control-sm)` (40px, D-016's hit-area fix generalized to every selection control
+ * per that decision's own "ทีหลังสร้าง selection control ใหม่...ต้อง apply hit-area pattern
+ * เดียวกันนี้ตั้งแต่แรก" note) — the visible star glyph itself is much smaller
+ * (`size.icon.lg`, 24px) but sits centered inside the 40px click target via flex centering, not
+ * by inflating the glyph itself.
+ */
+.group {
+  display: inline-flex;
+  gap: var(--ds-space-100);
+}
+
+.group[data-disabled] {
+  cursor: var(--ds-cursor-not-allowed);
+}
+
+.star {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-inline-size: var(--ds-size-control-sm);
+  min-block-size: var(--ds-size-control-sm);
+  cursor: var(--ds-cursor-pointer);
+}
+
+.star[data-disabled] {
+  cursor: var(--ds-cursor-not-allowed);
+}
+
+.input {
+  composes: visuallyHidden from '../VisuallyHidden/VisuallyHidden.module.css';
+  position: absolute;
+}
+
+.visual {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--ds-size-icon-lg);
+  block-size: var(--ds-size-icon-lg);
+  color: var(--ds-rating-star-unselected);
+  transition: var(--ds-transition-fast);
+  transition-property: color;
+}
+
+.outline,
+.filled {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+/* default (unselected): outline star shown, filled star hidden — a real shape swap, not color
+   alone (see file-level comment) */
+.filled {
+  display: none;
+}
+
+.visual[data-state='selected'] {
+  color: var(--ds-rating-star-selected);
+}
+.visual[data-state='selected'] .outline {
+  display: none;
+}
+.visual[data-state='selected'] .filled {
+  display: block;
+}
+
+/* hover/focus — non-shadow cue: border-like ring via outline (dedicated focusRing token) plus
+   the shape/color swap above already covers the "preview" affordance itself */
+.input:focus-visible ~ .visual {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+/* disabled — one rule covers both selected/unselected since disabled uses a single flat color
+   for either shape (WCAG contrast minimums are exempt for disabled controls, same exemption
+   input.json/rating.json document) */
+.input:disabled ~ .visual {
+  color: var(--ds-rating-star-disabled);
+}

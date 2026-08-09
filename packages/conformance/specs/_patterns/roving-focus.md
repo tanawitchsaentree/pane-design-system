@@ -2,10 +2,18 @@
 
 > ต้นฉบับของ pattern นี้ — ห้ามก๊อป behavior/test นี้ไปเขียนใหม่ที่ component อื่น
 > **import จริงจาก `../_roving-focus.ts`** เสมอ ไม่ว่าจะเป็น Select, Combobox, MultiSelect,
-> RadioCards, TagInput, หรือตัวไหนก็ตามที่ใช้ pattern นี้ต่อจากนี้ — ที่มา: VisuallyHidden's
+> TagInput's suggestion popup, หรือตัวไหนก็ตามที่ใช้ pattern นี้ต่อจากนี้ — ที่มา: VisuallyHidden's
 > clip-pattern ถูกก๊อปแยกกัน 5 ที่ (Checkbox/Radio/Spinner/Switch) ก่อนแก้เป็น `composes:` ตอน
 > w5-preflight — การเลียนแบบโดยไม่มีต้นฉบับที่ import ได้จริง = drift ทุกครั้งที่มีคนแก้ทีละจุด
 > ไม่พร้อมกัน
+>
+> **แก้ตาม D-023 (lock หลังไฟล์นี้เขียนครั้งแรก):** RadioCards ไม่ใช่สมาชิกของ family นี้ — มันเข้า
+> เกณฑ์ D-023 ข้อ 1 (native `<input type=radio>` grouped by `name` พอเอง) ไม่ใช่ข้อ 3 (React Aria
+> collection stack) เพราะ role คนละอันจริง (`role="radio"` ไม่ใช่ `role="option"`) และ verified
+> ด้วยการเปิดเบราว์เซอร์จริงแล้วว่า native radio ไม่ set `tabindex` DOM attribute ต่อ item เลย (ตัว
+> `expectRovingTabindex` ข้างล่างเช็ค attribute นั้นตรงๆ ซึ่งจะ false-negative ถ้าเอาไปใช้กับ
+> RadioCards) — RadioCards มี conformance spec ของตัวเอง (`w5-radiocards.spec.ts`) ที่ assert
+> `document.activeElement`/`checked` โดยตรง ไม่ import จากไฟล์นี้
 
 ## ทำไมต้องแยกจาก Menu/ContextMenu (role="menuitem")
 

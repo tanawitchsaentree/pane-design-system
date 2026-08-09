@@ -1,0 +1,136 @@
+/**
+ * RadioCards — braun-flat.md in full:
+ * - rule 1: no decorative shadow — `border.hairline`/`border.interactive` give the card definition
+ *   (radioCards.json, D-024-era self-check), exactly like Listbox's option surface.
+ * - rule 3: selected state uses `color.role.neutral.solid` (the same non-scarce role token
+ *   Radio/Checkbox/Switch/Listbox already use for "checked"), NOT the scarce brand accent — a
+ *   card group still shows several cards per view, only one selected at a time.
+ * - rule 4: hover/selected are non-shadow cues (border-width step + border-color swap), and the
+ *   selected state ALSO gets a second non-color cue (the indicator badge fills solid + shows a
+ *   checkmark glyph) so color is never the only signal, per BLUEPRINT §7.
+ * Native `<input>` is visually hidden by composing the shared `visuallyHidden` clip pattern from
+ * the VisuallyHidden component (CSS Modules `composes: ... from`) instead of duplicating the raw
+ * clip CSS — same reuse as Checkbox/Radio/Switch.
+ * Hit area: the ENTIRE card is the click target (native label-wraps-input — clicking anywhere
+ * inside `.card` toggles the input for free, no onClick handler written here) and is sized well
+ * past the D-002/D-016 40px web-first minimum by its own padding/content, but `.card` still
+ * declares an explicit `min-block-size` floor so an unusually sparse card (e.g. icon-only, no
+ * title/description) can never shrink below the platform minimum — same defensive floor
+ * Checkbox/Radio/Switch's `.wrapper` applies (D-016 impact note: apply this pattern to new
+ * selection controls from the start, don't wait for qa-a11y to catch it).
+ */
+.root {
+  display: flex;
+  gap: var(--ds-space-300);
+}
+
+.root[data-orientation='vertical'] {
+  flex-direction: column;
+}
+
+.root[data-orientation='horizontal'] {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  display: inline-flex;
+  flex: 1 1 0%;
+  min-inline-size: var(--ds-size-control-lg);
+  min-block-size: var(--ds-size-control-lg);
+  cursor: var(--ds-cursor-pointer);
+}
+
+.card[data-disabled] {
+  cursor: var(--ds-cursor-not-allowed);
+}
+
+.input {
+  composes: visuallyHidden from '../VisuallyHidden/VisuallyHidden.module.css';
+  position: absolute;
+}
+
+.cardVisual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  inline-size: 100%;
+  padding: var(--ds-space-inset-md);
+  border-style: solid;
+  border-width: var(--ds-border-width-hairline);
+  border-color: var(--ds-radio-cards-card-border-default);
+  border-radius: var(--ds-radius-lg);
+  background-color: var(--ds-radio-cards-card-bg-default);
+  transition: var(--ds-transition-fast);
+  transition-property: border-color, border-width, background-color;
+}
+
+.indicator {
+  position: absolute;
+  inset-block-start: var(--ds-space-inset-md);
+  inset-inline-end: var(--ds-space-inset-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  inline-size: var(--ds-size-icon-lg);
+  block-size: var(--ds-size-icon-lg);
+  border-radius: var(--ds-radius-full);
+  border-style: solid;
+  border-width: var(--ds-border-width-hairline);
+  border-color: var(--ds-radio-cards-indicator-border);
+  background-color: transparent;
+  transition: var(--ds-transition-fast);
+  transition-property: border-color, border-width, background-color;
+}
+
+.checkIcon {
+  inline-size: var(--ds-size-icon-sm);
+  block-size: var(--ds-size-icon-sm);
+  color: var(--ds-radio-cards-indicator-checked-icon);
+}
+
+/* hover — non-shadow cue: border widens on both the card and its indicator (braun-flat rule 4) */
+.card:not([data-disabled]):hover .cardVisual {
+  border-width: var(--ds-border-width-thick);
+  border-color: var(--ds-radio-cards-card-border-hover);
+}
+.card:not([data-disabled]):hover .indicator {
+  border-width: var(--ds-border-width-thick);
+}
+
+/* focus-visible — dedicated focusRing token around the WHOLE card, not a shadow ring */
+.input:focus-visible ~ .cardVisual {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+/* checked — border thickens + darkens to the role token, background settles into the recessed
+   surface step, AND the indicator badge fills solid with a checkmark glyph (second non-color cue,
+   independent of the border/background color change) */
+.input:checked ~ .cardVisual {
+  border-width: var(--ds-border-width-thick);
+  border-color: var(--ds-radio-cards-card-border-checked);
+  background-color: var(--ds-radio-cards-card-bg-checked);
+}
+.input:checked ~ .cardVisual .indicator {
+  border-width: var(--ds-border-width-thick);
+  border-color: var(--ds-radio-cards-indicator-checked-bg);
+  background-color: var(--ds-radio-cards-indicator-checked-bg);
+}
+
+/* disabled */
+.input:disabled ~ .cardVisual {
+  border-color: var(--ds-radio-cards-card-border-disabled);
+}
+.input:disabled ~ .cardVisual .indicator {
+  border-color: var(--ds-radio-cards-indicator-border-disabled);
+}
+.input:disabled:checked ~ .cardVisual .indicator {
+  /* border มาจาก .input:checked ~ .cardVisual .indicator rule (ด้านบน) cascade เข้ามา ไม่ใช่
+   * absent — pattern เดียวกับ Radio.tsx's disabled+checked dot (D-016 QA fix, ดู
+   * w3-forms.spec.ts "...กันบั๊กเปราะจาก rule reorder") guard จริงอยู่ที่
+   * w5-radiocards.spec.ts's เทียบเดียวกัน */
+  background-color: var(--ds-radio-cards-indicator-border-disabled); /* no-hardcode-ok: bg-only ok, border cascades from .input:checked ~ .cardVisual .indicator rule, guarded by w5-radiocards.spec.ts */
+}

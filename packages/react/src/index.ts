@@ -185,10 +185,27 @@ export { useSnackbar } from './components/Snackbar';
 export type { SnackbarOptions } from './components/Snackbar';
 
 // Wave 5 (W5 Selection, D-022): Listbox is the template for the rest of the wave (Select,
-// Combobox, MultiSelect, RadioCards, TagInput reuse its React Aria collection/behavior pattern
-// and its Roving Focus conformance contract — see packages/conformance/specs/_patterns/
-// roving-focus.md). First component in the system built on React Aria instead of Radix (Radix
-// has no standalone listbox primitive).
+// Combobox, MultiSelect, TagInput's suggestion popup reuse its React Aria collection/behavior
+// pattern and its Roving Focus conformance contract — see packages/conformance/specs/_patterns/
+// roving-focus.md — RadioCards/Rating do NOT: D-023 assigns them to native `<input type=radio>`
+// instead, having no React Aria collection underneath at all). First component in the system
+// built on React Aria instead of Radix (Radix has no standalone listbox primitive).
 
 export { Listbox } from './components/Listbox';
 export type { ListboxProps } from './components/Listbox';
+
+// RadioCards (D-023: native <input type=radio> grouped by `name`, no Radix/React Aria — a radio
+// group's roving focus/Arrow-key cycling is native browser behavior, same reasoning as Radio.tsx)
+// (D-024: Standalone Control vocabulary — `value`/`defaultValue`/`onChange`, NOT
+// `selectedKeys`/`onSelectionChange`, since it has one value, not a keyed collection).
+
+export { RadioCards } from './components/RadioCards';
+export type { RadioCardsProps, RadioCardsItemProps } from './components/RadioCards';
+
+// D-023: RadioCards, Rating are Standalone Controls (D-024) built on native `<input
+// type=radio>` grouped by `name` (same technique as Radio/Checkbox/Switch), not on the React
+// Aria collection stack Listbox introduced above — see Rating.tsx's own doc comment for the full
+// engine-choice reasoning.
+
+export { Rating } from './components/Rating';
+export type { RatingProps } from './components/Rating';

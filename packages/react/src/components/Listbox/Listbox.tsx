@@ -141,8 +141,11 @@ export interface ListboxProps {
  * these elements at render time to build the actual option collection that `Listbox` iterates
  * over and `useOption` attaches behavior to. Re-exported under the `Listbox.Item` name (not bare
  * `Item`) so every W5 sibling that reuses this same collection pattern (Select/Combobox/
- * MultiSelect/RadioCards/TagInput) can follow one consistent `<Family.Item>` naming convention
- * instead of everyone importing a bare `Item` from React Aria directly.
+ * MultiSelect/TagInput's suggestion popup — NOT RadioCards, which D-023 assigns to native
+ * `<input type=radio>` instead, having no React Aria collection underneath it at all) can follow
+ * one consistent `<Family.Item>` naming convention instead of everyone importing a bare `Item`
+ * from React Aria directly. (RadioCards still borrows the `<Family.Item>` naming convention for
+ * its own `RadioCards.Item` — just not this file's implementation.)
  */
 interface ListboxItemProps {
   key?: Key;
