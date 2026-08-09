@@ -4,26 +4,22 @@ Each tier below is a real, independently-publishable, independently-useful relea
 
 ## S — v0.1 (current)
 
-**39 components across Wave 1-4, plus 3 of Wave 5's 9 (Listbox, RadioCards, Rating built and QA-passed; Select in progress, not yet counted) = 42/103.**
+**39 components across Wave 1-4, plus 3 of Wave 5's 9 (Listbox, RadioCards, Rating built and QA-passed; Select in progress, not yet counted) + 4 pulled forward from Wave 7 (Card, Alert, Table basic, Stat) = 46/103.**
 
-Layout primitives, core atoms, core form controls, and every web overlay (Dialog, Drawer, Popover, Tooltip, Toast, Snackbar). Enough to build a real settings/profile page today — confirmed directly by `examples/demo-app`, which is also what surfaced this tier's two sharpest gaps:
+Layout primitives, core atoms, core form controls, every web overlay (Dialog, Drawer, Popover, Tooltip, Toast, Snackbar), and — pulled forward out of catalog order specifically because `examples/demo-app` hit the gap within one real page — Card, Alert, Table, and Stat. Two sharpest gaps that surfaced from that same page:
 
-- **No `Card`** (Wave 7) — every grouped section in a real page currently falls back to `Stack` + `Divider`, which reads thin the moment a page needs visual separation stronger than a horizontal rule.
-- **No `Select`** (rest of Wave 5) — `Listbox` had to stand in for a closed dropdown in the demo app, which is visibly the wrong widget for that spot (an always-open list where a single collapsed control belongs).
-
-Both are already scoped into the next tier below, not coincidentally — a real consumer hit them within one page.
+- **No `Card`** — closed. Built with the exact anatomy the demo app needed (header/body/footer, a clickable variant, a media slot), not a guess.
+- **No `Select`** (rest of Wave 5) — `Listbox` still has to stand in for a closed dropdown in the demo app; this is visibly the wrong widget for that spot (an always-open list where a single collapsed control belongs). Still open — the next thing queued.
 
 ## M — v0.2
 
-**+ the rest of Wave 5 Selection (Select, Combobox with merged Autocomplete per D-022, MultiSelect, Menu/Dropdown, ContextMenu, TagInput — 6 more) + the highest-value slice of Wave 7 Data Display (Card, Alert/Banner, Table basic — 3 more) = 51/103.**
+**+ the rest of Wave 5 Selection (Select, Combobox with merged Autocomplete per D-022, MultiSelect, Menu/Dropdown, ContextMenu, TagInput — 6 more) = 52/103.**
 
-This is the tier where "build a real product page" stops requiring a workaround. Select directly closes the demo app's dropdown gap; Card closes the grouping gap. Menu/Dropdown and ContextMenu are `role="menuitem"`-based (D-023: Radix engine, deliberately never sharing a base with the `role="option"` Selection components) and were already flagged in `system/STATE.md` as needing their own `w5-menu-positioning.spec.ts` before the Popover multi-axis-collision TODO can close.
-
-Alert/Banner and a basic (non-virtualized, non-sortable) Table round this out — enough for status messaging and simple tabular display, without pulling in Wave 9's TanStack Table/Virtual dependency yet.
+Card/Alert/Table/Stat moved into S ahead of schedule (see above) once a real page proved they were needed now, not later — this tier's own scope shrinks by exactly that much. What's left here is Select and the rest of the Selection wave. Select directly closes the demo app's dropdown gap. Menu/Dropdown and ContextMenu are `role="menuitem"`-based (D-023: Radix engine, deliberately never sharing a base with the `role="option"` Selection components) and were already flagged in `system/STATE.md` as needing their own `w5-menu-positioning.spec.ts` before the Popover multi-axis-collision TODO can close.
 
 ## L — v0.3
 
-**+ all of Wave 6 Navigation (Tabs, BottomNav, Navbar, Sidebar, Breadcrumb, Pagination, Stepper, SegmentedControl, Accordion, NavigationMenu, Anchor/TOC — 11) + the rest of Wave 7 Data Display (List, DescriptionList, Stat, Timeline, Tag/Chip, EmptyState, Progress, Meter — 8) + all of Wave 8 Advanced Input (Slider, RangeSlider, NumberInput, FileUpload, Dropzone, ColorPicker, Editable, PasswordInput, SearchInput, OTPFlow — 10) = 80/103.**
+**+ all of Wave 6 Navigation (Tabs, BottomNav, Navbar, Sidebar, Breadcrumb, Pagination, Stepper, SegmentedControl, Accordion, NavigationMenu, Anchor/TOC — 11) + the rest of Wave 7 Data Display (List, DescriptionList, Timeline, Tag/Chip, EmptyState, Progress, Meter — 7, since Card/Alert/Table/Stat already shipped in S) + all of Wave 8 Advanced Input (Slider, RangeSlider, NumberInput, FileUpload, Dropzone, ColorPicker, Editable, PasswordInput, SearchInput, OTPFlow — 10) = 80/103.**
 
 This is "build a full app shell" tier: real navigation chrome, richer data display beyond a single table, and the advanced input widgets that show up in settings/checkout/admin flows once the basics are covered. Every one of Wave 8's inputs still follows the same engine rule as everything before it (native where native suffices, a proven headless engine otherwise, never hand-rolled focus/keyboard behavior) — no new architectural exception gets introduced at this tier.
 

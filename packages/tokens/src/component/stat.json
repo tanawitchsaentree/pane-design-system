@@ -1,0 +1,12 @@
+{
+  "$description": "Wave 7 (Data Display) component tokens for Stat. Trend color aliases the ALREADY-locked `color.feedback.*` (D-006, same pairing Toast's success/danger variants use, D-018) — no new hue introduced. `neutral` reuses `color.text.subtle`. These are used as the CSS `color` of the trend row (icon `currentColor` + trend text via the `--ds-text-color-default` override technique HelperText already established for tone-swapping nested Text, see HelperText.module.css) — never a background/fill, so 4.5:1 text contrast is the relevant bar and is already proven by Toast's contrast self-check table (feedback.success/danger clear 4.5:1+ against every surface step in both themes). Self-check for this file's specific consuming surfaces (Stat typically sits directly on `color.surface.canvas`/`color.surface.raised`, same as a dashboard tile): success 4.09-6.47:1, danger 4.46-6.07:1 across light/dark x canvas/raised — see stat.md for the full table.",
+  "stat": {
+    "trend": {
+      "color": {
+        "up": { "$type": "color", "$value": "{color.feedback.success}" },
+        "down": { "$type": "color", "$value": "{color.feedback.danger}" },
+        "neutral": { "$type": "color", "$value": "{color.text.subtle}" }
+      }
+    }
+  }
+}

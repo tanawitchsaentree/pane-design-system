@@ -1,0 +1,22 @@
+{
+  "$description": "Wave 7 (W7 Data Display) component tokens for Table — the basic, non-virtualized, non-sortable native `<table>` (see packages/spec/table.md for the explicit scope split vs W9's DataGrid). D-008: no decorative shadow — `root.border`/`header.borderBottom`/`row.borderBottom` all alias `color.border.hairline`/`hairlineStrong`, the same decorative-divider exemption from the 3:1 UI-boundary minimum that `color.border.hairline` already documents in light.json (a table grid line is a quiet layout divider, not the boundary of a focusable control — contrast with `row.borderSelectedAccent` below, which IS a meaningful-state boundary and gets a token designed to clear 3:1). Row backgrounds reuse existing alpha-wash roles instead of new opaque fills: `row.bgHover` = `color.overlay.hover` (same token Button/Listbox already use for a non-shadow hover cue), `row.bgSelected` = `color.overlay.pressed` (one step darker/stronger than hover, same alpha family so it composes correctly whether or not `striped` is also on — alpha washes layer over any base color, unlike an opaque fill which would fight `row.bgStriped`'s `surface.inset`). `row.borderSelectedAccent` reuses `color.role.neutral.solid` — same accent-scarcity reasoning as checkbox.json/radio.json/switch.json/radioCards.json (D-001/braun-flat rule 3): a table can have many selected rows at once, so the scarce brand accent stays reserved for the single most important primary action per view, not spent here. Contrast: `role.neutral.solid` (light neutral.700 / dark neutral.300) against `surface.raised` measures 8.71:1 (light) / 7.55:1 (dark) — clears the 3:1 non-text/UI-component minimum by a wide margin (same pair RadioCards' checked border already verified). `header.text`/`cell.text` both alias `color.text.default` — header cells are distinguished from body cells by `font-weight: semibold` (a directly-referenced semantic var, not a new component alias, mirroring how Listbox's `.sectionHeading` already references `--ds-font-weight-semibold` directly) and position, never by a separate lighter color — this follows D-005 exactly (hierarchy from weight/position, not font scale/color) rather than the common 'muted gray table header' convention.",
+  "table": {
+    "root": {
+      "border": { "$type": "color", "$value": "{color.border.hairline}" }
+    },
+    "header": {
+      "text": { "$type": "color", "$value": "{color.text.default}" },
+      "borderBottom": { "$type": "color", "$value": "{color.border.hairlineStrong}" }
+    },
+    "row": {
+      "borderBottom": { "$type": "color", "$value": "{color.border.hairline}" },
+      "bgHover": { "$type": "color", "$value": "{color.overlay.hover}" },
+      "bgSelected": { "$type": "color", "$value": "{color.overlay.pressed}" },
+      "bgStriped": { "$type": "color", "$value": "{color.surface.inset}" },
+      "borderSelectedAccent": { "$type": "color", "$value": "{color.role.neutral.solid}" }
+    },
+    "cell": {
+      "text": { "$type": "color", "$value": "{color.text.default}" }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+/**
+ * Alert — Wave 7 Data Display. content.border/content.bodyText + variant.*.accent/bg/titleText
+ * from `alert.json` (self-check table + inherited-E-001 exception in that file's $description).
+ * D-008: no `shadow.elevation.*` here — Alert is a static in-flow block, not a floating layer,
+ * so hairline border does the definition work per braun-flat rule 1, same as Card/Input/Button.
+ * `border-inline-start` accent bar (thicker than the 3 hairline sides) is the primary variant
+ * cue; the per-variant icon glyph (see Alert.tsx's `DEFAULT_ICONS`) is the non-color cue that
+ * keeps variants distinguishable under forced-colors/grayscale, per braun-flat's non-color-cue
+ * rule — verified by design (five different silhouettes), not by CSS alone.
+ */
+.alert {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: var(--ds-space-inline-md);
+  padding: var(--ds-space-inset-md);
+  border-radius: var(--ds-radius-md);
+  border-style: solid;
+  border-width: var(--ds-border-width-hairline);
+  border-color: var(--ds-alert-content-border);
+  border-inline-start-width: var(--ds-border-width-thick);
+  border-inline-start-color: var(--ds-alert-variant-default-accent);
+  background-color: var(--ds-alert-variant-default-bg);
+  color: var(--ds-alert-content-body-text);
+}
+
+.alert[data-variant='success'] {
+  border-inline-start-color: var(--ds-alert-variant-success-accent);
+  background-color: var(--ds-alert-variant-success-bg);
+}
+.alert[data-variant='warning'] {
+  border-inline-start-color: var(--ds-alert-variant-warning-accent);
+  background-color: var(--ds-alert-variant-warning-bg);
+}
+.alert[data-variant='danger'] {
+  border-inline-start-color: var(--ds-alert-variant-danger-accent);
+  background-color: var(--ds-alert-variant-danger-bg);
+}
+.alert[data-variant='info'] {
+  border-inline-start-color: var(--ds-alert-variant-info-accent);
+  background-color: var(--ds-alert-variant-info-bg);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  inline-size: var(--ds-size-icon-md);
+  block-size: var(--ds-size-icon-md);
+  margin-block-start: var(--ds-space-0);
+  color: var(--ds-alert-variant-default-accent);
+}
+.icon > svg {
+  inline-size: 100%;
+  block-size: 100%;
+}
+.alert[data-variant='success'] .icon { color: var(--ds-alert-variant-success-accent); }
+.alert[data-variant='warning'] .icon { color: var(--ds-alert-variant-warning-accent); }
+.alert[data-variant='danger'] .icon { color: var(--ds-alert-variant-danger-accent); }
+.alert[data-variant='info'] .icon { color: var(--ds-alert-variant-info-accent); }
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-stack-sm);
+  min-inline-size: 0;
+}
+
+.title {
+  font: var(--ds-text-heading-sm);
+  color: var(--ds-alert-variant-default-title-text);
+}
+.alert[data-variant='success'] .title { color: var(--ds-alert-variant-success-title-text); }
+.alert[data-variant='warning'] .title { color: var(--ds-alert-variant-warning-title-text); }
+.alert[data-variant='danger'] .title { color: var(--ds-alert-variant-danger-title-text); }
+.alert[data-variant='info'] .title { color: var(--ds-alert-variant-info-title-text); }
+
+.description {
+  font: var(--ds-text-body-sm);
+  color: var(--ds-alert-content-body-text);
+}
+
+.closeButton {
+  align-self: start;
+  margin-block-start: calc(-1 * var(--ds-space-100));
+  margin-inline-end: calc(-1 * var(--ds-space-100));
+}

@@ -1,0 +1,49 @@
+/**
+ * Stat — D-008: no decorative shadow, no border — a Stat tile is plain content, not a raised
+ * surface, so it draws no boundary of its own (a caller wrapping it in a Card/Box supplies any
+ * surface/border it needs). Trend row color reuses the same custom-property override technique
+ * HelperText already established (HelperText.module.css) to tint its nested `Text`: rather than
+ * fighting CSS-module specificity across Stat's and Text's separate stylesheets, `.trendRow`
+ * redefines `--ds-text-color-subtle` for its own subtree, and the nested `Text color="subtle"`
+ * (which always reads that custom property, never a raw value) picks up the overridden color
+ * transparently. The trend icon uses `Icon`'s own `currentColor` default, so setting `color` on
+ * `.trendRow` tints icon + text with a single declaration each — no separate icon color token
+ * needed beyond `stat.json`'s three `trend.color.*` values.
+ */
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-stack-sm);
+}
+
+.label {
+  display: block;
+}
+
+.value {
+  display: block;
+  line-height: var(--ds-line-height-heading);
+}
+
+.trendRow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-inline-sm);
+}
+
+.trendRow[data-direction='up'] {
+  color: var(--ds-stat-trend-color-up);
+  --ds-text-color-subtle: var(--ds-stat-trend-color-up);
+}
+.trendRow[data-direction='down'] {
+  color: var(--ds-stat-trend-color-down);
+  --ds-text-color-subtle: var(--ds-stat-trend-color-down);
+}
+.trendRow[data-direction='neutral'] {
+  color: var(--ds-stat-trend-color-neutral);
+  --ds-text-color-subtle: var(--ds-stat-trend-color-neutral);
+}
+
+.description {
+  display: block;
+}

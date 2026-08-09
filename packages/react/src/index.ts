@@ -209,3 +209,54 @@ export type { RadioCardsProps, RadioCardsItemProps } from './components/RadioCar
 
 export { Rating } from './components/Rating';
 export type { RatingProps } from './components/Rating';
+
+// Wave 7 (W7 Data Display): Table (basic) — plain native <table>/<thead>/<tbody>/<tr>/<th>/<td>,
+// no behavior library (browser gives correct screen reader semantics for free). Deliberately NOT
+// sortable/filterable/virtualized/column-resizable — that scope belongs to W9's DataGrid
+// (TanStack Table + TanStack Virtual), a different component on the other side of the T2/T3 Rigor
+// Tier boundary (see packages/spec/table.md).
+
+export { Table } from './components/Table';
+export type {
+  TableRootProps,
+  TableHeaderProps,
+  TableBodyProps,
+  TableRowProps,
+  TableHeaderCellProps,
+  TableCellProps,
+} from './components/Table';
+
+// Wave 7 (Data Display): Stat. T1 static (re-classified from the batch's default T2 — see
+// Stat.tsx's module doc: no onClick/onChange/user-driven state, so it fails the T1-vs-T2 test in
+// ds-conventions ("ไม่มี interactivity จริงเลย = T1"), same class as Badge/Skeleton, not
+// Button/Card). Reuse Check: composes Text (every text role) + Icon (trend glyph) — no font/SVG
+// sizing re-implemented.
+
+export { Stat } from './components/Stat';
+export type { StatProps, StatTrend, StatTrendDirection } from './components/Stat';
+
+// Wave 7 (Data Display): Alert. T2 (interactive only in the trivial "has a native <button>"
+// sense via its optional dismiss control — no focus trap/roving tabindex/overlay, per
+// ds-conventions Rigor Tiers table), so no conformance spec (Playwright)/Gate Proof mutation is
+// required. Reuse Check: no existing component owned this anatomy — Toast/Snackbar are
+// transient+portal-rendered (wrong shape for a persistent in-flow banner), Badge has no
+// title/description/dismiss slots. Colors are 100% reused from Toast's variant.* (color.feedback.*)
+// and Badge's role.*.subtleBg/subtleText — no new hue introduced (see alert.json's
+// $description for the full contrast self-check table, including one inherited E-001-class
+// exception for the 'default' variant's accent bar, same token+role as Toast's own).
+
+export { Alert } from './components/Alert';
+export type { AlertProps, AlertVariant } from './components/Alert';
+
+// Card — pulled ahead of its catalog wave (see demo-app GAP #1: settings-page sections had no
+// bordered container and fell back to Stack+Divider). T2 (clickable variant borrows 100% of its
+// keyboard/focus behavior from the native <button>/<a> it renders, same as Button/Link — no focus
+// trap/roving tabindex/overlay of its own), so no conformance spec (Playwright)/Gate Proof
+// mutation required. Reuse Check: no existing component owned this anatomy — RadioCards.Item is
+// the closest bordered-clickable-card precedent but is scoped to radio-group selection (D-023),
+// not reusable as a general container; Card.Media reuses AspectRatio (D-012) directly instead of
+// re-implementing ratio math. D-008 note: zero shadow.* tokens in card.json — Card sits in the
+// page flow, it never floats above it, unlike Dialog/Popover/Toast.
+
+export { Card } from './components/Card';
+export type { CardRootProps, CardSectionProps, CardMediaProps } from './components/Card';

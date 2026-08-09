@@ -1,0 +1,90 @@
+/**
+ * Card — braun-flat.md / D-008 in full:
+ * - rule 1: NO decorative shadow anywhere in this file. Card is not a floating layer (contrast
+ *   with Dialog/Popover/Toast, which legitimately use shadow.elevation.* per braun-flat rule 2's
+ *   explicit exception) — definition comes entirely from `border.hairline` + the `surface.raised`
+ *   fill being one step lighter than the page's `surface.canvas` behind it.
+ * - rule 4: hover/active on a clickable card are non-shadow cues (border-color swap to
+ *   `border.interactive` + an alpha overlay wash, the same `overlay.hover`/`overlay.pressed`
+ *   tokens Button's outline/ghost variants already use for their own non-shadow hover/pressed
+ *   cue) — never a shadow "lift".
+ * - focus-visible uses the dedicated focusRing token (color/width/offset), not a shadow ring —
+ *   same mechanism every other interactive component in this system uses.
+ */
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-style: solid;
+  border-width: var(--ds-border-width-hairline);
+  border-color: var(--ds-card-root-border);
+  border-radius: var(--ds-radius-lg);
+  background-color: var(--ds-card-root-bg);
+  color: var(--ds-card-root-text);
+  text-align: start;
+  transition: var(--ds-transition-fast);
+  transition-property: border-color, background-color;
+}
+
+/* Non-clickable Card.Root renders a plain `div` — no reset needed. A clickable Card.Root renders a
+   native `<button>` instead (see Card.tsx's a11y note), which needs its own box-model/typography
+   reset so it reads as "a card that happens to be clickable", not "a button shaped like a card". */
+.card[data-clickable] {
+  inline-size: 100%;
+  font: inherit;
+  color: inherit;
+  cursor: var(--ds-cursor-pointer);
+}
+
+.card[data-clickable]:hover:not(:disabled) {
+  border-color: var(--ds-card-clickable-border-hover);
+  background-color: var(--ds-card-clickable-bg-hover);
+}
+
+.card[data-clickable]:active:not(:disabled) {
+  background-color: var(--ds-card-clickable-bg-active);
+}
+
+.card[data-clickable]:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+.card[data-clickable]:disabled {
+  cursor: var(--ds-cursor-not-allowed);
+  opacity: var(--ds-opacity-60);
+}
+
+.header {
+  padding: var(--ds-space-inset-md);
+  border-block-end-style: solid;
+  border-block-end-width: var(--ds-border-width-hairline);
+  border-block-end-color: var(--ds-card-header-border);
+}
+
+.body {
+  flex: 1 1 auto;
+  padding: var(--ds-space-inset-md);
+}
+
+.footer {
+  padding: var(--ds-space-inset-md);
+  border-block-start-style: solid;
+  border-block-start-width: var(--ds-border-width-hairline);
+  border-block-start-color: var(--ds-card-footer-border);
+  color: var(--ds-card-footer-text);
+}
+
+.media {
+  position: relative;
+  flex: none;
+  inline-size: 100%;
+  background-color: var(--ds-card-media-bg);
+}
+
+.media img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
