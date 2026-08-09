@@ -1,10 +1,11 @@
 /**
  * InputGroup — same token pairing as Input (input.json): recessed `surface.inset` fill +
  * `border.interactive` border on the OUTER group frame.
- * UNVERIFIED: input.json's own description cites specific contrast ratios for this border/bg
- * pairing but no automated test computes or re-checks them (same gap noted in
- * PinInput.module.css) — needs a scripted WCAG contrast-ratio check over built theme CSS, which
- * does not exist yet in this repo.
+ * VERIFIED: input.json's own description cites 3.47:1 (light) / 4.20:1 (dark) for this
+ * border/bg pairing — `packages/conformance/specs/contrast-inputgroup-pininput.spec.ts` computes
+ * the actual WCAG contrast ratio from `getComputedStyle()` on the live outer frame (light +
+ * dark), confirming both numbers and asserting >= 3:1 so a future token edit that regresses this
+ * can no longer pass silently (same gap fixed in PinInput.module.css).
  * To avoid a double border/fill when an `Input`/`Textarea` is nested inside (both
  * read the same `--ds-input-*` custom properties from `input.json`), this component overrides
  * those two custom properties to `transparent` for its descendants — CSS custom properties

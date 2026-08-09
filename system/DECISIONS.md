@@ -152,3 +152,10 @@
 - **เพราะ:** อ้างอิง D-019 ที่ qa-a11y ตัดสินไปแล้ว — entry นี้คือการทำให้ decision เป็นทางการผ่าน EXCEPTIONS registry ตาม governance policy ใหม่ (ไม่ใช่ตัดสินใจใหม่ แค่ formalize สิ่งที่ตัดสินแล้ว)
 - **ตัวเลือกที่ตัดทิ้ง:** แก้ token ให้ผ่าน 3:1 เต็ม (ตัดทิ้งด้วยเหตุผลเดียวกับ D-019 — token ใช้ระดับระบบ แก้จะกระทบ component อื่นที่ผ่าน QA แล้ว)
 - **กระทบ:** เหมือน D-019 — ไม่มี token เปลี่ยน แค่ทำให้ decision นี้ query ได้จาก EXCEPTIONS.md แทนที่จะฝังอยู่ใน DECISIONS.md อย่างเดียว
+
+### D-022: W5 scope — ยุบ Autocomplete เข้า Combobox เป็น mode/prop (ไม่ใช่ component แยก)
+- **วันที่:** 2026-08-09 · **Phase:** 3 (ก่อนเริ่ม Wave 5)
+- **เลือก:** ตัด Autocomplete ออกจาก catalog เป็น component เดี่ยว — รวมเข้า Combobox เป็น prop/mode เดียวกัน (ตาม ARIA spec: combobox + autocomplete คือ pattern เดียวกัน ต่างกันแค่ autocomplete behavior ของ input filtering) · catalog รวมทั้งระบบ 104 → 103
+- **เพราะ:** user ชี้ตรงตาม ARIA Authoring Practices Guide — combobox widget มี `aria-autocomplete` เป็น attribute ของตัวมันเอง (none/list/both) ไม่ใช่ widget คนละตัว ทำแยกกันจะได้ 2 component ที่ API ซ้อนทับ 90% ต่างกันแค่ prop เดียว ตรงกับที่ Reuse Check (component-engineer.md ข้อ 0) ควรจับได้ตั้งแต่แรกถ้าทำ W5 แบบ auto-approve
+- **ตัวเลือกที่ตัดทิ้ง:** ทำ Autocomplete แยกเป็น component อิสระ (ตามที่ catalog เดิมเขียนไว้) — ตัดทิ้งเพราะจะสร้าง pattern drift ทันทีที่ wave นี้เริ่ม (สองตัวที่ทำหน้าที่เดียวกันแต่คนละ API)
+- **กระทบ:** `docs/CATALOG.md` ต้องอัพเดตจำนวนรวม (104→103) และรายชื่อ W5 (10→9 ตัว) · Combobox ต้อง design API ให้รองรับ `autocomplete: 'none'|'list'|'both'` ตั้งแต่ BATCH API REVIEW ของ wave นี้ ไม่ใช่เติมทีหลัง

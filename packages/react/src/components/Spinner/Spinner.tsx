@@ -1,6 +1,7 @@
 import { forwardRef } from 'react';
 import type { ComponentPropsWithoutRef, ElementRef } from 'react';
 import type { IconSizeToken } from '../../types';
+import { VisuallyHidden } from '../VisuallyHidden';
 import styles from './Spinner.module.css';
 
 export interface SpinnerProps extends ComponentPropsWithoutRef<'span'> {
@@ -14,7 +15,9 @@ export interface SpinnerProps extends ComponentPropsWithoutRef<'span'> {
  * Spinner — indeterminate loading indicator (D-009 motion tokens). Purely a CSS animation, no
  * client state — safe to render on the server.
  * Anatomy: single root `span[role="status"]` containing an animated ring + visually-hidden label
- * text (so the accessible name is real text content, not just an attribute, per BLUEPRINT §7).
+ * text (so the accessible name is real text content, not just an attribute, per BLUEPRINT §7) —
+ * the label is rendered via the shared `VisuallyHidden` component (D-012) rather than a
+ * component-local copy of the clip pattern.
  * A11y: `role="status"` + `aria-live="polite"` (implicit via role=status) announces the label
  * once; respects `prefers-reduced-motion` by swapping the spin animation for a pulse.
  */
@@ -26,7 +29,7 @@ export const Spinner = forwardRef<ElementRef<'span'>, SpinnerProps>(function Spi
 
   return (
     <span ref={ref} className={classes} data-size={size} role="status" {...rest}>
-      <span className={styles.visuallyHiddenLabel}>{label}</span>
+      <VisuallyHidden>{label}</VisuallyHidden>
     </span>
   );
 });

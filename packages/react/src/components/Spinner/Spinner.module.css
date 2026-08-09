@@ -2,7 +2,9 @@
  * Spinner — D-009 motion (duration/easing tokens), D-004 icon size scale. No decorative shadow
  * (D-008) — the ring is drawn with a border, one quadrant colored differently to convey rotation.
  * `prefers-reduced-motion` swaps the spin for a slow opacity pulse (still communicates "busy"
- * without motion, per BLUEPRINT accessibility defaults).
+ * without motion, per BLUEPRINT accessibility defaults). The accessible loading label itself is
+ * rendered via the shared `<VisuallyHidden>` component in Spinner.tsx (D-012), not a
+ * component-local clip-pattern class, so there is no `.visuallyHiddenLabel` rule here.
  */
 .spinner {
   display: inline-flex;
@@ -21,19 +23,6 @@
 .spinner[data-size='md'] { inline-size: var(--ds-size-icon-md); block-size: var(--ds-size-icon-md); }
 .spinner[data-size='lg'] { inline-size: var(--ds-size-icon-lg); block-size: var(--ds-size-icon-lg); }
 .spinner[data-size='xl'] { inline-size: var(--ds-size-icon-xl); block-size: var(--ds-size-icon-xl); }
-
-.visuallyHiddenLabel {
-  position: absolute;
-  inline-size: var(--ds-border-width-hairline);
-  block-size: var(--ds-border-width-hairline);
-  padding: 0;
-  margin: calc(-1 * var(--ds-border-width-hairline));
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
-  border-width: 0;
-}
 
 @keyframes ds-spinner-spin {
   from { transform: rotate(0deg); }

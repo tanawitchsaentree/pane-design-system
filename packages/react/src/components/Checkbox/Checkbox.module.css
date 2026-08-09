@@ -3,10 +3,12 @@
  * fill instead of the scarce brand accent (checkbox.json, D-015 contrast self-check + accent
  * scarcity rule 3 — a checkbox list commonly shows several checked items per view). The
  * check/indeterminate glyph is a real SVG shape (not color alone) per BLUEPRINT §7 non-color-cue
- * requirement. Native `<input>` is visually hidden with the standard clip pattern (same technique
- * as VisuallyHidden) rather than `display:none`, so it stays in the accessibility tree and
- * keeps native Tab/Space keyboard behavior (D-015: "verify Tab/Space work from using native input
- * directly").
+ * requirement. Native `<input>` is visually hidden by composing the shared `visuallyHidden` clip
+ * pattern from the VisuallyHidden component (CSS Modules `composes: ... from`, resolved by Vite's
+ * built-in postcss-modules support at build time — verified against a real `vite build`, not just
+ * dev mode) rather than `display:none`, so it stays in the accessibility tree and keeps native
+ * Tab/Space keyboard behavior (D-015: "verify Tab/Space work from using native input directly").
+ * This is the single source of truth for the clip pattern — no raw clip CSS is duplicated here.
  */
 .wrapper {
   position: relative;
@@ -23,16 +25,8 @@
 }
 
 .input {
+  composes: visuallyHidden from '../VisuallyHidden/VisuallyHidden.module.css';
   position: absolute;
-  inline-size: var(--ds-border-width-hairline);
-  block-size: var(--ds-border-width-hairline);
-  padding: 0;
-  margin: calc(-1 * var(--ds-border-width-hairline));
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
-  border-width: 0;
 }
 
 .box {

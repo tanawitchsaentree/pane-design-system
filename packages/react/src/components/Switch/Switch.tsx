@@ -8,7 +8,9 @@ export type SwitchProps = Omit<ComponentPropsWithoutRef<'input'>, 'type' | 'size
  * Switch — native `<input type="checkbox">` with `role="switch"` (the standard ARIA pattern for
  * a toggle backed by a checkbox — same visually-hidden-input + custom-visual technique as
  * Checkbox/Radio, D-015), so it keeps native Tab/Space keyboard behavior for free while
- * announcing as a switch (on/off) instead of a checkbox to assistive tech.
+ * announcing as a switch (on/off) instead of a checkbox to assistive tech. Native `<input>` is
+ * visually hidden by composing the shared `visuallyHidden` clip pattern from the VisuallyHidden
+ * component (CSS Modules `composes: ... from`) instead of duplicating the raw clip CSS.
  * Anatomy: root `label` -> visually-hidden native `input[type=checkbox][role=switch]` -> custom
  * track (`span`) containing a thumb (`span`) whose `inset-inline-start` position physically moves
  * between off/on — a real non-color state cue per BLUEPRINT §7, not just a color swap.

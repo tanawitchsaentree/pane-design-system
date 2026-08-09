@@ -2,7 +2,9 @@
  * Radio — same token pattern as Checkbox (radio.json, D-015 contrast self-check + accent
  * scarcity rule 3): selected dot uses `role.neutral.solid`, not the scarce brand accent. No
  * decorative shadow (braun-flat rule 1). The dot is a real shape (not color alone) per
- * BLUEPRINT §7 non-color-cue requirement.
+ * BLUEPRINT §7 non-color-cue requirement. Native `<input>` is visually hidden by composing the
+ * shared `visuallyHidden` clip pattern from the VisuallyHidden component (CSS Modules
+ * `composes: ... from`) instead of duplicating the raw clip CSS.
  * Forced-colors fix (hardening pass Group C, same class of bug as the Wave 1 Divider regression
  * and the Switch thumb below): the checked dot used `background-color` only, so under
  * `forced-colors: active` it flattened to the same system `Canvas` white as everything else and
@@ -27,16 +29,8 @@
 }
 
 .input {
+  composes: visuallyHidden from '../VisuallyHidden/VisuallyHidden.module.css';
   position: absolute;
-  inline-size: var(--ds-border-width-hairline);
-  block-size: var(--ds-border-width-hairline);
-  padding: 0;
-  margin: calc(-1 * var(--ds-border-width-hairline));
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
-  border-width: 0;
 }
 
 .ring {

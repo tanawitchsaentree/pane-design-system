@@ -12,6 +12,9 @@
  * assertion: `packages/conformance/specs/w3-forms.spec.ts` ("Switch/Radio: checked state มี
  * border จริง") checks `getComputedStyle(thumb).borderWidth > 0` under the `forced-colors`
  * Playwright project and fails if this regresses.
+ * Native `<input>` is visually hidden by composing the shared `visuallyHidden` clip pattern from
+ * the VisuallyHidden component (CSS Modules `composes: ... from`) instead of duplicating the raw
+ * clip CSS.
  */
 .wrapper {
   position: relative;
@@ -28,16 +31,8 @@
 }
 
 .input {
+  composes: visuallyHidden from '../VisuallyHidden/VisuallyHidden.module.css';
   position: absolute;
-  inline-size: var(--ds-border-width-hairline);
-  block-size: var(--ds-border-width-hairline);
-  padding: 0;
-  margin: calc(-1 * var(--ds-border-width-hairline));
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
-  border-width: 0;
 }
 
 .track {
