@@ -2,15 +2,28 @@
   "name": "@dial/tokens",
   "version": "0.1.0",
   "description": "Design tokens for Dial — DTCG JSON source, built with Style Dictionary into CSS vars, Tailwind preset, SCSS, TS types, and JSON.",
-  "license": "UNLICENSED",
-  "main": "./build/json/tokens.json",
-  "types": "./build/ts/tokens.d.ts",
+  "license": "MIT",
+  "keywords": ["design-tokens", "design-system", "dtcg", "style-dictionary"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./build/json/light.json",
+  "types": "./build/ts/light.d.ts",
   "exports": {
-    "./css": "./build/css/variables.css",
+    "./css": "./build/css/light.css",
+    "./css/light": "./build/css/light.css",
+    "./css/dark": "./build/css/dark.css",
+    "./css/light-contrast-more": "./build/css/light-contrast-more.css",
     "./tailwind": "./build/tailwind/preset.cjs",
-    "./scss": "./build/scss/_variables.scss",
-    "./json": "./build/json/tokens.json",
-    "./types": "./build/ts/tokens.d.ts"
+    "./scss": "./build/scss/_light.scss",
+    "./scss/light": "./build/scss/_light.scss",
+    "./scss/dark": "./build/scss/_dark.scss",
+    "./scss/light-contrast-more": "./build/scss/_light-contrast-more.scss",
+    "./json": "./build/json/light.json",
+    "./json/light": "./build/json/light.json",
+    "./json/dark": "./build/json/dark.json",
+    "./json/light-contrast-more": "./build/json/light-contrast-more.json",
+    "./types": "./build/ts/light.d.ts"
   },
   "files": [
     "build",
