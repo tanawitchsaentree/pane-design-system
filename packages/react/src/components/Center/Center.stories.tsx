@@ -11,6 +11,7 @@ export default meta;
 type Story = StoryObj<typeof Center>;
 
 export const Default: Story = {
+  parameters: { docs: { description: { story: 'Centers a single child both horizontally and vertically inside a fixed-height box.' } } },
   render: (args) => (
     <Center {...args} style={{ height: 160, background: 'var(--ds-color-surface-inset)' }}>
       <Box style={{ background: 'var(--ds-color-action-neutral-default)', padding: 16, borderRadius: 8 }}>
@@ -22,6 +23,7 @@ export const Default: Story = {
 
 export const RowOfItems: Story = {
   name: 'Center with row direction + gap',
+  parameters: { docs: { description: { story: 'Centers multiple children in a horizontal row with a gap between them using direction="row" and gap="200".' } } },
   render: (args) => (
     <Center
       {...args}
@@ -36,6 +38,7 @@ export const RowOfItems: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { docs: { description: { story: 'Interactive playground — adjust props via the Controls panel below.' } } },
   render: (args) => (
     <Center {...args} style={{ height: 160, background: 'var(--ds-color-surface-inset)' }}>
       <Box style={{ background: 'var(--ds-color-action-neutral-default)', padding: 16 }}>

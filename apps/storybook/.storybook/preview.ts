@@ -15,6 +15,10 @@ const THEMES = {
 } as const;
 
 const preview: Preview = {
+  // Project-wide autodocs (Storybook 8): every component gets a Docs tab unless its own meta
+  // opts out with `tags: ['!autodocs']` — no per-file `tags: ['autodocs']` needed on 60+ story
+  // files (ORDERS A1).
+  tags: ['autodocs'],
   parameters: {
     controls: {
       matchers: {
@@ -24,7 +28,7 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        order: ['Layout', '*'],
+        order: ['Foundations', 'Layout', 'Atoms', 'Forms', 'Overlays', 'Selection', '*'],
       },
     },
   },

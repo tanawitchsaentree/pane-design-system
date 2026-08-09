@@ -13,6 +13,7 @@ export default meta;
 type Story = StoryObj<typeof Radio>;
 
 export const Default: Story = {
+  parameters: { docs: { description: { story: 'Two radios sharing the same name form a native radio group — arrow-key roving focus between them is native browser behavior, not code in this component.' } } },
   render: () => (
     <div style={{ display: 'flex', gap: 16 }}>
       <Radio aria-label="Option A" name="default-story" value="a" defaultChecked />
@@ -22,6 +23,7 @@ export const Default: Story = {
 };
 
 export const States: Story = {
+  parameters: { docs: { description: { story: 'Unchecked, checked, disabled, and disabled-checked radios (each its own group so states don\'t interact) side by side.' } } },
   render: () => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
       <Radio aria-label="Unchecked" name="states" value="unchecked" />
@@ -33,5 +35,6 @@ export const States: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { docs: { description: { story: 'Interactive playground — adjust props via the Controls panel below.' } } },
   args: { 'aria-label': 'Playground radio', name: 'playground', disabled: false },
 };

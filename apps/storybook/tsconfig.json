@@ -14,5 +14,5 @@
     "resolveJsonModule": true,
     "types": ["vite/client"]
   },
-  "include": [".storybook", "../../packages/react/src"]
+  "include": [".storybook", "src", "../../packages/react/src"]
 }

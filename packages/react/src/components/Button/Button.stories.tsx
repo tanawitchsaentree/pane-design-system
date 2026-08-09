@@ -22,10 +22,12 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
+  parameters: { docs: { description: { story: 'Renders a Button with default variant, intent, and size.' } } },
   args: { children: 'Button' },
 };
 
 export const AllVariantsByIntent: Story = {
+  parameters: { docs: { description: { story: 'Renders the full matrix of every variant (solid/outline/ghost/link) crossed with every action intent token.' } } },
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
       {VARIANTS.map((variant) => (
@@ -42,6 +44,7 @@ export const AllVariantsByIntent: Story = {
 };
 
 export const AllSizes: Story = {
+  parameters: { docs: { description: { story: 'Renders one Button per size token in CONTROL_SIZE_TOKENS side by side.' } } },
   render: () => (
     <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
       {CONTROL_SIZE_TOKENS.map((size) => (
@@ -54,6 +57,7 @@ export const AllSizes: Story = {
 };
 
 export const States: Story = {
+  parameters: { docs: { description: { story: 'Compares default, disabled, and loading states side by side.' } } },
   render: () => (
     <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
       <Button>Default</Button>
@@ -64,6 +68,7 @@ export const States: Story = {
 };
 
 export const WithIcons: Story = {
+  parameters: { docs: { description: { story: 'Shows leftIcon and rightIcon props rendering an arrow glyph before/after the label.' } } },
   render: () => (
     <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
       <Button leftIcon={<span aria-hidden>&#8592;</span>}>Back</Button>
@@ -74,6 +79,7 @@ export const WithIcons: Story = {
 
 export const AsChildAnchor: Story = {
   name: 'asChild renders <a> instead of <button>',
+  parameters: { docs: { description: { story: 'Uses asChild to merge Button styling onto a child <a> element instead of rendering its own <button>.' } } },
   render: (args) => (
     <Button {...args} asChild>
       <a href="#anatomy">I am an anchor styled as a button</a>
@@ -82,6 +88,7 @@ export const AsChildAnchor: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { docs: { description: { story: 'Interactive playground — adjust props via the Controls panel below.' } } },
   args: {
     variant: 'solid',
     intent: 'neutral',

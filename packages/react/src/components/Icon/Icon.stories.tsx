@@ -21,10 +21,12 @@ export default meta;
 type Story = StoryObj<typeof Icon>;
 
 export const Default: Story = {
+  parameters: { docs: { description: { story: 'Renders a star SVG wrapped in Icon with default size and color.' } } },
   args: { children: <Star /> },
 };
 
 export const AllSizes: Story = {
+  parameters: { docs: { description: { story: 'Renders one Icon per size token in ICON_SIZE_TOKENS side by side.' } } },
   render: () => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
       {ICON_SIZE_TOKENS.map((size) => (
@@ -38,15 +40,18 @@ export const AllSizes: Story = {
 
 export const Decorative: Story = {
   name: 'Decorative (default — aria-hidden)',
+  parameters: { docs: { description: { story: 'Renders the Icon with no label, so it is aria-hidden and skipped by assistive tech.' } } },
   args: { children: <Star /> },
 };
 
 export const Labeled: Story = {
   name: 'Meaningful (label -> role=img)',
+  parameters: { docs: { description: { story: 'Passes a label prop ("Star rating") so the Icon gets role="img" and is announced to assistive tech.' } } },
   args: { label: 'Star rating', children: <Star /> },
 };
 
 export const Playground: Story = {
+  parameters: { docs: { description: { story: 'Interactive playground — adjust props via the Controls panel below.' } } },
   args: {
     size: 'md',
     color: 'currentColor',

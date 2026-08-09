@@ -13,9 +13,12 @@ const meta: Meta<typeof Spinner> = {
 export default meta;
 type Story = StoryObj<typeof Spinner>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  parameters: { docs: { description: { story: 'Renders a Spinner with default size and label.' } } },
+};
 
 export const AllSizes: Story = {
+  parameters: { docs: { description: { story: 'Renders one Spinner per size token in ICON_SIZE_TOKENS side by side.' } } },
   render: () => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
       {ICON_SIZE_TOKENS.map((size) => (
@@ -26,9 +29,11 @@ export const AllSizes: Story = {
 };
 
 export const CustomLabel: Story = {
+  parameters: { docs: { description: { story: 'Sets a custom accessible label ("Saving changes") instead of the default loading label.' } } },
   args: { label: 'Saving changes' },
 };
 
 export const Playground: Story = {
+  parameters: { docs: { description: { story: 'Interactive playground — adjust props via the Controls panel below.' } } },
   args: { size: 'md', label: 'Loading' },
 };

@@ -36,6 +36,11 @@ function TriggerButtons() {
 }
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Triggers a toast in each of the four semantic variants (default/success/warning/danger).' },
+    },
+  },
   render: () => (
     <ToastProvider>
       <TriggerButtons />
@@ -59,6 +64,11 @@ function StackingDemo() {
 }
 
 export const Stacking: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Fires three toasts in a row — unlike Snackbar, Toast stacks multiple simultaneously-visible notifications.' },
+    },
+  },
   render: () => (
     <ToastProvider>
       <StackingDemo />
@@ -87,6 +97,11 @@ function WithActionDemo() {
 }
 
 export const WithAction: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Shows a toast with a secondary action (Undo) next to the close button, using ToastAction.' },
+    },
+  },
   render: () => (
     <ToastProvider>
       <WithActionDemo />
@@ -104,6 +119,11 @@ function PersistentDemo() {
 }
 
 export const PersistentUntilDismissed: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Passes duration: Infinity so the toast never auto-dismisses — only the close button removes it.' },
+    },
+  },
   render: () => (
     <ToastProvider>
       <PersistentDemo />
@@ -112,6 +132,11 @@ export const PersistentUntilDismissed: Story = {
 };
 
 export const Placements: Story = {
+  parameters: {
+    docs: {
+      description: { story: "Renders the toast viewport in the top-left corner via ToastProvider's placement prop, instead of the bottom-right default." },
+    },
+  },
   render: function PlacementsStory() {
     return (
       <ToastProvider placement="top-left">
@@ -122,6 +147,11 @@ export const Placements: Story = {
 };
 
 export const Playground: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Interactive playground — adjust props via the Controls panel below.' },
+    },
+  },
   render: () => (
     <ToastProvider duration={5000} placement="bottom-right">
       <TriggerButtons />

@@ -22,6 +22,7 @@ type Story = StoryObj<typeof Spacer>;
 
 export const GrowToFill: Story = {
   name: 'No size — grows to fill (flex: 1)',
+  parameters: { docs: { description: { story: 'With no size prop, the Spacer grows (flex: 1) to push "Left" and "Right" apart to the edges of the row.' } } },
   render: () => (
     <Flex direction="row" style={{ width: 320, background: 'var(--ds-color-surface-inset)' }}>
       {chip('Left')}
@@ -33,6 +34,7 @@ export const GrowToFill: Story = {
 
 export const FixedSize: Story = {
   name: 'Fixed size (space.400)',
+  parameters: { docs: { description: { story: 'With size="400", the Spacer inserts a fixed-width gap between "A" and "B" instead of growing.' } } },
   args: { size: '400' },
   render: (args) => (
     <Flex direction="row" style={{ background: 'var(--ds-color-surface-inset)' }}>
@@ -44,6 +46,7 @@ export const FixedSize: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { docs: { description: { story: 'Interactive playground — adjust props via the Controls panel below.' } } },
   args: { size: undefined },
   render: (args) => (
     <Flex direction="row" style={{ width: 320, background: 'var(--ds-color-surface-inset)' }}>

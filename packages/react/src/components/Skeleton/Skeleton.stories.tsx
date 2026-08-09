@@ -12,9 +12,12 @@ const meta: Meta<typeof Skeleton> = {
 export default meta;
 type Story = StoryObj<typeof Skeleton>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  parameters: { docs: { description: { story: 'Renders a Skeleton with default props (no variant specified).' } } },
+};
 
 export const AllVariants: Story = {
+  parameters: { docs: { description: { story: 'Stacks the "text", "circle", and "rect" variant shapes vertically for comparison.' } } },
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 240 }}>
       <Skeleton variant="text" />
@@ -26,6 +29,7 @@ export const AllVariants: Story = {
 
 export const CardPlaceholder: Story = {
   name: 'Composed card placeholder',
+  parameters: { docs: { description: { story: 'Composes a circle avatar skeleton with two text-line skeletons of different widths to mimic a loading card.' } } },
   render: () => (
     <div style={{ display: 'flex', gap: 12, alignItems: 'center', maxWidth: 320 }}>
       <Skeleton variant="circle" />
@@ -38,5 +42,6 @@ export const CardPlaceholder: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { docs: { description: { story: 'Interactive playground — adjust props via the Controls panel below.' } } },
   args: { variant: 'text' },
 };

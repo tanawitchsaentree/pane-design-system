@@ -16,6 +16,11 @@ function BasicDemo() {
 }
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Fires a single-line snackbar message via useSnackbar().show(), reusing Toast\'s ToastProvider/viewport underneath.' },
+    },
+  },
   render: () => (
     <ToastProvider>
       <BasicDemo />
@@ -40,6 +45,13 @@ function SingleInstanceDemo() {
 
 export const SingleInstanceOnly: Story = {
   name: 'Single-instance (unlike Toast, does not stack)',
+  parameters: {
+    docs: {
+      description: {
+        story: 'Firing show() repeatedly dismisses the previous snackbar first, so at most one is ever visible — unlike Toast, which stacks.',
+      },
+    },
+  },
   render: () => (
     <ToastProvider>
       <SingleInstanceDemo />
@@ -68,6 +80,11 @@ function WithActionDemo() {
 }
 
 export const WithAction: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Shows a snackbar with a secondary action (Undo) alongside the message, using ToastAction.' },
+    },
+  },
   render: () => (
     <ToastProvider>
       <WithActionDemo />
@@ -88,6 +105,13 @@ function HideDemo() {
 }
 
 export const ProgrammaticHide: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Shows a persistent snackbar (duration: Infinity) and dismisses it early via hide() instead of waiting for auto-dismiss.',
+      },
+    },
+  },
   render: () => (
     <ToastProvider>
       <HideDemo />
@@ -96,6 +120,11 @@ export const ProgrammaticHide: Story = {
 };
 
 export const Playground: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Interactive playground — adjust props via the Controls panel below.' },
+    },
+  },
   render: () => (
     <ToastProvider placement="bottom-left">
       <BasicDemo />

@@ -13,6 +13,11 @@ export default meta;
 type Story = StoryObj;
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Basic panel that slides in from the right edge (the default placement) with a title and description.' },
+    },
+  },
   render: () => (
     <Drawer.Root>
       <Drawer.Trigger asChild>
@@ -27,6 +32,11 @@ export const Default: Story = {
 };
 
 export const Placements: Story = {
+  parameters: {
+    docs: {
+      description: { story: "Compares the left/right/bottom edges the panel can slide in from via Drawer.Content's placement prop." },
+    },
+  },
   render: () => (
     <div style={{ display: 'flex', gap: 12 }}>
       {PLACEMENTS.map((placement) => (
@@ -46,6 +56,13 @@ export const Placements: Story = {
 
 export const BottomSheetRole: Story = {
   name: 'placement=bottom (D-017: former Sheet/BottomSheet role)',
+  parameters: {
+    docs: {
+      description: {
+        story: 'placement="bottom" renders a full-width, height-capped panel anchored to the bottom edge — the former Sheet/BottomSheet role folded into Drawer.',
+      },
+    },
+  },
   render: () => (
     <Drawer.Root>
       <Drawer.Trigger asChild>
@@ -60,6 +77,18 @@ export const BottomSheetRole: Story = {
 };
 
 export const ControlledOpenClose: Story = {
+  // Excluded from the autodocs page: `defaultOpen` renders the panel via Radix's portal to
+  // `document.body`, which visually breaks out of its story box and covers every other story
+  // stacked on the same docs page (autodocs renders all stories inline, not each in its own
+  // iframe) — still a normal sidebar story, just not part of the generated Docs tab.
+  tags: ['!autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        story: 'Starts open via defaultOpen (uncontrolled) — Escape or a backdrop click closes it.',
+      },
+    },
+  },
   render: () => (
     <Drawer.Root defaultOpen>
       <Drawer.Trigger asChild>
@@ -73,6 +102,11 @@ export const ControlledOpenClose: Story = {
 };
 
 export const Playground: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Interactive playground — adjust props via the Controls panel below.' },
+    },
+  },
   render: () => (
     <Drawer.Root>
       <Drawer.Trigger asChild>

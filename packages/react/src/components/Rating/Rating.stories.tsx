@@ -16,18 +16,38 @@ export default meta;
 type Story = StoryObj<typeof Rating>;
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Basic star rating: a row of native radio inputs sharing one name, visually replaced by star icons, starting with no star selected.' },
+    },
+  },
   args: { 'aria-label': 'Rate this product', name: 'default-story' },
 };
 
 export const WithDefaultValue: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Uncontrolled rating that starts with 3 stars pre-selected via defaultValue.' },
+    },
+  },
   args: { 'aria-label': 'Rate this product', name: 'default-value-story', defaultValue: 3 },
 };
 
 export const MaxTen: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'max=10 renders ten stars instead of the default five, with 6 pre-selected.' },
+    },
+  },
   args: { 'aria-label': 'Rate out of 10', name: 'max-ten-story', max: 10, defaultValue: 6 },
 };
 
 export const ReadOnlyAverage: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'readOnly displays a fixed value (e.g. an average from other people) while staying focusable — clicks and arrow/space keys are prevented from changing the selection.' },
+    },
+  },
   args: {
     'aria-label': 'Average rating from other people',
     name: 'readonly-story',
@@ -37,6 +57,11 @@ export const ReadOnlyAverage: Story = {
 };
 
 export const States: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Side-by-side comparison of every visual state: empty, partially selected, disabled empty, disabled selected, and read-only.' },
+    },
+  },
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
       <Rating aria-label="Empty" name="states-empty" />
@@ -49,6 +74,11 @@ export const States: Story = {
 };
 
 export const Controlled: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Controlled rating — verifies value/onChange drives the selected star count the same way defaultValue does uncontrolled.' },
+    },
+  },
   render: () => {
     function ControlledRating() {
       const [value, setValue] = useState(2);
@@ -64,5 +94,10 @@ export const Controlled: Story = {
 };
 
 export const Playground: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Interactive playground — adjust props via the Controls panel below.' },
+    },
+  },
   args: { 'aria-label': 'Playground rating', name: 'playground', max: 5, disabled: false, readOnly: false },
 };

@@ -19,10 +19,12 @@ export default meta;
 type Story = StoryObj<typeof Badge>;
 
 export const Default: Story = {
+  parameters: { docs: { description: { story: 'Renders a Badge with default variant and color settings.' } } },
   args: { children: 'Badge' },
 };
 
 export const AllVariantsByColor: Story = {
+  parameters: { docs: { description: { story: 'Renders the full matrix of every variant (solid/subtle/outline) crossed with every color role token.' } } },
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
       {VARIANTS.map((variant) => (
@@ -39,6 +41,7 @@ export const AllVariantsByColor: Story = {
 };
 
 export const Sizes: Story = {
+  parameters: { docs: { description: { story: 'Compares the "sm" and "md" size options side by side.' } } },
   render: () => (
     <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
       <Badge size="sm">sm</Badge>
@@ -48,6 +51,7 @@ export const Sizes: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { docs: { description: { story: 'Interactive playground — adjust props via the Controls panel below.' } } },
   args: {
     variant: 'subtle',
     color: 'neutral',

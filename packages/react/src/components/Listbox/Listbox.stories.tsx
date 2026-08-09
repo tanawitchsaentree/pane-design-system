@@ -16,6 +16,11 @@ const FRUITS = ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry'];
 
 export const Default: Story = {
   args: { 'aria-label': 'Fruit' },
+  parameters: {
+    docs: {
+      description: { story: 'Basic single-select listbox with keyboard navigation, typeahead, and roving tabindex, all from React Aria.' },
+    },
+  },
   render: (args) => (
     <Listbox {...args}>
       {FRUITS.map((fruit) => (
@@ -27,6 +32,11 @@ export const Default: Story = {
 
 export const WithDefaultSelection: Story = {
   args: { 'aria-label': 'Fruit', defaultSelectedKeys: new Set(['Banana']) },
+  parameters: {
+    docs: {
+      description: { story: 'Uncontrolled listbox that starts with one option pre-selected via defaultSelectedKeys.' },
+    },
+  },
   render: (args) => (
     <Listbox {...args}>
       {FRUITS.map((fruit) => (
@@ -42,6 +52,11 @@ export const Multiple: Story = {
     selectionMode: 'multiple',
     defaultSelectedKeys: new Set(['Apple', 'Cherry']),
   },
+  parameters: {
+    docs: {
+      description: { story: 'selectionMode="multiple" allows more than one option checked at once (also reachable via Mod+A select-all).' },
+    },
+  },
   render: (args) => (
     <Listbox {...args}>
       {FRUITS.map((fruit) => (
@@ -53,6 +68,11 @@ export const Multiple: Story = {
 
 export const WithDisabledOption: Story = {
   args: { 'aria-label': 'Fruit', disabledKeys: ['Cherry'] },
+  parameters: {
+    docs: {
+      description: { story: 'Marks one option unfocusable/unselectable via disabledKeys, the only way to disable an option (no per-item isDisabled prop).' },
+    },
+  },
   render: (args) => (
     <Listbox {...args}>
       {FRUITS.map((fruit) => (
@@ -69,6 +89,11 @@ export const WithDisabledOption: Story = {
  * item 4 — no branch needed here even though `Mod+A` (select-all) is reachable in `Multiple`.
  */
 export const Controlled: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Controlled selection — verifies selectedKeys/onSelectionChange drives the UI the same way defaultSelectedKeys does uncontrolled.' },
+    },
+  },
   render: () => {
     function ControlledListbox() {
       const [selected, setSelected] = useState<ReadonlySet<Key>>(new Set(['Apple']));
@@ -99,6 +124,11 @@ const ALPHABET_OPTIONS = [
  * (every option starts with a distinct letter, so pressing e.g. "z" has exactly one match).
  */
 export const Scrollable: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Many options inside the fixed-height root, proving scroll-into-view (an option starts off-screen) and typeahead (every option starts with a distinct letter).' },
+    },
+  },
   args: { 'aria-label': 'Fruit (long list)' },
   render: (args) => (
     <Listbox {...args}>
@@ -115,6 +145,11 @@ export const Scrollable: Story = {
  * than landing on the next option (which would mean roving tabindex is broken).
  */
 export const TabOut: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'A real focusable element after the listbox, proving Tab leaves the widget entirely rather than landing on the next option (roving tabindex contract).' },
+    },
+  },
   args: { 'aria-label': 'Fruit' },
   render: (args) => (
     <>
@@ -134,6 +169,11 @@ export const TabOut: Story = {
  * with `aria-labelledby` pointing at that heading (see Listbox.tsx module doc's Anatomy note).
  */
 export const WithSections: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Grouped options via Listbox.Section, each with its own heading and role="group" + aria-labelledby pointing at that heading.' },
+    },
+  },
   args: { 'aria-label': 'Fruit (grouped)' },
   render: (args) => (
     <Listbox {...args}>
@@ -157,6 +197,11 @@ export const WithSections: Story = {
  * exactly once, not duplicated.
  */
 export const InFormField: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Listbox nested inside FormField needs no aria-label: FormField clones its child with aria-labelledby pointing at its own generated label id.' },
+    },
+  },
   render: () => (
     <FormField label="Favorite fruit">
       <Listbox>
@@ -169,6 +214,11 @@ export const InFormField: Story = {
 };
 
 export const Playground: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Interactive playground — adjust props via the Controls panel below.' },
+    },
+  },
   args: { 'aria-label': 'Playground listbox', selectionMode: 'single' },
   render: (args) => (
     <Listbox {...args}>

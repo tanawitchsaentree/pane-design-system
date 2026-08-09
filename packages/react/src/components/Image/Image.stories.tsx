@@ -18,16 +18,19 @@ export default meta;
 type Story = StoryObj<typeof Image>;
 
 export const Default: Story = {
+  parameters: { docs: { description: { story: 'Renders an Image with a src and alt but no ratio or radius applied.' } } },
   args: { src: SAMPLE_SRC, alt: 'Sample landscape photo' },
 };
 
 export const WithAspectRatio: Story = {
   name: 'ratio="video" (uses AspectRatio internally)',
+  parameters: { docs: { description: { story: 'Sets ratio="video" so the Image is cropped to 16:9 using the AspectRatio component internally.' } } },
   args: { src: SAMPLE_SRC, alt: 'Sample landscape photo', ratio: 'video' },
   decorators: [(Story) => <div style={{ maxWidth: 320 }}><Story /></div>],
 };
 
 export const AllRatios: Story = {
+  parameters: { docs: { description: { story: 'Renders the same photo at every ratio preset (square/video/photo/portrait/golden) side by side.' } } },
   render: () => (
     <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', maxWidth: 640 }}>
       {(['square', 'video', 'photo', 'portrait', 'golden'] as const).map((ratio) => (
@@ -40,9 +43,11 @@ export const AllRatios: Story = {
 };
 
 export const RoundedCorners: Story = {
+  parameters: { docs: { description: { story: 'Applies the "xl" radius token to round the Image corners.' } } },
   args: { src: SAMPLE_SRC, alt: 'Sample landscape photo', radius: 'xl' },
 };
 
 export const Playground: Story = {
+  parameters: { docs: { description: { story: 'Interactive playground — adjust props via the Controls panel below.' } } },
   args: { src: SAMPLE_SRC, alt: 'Playground image', fit: 'cover' },
 };

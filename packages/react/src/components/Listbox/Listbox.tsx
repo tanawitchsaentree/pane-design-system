@@ -283,8 +283,12 @@ function normalizeSelection(
 }
 
 /**
- * Listbox — see module doc above for the full behavior/a11y contract. `selectionMode` defaults to
- * `'single'`.
+ * Listbox — an ARIA `listbox` (`role="listbox"` + `role="option"` children) with real keyboard
+ * navigation, typeahead, and roving tabindex, all borrowed from React Aria rather than
+ * hand-written. `selectionMode` defaults to `'single'`. See this file's top-of-file comment for
+ * the full behavior/a11y contract (React Aria hook wiring, the D-024 Collection Vocabulary
+ * translation, and the `'all'`-selection normalization) and `packages/spec/listbox.md` for the
+ * user-facing usage guide.
  */
 export const Listbox = forwardRef<HTMLUListElement, ListboxProps>(function Listbox(
   {

@@ -17,10 +17,12 @@ export default meta;
 type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
+  parameters: { docs: { description: { story: 'Plain native input at the default md size with a placeholder and accessible label.' } } },
   args: { 'aria-label': 'Name', placeholder: 'Jane Doe' },
 };
 
 export const AllSizes: Story = {
+  parameters: { docs: { description: { story: 'Renders every size.control.* t-shirt size (sm/md/lg) stacked for visual comparison.' } } },
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
       {CONTROL_SIZE_TOKENS.map((size) => (
@@ -31,6 +33,7 @@ export const AllSizes: Story = {
 };
 
 export const States: Story = {
+  parameters: { docs: { description: { story: 'Default, invalid (aria-invalid + danger border), disabled (native disabled attribute), and read-only (stays focusable, unlike disabled) side by side.' } } },
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8, maxWidth: 320 }}>
       <Input aria-label="Default" placeholder="Default" />
@@ -42,6 +45,7 @@ export const States: Story = {
 };
 
 export const WithAdornments: Story = {
+  parameters: { docs: { description: { story: 'Demonstrates leftElement/rightElement decorative slots inside the same bordered box (a "$" prefix and a "kg" suffix).' } } },
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8, maxWidth: 320 }}>
       <Input aria-label="Price" leftElement={<span>$</span>} placeholder="0.00" />
@@ -51,5 +55,6 @@ export const WithAdornments: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { docs: { description: { story: 'Interactive playground — adjust props via the Controls panel below.' } } },
   args: { 'aria-label': 'Playground', placeholder: 'Type here', size: 'md', invalid: false, disabled: false, readOnly: false },
 };

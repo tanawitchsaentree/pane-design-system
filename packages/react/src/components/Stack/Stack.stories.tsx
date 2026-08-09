@@ -24,21 +24,25 @@ export default meta;
 type Story = StoryObj<typeof Stack>;
 
 export const Vertical: Story = {
+  parameters: { docs: { description: { story: 'Stacks three items vertically with direction="vertical" and gap="300".' } } },
   args: { direction: 'vertical', gap: '300' },
   render: (args) => <Stack {...args}>{['One', 'Two', 'Three'].map(block)}</Stack>,
 };
 
 export const Horizontal: Story = {
+  parameters: { docs: { description: { story: 'Stacks three items horizontally with direction="horizontal" and gap="200".' } } },
   args: { direction: 'horizontal', gap: '200' },
   render: (args) => <Stack {...args}>{['One', 'Two', 'Three'].map(block)}</Stack>,
 };
 
 export const DefaultGap: Story = {
   name: 'Default gap (space.300)',
+  parameters: { docs: { description: { story: 'Renders with no gap prop set, showing the default gap value of space.300.' } } },
   render: () => <Stack>{['One', 'Two'].map(block)}</Stack>,
 };
 
 export const Playground: Story = {
+  parameters: { docs: { description: { story: 'Interactive playground — adjust props via the Controls panel below.' } } },
   args: { direction: 'vertical', gap: '300' },
   render: (args) => <Stack {...args}>{['One', 'Two', 'Three'].map(block)}</Stack>,
 };

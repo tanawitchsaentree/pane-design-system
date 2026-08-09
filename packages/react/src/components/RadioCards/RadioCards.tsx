@@ -178,7 +178,10 @@ interface RadioCardsComponent {
 }
 
 /**
- * RadioCards — see module doc above for the full behavior/a11y contract.
+ * RadioCards — a "choose 1 of N" control where the whole card is the click target, backed by a
+ * native `<input type="radio">` group sharing one `name` (D-023) — no Radix/React Aria roving-
+ * tabindex code, the browser already does this for free. See this file's top-of-file comment for
+ * the full behavior/a11y contract and `packages/spec/radioCards.md` for the usage guide.
  */
 export const RadioCards = forwardRef<ElementRef<'div'>, RadioCardsProps>(function RadioCards(
   {

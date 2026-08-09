@@ -3,8 +3,13 @@ import type { StorybookConfig } from '@storybook/react-vite';
 
 // Storybook = workshop (BLUEPRINT §"Stack"), separate from apps/docs (docs site).
 // Stories are read directly from the real @dial/react package source — nothing is copied.
+// Foundations/* pages (Colors, Typography, Spacing, Motion — ORDERS A3) live under
+// apps/storybook/src/foundations since they document tokens, not a @dial/react component.
 const config: StorybookConfig = {
-  stories: ['../../../packages/react/src/**/*.stories.@(ts|tsx)'],
+  stories: [
+    '../../../packages/react/src/**/*.stories.@(ts|tsx)',
+    '../src/foundations/**/*.stories.@(ts|tsx)',
+  ],
   addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],
   framework: {
     name: '@storybook/react-vite',

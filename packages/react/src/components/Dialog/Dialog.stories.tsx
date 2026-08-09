@@ -13,6 +13,13 @@ export default meta;
 type Story = StoryObj;
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Basic modal dialog with a title, description, and body content; closes via Escape, backdrop click, or the close button.',
+      },
+    },
+  },
   render: () => (
     <Dialog.Root>
       <Dialog.Trigger asChild>
@@ -28,6 +35,11 @@ export const Default: Story = {
 };
 
 export const Sizes: Story = {
+  parameters: {
+    docs: {
+      description: { story: "Compares the sm/md/lg/full width presets available via Dialog.Content's size prop." },
+    },
+  },
   render: () => (
     <div style={{ display: 'flex', gap: 12 }}>
       {SIZES.map((size) => (
@@ -47,6 +59,13 @@ export const Sizes: Story = {
 
 export const WithoutCloseButton: Story = {
   name: 'Without close button (explicit action buttons instead)',
+  parameters: {
+    docs: {
+      description: {
+        story: 'Hides the built-in close button (hideCloseButton) and relies on explicit Cancel/Delete action buttons instead.',
+      },
+    },
+  },
   render: () => (
     <Dialog.Root>
       <Dialog.Trigger asChild>
@@ -69,6 +88,18 @@ export const WithoutCloseButton: Story = {
 };
 
 export const ControlledOpenClose: Story = {
+  // Excluded from the autodocs page: `defaultOpen` renders the modal via Radix's portal to
+  // `document.body`, which visually breaks out of its story box and covers every other story
+  // stacked on the same docs page (autodocs renders all stories inline, not each in its own
+  // iframe) — still a normal sidebar story, just not part of the generated Docs tab.
+  tags: ['!autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        story: 'Starts open via defaultOpen (uncontrolled) — Escape or a backdrop click closes it.',
+      },
+    },
+  },
   render: () => (
     <Dialog.Root defaultOpen>
       <Dialog.Trigger asChild>
@@ -83,6 +114,11 @@ export const ControlledOpenClose: Story = {
 };
 
 export const Playground: Story = {
+  parameters: {
+    docs: {
+      description: { story: 'Interactive playground — adjust props via the Controls panel below.' },
+    },
+  },
   render: () => (
     <Dialog.Root>
       <Dialog.Trigger asChild>
