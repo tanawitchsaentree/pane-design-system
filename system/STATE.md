@@ -8,20 +8,21 @@
   - Spec docs review (สุ่ม 12/39 ไฟล์): ผ่านหมด ไม่มีการเดา ตรงกับ source code จริงทุกจุดรวมตัวเลข contrast ละเอียดใน toast.md — ไม่ต้องแก้
   - Cross-file consistency review: เจอ STATE.md เก่าขัดกันเอง (บอกว่า "ยังไม่ commit" ทั้งที่ commit ไปแล้ว) + README.md ค้างเลข 108 เดิม (ต้อง 103) + STATE.md เก่าอ้าง "12 spec files" ผิด (จริง 9 `.spec.ts` + 2 helper) — **แก้ไฟล์นี้ (STATE.md) ให้ตรงแล้ว, README.md ยังไม่แก้ (ดูงานถัดไป)**
 - **งานถัดไป:**
-  1. แก้ `README.md:43` เลข "108 ตัว/10 waves" → "103 ตัว" (ค้างจาก D-017/D-022 — ยังไม่ทำ)
-  2. **เริ่ม W5 ที่ Listbox ก่อนเสมอ** — เขียน `packages/conformance/specs/_patterns/roving-focus.md` (หรือ shared helper จริงที่ import ใช้ร่วมกัน ไม่ใช่ให้ตัวอื่นก๊อป) เป็นแม่แบบก่อนตัดโค้ด Listbox — บทเรียนจาก VisuallyHidden clip-pattern ที่ก๊อปกัน 5 ที่: การเลียนแบบไม่มีต้นฉบับชี้ได้ = drift ทุกครั้ง
-  3. Listbox conformance ต้องครบ: roving focus+Home/End, typeahead, scroll-into-view (option นอกจอ), Escape+focus-restore+Tab-out, `role="option"` (ไม่ใช่ menuitem — คนละ keyboard contract, ห้าม Menu ยืมฐาน Listbox)
-  4. **CHECKPOINT พิเศษ (นอกกติกา wave ปกติ):** พอ Listbox เสร็จ+ผ่าน QA+conformance เขียว → **หยุดรายงาน รอ user ตรวจแม่แบบก่อน** ห้ามไหลไป Select ทันที เพราะ Listbox เป็นแม่แบบของอีก 6 ตัวใน wave นี้ ถ้าเพี้ยนจะคูณ 7
-  5. Menu/Dropdown, ContextMenu: `role="menuitem"` แยกฐานจาก Listbox เด็ดขาด + ContextMenu ต้องมี keyboard trigger (Shift+F10/Menu key) ไม่ใช่แค่ right-click + ต้องเขียน `w5-menu-positioning.spec.ts` ปิด TODO ข้อ 3 ก่อนถือว่า Menu positioning verified (ดู TODO ใน `w4-popover-positioning.spec.ts`)
+  1. **เริ่ม W5 ที่ Listbox ก่อนเสมอ** — เขียน `packages/conformance/specs/_patterns/roving-focus.md` (หรือ shared helper จริงที่ import ใช้ร่วมกัน ไม่ใช่ให้ตัวอื่นก๊อป) เป็นแม่แบบก่อนตัดโค้ด Listbox — บทเรียนจาก VisuallyHidden clip-pattern ที่ก๊อปกัน 5 ที่: การเลียนแบบไม่มีต้นฉบับชี้ได้ = drift ทุกครั้ง (**กำลังทำ**)
+  2. Listbox conformance ต้องครบ: roving focus+Home/End, typeahead, scroll-into-view (option นอกจอ), Escape+focus-restore+Tab-out, `role="option"` (ไม่ใช่ menuitem — คนละ keyboard contract, ห้าม Menu ยืมฐาน Listbox)
+  3. **CHECKPOINT พิเศษ (นอกกติกา wave ปกติ):** พอ Listbox เสร็จ+ผ่าน QA+conformance เขียว → **หยุดรายงาน รอ user ตรวจแม่แบบก่อน** ห้ามไหลไป Select ทันที เพราะ Listbox เป็นแม่แบบของอีก 6 ตัวใน wave นี้ ถ้าเพี้ยนจะคูณ 7
+  4. Menu/Dropdown, ContextMenu: `role="menuitem"` แยกฐานจาก Listbox เด็ดขาด + ContextMenu ต้องมี keyboard trigger (Shift+F10/Menu key) ไม่ใช่แค่ right-click + ต้องเขียน `w5-menu-positioning.spec.ts` ปิด TODO ก่อนถือว่า Menu positioning verified (ดู TODO ใน `w4-popover-positioning.spec.ts`)
   - หลัง Listbox เสร็จ ไม่ต้องขอไฟเขียวซ้ำสำหรับตัวอื่นใน wave (user บอก "วิ่งยาวได้ตามเดิม เจอ stop condition ค่อยหยุดถาม") — checkpoint นี้จำกัดแค่ Listbox ตัวเดียว
-- **System Sheet:** `system/sheets/sheet-2026-08-08.png` (ล่าสุด, แสดง "AA · 1 exception") · archive: `sheet-2026-08-08-wave{1,2,3,4}.png`, `sheet-2026-08-08-phase2.png` — ยังไม่ refresh หลัง hardening-1/w5-preflight/review-fixes (ไม่มี component ใหม่ ไม่กระทบภาพรวม)
+  - README.md เลข "108→103" แก้ไปแล้วในรอบ review-fix ก่อนหน้า (ปิดแล้ว ไม่ต้องทำซ้ำ)
+- **System Sheet:** `system/sheets/sheet-2026-08-09.png` (ล่าสุด, แสดง D-001–D-022, "AA · 1 exception") · archive: `sheet-2026-08-08-wave{1,2,3,4}.png`, `sheet-2026-08-08-phase2.png`
 - **Storybook:** ติดตั้งแล้วที่ `apps/storybook/` — เปิดดู interactive ด้วย `pnpm storybook` (dev server localhost:6006)
 - **Conformance:** `packages/conformance/specs/` — 9 ไฟล์ `.spec.ts` จริง (contrast-inputgroup-pininput, w2-atoms, w3-checkbox-indeterminate, w3-forms, w4-drawer, w4-overlays, w4-popover-positioning, w4-popover, w4-tooltip) + 2 helper (`_helpers.ts`, `_contrast.ts`) — รัน `cd packages/conformance && npx playwright test`
-- **Git:** commits ครบถึง `aa512df` (w5-preflight) — tags `wave-1`..`wave-4`, `hardening-1`, `w5-preflight` — review-fix รอบนี้ (lint v4 + cascade-guard test + Popover TODO) ยังไม่ commit — **A1 (git remote + push) ยังเลื่อนตาม user — local-only**
-- **Wave ปัจจุบัน:** — (ระหว่าง review-fix ปิดกับ W5/Listbox เริ่ม) · **Component ผ่าน QA:** 39/103 (Wave 1: 10 layout · Wave 2: 12 atoms · Wave 3: 11 forms · Wave 4: 6 overlays)
-- **ค้าง/blocked:** README.md เลขรวม component ยังค้าง 108 (ไม่ block งาน แค่ตกหล่น — แก้พร้อม commit รอบนี้)
+- **Git:** commits ครบถึง `bb46860` (gate-proof rule) — tags `wave-1`..`wave-4`, `hardening-1`, `w5-preflight` — sheet refresh รอบนี้ยังไม่ commit — **A1 (git remote + push) ยังเลื่อนตาม user — local-only**
+- **Wave ปัจจุบัน:** — (ระหว่าง preflight/review ปิดกับ W5/Listbox เริ่มจริง) · **Component ผ่าน QA:** 39/103 (Wave 1: 10 layout · Wave 2: 12 atoms · Wave 3: 11 forms · Wave 4: 6 overlays)
+- **ค้าง/blocked:** ไม่มี — พร้อมเริ่ม Listbox
 ## Log ย่อ (ใหม่สุดบน ≤15 บรรทัด)
-- 2026-08-09 Code review pass: เจอ+แก้ lint v3→v4 (critical: logical property regex hole), ปิด warning 2 จุดด้วย cascade-guard test จริง, Popover corner-case → TODO ผูก Menu, พบ+จะแก้ README เลขค้าง
+- 2026-08-09 Gate Proof Rule ล็อกเข้า ds-conventions + apply กับ no-hardcode-lint เอง (self-test 12/12, เจอบั๊ก execFileSync/stderr ในตัว test harness เองด้วย) · System Sheet refresh (D-022, footer filename แก้)
+- 2026-08-09 Code review pass: เจอ+แก้ lint v3→v4 (critical: logical property regex hole), ปิด warning 2 จุดด้วย cascade-guard test จริง, Popover corner-case → TODO ผูก Menu, แก้ README เลขค้าง 108→103
 - 2026-08-09 W5-preflight เสร็จครบ 4 เงื่อนไข: D-022 (Autocomplete→Combobox), lint bg-only+comment-strip, contrast checker (InputGroup/PinInput verified), Popover positioning verify (ไม่พบบั๊ก)
 - 2026-08-08 Hardening pass เสร็จสมบูรณ์: lint v2 (6 regression แก้), conformance เขียว (86/86, เจอ 2 บั๊กจริง forced-colors), honesty audit (5 claim แก้), docs 39/39, governance (EXCEPTIONS.md+D-020/D-021), rule upgrade E1-E3
 - 2026-08-08 Wave 4 ผ่าน QA ตั้งแต่รอบแรก (0 fix round) — Radix behavior, motion verified, 1 borderline contrast ตัดสินยอมรับได้
