@@ -12,6 +12,19 @@ import { story } from './_helpers';
 // Fixtures used: Popover.stories.tsx `Centered` / `EdgeCollisionBottom` / `EdgeCollisionRight`
 // (added alongside this spec — the pre-existing stories all render trigger content in the middle
 // of the canvas, so there was no fixture that put a trigger near a real viewport edge).
+//
+// TODO(W5 — Menu/Dropdown, ContextMenu): this suite only proves SINGLE-AXIS edge collision
+// (bottom-only, right-only) with Radix's DEFAULT collisionPadding. It does NOT cover:
+//   1. Multi-axis collision — trigger constrained on two edges at once (e.g. bottom-right corner)
+//   2. Nested submenus — a Menu with a submenu popover anchored to a menuitem inside another
+//      popover; Radix's collision boundary for the inner popover needs its own verification once
+//      that DOM structure exists (submenu-of-submenu positioning is a documented Radix edge case)
+//   3. Content taller than the viewport — long option lists (Select/Combobox/Menu) that need
+//      Radix's `avoidCollisions` + internal scroll rather than a simple flip
+// Do not assume Popover's baseline coverage above extends to these — when Menu/Dropdown or
+// ContextMenu are built in this wave, write a dedicated w5-menu-positioning.spec.ts (or extend
+// this file) covering all three before considering Menu's positioning "verified". Tracked in
+// system/STATE.md under W5 preflight follow-ups — keep both in sync if this TODO is resolved.
 
 const VIEWPORT = { width: 800, height: 600 };
 

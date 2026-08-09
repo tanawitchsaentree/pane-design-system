@@ -87,7 +87,10 @@
   border-color: var(--ds-radio-border-disabled);
 }
 .input:disabled:checked ~ .ring .dot {
-  background-color: var(--ds-radio-dot-disabled);
+  /* border มาจาก .input:checked ~ .ring .dot rule (บรรทัด 80-83) cascade เข้ามา ไม่ใช่ absent —
+   * guard จริงอยู่ที่ packages/conformance/specs/w3-forms.spec.ts "Radio dot (disabled+checked)...
+   * กันบั๊กเปราะจาก rule reorder" (จะ fail ถ้า border หายไปทีหลัง) */
+  background-color: var(--ds-radio-dot-disabled); /* no-hardcode-ok: bg-only ok, border cascades from .ring .dot checked rule, guarded by w3-forms.spec.ts */
 }
 .input:disabled:checked ~ .ring {
   border-color: var(--ds-radio-dot-disabled);

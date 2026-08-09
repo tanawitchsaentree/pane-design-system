@@ -78,7 +78,10 @@
 
 /* checked (on) — thumb physically slides to the end, track fill swaps */
 .input:checked ~ .track {
-  background-color: var(--ds-switch-track-on);
+  /* border มาจาก .track base rule (บรรทัด 45-47) cascade เข้ามา ไม่ใช่ absent — guard จริงอยู่ที่
+   * packages/conformance/specs/w3-forms.spec.ts "Switch track (checked)...กันบั๊กเปราะจาก rule
+   * reorder" (จะ fail ถ้า border หายไปทีหลัง) */
+  background-color: var(--ds-switch-track-on); /* no-hardcode-ok: bg-only ok, border cascades from .track base rule, guarded by w3-forms.spec.ts */
 }
 .input:checked ~ .track .thumb {
   inset-inline-start: calc(100% - var(--ds-size-icon-md) - var(--ds-border-width-thick));

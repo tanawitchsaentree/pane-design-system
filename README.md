@@ -40,7 +40,8 @@ README.md                          ไฟล์นี้
 docs/
 ├── BLUEPRINT.md                   engine spec ฉบับเต็ม (อ่านเมื่อต้องรายละเอียด)
 ├── KIT-CHANGELOG.md                version history ของตัวโรงงาน
-├── CATALOG.md                      component inventory 108 ตัว / 10 waves
+├── CATALOG.md                      component inventory 103 ตัว / 10 waves (ปรับจาก 108 เดิม —
+│                                   ดู D-017/D-022 ใน system/DECISIONS.md)
 ├── SCALING.md                      กลไกสเกลถึงระดับ MUI-X
 └── style-recipes/                  recipe ต่อสไตล์ที่มีความเสี่ยง a11y (เช่น neumorphism.md)
 system/                            *** ของ system ที่กำลังทำอยู่ — ไม่ share ข้าม system ***

@@ -47,6 +47,46 @@ test('Switch/Radio: checked state มี border จริง (รอดจาก
   expect(dotBorder, 'Radio dot ที่ checked ต้องมี border > 0 (ไม่ใช่แค่ background-color)').toBeGreaterThan(0);
 });
 
+// เพิ่มจาก code review (w5-preflight follow-up): no-hardcode-lint v4 เพิ่ม warning rule จับ
+// "background-color-only ไม่มี border ใน block เดียวกัน" แล้วเจอ 2 จุดที่ background-color มา
+// จาก .track/.dot state-change rule คนละ block กับ rule ที่ประกาศ border (border มาจาก cascade
+// ของ .track/.ring/.dot base rule ที่ declare border ไว้แบบไม่มีเงื่อนไข ไม่ใช่ absent) — ตรวจแล้ว
+// (probe script จริงในเบราว์เซอร์) ว่า render ถูกจริง: Switch track checked border=1px,
+// Radio disabled+checked dot border=6px ทั้งคู่ไม่ใช่ 0 — แต่ border แบบ "มาจาก cascade คนละ
+// block" เปราะกว่า border ที่อยู่ block เดียวกับ background โดยธรรมชาติ (ใครมาจัดลำดับ/แก้
+// specificity ของ rule ทีหลังจะทำให้มันหายแบบไม่มีการเตือนจาก diff เพราะไม่ได้แก้บรรทัดที่มี
+// border ตรงๆ) — เพิ่ม assertion เฉพาะจุดตรงนี้เพื่อให้ regression จับได้จริงถ้าเกิดขึ้นอีก ไม่ใช่
+// พึ่ง lint (ซึ่งจับไม่ได้อยู่แล้วเพราะ heuristic เป็น per-block ไม่เห็น cascade ข้าม block)
+test('Switch track (checked) และ Radio dot (disabled+checked) ยังมี border จาก cascade จริง — กันบั๊กเปราะจาก rule reorder', async ({
+  page,
+}) => {
+  await page.goto(story('forms-switch--default'));
+  await page.waitForSelector('input[role="switch"]');
+  const label = page.getByRole('switch').locator('xpath=ancestor::label[1]');
+  await label.click(); // toggle เป็น checked เพื่อ trigger .input:checked ~ .track background-color rule
+  const track = page.locator('[class*="track"]').first();
+  const trackBorder = await track.evaluate((el) => parseFloat(getComputedStyle(el).borderWidth));
+  expect(
+    trackBorder,
+    'Switch .track ตอน checked ต้องยังมี border > 0 (มาจาก .track base rule cascade ไม่ใช่ rule เดียวกับ background-color)',
+  ).toBeGreaterThan(0);
+
+  await page.goto(story('forms-radio--states'));
+  await page.waitForSelector('input[type="radio"]');
+  // "States" story: index 3 = "Disabled checked" (ดู Radio.stories.tsx) — เจาะจง disabled+checked
+  // เพราะนี่คือ selector เฉพาะ (.input:disabled:checked ~ .ring .dot) ที่ lint flag ไว้ ต่างจาก
+  // checked ธรรมดาที่ test ด้านบนคุมอยู่แล้ว
+  const disabledCheckedRadio = page.getByRole('radio').nth(3);
+  const dot = disabledCheckedRadio.locator(
+    'xpath=following-sibling::span[1]//span[contains(@class,"dot")]',
+  );
+  const dotBorder = await dot.evaluate((el) => parseFloat(getComputedStyle(el).borderWidth));
+  expect(
+    dotBorder,
+    'Radio .dot ตอน disabled+checked ต้องยังมี border > 0 (มาจาก .ring .dot checked-rule cascade)',
+  ).toBeGreaterThan(0);
+});
+
 // หมายเหตุ hit area: Checkbox/Radio/Switch ใช้ native <input> ที่ visually-hidden (clip 1px) ใต้
 // <label> ที่เป็นคลิกเป้าจริง (D-015 pattern) — role element เองมี bounding box 1px เสมอ (ถูกต้อง
 // ตาม a11y technique) ดังนั้นเกณฑ์ 40px ต้องวัดที่ label (ancestor) ซึ่งเป็นพื้นที่คลิกจริงที่ผู้ใช้

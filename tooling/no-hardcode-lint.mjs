@@ -1,10 +1,18 @@
 #!/usr/bin/env node
-// no-hardcode-lint v3 — v2 ปิดช่องโหว่ sizing + physical inset + inline style
+// no-hardcode-lint v4 — v2 ปิดช่องโหว่ sizing + physical inset + inline style
 // v3 เพิ่ม: (A) strip comments ก่อนสแกน กัน false positive จาก error message/JSDoc ที่มีคำว่า
 //           "width:" หรือ "left:" ฯลฯ อยู่ใน prose (ไม่ใช่ CSS จริง)
 //         (B) rule ตรวจจับ "background-color-only visual indicator" (ไม่มี border จริง) —
 //           รันเป็น warning เท่านั้น (ไม่ increment n / ไม่ exit 1) เพราะ scope เป็น heuristic
 //           กว้างเกินกว่าจะ enforce เป็น hard error ได้อย่างมั่นใจ 100%
+// v4 แก้บั๊กจริงที่ code review เจอ: property-name list ของ v3 มีแค่ bare name ("margin",
+//   "inset", "border-width") — "padding-inline-start:", "border-inline-end-width:",
+//   "inset-block-end:" ไม่ match เพราะหลังคำ base ไม่ใช่ ":" ทันที เป็น "-inline-start:" —
+//   เนื่องจากกฎเหล็กของระบบบังคับ logical properties เท่านั้น (ห้าม physical) แปลว่า raw-value
+//   ส่วนใหญ่ในโค้ดจริงเขียนเป็น logical form ซึ่งหลุด regex เดิมไปเงียบๆ ทั้งหมด — เพิ่ม
+//   LOGICAL_SUFFIXES ให้ margin/padding/inset ครบทุก edge + border-{edge}-{width|style|color}
+//   (verified: `padding-inline-start: 24px` เคยผ่าน "✓ clean" ตอนนี้ถูกจับแล้ว, สแกนทั้งระบบ
+//   197 ไฟล์ไม่มี false positive ใหม่จากการแก้นี้ — โค้ดจริงทุกตัวใช้ var(--ds-*) อยู่แล้ว)
 // ใช้: node tooling/no-hardcode-lint.mjs [files...]
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, extname } from 'node:path';
@@ -13,8 +21,28 @@ const TARGETS = ['packages/react/src', 'packages/styles', 'packages/tokens/previ
 const EXT = new Set(['.tsx', '.ts', '.css', '.scss']);
 
 const SIZING = 'width|height|min-width|max-width|min-height|max-height|block-size|inline-size|min-inline-size|max-inline-size|min-block-size|max-block-size';
-const SPACING = 'margin|padding|gap|row-gap|column-gap|inset|inset-inline|inset-block|top|left|right|bottom';
-const OTHER = 'font-size|line-height|border-radius|border-width|letter-spacing|flex-basis';
+
+// เดิม (v3) มีแค่ base name เฉยๆ ("margin", "inset") — "padding-inline-start:" ไม่ match เพราะ
+// หลังคำว่า "padding" ไม่ใช่ ":" ทันที (เป็น "-inline-start:") กฎเหล็กของระบบนี้บังคับ logical
+// properties เท่านั้น (CLAUDE.md) แปลว่า raw-value ส่วนใหญ่ในโค้ดจริงจะเขียนเป็น -inline-start/-end/
+// -block-start/-end ซึ่งหลุด regex เดิมไปเงียบๆ ทั้งหมด — ต้อง generate suffix variant ให้ครบ
+const LOGICAL_SUFFIXES = ['', '-inline', '-block', '-inline-start', '-inline-end', '-block-start', '-block-end'];
+const SPACING_LOGICAL_BASE = ['margin', 'padding', 'inset'];
+const SPACING = [
+  ...SPACING_LOGICAL_BASE.flatMap((p) => LOGICAL_SUFFIXES.map((s) => `${p}${s}`)),
+  'gap', 'row-gap', 'column-gap', 'top', 'left', 'right', 'bottom',
+].join('|');
+
+// border-*-width/-style/-color แบบ logical (border-inline-end-width ฯลฯ) ไม่มีทางแมทช์กับ
+// "border-width" bare เดิมได้เลยด้วยเหตุผลเดียวกัน — เพิ่มให้ครบ 4 edge × 3 sub-property
+const BORDER_LOGICAL_EDGES = ['-inline-start', '-inline-end', '-block-start', '-block-end'];
+const BORDER_LOGICAL = BORDER_LOGICAL_EDGES.flatMap((edge) =>
+  ['width', 'style', 'color'].map((sub) => `border${edge}-${sub}`),
+);
+const OTHER = [
+  'font-size', 'line-height', 'border-radius', 'border-width', 'letter-spacing', 'flex-basis',
+  ...BORDER_LOGICAL,
+].join('|');
 
 const RULES = [
   { re: /#[0-9a-fA-F]{3,8}\b/g, msg: 'hex color ดิบ → var(--ds-*)' },
@@ -197,6 +225,9 @@ for (const file of files) {
   if (ext === '.css' || ext === '.scss') {
     const bgWarnings = checkBgOnlyIndicator(file, clean);
     for (const w of bgWarnings) {
+      // เช็ค no-hardcode-ok ที่บรรทัดเดียวกัน (raw, ไม่ strip) — ให้ suppress ได้ทีละจุดพร้อมเหตุผล
+      // ติดกับโค้ด ไม่ใช่ปล่อย warning ลอยที่ไม่มีใครอ่านซ้ำ (ดู CLAUDE.md hardening notes)
+      if (/no-hardcode-ok/.test(rawLines[w.line - 1] ?? '')) continue;
       console.warn(`⚠ ${w.file}:${w.line}  background-only visual indicator (selector: ${w.selector}) — ไม่มี border จริง จะหายไปใน forced-colors mode\n    ${w.text}`);
       warnCount++;
     }
