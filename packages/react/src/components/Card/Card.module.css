@@ -2,12 +2,19 @@
  * Card — braun-flat.md / D-008 in full:
  * - rule 1: NO decorative shadow anywhere in this file. Card is not a floating layer (contrast
  *   with Dialog/Popover/Toast, which legitimately use shadow.elevation.* per braun-flat rule 2's
- *   explicit exception) — definition comes entirely from `border.hairline` + the `surface.raised`
- *   fill being one step lighter than the page's `surface.canvas` behind it.
- * - rule 4: hover/active on a clickable card are non-shadow cues (border-color swap to
- *   `border.interactive` + an alpha overlay wash, the same `overlay.hover`/`overlay.pressed`
- *   tokens Button's outline/ghost variants already use for their own non-shadow hover/pressed
- *   cue) — never a shadow "lift".
+ *   explicit exception). The root's own outer boundary against the page is `border.interactive`
+ *   (real 3:1+ contrast against surface.canvas, both themes — see card.json's $description for
+ *   why this isn't `border.hairline`: Card has its own `surface.raised` fill, unlike Divider/
+ *   Fieldset which have no fill at all, but that fill alone measures ~1.06:1 against canvas —
+ *   imperceptible, confirmed both mathematically and by a real screenshot — so the border is the
+ *   only real boundary cue and had to clear WCAG 1.4.11's 3:1 minimum on its own). Header/footer
+ *   internal dividers stay on `border.hairline` — those are quiet dividers *inside* an
+ *   already-established card, not the card's own edge against the page, so 1.4.11 doesn't apply
+ *   to them the way it applies to the root border.
+ * - rule 4: hover/active on a clickable card are non-shadow cues — an alpha overlay wash (same
+ *   `overlay.hover`/`overlay.pressed` tokens Button's outline/ghost variants use) is the real
+ *   hover cue now; border-color no longer visibly changes on hover since root.border and
+ *   clickable.borderHover both resolve to `border.interactive`.
  * - focus-visible uses the dedicated focusRing token (color/width/offset), not a shadow ring —
  *   same mechanism every other interactive component in this system uses.
  */
@@ -36,6 +43,11 @@
   cursor: var(--ds-cursor-pointer);
 }
 
+/* border-color no longer changes on hover: root.border and clickable.borderHover both resolve to
+   border.interactive now (fixed post-batch — see card.json's $description for why root.border
+   moved off border.hairline). Kept the declaration anyway so a future token change to
+   clickable.borderHover (e.g. a stronger ring on hover) doesn't require re-adding it — the
+   background wash is the real, sufficient hover cue here. */
 .card[data-clickable]:hover:not(:disabled) {
   border-color: var(--ds-card-clickable-border-hover);
   background-color: var(--ds-card-clickable-bg-hover);

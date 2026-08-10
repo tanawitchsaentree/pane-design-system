@@ -1,30 +1,30 @@
-# @dial/react
+# dial-react
 
-React components for Dial — a Braun-derived design system (calm, restrained, accent-scarce). Presentational primitives styled entirely through CSS variables from [`@dial/tokens`](https://www.npmjs.com/package/@dial/tokens); behavior for anything with real keyboard/focus complexity is borrowed from [Radix UI](https://www.radix-ui.com/) or [React Aria](https://react-spectrum.adobe.com/react-aria/), never hand-rolled.
+React components for Dial — a Braun-derived design system (calm, restrained, accent-scarce). Presentational primitives styled entirely through CSS variables from [`dial-tokens`](https://www.npmjs.com/package/dial-tokens); behavior for anything with real keyboard/focus complexity is borrowed from [Radix UI](https://www.radix-ui.com/) or [React Aria](https://react-spectrum.adobe.com/react-aria/), never hand-rolled.
 
 ## Install
 
 ```bash
-npm install @dial/react @dial/tokens react react-dom
+npm install dial-react dial-tokens react react-dom
 ```
 
-`@dial/tokens` is **required**, not optional — every component's stylesheet references `var(--ds-*)` custom properties that only `@dial/tokens`'s own CSS defines. Installing `@dial/react` alone gives you unstyled markup with no error to tell you why.
+`dial-tokens` is **required**, not optional — every component's stylesheet references `var(--ds-*)` custom properties that only `dial-tokens`'s own CSS defines. Installing `dial-react` alone gives you unstyled markup with no error to tell you why.
 
 ## Setup
 
 Import both stylesheets once, near your app's root (order doesn't matter — they don't overlap):
 
 ```tsx
-import '@dial/tokens/css';
-import '@dial/react/styles.css';
+import 'dial-tokens/css';
+import 'dial-react/styles.css';
 ```
 
-For dark mode, also import `@dial/tokens/css/dark` and set `document.documentElement.setAttribute('data-theme', 'dark')` — see [`@dial/tokens`'s README](https://www.npmjs.com/package/@dial/tokens) for the full theme-switching details (including the high-contrast variant).
+For dark mode, also import `dial-tokens/css/dark` and set `document.documentElement.setAttribute('data-theme', 'dark')` — see [`dial-tokens`'s README](https://www.npmjs.com/package/dial-tokens) for the full theme-switching details (including the high-contrast variant).
 
 ## Usage
 
 ```tsx
-import { FormField, Input, Button, Stack } from '@dial/react';
+import { FormField, Input, Button, Stack } from 'dial-react';
 
 function SignInForm() {
   return (

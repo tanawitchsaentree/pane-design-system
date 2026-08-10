@@ -1,5 +1,5 @@
 /**
- * @dial/tokens — Style Dictionary v4 config.
+ * dial-tokens — Style Dictionary v4 config.
  * Source = DTCG JSON (2025.10 spec, $type/$value) under src/{primitive,semantic,component}/**\/*.json
  *
  * Themes: each theme composes primitive + one semantic file (+ contrast-more overlay for light-contrast-more).

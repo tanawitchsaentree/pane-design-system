@@ -9,7 +9,7 @@ import { Stack } from '../Stack/Stack';
 import { Image } from '../Image/Image';
 
 const meta: Meta<typeof Card.Root> = {
-  title: 'Layout/Card',
+  title: 'Data Display/Card',
   component: Card.Root,
 };
 

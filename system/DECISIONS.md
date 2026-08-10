@@ -78,7 +78,7 @@
 
 ### D-011: ชื่อ System/Package = Dial
 - **วันที่:** 2026-08-08 · **Phase:** 1 (จบก่อนเข้า Phase 2)
-- **เลือก:** ชื่อ system = **Dial** → package scope `@dial/tokens`, `@dial/react`
+- **เลือก:** ชื่อ system = **Dial** → package scope `dial-tokens`, `dial-react`
 - **เพราะ:** user บอกให้ตั้งไปเลย — เลือก "Dial" เพราะเป็นชิ้นส่วนหัวใจของ ref ทั้งคู่ (หน้าปัด/dial ของวิทยุ + knob หมุน) สั้น จำง่าย ไม่ชนกับ trademark ของแบรนด์อื่น (ต้องเลี่ยง Braun/Material/MUI ตาม blueprint §13)
 - **ตัวเลือกที่ตัดทิ้ง:** ชื่อที่พาดพิงแบรนด์ต้นทาง (Braun/Lectron ใดๆ) — ห้ามใช้ตรงๆ ตามกฎ trademark
 - **กระทบ:** package.json ทุก package, npm scope, docs site title, Storybook title, ทุกจุดที่ reference ชื่อ brand — เปลี่ยนทีหลัง = rename ทั่ว repo

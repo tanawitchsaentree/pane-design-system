@@ -17,8 +17,8 @@ import {
   Dialog,
   ToastProvider,
   useToast,
-} from '@dial/react';
-import type { Key } from '@dial/react';
+} from 'dial-react';
+import type { Key } from 'dial-react';
 
 /**
  * A Settings page — the ORDERS B2 exercise: build one real page combining form + dialog + toast +

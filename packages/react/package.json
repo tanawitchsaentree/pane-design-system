@@ -1,12 +1,14 @@
 {
-  "name": "@dial/react",
+  "name": "dial-react",
   "version": "0.1.0",
-  "description": "React component library for Dial — presentational primitives styled with @dial/tokens CSS variables (D-011).",
+  "description": "React component library for Dial — presentational primitives styled with dial-tokens CSS variables (D-011).",
   "license": "MIT",
-  "keywords": ["design-system", "react", "components", "ui"],
-  "publishConfig": {
-    "access": "public"
-  },
+  "keywords": [
+    "design-system",
+    "react",
+    "components",
+    "ui"
+  ],
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -34,8 +36,11 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint:no-hardcode": "cd ../.. && node tooling/no-hardcode-lint.mjs",
+    "barrel:check": "node ../../tooling/generate-barrel.mjs --check",
+    "story:check": "node ../../tooling/story-title-check.mjs",
     "pack-verify": "node ../../tooling/pack-verify.mjs",
-    "prepublishOnly": "pnpm run lint:no-hardcode && pnpm run typecheck && pnpm run test && pnpm run build && pnpm run pack-verify"
+    "prepublishOnly": "pnpm run barrel:check && pnpm run story:check && pnpm run lint:no-hardcode && pnpm run typecheck && pnpm run test && pnpm run build && pnpm run pack-verify && pnpm run smoke:import",
+    "smoke:import": "cd ../.. && node tooling/smoke-import.mjs"
   },
   "peerDependencies": {
     "react": "^18.3.1 || ^19.0.0",
@@ -54,7 +59,6 @@
     "@react-types/shared": "3.26.0"
   },
   "devDependencies": {
-    "@dial/tokens": "workspace:*",
     "@storybook/react": "^8.4.7",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.0.1",
@@ -63,6 +67,7 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
+    "dial-tokens": "workspace:*",
     "jest-axe": "^9.0.0",
     "jsdom": "^25.0.1",
     "react": "^18.3.1",

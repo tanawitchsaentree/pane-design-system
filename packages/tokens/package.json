@@ -1,12 +1,14 @@
 {
-  "name": "@dial/tokens",
+  "name": "dial-tokens",
   "version": "0.1.0",
   "description": "Design tokens for Dial — DTCG JSON source, built with Style Dictionary into CSS vars, Tailwind preset, SCSS, TS types, and JSON.",
   "license": "MIT",
-  "keywords": ["design-tokens", "design-system", "dtcg", "style-dictionary"],
-  "publishConfig": {
-    "access": "public"
-  },
+  "keywords": [
+    "design-tokens",
+    "design-system",
+    "dtcg",
+    "style-dictionary"
+  ],
   "main": "./build/json/light.json",
   "types": "./build/ts/light.d.ts",
   "exports": {
@@ -33,7 +35,8 @@
     "build": "node ./scripts/build.mjs",
     "clean": "rm -rf build",
     "pack-verify": "node ../../tooling/pack-verify.mjs",
-    "prepublishOnly": "pnpm run build && pnpm run pack-verify"
+    "prepublishOnly": "pnpm run build && pnpm run pack-verify && pnpm run smoke:import",
+    "smoke:import": "cd ../.. && node tooling/smoke-import.mjs"
   },
   "devDependencies": {
     "style-dictionary": "^4.4.0"

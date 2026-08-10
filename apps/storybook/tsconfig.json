@@ -12,7 +12,16 @@
     "noEmit": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    // preview.ts imports tooling/story-categories.mjs (the single source of truth for sidebar
+    // categories, enforced by tooling/story-title-check.mjs). A plain .mjs has no .d.ts, so tsc
+    // needs to infer its types from the source.
+    "allowJs": true
   },
-  "include": [".storybook", "src", "../../packages/react/src"]
+  // ".storybook" alone silently matched NOTHING: a bare directory name in `include` is treated as a
+  // path pattern, and tsc only expands it when it ends in a recognised extension or a glob. Found by
+  // planting a real type error in preview.ts and watching `tsc --noEmit` still exit 0 — the same
+  // silent-skip class as `lint:no-hardcode` running from the wrong cwd and reporting 0 files clean.
+  // Verified with --listFiles: 0 .storybook files before, 3 after.
+  "include": [".storybook/**/*", "src", "../../packages/react/src"]
 }

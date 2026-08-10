@@ -5,7 +5,7 @@ import type { StatTrendDirection } from './Stat';
 const DIRECTIONS: StatTrendDirection[] = ['up', 'down', 'neutral'];
 
 const meta: Meta<typeof Stat> = {
-  title: 'DataDisplay/Stat',
+  title: 'Data Display/Stat',
   component: Stat,
   argTypes: {
     label: { control: 'text' },

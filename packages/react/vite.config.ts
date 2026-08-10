@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 // Library build config — CSS Modules compiled + emitted as a single stylesheet (dist/style.css),
-// components bundled as ESM + CJS. Consumers import '@dial/react/styles.css' once (BLUEPRINT §1).
+// components bundled as ESM + CJS. Consumers import 'dial-react/styles.css' once (BLUEPRINT §1).
 export default defineConfig({
   plugins: [react()],
   build: {

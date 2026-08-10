@@ -27,8 +27,19 @@ const preview: Preview = {
       },
     },
     options: {
+      // MUST stay an inline literal, and MUST stay identical to STORY_SORT_ORDER in
+      // tooling/story-categories.mjs.
+      //
+      // Storybook's csf-tools reads this file with a static parser, not by executing it, so an
+      // imported identifier here is a hard build failure ("Unexpected 'STORY_SORT_ORDER'.
+      // Parameter 'options.storySort' should be defined inline") — importing the shared constant
+      // is exactly what a first attempt did, and `tsc` passed while `storybook build` broke.
+      //
+      // So this one list is duplicated by necessity. tooling/story-title-check.mjs compares these
+      // literal strings against story-categories.mjs and fails the build if they drift, which is
+      // what keeps the duplication from becoming the 'DataDisplay' vs 'Data Display' bug again.
       storySort: {
-        order: ['Foundations', 'Layout', 'Atoms', 'Forms', 'Overlays', 'Selection', '*'],
+        order: ['Foundations', 'Layout', 'Atoms', 'Forms', 'Overlays', 'Selection', 'Data Display', '*'],
       },
     },
   },
@@ -52,7 +63,7 @@ const preview: Preview = {
     (Story, context) => {
       const theme = (context.globals.theme as string) || 'light';
       const root = document.documentElement;
-      // Matches the selectors actually emitted by @dial/tokens build:
+      // Matches the selectors actually emitted by dial-tokens build:
       //   light.css                -> :root (no attribute needed)
       //   dark.css                 -> [data-theme="dark"]
       //   light-contrast-more.css  -> [data-theme="light"][data-contrast="more"]

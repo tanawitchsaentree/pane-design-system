@@ -2,7 +2,7 @@
   "name": "demo-app",
   "private": true,
   "version": "0.0.0",
-  "description": "Real-page demo of @dial/react — a Settings page combining form + dialog + toast + list (ORDERS B2). Uses the workspace packages directly (workspace:*), not a published tarball, since that's how any real consumer's monorepo would consume it too.",
+  "description": "Real-page demo of dial-react — a Settings page combining form + dialog + toast + list (ORDERS B2). Uses the workspace packages directly (workspace:*), not a published tarball, since that's how any real consumer's monorepo would consume it too.",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@dial/react": "workspace:*",
-    "@dial/tokens": "workspace:*",
+    "dial-react": "workspace:*",
+    "dial-tokens": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

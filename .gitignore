@@ -1,6 +1,9 @@
 node_modules/
 packages/*/build/
 packages/*/dist/
+# examples/ builds too — `packages/*/dist/` does not cover it, so demo-app's build output
+# showed up as untracked and was one `git add -A` away from being committed.
+examples/*/dist/
 .turbo/
 *.log
 apps/storybook/storybook-static/

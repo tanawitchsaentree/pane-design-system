@@ -19,7 +19,7 @@ tools: Read, Glob, Grep, Write, Edit, Bash
 0. **Reuse Check (ก่อนเริ่มทุกตัว):** grep `packages/react/src/components/` ว่ามี component/pattern ใกล้เคียงอยู่แล้วหรือยัง (ถ้ามี Storybook + addon-mcp ใช้ query MCP แทนได้ — ดู `docs/STORYBOOK-MCP.md`) เจอของใกล้เคียง → เสนอ 3 ทาง: ใช้ตัวเดิม / เพิ่ม variant ให้ตัวเดิม / สร้างใหม่จริงเพราะอะไร (ห้ามสร้างซ้ำเงียบๆ — กัน pattern drift ตอน wave หลังๆ)
 1. อ่าน system/DECISIONS.md + component tokens ที่เกี่ยว → เสนอ API (props interface) + variants ให้ orchestrator ยืนยันกับ user ก่อน
 2. เขียน component tokens (ถ้ายังไม่มี) → โค้ด → stories → tests
-3. **Contrast self-check ก่อนส่ง QA (บังคับ ไม่ใช่ทางเลือก):** ถ้า component token ใหม่ชี้สี text/border/icon บน background ใดๆ ให้คำนวณ WCAG contrast ratio จริงจาก resolved hex ใน `packages/tokens/build/css/{light,dark}.css` ด้วยตัวเอง (relative luminance formula ตรงๆ ไม่ใช่ประมาณด้วยตา) ก่อนล็อกค่า — ต้องผ่าน 4.5:1 (text) / 3:1 (UI/border) ทั้ง 2 theme ก่อนส่งต่อ qa-a11y เสมอ (จุดนี้เคยเป็นสาเหตุที่ QA ตีกลับทั้ง wave ต้องวนแก้เพิ่มรอบ — เช็คเองก่อนจะเร็วกว่ารอ QA จับ)
+3. **Contrast self-check ก่อนส่ง QA (บังคับ ไม่ใช่ทางเลือก):** ถ้า component token ใหม่ชี้สี text/border/icon บน background ใดๆ ให้รัน `node tooling/contrast-check.mjs <fg-var>:<bg-var> ...` (อ่าน resolved hex จาก `packages/tokens/build/css/{light,dark}.css` จริง ตาม var() alias ให้เสร็จ คำนวณ relative-luminance ให้เอง — ห้ามคำนวณมือซ้ำ สคริปต์นี้แทนที่ arithmetic ที่เคย derive ใหม่ทุกครั้งในหลาย component token's `$description` แล้ว) ก่อนล็อกค่า — ต้องผ่าน 4.5:1 (text) / 3:1 (UI/border) ทั้ง 2 theme ก่อนส่งต่อ qa-a11y เสมอ ผลลัพธ์ (รวมค่า ratio จริงที่ script print) วางลง component token's `$description` ตรงๆ ได้เลย ไม่ต้องเขียน formula ซ้ำ (จุดนี้เคยเป็นสาเหตุที่ QA ตีกลับทั้ง wave ต้องวนแก้เพิ่มรอบ — เช็คเองก่อนจะเร็วกว่ารอ QA จับ)
 4. รัน build + test ให้ผ่านในมือตัวเองก่อน แล้วแจ้งว่าพร้อมให้ qa-a11y ตรวจ
 
 ## Pre-handoff Self-Check (บังคับทุก tier รวม T1 — รันเองก่อนส่ง qa-a11y ทุกตัว)
@@ -29,7 +29,7 @@ tools: Read, Glob, Grep, Write, Edit, Bash
 > 4 ข้อนี้ถูก เร็ว ทำเองได้ ไม่มี tier ไหนได้รับการยกเว้น (T1 ส่วนใหญ่จะตอบ N/A ในหลายข้อเพราะไม่มี
 > state/interactive ให้ตรวจ ไม่ใช่ข้าม)
 
-1. **Contrast** (จาก W2) — ทุกคู่ text/bg และ UI boundary ทุก variant × ทุก theme ผ่าน 4.5:1 / 3:1 · ค่าที่ตกหรือก้ำกึ่งต้อง**รายงานเอง** ห้ามซ่อน
+1. **Contrast** (จาก W2) — ทุกคู่ text/bg และ UI boundary ทุก variant × ทุก theme ผ่าน 4.5:1 / 3:1 (รันด้วย `tooling/contrast-check.mjs` ไม่คำนวณมือ — ดูข้อ 3 ด้านบน) · ค่าที่ตกหรือก้ำกึ่งต้อง**รายงานเอง** ห้ามซ่อน · **ก่อนอ้างว่า "background/fill ของตัวเองแยกจาก surface รอบข้างได้อยู่แล้ว" (แทนที่จะพึ่ง border) ต้องรัน contrast-check กับคู่ fill-vs-surrounding-surface จริงก่อนเชื่อ** (Card's `surface.raised` vs `surface.canvas` เคยวัดได้ 1.06:1 ทั้ง 2 ธีม — มองไม่เห็นเลย ทั้งที่ดูเหมือนเป็นคนละสี — ห้ามเดาว่า "มี fill ของตัวเองแล้วน่าจะพอ" โดยไม่วัดจริง)
 2. **Hit area** (จาก W3) — interactive ทุกตัว ≥ เกณฑ์ platform ที่ lock ไว้ (web-first = 40px, mobile = 44px) วัดรวม padding/pseudo-element ไม่ใช่แค่ขนาดกล่องที่มองเห็น
 3. **Non-color cue** (จาก W3) — ทุก state ที่เปลี่ยน ต้องมี cue ที่ไม่ใช่สีอย่างน้อย 1 อย่าง และ cue นั้นต้อง**วัดได้จริง** (เช่น thumb travel > 0px, มี border/outline/icon/ตำแหน่งเปลี่ยน) — เช็คด้วยการจินตนาการว่าจอเป็นขาวดำ
 4. **Structural** (จาก W1+W3) — forwardRef ครบทุกตัว · logical properties เท่านั้น (รัน `node tooling/no-hardcode-lint.mjs {ไฟล์}`) · hairline ใช้ border จริงไม่ใช่ background-color · `data-*` สำหรับ state ที่ CSS ต้องใช้

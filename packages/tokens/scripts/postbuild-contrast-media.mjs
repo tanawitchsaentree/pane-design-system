@@ -3,7 +3,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 /**
- * Postbuild step for @dial/tokens — QA W2 Wave 2 finding #5 (D-014).
+ * Postbuild step for dial-tokens — QA W2 Wave 2 finding #5 (D-014).
  *
  * Style Dictionary only emits the MANUAL toggle path for contrast-more:
  * `[data-theme="light"][data-contrast="more"]` in build/css/light-contrast-more.css (dev/demo

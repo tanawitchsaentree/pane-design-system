@@ -1,4 +1,4 @@
-# @dial/react
+# dial-react
 
 ## 0.1.0
 
