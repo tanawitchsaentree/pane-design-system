@@ -38,8 +38,9 @@
     "lint:no-hardcode": "cd ../.. && node tooling/no-hardcode-lint.mjs",
     "barrel:check": "node ../../tooling/generate-barrel.mjs --check",
     "story:check": "node ../../tooling/story-title-check.mjs",
+    "doc:check": "node ../../tooling/doc-count-check.mjs",
     "pack-verify": "node ../../tooling/pack-verify.mjs",
-    "prepublishOnly": "pnpm run barrel:check && pnpm run story:check && pnpm run lint:no-hardcode && pnpm run typecheck && pnpm run test && pnpm run build && pnpm run pack-verify && pnpm run smoke:import",
+    "prepublishOnly": "pnpm run barrel:check && pnpm run story:check && pnpm run doc:check && pnpm run lint:no-hardcode && pnpm run typecheck && pnpm run test && pnpm run build && pnpm run pack-verify && pnpm run smoke:import",
     "smoke:import": "cd ../.. && node tooling/smoke-import.mjs"
   },
   "peerDependencies": {

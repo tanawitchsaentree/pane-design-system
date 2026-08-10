@@ -94,6 +94,27 @@ collection handler) ต้องทำตามลำดับนี้ ไม�
 **"Mutate เดี่ยวไม่แดง" ไม่ใช่ข้อสรุปในตัวมันเอง** — เป็นแค่จุดเริ่มของการสืบต่อว่าเป็น redundancy หรือ
 test อ่อน ห้ามปิดเคสโดยไม่ทำขั้น 2 ให้จบด้วยหลักฐานจากการรันจริง (ไม่ใช่อ่าน node_modules/docs เดา)
 
+### Repeat-Instance Clause (บั๊กคลาสเดียวกันเจอครั้งที่สาม = ต้องเขียน gate ไม่ใช่แก้ instance)
+> ที่มา: "เลขที่พิมพ์มือแล้ว drift เงียบๆ" เจอ**หกครั้ง** — README ค้าง 108 · CATALOG หัวเรื่องค้าง 108 ·
+> BLUEPRINT §5 เขียน 108 · DISTRIBUTION เขียน 108 · CHANGELOG เขียน "48 components" ที่ควรเป็น 46 ·
+> "43/103" ที่จริงคือ 42 — **ทั้งหกครั้งแก้ถูกทุกครั้ง และไม่มีครั้งไหนช่วยอะไรเลย** เพราะแก้ instance
+> ไม่ได้ปิดคลาส (instance ที่ 2 เจอหลัง "แก้เสร็จ" ไปแล้วสามเซสชัน) · ครั้งที่หกจึงเขียน
+> `tooling/doc-count-check.mjs` แล้วมันจับ instance ที่ยังไม่มีใครเห็น (DISTRIBUTION) ได้**ตอนรันครั้งแรก**
+
+**เจอบั๊กคลาสเดิมเป็นครั้งที่ 3 = หยุดแก้ instance แล้วถามว่า "อะไรที่ทำให้บั๊กนี้เงียบได้" แล้วปิดทางนั้น:**
+1. **derive แทน declare ถ้าทำได้** — เลขที่คำนวณจาก source of truth ได้ ห้ามพิมพ์มือ (catalog total = ผลรวม
+   per-wave marker ของ CATALOG.md เอง, shipped count = อ่านจาก `barrel.manifest.mjs`)
+2. **ถ้า derive ไม่ได้ ต้องมี gate ที่แดงเมื่อ prose ขัดกับความจริง** — และ gate นั้นต้องผ่าน Gate Proof Rule
+   เต็มรูปแบบเหมือน gate อื่นทุกตัว (two-sided proof + one-branch-one-proof)
+3. **wire เข้า chain แล้ว gate-proof การ wire ด้วย** — script ที่ define แล้วแต่ chain ไม่เคยเรียกจริง
+   = gate ที่ไม่มีตัวตน (เคยเกิดแล้วกับ `barrel:check`/`story:check`) ต้องเห็น chain แดง**ตรงขั้นนั้น**
+   และหยุดก่อนขั้นถัดไป แล้ว revert ให้ byte-identical
+4. **ยกเว้นไฟล์ append-only ให้ชัดเจนในตัว gate** — `docs/KIT-CHANGELOG.md` และ `system/DECISIONS.md` เลข
+   108 คือ**ความจริงตอนที่เขียน** การไปแก้ย้อนหลังให้ตรงปัจจุบันคือสิ่งที่ไฟล์สองตัวนี้มีไว้เพื่อป้องกัน
+
+**"แก้แล้ว" กับ "ปิดคลาสแล้ว" ไม่ใช่เรื่องเดียวกัน** — รายงานว่าแก้ instance ที่ N ได้ แต่ถ้ายังไม่มีกลไก
+กันไม่ให้มี instance ที่ N+1 ต้องบอกตรงๆ ว่าคลาสยังเปิดอยู่ (Honesty Rule)
+
 ## Definition of Done เพิ่ม (ข้อ 10-11 ต่อจาก Anatomy Contract 9 ข้อ)
 10. **Docs content เขียนตอนสร้าง ไม่ใช่ตอน Phase 6** — `packages/spec/{name}.md` ต้องมี: usage 3-5 บรรทัด, Do/Don't อย่างละ 2-3, a11y notes (keyboard map + SR behavior), props table, related components · Phase 6 มีหน้าที่แค่ประกอบเป็นเว็บ
 11. **Browser-only behavior มี conformance spec** — keyboard nav / focus trap / positioning / non-color cue / hit area ต้องมีไฟล์ใน `packages/conformance/specs/` และรันเขียว (ข้อนี้ใช้กับ T2/T3 เท่านั้นตาม Rigor Tiers ด้านบน — T1 component ไม่มี browser-only behavior ให้ทดสอบตั้งแต่แรกโดยนิยาม ไม่ใช่ได้รับการยกเว้น)

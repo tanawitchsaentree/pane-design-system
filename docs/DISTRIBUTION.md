@@ -14,7 +14,7 @@
 1. ไม่ใช่ generator ยิงครั้งเดียว — เป็นโรงงานที่มี **memory + governance** (DECISIONS/STATE, supersede, archive)
 2. **ตัดสินใจด้วยตา** — Layout Lab เทียบ candidate บนฉากเดียวกันก่อน lock
 3. **ใบรับรองเป็นภาพ** — System Sheet PNG refresh อัตโนมัติทุก lock
-4. **สเกลได้จริง** — 108 components / 10 waves โดย user ตัดสินใจ ~10 ครั้ง (ไม่เผา token)
+4. **สเกลได้จริง** — 103 components / 10 waves โดย user ตัดสินใจ ~10 ครั้ง (ไม่เผา token)
 5. **Portable Core** — tokens/CSS/spec/test ใช้ได้ทุก framework, adapter บาง
 6. **บังคับคุณภาพด้วยกลไก** — hook lint + QA gate แยกอำนาจ + conformance suite
 

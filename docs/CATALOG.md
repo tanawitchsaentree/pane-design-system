@@ -1,4 +1,4 @@
-# Component Catalog — 108 ตัว จัดเป็น 10 waves ตาม dependency
+# Component Catalog — 103 ตัว จัดเป็น 10 waves ตาม dependency
 > ทุกตัวต้องครบ Anatomy Contract 9 ข้อ · X-class = ยืน engine ที่พิสูจน์แล้ว (คอลัมน์ engine) ห่อด้วย token ของ system
 
 **W1 Layout+Primitives (10):** Box, Stack, Grid, Container, Spacer, Divider, VisuallyHidden, AspectRatio, Center, Flex

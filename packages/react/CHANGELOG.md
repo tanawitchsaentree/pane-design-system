@@ -4,7 +4,7 @@
 
 First public release ("S" tier — see `docs/ROADMAP.md` for what M/L/XL add next).
 
-48 components covering Layout, Atoms, Forms, Overlays, a partial Selection wave, and a slice of Data Display pulled forward ahead of catalog order because a real page needed it (see `examples/demo-app`):
+46 components (48 named exports — Toast ships `ToastProvider` + `ToastAction`, and `useToast`/`useSnackbar` are hooks) covering Layout, Atoms, Forms, Overlays, a partial Selection wave, and a slice of Data Display pulled forward ahead of catalog order because a real page needed it (see `examples/demo-app`):
 
 - **Layout**: Box, Flex, Stack, Grid, Container, Center, Spacer, Divider, AspectRatio, VisuallyHidden
 - **Atoms**: Text, Heading, Icon, Button, IconButton, Link, Badge, Avatar, Spinner, Skeleton, Kbd, Image

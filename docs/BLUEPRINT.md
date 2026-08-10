@@ -266,7 +266,7 @@ hit area ขั้นต่ำ 44×44px บน touch — component ตัวเ�
 
 ## 5. Component Inventory (ลำดับการสร้างตาม dependency)
 
-Catalog เต็มอยู่ที่ `docs/CATALOG.md` (108 ตัว / 10 waves เป็น default — ปรับจำนวน/ลำดับได้ตาม system) โครง tier มาตรฐาน:
+Catalog เต็มอยู่ที่ `docs/CATALOG.md` (103 ตัว / 10 waves เป็น default — ปรับจำนวน/ลำดับได้ตาม system; เลขนี้ต้องตรงกับหัวเรื่องของ CATALOG.md จริง ซึ่งเคย drift มาแล้วสามครั้ง) โครง tier มาตรฐาน:
 
 ### Tier 1 — Atoms (สร้างก่อน ทุกอย่างพึ่งพวกนี้)
 Text/Typography, Icon, Button, IconButton, Input, Textarea, Checkbox, Radio, Switch, Badge, Avatar, Spinner, Divider, Link, Kbd, Skeleton

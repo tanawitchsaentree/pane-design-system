@@ -53,8 +53,11 @@ npm publish
 cd ../react
 npm publish
 # ^ same mechanism, but prepublishOnly here runs the FULL gate first:
-#   barrel:check -> story:check -> lint:no-hardcode -> typecheck -> test -> build
+#   barrel:check -> story:check -> doc:check -> lint:no-hardcode -> typecheck -> test -> build
 #   -> pack-verify -> smoke:import
+#   doc:check compares every count written in the docs against the thing it counts (catalog total
+#   summed from CATALOG.md's own wave markers, shipped components read from barrel.manifest.mjs) —
+#   it exists because that number drifted silently six separate times.
 #   smoke:import packs BOTH packages, installs them together into a scratch project, resolves every
 #   documented entry point by published name, and renders components — it is what catches a rename
 #   or exports change that pack-verify (one package, paths only) cannot see.
