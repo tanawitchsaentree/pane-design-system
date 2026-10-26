@@ -1,7 +1,0 @@
-/**
- * Stack — thin wrapper over Flex (D-012). No extra visual rules of its own: `direction` and
- * `gap` are translated to Flex's own data-attribute-driven CSS. This class exists only as a
- * stable hook for consumers to target `.stack` in their own overrides.
- */
-.stack {
-}

@@ -1,7 +1,0 @@
-{
-  "borderWidth": {
-    "$description": "D-008 — border widths 1/2 (no wider width needed since shadow is reserved for floating layers only, hairline does the definition work).",
-    "hairline": { "$type": "dimension", "$value": "1px" },
-    "thick": { "$type": "dimension", "$value": "2px" }
-  }
-}

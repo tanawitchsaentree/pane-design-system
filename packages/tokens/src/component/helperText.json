@@ -1,9 +1,0 @@
-{
-  "$description": "Wave 3 (W3 Forms-Core, D-015) component tokens for HelperText. `default` tone reuses `color.text.subtle` (Text component's existing 'subtle' role) at 6.07:1 (light) / 7.55:1 (dark) against `color.surface.raised`. `error` tone reuses `color.action.danger.default` — the same already-AA-fixed (D-014) token Button/Link danger intent use, NOT a new danger step — at 6.91:1 (light) / 5.78:1 (dark) against `surface.raised`, and 6.50:1 / 6.07:1 against `surface.canvas`. Both tones clear the 4.5:1 text minimum in both themes on either surface this helper text is likely to sit on.",
-  "helperText": {
-    "text": {
-      "default": { "$type": "color", "$value": "{color.text.subtle}" },
-      "error": { "$type": "color", "$value": "{color.action.danger.default}" }
-    }
-  }
-}

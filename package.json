@@ -1,14 +1,11 @@
 {
-  "name": "dial-design-system",
+  "name": "kiln",
   "private": true,
   "version": "0.0.0",
-  "description": "Monorepo root for the Dial design system (dial-tokens, dial-react) — see system/DECISIONS.md D-011.",
+  "description": "kiln — design-system factory engine for Claude Code. Produces a system into packages/ + apps/; has no system of its own.",
   "packageManager": "pnpm@9.0.0",
   "scripts": {
     "build": "turbo run build",
-    "tokens:build": "pnpm --filter dial-tokens build",
-    "storybook": "pnpm --filter storybook storybook",
-    "build-storybook": "pnpm --filter storybook build-storybook",
     "lint": "node tooling/no-hardcode-lint.mjs",
     "lint:selftest": "node tooling/no-hardcode-lint.selftest.mjs",
     "gate:selftest": "node tooling/no-hardcode-lint.selftest.mjs && node tooling/contrast-check.selftest.mjs && node tooling/generate-barrel.selftest.mjs && node tooling/pack-verify.selftest.mjs && node tooling/story-title-check.selftest.mjs && node tooling/doc-count-check.selftest.mjs",

@@ -1,8 +1,0 @@
-{
-  "$description": "Wave 2 (D-013) component tokens for Kbd. Aliases semantic/* only — hairline border (D-008, no decorative shadow) + a slightly raised surface step to read as a physical key.",
-  "kbd": {
-    "bg": { "$type": "color", "$value": "{color.surface.inset}" },
-    "border": { "$type": "color", "$value": "{color.border.hairline}" },
-    "text": { "$type": "color", "$value": "{color.text.default}" }
-  }
-}

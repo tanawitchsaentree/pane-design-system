@@ -1,8 +1,0 @@
-{
-  "cubicBezier": {
-    "$description": "D-009 — easing curves, default blueprint set (standard/decelerate/accelerate). No spring per D-009 (no evidence to add one).",
-    "standard": { "$type": "cubicBezier", "$value": [0.4, 0.0, 0.2, 1.0] },
-    "decelerate": { "$type": "cubicBezier", "$value": [0.0, 0.0, 0.2, 1.0] },
-    "accelerate": { "$type": "cubicBezier", "$value": [0.4, 0.0, 1.0, 1.0] }
-  }
-}
