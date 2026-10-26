@@ -3,9 +3,12 @@ import type { Page } from '@playwright/test';
 import { story } from './_helpers';
 import { parseRgb, contrastRatio } from './_contrast';
 
-// input.json's own $description self-checks border.interactive vs surface.inset at 3.47:1
-// (light) / 4.20:1 (dark), and border.invalid vs surface.inset at 6.05:1 (light) / 6.87:1 (dark)
-// — numbers computed by hand and recorded in prose, never re-checked by anything that runs.
+// input.json's own $description self-checks border.interactive vs surface.inset at 4.07:1
+// (light) / 3.91:1 (dark), and border.invalid vs surface.inset at 5.74:1 (light) / 7.90:1 (dark)
+// — re-measured 2026-08-14 after D-028 (dial-braun-rederivation) rebuilt the neutral ramp's real
+// hex values; original numbers were 3.47:1/4.20:1 and 6.05:1/6.87:1 pre-D-028. Numbers computed
+// by hand and recorded in prose, never re-checked by anything that runs — that's what this spec
+// closes.
 // InputGroup.module.css and PinInput.module.css both reuse the exact same token pairing (the
 // outer group frame's border+bg for InputGroup; each cell's border+bg for PinInput) and both
 // carried an UNVERIFIED comment pointing at this gap. This spec closes it by pulling the real
@@ -65,7 +68,7 @@ test.describe('InputGroup: outer frame border/bg contrast (input.json pairing)',
     expect(ratio, `ต้องใกล้เคียง 3.47:1 ที่ input.json อ้างไว้ ได้จริง ${ratio.toFixed(3)}:1`).toBeGreaterThan(3.3);
   });
 
-  test('dark theme — border.interactive vs surface.inset >= 3:1 (input.json cites 4.20:1)', async ({
+  test('dark theme — border.interactive vs surface.inset >= 3:1 (input.json cites 3.91:1 post-D-028)', async ({
     page,
   }) => {
     await page.goto(story('forms-inputgroup--with-prefix'));
@@ -73,7 +76,11 @@ test.describe('InputGroup: outer frame border/bg contrast (input.json pairing)',
     await setTheme(page, 'dark');
     const ratio = await getBorderBgContrast(page, '[class*="group"]');
     expect(ratio, `contrast จริงที่วัดได้: ${ratio.toFixed(3)}:1`).toBeGreaterThanOrEqual(3);
-    expect(ratio, `ต้องใกล้เคียง 4.20:1 ที่ input.json อ้างไว้ ได้จริง ${ratio.toFixed(3)}:1`).toBeGreaterThan(4.0);
+    // D-028 (dial-braun-rederivation) rebuilt the neutral ramp's real hex values (hue correction
+    // from measurement against the real Braun reference) — this moved the dark-theme number from
+    // its original 4.20:1 self-check down to 3.91:1, still clearing the real 3:1 UI-boundary floor
+    // above (the actual gate), just with a smaller margin than before. Threshold updated to match.
+    expect(ratio, `ต้องใกล้เคียง 3.91:1 (re-measured post-D-028) ได้จริง ${ratio.toFixed(3)}:1`).toBeGreaterThan(3.7);
   });
 });
 
@@ -89,7 +96,7 @@ test.describe('PinInput: cell border/bg contrast (input.json pairing)', () => {
     expect(ratio, `ต้องใกล้เคียง 3.47:1 ที่ input.json อ้างไว้ ได้จริง ${ratio.toFixed(3)}:1`).toBeGreaterThan(3.3);
   });
 
-  test('dark theme, border.interactive (default cell) vs surface.inset >= 3:1 (cites 4.20:1)', async ({
+  test('dark theme, border.interactive (default cell) vs surface.inset >= 3:1 (cites 3.91:1 post-D-028)', async ({
     page,
   }) => {
     await page.goto(story('forms-pininput--default'));
@@ -97,7 +104,9 @@ test.describe('PinInput: cell border/bg contrast (input.json pairing)', () => {
     await setTheme(page, 'dark');
     const ratio = await getBorderBgContrast(page, 'input[aria-label="Digit 1 of 6"]');
     expect(ratio, `contrast จริงที่วัดได้: ${ratio.toFixed(3)}:1`).toBeGreaterThanOrEqual(3);
-    expect(ratio, `ต้องใกล้เคียง 4.20:1 ที่ input.json อ้างไว้ ได้จริง ${ratio.toFixed(3)}:1`).toBeGreaterThan(4.0);
+    // See InputGroup's own dark-theme test above for why this moved from 4.20:1 to 3.91:1 (D-028
+    // neutral-ramp rebuild) — still clears the real 3:1 floor above with margin.
+    expect(ratio, `ต้องใกล้เคียง 3.91:1 (re-measured post-D-028) ได้จริง ${ratio.toFixed(3)}:1`).toBeGreaterThan(3.7);
   });
 
   test('light theme, invalid-state border vs surface.inset >= 3:1 (cites 6.05:1)', async ({ page }) => {

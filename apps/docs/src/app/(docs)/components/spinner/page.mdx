@@ -1,0 +1,128 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import { BasicSpinner, SpinnerSizesLabel, SpinnerInButton, SpinnerStandaloneSection } from '@/content/demos/SpinnerDemos';
+
+export const metadata = { title: 'Spinner — Dial' };
+
+<DocsPage toc={getPageToc('components/spinner/page.mdx')}>
+<DocsBody>
+
+# Spinner
+
+An indeterminate loading indicator — a pure CSS animation with no client state, so it's safe to
+render on the server.
+
+```tsx
+import { Spinner } from 'dial-react';
+```
+
+## Demo
+
+<Demo code={`<Spinner />`}>
+  <BasicSpinner />
+</Demo>
+
+## Usage
+
+Spinner is an indeterminate loading indicator — a pure CSS animation with no client state, so it's
+safe to render on the server. Use it to communicate an in-progress/busy state, either standalone or
+composed inside Button (rendered automatically when `loading` is true).
+
+## Do
+
+<DoDont
+  dos={[
+    "Provide a specific label (e.g. \"Saving changes\") when the default \"Loading\" isn't descriptive enough for the context.",
+    "Let Button render Spinner automatically via its loading prop rather than composing it manually inside a button.",
+    "Match size to the surrounding icon/control scale (D-004 icon size tokens).",
+  ]}
+  donts={[
+    "Don't rely on Spinner alone to convey busy state on an interactive control — pair it with aria-busy/disabled (as Button does) so assistive tech gets the full picture.",
+    "Don't add a visible duplicate loading text next to Spinner — its own visually-hidden label already provides the accessible name.",
+  ]}
+/>
+
+## Variants
+
+Spinner's only variant-like prop is `size` (matching the icon size scale); `label` changes the
+accessible name announced, not the visual.
+
+<Demo code={`<Spinner size="sm" />
+<Spinner size="md" />
+<Spinner size="lg" />
+<Spinner size="xl" label="Saving changes" />`}>
+  <SpinnerSizesLabel />
+</Demo>
+
+## Composition
+
+The most common real use is inside a `Button`: setting `loading` swaps Button's icon slot for a
+Spinner automatically and marks the button `aria-busy`/`disabled` — no manual composition needed.
+
+<Demo code={`<Button loading intent="primary">Save changes</Button>`}>
+  <SpinnerInButton />
+</Demo>
+
+Standalone, Spinner is used inside a content region (e.g. a panel waiting on results) rather than
+on a control — the `label` here describes what's loading, not a generic "Loading".
+
+<Demo code={`<Flex align="center" justify="center" style={{ width: 240, height: 120 }}>
+  <Spinner size="lg" label="Loading results" />
+</Flex>`}>
+  <SpinnerStandaloneSection />
+</Demo>
+
+## Props
+
+<PropsTable componentPath="components/Spinner/Spinner.tsx" />
+
+## Keyboard interaction
+
+N/A — Spinner is non-interactive and never receives focus.
+
+## Accessibility
+
+**Keyboard:** N/A — Spinner is non-interactive and never receives focus.
+
+**Screen reader:** Root `span` has `role="status"` (implying `aria-live="polite"`), containing a
+visually-hidden label as real text content (not just an attribute) so the accessible name —
+`"Loading"` by default, or the custom `label` — is announced once.
+
+**Focus:** Not focusable; no focus-visible styling is defined. Respects `prefers-reduced-motion`
+by swapping the spin animation for an opacity pulse (D-009 motion tokens).
+
+## Tokens used
+
+<TokenList
+  names={[
+    'border-width-thick',
+    'cubic-bezier-standard',
+    'duration-slower',
+    'opacity-100',
+    'opacity-40',
+    'radius-full',
+    'size-icon-lg',
+    'size-icon-md',
+    'size-icon-sm',
+    'size-icon-xl',
+    'spinner-indicator',
+    'spinner-track',
+  ]}
+/>
+
+## Related
+
+- **Button** — composes Spinner automatically in its icon slot when `loading` is true.
+- **Skeleton** — an alternative loading indicator pattern for content placeholders rather than an
+  in-progress action.
+
+## Source
+
+- Source: `packages/react/src/components/Spinner/` · Spec: `packages/spec/spinner.md`
+  <br />
+  <small style={{ color: 'var(--ds-color-text-subtle)' }}>
+    This repository has no public remote yet — paths are relative to the repo root, not links.
+  </small>
+
+</DocsBody>
+</DocsPage>

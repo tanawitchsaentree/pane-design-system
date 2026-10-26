@@ -9,6 +9,7 @@
  * Logical properties only (RTL-ready, ds-conventions).
  */
 .wrapper {
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   gap: var(--ds-space-inline-sm);
@@ -20,7 +21,15 @@
   border-radius: var(--ds-radius-md);
   padding-inline: var(--ds-space-300);
   transition: var(--ds-transition-fast);
-  transition-property: border-color, border-width;
+  transition-property: border-color, border-width, box-shadow;
+  /* D-029/D-030/D-031 — input class per system/FORM.md: permanently inset (a receiving channel,
+   * never raised — there is no "pressed" state for an input the way a control has one). Foundry
+   * Niche B, apps/lab/foundry/report-2026-08-13.md. */
+  box-shadow: var(--ds-shadow-inset-sm);
+}
+
+.wrapper[data-disabled] {
+  box-shadow: none;
 }
 
 .wrapper:hover:not([data-disabled]) {
@@ -28,6 +37,7 @@
 }
 
 .wrapper:focus-within:not([data-disabled]) {
+  box-shadow: var(--ds-shadow-inset-md);
   outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
   outline-offset: var(--ds-focus-ring-offset);
 }

@@ -1,0 +1,208 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import { BasicListbox, ListboxMultiple, ListboxWithSections, ListboxMultiSelectSummary } from '@/content/demos/ListboxDemos';
+
+export const metadata = { title: 'Listbox — Dial' };
+
+<DocsPage toc={getPageToc('components/listbox/page.mdx')}>
+<DocsBody>
+
+# Listbox
+
+Listbox renders an ARIA `listbox` (`role="listbox"` + `role="option"` children) with real
+keyboard navigation, typeahead, and roving tabindex — all borrowed from React Aria, not
+hand-written.
+
+```tsx
+import { Listbox } from 'dial-react';
+```
+
+## Demo
+
+<Demo code={`<Listbox aria-label="Favorite fruit" defaultSelectedKeys={new Set(['apple'])}>
+  <Listbox.Item key="apple">Apple</Listbox.Item>
+  <Listbox.Item key="banana">Banana</Listbox.Item>
+  <Listbox.Item key="cherry">Cherry</Listbox.Item>
+</Listbox>`}>
+  <BasicListbox />
+</Demo>
+
+## Usage
+
+Listbox renders an ARIA `listbox` (`role="listbox"` + `role="option"` children) with real
+keyboard navigation, typeahead, and roving tabindex — all borrowed from React Aria
+(`@react-stately/list`'s `useListState` + `@react-aria/listbox`'s
+`useListBox`/`useOption`/`useListBoxSection`), not hand-written. It is the template component for
+Wave 5 (Selection): Select, Combobox, MultiSelect, RadioCards, and TagInput all reuse this same
+collection/behavior pattern and its `selectedKeys`/`defaultSelectedKeys`/`onSelectionChange`/
+`disabledKeys` vocabulary (D-024's API Vocabulary Contract). Declare options as `Listbox.Item`
+children and, optionally, group them under `Listbox.Section` (React Aria's Collection API — these
+render nothing themselves; `useListState` walks them to build the actual option collection).
+
+## Do and Don't
+
+<DoDont
+  dos={[
+    "Pass aria-label (or aria-labelledby) only when this Listbox is used standalone (outside FormField) — a listbox with no accessible name at all is a real a11y bug. When nested inside FormField, omit both: FormField wires aria-labelledby automatically (see Accessibility note).",
+    "Use selectedKeys/onSelectionChange for controlled usage, defaultSelectedKeys for uncontrolled — same duality every other input in this system follows. Both are always a plain ReadonlySet<Key> — never branch on the string 'all'; this component normalizes React Aria's own Selection type (which can be 'all', e.g. after Mod+A) before either prop crosses the boundary.",
+    "Give every Listbox.Item a stable key — it's how selection, disabling, and typeahead all identify options.",
+    "Disable an option only via the parent's disabledKeys — there is no per-Listbox.Item isDisabled prop. Disabled state lives in one data-driven place, not scattered across JSX call sites (D-024 review item 5).",
+    "Set selectionMode=\"multiple\" for multi-select — the checkmark non-color cue, aria-selected sync, and Mod+A select-all all work the same way in either mode.",
+    "Group related options with Listbox.Section (e.g. \"Recent\" / \"All countries\") when the list has a natural grouping — every W5 sibling that needs sections (Select, Combobox) reuses this exact shape rather than inventing its own.",
+  ]}
+  donts={[
+    "Don't write your own keyboard handler, focus index, or typeahead buffer on top of this component — everything in the Roving Focus contract (arrow keys, Home/End, typeahead, scroll-into-view, Tab-out) comes from React Aria already.",
+    "Don't assume Arrow Down wraps from the last option back to the first — it doesn't, by design (see Accessibility note).",
+    "Don't rely on the selected-option background alone to communicate selection — the checkmark glyph's presence/absence is the real non-color cue; the background tint is reinforcement only.",
+    "Don't pass aria-label to a Listbox nested inside FormField — it would give the option list two competing accessible names (see Accessibility note).",
+  ]}
+/>
+
+## Variants
+
+Listbox has no visual `variant` prop. Its two prop-driven shapes:
+
+<Demo code={`<Listbox aria-label="Colors" selectionMode="multiple" selectedKeys={selectedKeys} onSelectionChange={setSelectedKeys} disabledKeys={['green']}>
+  <Listbox.Item key="red">Red</Listbox.Item>
+  <Listbox.Item key="green">Green (disabled)</Listbox.Item>
+  <Listbox.Item key="blue">Blue</Listbox.Item>
+</Listbox>`}>
+  <ListboxMultiple />
+</Demo>
+
+<Demo code={`<Listbox aria-label="Countries">
+  <Listbox.Section title="Recent">
+    <Listbox.Item key="th">Thailand</Listbox.Item>
+    <Listbox.Item key="jp">Japan</Listbox.Item>
+  </Listbox.Section>
+  <Listbox.Section title="All countries">
+    <Listbox.Item key="us">United States</Listbox.Item>
+    <Listbox.Item key="de">Germany</Listbox.Item>
+  </Listbox.Section>
+</Listbox>`}>
+  <ListboxWithSections />
+</Demo>
+
+## Composition
+
+A common real usage of `selectionMode="multiple"`: several options actually selected at once (not
+just one disabled option, as in the Variants example above), with the caller reading
+`selectedKeys` back out to render a live count of how many are chosen.
+
+<Demo code={`<Listbox aria-label="Countries to visit" selectionMode="multiple" selectedKeys={selectedKeys} onSelectionChange={setSelectedKeys}>
+  <Listbox.Item key="th">Thailand</Listbox.Item>
+  <Listbox.Item key="jp">Japan</Listbox.Item>
+  <Listbox.Item key="us">United States</Listbox.Item>
+  <Listbox.Item key="de">Germany</Listbox.Item>
+</Listbox>
+<div>{selectedKeys.size} selected</div>`}>
+  <ListboxMultiSelectSummary />
+</Demo>
+
+## Props
+
+<PropsTable componentPath="components/Listbox/Listbox.tsx" displayName="Listbox" />
+
+## Keyboard interaction
+
+<KeyboardTable entries={[
+  { key: 'ArrowUp / ArrowDown', action: 'Move the active option. Does not wrap from the last option back to the first (React Aria\'s useSelectableCollection defaults shouldFocusWrap to false).' },
+  { key: 'Home / End', action: 'Jump to the first / last option.' },
+  { key: 'A–Z (typeahead)', action: 'Jump to the next option whose label starts with the typed character.' },
+  { key: 'Mod+A', action: 'Select every option, when selectionMode="multiple".' },
+  { key: 'Tab / Shift+Tab', action: 'Move focus out of the whole widget in one step; the last-active option is remembered when focus returns.' },
+]} />
+
+## Accessibility
+
+- **Keyboard:** Arrow Up/Down move the active option and do **not** wrap (React Aria's
+  `useSelectableCollection` defaults `shouldFocusWrap` to `false` — verified by reading the
+  actually-resolved `@react-aria/selection` source in this repo's lockfile, not just the docs).
+  Home/End jump to the first/last option. Typing a character jumps to the next option whose label
+  starts with it (React Aria's built-in typeahead). `Mod+A` (Cmd/Ctrl+A) selects every option when
+  `selectionMode="multiple"` (confirmed firing in a real browser). Before any option has ever been
+  focused, the listbox root itself is `tabindex="0"` and every option is `tabindex="-1"` (ARIA
+  Authoring Practices' documented roving-tabindex bootstrap state); the moment an option is
+  focused, tabindex moves onto it and stays there. Tab/Shift+Tab move focus out of the whole
+  widget in one step and — proven via a round-trip assertion after a real compound-invariant
+  investigation, not assumed — correctly remember which option was last active when focus returns.
+- **Scroll-into-view:** when the root has a fixed `max-block-size` and overflows, focusing an
+  off-screen option scrolls it into view automatically — but only when the focus change's
+  *modality* is `'keyboard'` (confirmed by direct testing: a raw `element.focus()` call does not
+  scroll; pressing an actual arrow/Home/End key does).
+- **Screen reader:** each option carries `role="option"` + `aria-selected` synced to real
+  selection state (not a CSS class); the root carries `aria-multiselectable="true"` automatically
+  when `selectionMode="multiple"`. A `Listbox.Section` renders as `role="presentation"` (ARIA
+  disallows a heading as a direct listbox child) wrapping a hidden heading and a `role="group"`
+  with `aria-labelledby` pointing at that heading — the heading is a *visual* label only; the
+  group's actual accessible name comes through `aria-labelledby`.
+- **FormField integration:** a Listbox nested directly inside `FormField` needs neither
+  `aria-label` nor `aria-labelledby` — `FormField` clones its child with `aria-labelledby`
+  pointing at its own generated label id (the same wiring `Input`/`Textarea`/`Checkbox` get via
+  `htmlFor`/`id`, extended because `<ul role=listbox>` is not a labelable HTML element and gets no
+  accessible name from `htmlFor` alone). Verified in
+  `packages/conformance/specs/w5-listbox.spec.ts`'s `FormField integration` test that the
+  accessible name resolves exactly once, not twice.
+- **Focus:** focus-visible renders as an inset outline ring on the option itself, not a shadow.
+  Each option's hit area is `size.control.sm` (40px, D-002 web-first minimum) via
+  `min-block-size`, regardless of how little text it contains.
+- Real-browser-only behavior (Arrow-key roving tabindex, Home/End, typeahead, scroll-into-view,
+  Tab-out round-trip — none of which jsdom can prove) is verified in
+  `packages/conformance/specs/w5-listbox.spec.ts` across chromium/forced-colors/reduced-motion,
+  not in `Listbox.test.tsx`.
+
+## Tokens used
+
+<TokenList
+  names={[
+    'border-width-hairline',
+    'cursor-not-allowed',
+    'cursor-pointer',
+    'focus-ring-color',
+    'focus-ring-offset',
+    'focus-ring-width',
+    'font-weight-medium',
+    'font-weight-semibold',
+    'letter-spacing-wide',
+    'listbox-option-bg-hover',
+    'listbox-option-bg-selected',
+    'listbox-option-checkmark',
+    'listbox-option-text',
+    'listbox-option-text-disabled',
+    'listbox-root-bg',
+    'listbox-root-border',
+    'listbox-section-heading-text',
+    'radius-md',
+    'radius-sm',
+    'size-control-sm',
+    'size-icon-sm',
+    'space-100',
+    'space-1100',
+    'space-200',
+    'space-300',
+    'text-body-xs',
+    'transition-fast',
+  ]}
+/>
+
+## Related
+
+- **FormField** — wires `aria-labelledby` automatically when a Listbox is its child; see
+  Accessibility note above.
+- **Popover** — the W5 sibling `Select` will place a `Listbox` inside a `Popover.Content` to build
+  a dropdown; `Listbox` itself has no floating-panel behavior.
+- **Radio/Checkbox/Switch** — other selection controls in the system, but single native-input
+  controls with browser-native roving focus, not a multi-item collection with programmatic
+  behavior like Listbox. These use the Standalone Control vocabulary (`checked`/`onChange`), not
+  Listbox's Collection vocabulary (D-024).
+
+## Source
+
+- Source: `packages/react/src/components/Listbox/` · Spec: `packages/spec/listbox.md`
+  <br />
+  <small style={{ color: 'var(--ds-color-text-subtle)' }}>
+    This repository has no public remote yet — paths are relative to the repo root, not links.
+  </small>
+
+</DocsBody>
+</DocsPage>

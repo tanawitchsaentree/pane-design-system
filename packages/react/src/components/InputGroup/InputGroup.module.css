@@ -26,9 +26,13 @@
   /* Overrides the two custom properties Input/Textarea read from input.json for every
      descendant (custom properties cascade past CSS-module boundaries) — so a nested Input's
      own wrapper renders borderless/fill-less and this group's outer frame is the only chrome
-     visible, avoiding a double border/fill. */
+     visible, avoiding a double border/fill. Also overrides --ds-shadow-inset-sm to none for the
+     same reason (D-029/D-030/D-031) — the group's own shadow below is the only depth cue, a
+     nested Input must not ALSO render its own inset shadow inside this frame. */
   --ds-input-border-default: transparent;
   --ds-input-bg-default: transparent;
+  --ds-shadow-inset-sm: none;
+  box-shadow: var(--ds-shadow-inset-md);
 }
 
 .group:focus-within {

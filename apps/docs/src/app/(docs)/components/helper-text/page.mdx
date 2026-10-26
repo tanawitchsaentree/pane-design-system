@@ -1,0 +1,132 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import {
+  BasicHelperText,
+  ErrorHelperText,
+  HelperTextWithManualInput,
+  HelperTextInFormField,
+} from '@/content/demos/HelperTextDemos';
+
+export const metadata = { title: 'HelperText — Dial' };
+
+<DocsPage toc={getPageToc('components/helper-text/page.mdx')}>
+<DocsBody>
+
+# HelperText
+
+HelperText is the supporting copy shown under a form control — hint text, validation errors,
+character limits. It renders through `Text` for typography consistency and exposes a `tone` prop
+to switch between neutral guidance and error messaging. It is purely presentational; the actual
+`aria-describedby` wiring to its control is the caller's job, or automatic when composed through
+`FormField`.
+
+```tsx
+import { HelperText } from 'dial-react';
+```
+
+## Demo
+
+<Demo code={`<HelperText>We'll never share your email with anyone else.</HelperText>`}>
+  <BasicHelperText />
+</Demo>
+
+## Usage
+
+HelperText is the supporting copy shown under a form control — hint text, validation errors,
+character limits. It renders through `Text` for typography consistency and exposes a `tone` prop
+to switch between neutral guidance and error messaging. It is purely presentational; the actual
+`aria-describedby` wiring to its control is the caller's job, or automatic when composed through
+`FormField`.
+
+## Do
+
+<DoDont
+  dos={[
+    'Use `tone="error"` for validation failures — it switches to `color.action.danger.default`, self-checked for AA contrast (6.91:1/6.50:1 light, 5.78:1/6.07:1 dark).',
+    'Compose HelperText inside `FormField` whenever possible so `aria-describedby` is wired for you.',
+    'Keep the message short — one line of guidance or one error, not a paragraph.',
+  ]}
+  donts={[
+    "Don't expect HelperText to announce itself automatically — if used outside `FormField`, you must set `aria-describedby` on the control yourself pointing at HelperText's `id`.",
+    "Don't use `tone=\"error\"` for non-error guidance — it's a dedicated danger-colored state, not a general emphasis tool.",
+    "Don't re-declare font size/color with custom CSS — HelperText already renders through `Text` (`size=\"sm\" color=\"subtle\"`).",
+  ]}
+/>
+
+## Variants
+
+<Demo code={`<HelperText tone="error">Please enter a valid email address.</HelperText>`}>
+  <ErrorHelperText />
+</Demo>
+
+## Composition
+
+When `HelperText` is used outside `FormField`, the caller wires `aria-describedby` on the control
+by hand, pointing at `HelperText`'s own `id`. This shows that manual pairing with a real `Label` +
+`Input`.
+
+<Demo code={`<Stack gap="100">
+  <Label htmlFor="email-field">Email</Label>
+  <Input id="email-field" type="email" aria-describedby="email-helper" placeholder="you@example.com" />
+  <HelperText id="email-helper">We'll never share your email with anyone else.</HelperText>
+</Stack>`}>
+  <HelperTextWithManualInput />
+</Demo>
+
+The more common case composes `HelperText` inside `FormField`, which wires `id`/`aria-describedby`
+automatically and switches `HelperText` to `tone="error"` on its own whenever `invalid` is set —
+no separate `tone` prop needed on `HelperText` itself.
+
+<Demo code={`<FormField label="Password" invalid helperText="Password must be at least 8 characters.">
+  <Input type="password" defaultValue="abc" />
+</FormField>`}>
+  <HelperTextInFormField />
+</Demo>
+
+## Props
+
+<PropsTable componentPath="components/HelperText/HelperText.tsx" />
+
+## Keyboard interaction
+
+None — HelperText is static text, not an interactive element.
+
+## Accessibility
+
+**Keyboard:** None — HelperText is static text, not an interactive element.
+
+**Screen reader:** Purely presentational on its own; announced to assistive tech only when a
+control references it via `aria-describedby` (wired automatically by `FormField`, or manually by
+the caller otherwise). The `data-tone` attribute is a styling hook, not an ARIA signal — tone
+changes rely on the caller/`FormField` also switching to `aria-invalid` where relevant.
+
+**Focus:** Not focusable.
+
+## Tokens used
+
+<TokenList
+  names={[
+    'helper-text-text-error',
+    'space-0',
+    'text-color-subtle',
+  ]}
+/>
+
+## Related
+
+- `FormField` composes `HelperText` under the control and wires `aria-describedby` (and switches
+  `tone` to `'error'` when `invalid`) automatically.
+- `Label` — the other text-bearing atom composed by `FormField`, following the same "render
+  through `Text`" pattern.
+- `Input` / `Textarea` — typical controls whose validation state HelperText communicates.
+
+## Source
+
+- Source: `packages/react/src/components/HelperText/` · Spec: `packages/spec/helpertext.md`
+  <br />
+  <small style={{ color: 'var(--ds-color-text-subtle)' }}>
+    This repository has no public remote yet — paths are relative to the repo root, not links.
+  </small>
+
+</DocsBody>
+</DocsPage>

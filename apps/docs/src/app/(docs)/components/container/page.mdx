@@ -1,0 +1,133 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import {
+  BasicContainer,
+  ContainerSmall,
+  ContainerFullBleed,
+  ContainerPageSection,
+} from '@/content/demos/ContainerDemos';
+
+export const metadata = { title: 'Container — Dial' };
+
+<DocsPage toc={getPageToc('components/container/page.mdx')}>
+<DocsBody>
+
+# Container
+
+Container centers content horizontally and caps its width at a breakpoint size, extending Box.
+
+```tsx
+import { Container } from 'dial-react';
+```
+
+## Demo
+
+<Demo code={`<Container size="lg">
+  <div>size="lg" (default) — capped and centered</div>
+</Container>`}>
+  <BasicContainer />
+</Demo>
+
+## Usage
+
+Container centers content horizontally and caps its width at a breakpoint size, extending Box
+(D-012). Use it as the outermost wrapper for page sections or content areas that should stay
+readable-width on large viewports rather than stretching edge-to-edge.
+
+## Do
+
+<DoDont
+  dos={[
+    "Use Container to wrap page-level content sections that need a consistent max-width and horizontal centering.",
+    "Use the default `size=\"lg\"` (D-002 anchor) unless a section explicitly needs a narrower reading width (`sm`/`md`) or a wider one (`xl`/`2xl`).",
+    "Use `size=\"full\"` when you deliberately want to remove the max-width cap (e.g. full-bleed hero sections).",
+  ]}
+  donts={[
+    "Don't nest multiple Containers inside each other — max-width capping is meant to happen once per section.",
+    "Don't use Container as a spacing utility — it only controls max-width/centering, not padding between children (use Stack/Spacer for that).",
+    "Don't hardcode breakpoint pixel values in consumer code — rely on the `size` prop's token-bound breakpoints (D-007).",
+  ]}
+/>
+
+## Variants
+
+<Demo code={`<Container size="sm">
+  <div>size="sm" — a narrower reading width</div>
+</Container>`}>
+  <ContainerSmall />
+</Demo>
+
+`size="full"` removes the max-width cap entirely, letting content span the full available width —
+the right choice for a full-bleed hero or a section that should stretch edge-to-edge instead of
+being capped.
+
+<Demo code={`<Container size="full">
+  <div>size="full" — no max-width cap, spans the available width</div>
+</Container>`}>
+  <ContainerFullBleed />
+</Demo>
+
+## Composition
+
+A typical use wraps a real page section — a heading, some body copy, and an action — rather than
+a single line of placeholder text. This shows `Container` at its default `size="lg"` around that
+kind of content.
+
+<Demo code={`<Container size="lg">
+  <Stack gap="200">
+    <Heading level={2} size="lg">Team settings</Heading>
+    <Text color="subtle">
+      Manage your team's members, roles, and billing details from one place.
+    </Text>
+    <Button intent="primary">Invite member</Button>
+  </Stack>
+</Container>`}>
+  <ContainerPageSection />
+</Demo>
+
+## Props
+
+<PropsTable componentPath="components/Container/Container.tsx" />
+
+## Keyboard interaction
+
+No keyboard behavior beyond native Tab focus — Container is a non-interactive layout primitive.
+
+## Accessibility
+
+**Keyboard:** N/A — non-interactive layout primitive.
+
+**Screen reader:** No inherent role; `size` is exposed only via a `data-size` attribute for
+styling. Verified axe-clean in tests.
+
+**Focus:** Not focusable itself; forwards ref to the underlying DOM node.
+
+## Tokens used
+
+<TokenList
+  names={[
+    'container-2xl',
+    'container-lg',
+    'container-md',
+    'container-sm',
+    'container-xl',
+    'grid-gutter',
+  ]}
+/>
+
+## Related
+
+- **Box** — base primitive.
+- **Grid** — often placed inside a Container to lay out its contents.
+- **Center** — for centering content within a Container's cross axis.
+
+## Source
+
+- Source: `packages/react/src/components/Container/` · Spec: `packages/spec/container.md`
+  <br />
+  <small style={{ color: 'var(--ds-color-text-subtle)' }}>
+    This repository has no public remote yet — paths are relative to the repo root, not links.
+  </small>
+
+</DocsBody>
+</DocsPage>

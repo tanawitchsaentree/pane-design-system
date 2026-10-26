@@ -1,0 +1,184 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import { BasicPopover, ModalPopover, FormPopover } from '@/content/demos/PopoverDemos';
+
+export const metadata = { title: 'Popover — Dial' };
+
+<DocsPage toc={getPageToc('components/popover/page.mdx')}>
+<DocsBody>
+
+# Popover
+
+Popover is a lightweight, trigger-anchored floating panel for auxiliary content — menus, filter
+panels, inline forms, or extra detail that doesn't need to block the page.
+
+```tsx
+import { Popover } from 'dial-react';
+```
+
+## Demo
+
+<Demo code={`<Popover.Root>
+  <Popover.Trigger asChild>
+    <Button variant="outline">Filters</Button>
+  </Popover.Trigger>
+  <Popover.Content>
+    <p>Filter options go here.</p>
+    <Popover.Arrow />
+  </Popover.Content>
+</Popover.Root>`}>
+  <BasicPopover />
+</Demo>
+
+## Usage
+
+Popover is a lightweight, trigger-anchored floating panel for auxiliary content — menus, filter
+panels, inline forms, or extra detail that doesn't need to block the page. Unlike Dialog, it is
+non-modal by default: focus stays on the trigger, and the panel dismisses on click-outside or
+Escape without trapping focus or inerting the background. It renders through a portal at
+`z-index: var(--ds-z-index-popover)` (1500) with `shadow.elevation.md`, positioned relative to its
+trigger.
+
+## Do
+
+<DoDont
+  dos={[
+    "Use the default non-modal behavior for the common case (menus, filters, quick actions); only set modal={true} for the rare popover that must behave like a mini-modal.",
+    "Use Popover.Anchor when the visual anchor point needs to differ from the element that actually opens the popover.",
+    "Pair with Popover.Arrow when a visual pointer back to the trigger helps orient the user.",
+  ]}
+  donts={[
+    "Don't use Popover for content that must block user interaction with the rest of the page — that's Dialog's job.",
+    "Don't use Popover for a simple one-line text hint — that's Tooltip's job (Popover is heavier and click/focus-triggered, not hover-triggered).",
+    "Don't hand-roll click-outside or Escape dismissal — both are wired by @radix-ui/react-popover, not custom code.",
+  ]}
+/>
+
+## Variants
+
+`modal` (on `Popover.Root`, default `false`) switches the popover into a focus-trapping mini-modal
+layer for the rare case that needs it. `side` (on `Popover.Content`, default `'bottom'`) picks
+which edge of the trigger the panel renders against.
+
+<Demo code={`<Popover.Root modal>
+  <Popover.Trigger asChild>
+    <Button variant="outline">Modal popover</Button>
+  </Popover.Trigger>
+  <Popover.Content side="right">
+    <p>This popover traps focus like a mini-modal.</p>
+    <Popover.Close asChild>
+      <Button variant="ghost" size="sm">Close</Button>
+    </Popover.Close>
+  </Popover.Content>
+</Popover.Root>`}>
+  <ModalPopover />
+</Demo>
+
+A popover can hold more than static text — here it wraps a small inline form (two `FormField`s
+plus a save action), the "quick edit without leaving the page" pattern the component exists for.
+
+<Demo code={`<Popover.Root>
+  <Popover.Trigger asChild>
+    <Button variant="outline">Add contact</Button>
+  </Popover.Trigger>
+  <Popover.Content>
+    <FormField label="Name">
+      <Input placeholder="Jane Doe" />
+    </FormField>
+    <FormField label="Email">
+      <Input type="email" placeholder="jane@example.com" />
+    </FormField>
+    <Popover.Close asChild>
+      <Button size="sm">Save</Button>
+    </Popover.Close>
+    <Popover.Arrow />
+  </Popover.Content>
+</Popover.Root>`}>
+  <FormPopover />
+</Demo>
+
+## Props
+
+### Popover.Root
+
+<PropsTable componentPath="components/Popover/Popover.tsx" displayName="Root" />
+
+### Popover.Trigger
+
+<PropsTable componentPath="components/Popover/Popover.tsx" displayName="Popover.Trigger" />
+
+### Popover.Anchor
+
+<PropsTable componentPath="components/Popover/Popover.tsx" displayName="Popover.Anchor" />
+
+### Popover.Content
+
+<PropsTable componentPath="components/Popover/Popover.tsx" displayName="Popover.Content" />
+
+### Popover.Close
+
+<PropsTable componentPath="components/Popover/Popover.tsx" displayName="Popover.Close" />
+
+### Popover.Arrow
+
+<PropsTable componentPath="components/Popover/Popover.tsx" displayName="Popover.Arrow" />
+
+## Keyboard interaction
+
+<KeyboardTable
+  entries={[
+    { key: 'Escape', action: 'Closes the popover.' },
+    { key: 'Tab / Shift+Tab', action: "Continues through the surrounding page — focus is not trapped inside the popover by default (non-modal), unless modal={true} is set." },
+  ]}
+/>
+
+## Accessibility
+
+**Keyboard:** Escape closes the popover; focus is not trapped inside it by default (non-modal), so
+Tab continues through the surrounding page unless `modal={true}` is set.
+
+**Screen reader:** Radix renders the content with `role="dialog"`. Verified axe-clean when open in
+`Popover.test.tsx`.
+
+**Focus:** Focus remains on the trigger by default when the popover opens (non-modal); click-outside
+and Escape both close it (confirmed in tests).
+
+## Tokens used
+
+<TokenList
+  names={[
+    'border-width-hairline',
+    'cubic-bezier-accelerate',
+    'cubic-bezier-decelerate',
+    'duration-base',
+    'duration-fast',
+    'opacity-0',
+    'opacity-100',
+    'popover-content-bg',
+    'popover-content-border',
+    'popover-content-shadow',
+    'popover-content-text',
+    'radius-md',
+    'space-1000',
+    'space-inset-md',
+    'text-body-sm',
+    'z-index-popover',
+  ]}
+/>
+
+## Related
+
+- **Tooltip** — for a plain hover/focus text hint instead of an interactive panel.
+- **Dialog** — for content that must block the page and trap focus.
+- **Drawer** — for edge-anchored panels rather than trigger-anchored floating ones.
+
+## Source
+
+- Source: `packages/react/src/components/Popover/` · Spec: `packages/spec/popover.md`
+  <br />
+  <small style={{ color: 'var(--ds-color-text-subtle)' }}>
+    This repository has no public remote yet — paths are relative to the repo root, not links.
+  </small>
+
+</DocsBody>
+</DocsPage>

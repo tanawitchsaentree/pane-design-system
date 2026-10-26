@@ -34,6 +34,7 @@
 }
 
 .ring {
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -46,7 +47,17 @@
   border-color: var(--ds-radio-border-default);
   background-color: transparent;
   transition: var(--ds-transition-fast);
-  transition-property: border-color, border-width;
+  transition-property: border-color, border-width, box-shadow;
+  /* D-029/D-030/D-031 — control class, same pattern as Checkbox */
+  box-shadow: var(--ds-shadow-raised-sm);
+}
+
+.input:checked ~ .ring {
+  box-shadow: var(--ds-shadow-inset-sm);
+}
+
+.input:disabled ~ .ring {
+  box-shadow: none;
 }
 
 .dot {

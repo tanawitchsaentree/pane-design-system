@@ -30,6 +30,7 @@
 }
 
 .box {
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -43,7 +44,18 @@
   background-color: transparent;
   color: transparent;
   transition: var(--ds-transition-fast);
-  transition-property: background-color, border-color, color;
+  transition-property: background-color, border-color, color, box-shadow;
+  /* D-029/D-030/D-031 — control class, Foundry Niche B */
+  box-shadow: var(--ds-shadow-raised-sm);
+}
+
+.input:checked ~ .box,
+.input[aria-checked='mixed'] ~ .box {
+  box-shadow: var(--ds-shadow-inset-sm);
+}
+
+.input:disabled ~ .box {
+  box-shadow: none;
 }
 
 .checkIcon,

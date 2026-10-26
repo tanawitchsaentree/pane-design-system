@@ -1,0 +1,170 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import { BasicStat, StatWithTrend, StatDashboardRow } from '@/content/demos/StatDemos';
+
+export const metadata = { title: 'Stat — Dial' };
+
+<DocsPage toc={getPageToc('components/stat/page.mdx')}>
+<DocsBody>
+
+# Stat
+
+Stat is a single label + value + optional trend statistic — the building block of a dashboard
+KPI strip or summary tile (e.g. "Total revenue: $12,450, +12% this month").
+
+```tsx
+import { Stat } from 'dial-react';
+```
+
+## Demo
+
+<Demo code={`<Stat label="Total revenue" value="$12,450" />`}>
+  <BasicStat />
+</Demo>
+
+## Usage
+
+Stat is a single label + value + optional trend statistic — the building block of a dashboard KPI
+strip or summary tile (e.g. "Total revenue: $12,450, +12% this month"). It renders no
+surface/border/shadow of its own (D-008) — wrap it in a `Card`/`Box` if it needs a visible
+boundary. Compose several side by side for a KPI row; each Stat is independent (no shared state),
+so laying multiple out is just a plain flex/grid of Stat elements.
+
+## Do and Don't
+
+<DoDont
+  dos={[
+    "Pass a plain, pre-formatted string or number as value for the common case; use a ReactNode (e.g. mixing a smaller-weight unit suffix) only when the default single-size rendering isn't enough.",
+    "Choose the trend.direction that matches the actual comparison ('up'/'down'/'neutral') — the icon glyph is genuinely different per direction (ascending arrow / descending arrow / flat line), not a recolored copy of the same shape, so the meaning survives forced-colors and grayscale.",
+    "Keep trend.value self-contained copy (e.g. '+12% this month') — it renders as plain text next to the icon, with no implicit sign/color inference from the string itself.",
+  ]}
+  donts={[
+    "Don't rely on trend's color alone to convey direction — Stat already backs every trend with a distinct icon glyph; don't strip or hide that icon in custom styling.",
+    "Don't use Stat for a value the user can edit or trigger an action from — it has no onClick/onChange by design (see Rigor Tier note); use a different component (e.g. a card with a Button) if the tile needs to be interactive.",
+    "Don't nest a Heading inside value expecting document-outline benefits by default — Stat renders value through Text, not Heading (see Accessibility below for why, and how to opt in if you specifically need heading semantics).",
+  ]}
+/>
+
+## Rigor Tier: T1 static (re-classified from the batch's default T2)
+
+The orchestrator's Wave 7 batch label was T2, but per-component classification is required
+rather than inheriting the batch label. Stat has **no `onClick`/`onChange` and no state that
+changes in response to user interaction** — the trend's color/icon is driven entirely by the
+`trend` prop the caller passes in, not by anything Stat itself listens for. Per the locked
+T1-vs-T2 boundary ("no genuine interactivity = T1 — a mere `:hover` in CSS counts as decorative"),
+that puts Stat in the same class as Badge/Skeleton (T1), not Button/Card (T2). Consequences: no
+conformance spec, no Gate Proof mutation required — lint + tsc + story + this spec doc + contrast
+self-check (all done) satisfy the DoD for T1. Unit tests were still written (not required by T1,
+but low-cost and already proven useful elsewhere in this system).
+
+## Variants
+
+Stat has no visual `variant` prop. The only variant-shaped input is `trend.direction`
+(`'up' | 'down' | 'neutral'`), shown below:
+
+<Demo code={`<Stat label="Total revenue" value="$12,450" trend={{ direction: 'up', value: '+12% this month' }} description="Compared to last month" />
+<Stat label="Churn rate" value="2.1%" trend={{ direction: 'down', value: '-0.4% this month' }} description="Compared to last month" />
+<Stat label="Active users" value="1,204" trend={{ direction: 'neutral', value: 'No change' }} />`}>
+  <StatWithTrend />
+</Demo>
+
+Since Stat renders no surface of its own (D-008), a realistic KPI row wraps each tile in its own
+`Card` for a visible boundary — the composition most dashboards actually use.
+
+<Demo code={`<Card.Root>
+  <Card.Body>
+    <Stat label="Total revenue" value="$12,450" trend={{ direction: 'up', value: '+12% this month' }} />
+  </Card.Body>
+</Card.Root>
+<Card.Root>
+  <Card.Body>
+    <Stat label="Churn rate" value="2.1%" trend={{ direction: 'down', value: '-0.4% this month' }} />
+  </Card.Body>
+</Card.Root>
+<Card.Root>
+  <Card.Body>
+    <Stat label="Active users" value="1,204" trend={{ direction: 'neutral', value: 'No change' }} />
+  </Card.Body>
+</Card.Root>`}>
+  <StatDashboardRow />
+</Demo>
+
+## Props
+
+<PropsTable componentPath="components/Stat/Stat.tsx" displayName="Stat" />
+
+## Keyboard interaction
+
+Not focusable, and it exposes no interactive role, same as Badge — no keyboard behavior beyond
+native Tab focus applies because there is no focusable element inside Stat.
+
+## Accessibility
+
+- **Keyboard:** N/A — Stat is not focusable (no `tabindex`) and exposes no interactive role, same
+  as Badge.
+- **Screen reader:** Label/value/description are plain text via `Text`. The trend icon is **not**
+  decorative — the visible `trend.value` string alone doesn't say which direction is favorable
+  (e.g. `'+12%'` on its own), so the icon always carries an accessible name (`role="img"` +
+  `aria-label`, via `Icon`'s existing "meaningful icon" contract): `'Trending up'` /
+  `'Trending down'` / `'No change'`.
+- **Focus:** Not focusable; no focus-visible styling is defined.
+- **Live updates:** Stat applies no implicit live-region role (same reasoning as Badge — "don't
+  guess a11y role beyond what's certain"). A caller polling/streaming a Stat's value should wrap
+  it in their own live region.
+- **Value semantics:** `value` renders through `Text`, not `Heading`, because Stat is commonly
+  repeated several times with no natural heading-level context of its own (a KPI tile grid). A
+  caller that specifically wants heading semantics for a given value can wrap their own
+  `<Heading asChild>` around the node they pass as `value`.
+
+### Contrast self-check
+
+WCAG, computed from resolved hex in `packages/tokens/build/css/{light,dark}.css`. Trend
+text/icon color (`color.feedback.success`/`danger`, reused verbatim from Toast/D-006 — no new
+hue) against the surfaces a Stat is expected to sit on directly (`color.surface.canvas` and
+`color.surface.raised`, i.e. no wrapping Card):
+
+| Pairing | Light (canvas) | Light (raised) | Dark (canvas) | Dark (raised) |
+|---|---|---|---|---|
+| `trend.color.up` (feedback.success) vs surface | 4.09:1 | 4.35:1 | 6.47:1 | 6.16:1 |
+| `trend.color.down` (feedback.danger) vs surface | 4.46:1 | 4.74:1 | 6.07:1 | 5.78:1 |
+| `trend.color.neutral` (text.subtle) vs surface | 5.70:1 | 6.07:1 | 7.94:1 | 7.55:1 |
+| `label`/`description` (text.subtle) vs surface | 5.70:1 | 6.07:1 | 7.94:1 | 7.55:1 |
+| `value` (text.default) vs surface | 13.16:1 | — | 13.83:1 | — |
+
+Every pairing clears the 4.5:1 AA text minimum in both themes on both surfaces (`up`/`down` are
+the tightest at 4.09-6.47:1, still comfortably above 4.5:1 except light-canvas `up` at 4.09:1
+which still passes). No exception registered — all pairings pass without needing an E-xxx entry.
+
+## Tokens used
+
+<TokenList
+  names={[
+    'line-height-heading',
+    'space-inline-sm',
+    'space-stack-sm',
+    'stat-trend-color-down',
+    'stat-trend-color-neutral',
+    'stat-trend-color-up',
+    'text-color-subtle',
+  ]}
+/>
+
+## Related
+
+- **Badge** — another T1 static, non-interactive content component with the same "wrap it
+  yourself for live-region semantics" a11y note.
+- **Text/Heading** — Stat composes `Text` for every text role; wrap `value` in your own
+  `Heading asChild` if you need document-outline semantics for a specific Stat.
+- **Card** — commonly wraps one or more Stat tiles to give them a visible surface/border; Stat
+  itself renders no boundary (D-008).
+
+## Source
+
+- Source: `packages/react/src/components/Stat/` · Spec: `packages/spec/stat.md`
+  <br />
+  <small style={{ color: 'var(--ds-color-text-subtle)' }}>
+    This repository has no public remote yet — paths are relative to the repo root, not links.
+  </small>
+
+</DocsBody>
+</DocsPage>

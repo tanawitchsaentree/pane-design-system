@@ -23,6 +23,9 @@ Switch renders a native `<input type="checkbox" role="switch">` visually hidden 
 |---|---|---|---|
 | ...rest | `ComponentPropsWithoutRef<'input'>` (minus `type`, `size`, `role`) | — | Native checkbox props (`checked`, `defaultChecked`, `onChange`, `disabled`, `aria-label`, etc.) pass straight through — `SwitchProps` has no bespoke props of its own. |
 
+## Form goal
+Control class (`system/FORM.md`, D-030): track is raised at rest via `shadow.raised.sm`, flipping to `shadow.inset.sm` when on — the physical toggle's own inset-when-engaged metaphor. Thumb travel (D-026) and reduced-motion handling are unchanged by this. D-031 (Foundry pick, Niche B) locks this as Dial's shipped treatment.
+
 ## Related
 - `Checkbox` — the underlying native-input pattern Switch borrows (visually-hidden input + custom visual), differing only in `role` and the track/thumb visual.
 - `Radio` — sibling selection control sharing the same 40px hit-area and shape-cue conventions.

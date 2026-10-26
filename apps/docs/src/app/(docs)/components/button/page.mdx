@@ -1,0 +1,169 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import {
+  BasicButton,
+  ButtonVariants,
+  ButtonIntents,
+  ButtonLoading,
+  ButtonSizes,
+  ButtonDisabled,
+  ButtonWithIcon,
+  ButtonPlaygroundComponent,
+  buttonPlaygroundControls,
+} from '@/content/demos/ButtonDemos';
+
+export const metadata = { title: 'Button — Dial' };
+
+<DocsPage toc={getPageToc('components/button/page.mdx')}>
+<DocsBody>
+
+# Button
+
+Native `<button>`-based interactive control for triggering actions — form submits, dialog opens,
+any click-driven action. Four fill treatments, three intents (with `primary` reserved for the
+single most important action per view, per D-001 accent scarcity), a loading state, and optional
+leading/trailing icon slots.
+
+```tsx
+import { Button } from 'dial-react';
+```
+
+## Demo
+
+<Demo code={`<Button intent="primary">Save changes</Button>`}>
+  <BasicButton />
+</Demo>
+
+## Playground
+
+Try any combination of variant, intent, size, loading, and disabled — the code below updates to
+match exactly what's rendered above.
+
+<Playground
+  component={ButtonPlaygroundComponent}
+  componentName="Button"
+  controls={buttonPlaygroundControls}
+  initialChildren="Save changes"
+/>
+
+## Variants
+
+<Demo code={`<Button variant="solid">Solid</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="link">Link</Button>`}>
+  <ButtonVariants />
+</Demo>
+
+<Demo code={`<Button intent="primary">Primary</Button>
+<Button intent="neutral">Neutral</Button>
+<Button intent="danger">Danger</Button>`}>
+  <ButtonIntents />
+</Demo>
+
+<Demo code={`<Button loading>Saving</Button>`}>
+  <ButtonLoading />
+</Demo>
+
+## Sizes
+
+The `size` scale (`sm`/`md`/`lg`/`xl`, `md`=48) controls Button's height and internal padding.
+
+<Demo code={`<Button size="sm">Small</Button>
+<Button size="md">Medium</Button>
+<Button size="lg">Large</Button>
+<Button size="xl">Extra large</Button>`}>
+  <ButtonSizes />
+</Demo>
+
+## Disabled
+
+`disabled` removes the button from the tab order via the native `disabled` attribute, independent
+of `loading` (which also disables, but additionally shows a spinner and `aria-busy`).
+
+<Demo code={`<Button disabled>Save changes</Button>
+<Button variant="outline" disabled>Cancel</Button>`}>
+  <ButtonDisabled />
+</Demo>
+
+## With an icon
+
+`leftIcon`/`rightIcon` slots accept any icon content, rendered before/after the label and hidden
+from assistive tech via `aria-hidden`.
+
+<Demo code={`<Button intent="primary" leftIcon={<CheckSvg />}>Confirm</Button>`}>
+  <ButtonWithIcon />
+</Demo>
+
+## Do
+
+<DoDont
+  dos={[
+    "Default to intent='neutral' for most buttons; reserve intent='primary' for the one most important action in a given view.",
+    "Use loading for async actions so the control is disabled and announced as busy (aria-busy) while work is pending.",
+    "Use asChild when the button must actually render as an <a> (e.g. a styled navigation link) instead of a real <button>.",
+  ]}
+  donts={[
+    "Don't use intent='primary' on more than one button per view — it spends a scarce accent per D-001.",
+    "Don't rely on disabled alone to communicate a pending async action — use loading so assistive tech gets aria-busy.",
+    "Don't put two icons and no visible label on Button for an icon-only control — use IconButton instead, which enforces a required aria-label.",
+  ]}
+/>
+
+## Props
+
+<PropsTable componentPath="components/Button/Button.tsx" />
+
+## Keyboard interaction
+
+No keyboard behavior beyond native Tab focus and Enter/Space activation — standard `<button>`
+semantics, nothing custom.
+
+## Accessibility
+
+**Keyboard:** Native `<button>` semantics — Tab/Shift+Tab to move focus, Enter or Space to
+activate. Disabled (including while `loading`) removes it from the tab order via the native
+`disabled` attribute.
+
+**Screen reader:** While `loading`, the button is `disabled` and `aria-busy="true"`, and the
+visible Spinner exposes `role="status"` so the pending state is announced. Icon slots
+(`leftIcon`/`rightIcon`) are wrapped with `aria-hidden="true"` since the visible label is the
+accessible name.
+
+**Focus:** `:focus-visible` uses the dedicated focus-ring token (color/width/offset) — never a
+shadow ring, per braun-flat rule 4. Outline variant's border color uses `color.border.interactive`
+(D-014) to meet the 3:1 UI-boundary contrast minimum.
+
+## Tokens used
+
+<TokenList
+  names={[
+    'button-solid-bg-primary-default',
+    'button-solid-bg-neutral-default',
+    'button-solid-bg-danger-default',
+    'button-outline-border-primary',
+    'button-outline-border-neutral',
+    'button-outline-border-danger',
+    'button-ghost-text-primary',
+    'button-ghost-text-neutral',
+    'button-link-text-primary',
+  ]}
+/>
+
+## Related
+
+- **IconButton** — the icon-only variant of Button, extending its variant/intent/size/loading API 1:1.
+- **Link** — the non-button interactive text element; use when the action is navigation styled as
+  inline text rather than a control.
+- **Spinner** — rendered inside Button automatically when `loading` is true.
+
+## Source
+
+- Source: `packages/react/src/components/Button/` · Spec: `packages/spec/button.md`
+  <br />
+  <small style={{ color: 'var(--ds-color-text-subtle)' }}>
+    This repository has no public remote yet — paths are relative to the repo root, not links.
+  </small>
+
+</DocsBody>
+</DocsPage>

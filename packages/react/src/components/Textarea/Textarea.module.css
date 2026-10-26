@@ -4,6 +4,7 @@
  * uses the dedicated focusRing token. No decorative shadow (D-008/braun-flat rule 1).
  */
 .textarea {
+  box-sizing: border-box;
   display: block;
   inline-size: 100%;
   min-block-size: var(--ds-size-control-md);
@@ -19,7 +20,17 @@
   font-size: var(--ds-font-size-md);
   line-height: var(--ds-line-height-body);
   transition: var(--ds-transition-fast);
-  transition-property: border-color, border-width;
+  transition-property: border-color, border-width, box-shadow;
+  /* D-029/D-030/D-031 — input class, same pattern as Input */
+  box-shadow: var(--ds-shadow-inset-sm);
+}
+
+.textarea:focus:not(:disabled) {
+  box-shadow: var(--ds-shadow-inset-md);
+}
+
+.textarea:disabled {
+  box-shadow: none;
 }
 
 .textarea::placeholder {

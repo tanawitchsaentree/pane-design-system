@@ -47,6 +47,9 @@ Card is **not** a floating layer (unlike Dialog/Popover/Toast) — it sits in th
 | `ratio` | `AspectRatioPreset \| number` | — | Optional fixed ratio, reusing `AspectRatio` (Wave 1) directly. Omit to let the media size itself naturally. |
 | `children` | `ReactNode` | — | Typically an `<img>` or this library's `Image` component. |
 
+## Form goal
+Surface class (`system/FORM.md`, D-030): stays flat, explicitly exempt from the raised/inset depth token any control/input class carries — a card is the panel material itself, not an object placed on it. D-031 (Foundry pick) widened the root border from hairline to `borderWidth.thick`, matching the reference device bodies' crisper edge, without adding shadow.
+
 ## Related
 - `AspectRatio` — reused directly by `Card.Media` for the `ratio` prop; no ratio math re-implemented here.
 - `Button` — the source of Card's `asChild`/native-`<button>` clickable pattern; a `clickable` Card is, mechanically, a Button-shaped container.

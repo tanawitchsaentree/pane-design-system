@@ -1,0 +1,184 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import {
+  BasicFieldset,
+  DisabledFieldset,
+  CheckboxGroupFieldset,
+  MultipleFieldsetsForm,
+} from '@/content/demos/FieldsetDemos';
+
+export const metadata = { title: 'Fieldset — Dial' };
+
+<DocsPage toc={getPageToc('components/fieldset/page.mdx')}>
+<DocsBody>
+
+# Fieldset
+
+Fieldset is a native `<fieldset>` + `<legend>` wrapper for a related group of controls, most
+commonly a Radio group. It renders its legend copy through `Text` rather than re-declaring
+typography, and its `disabled` prop uses the native fieldset-disabled cascade to disable every
+nested control at once.
+
+```tsx
+import { Fieldset } from 'dial-react';
+```
+
+## Demo
+
+<Demo code={`<Fieldset legend="Notification method">
+  <label>
+    <Radio name="notify" value="email" defaultChecked />
+    Email
+  </label>
+  <label>
+    <Radio name="notify" value="sms" />
+    SMS
+  </label>
+</Fieldset>`}>
+  <BasicFieldset />
+</Demo>
+
+## Usage
+
+Fieldset is a native `<fieldset>` + `<legend>` wrapper for a related group of controls, most
+commonly a Radio group. It renders its legend copy through `Text` rather than re-declaring
+typography, and its `disabled` prop uses the native fieldset-disabled cascade to disable every
+nested control at once.
+
+## Do
+
+<DoDont
+  dos={[
+    "Always provide a `legend` — a fieldset without one has no accessible group name, which is why the prop is required rather than optional.",
+    'Use `disabled` to disable an entire group of controls in one place instead of wiring `disabled` onto every child individually.',
+    'Compose Fieldset around a `Radio` group (or checkbox group) to give it a proper accessible group name.',
+  ]}
+  donts={[
+    "Don't hand-wire `disabled` on each child control when a whole group should be disabled — the native `<fieldset disabled>` cascade already handles it and removes them from the tab order.",
+    "Don't put a single, unrelated control inside a Fieldset — it's for grouping, not a generic bordered box.",
+    "Don't rewrite the legend's font styling — it already renders through `Text` (`size=\"sm\" weight=\"semibold\"`).",
+  ]}
+/>
+
+## Variants
+
+Fieldset has one real state prop, `disabled`, which cascades through the native `<fieldset
+disabled>` attribute to every nested control at once — no per-child wiring needed.
+
+<Demo code={`<Fieldset legend="Notification method (disabled)" disabled>
+  <label>
+    <Radio name="notify-disabled" value="email" defaultChecked />
+    Email
+  </label>
+  <label>
+    <Radio name="notify-disabled" value="sms" />
+    SMS
+  </label>
+</Fieldset>`}>
+  <DisabledFieldset />
+</Demo>
+
+Fieldset also groups controls other than Radio — here a set of `Checkbox` inputs sharing one
+legend, since a multi-select "pick any of these" question needs the same accessible group name a
+radio group does.
+
+<Demo code={`<Fieldset legend="Interests">
+  <label>
+    <Checkbox defaultChecked aria-label="Design" />
+    Design
+  </label>
+  <label>
+    <Checkbox aria-label="Engineering" />
+    Engineering
+  </label>
+  <label>
+    <Checkbox aria-label="Product" />
+    Product
+  </label>
+</Fieldset>`}>
+  <CheckboxGroupFieldset />
+</Demo>
+
+A real form typically stacks several Fieldsets, one per logical question, rather than a single
+flat pile of controls. This composition shows a Radio group and a Checkbox group as two
+independent Fieldsets in the same form.
+
+<Demo code={`<Fieldset legend="Contact preference">
+  <label>
+    <Radio name="contact-pref" value="email" defaultChecked />
+    Email
+  </label>
+  <label>
+    <Radio name="contact-pref" value="phone" />
+    Phone
+  </label>
+</Fieldset>
+<Fieldset legend="Topics">
+  <label>
+    <Checkbox defaultChecked aria-label="Billing" />
+    Billing
+  </label>
+  <label>
+    <Checkbox aria-label="Security" />
+    Security
+  </label>
+</Fieldset>`}>
+  <MultipleFieldsetsForm />
+</Demo>
+
+## Props
+
+<PropsTable componentPath="components/Fieldset/Fieldset.tsx" />
+
+## Keyboard interaction
+
+No independent keyboard behavior of its own; when `disabled`, every nested native form control is
+removed from the tab order automatically via the native fieldset cascade.
+
+## Accessibility
+
+**Keyboard:** No independent keyboard behavior of its own; when `disabled`, every nested native
+form control is removed from the tab order automatically via the native fieldset cascade.
+
+**Screen reader:** `<legend>` is the group's accessible name — assistive tech announces it before
+each control's own label, exposing the fieldset as `role="group"` with that name (verified in
+`Fieldset.test.tsx` via `getByRole('group', { name: ... })`). The native `disabled` attribute
+communicates the disabled state for all nested controls with no extra prop-drilling.
+
+**Focus:** Not focusable itself; focus moves to/among its nested controls as usual, respecting the
+disabled cascade.
+
+## Tokens used
+
+<TokenList
+  names={[
+    'border-width-hairline',
+    'color-border-hairline',
+    'color-border-subtle',
+    'radius-md',
+    'space-0',
+    'space-100',
+    'space-200',
+    'space-inset-md',
+    'space-stack-sm',
+  ]}
+/>
+
+## Related
+
+- `Radio` — the most common control grouped inside Fieldset, since a radio group's shared `name`
+  needs a legend for its accessible group name.
+- `Checkbox` — can also be grouped inside Fieldset when several checkboxes represent one logical
+  question.
+- `Text` — Fieldset's legend renders through `Text` for consistent typography.
+
+## Source
+
+- Source: `packages/react/src/components/Fieldset/` · Spec: `packages/spec/fieldset.md`
+  <br />
+  <small style={{ color: 'var(--ds-color-text-subtle)' }}>
+    This repository has no public remote yet — paths are relative to the repo root, not links.
+  </small>
+
+</DocsBody>
+</DocsPage>

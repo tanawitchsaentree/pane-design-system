@@ -30,6 +30,9 @@ Button is the native `<button>`-based interactive control for triggering actions
 | `asChild` | `boolean` | `false` | Renders as the single child element instead of `button` (e.g. an anchor styled as a button). |
 | `children` | `ReactNode` | — | Button label content. |
 
+## Form goal
+Control class (`system/FORM.md`, D-030): raised at rest via `shadow.raised.sm` — a single directional shadow measured from the real Braun reference, not a decorative shadow and not a neumorphic dual-tone gradient — flipping to `shadow.inset.sm` when pressed/active, the shadow direction swapping rather than just deepening. `link`/`ghost` variants stay flat (they read as text, not as an extruded key). D-031 (Foundry pick, Niche B) locks this as Dial's shipped treatment.
+
 ## Related
 - IconButton — the icon-only variant of Button, extending its variant/intent/size/loading API 1:1.
 - Link — the non-button interactive text element; use when the action is navigation styled as inline text rather than a control.

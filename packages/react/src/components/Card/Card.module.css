@@ -23,7 +23,13 @@
   flex-direction: column;
   overflow: hidden;
   border-style: solid;
-  border-width: var(--ds-border-width-hairline);
+  /* D-029/D-030/D-031 — Card is surface class, EXEMPT from any depth token (FORM.md keeps this
+   * exemption explicitly) — the Foundry pick for Card is border-width only, hairline->thick,
+   * matching the reference device bodies' crisper edge (Niche C for this component; A/B collapsed
+   * to one candidate under novelty pressure since 'FORM.md-faithful' for surface class means
+   * 'unchanged' — see apps/lab/foundry/report-2026-08-13.md). No shadow, no change to fill/border
+   * COLOR (border.interactive, D-025, is unchanged) — width only. */
+  border-width: var(--ds-border-width-thick);
   border-color: var(--ds-card-root-border);
   border-radius: var(--ds-radius-lg);
   background-color: var(--ds-card-root-bg);

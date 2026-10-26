@@ -1,4 +1,42 @@
 # STATE — working memory ของ system นี้
+- **[2026-08-13] form-language order — Part 1+2 เสร็จ (skill+FORM.md+gates shipped), Part 3 รอ user**
+  Part 1 (decision-trail audit, read-only): premise ของ order เอง**ไม่จริง** — D-003 "neumorph
+  ล้วน" ที่อ้างว่าเป็นจุดกำเนิดไม่มีอยู่จริงสำหรับ Dial (เป็น demo data ของ kit tooling ที่ v13 ล้าง
+  ไปแล้วก่อน Dial's D-001-D-010 จะถูกเขียน) และ D-008 ไม่ได้ drift ความหมาย (ข้อความเดิมชี้
+  card/button/input ตรงๆ ตั้งแต่ lock + ตัดสินใจปฏิเสธ neumorphism อย่างรู้ตัวตั้งแต่แรก + ยืนยันซ้ำ
+  โดย external kiln audit สองรอบก่อนหน้าที่ไม่เกี่ยวกัน) — รายละเอียดเต็ม
+  `system/reports/form-language-audit-2026-08-13.md`. Gap ที่จริงคือ: form/silhouette ไม่เคยถูก
+  ถามเป็นแกน decision ของตัวเองเลยใน Phase 0/1 (Anatomy Contract เดิมคุม behavior/API/states ไม่มี
+  form) — Part 2 ยังสร้างตามเดิมเพราะ fix ถูกอยู่แม้ premise ผิด: `system/FORM.md` (per-class form
+  spec) + skill `.claude/skills/form-language/` (laws/gates/derivation) + G-F1-G-F3 + Anatomy
+  Contract point 10 + `new-component`'s FORM GOAL step — wired เข้า `foundation.md`/`ds-conventions`/
+  `qa-a11y.md`/`BLUEPRINT.md`/`CLAUDE.md`/`KIT-CHANGELOG.md` (v2.1) ครบ **ไม่มี Dial code/token
+  แก้เลยในรอบนี้** (forward-only ยังยืนเหมือนเดิม). **Part 3 (multi-candidate lab round สำหรับ
+  Button/Input/Switch) ยังไม่ทำ — propose-only ตามที่ order สั่ง, รอ user ตัดสินด้วยตาใน apps/lab
+  ก่อนจะ ship อะไรจริง.**
+- **[ปิดงาน 2026-08-11] Dial complete on Kiln DS v1 — ปิด Dial อย่างเป็นทางการ**
+  Docs Final Pass (Parts 1-3) เสร็จสมบูรณ์: `apps/docs` บน Fumadocs chrome + kiln content model
+  (46 component pages + 5 foundations + 5 overview, ทุกหน้าผ่าน search+dark-mode+live-demo จริง) ·
+  kit reorganized เป็นโครงเดียว (CLAUDE.md เขียนใหม่, agent roster 7 ตัว, BACKLOG.md รวมที่เดียว,
+  KIT-CHANGELOG v2.0) — รายละเอียดเต็มอยู่ใน `docs/KIT-CHANGELOG.md`'s v2.0 entry ไม่ซ้ำที่นี่
+  **โค้ด/token ของ Dial ไม่ถูกแก้จากงานนี้เลย** (forward-only ตามที่สั่งไว้) — path ของ orchestrator/
+  agent files เปลี่ยน (ดู `.claude/agents/superseded/`) แต่ `packages/react`/`packages/tokens` ไม่ถูก
+  แตะ · Gate เต็มหลังการย้าย: lint 0/232, tsc 0 error, vitest 360/360 (46 files), pack-verify 7/7 —
+  ไม่มี regression จาก reorg นี้
+  **ห้ามแตะโค้ด Dial อีกจากงานนี้ (เดิม) — ยังใช้ได้** งานถัดไปของ Dial คือ publish 0.1.0 (user รันเอง)
+  แล้วไปต่อ Select ตามคิวเดิมที่ตกลงไว้ก่อนหน้า ไม่เปลี่ยน
+- **[ปิดงาน 2026-08-10] External audit ด้วย kiln skill เสร็จสมบูรณ์ — ห้ามแตะโค้ด Dial อีกจากงานนี้**
+  ล็อกเป็น **D-025** (Card root border → `border.interactive`, WCAG 1.4.11 fix) และ **D-026**
+  (box-sizing: border-box × 7 component + Switch reduced-motion) ใน `system/DECISIONS.md` แล้ว —
+  ทั้งคู่เป็น implementation/token fix ล้วนๆ ไม่กระทบ D-001..D-024 เดิม kiln ไม่ได้แก้ token/
+  vector/lineage ของ Dial ย้อนหลังตามที่สั่งไว้ (D-001..D-024 ยัง lock เหมือนเดิมทุกจุด)
+  รายละเอียดเต็มอยู่ใน D-025/D-026 (DECISIONS.md) — ไม่ซ้ำที่นี่
+  - Gate สุดท้ายที่ verify แล้วรวม conformance: lint 0/232, tsc 0 error, vitest 360/360, Playwright
+    268 passed/5 failed (bisect ด้วย `git stash` ยืนยันว่า 5 ตัวเป็น pre-existing webkit/firefox
+    flakiness ไม่เกี่ยวกับการแก้รอบนี้) — ไม่มี regression
+  - **ปิดสาย kiln audit แล้ว — งานถัดไปของ Dial คือ publish 0.1.0 (user รันเอง) แล้วไปต่อ Select**
+    ตามคิวเดิมที่ตกลงไว้ก่อนหน้า ไม่มีงานค้างจาก kiln audit ให้ทำต่อ (สิ่งที่ยังไม่ตัดสินถูกส่งเข้า
+    `Klin/BACKLOG.md` แทน ไม่ใช่ภาระของ Dial)
 - **System:** Dial (`dial-tokens`, `dial-react`)
 - **Phase ปัจจุบัน:** **Pre-publish review 3 ข้อเสร็จหมด (2026-08-10)** — user สั่ง "ก่อน publish เคลียร์ 1 ข้อ (Card hairline) + แก้เชิงโครงสร้าง 1 ข้อ (barrel) + วิเคราะห์เวลาก่อนขยาย batch" ทั้ง 3 ข้อปิดแล้ว: (1) Card's root border เป็น WCAG fail จริง แก้เป็น `border.interactive` ไม่ใช่ exception, EXCEPTIONS.md/card.md/STATE.md ตรงกันหมด, exception count คงที่ 1 (2) barrel generate จาก `barrel.manifest.mjs` ผ่าน `tooling/generate-barrel.mjs`, agent ไม่แก้ root index.ts เองอีกต่อไป, `barrel:check` wire เข้า prepublishOnly (3) ไม่มี raw phase-timing ให้ตรวจจริง แต่เจอ+แก้ 2 bug จริงจากการตรวจของจริง (story category ผิด 2 จุด, contrast math มือซ้ำ 7 ไฟล์ → เขียน `tooling/contrast-check.mjs`) + เพิ่ม phase-timing self-report เข้า production-run สำหรับ batch ถัดไป — gate สุดท้าย: lint 0/232, tsc 0 error (react+storybook), vitest 360/360, build+barrel:check ผ่าน — **รอ user publish เอง** (`docs/RELEASE.md`, ห้าม agent รัน npm login/publish) แล้วไปต่อ Select — **อัพเดต 2026-08-10:** ชื่อ package เปลี่ยนเป็น unscoped `dial-tokens`/`dial-react` แล้ว (scope `@dial` มีเจ้าของ) + เพิ่ม `story:check` กับ `smoke:import` เข้า gate, gate ทั้งหมดเขียวรวม smoke-import 28/28 จาก tarball จริง + selftest 76/76 · และ**เจอ+แก้บั๊กที่ทำให้ `npm publish` ของ react พังทันที**: `prepublishOnly` เรียก `barrel:check`/`story:check` ที่ไม่มีอยู่จริง (ดู B4) — **อัพเดต B5 (2026-08-10):** เขียน `docs/HANDOFF-FOR-AGENTS.md` (self-scan เต็มระบบเพื่อส่งต่อ agent ตัวอื่น) + เจอ+แก้บั๊กจาก scan อีก 3 จุด: `turbo.json` ไม่มีอยู่จริงทั้งที่ root build เรียกใช้, CATALOG หัวเรื่องค้าง 108, CHANGELOG เขียน "48 components" ที่ควรเป็น 46 (ดู B5)
 - **Batch แรกใต้กติกาใหม่ (Card/Alert/Table/Stat) — เสร็จ (2026-08-09):**
@@ -66,7 +104,9 @@
   3. **ก้อน C ถัดจาก B**: เขียน Rigor Tiers (T1 static/T2 interactive/T3 keyboard-focus) ลง `ds-conventions/SKILL.md` + เปลี่ยน QA เป็น diff-review สำหรับ T1/T2 (T3 ยังรันซ้ำได้) + parallel-batch (4-6 component/ครั้ง) + checkpoint เหลือ 1/wave + per-component budget + ย่อรูปแบบรายงาน
   4. **หลัง A+B+C เสร็จ รอไฟเขียว user ก่อนกลับไปสร้าง component ต่อ** (Select ที่ถูก stop ไว้ยังไม่มีไฟล์ค้าง — เริ่มใหม่ได้สะอาดเมื่อได้ไฟเขียว, ต่อด้วย Combobox/MultiSelect/TagInput/Menu/ContextMenu ตาม engine ที่ล็อกไว้แล้วใน D-023/D-024 ไม่ต้องถามซ้ำ)
   - **ก้อน A เสร็จสมบูรณ์แล้ว** (A1-A4 ทั้งหมด PASS) · **B1+B2 เสร็จแล้ว** (ดู log ด้านบน) — ไม่ต้องทำซ้ำ · **ห้าม npm login/publish ในเซสชันไหนก็ตาม — เป็นงานของ user เท่านั้น**
-- **System Sheet:** `system/sheets/sheet-2026-08-09.png` (ล่าสุด, แสดง D-001–D-022, "AA · 1 exception") — ยังไม่ refresh เพิ่ม W5 preview (รอ W5 ปิด wave ค่อย refresh รวดเดียว)
+- **System Sheet:** `system/sheets/sheet-2026-08-11.png` (ล่าสุด, refresh หลัง Docs Final Pass Part
+  3 — แสดง D-001–D-026, "AA · 1 exception", "Dial complete on Kiln DS v1") — sheet ก่อนหน้า
+  (`sheet-2026-08-09.png`, D-001–D-022, ไม่มี W5 preview) เก็บไว้เป็น timeline ตามปกติ ไม่ลบ
 - **Storybook:** ติดตั้งแล้วที่ `apps/storybook/` — เปิดดู interactive ด้วย `pnpm storybook` (dev server localhost:6006) — **autodocs เปิดแล้วทุก component** (`tags: ['autodocs']` project-wide) + **Foundations/{Colors,Typography,Spacing,Motion}** ใหม่ที่ `apps/storybook/src/foundations/` (อ่าน token จริงผ่าน `getComputedStyle`, ไม่ hardcode) — stories glob ใน `main.ts` เพิ่ม `../src/foundations/**/*.stories.@(ts|tsx)` แล้ว
 - **Conformance:** `packages/conformance/specs/` — 12 ไฟล์ `.spec.ts` จริง (contrast-inputgroup-pininput, w2-atoms, w3-checkbox-indeterminate, w3-forms, w4-drawer, w4-overlays, w4-popover-positioning, w4-popover, w4-tooltip, w5-listbox, w5-rating, w5-radiocards) + 3 helper (`_helpers.ts`, `_contrast.ts`, `_roving-focus.ts`) — รัน `cd packages/conformance && npx playwright test`
 - **Git:** commits ครบถึง `4765084` (publish prep) — tags `wave-1`..`wave-4`, `hardening-1`, `w5-preflight`, `w5-listbox` — **B2 (demo-app + Key export fix) ยังไม่ commit** (ดู `git status`) — **A1 เดิม (git remote + push) ยังเลื่อนตาม user — local-only** (ชื่อชนกับ ORDERS's "A1" ใหม่ — คนละเรื่อง ระวังสับสน)

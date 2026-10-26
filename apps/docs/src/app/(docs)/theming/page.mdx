@@ -1,0 +1,47 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+
+export const metadata = { title: 'Theming — Dial' };
+
+<DocsPage toc={getPageToc('theming/page.mdx')}>
+<DocsBody>
+
+# Theming
+
+## Three-layer architecture
+
+`dial-tokens` is DTCG JSON source, built with Style Dictionary into CSS variables (plus a Tailwind
+preset, SCSS, TypeScript types, and flat JSON). Every token lives in one of three tiers:
+
+| Tier | Example | Referenced by |
+|---|---|---|
+| Primitive | `color.neutral.0-975`, `color.brand.50-950`, `space.0-1100` | Semantic tier only — never a component directly |
+| Semantic | `color.surface.canvas`, `color.text.default`, `color.action.primary.default`, `space.inset.md` | Component tokens, or a component's own CSS directly |
+| Component | `button.solid.bg.primary.default`, `dialog.content.shadow` | Exactly one component's own stylesheet — see that component's "Tokens used" section |
+
+A component's stylesheet only ever consumes semantic or component tokens, never a primitive
+directly — see [Colors](/foundations/colors) for the full primitive→semantic breakdown.
+
+## Overriding at the semantic layer
+
+Because every component references a semantic (or component) token by name — never a hardcoded
+hex/px value — overriding Dial's look for your own product means redefining the semantic CSS
+variables, not patching individual component styles. Since `dial-tokens/css` sets these as plain
+`:root` custom properties, any later stylesheet (or an inline `<style>` in your app shell) that
+redeclares the same `--ds-*` names wins by normal CSS cascade rules — no build step or theming API
+beyond that is required.
+
+## Multiple output formats
+
+Beyond CSS variables (the primary consumption path — see [Installation](/installation)),
+`dial-tokens` also ships a Tailwind preset (`dial-tokens/tailwind`), SCSS (`dial-tokens/scss`),
+and flat JSON (`dial-tokens/json`) — see `packages/tokens/README.md`'s own usage examples for each
+format if your project doesn't consume plain CSS variables.
+
+## Three themes
+
+`light`, `dark`, and `light-contrast-more` — see [Dark mode](/dark-mode) for how theme switching
+itself works.
+
+</DocsBody>
+</DocsPage>

@@ -1,0 +1,146 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import { BasicIcon, IconSizesColors, IconSizes, IconColors, IconWithText } from '@/content/demos/IconDemos';
+
+export const metadata = { title: 'Icon — Dial' };
+
+<DocsPage toc={getPageToc('components/icon/page.mdx')}>
+<DocsBody>
+
+# Icon
+
+Sizes and colors an arbitrary SVG child via CSS custom properties — it ships no icon set of its
+own, only the sizing/coloring wrapper.
+
+```tsx
+import { Icon } from 'dial-react';
+```
+
+## Demo
+
+<Demo code={`<Icon>
+  <StarSvg />
+</Icon>`}>
+  <BasicIcon />
+</Demo>
+
+## Usage
+
+Icon sizes and colors an arbitrary SVG child via CSS custom properties — it ships no icon set of
+its own, only the sizing/coloring wrapper (D-004 icon size scale). Use it any time you render an
+SVG in the UI so it picks up the system's icon size steps and semantic color tokens consistently,
+and gets the correct accessibility treatment for decorative vs. meaningful icons.
+
+## Do
+
+<DoDont
+  dos={[
+    "Omit label when the icon sits next to visible text that already conveys its meaning (the default, decorative case).",
+    "Set label when the icon is the only carrier of meaning — e.g. a standalone icon-only control's visual content.",
+    "Leave color at the default 'currentColor' when the icon should match surrounding text color automatically.",
+  ]}
+  donts={[
+    "Don't add a redundant label when adjacent visible text already states the same meaning — that creates duplicate announcements for screen reader users.",
+    "Don't use Icon as an interactive element itself — wrap it in IconButton (or Button) when it needs to be clickable.",
+  ]}
+/>
+
+## Variants
+
+`size` (16/20/24/32) and `color` (`currentColor`/`default`/`subtle`/`disabled`/`inverse`) are
+Icon's only variant-like props; `label` toggles between decorative (`aria-hidden`) and meaningful
+(`role="img"` + `aria-label`) treatment.
+
+<Demo code={`<Icon size="sm"><StarSvg /></Icon>
+<Icon size="md" color="subtle"><StarSvg /></Icon>
+<Icon size="lg" color="disabled"><StarSvg /></Icon>
+<Icon size="xl" label="Favorite"><StarSvg /></Icon>`}>
+  <IconSizesColors />
+</Demo>
+
+## Size ladder
+
+All four `size` steps (16/20/24/32) at the same color, so the scale is easy to compare directly.
+
+<Demo code={`<Icon size="sm"><StarSvg /></Icon>
+<Icon size="md"><StarSvg /></Icon>
+<Icon size="lg"><StarSvg /></Icon>
+<Icon size="xl"><StarSvg /></Icon>`}>
+  <IconSizes />
+</Demo>
+
+## Color ladder
+
+All five `color` values (`default`/`subtle`/`disabled`/`inverse`/`currentColor`) at the same size.
+`inverse` is shown against a dark chip since it's meant for use on a dark/inverse surface.
+
+<Demo code={`<Icon color="default"><StarSvg /></Icon>
+<Icon color="subtle"><StarSvg /></Icon>
+<Icon color="disabled"><StarSvg /></Icon>
+<Icon color="inverse"><StarSvg /></Icon>
+<Icon color="currentColor"><StarSvg /></Icon>`}>
+  <IconColors />
+</Demo>
+
+## Paired with text
+
+The common composition case: an icon next to a visible text label, `color='currentColor'` (the
+default) so it inherits the label's color, and `label` omitted since the text already conveys the
+meaning.
+
+<Demo code={`<span>
+  <Icon><StarSvg /></Icon>
+  Favorite
+</span>`}>
+  <IconWithText />
+</Demo>
+
+## Props
+
+<PropsTable componentPath="components/Icon/Icon.tsx" />
+
+## Keyboard interaction
+
+N/A — Icon itself is non-interactive and never receives focus.
+
+## Accessibility
+
+**Keyboard:** N/A — Icon itself is non-interactive and never receives focus.
+
+**Screen reader:** When `label` is provided, the wrapper gets `role="img"` + `aria-label` (icon is
+meaningful on its own). When `label` is omitted (default), the wrapper gets `aria-hidden="true"`
+(icon is decorative, relies on adjacent text for meaning).
+
+**Focus:** Not focusable; no focus-visible styling is defined.
+
+## Tokens used
+
+<TokenList
+  names={[
+    'icon-color',
+    'size-icon-lg',
+    'size-icon-md',
+    'size-icon-sm',
+    'size-icon-xl',
+    'text-color-disabled',
+    'text-color-inverse',
+    'text-color-subtle',
+  ]}
+/>
+
+## Related
+
+- **IconButton** — the interactive, clickable wrapper around an icon.
+- **Button** — often composes Icon via `leftIcon`/`rightIcon` slots.
+- **Spinner** — a separate loading-specific graphic, not built on top of Icon.
+
+## Source
+
+- Source: `packages/react/src/components/Icon/` · Spec: `packages/spec/icon.md`
+  <br />
+  <small style={{ color: 'var(--ds-color-text-subtle)' }}>
+    This repository has no public remote yet — paths are relative to the repo root, not links.
+  </small>
+
+</DocsBody>
+</DocsPage>

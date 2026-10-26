@@ -290,7 +290,8 @@ Component ที่ทศวรรษของ edge case ทำเองไม�
 
 ## 6. Component Anatomy Contract
 
-**ทุก component ต้องส่งมอบครบ 9 ข้อ ถึงจะนับว่าเสร็จ:**
+**ทุก component ต้องส่งมอบครบ 10 ข้อ ถึงจะนับว่าเสร็จ** (ข้อ 10 เพิ่มโดย skill `form-language` —
+ข้อ 1-9 คุม behavior/API/states ไม่มีข้อไหนคุม form มาก่อน จนกว่า Phase 2.5/§8.6 ปิดช่องนี้):
 
 1. **Anatomy diagram** — ชิ้นส่วนภายในชื่ออะไรบ้าง
 2. **Variants** — เช่น Button: solid / outline / ghost / link × primary / neutral / danger
@@ -301,6 +302,9 @@ Component ที่ทศวรรษของ edge case ทำเองไม�
 7. **API (props)** — TypeScript interface + defaults ตามมาตรฐาน §7 + ตาราง docs
 8. **Stories** — ทุก variant × size × state + playground story (controls ครบ)
 9. **Docs page** — demo, copy-paste code, Do/Don't, related components
+10. **Matches FORM GOAL** — spec มี FORM GOAL section (1-3 ประโยค) ที่ derive จาก `system/FORM.md`'s
+    component-class table จริง (§8.6) ไม่ใช่เดาเอง · identity component (Button/Input/Switch/
+    Checkbox/Card/Slider) ต้องผ่าน multi-candidate lab round มาก่อน มี D-xxx อ้าง screenshot จริง
 
 ---
 
@@ -347,6 +351,7 @@ Skills เสริม orchestrator (ไม่ใช่ subagent — รัน�
 - `new-component` — inner loop เต็มของ component เดี่ยว (ดู §8.5)
 - `production-run` — inner loop เดียวกันแต่รันเป็น wave 8-12 ตัว (ดู §8.5)
 - `abstract-interpreter` — ตีความ ref non-UI (ดู §9.1)
+- `form-language` — derive `system/FORM.md` ต่อ component class + gates G-F1-G-F3 (ดู §8.6)
 - `new-system` — สลับ/เริ่ม system ใหม่ (ดู §0)
 - `system-sheet` — render โปสเตอร์สรุประบบ (ดู §8.3)
 - `ds-conventions` — reference doc มาตรฐานกลาง (Anatomy Contract, naming) ไม่ใช่ action
@@ -385,11 +390,49 @@ NEXT     → ไป layer ถัดไป — layer บนห้ามขัด�
 - **`/new-component {Name}`** — inner loop เต็ม รอบเดียวต่อ component: pre-check dependency → propose API (+render ถ้ามีทางเลือกเชิงภาพ) → lock → build → qa gate (สูงสุด 3 รอบ) → docs+publish → close (`system/STATE.md` + commit) ใช้ตอนงานเล็ก/component เดี่ยว
 - **`production-run`** — สำหรับ 10-100+ ตัว รวบ checkpoint ไว้ **หัว wave เดียว** (WAVE PLAN → BATCH API REVIEW คือ checkpoint เดียวของทั้ง wave → EXECUTE เป็น parallel batch 4-6 ตัว/ครั้งตาม Rigor Tier → WAVE REPORT เป็นรายงานสั้น ไม่ใช่ checkpoint ที่สอง — เดินต่อ wave ถัดไปทันทีเว้นแต่ชน STOP CONDITION, ORDERS C3/C4) ข้อยกเว้นเดียว: component ที่เป็นแม่แบบของ pattern ใหม่ (Template Checkpoint) หยุดรอ user ตรวจก่อนยิง batch ที่ reuse มันต่อ STOP CONDITIONS (หยุดถามทันที): component เดิมตก QA ครบ 3 รอบ, ต้องเพิ่ม dependency ใหม่หรือกระทบ token ชั้น semantic, งานจริงเกิน per-component budget ตาม tier ~2 เท่า, QA เจอ finding จริงระหว่าง diff-review ของ T1/T2 (escalate เป็น T3-style review), หรือผ่านมา ~5 components/session ใกล้เต็ม (เขียน checkpoint ลง `system/STATE.md` กันไฟดับ) — resume ทุก session ใหม่จาก `system/STATE.md` โดยไม่ถามซ้ำ ดูรายละเอียดเต็มที่ skill `production-run`
 
+### 8.6 Form Language (`system/FORM.md`, skill `form-language`)
+
+Foundations (§8.1's loop, D-001 class decisions) reliably captures palette/type/spacing/shadow-
+policy from a lineage — it does not reliably capture the lineage's actual object SHAPES, because no
+step before this one ever asked "what does a control look like as a physical thing," and the
+Anatomy Contract's original 9 points cover behavior/API/states, never form. This is the step that
+closes that gap, once per system, after radius/shadow lock (§4.6) and before token-architect starts
+Phase 2 (a real derivation may require new shadow tokens `token-architect` doesn't have a category
+for yet — see the skill's own "real gaps" section).
+
+Derives a form treatment per COMPONENT CLASS (control/input/surface/display/separator, not per
+individual component — a new component slots in by class lookup) into `system/FORM.md`: silhouette
+vocabulary, depth treatment (which shadow/inset tokens, if any), corner logic, label placement,
+pressed/checked physical metaphor, and 2-3 NEVER rules per class — written in geometry+tokens, never
+adjectives. Locked via `/lock-decision` once the user confirms it's a fair reading of the lineage
+(narrower than the identity-component ship decision below).
+
+**Every component spec gains a mandatory FORM GOAL section** (1-3 sentences, derived from FORM.md's
+class table, never invented per-component) before `component-engineer` builds — wired into
+`new-component`'s Propose-API step. QA's Anatomy Contract point 10 checks it (`matches FORM GOAL`).
+
+**Identity components** (Button, Input, Switch, Checkbox, Card, Slider — the ones that carry the
+system's face) get a **mandatory multi-candidate Lab round** before shipping: ≥3 genuinely different
+form candidates rendered on the same scene in `apps/lab/` (not three cosmetic variations of one
+idea) — for a system reconsidering its current form, one candidate should honor the current shipped
+form, one should apply the FORM.md derivation faithfully, one should take a harder/more literal read
+of the same lineage. User picks with eyes; `/lock-decision` attaches the winning screenshot path.
+Presenting one safe-default candidate alone for an identity component is a process violation
+(G-F3) — the eyes-on round is the real gate; G-F1/G-F2/G-F3 in the skill's `references/gates.md`
+are measured PROXIES for it, not substitutes.
+
+Extends the project's EVASION/anti-attractor discipline (`.claude/skills/kiln/references/
+baseline.md`'s measured-ban-list mechanism, if active) with form-specific rows — the flat-rounded-
+pill-button, bordered-rect-input, white-card-soft-shadow, iOS-clone-switch attractors that font/
+palette/motion/background checks never covered. See `form-language/references/evasion-form.md`.
+
 ### ลำดับ Pipeline เต็ม
 
 ```
 Phase 0  Intake          → Extraction Report / routing ผ่าน abstract-interpreter ถ้า non-UI / interview ถ้าเริ่มจาก 0
-Phase 1  Foundations     → ข้อ 0 platform → spacing → sizing → type → color → grid → radius/shadow → motion → density
+Phase 1  Foundations     → ข้อ 0 platform → spacing → sizing → type → color → grid → radius/shadow
+                            → form language (§8.6, `system/FORM.md` — silhouette/depth/corner ต่อ
+                            component class, ก่อนเข้า Phase 2) → motion → density
 Phase 2  Tokens          → DTCG 3 ชั้น + build pipeline + themes (light/dark/contrast-more) + style recipe tokens ถ้ามี
 Phase 3  Layout + Atoms  → Box/Stack ก่อน แล้ว Tier 1 ทีละตัวหรือเป็น wave (ผ่าน QA ทุกตัว)
 Phase 4  Molecules       → Tier 2

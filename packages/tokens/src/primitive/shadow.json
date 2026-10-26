@@ -1,6 +1,6 @@
 {
   "shadowRaw": {
-    "$description": "D-008 + braun-flat.md — RESERVED ONLY for layers that truly float above content: modal, popover, toast, dropdown. Never on card/button/input/badge in normal flow (those use border.hairline instead, see semantic/light.json + semantic/dark.json). Levels 0-2 intensity, kept light per D-008 ('ไม่ใช่เงาหนัก'). Colors are 8-digit hex (hex+alpha) so they stay plain DTCG color values without needing a separate alpha primitive. This is the LIGHT-theme shadow primitive; dark theme declares its own composite directly in semantic/dark.json since it needs different alpha/darkness to read against a dark canvas.",
+    "$description": "D-029 (dial-braun-rederivation, supersedes D-008's absolute ban) — elevation.* is RESERVED for layers that truly float above content: modal, popover, toast, dropdown (unchanged from D-008). raised.*/inset.* are NEW under D-029 — structural depth cues for the control/input component classes only (system/FORM.md), never decorative, never on surface/display/separator classes. Colors use neutral.800 (#1D1C17-family, the closest match to the old shadow ink's darkness after D-028's neutral-ramp hue correction). Directional: offset toward lower-right, matching the measured cast-shadow direction on the actual Braun reference image (a real pixel scan around a raised knob found the body darkening below/below-left of the control, i.e. a light source from upper-left casting a shadow down-right) — a SINGLE directional shadow, not a neumorphic dual-tone highlight+shadow pair, because direct measurement of the reference's own knob fill found no internal gradient at all (see system/FORM.md's 'A correction the measurement forced' section). This is the LIGHT-theme shadow primitive; dark theme declares its own composite directly in semantic/dark.json.",
     "elevation": {
       "sm": {
         "$type": "shadow",
@@ -49,6 +49,52 @@
             "spread": "0px"
           }
         ]
+      }
+    },
+    "raised": {
+      "sm": {
+        "$type": "shadow",
+        "$value": {
+          "color": "#1D1C1726",
+          "offsetX": "1px",
+          "offsetY": "2px",
+          "blur": "3px",
+          "spread": "0px"
+        }
+      },
+      "md": {
+        "$type": "shadow",
+        "$value": {
+          "color": "#1D1C1733",
+          "offsetX": "1px",
+          "offsetY": "3px",
+          "blur": "5px",
+          "spread": "0px"
+        }
+      }
+    },
+    "inset": {
+      "sm": {
+        "$type": "shadow",
+        "$value": {
+          "type": "inset",
+          "color": "#1D1C1726",
+          "offsetX": "0px",
+          "offsetY": "1px",
+          "blur": "2px",
+          "spread": "0px"
+        }
+      },
+      "md": {
+        "$type": "shadow",
+        "$value": {
+          "type": "inset",
+          "color": "#1D1C1733",
+          "offsetX": "0px",
+          "offsetY": "2px",
+          "blur": "3px",
+          "spread": "0px"
+        }
       }
     }
   }

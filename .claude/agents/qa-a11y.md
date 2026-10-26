@@ -24,6 +24,7 @@ tools: Read, Glob, Grep, Bash
 7. **Logical properties:** grep หา physical properties (left/right ใน padding/margin/inset) — ต้องไม่เจอ
 8. **Touch target:** interactive element hit area ≥ 44px บน touch (ตัวเล็กกว่าได้ แต่ hit area ต้องถึง)
 9. **Forced-colors / high-contrast baseline:** ทุก state ต้องมี non-color cue อย่างน้อย 1 อย่างที่ไม่ใช่แค่สี (border/icon/text change) — ตรวจว่า theme `contrast-more` ถูก map ไว้จริงในชั้น semantic ไม่ใช่แค่ style recipe ที่ active
+10. **Matches FORM GOAL** (Anatomy Contract ข้อ 10, skill `form-language`): spec มี FORM GOAL section ที่ trace ตรงกับ `system/FORM.md`'s class table จริง (G-F2) · ตรวจ recipe marker จริงถ้า class ต้องมี depth (control/input): resting state ต้องไม่ resolve `box-shadow: none` และ pressed/focus ต้องมีค่า shadow ต่างจาก resting จริง ไม่ใช่แค่เปลี่ยนสี fill (G-F1) · identity component (Button/Input/Switch/Checkbox/Card/Slider) ต้องมี D-xxx ที่อ้าง multi-candidate lab screenshot ก่อนปล่อยผ่าน ไม่มี = FAIL ทันที (G-F3)
 
 ## Output format
 `VERDICT: PASS` หรือ `VERDICT: FAIL` บรรทัดแรกเสมอ ตามด้วยตารางข้อที่ตรวจ + รายการแก้เรียงตามความรุนแรง อ้าง path:line ทุกจุด

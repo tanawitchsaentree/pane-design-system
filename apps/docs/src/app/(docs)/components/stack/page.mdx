@@ -1,0 +1,224 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import {
+  BasicStack,
+  StackHorizontal,
+  StackGap,
+  StackAlign,
+  StackWrap,
+  StackJustify,
+  StackInCard,
+  StackToolbar,
+} from '@/content/demos/StackDemos';
+
+export const metadata = { title: 'Stack — Dial' };
+
+<DocsPage toc={getPageToc('components/stack/page.mdx')}>
+<DocsBody>
+
+# Stack
+
+Stack is a thin wrapper over Flex for the common case of stacking a list of blocks with
+consistent spacing.
+
+```tsx
+import { Stack } from 'dial-react';
+```
+
+## Demo
+
+<Demo code={`<Stack>
+  <div>First block</div>
+  <div>Second block</div>
+  <div>Third block</div>
+</Stack>`}>
+  <BasicStack />
+</Demo>
+
+## Usage
+
+Stack is a thin wrapper over Flex (D-012) for the common case of stacking a list of blocks with
+consistent spacing. It defaults to vertical stacking with a sensible default gap (`space.300`),
+and its `direction` prop uses plain-language `'vertical'`/`'horizontal'` values instead of Flex's
+CSS `'row'`/`'column'` terminology.
+
+## Do
+
+<DoDont
+  dos={[
+    "Use Stack as the default choice for a simple vertical or horizontal list of items with even spacing.",
+    "Rely on the default gap ('300') unless a design calls for tighter or looser spacing — override with any `SpaceToken`.",
+    "Reach for the underlying Flex directly when you need `align`/`justify`/`wrap` control beyond what Stack's simplified API implies.",
+  ]}
+  donts={[
+    "Don't pass `direction=\"row\"`/`\"column\"` — Stack's `direction` prop only accepts `'vertical'`/`'horizontal'`, which it maps internally to Flex's `column`/`row`.",
+    "Don't use Stack when you need alignment/justification/wrap control on the cross axis — it inherits those from FlexProps but Stack's purpose is the simple \"list of blocks\" case; consider Flex directly.",
+    "Don't set raw gap values — `gap` must be a `SpaceToken`.",
+  ]}
+/>
+
+## Variants
+
+`direction` (`'vertical'` default, or `'horizontal'`) is Stack's one enum prop — it maps to Flex's
+`column`/`row` internally.
+
+<Demo code={`<Stack direction="horizontal" gap="200">
+  <div>First</div>
+  <div>Second</div>
+  <div>Third</div>
+</Stack>`}>
+  <StackHorizontal />
+</Demo>
+
+`gap` accepts any `SpaceToken` step. A tight gap reads as one grouped unit; a loose one reads as
+separate, related blocks.
+
+<Demo code={`<Flex gap="600" align="start">
+  <Stack gap="100">
+    <div>One</div>
+    <div>Two</div>
+    <div>Three</div>
+  </Stack>
+  <Stack gap="900">
+    <div>One</div>
+    <div>Two</div>
+    <div>Three</div>
+  </Stack>
+</Flex>`}>
+  <StackGap />
+</Demo>
+
+`align` (inherited from Flex) controls cross-axis alignment — most visible on a horizontal Stack
+whose children have different heights.
+
+<Demo code={`<Stack direction="horizontal" align="start" gap="200">
+  <div style={{ height: 40 }}>A</div>
+  <div style={{ height: 80 }}>B</div>
+  <div style={{ height: 60 }}>C</div>
+</Stack>
+<Stack direction="horizontal" align="center" gap="200">
+  <div style={{ height: 40 }}>A</div>
+  <div style={{ height: 80 }}>B</div>
+  <div style={{ height: 60 }}>C</div>
+</Stack>
+<Stack direction="horizontal" align="end" gap="200">
+  <div style={{ height: 40 }}>A</div>
+  <div style={{ height: 80 }}>B</div>
+  <div style={{ height: 60 }}>C</div>
+</Stack>`}>
+  <StackAlign />
+</Demo>
+
+`wrap` (inherited from Flex, default `'nowrap'`) lets a horizontal Stack's children flow onto
+additional lines instead of overflowing a fixed-width container.
+
+<Demo code={`<Stack direction="horizontal" wrap="nowrap" gap="200" style={{ width: 220, overflow: 'auto' }}>
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+  <div>Item 4</div>
+</Stack>
+<Stack direction="horizontal" wrap="wrap" gap="200" style={{ width: 220 }}>
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+  <div>Item 4</div>
+</Stack>`}>
+  <StackWrap />
+</Demo>
+
+`justify` (inherited from Flex) controls main-axis distribution — `'between'` spreads children to
+the edges of the available width instead of packing them at the start.
+
+<Demo code={`<Stack direction="horizontal" justify="start" style={{ width: '100%' }}>
+  <div>Start</div>
+  <div>Middle</div>
+  <div>End</div>
+</Stack>
+<Stack direction="horizontal" justify="between" style={{ width: '100%' }}>
+  <div>Start</div>
+  <div>Middle</div>
+  <div>End</div>
+</Stack>`}>
+  <StackJustify />
+</Demo>
+
+## Composition
+
+A realistic use of Stack: vertically listing rows of a settings panel inside a `Card`, each row
+itself a horizontal `Flex` pairing a label with a `Switch`.
+
+<Demo code={`<Card.Root>
+  <Card.Header>Notification settings</Card.Header>
+  <Card.Body>
+    <Stack gap="300">
+      <Flex justify="between" align="center">
+        <Text>Email alerts</Text>
+        <Switch defaultChecked aria-label="Email alerts" />
+      </Flex>
+      <Flex justify="between" align="center">
+        <Text>SMS alerts</Text>
+        <Switch aria-label="SMS alerts" />
+      </Flex>
+    </Stack>
+  </Card.Body>
+</Card.Root>`}>
+  <StackInCard />
+</Demo>
+
+A horizontal Stack also works as a simple toolbar layout — here grouping icon actions with a
+`Divider` separating an unrelated action from the rest.
+
+<Demo code={`<Stack direction="horizontal" align="center" gap="200">
+  <IconButton aria-label="Add item">
+    <PlusSvg />
+  </IconButton>
+  <IconButton aria-label="Favorite">
+    <StarSvg />
+  </IconButton>
+  <Divider orientation="vertical" />
+  <IconButton aria-label="Delete item">
+    <TrashSvg />
+  </IconButton>
+</Stack>`}>
+  <StackToolbar />
+</Demo>
+
+## Props
+
+<PropsTable componentPath="components/Stack/Stack.tsx" />
+
+## Keyboard interaction
+
+No keyboard behavior beyond native Tab focus — Stack is a non-interactive layout primitive.
+
+## Accessibility
+
+**Keyboard:** N/A — non-interactive layout primitive.
+
+**Screen reader:** No inherent role; renders as a Flex/Box `div` with `data-direction`/`data-gap`
+attributes for styling only. Verified axe-clean in tests.
+
+**Focus:** Not focusable itself; forwards ref to the underlying DOM node.
+
+## Tokens used
+
+<TokenList names={[]} />
+
+## Related
+
+- **Flex** — what Stack wraps.
+- **Box** — base primitive.
+- **Center** — sibling Flex wrapper.
+- **Divider** — commonly placed between Stack children to separate sections.
+
+## Source
+
+- Source: `packages/react/src/components/Stack/` · Spec: `packages/spec/stack.md`
+  <br />
+  <small style={{ color: 'var(--ds-color-text-subtle)' }}>
+    This repository has no public remote yet — paths are relative to the repo root, not links.
+  </small>
+
+</DocsBody>
+</DocsPage>

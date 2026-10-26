@@ -25,7 +25,8 @@
     "./json/light": "./build/json/light.json",
     "./json/dark": "./build/json/dark.json",
     "./json/light-contrast-more": "./build/json/light-contrast-more.json",
-    "./types": "./build/ts/light.d.ts"
+    "./types": "./build/ts/light.d.ts",
+    "./spacing-laws": "./src/spacing.laws.json"
   },
   "files": [
     "build",

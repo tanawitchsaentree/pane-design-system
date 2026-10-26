@@ -1,0 +1,51 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import { COMPONENT_CATEGORIES, FOUNDATIONS_PAGES, kebabCase } from '@/lib/nav';
+
+export const metadata = { title: 'Introduction — Dial' };
+
+{/* Card items are derived from the same COMPONENT_CATEGORIES/FOUNDATIONS_PAGES data the sidebar
+    nav itself reads (src/lib/nav.ts) — never a second hand-typed list. Counts are computed here,
+    not typed, so they can't drift from the real component count. */}
+export const categoryCards = COMPONENT_CATEGORIES.map((cat) => ({
+  title: cat.title,
+  description: `${cat.components.length} component${cat.components.length === 1 ? '' : 's'} — ${cat.components.map((c) => c.name).slice(0, 3).join(', ')}${cat.components.length > 3 ? ', …' : ''}`,
+  href: `/components/${cat.components[0].slug}`,
+}));
+
+export const foundationCards = FOUNDATIONS_PAGES.map((name) => ({
+  title: name,
+  description: `Live token values and usage rules for ${name.toLowerCase()}.`,
+  href: `/foundations/${kebabCase(name)}`,
+}));
+
+<DocsPage toc={getPageToc('introduction/page.mdx')}>
+<DocsBody>
+
+# Introduction
+
+Dial is a Braun-derived design system — calm, restrained, and accent-scarce. Its lineage is a
+single style direction locked at the very start of this system's build: warm-neutral surfaces, no
+decorative drop-shadows, a flat type scale where hierarchy comes from position and weight rather
+than font size, and one scarce accent color reserved for the single most important interactive
+element in a given view (never used to decorate or emphasize plain text).
+
+Dial ships as two npm packages — `dial-tokens` (the token pipeline: primitive → semantic →
+component, three themes) and `dial-react` (presentational React components styled entirely
+through those tokens' CSS variables, with behavior for anything with real keyboard/focus
+complexity borrowed from Radix UI or React Aria rather than hand-rolled).
+
+Start with [Installation](/installation) to set up both packages, or jump straight to
+[Foundations](/foundations/colors) to see the token scales themselves, or browse
+[Components](/components/button) to see every shipped component with a live, interactive demo.
+
+## Foundations
+
+<CardGrid items={foundationCards} />
+
+## Components by category
+
+<CardGrid items={categoryCards} />
+
+</DocsBody>
+</DocsPage>

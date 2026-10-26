@@ -1,0 +1,160 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import { BasicSkeleton, SkeletonVariants, SkeletonCardLoading, SkeletonListLoading } from '@/content/demos/SkeletonDemos';
+
+export const metadata = { title: 'Skeleton — Dial' };
+
+<DocsPage toc={getPageToc('components/skeleton/page.mdx')}>
+<DocsBody>
+
+# Skeleton
+
+A loading placeholder shape — a shimmering block that stands in for content (text lines, avatars,
+images) while real data loads.
+
+```tsx
+import { Skeleton } from 'dial-react';
+```
+
+## Demo
+
+<Demo code={`<Skeleton width="240px" />`}>
+  <BasicSkeleton />
+</Demo>
+
+## Usage
+
+Skeleton is a loading placeholder shape — a shimmering block that stands in for content (text
+lines, avatars, images) while real data loads. It's a pure CSS shimmer animation with no client
+state, so it's safe to render on the server. Use `width`/`height` as a layout escape hatch to
+match the real content's arbitrary dimensions.
+
+## Do
+
+<DoDont
+  dos={[
+    "Match Skeleton's width/height and variant (text/circle/rect) to the shape of the real content it's standing in for, for a smooth loading-to-loaded transition.",
+    "Compose multiple Skeletons together (e.g. a circle + stacked text lines) to placeholder a whole card or list row.",
+    "Pair Skeleton with a nearby Spinner or status region if the loading state itself needs to be announced to screen readers.",
+  ]}
+  donts={[
+    "Don't expect Skeleton to announce anything to assistive tech on its own — it's aria-hidden by design.",
+    "Don't use Skeleton for indeterminate action-in-progress feedback (e.g. a button submitting) — use Spinner for that.",
+  ]}
+/>
+
+## Variants
+
+Skeleton supports three shapes via `variant`: `text` (default), `circle`, and `rect`, composable
+together to placeholder a whole row.
+
+<Demo code={`<Skeleton variant="circle" width={40} height={40} />
+<Skeleton variant="text" width={160} />
+<Skeleton variant="text" width={100} />
+<Skeleton variant="rect" width={80} height={60} />`}>
+  <SkeletonVariants />
+</Demo>
+
+## Composition
+
+A common real use is placeholdering a whole `Card` while its content loads: a `rect` skeleton
+standing in for the media, `text` skeletons standing in for the title and body lines.
+
+<Demo code={`<Card.Root style={{ maxWidth: 320 }}>
+  <Card.Media ratio="video">
+    <Skeleton variant="rect" width="100%" height="100%" />
+  </Card.Media>
+  <Card.Body>
+    <Stack gap="200">
+      <Skeleton variant="text" width="70%" />
+      <Skeleton variant="text" width="100%" />
+      <Skeleton variant="text" width="90%" />
+    </Stack>
+  </Card.Body>
+</Card.Root>`}>
+  <SkeletonCardLoading />
+</Demo>
+
+The same `circle` + `text` pairing also placeholders a list of rows (e.g. an avatar plus a
+two-line summary) before real data arrives.
+
+<Demo code={`<Stack gap="300" style={{ maxWidth: 320 }}>
+  <Flex align="center" gap="200">
+    <Skeleton variant="circle" width={32} height={32} />
+    <Stack gap="100" style={{ flex: 1 }}>
+      <Skeleton variant="text" width="60%" />
+      <Skeleton variant="text" width="35%" />
+    </Stack>
+  </Flex>
+  <Flex align="center" gap="200">
+    <Skeleton variant="circle" width={32} height={32} />
+    <Stack gap="100" style={{ flex: 1 }}>
+      <Skeleton variant="text" width="60%" />
+      <Skeleton variant="text" width="35%" />
+    </Stack>
+  </Flex>
+  <Flex align="center" gap="200">
+    <Skeleton variant="circle" width={32} height={32} />
+    <Stack gap="100" style={{ flex: 1 }}>
+      <Skeleton variant="text" width="60%" />
+      <Skeleton variant="text" width="35%" />
+    </Stack>
+  </Flex>
+</Stack>`}>
+  <SkeletonListLoading />
+</Demo>
+
+## Props
+
+<PropsTable componentPath="components/Skeleton/Skeleton.tsx" />
+
+## Keyboard interaction
+
+N/A — Skeleton is non-interactive and never receives focus.
+
+## Accessibility
+
+**Keyboard:** N/A — Skeleton is non-interactive and never receives focus.
+
+**Screen reader:** Always `aria-hidden="true"` — a skeleton has no content of its own to announce.
+The loading state itself should be announced by a nearby Spinner/status region if one exists.
+
+**Focus:** Not focusable; no focus-visible styling is defined. `prefers-reduced-motion` swaps the
+shimmer sweep for a static low-contrast fill instead of disabling the placeholder entirely.
+
+## Tokens used
+
+<TokenList
+  names={[
+    'cubic-bezier-standard',
+    'duration-slower',
+    'font-size-md',
+    'radius-full',
+    'radius-md',
+    'radius-sm',
+    'size-avatar-2xl',
+    'size-avatar-md',
+    'skeleton-base',
+    'skeleton-block-size',
+    'skeleton-inline-size',
+    'skeleton-shimmer',
+  ]}
+/>
+
+## Related
+
+- **Spinner** — the companion loading pattern for in-progress actions rather than content
+  placeholders.
+- **Avatar** — Skeleton's `circle` variant is commonly sized to match Avatar for profile-picture
+  placeholders.
+
+## Source
+
+- Source: `packages/react/src/components/Skeleton/` · Spec: `packages/spec/skeleton.md`
+  <br />
+  <small style={{ color: 'var(--ds-color-text-subtle)' }}>
+    This repository has no public remote yet — paths are relative to the repo root, not links.
+  </small>
+
+</DocsBody>
+</DocsPage>

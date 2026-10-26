@@ -1,0 +1,143 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import { BasicSwitch, OffSwitch, DisabledSwitch } from '@/content/demos/SwitchDemos';
+
+export const metadata = { title: 'Switch — Dial' };
+
+<DocsPage toc={getPageToc('components/switch/page.mdx')}>
+<DocsBody>
+
+# Switch
+
+Switch renders a native `<input type="checkbox" role="switch">` visually hidden underneath a
+custom track-and-thumb control. It reuses Checkbox's visually-hidden-input technique so it keeps
+native Tab/Space keyboard behavior for free, but announces to assistive tech as a switch (on/off)
+rather than a checkbox. Use it for immediate-effect binary settings (e.g. "Dark mode",
+"Notifications") rather than choices that need explicit form submission.
+
+```tsx
+import { Switch } from 'dial-react';
+```
+
+## Demo
+
+<Demo code={`<label>
+  <Switch defaultChecked aria-label="Dark mode" />
+  Dark mode
+</label>`}>
+  <BasicSwitch />
+</Demo>
+
+## Usage
+
+Switch renders a native `<input type="checkbox" role="switch">` visually hidden underneath a
+custom track-and-thumb control. It reuses Checkbox's visually-hidden-input technique so it keeps
+native Tab/Space keyboard behavior for free, but announces to assistive tech as a switch (on/off)
+rather than a checkbox. Use it for immediate-effect binary settings (e.g. "Dark mode",
+"Notifications") rather than choices that need explicit form submission.
+
+## Do
+
+<DoDont
+  dos={[
+    'Use Switch specifically when the on/off toggle takes effect immediately (a settings-style toggle) — that\'s the semantic difference `role="switch"` communicates over a checkbox.',
+    "Rely on the thumb's physical position as the primary on/off cue — it slides via `inset-inline-start`, a real non-color state change, not just a track color swap.",
+    'Let it work controlled (`checked` + `onChange`) or uncontrolled (`defaultChecked`) exactly like a checkbox.',
+  ]}
+  donts={[
+    "Don't try to override `role` — it's hard-set to `\"switch\"` in the component and cannot be passed as a prop (it's this component's entire reason to exist over a plain Checkbox).",
+    "Don't use Switch for a value that requires explicit form submission before taking effect — reach for `Checkbox` instead.",
+    "Don't assume the on-state track uses the brand accent — it uses `role.neutral.solid`, per the same accent-scarcity rule as Checkbox/Radio.",
+  ]}
+/>
+
+## Variants
+
+<Demo code={`<label>
+  <Switch aria-label="Notifications" />
+  Notifications
+</label>`}>
+  <OffSwitch />
+</Demo>
+
+<Demo code={`<label>
+  <Switch disabled aria-label="Disabled setting" />
+  Disabled setting
+</label>`}>
+  <DisabledSwitch />
+</Demo>
+
+## Props
+
+`SwitchProps` has no bespoke props of its own — native passthrough props (`checked`,
+`defaultChecked`, `onChange`, `disabled`, `aria-label`, etc.) pass straight through via
+`ComponentPropsWithoutRef<'input'>` (minus `type`, `size`, `role`).
+
+<PropsTable componentPath="components/Switch/Switch.tsx" />
+
+## Keyboard interaction
+
+<KeyboardTable
+  entries={[
+    { key: 'Tab', action: 'Move focus to/from the switch.' },
+    { key: 'Space', action: 'Toggle the on/off state.' },
+  ]}
+/>
+
+## Accessibility
+
+**Keyboard:** Tab to focus, Space to toggle — native `<input type="checkbox">` behavior underneath
+`role="switch"`, verified in `Switch.test.tsx` (tab, then `Space` toggles `checked`).
+
+**Screen reader:** The native input carries the real `checked`/`disabled` state and receives
+focus; `role="switch"` makes assistive tech announce it as "on"/"off" rather than
+"checked"/"unchecked". The custom track/thumb visual is `aria-hidden`.
+
+**Focus:** Focus-visible renders as an outline ring around the track, not a shadow. The wrapper
+(`label`) has a 40px hit area (`min-inline-size`/`min-block-size: size.control.sm`) while the
+visible track (`size.avatar.lg` = 48px wide × `size.icon.lg` tall) stays visually distinct and
+centered. The track was specifically sized so its 20px thumb (`size.icon.md`) has a real ~24px
+travel distance between off and on — previously the track matched the thumb+offset almost
+exactly, giving effectively 0px of visible movement.
+
+## Tokens used
+
+<TokenList
+  names={[
+    'border-width-hairline',
+    'border-width-thick',
+    'cursor-not-allowed',
+    'cursor-pointer',
+    'focus-ring-color',
+    'focus-ring-offset',
+    'focus-ring-width',
+    'radius-full',
+    'size-avatar-lg',
+    'size-control-sm',
+    'size-icon-lg',
+    'size-icon-md',
+    'switch-thumb-default',
+    'switch-track-border',
+    'switch-track-disabled',
+    'switch-track-off',
+    'switch-track-on',
+    'transition-fast',
+  ]}
+/>
+
+## Related
+
+- `Checkbox` — the underlying native-input pattern Switch borrows (visually-hidden input + custom
+  visual), differing only in `role` and the track/thumb visual.
+- `Radio` — sibling selection control sharing the same 40px hit-area and shape-cue conventions.
+
+## Source
+
+- Source: `packages/react/src/components/Switch/` · Spec: `packages/spec/switch.md`
+  <br />
+  <small style={{ color: 'var(--ds-color-text-subtle)' }}>
+    This repository has no public remote yet — paths are relative to the repo root, not links.
+  </small>
+
+</DocsBody>
+</DocsPage>

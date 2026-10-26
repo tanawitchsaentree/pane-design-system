@@ -23,7 +23,9 @@ description: มาตรฐานกลางของ design system นี้ 
 - **เมื่อไม่แน่ใจ:** เลือก tier สูงกว่า ไม่ใช่ต่ำกว่า (ผิดพลาดด้านเข้มงวดเกินไป ปลอดภัยกว่าหลวมเกินไป)
 - **Component ที่ QA เจอ finding จริงระหว่าง diff-review (T1/T2)** ต้อง escalate เป็นรันซ้ำเต็มรอบทันที ไม่ใช่แก้แล้วถือว่าจบ — diff-review คือการประหยัดต้นทุนสำหรับ component ที่ "ไม่ค่อยพัง" ไม่ใช่ใบอนุญาตให้ปิดตาข้าม finding ที่เจอจริง
 
-## Anatomy Contract — Definition of Done ของทุก component (ครบ 9 ข้อเท่านั้นถึงนับว่าเสร็จ)
+## Anatomy Contract — Definition of Done ของทุก component (ครบ 10 ข้อเท่านั้นถึงนับว่าเสร็จ)
+> ข้อ 10 (matches FORM GOAL) เพิ่มโดย skill `form-language` — Anatomy Contract เดิมคุม
+> behavior/API/states ไม่มีข้อไหนคุม form (silhouette/depth/corner) มาก่อน นี่คือช่องที่ปิด
 1. Anatomy: ชิ้นส่วนภายในมีชื่อครบ
 2. Variants ประกาศครบ (เช่น Button: solid/outline/ghost/link × primary/neutral/danger)
 3. Sizes ตาม t-shirt mapping ที่ lock ใน system/DECISIONS.md
@@ -33,6 +35,10 @@ description: มาตรฐานกลางของ design system นี้ 
 7. API: TS interface + defaults + forwardRef + asChild (ถ้า interactive) + controlled/uncontrolled (ถ้า input)
 8. Stories: ทุก variant × size + states + playground
 9. Docs page: demo, code, API table, Do/Don't, a11y, related
+10. **Matches FORM GOAL** (G-F2): component spec มี FORM GOAL section ที่ trace ได้ตรงกับ
+    `system/FORM.md`'s class table จริง (silhouette/depth/corner/label/pressed-metaphor ตาม class
+    ของมัน) ไม่ใช่ค่าที่เดาเอง — identity component (Button/Input/Switch/Checkbox/Card/Slider)
+    ต้องมี D-xxx entry ที่อ้าง multi-candidate lab screenshot ด้วย (G-F3)
 
 ## โครงไฟล์ต่อ component
 ```

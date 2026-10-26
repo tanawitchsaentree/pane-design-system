@@ -1,9 +1,14 @@
 /**
- * Button — braun-flat.md in full:
- * - rule 1: no decorative shadow anywhere in this file (definition comes from fill/border only)
- * - rule 3: intent='primary' spends the scarce brand accent (D-001) — most buttons should be
- *   intent='neutral', which this component defaults to
- * - rule 4: hover/active states change fill/border/overlay, never shadow
+ * Button — D-029/D-030/D-031 (dial-braun-rederivation, supersedes braun-flat.md rules 1/4 for this
+ * component's class):
+ * - control class per system/FORM.md: raised at rest (shadow.raised.sm — a single directional
+ *   shadow, measured from the real Braun reference, NOT a decorative shadow and not a neumorphic
+ *   dual-tone gradient), inset when pressed/active (shadow.inset.sm — the shadow direction flips,
+ *   it doesn't just deepen) — Foundry pick Niche B, apps/lab/foundry/report-2026-08-13.md
+ * - rule 3 (unchanged): intent='primary' spends the scarce brand accent (D-001) — most buttons
+ *   should be intent='neutral', which this component defaults to
+ * - state changes still carry a non-shadow cue too (fill/border shift alongside the shadow swap)
+ *   per D-029's forced-colors guardrail — shadow is never the ONLY state cue
  * - focus-visible uses the dedicated focusRing token (color/width/offset), not a shadow ring
  */
 .button {
@@ -20,14 +25,25 @@
   border-color: transparent;
   cursor: var(--ds-cursor-pointer);
   transition: var(--ds-transition-fast);
-  transition-property: background-color, border-color, color;
+  transition-property: background-color, border-color, color, box-shadow;
   position: relative;
   isolation: isolate;
   user-select: none;
+  box-shadow: var(--ds-shadow-raised-sm);
+}
+
+.button:active:not(:disabled) {
+  box-shadow: var(--ds-shadow-inset-sm);
 }
 
 .button:disabled {
   cursor: var(--ds-cursor-not-allowed);
+  box-shadow: none;
+}
+
+.button[data-variant='link'],
+.button[data-variant='ghost'] {
+  box-shadow: none;
 }
 
 .button:focus-visible {

@@ -1,0 +1,141 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import { BasicSnackbar, ActionSnackbar, PersistentSnackbar } from '@/content/demos/SnackbarDemos';
+
+export const metadata = { title: 'Snackbar — Dial' };
+
+<DocsPage toc={getPageToc('components/snackbar/page.mdx')}>
+<DocsBody>
+
+# Snackbar
+
+Snackbar is a single-line, single-instance notification for lightweight confirmations (e.g. "Link
+copied to clipboard").
+
+```tsx
+import { ToastProvider, useSnackbar } from 'dial-react';
+```
+
+## Demo
+
+<Demo code={`<ToastProvider>
+  <Button onClick={() => show({ message: 'Link copied to clipboard' })}>
+    Show snackbar
+  </Button>
+</ToastProvider>`}>
+  <BasicSnackbar />
+</Demo>
+
+## Usage
+
+Snackbar is a single-line, single-instance notification for lightweight confirmations (e.g. "Link
+copied to clipboard"). Rather than shipping as a separate component with its own
+provider/portal/viewport, it is implemented as a thin wrapper (Reuse Check, D-018) around the
+exact same `ToastProvider` infrastructure Toast already provides — `useSnackbar()` reuses Toast's
+internal `toast`/`dismiss` machinery via `useToastInternal()`. It requires the same `ToastProvider`
+ancestor as Toast; there is no separate `SnackbarProvider`. Its two behavioral differences from a
+plain Toast: no `title` (message-only, single line) and single-instance semantics (calling
+`show()` again dismisses any snackbar-shown message still open, so at most one is ever visible at
+a time).
+
+## Do
+
+<DoDont
+  dos={[
+    "Use Snackbar for brief, single-line confirmations that don't need a heading — Toast's title/description split is for messages that need both.",
+    "Call hide() to dismiss a snackbar programmatically (e.g. once a related async action completes) instead of tracking the toast id yourself.",
+    "Mount the same ToastProvider you'd use for Toast — don't look for a separate provider for Snackbar.",
+  ]}
+  donts={[
+    "Don't expect multiple snackbars to stack — calling show() while one is open replaces it, by design (unlike Toast, which stacks freely).",
+    "Don't pass a title — SnackbarOptions has no such field; use message only.",
+    "Don't assume Snackbar and Toast instances are tracked together — the single-instance replacement logic only applies to snackbar-triggered toasts created via useSnackbar(); a plain Toast triggered elsewhere in the app is left untouched.",
+  ]}
+/>
+
+## Variants
+
+Snackbar has no named variant-shaped props (no `variant` prop, unlike Toast — `SnackbarOptions`
+only carries `message`, `action`, and `duration`; every snackbar renders with the same neutral
+`'default'` tone under the hood).
+
+<Demo code={`<ToastProvider>
+  <Button onClick={() => show({ message: 'Item removed', action: <ToastAction altText="Undo removing the item">Undo</ToastAction> })}>
+    Show snackbar with action
+  </Button>
+  <Button variant="outline" onClick={hide}>Hide</Button>
+</ToastProvider>`}>
+  <ActionSnackbar />
+</Demo>
+
+Passing `duration: Infinity` keeps a snackbar on screen until it's dismissed explicitly — useful
+for a long-running operation (e.g. an upload) where an automatic timeout would hide the message
+before the work finishes.
+
+<Demo code={`<ToastProvider>
+  <Button onClick={() => show({ message: 'Uploading your file — this may take a while', duration: Infinity })}>
+    Show persistent snackbar
+  </Button>
+  <Button variant="outline" onClick={hide}>Hide</Button>
+</ToastProvider>`}>
+  <PersistentSnackbar />
+</Demo>
+
+## Props
+
+Snackbar exports no rendered component of its own (`displayNames` is empty — it's a hook,
+`useSnackbar()`, plus a plain `SnackbarOptions` interface) — `react-docgen-typescript` has no
+component doc to extract from `Snackbar.tsx`, so `<PropsTable>` is not used here. Both are
+transcribed directly from the spec's own Props section instead:
+
+`useSnackbar()` returns `{ show: (options: SnackbarOptions) => void, hide: () => void }`. Throws
+descriptively (`/ToastProvider/`) if called outside a `ToastProvider`.
+
+`SnackbarOptions`:
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `message` | `ReactNode` | — | Single-line message — the entire point of a snackbar (no separate title). |
+| `action` | `ReactNode` | — | At most one secondary action (e.g. "Retry"/"Undo"), rendered via `ToastAction`. |
+| `duration` | `number` | `5000` | Auto-dismiss delay in ms (same default as Toast). |
+
+## Keyboard interaction
+
+<KeyboardTable
+  entries={[
+    { key: 'Escape / swipe', action: 'Dismisses the snackbar via the underlying Toast close button or Escape/swipe behavior inherited from @radix-ui/react-toast (non-blocking, no focus trap).' },
+  ]}
+/>
+
+## Accessibility
+
+**Keyboard:** No focus trap (non-blocking, same as Toast); dismissal via the underlying Toast
+close button or Escape/swipe behavior inherited from `@radix-ui/react-toast`.
+
+**Screen reader:** Rendered through the same `aria-live` toast viewport as Toast, so the message
+is announced without stealing focus. Verified axe-clean when visible in `Snackbar.test.tsx`.
+
+**Focus:** Never moves or traps focus — confirmed indirectly since tests only interact with
+trigger/hide buttons without any focus-trap assertions.
+
+## Tokens used
+
+<TokenList names={[]} />
+
+## Related
+
+- **Toast** — the underlying provider/context Snackbar reuses; use Toast directly when a message
+  needs a title, needs to stack alongside others, or needs a semantic `variant` other than the
+  neutral default.
+- **ToastProvider / ToastAction** — shared infrastructure both components depend on.
+
+## Source
+
+- Source: `packages/react/src/components/Snackbar/` · Spec: `packages/spec/snackbar.md`
+  <br />
+  <small style={{ color: 'var(--ds-color-text-subtle)' }}>
+    This repository has no public remote yet — paths are relative to the repo root, not links.
+  </small>
+
+</DocsBody>
+</DocsPage>

@@ -1,0 +1,47 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import { TypeSample, WeightSample } from '@/content/demos/TypographyDemos';
+
+export const metadata = { title: 'Typography — Dial' };
+
+<DocsPage toc={getPageToc('foundations/typography/page.mdx')}>
+<DocsBody>
+
+# Typography
+
+A flat 1.2 (Minor Third) type scale, one font family for both heading and body — hierarchy in
+this system comes from position and weight, not a tall size scale. Every sample below renders
+with the real `--ds-text-*` shorthand token, not a hardcoded font-size.
+
+## Body
+
+<TypeSample token="--ds-text-body-xs" sizeToken="font-size-xs" />
+<TypeSample token="--ds-text-body-sm" sizeToken="font-size-sm" />
+<TypeSample token="--ds-text-body-md" sizeToken="font-size-md" />
+<TypeSample token="--ds-text-body-lg" sizeToken="font-size-lg" />
+
+## Heading
+
+<TypeSample token="--ds-text-heading-sm" sizeToken="font-size-lg" />
+<TypeSample token="--ds-text-heading-md" sizeToken="font-size-xl" />
+<TypeSample token="--ds-text-heading-lg" sizeToken="font-size-2xl" />
+<TypeSample token="--ds-text-heading-xl" sizeToken="font-size-3xl" />
+<TypeSample token="--ds-text-heading-2xl" sizeToken="font-size-4xl" />
+<TypeSample token="--ds-text-heading-3xl" sizeToken="font-size-5xl" />
+
+## Code
+
+<TypeSample token="--ds-text-code-sm" sizeToken="font-size-sm" />
+<TypeSample token="--ds-text-code-md" sizeToken="font-size-md" />
+
+## Weight
+
+The four font-weight steps the scale above composes from — regular/medium/semibold/bold.
+
+<WeightSample weight="regular" />
+<WeightSample weight="medium" />
+<WeightSample weight="semibold" />
+<WeightSample weight="bold" />
+
+</DocsBody>
+</DocsPage>

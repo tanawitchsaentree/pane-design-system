@@ -15,6 +15,10 @@
  * Native `<input>` is visually hidden by composing the shared `visuallyHidden` clip pattern from
  * the VisuallyHidden component (CSS Modules `composes: ... from`) instead of duplicating the raw
  * clip CSS.
+ * `prefers-reduced-motion` disables the thumb's slide transition (a real spatial-movement
+ * property, `inset-inline-start`, that this file previously had no override for at all) — the
+ * position still changes instantly to reflect the real on/off state, only the animated travel is
+ * removed, per the standing motion rule that spatial movement collapses under the preference.
  */
 .wrapper {
   position: relative;
@@ -36,6 +40,7 @@
 }
 
 .track {
+  box-sizing: border-box;
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -47,8 +52,20 @@
   border-color: var(--ds-switch-track-border);
   background-color: var(--ds-switch-track-off);
   transition: var(--ds-transition-fast);
-  transition-property: background-color, border-color, border-width;
+  transition-property: background-color, border-color, border-width, box-shadow;
   flex-shrink: 0;
+  /* D-029/D-030/D-031 — control class, Foundry Niche B: raised at rest, inset when on (the shadow
+   * flips direction, matching the physical toggle's own inset-when-engaged metaphor) — same
+   * pattern as Button, applied to the track rather than a fill/border-only cue. */
+  box-shadow: var(--ds-shadow-raised-sm);
+}
+
+.input:checked ~ .track {
+  box-shadow: var(--ds-shadow-inset-sm);
+}
+
+.wrapper[data-disabled] .track {
+  box-shadow: none;
 }
 
 .thumb {
@@ -91,4 +108,15 @@
 .input:disabled ~ .track {
   background-color: var(--ds-switch-track-disabled);
   border-color: var(--ds-switch-track-disabled);
+}
+
+/* reduced-motion fix (kiln audit finding, 2026-08-10): the thumb's inset-inline-start transition
+ * is real spatial movement (motion.md's own rule — collapse spatial movement to an opacity change
+ * of 150ms or less), and this file had no override for it at all before this fix. The position
+ * change itself still happens instantly (it's the actual on/off state, not decorative), only the
+ * animated slide is removed — the thumb jumps directly to its new side under the preference. */
+@media (prefers-reduced-motion: reduce) {
+  .thumb {
+    transition: none;
+  }
 }

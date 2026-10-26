@@ -1,0 +1,43 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import { DurationRow, TransitionRow } from '@/content/demos/MotionDemos';
+import { resolveTokens } from '@/lib/tokens';
+
+export const metadata = { title: 'Motion — Dial' };
+
+<DocsPage toc={getPageToc('foundations/motion/page.mdx')}>
+<DocsBody>
+
+# Motion
+
+Default blueprint motion — no evidence in any reference image justified bending timing/easing
+from the standard scale, so this system keeps it as-is. `transition-*` shorthands compose a
+`duration.*` with a `cubic-bezier.*` easing curve; components pick the shorthand that matches
+their situation (enter/exit vs. a plain hover/press state change) rather than assembling
+duration+easing by hand each time. Click Toggle on any row below to feel the real timing.
+
+## duration.\*
+
+export const durations = resolveTokens(['duration-instant', 'duration-fast', 'duration-base', 'duration-slow', 'duration-slower']);
+
+<DurationRow name="instant" resolvedValue={durations[0].light} />
+<DurationRow name="fast" resolvedValue={durations[1].light} />
+<DurationRow name="base" resolvedValue={durations[2].light} />
+<DurationRow name="slow" resolvedValue={durations[3].light} />
+<DurationRow name="slower" resolvedValue={durations[4].light} />
+
+## transition.\*
+
+The composed shorthands components actually use — `enter`/`exit` have asymmetric easing
+(decelerate in, accelerate out) rather than reusing the same curve both ways.
+
+export const transitions = resolveTokens(['transition-fast', 'transition-base', 'transition-slow', 'transition-enter', 'transition-exit']);
+
+<TransitionRow name="fast" resolvedValue={transitions[0].light} />
+<TransitionRow name="base" resolvedValue={transitions[1].light} />
+<TransitionRow name="slow" resolvedValue={transitions[2].light} />
+<TransitionRow name="enter" resolvedValue={transitions[3].light} />
+<TransitionRow name="exit" resolvedValue={transitions[4].light} />
+
+</DocsBody>
+</DocsPage>

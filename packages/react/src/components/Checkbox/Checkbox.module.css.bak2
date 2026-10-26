@@ -1,0 +1,111 @@
+/**
+ * Checkbox — braun-flat.md: no decorative shadow (rule 1), checked state uses `role.neutral.solid`
+ * fill instead of the scarce brand accent (checkbox.json, D-015 contrast self-check + accent
+ * scarcity rule 3 — a checkbox list commonly shows several checked items per view). The
+ * check/indeterminate glyph is a real SVG shape (not color alone) per BLUEPRINT §7 non-color-cue
+ * requirement. Native `<input>` is visually hidden by composing the shared `visuallyHidden` clip
+ * pattern from the VisuallyHidden component (CSS Modules `composes: ... from`, resolved by Vite's
+ * built-in postcss-modules support at build time — verified against a real `vite build`, not just
+ * dev mode) rather than `display:none`, so it stays in the accessibility tree and keeps native
+ * Tab/Space keyboard behavior (D-015: "verify Tab/Space work from using native input directly").
+ * This is the single source of truth for the clip pattern — no raw clip CSS is duplicated here.
+ */
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: var(--ds-size-control-sm);
+  min-block-size: var(--ds-size-control-sm);
+  cursor: var(--ds-cursor-pointer);
+}
+
+.wrapper[data-disabled] {
+  cursor: var(--ds-cursor-not-allowed);
+}
+
+.input {
+  composes: visuallyHidden from '../VisuallyHidden/VisuallyHidden.module.css';
+  position: absolute;
+}
+
+.box {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  inline-size: var(--ds-size-icon-lg);
+  block-size: var(--ds-size-icon-lg);
+  border-radius: var(--ds-radius-sm);
+  border-style: solid;
+  border-width: var(--ds-border-width-hairline);
+  border-color: var(--ds-checkbox-border-default);
+  background-color: transparent;
+  color: transparent;
+  transition: var(--ds-transition-fast);
+  transition-property: background-color, border-color, color, box-shadow;
+  /* D-029/D-030/D-031 — control class, Foundry Niche B */
+  box-shadow: var(--ds-shadow-raised-sm);
+}
+
+.input:checked ~ .box,
+.input[aria-checked='mixed'] ~ .box {
+  box-shadow: var(--ds-shadow-inset-sm);
+}
+
+.input:disabled ~ .box {
+  box-shadow: none;
+}
+
+.checkIcon,
+.indeterminateIcon {
+  inline-size: 75%;
+  block-size: 75%;
+  display: none;
+}
+
+/* hover — non-shadow cue: border widens (braun-flat rule 4) */
+.wrapper:not([data-disabled]):hover .box {
+  border-width: var(--ds-border-width-thick);
+}
+
+/* focus-visible — dedicated focusRing token, not a shadow ring */
+.input:focus-visible ~ .box {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+}
+
+/* checked */
+.input:checked ~ .box {
+  background-color: var(--ds-checkbox-bg-checked);
+  border-color: var(--ds-checkbox-bg-checked);
+  color: var(--ds-checkbox-icon);
+}
+.input:checked ~ .box .checkIcon {
+  display: block;
+}
+
+/* indeterminate (DOM-only property, styled via the aria-checked="mixed" we also set) */
+.input[aria-checked='mixed'] ~ .box {
+  background-color: var(--ds-checkbox-bg-checked);
+  border-color: var(--ds-checkbox-bg-checked);
+  color: var(--ds-checkbox-icon);
+}
+.input[aria-checked='mixed'] ~ .box .indeterminateIcon {
+  display: block;
+}
+.input[aria-checked='mixed'] ~ .box .checkIcon {
+  display: none;
+}
+
+/* disabled */
+.input:disabled ~ .box {
+  border-color: var(--ds-checkbox-border-disabled);
+  background-color: var(--ds-checkbox-bg-disabled);
+}
+.input:disabled:checked ~ .box,
+.input:disabled[aria-checked='mixed'] ~ .box {
+  background-color: var(--ds-checkbox-border-disabled);
+  border-color: var(--ds-checkbox-border-disabled);
+}

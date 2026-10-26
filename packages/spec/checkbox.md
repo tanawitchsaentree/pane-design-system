@@ -24,6 +24,9 @@ Checkbox renders a native `<input type="checkbox">`, visually hidden underneath 
 | `indeterminate` | `boolean` | `false` | Visual-only "partially checked" state; does not affect the underlying boolean `checked` value. |
 | ...rest | `ComponentPropsWithoutRef<'input'>` (minus `type`, `size`) | — | Native checkbox props (`checked`, `defaultChecked`, `onChange`, `disabled`, `aria-label`, etc.) pass straight through. |
 
+## Form goal
+Control class (`system/FORM.md`, D-030): raised at rest via `shadow.raised.sm`, flipping to `shadow.inset.sm` when checked/indeterminate — same directional-shadow pattern as Button, applied to the box rather than a fill/border-only cue. D-031 (Foundry pick, Niche B) locks this as Dial's shipped treatment.
+
 ## Related
 - `Radio` and `Switch` — the other two native-input-based selection controls, sharing the same visually-hidden-input + custom-visual technique and 40px hit-area pattern.
 - `Fieldset` — groups multiple checkboxes/radios under a shared `<legend>`.

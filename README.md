@@ -1,4 +1,4 @@
-# DS Agent Kit — โรงงานผลิต Design System (วางลง repo แล้วเริ่มได้เลย)
+# kiln — โรงงานผลิต Design System (วางลง repo แล้วเริ่มได้เลย)
 
 **หลักการ:** kit นี้คือโรงงาน ไม่มีสไตล์เป็นของตัวเอง — decision ทั้งหมด (สไตล์, platform, สี, ฯลฯ) อยู่ใน `system/` เท่านั้น สลับงานใหม่ด้วย `/new-system {ชื่อ}` โดยไม่ปนกัน
 
@@ -8,7 +8,7 @@ mkdir design-system && cd design-system && git init
 # แตกไฟล์ kit นี้ทับลงไป (ทั้ง .claude/ ต้องอยู่ root ของ repo)
 npm install -g @anthropic-ai/claude-code   # ถ้ายังไม่มี
 corepack enable && corepack prepare pnpm@latest --activate
-git add -A && git commit -m "chore: ds agent kit"
+git add -A && git commit -m "chore: kiln factory"
 claude
 ```
 แล้วพิมพ์: `อ่าน CLAUDE.md แล้ว scaffold monorepo ตาม docs/BLUEPRINT.md ข้อ 2`

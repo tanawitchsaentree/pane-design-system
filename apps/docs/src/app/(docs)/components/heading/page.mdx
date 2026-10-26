@@ -1,0 +1,164 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import {
+  BasicHeading,
+  HeadingLevels,
+  HeadingLevelLadder,
+  HeadingSizeLadder,
+  HeadingWeightLadder,
+  HeadingArticleComposition,
+} from '@/content/demos/HeadingDemos';
+
+export const metadata = { title: 'Heading — Dial' };
+
+<DocsPage toc={getPageToc('components/heading/page.mdx')}>
+<DocsBody>
+
+# Heading
+
+Renders a real `h1`-`h6` element for document-outline structure, with visual size deliberately
+decoupled from semantic level.
+
+```tsx
+import { Heading } from 'dial-react';
+```
+
+## Demo
+
+<Demo code={`<Heading level={2}>Section title</Heading>`}>
+  <BasicHeading />
+</Demo>
+
+## Usage
+
+Heading renders a real `h1`-`h6` element for document-outline structure, with visual size
+deliberately decoupled from semantic level — so a small-looking `h1` or a large-looking `h4` are
+both legitimate combinations. Use it anywhere content needs a heading in the accessibility tree;
+pick `level` for correct document structure and `size` (or let it default) for visual weight.
+
+## Do
+
+<DoDont
+  dos={[
+    "Choose level based on correct document outline/heading hierarchy, not on how large you want the text to look.",
+    "Let size default from level unless the design explicitly calls for a mismatched visual weight.",
+    "Use asChild for the rare case where you need Heading's visual style on a non-heading tag (e.g. inside a card-title slot) without adding an extra heading to the outline.",
+  ]}
+  donts={[
+    "Don't skip heading levels (e.g. h1 straight to h3) just to get a certain visual size — use the size prop instead.",
+    "Don't use Heading for non-heading emphasis text — use Text with a larger size/weight instead.",
+  ]}
+/>
+
+## Variants
+
+Heading's visual size (`size`) is independent of its semantic `level`; the demo below shows both
+levels and a mismatched size.
+
+<Demo code={`<Heading level={1}>Heading level 1</Heading>
+<Heading level={3}>Heading level 3</Heading>
+<Heading level={4} size="sm">Heading level 4, small visual size</Heading>`}>
+  <HeadingLevels />
+</Demo>
+
+All six semantic levels (`level`), left at each level's default visual size — this is the
+document-outline dimension, independent of the size ladder below.
+
+<Demo code={`<Heading level={1}>Level 1 — h1</Heading>
+<Heading level={2}>Level 2 — h2</Heading>
+<Heading level={3}>Level 3 — h3</Heading>
+<Heading level={4}>Level 4 — h4</Heading>
+<Heading level={5}>Level 5 — h5</Heading>
+<Heading level={6}>Level 6 — h6</Heading>`}>
+  <HeadingLevelLadder />
+</Demo>
+
+The full `size` ladder rendered at a single fixed `level` (2), to isolate the visual-size dimension
+from the semantic-level one shown above.
+
+<Demo code={`<Heading level={2} size="sm">Size sm</Heading>
+<Heading level={2} size="md">Size md</Heading>
+<Heading level={2} size="lg">Size lg</Heading>
+<Heading level={2} size="xl">Size xl</Heading>
+<Heading level={2} size="2xl">Size 2xl</Heading>
+<Heading level={2} size="3xl">Size 3xl</Heading>`}>
+  <HeadingSizeLadder />
+</Demo>
+
+The full `weight` ladder, at a single fixed `level`/`size` so only the weight changes between rows.
+
+<Demo code={`<Heading level={3} weight="regular">Weight regular</Heading>
+<Heading level={3} weight="medium">Weight medium</Heading>
+<Heading level={3} weight="semibold">Weight semibold (default)</Heading>
+<Heading level={3} weight="bold">Weight bold</Heading>`}>
+  <HeadingWeightLadder />
+</Demo>
+
+## Composition
+
+A realistic content block: an `h1` article title paired with `Text` byline copy, then an `h2`
+subheading followed by a body paragraph — the kind of structure Heading is actually meant to sit
+inside, rather than an isolated single line.
+
+<Demo code={`<article>
+  <Heading level={1} size="2xl">Shipping a design system that survives contact with real product teams</Heading>
+  <Text size="sm" color="subtle">Published August 8, 2026 · 6 min read</Text>
+  <Heading level={2} size="lg">Why token tiers matter</Heading>
+  <Text>A three-tier token structure keeps component code free of raw hex/px values, so a single semantic change (like darkening a border for contrast) never requires touching every component that uses it.</Text>
+</article>`}>
+  <HeadingArticleComposition />
+</Demo>
+
+## Props
+
+<PropsTable componentPath="components/Heading/Heading.tsx" />
+
+## Keyboard interaction
+
+N/A — Heading is non-interactive and never receives focus.
+
+## Accessibility
+
+**Keyboard:** N/A — Heading is non-interactive and never receives focus.
+
+**Screen reader:** Always renders a real heading tag (`h1`-`h6`) matching `level`, so screen
+readers announce correct heading level/document outline regardless of the visual `size` chosen —
+unless `asChild` overrides the tag entirely.
+
+**Focus:** Not focusable; no focus-visible styling is defined.
+
+## Tokens used
+
+<TokenList
+  names={[
+    'font-family-sans',
+    'font-size-2xl',
+    'font-size-3xl',
+    'font-size-4xl',
+    'font-size-5xl',
+    'font-size-lg',
+    'font-size-xl',
+    'font-weight-bold',
+    'font-weight-medium',
+    'font-weight-regular',
+    'font-weight-semibold',
+    'line-height-heading',
+    'text-color-default',
+  ]}
+/>
+
+## Related
+
+- **Text** — the non-heading counterpart for body copy and inline content.
+- **Icon** — often paired next to a Heading for section titles with a leading icon.
+
+## Source
+
+- Source: `packages/react/src/components/Heading/` · Spec: `packages/spec/heading.md`
+  <br />
+  <small style={{ color: 'var(--ds-color-text-subtle)' }}>
+    This repository has no public remote yet — paths are relative to the repo root, not links.
+  </small>
+
+</DocsBody>
+</DocsPage>

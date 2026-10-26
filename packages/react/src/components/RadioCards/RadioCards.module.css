@@ -52,6 +52,7 @@
 }
 
 .cardVisual {
+  box-sizing: border-box;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -63,10 +64,22 @@
   border-radius: var(--ds-radius-lg);
   background-color: var(--ds-radio-cards-card-bg-default);
   transition: var(--ds-transition-fast);
-  transition-property: border-color, border-width, background-color;
+  transition-property: border-color, border-width, background-color, box-shadow;
+  /* D-029/D-030/D-031 — control class (RadioCards is a "chosen 1 of N" pressable control, per
+   * system/FORM.md, same as Radio/RadioCards's native-radio behavior engine, D-023) */
+  box-shadow: var(--ds-shadow-raised-sm);
+}
+
+.input:checked ~ .cardVisual {
+  box-shadow: var(--ds-shadow-inset-sm);
+}
+
+.input:disabled ~ .cardVisual {
+  box-shadow: none;
 }
 
 .indicator {
+  box-sizing: border-box;
   position: absolute;
   inset-block-start: var(--ds-space-inset-md);
   inset-inline-end: var(--ds-space-inset-md);

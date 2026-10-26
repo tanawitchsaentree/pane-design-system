@@ -1,0 +1,170 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import { BasicPinInput, MaskedPinInput, InvalidPinInput, DisabledPinInput, PinInputSizes, PinInputOnComplete } from '@/content/demos/PinInputDemos';
+
+export const metadata = { title: 'PinInput — Dial' };
+
+<DocsPage toc={getPageToc('components/pin-input/page.mdx')}>
+<DocsBody>
+
+# PinInput
+
+PinInput is a row of single-character cells for OTP/verification codes. It's the most complex
+component in this wave — real client state plus effects (`"use client"`), and bespoke
+focus-routing logic written by hand rather than borrowed from a behavior library, since no
+existing Radix/React Aria primitive models "N linked single-character cells." Use it for
+verification-code entry flows (SMS OTP, email confirmation codes).
+
+```tsx
+import { PinInput } from 'dial-react';
+```
+
+## Demo
+
+<Demo code={`<PinInput length={6} aria-label="6-digit verification code" />`}>
+  <BasicPinInput />
+</Demo>
+
+## Usage
+
+PinInput is a row of single-character cells for OTP/verification codes. It's the most complex
+component in this wave — real client state plus effects (`"use client"`), and bespoke
+focus-routing logic written by hand rather than borrowed from a behavior library, since no
+existing Radix/React Aria primitive models "N linked single-character cells." Use it for
+verification-code entry flows (SMS OTP, email confirmation codes).
+
+## Do
+
+<DoDont
+  dos={[
+    'Set `length` to match the expected code length, and use `aria-label` to give the whole group a meaningful accessible name (e.g. "6-digit verification code").',
+    'Use `mask` for privacy-sensitive codes displayed over someone\'s shoulder, and `numericOnly` (default `true`) to restrict input/paste to digits.',
+    'Support paste-to-fill naturally — pasting a full code into any cell distributes characters across the remaining cells starting at the focused one; no extra wiring is needed from the caller.',
+  ]}
+  donts={[
+    "Don't expect `onChange` to fire only on completion — it fires on every value change (typing, paste, backspace); use `onComplete` specifically for the \"all cells filled\" callback.",
+    "Don't build a controlled PinInput without handling the full joined string — `value`/`onChange` operate on the whole code as one string, not per-cell.",
+    'Don\'t assume the first cell\'s `autoComplete` behavior is arbitrary — only cell index 0 gets `autoComplete="one-time-code"` (the others are `"off"`), matching how browsers/OS-level OTP autofill targets the first field of a code group.',
+  ]}
+/>
+
+## Variants
+
+<Demo code={`<PinInput length={4} mask aria-label="4-digit PIN" />`}>
+  <MaskedPinInput />
+</Demo>
+
+<Demo code={`<PinInput length={6} invalid defaultValue="123" aria-label="6-digit verification code" />`}>
+  <InvalidPinInput />
+</Demo>
+
+<Demo code={`<PinInput length={4} disabled defaultValue="12" aria-label="4-digit PIN" />`}>
+  <DisabledPinInput />
+</Demo>
+
+PinInput follows the same `size.control.*` t-shirt scale as every other control-sized component
+(D-004).
+
+<Demo code={`<PinInput length={4} size="sm" aria-label="4-digit PIN, small" />
+<PinInput length={4} size="md" aria-label="4-digit PIN, medium" />
+<PinInput length={4} size="lg" aria-label="4-digit PIN, large" />
+<PinInput length={4} size="xl" aria-label="4-digit PIN, extra large" />`}>
+  <PinInputSizes />
+</Demo>
+
+## Composition
+
+`onComplete` fires once the value reaches `length` characters — the hook for submitting a code
+automatically instead of waiting for an explicit submit action.
+
+<Demo code={`<PinInput
+  length={4}
+  aria-label="4-digit PIN"
+  onComplete={(value) => alert(\`Completed with: \${value}\`)}
+/>`}>
+  <PinInputOnComplete />
+</Demo>
+
+## Props
+
+<PropsTable componentPath="components/PinInput/PinInput.tsx" />
+
+## Keyboard interaction
+
+<KeyboardTable
+  entries={[
+    { key: 'Type a character', action: 'Fills the current cell and auto-advances focus to the next cell.' },
+    { key: 'Backspace (cell has a value)', action: 'Clears just that cell; focus does not move.' },
+    { key: 'Backspace (cell is empty)', action: 'Clears the previous cell and moves focus to it.' },
+    { key: 'ArrowLeft', action: 'Moves focus to the previous cell without altering any value.' },
+    { key: 'ArrowRight', action: 'Moves focus to the next cell without altering any value.' },
+  ]}
+/>
+
+## Accessibility
+
+**Keyboard:** Typing a character auto-advances focus to the next cell. Backspace on a cell with a
+value clears just that cell (no focus move); Backspace on an already-empty cell clears and moves
+focus to the previous cell. ArrowLeft/ArrowRight move focus between cells without altering any
+value. All of this is covered by dedicated tests in `PinInput.test.tsx`, including the
+auto-advance-on-type, backspace-clears-vs-backspace-moves distinction, and arrow-key focus movement
+(unlike Radio's arrow-key behavior, this logic is component-implemented, not native, so it is
+directly unit-testable in jsdom).
+
+**Screen reader:** The root has `role="group"` with the caller-supplied `aria-label` as its
+accessible name; each cell additionally exposes `aria-label="Digit N of length"` so a screen
+reader announces cell position, and `invalid` sets `aria-invalid="true"` on every cell.
+`inputMode="numeric"` plus a `pattern` hint the on-screen keyboard without blocking other
+assistive input methods.
+
+**Focus:** Each cell is a real, independently focusable native `<input maxLength=1>`; there is no
+hidden/decorative layer as in Checkbox/Radio/Switch — the visible cell IS the focus target, sized
+per the `size.control.*` scale via `data-size`.
+
+## Tokens used
+
+<TokenList
+  names={[
+    'border-width-hairline',
+    'border-width-thick',
+    'cursor-not-allowed',
+    'focus-ring-color',
+    'focus-ring-offset',
+    'focus-ring-width',
+    'font-family-sans',
+    'font-size-lg',
+    'font-weight-semibold',
+    'input-bg-default',
+    'input-border-default',
+    'input-border-disabled',
+    'input-border-invalid',
+    'input-text-default',
+    'input-text-disabled',
+    'radius-md',
+    'size-control-lg',
+    'size-control-md',
+    'size-control-sm',
+    'size-control-xl',
+    'space-inline-sm',
+    'transition-fast',
+  ]}
+/>
+
+## Related
+
+- `Input` — shares the `size.control.*` scale and `invalid` convention, though PinInput's cell
+  layout and focus-routing are entirely bespoke.
+- `FormField` — can wrap a PinInput for a labeled/helper-text field, though `FormField`'s
+  `cloneElement` wiring targets a single control's `id`/`aria-describedby`, so pairing needs the
+  same care as with any multi-part control.
+
+## Source
+
+- Source: `packages/react/src/components/PinInput/` · Spec: `packages/spec/pininput.md`
+  <br />
+  <small style={{ color: 'var(--ds-color-text-subtle)' }}>
+    This repository has no public remote yet — paths are relative to the repo root, not links.
+  </small>
+
+</DocsBody>
+</DocsPage>

@@ -27,6 +27,9 @@ Input is a native `<input>`-based single-line text field. Per the system's behav
 | `rightElement` | `ReactNode` | — | Element rendered after the text (unit label/clear button). Decorative, `aria-hidden`. |
 | ...rest | `ComponentPropsWithoutRef<'input'>` (minus `size`) | — | All native input props (`value`, `defaultValue`, `onChange`, `disabled`, `readOnly`, `placeholder`, etc.) pass straight through. |
 
+## Form goal
+Input class (`system/FORM.md`, D-030): permanently inset via `shadow.inset.sm` — a receiving channel, never raised (there is no "pressed" state for a field the way a control has one) — deepening one step to `shadow.inset.md` on focus. D-031 (Foundry pick, Niche B) locks this as Dial's shipped treatment.
+
 ## Related
 - `FormField` composes Input with `Label` and `HelperText`, wiring `id`/`aria-describedby`/`aria-invalid`/`required` automatically.
 - `InputGroup` — use instead of `leftElement`/`rightElement` for a multi-character prefix/suffix segment (e.g. "$" + amount + "USD").

@@ -1,0 +1,158 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+import {
+  BasicDivider,
+  VerticalDivider,
+  StrongDivider,
+  DividerInList,
+  DividerInToolbar,
+} from '@/content/demos/DividerDemos';
+
+export const metadata = { title: 'Divider — Dial' };
+
+<DocsPage toc={getPageToc('components/divider/page.mdx')}>
+<DocsBody>
+
+# Divider
+
+Divider is a hairline rule extending Box, used to separate sections of content visually and
+structurally.
+
+```tsx
+import { Divider } from 'dial-react';
+```
+
+## Demo
+
+<Demo code={`<Stack gap="300">
+  <div>Section one</div>
+  <Divider />
+  <div>Section two</div>
+</Stack>`}>
+  <BasicDivider />
+</Demo>
+
+## Usage
+
+Divider is a hairline rule extending Box (D-012), styled per D-008 (hairline border tokens define
+the divider — no decorative shadow). Use it to separate sections of content visually and
+structurally, either horizontally between stacked blocks or vertically between inline items.
+
+## Do
+
+<DoDont
+  dos={[
+    "Use Divider between logically distinct sections within a Stack or other layout to give assistive tech a structural separator, not just a visual line.",
+    "Set `orientation=\"vertical\"` when separating inline items (e.g. within a horizontal toolbar), and ensure the parent gives it a defined height/cross-axis size to render visibly.",
+    "Use `variant=\"hairline-strong\"` when a slightly more prominent rule is needed, while still following D-008 border tokens.",
+  ]}
+  donts={[
+    "Don't use Divider purely for decorative visual spacing — if there's no real section boundary, use Spacer or a `gap` instead so screen readers aren't told there's a separator.",
+    "Don't override `role` or `aria-orientation` — they're set internally to convey correct separator semantics and are tied to the `orientation` prop.",
+    "Don't nest children inside Divider — its `BoxProps` are taken `Omit<..., 'children'>`, so it's not meant to carry content.",
+  ]}
+/>
+
+## Variants
+
+<Demo code={`<Flex align="center" gap="300" style={{ height: 40 }}>
+  <span>Item A</span>
+  <Divider orientation="vertical" />
+  <span>Item B</span>
+</Flex>`}>
+  <VerticalDivider />
+</Demo>
+
+<Demo code={`<Stack gap="300">
+  <div>Section one</div>
+  <Divider variant="hairline-strong" />
+  <div>Section two</div>
+</Stack>`}>
+  <StrongDivider />
+</Demo>
+
+## Composition
+
+A realistic use of `Divider` is separating rows in a list of like items, rather than two generic
+blocks — here it marks the boundary between line items in an invoice list.
+
+<Demo code={`<Stack gap="0">
+  <Flex justify="between" align="center">
+    <Text>Invoice #1042</Text>
+    <Text color="subtle">$240.00</Text>
+  </Flex>
+  <Divider />
+  <Flex justify="between" align="center">
+    <Text>Invoice #1041</Text>
+    <Text color="subtle">$180.00</Text>
+  </Flex>
+  <Divider />
+  <Flex justify="between" align="center">
+    <Text>Invoice #1040</Text>
+    <Text color="subtle">$95.00</Text>
+  </Flex>
+</Stack>`}>
+  <DividerInList />
+</Demo>
+
+A vertical `Divider` inside a toolbar separates related but distinct actions — here between an
+"add" and a "delete" `IconButton` — instead of just adding horizontal spacing between them.
+
+<Demo code={`<Flex align="center" gap="200" style={{ height: 40 }}>
+  <IconButton aria-label="Add item">
+    <PlusSvg />
+  </IconButton>
+  <Divider orientation="vertical" />
+  <IconButton aria-label="Delete item">
+    <TrashSvg />
+  </IconButton>
+</Flex>`}>
+  <DividerInToolbar />
+</Demo>
+
+## Props
+
+<PropsTable componentPath="components/Divider/Divider.tsx" />
+
+## Keyboard interaction
+
+No keyboard behavior beyond native Tab focus — Divider is non-interactive; it exposes
+`role="separator"` semantics rather than any interactive/keyboard-navigable role.
+
+## Accessibility
+
+**Keyboard:** N/A — non-interactive; exposes `role="separator"` semantics rather than any
+interactive/keyboard-navigable role.
+
+**Screen reader:** Announced as a structural separator via `role="separator"` and
+`aria-orientation` (mirrors the `orientation` prop), so assistive tech treats it as a real divider
+rather than decorative content.
+
+**Focus:** Not focusable; purely structural.
+
+## Tokens used
+
+<TokenList
+  names={[
+    'border-width-hairline',
+    'color-border-hairline',
+    'color-border-hairline-strong',
+  ]}
+/>
+
+## Related
+
+- **Stack** — Divider is commonly placed between Stack children.
+- **Box** — base primitive.
+- **Center/Flex** — used to lay out a vertical Divider between inline items.
+
+## Source
+
+- Source: `packages/react/src/components/Divider/` · Spec: `packages/spec/divider.md`
+  <br />
+  <small style={{ color: 'var(--ds-color-text-subtle)' }}>
+    This repository has no public remote yet — paths are relative to the repo root, not links.
+  </small>
+
+</DocsBody>
+</DocsPage>

@@ -8,11 +8,6 @@
       "raised": { "$type": "color", "$value": "{color.neutral.25}" },
       "overlay": { "$type": "color", "$value": "{color.neutral.0}" }
     },
-    "bg": {
-      "$description": "D-006 exact mapping: bg.canvas = neutral.50, bg.surface = neutral.0/25 — expressed here as aliases into the surface.* ladder so there is one source of truth for the ramp step.",
-      "canvas": { "$type": "color", "$value": "{color.surface.canvas}" },
-      "surface": { "$type": "color", "$value": "{color.surface.raised}" }
-    },
     "text": {
       "default": { "$type": "color", "$value": "{color.neutral.900}" },
       "subtle": { "$type": "color", "$value": "{color.neutral.600}" },
@@ -35,7 +30,7 @@
       "danger": { "$type": "color", "$value": "{color.danger.600}" }
     },
     "action": {
-      "$description": "D-006 action.primary = brand.700 (supersedes brand.600 — see D-014, QA W2 Wave 2 findings #3/#4: brand.600 measured 4.02:1 as TEXT/border on bg.canvas, below the 4.5:1 AA text minimum; brand.700 measures 6.38:1) · D-001/braun-flat accent-scarcity rule: use action.primary only on the single most important interactive element per view. States use fill/border shifts, never shadow (braun-flat rule 4). action.danger.default likewise moved 600->700 (D-014) for the same reason (danger.600 was 4.46:1 on canvas, just under AA).",
+      "$description": "D-006 action.primary = brand.700 (supersedes brand.600 — see D-014, QA W2 Wave 2 findings #3/#4: brand.600 measured below the 4.5:1 AA text minimum on bg.canvas). D-028 (dial-braun-rederivation) re-derived the brand ramp's actual hex values from the measured Braun reference (real pixel sample, OKLCH C≈0.16) — brand.700 now measures 4.54:1 on canvas at the SAME step number, holding the reference's full chroma instead of the old ramp's contrast-motivated chroma collapse; no semantic re-aliasing was needed since the step-700 choice from D-014 still clears AA. · D-001/braun-flat accent-scarcity rule: use action.primary only on the single most important interactive element per view. States use fill/border shifts, never shadow (braun-flat rule 4 — SUPERSEDED by D-029, shadows are now structural not banned; fill/border-shift-as-primary-cue still applies per the forced-colors survival rule). action.danger.default likewise on brand.700 (D-014) for the same reason.",
       "primary": {
         "default": { "$type": "color", "$value": "{color.brand.700}" },
         "hover": { "$type": "color", "$value": "{color.brand.800}" },
@@ -62,16 +57,16 @@
       "info": { "$type": "color", "$value": "{color.info.600}" }
     },
     "role": {
-      "$description": "Wave 2 (D-013) addition — non-interactive role-tinted surfaces for Badge (solid/subtle/outline x neutral/brand/success/warning/danger/info, D-006). 'brand' reuses the accent ramp but Badge is informational-only (not clickable), so this does NOT count against the D-001/braun-flat accent-scarcity rule the way an interactive action.primary element would — still used sparingly by convention. solid = high-contrast fill+white text (readable on its own); subtle = light tint bg + darker-step text (readable on canvas, no separate border needed); subtleText mirrors the solid hue at a darker step for AA contrast on the light tint.",
+      "$description": "Wave 2 (D-013) addition — non-interactive role-tinted surfaces for Badge (solid/subtle/outline x neutral/brand/success/warning/danger/info, D-006). 'brand' reuses the accent ramp but Badge is informational-only (not clickable), so this does NOT count against the D-001/braun-flat accent-scarcity rule the way an interactive action.primary element would — still used sparingly by convention. solid = high-contrast fill+white text (readable on its own); subtle = light tint bg + darker-step text (readable on canvas, no separate border needed); subtleText mirrors the solid hue at a darker step for AA contrast on the light tint. D-028 (dial-braun-rederivation) moved role.brand.solid 600->700 and role.brand.subtleText 700->800 (real contrast-check.mjs regressions found after the ramp rebuild: white-on-600 dropped from 4.61:1 to 4.06:1, 700-on-subtleBg dropped from 5.88:1 to 3.83:1, both below 4.5:1 text AA — the new steps clear 5.19:1 and 5.61:1 respectively; no other role uses this pattern and needed a change).",
       "neutral": {
         "solid": { "$type": "color", "$value": "{color.neutral.700}" },
         "subtleBg": { "$type": "color", "$value": "{color.neutral.100}" },
         "subtleText": { "$type": "color", "$value": "{color.neutral.700}" }
       },
       "brand": {
-        "solid": { "$type": "color", "$value": "{color.brand.600}" },
+        "solid": { "$type": "color", "$value": "{color.brand.700}" },
         "subtleBg": { "$type": "color", "$value": "{color.brand.100}" },
-        "subtleText": { "$type": "color", "$value": "{color.brand.700}" }
+        "subtleText": { "$type": "color", "$value": "{color.brand.800}" }
       },
       "success": {
         "solid": { "$type": "color", "$value": "{color.success.600}" },
@@ -102,11 +97,19 @@
     }
   },
   "shadow": {
-    "$description": "D-008 + braun-flat rule 2 — ONLY for modal/popover/toast/dropdown. Never for card/button/input/badge in normal flow.",
+    "$description": "elevation.* — D-008 + braun-flat rule 2, UNCHANGED — ONLY for modal/popover/toast/dropdown. Never for card/button/input/badge in normal flow. raised.*/inset.* — NEW under D-029 (supersedes D-008's absolute ban) — structural depth for the control/input classes only (system/FORM.md), applied per that file's per-class rules. Never decorative, never on surface/display/separator classes.",
     "elevation": {
       "sm": { "$type": "shadow", "$value": "{shadowRaw.elevation.sm}" },
       "md": { "$type": "shadow", "$value": "{shadowRaw.elevation.md}" },
       "lg": { "$type": "shadow", "$value": "{shadowRaw.elevation.lg}" }
+    },
+    "raised": {
+      "sm": { "$type": "shadow", "$value": "{shadowRaw.raised.sm}" },
+      "md": { "$type": "shadow", "$value": "{shadowRaw.raised.md}" }
+    },
+    "inset": {
+      "sm": { "$type": "shadow", "$value": "{shadowRaw.inset.sm}" },
+      "md": { "$type": "shadow", "$value": "{shadowRaw.inset.md}" }
     }
   },
   "focusRing": {

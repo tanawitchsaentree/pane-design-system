@@ -1,0 +1,247 @@
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { getPageToc } from '@/lib/toc';
+
+export const metadata = { title: 'Colors — Dial' };
+
+<DocsPage toc={getPageToc('foundations/colors/page.mdx')}>
+<DocsBody>
+
+# Colors
+
+A warm-neutral ramp from a cream base, with a single scarce accent (brand) reserved for the one
+thing a user should act on. Every swatch below reads its real hex value from the built token CSS
+(`packages/tokens/build/css/light.css`) at build time — nothing here is a hand-typed hex.
+
+## Primitives
+
+The raw neutral, brand, and semantic-role (success/warning/danger/info) ramps every alias below
+draws from. Components never reference a primitive step directly — only the Semantic tier below.
+
+### Neutral
+
+<div style={{ display: 'flex', gap: 'var(--ds-space-inline-md)', flexWrap: 'wrap' }}>
+  <FoundationSwatch name="color-neutral-0" label="neutral.0" />
+  <FoundationSwatch name="color-neutral-25" label="neutral.25" />
+  <FoundationSwatch name="color-neutral-50" label="neutral.50" />
+  <FoundationSwatch name="color-neutral-100" label="neutral.100" />
+  <FoundationSwatch name="color-neutral-200" label="neutral.200" />
+  <FoundationSwatch name="color-neutral-300" label="neutral.300" />
+  <FoundationSwatch name="color-neutral-400" label="neutral.400" />
+  <FoundationSwatch name="color-neutral-500" label="neutral.500" />
+  <FoundationSwatch name="color-neutral-600" label="neutral.600" />
+  <FoundationSwatch name="color-neutral-700" label="neutral.700" />
+  <FoundationSwatch name="color-neutral-800" label="neutral.800" />
+  <FoundationSwatch name="color-neutral-900" label="neutral.900" />
+  <FoundationSwatch name="color-neutral-950" label="neutral.950" />
+  <FoundationSwatch name="color-neutral-975" label="neutral.975" />
+</div>
+
+### Brand (accent — reserved for the one interactive thing per view)
+
+<div style={{ display: 'flex', gap: 'var(--ds-space-inline-md)', flexWrap: 'wrap' }}>
+  <FoundationSwatch name="color-brand-50" label="brand.50" />
+  <FoundationSwatch name="color-brand-100" label="brand.100" />
+  <FoundationSwatch name="color-brand-200" label="brand.200" />
+  <FoundationSwatch name="color-brand-300" label="brand.300" />
+  <FoundationSwatch name="color-brand-400" label="brand.400" />
+  <FoundationSwatch name="color-brand-500" label="brand.500" />
+  <FoundationSwatch name="color-brand-600" label="brand.600" />
+  <FoundationSwatch name="color-brand-700" label="brand.700" />
+  <FoundationSwatch name="color-brand-800" label="brand.800" />
+  <FoundationSwatch name="color-brand-900" label="brand.900" />
+  <FoundationSwatch name="color-brand-950" label="brand.950" />
+</div>
+
+### Success
+
+<div style={{ display: 'flex', gap: 'var(--ds-space-inline-md)', flexWrap: 'wrap' }}>
+  <FoundationSwatch name="color-success-50" label="success.50" />
+  <FoundationSwatch name="color-success-100" label="success.100" />
+  <FoundationSwatch name="color-success-200" label="success.200" />
+  <FoundationSwatch name="color-success-300" label="success.300" />
+  <FoundationSwatch name="color-success-400" label="success.400" />
+  <FoundationSwatch name="color-success-500" label="success.500" />
+  <FoundationSwatch name="color-success-600" label="success.600" />
+  <FoundationSwatch name="color-success-700" label="success.700" />
+  <FoundationSwatch name="color-success-800" label="success.800" />
+  <FoundationSwatch name="color-success-900" label="success.900" />
+  <FoundationSwatch name="color-success-950" label="success.950" />
+</div>
+
+### Warning
+
+<div style={{ display: 'flex', gap: 'var(--ds-space-inline-md)', flexWrap: 'wrap' }}>
+  <FoundationSwatch name="color-warning-50" label="warning.50" />
+  <FoundationSwatch name="color-warning-100" label="warning.100" />
+  <FoundationSwatch name="color-warning-200" label="warning.200" />
+  <FoundationSwatch name="color-warning-300" label="warning.300" />
+  <FoundationSwatch name="color-warning-400" label="warning.400" />
+  <FoundationSwatch name="color-warning-500" label="warning.500" />
+  <FoundationSwatch name="color-warning-600" label="warning.600" />
+  <FoundationSwatch name="color-warning-700" label="warning.700" />
+  <FoundationSwatch name="color-warning-800" label="warning.800" />
+  <FoundationSwatch name="color-warning-900" label="warning.900" />
+  <FoundationSwatch name="color-warning-950" label="warning.950" />
+</div>
+
+### Danger
+
+<div style={{ display: 'flex', gap: 'var(--ds-space-inline-md)', flexWrap: 'wrap' }}>
+  <FoundationSwatch name="color-danger-50" label="danger.50" />
+  <FoundationSwatch name="color-danger-100" label="danger.100" />
+  <FoundationSwatch name="color-danger-200" label="danger.200" />
+  <FoundationSwatch name="color-danger-300" label="danger.300" />
+  <FoundationSwatch name="color-danger-400" label="danger.400" />
+  <FoundationSwatch name="color-danger-500" label="danger.500" />
+  <FoundationSwatch name="color-danger-600" label="danger.600" />
+  <FoundationSwatch name="color-danger-700" label="danger.700" />
+  <FoundationSwatch name="color-danger-800" label="danger.800" />
+  <FoundationSwatch name="color-danger-900" label="danger.900" />
+  <FoundationSwatch name="color-danger-950" label="danger.950" />
+</div>
+
+### Info
+
+<div style={{ display: 'flex', gap: 'var(--ds-space-inline-md)', flexWrap: 'wrap' }}>
+  <FoundationSwatch name="color-info-50" label="info.50" />
+  <FoundationSwatch name="color-info-100" label="info.100" />
+  <FoundationSwatch name="color-info-200" label="info.200" />
+  <FoundationSwatch name="color-info-300" label="info.300" />
+  <FoundationSwatch name="color-info-400" label="info.400" />
+  <FoundationSwatch name="color-info-500" label="info.500" />
+  <FoundationSwatch name="color-info-600" label="info.600" />
+  <FoundationSwatch name="color-info-700" label="info.700" />
+  <FoundationSwatch name="color-info-800" label="info.800" />
+  <FoundationSwatch name="color-info-900" label="info.900" />
+  <FoundationSwatch name="color-info-950" label="info.950" />
+</div>
+
+## Semantic
+
+The tier every component actually consumes — never a primitive step directly.
+
+### Surface
+
+<div style={{ display: 'flex', gap: 'var(--ds-space-inline-md)', flexWrap: 'wrap' }}>
+  <FoundationSwatch name="color-surface-canvas" label="surface.canvas" />
+  <FoundationSwatch name="color-surface-inset" label="surface.inset" />
+  <FoundationSwatch name="color-surface-raised" label="surface.raised" />
+  <FoundationSwatch name="color-surface-overlay" label="surface.overlay" />
+</div>
+
+### Text
+
+<div style={{ display: 'flex', gap: 'var(--ds-space-inline-md)', flexWrap: 'wrap' }}>
+  <FoundationSwatch name="color-text-default" label="text.default" />
+  <FoundationSwatch name="color-text-subtle" label="text.subtle" />
+  <FoundationSwatch name="color-text-disabled" label="text.disabled" />
+  <FoundationSwatch name="color-text-inverse" label="text.inverse" />
+  <FoundationSwatch name="color-text-on-primary" label="text.on-primary" />
+  <FoundationSwatch name="color-text-on-danger" label="text.on-danger" />
+  <FoundationSwatch name="color-text-on-success" label="text.on-success" />
+  <FoundationSwatch name="color-text-on-warning" label="text.on-warning" />
+  <FoundationSwatch name="color-text-on-info" label="text.on-info" />
+  <FoundationSwatch name="color-text-on-role-solid" label="text.on-role-solid" />
+</div>
+
+### Border
+
+<div style={{ display: 'flex', gap: 'var(--ds-space-inline-md)', flexWrap: 'wrap' }}>
+  <FoundationSwatch name="color-border-hairline" label="border.hairline" />
+  <FoundationSwatch name="color-border-hairline-strong" label="border.hairline-strong" />
+  <FoundationSwatch name="color-border-interactive" label="border.interactive" />
+  <FoundationSwatch name="color-border-subtle" label="border.subtle" />
+  <FoundationSwatch name="color-border-focus" label="border.focus" />
+  <FoundationSwatch name="color-border-danger" label="border.danger" />
+</div>
+
+### Action — primary (the scarce accent)
+
+<div style={{ display: 'flex', gap: 'var(--ds-space-inline-md)', flexWrap: 'wrap' }}>
+  <FoundationSwatch name="color-action-primary-default" label="action.primary.default" />
+  <FoundationSwatch name="color-action-primary-hover" label="action.primary.hover" />
+  <FoundationSwatch name="color-action-primary-active" label="action.primary.active" />
+  <FoundationSwatch name="color-action-primary-disabled" label="action.primary.disabled" />
+</div>
+
+### Action — neutral
+
+<div style={{ display: 'flex', gap: 'var(--ds-space-inline-md)', flexWrap: 'wrap' }}>
+  <FoundationSwatch name="color-action-neutral-default" label="action.neutral.default" />
+  <FoundationSwatch name="color-action-neutral-hover" label="action.neutral.hover" />
+  <FoundationSwatch name="color-action-neutral-active" label="action.neutral.active" />
+  <FoundationSwatch name="color-action-neutral-disabled" label="action.neutral.disabled" />
+</div>
+
+### Action — danger
+
+<div style={{ display: 'flex', gap: 'var(--ds-space-inline-md)', flexWrap: 'wrap' }}>
+  <FoundationSwatch name="color-action-danger-default" label="action.danger.default" />
+  <FoundationSwatch name="color-action-danger-hover" label="action.danger.hover" />
+  <FoundationSwatch name="color-action-danger-active" label="action.danger.active" />
+  <FoundationSwatch name="color-action-danger-disabled" label="action.danger.disabled" />
+</div>
+
+### Feedback
+
+Single-step accent used for icon glyphs and accent bars on feedback-bearing components (Alert,
+Toast) — not a fill, and not the same token as the role-tinted panels below.
+
+<div style={{ display: 'flex', gap: 'var(--ds-space-inline-md)', flexWrap: 'wrap' }}>
+  <FoundationSwatch name="color-feedback-success" label="feedback.success" />
+  <FoundationSwatch name="color-feedback-warning" label="feedback.warning" />
+  <FoundationSwatch name="color-feedback-danger" label="feedback.danger" />
+  <FoundationSwatch name="color-feedback-info" label="feedback.info" />
+</div>
+
+### Role — tinted surfaces (non-interactive)
+
+Solid/subtle-bg/subtle-text triads per role, for non-interactive tinted content (Badge). `brand`
+here is informational, not the scarce interactive accent — it doesn't count against the D-001
+accent-scarcity rule, but is still used sparingly by convention.
+
+<div style={{ display: 'flex', gap: 'var(--ds-space-inline-md)', flexWrap: 'wrap' }}>
+  <FoundationSwatch name="color-role-neutral-solid" label="role.neutral.solid" />
+  <FoundationSwatch name="color-role-neutral-subtle-bg" label="role.neutral.subtle-bg" />
+  <FoundationSwatch name="color-role-neutral-subtle-text" label="role.neutral.subtle-text" />
+  <FoundationSwatch name="color-role-brand-solid" label="role.brand.solid" />
+  <FoundationSwatch name="color-role-brand-subtle-bg" label="role.brand.subtle-bg" />
+  <FoundationSwatch name="color-role-brand-subtle-text" label="role.brand.subtle-text" />
+  <FoundationSwatch name="color-role-success-solid" label="role.success.solid" />
+  <FoundationSwatch name="color-role-success-subtle-bg" label="role.success.subtle-bg" />
+  <FoundationSwatch name="color-role-success-subtle-text" label="role.success.subtle-text" />
+  <FoundationSwatch name="color-role-warning-solid" label="role.warning.solid" />
+  <FoundationSwatch name="color-role-warning-subtle-bg" label="role.warning.subtle-bg" />
+  <FoundationSwatch name="color-role-warning-subtle-text" label="role.warning.subtle-text" />
+  <FoundationSwatch name="color-role-danger-solid" label="role.danger.solid" />
+  <FoundationSwatch name="color-role-danger-subtle-bg" label="role.danger.subtle-bg" />
+  <FoundationSwatch name="color-role-danger-subtle-text" label="role.danger.subtle-text" />
+  <FoundationSwatch name="color-role-info-solid" label="role.info.solid" />
+  <FoundationSwatch name="color-role-info-subtle-bg" label="role.info.subtle-bg" />
+  <FoundationSwatch name="color-role-info-subtle-text" label="role.info.subtle-text" />
+</div>
+
+### Overlay
+
+Thin alpha washes over a fill — the non-shadow hover/pressed cue every interactive component uses
+(braun-flat.md), plus the modal/drawer backdrop scrim.
+
+<div style={{ display: 'flex', gap: 'var(--ds-space-inline-md)', flexWrap: 'wrap' }}>
+  <FoundationSwatch name="color-overlay-hover" label="overlay.hover" />
+  <FoundationSwatch name="color-overlay-pressed" label="overlay.pressed" />
+  <FoundationSwatch name="color-overlay-scrim" label="overlay.scrim" />
+</div>
+
+### Base
+
+<div style={{ display: 'flex', gap: 'var(--ds-space-inline-md)', flexWrap: 'wrap' }}>
+  <FoundationSwatch name="color-base-white" label="base.white" />
+  <FoundationSwatch name="color-base-black" label="base.black" />
+</div>
+
+Switch the theme toggle in the header to see every swatch above resolve to its real dark-theme
+value — the light/dark values shown are read from `packages/tokens/build/css/{light,dark}.css`
+respectively, live at build time, never hardcoded.
+
+</DocsBody>
+</DocsPage>

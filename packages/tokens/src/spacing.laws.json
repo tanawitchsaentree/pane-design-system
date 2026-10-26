@@ -1,0 +1,65 @@
+{
+  "$description": "spacing-engine's IRON laws (L1-L7, invariant across every system built with kiln — never edit the law text per-system) plus Dial's own OPEN parameters, locked as D-027 in system/DECISIONS.md. This file is read by tooling/spacing-check.mjs's per-page ladder scripts and by the Spacing foundation page — not consumed by Style Dictionary (it has no $type/$value token shape) and not imported into packages/react. Source of truth for the LAW TEXT is .claude/skills/spacing-engine/references/laws.md; source of truth for the PARAMETER derivation is .claude/skills/spacing-engine/references/dial-parameters.md — this file is a machine-readable copy of both, kept in sync by hand until a generator exists.",
+  "laws": {
+    "L1": {
+      "name": "Scale purity",
+      "statement": "Every gap, padding, and margin resolves to a token from the system's own single scale. An off-grid value is a bug, not a stylistic choice, except the named optical cases in L7.",
+      "gate": "G-S1"
+    },
+    "L2": {
+      "name": "Monotonic proximity",
+      "statement": "Moving up nesting levels, spacing must never decrease. The gap between two things at a level must exceed the gap within either of those things. Two valid mechanisms: gap-based (compare border-box-to-border-box gaps directly) and divider-based (compare each level's own L3 clearance instead, since there is no real inter-item gap to measure).",
+      "gate": "G-S3"
+    },
+    "L3": {
+      "name": "Clearance",
+      "statement": "Content sitting adjacent to any visible boundary keeps at least the system's clearance token of distance from that boundary, on the side facing it. Touching the line is red regardless of how correct the surrounding CSS rule looks.",
+      "gate": "G-S1"
+    },
+    "L4": {
+      "name": "Bound pairs tightest",
+      "statement": "Whatever the smallest, most tightly coupled pair of elements on a page is, its gap must be the smallest spacing value anywhere in its surrounding context.",
+      "gate": null
+    },
+    "L5": {
+      "name": "Heading binding",
+      "statement": "A heading's space-above must exceed its space-below, always, in every density mode.",
+      "gate": "G-S4"
+    },
+    "L6": {
+      "name": "Rhythm",
+      "statement": "Repeated, structurally-equivalent units share identical gaps throughout.",
+      "gate": "G-S5"
+    },
+    "L7": {
+      "name": "Optical honesty",
+      "statement": "A deviation from the scale is allowed only when it is <=2px and names WHY as a real, inspectable annotation (e.g. data-optical=\"reason\"). An unannotated off-grid value is a stray, not an exception.",
+      "gate": "G-S2"
+    }
+  },
+  "dial": {
+    "$description": "Dial's own OPEN parameters — derived from D-001 (lineage) and D-003 (base unit), locked as D-027. Loose density mode throughout: D-001 calls the Braun reference 'spacious/comfortable', and D-003 chose base-8 specifically because base-4 suits dense UI Dial doesn't need.",
+    "densityMode": "loose",
+    "clearanceToken": {
+      "inline": { "token": "space.inline.lg", "px": 24 },
+      "block": { "token": "space.inset.lg", "px": 32 }
+    },
+    "relationshipLadder": [
+      { "level": "bound-pair", "token": "space.inline.sm", "px": 8, "example": "icon <-> label" },
+      { "level": "compound-control-stack", "token": "space.stack.sm", "px": 8, "example": "Label -> control -> HelperText" },
+      { "level": "fields-rows-within-group", "token": "space.stack.md", "px": 32, "example": "FormField rows in one group" },
+      { "level": "component-inner-padding", "token": "space.inset.md", "px": 24, "example": "Card body padding" },
+      { "level": "component-to-component", "token": "space.inline.lg / space.stack.lg", "px": 24, "example": "two Cards side by side" },
+      { "level": "sub-group-to-sub-group", "token": "space.600 (primitive, no semantic alias yet)", "px": 48, "example": "two option groups within one form" },
+      { "level": "heading-space-above", "token": "space.stack.lg", "px": 32 },
+      { "level": "heading-space-below", "token": "space.stack.sm", "px": 8 },
+      { "level": "section-to-section", "token": "space.700 (primitive, no semantic alias yet)", "px": 64, "example": "two major page sections" },
+      { "level": "page-frame-margin", "token": "space.inset.lg (content) or space.700 (wide/landing)", "px": "32 or 64" }
+    ],
+    "knownGaps": [
+      "No semantic alias exists yet for the sub-group<->sub-group (48px) or section<->section (64px) relationship classes — component/docs code needing this level today must reference the primitive space.600/space.700 directly.",
+      "space.stack.lg (32px) is shared by two different relationship classes (fields/rows' occasional looser variant, and heading-space-above) — consistent with the reference ladder's own coincidence, not a modeling error, but worth splitting into distinct aliases if it ever causes confusion."
+    ],
+    "lockedAs": "D-027"
+  }
+}

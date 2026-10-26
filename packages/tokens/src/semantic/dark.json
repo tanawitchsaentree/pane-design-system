@@ -7,10 +7,6 @@
       "raised": { "$type": "color", "$value": "{color.neutral.900}" },
       "overlay": { "$type": "color", "$value": "{color.neutral.800}" }
     },
-    "bg": {
-      "canvas": { "$type": "color", "$value": "{color.surface.canvas}" },
-      "surface": { "$type": "color", "$value": "{color.surface.raised}" }
-    },
     "text": {
       "default": { "$type": "color", "$value": "{color.neutral.50}" },
       "subtle": { "$type": "color", "$value": "{color.neutral.300}" },
@@ -101,7 +97,7 @@
     }
   },
   "shadow": {
-    "$description": "D-008 rule 5 — dark mode still declares elevation tokens for API symmetry, but in practice the surface-lightness ladder does the visual work; shadow stays reserved for modal/popover/toast/dropdown only, using a darker/lower-alpha composite so it's visible against a dark canvas.",
+    "$description": "elevation.* — D-008 rule 5, UNCHANGED — dark mode still declares elevation tokens for API symmetry, but in practice the surface-lightness ladder does the visual work; shadow stays reserved for modal/popover/toast/dropdown only. raised.*/inset.* — NEW under D-029 — same structural-depth role as light.json's, using black at a lower alpha (a shadow tinted with light.json's ink color would barely read against an already-dark canvas) — per FORM.md, the fill-lightness shift is the PRIMARY cue in dark theme (the shadow itself is secondary/subtle here, same pattern already established for elevation.* above).",
     "elevation": {
       "sm": { "$type": "shadow", "$value": { "color": "#0000004D", "offsetX": "0px", "offsetY": "1px", "blur": "3px", "spread": "0px" } },
       "md": {
@@ -118,6 +114,14 @@
           { "color": "#0000004D", "offsetX": "0px", "offsetY": "2px", "blur": "4px", "spread": "0px" }
         ]
       }
+    },
+    "raised": {
+      "sm": { "$type": "shadow", "$value": { "color": "#00000040", "offsetX": "1px", "offsetY": "2px", "blur": "3px", "spread": "0px" } },
+      "md": { "$type": "shadow", "$value": { "color": "#00000052", "offsetX": "1px", "offsetY": "3px", "blur": "5px", "spread": "0px" } }
+    },
+    "inset": {
+      "sm": { "$type": "shadow", "$value": { "type": "inset", "color": "#00000040", "offsetX": "0px", "offsetY": "1px", "blur": "2px", "spread": "0px" } },
+      "md": { "$type": "shadow", "$value": { "type": "inset", "color": "#00000052", "offsetX": "0px", "offsetY": "2px", "blur": "3px", "spread": "0px" } }
     }
   },
   "focusRing": {

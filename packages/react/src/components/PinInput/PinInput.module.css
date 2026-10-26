@@ -20,6 +20,7 @@
 }
 
 .cell {
+  box-sizing: border-box;
   inline-size: var(--ds-size-control-sm);
   text-align: center;
   background-color: var(--ds-input-bg-default);
@@ -32,7 +33,17 @@
   font-size: var(--ds-font-size-lg);
   font-weight: var(--ds-font-weight-semibold);
   transition: var(--ds-transition-fast);
-  transition-property: border-color, border-width;
+  transition-property: border-color, border-width, box-shadow;
+  /* D-029/D-030/D-031 — input class, same pattern as Input */
+  box-shadow: var(--ds-shadow-inset-sm);
+}
+
+.cell:focus:not(:disabled) {
+  box-shadow: var(--ds-shadow-inset-md);
+}
+
+.cell:disabled {
+  box-shadow: none;
 }
 
 .cell:hover:not(:disabled) {

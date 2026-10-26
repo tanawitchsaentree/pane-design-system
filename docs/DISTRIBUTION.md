@@ -6,6 +6,12 @@
 3. **Tiered** — Core ฟรี (agents+skills พื้นฐาน) / Pro (Layout Lab + System Sheet + production-run + CATALOG 108 + conformance harness)
 
 ## เช็คก่อนขาย
+- **`/audit-kit` ต้องเขียวก่อนแพ็คทุกครั้ง — ไม่มีข้อยกเว้น (บังคับ ไม่ใช่แนะนำ)**
+  `python3 .claude/skills/kiln/scripts/audit_kit.py` (exit 0 = ปลอดภัยจะแพ็ค) เช็ค 5 อย่าง: path
+  ทุกจุดใน backtick resolve จริง / gate ที่ประกาศ "Proven" มี selftest จริงที่รันผ่านจริง (ไม่ใช่แค่
+  eval report เก่า) / เลขที่ประกาศตรงกับที่นับได้จริง / ไม่มีไฟล์ reference ที่ไม่มีทาง load ถึง /
+  SUPERSEDED ทุกไฟล์ชี้ผู้ชนะจริง + BACKLOG.md มีไฟล์เดียว — เจอ violation แม้ 1 จุด = **ห้ามแพ็ค**
+  จนกว่าจะแก้ (แก้ไฟล์จริง ไม่ใช่แก้ audit_kit.py ให้เงียบ)
 - **สิทธิ์:** โค้ดใน kit เป็นของคุณ · ของที่ *อ้างถึง* (Radix/React Aria/TanStack/Style Dictionary) เป็น MIT/Apache — ผู้ใช้ติดตั้งเอง ห้าม vendor เข้ามาแล้วขายต่อเป็นของตัวเอง · ห้ามใช้ชื่อ/แบรนด์ Material, MUI, Braun ในตัวสินค้า (ref ส่วนตัวไม่ใช่ของแจก)
 - **แยก engine ออกจาก system ให้สะอาด** ก่อนแพ็ค: `system/` และ `systems-archive/` = งานของคุณ ไม่ใช่ของสินค้า → ตัดออก เหลือแค่ `templates/system/`
 - ใส่ LICENSE + `docs/KIT-CHANGELOG.md` + เวอร์ชันใน README ทุกครั้งที่ปล่อย
