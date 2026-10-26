@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Gate Proof Rule (ds-conventions/SKILL.md) applied to generate-barrel.mjs --check.
 //
-// `barrel:check` is wired into dial-react's prepublishOnly, so it is the thing standing between a
+// `barrel:check` is wired into the react package's prepublishOnly, so it is the thing standing between a
 // stale index.ts and a published package that silently omits a component. It had never been seen
 // red: it was written, run once against an already-correct tree, and shipped. Same state v3's
 // logical-property regex was in.
@@ -33,7 +33,10 @@ import { fileURLToPath } from 'node:url';
 
 const TOOLING_DIR = fileURLToPath(new URL('.', import.meta.url));
 const REPO_ROOT = join(TOOLING_DIR, '..');
-const REAL_REACT_SRC = join(REPO_ROOT, 'packages', 'react', 'src');
+// A self-contained fixture tree (tooling/__fixtures__/barrel), not the system's real packages/react —
+// the engine ships with no system, and a gate-proof that needs one can't run on a blank kiln.
+const FIXTURE_REACT = join(TOOLING_DIR, '__fixtures__', 'barrel', 'packages', 'react');
+const REAL_REACT_SRC = join(FIXTURE_REACT, 'src');
 
 let failures = 0;
 let total = 0;
@@ -49,6 +52,7 @@ function makeWorld() {
   mkdirSync(toolingDir, { recursive: true });
   mkdirSync(join(srcDir, 'components'), { recursive: true });
   cpSync(join(TOOLING_DIR, 'generate-barrel.mjs'), join(toolingDir, 'generate-barrel.mjs'));
+  cpSync(join(FIXTURE_REACT, 'package.json'), join(root, 'packages', 'react', 'package.json'));
   cpSync(join(REAL_REACT_SRC, 'index.ts'), join(srcDir, 'index.ts'));
   cpSync(join(REAL_REACT_SRC, 'barrel.manifest.mjs'), join(srcDir, 'barrel.manifest.mjs'));
   // every component directory's own index.ts (the files barrelLine() checks for existence)
@@ -154,7 +158,7 @@ assertCase(
   'MUTATE: แก้แค่ comment header ใน index.ts → ต้องแดง (generated file ห้ามต่างจาก generator แม้บรรทัดเดียว)',
   (w) => {
     const p = join(w.srcDir, 'index.ts');
-    writeFileSync(p, readFileSync(p, 'utf8').replace('// dial-react — public entry point.', '// dial-react entry'));
+    writeFileSync(p, readFileSync(p, 'utf8').replace('// fixture-react — public entry point.', '// fixture-react entry'));
   },
   (r, out) => r.exitCode === 1 && /stale/.test(out),
 );

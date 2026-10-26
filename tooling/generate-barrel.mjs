@@ -21,6 +21,7 @@ const REACT_SRC = path.join(__dirname, '..', 'packages', 'react', 'src');
 const OUTPUT_PATH = path.join(REACT_SRC, 'index.ts');
 
 const { BARREL_MANIFEST } = await import(path.join(REACT_SRC, 'barrel.manifest.mjs'));
+const PKG_NAME = JSON.parse(readFileSync(path.join(REACT_SRC, '..', 'package.json'), 'utf8')).name;
 
 // Delegates to the component's own index.ts via `export *` rather than inlining its contents —
 // that file stays the single source of truth for what the component exports; this barrel only
@@ -40,7 +41,7 @@ const sections = BARREL_MANIFEST.map((block) => {
   return `${header}${body}`;
 });
 
-const output = `// dial-react — public entry point.
+const output = `// ${PKG_NAME} — public entry point.
 // GENERATED FILE — do not hand-edit. Source of truth: packages/react/src/barrel.manifest.mjs +
 // each component's own src/components/{Name}/index.ts. Regenerate with:
 //   node tooling/generate-barrel.mjs

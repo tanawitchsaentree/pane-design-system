@@ -8,7 +8,7 @@
     "build": "turbo run build",
     "lint": "node tooling/no-hardcode-lint.mjs",
     "lint:selftest": "node tooling/no-hardcode-lint.selftest.mjs",
-    "gate:selftest": "node tooling/no-hardcode-lint.selftest.mjs && node tooling/contrast-check.selftest.mjs && node tooling/generate-barrel.selftest.mjs && node tooling/pack-verify.selftest.mjs && node tooling/story-title-check.selftest.mjs && node tooling/doc-count-check.selftest.mjs",
+    "gate:selftest": "node tooling/hooks.selftest.mjs && node tooling/no-hardcode-lint.selftest.mjs && node tooling/contrast-check.selftest.mjs && node tooling/generate-barrel.selftest.mjs && node tooling/pack-verify.selftest.mjs && node tooling/story-title-check.selftest.mjs && node tooling/doc-count-check.selftest.mjs",
     "story:check": "node tooling/story-title-check.mjs",
     "doc:check": "node tooling/doc-count-check.mjs",
     "smoke:import": "node tooling/smoke-import.mjs"

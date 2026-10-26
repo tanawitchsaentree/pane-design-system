@@ -7,9 +7,10 @@
 // each declared path resolves to a non-empty file. It cannot catch (a) the two packages being
 // broken *together* (react's CSS referencing token vars that tokens no longer ships), (b) an entry
 // point that resolves to a real file which then throws on import, or (c) a rename that left the old
-// name resolvable from stale node_modules. The scope rename from @dial/* to dial-* is exactly the
-// change that breaks (c), and @dial/tokens has already shipped an exports map pointing at filenames
-// the build never produced once — "the config looks right" is not evidence.
+// name resolvable from stale node_modules. A package rename is exactly the change that breaks (c)
+// (list retired names in system/kiln.config.json `legacyNames`), and a tokens package has already
+// shipped an exports map pointing at filenames the build never produced once — "the config looks
+// right" is not evidence. (Gate-proof history below is from Dial, the first system built with kiln.)
 //
 // Run: node tooling/smoke-import.mjs
 // Exits non-zero on the first broken entry point, so it is safe to chain into prepublishOnly.
@@ -37,9 +38,19 @@ import { mkdtempSync, rmSync, writeFileSync, readFileSync, existsSync } from 'no
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadSystemConfig } from './system-config.mjs';
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PACKAGES = ['tokens', 'react'];
+
+// What a consumer must be able to import and render is the system's API, not the engine's — it comes
+// from system/kiln.config.json (`smokeImport`). An empty list is a FAIL, not a pass: a gate with
+// nothing to check proves nothing.
+const SMOKE = loadSystemConfig().smokeImport ?? {};
+const EXPECTED = SMOKE.expectedExports ?? [];
+const MIN_EXPORTS = SMOKE.minExports ?? 1;
+const RENDER_PROBES = SMOKE.renderProbes ?? [];
+const LEGACY_NAMES = SMOKE.legacyNames ?? [];
 
 // Read the real names out of the manifests rather than hardcoding them here. Hardcoding is the bug
 // class this repo keeps hitting (a hand-typed string that drifts silently) — if a package is renamed
@@ -52,7 +63,7 @@ const manifests = PACKAGES.map((dir) => {
 });
 const NAMES = Object.fromEntries(manifests.map((m) => [m.dir, m.pkg.name]));
 
-const scratch = mkdtempSync(join(tmpdir(), 'dial-smoke-'));
+const scratch = mkdtempSync(join(tmpdir(), 'kiln-smoke-'));
 let failures = 0;
 const results = [];
 const record = (ok, label, info = '') => {
@@ -83,7 +94,7 @@ try {
 
   writeFileSync(
     join(scratch, 'package.json'),
-    JSON.stringify({ name: 'dial-smoke-consumer', private: true, version: '1.0.0', type: 'module' }, null, 2),
+    JSON.stringify({ name: 'kiln-smoke-consumer', private: true, version: '1.0.0', type: 'module' }, null, 2),
   );
 
   console.log('[smoke-import] installing both tarballs + react into a scratch project...');
@@ -132,13 +143,12 @@ try {
   );
 
   // A root that imports cleanly but exports nothing is a broken build that resolves fine.
-  record(exportCount >= 40, `${R} exports a full surface`, `${exportCount} exports (expected >= 40)`);
+  record(exportCount >= MIN_EXPORTS, `${R} exports a full surface`, `${exportCount} exports (expected >= ${MIN_EXPORTS})`);
 
-  // 3. Named exports actually present. Toast ships as ToastProvider/ToastAction/useToast (no bare
-  // `Toast`) and Card/Dialog/Listbox are compound namespaces, so this list mirrors the real API —
-  // the first draft asserted a bare `Toast` and failed, which was the probe being wrong, not the
-  // package. Getting this list from the barrel would make the check circular, so it stays explicit.
-  const EXPECTED = ['Button', 'Card', 'Stack', 'Text', 'Dialog', 'Listbox', 'FormField', 'ToastProvider', 'useToast'];
+  // 3. Named exports actually present. The list stays explicit in system/kiln.config.json —
+  // deriving it from the barrel would make the check circular. Compound namespaces (e.g. Card) are
+  // listed by namespace; their renderable part goes in renderProbes as 'Card.Root'.
+  record(EXPECTED.length > 0, 'smokeImport.expectedExports configured', EXPECTED.length ? `${EXPECTED.length} names` : 'EMPTY — fill system/kiln.config.json');
   const named = probe(
     `const m = await import('${R}');\nconst missing = ${JSON.stringify(EXPECTED)}.filter((n) => !m[n]);\n` +
       `if (missing.length) { console.error('missing: ' + missing.join(', ')); process.exit(1); }\nconsole.log('all present');`,
@@ -147,7 +157,11 @@ try {
 
   // 4. Types and the stylesheet consumers are told to import.
   const dts = join(nm(R), 'dist', 'index.d.ts');
-  record(existsSync(dts) && /Button/.test(readFileSync(dts, 'utf8')), `${R} ships index.d.ts with Button`);
+  const dtsName = EXPECTED[0];
+  record(
+    Boolean(dtsName) && existsSync(dts) && new RegExp(`\\b${dtsName}\\b`).test(readFileSync(dts, 'utf8')),
+    `${R} ships index.d.ts with ${dtsName ?? '(no expected export configured)'}`,
+  );
 
   const cssProbe = probe(
     `const p = require.resolve('${R}/styles.css');\nconst s = require('node:fs').readFileSync(p, 'utf8');\n` +
@@ -195,22 +209,26 @@ try {
   );
 
   // 7. Render server-side. A broken export resolves and imports fine, then fails only when used.
+  // Each probe is a dotted path into the package ('Button', 'Card.Root' — a compound namespace
+  // object itself throws when rendered) given a text child that must come back out.
+  record(RENDER_PROBES.length > 0, 'smokeImport.renderProbes configured', RENDER_PROBES.length ? RENDER_PROBES.join(', ') : 'EMPTY — fill system/kiln.config.json');
   const render = probe(
     `const { renderToStaticMarkup } = await import('react-dom/server');\n` +
       `const React = (await import('react')).default;\n` +
       `const m = await import('${R}');\n` +
-      `const a = renderToStaticMarkup(React.createElement(m.Button, null, 'Publish'));\n` +
-      `if (!/Publish/.test(a)) { console.error('Button rendered no text: ' + a); process.exit(1); }\n` +
-      // Card.Root, not Card: Card is the compound namespace object and rendering it throws.
-      `const b = renderToStaticMarkup(React.createElement(m.Card.Root, null, React.createElement(m.Text, null, 'hello')));\n` +
-      `if (!/hello/.test(b)) { console.error('Card.Root rendered no text: ' + b); process.exit(1); }\n` +
-      `console.log('Button + Card.Root render with real class names');`,
+      `for (const p of ${JSON.stringify(RENDER_PROBES)}) {\n` +
+      `  const C = p.split('.').reduce((o, k) => o?.[k], m);\n` +
+      `  if (!C) { console.error(p + ' is not exported'); process.exit(1); }\n` +
+      `  const html = renderToStaticMarkup(React.createElement(C, null, 'kiln-probe'));\n` +
+      `  if (!/kiln-probe/.test(html)) { console.error(p + ' rendered no text: ' + html); process.exit(1); }\n` +
+      `}\n` +
+      `console.log(${JSON.stringify(RENDER_PROBES.join(' + '))} + ' render with real markup');`,
   );
   record(render.ok, 'components render server-side', render.ok ? render.out : render.err.split('\n')[0]);
 
   // 8. The old scoped names must be gone. A stale symlink or a leftover dependency entry would let
   // the repo keep working locally while a real consumer gets ERR_MODULE_NOT_FOUND.
-  for (const old of ['@dial/react', '@dial/tokens']) {
+  for (const old of LEGACY_NAMES) {
     const r = probe(`try { require.resolve('${old}'); console.error('still resolves'); process.exit(1); } catch { console.log('gone'); }`);
     record(r.ok, `old name '${old}' no longer resolves`, r.ok ? 'gone' : 'STILL RESOLVES — stale artifact');
   }
