@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T09:47:23.734Z",
+  "generatedAt": "2026-10-26T10:02:37.494Z",
   "browser": "chromium 156.0.8078.4",
   "threshold": 4.5,
   "modes": [
@@ -17,10 +17,10 @@
           "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
-            "@visualflow · 9h 6.54",
-            "@bymxfmz 6.76",
-            "1.7M 6.92",
-            "UX/UI Designer. Outdoor enthusiast. Coff 6.98"
+            "@bymxfmz 7.26",
+            "mfz.framer.website 7.77",
+            "Followers 7.83",
+            "Switzerland 7.87"
           ]
         },
         "controls": {
@@ -31,22 +31,20 @@
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
-            "Message 4.77",
-            "Small 4.9",
-            "Secondary text on the card. 5.28"
+            "Message 5.99",
+            "Trending 7.7",
+            "Small 7.78"
           ]
         },
         "environment": {
-          "texts": 6,
-          "worst": 5.52,
+          "texts": 3,
+          "worst": 6.51,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 5.52",
-            "mid 6.87",
-            "glass 6.89",
-            "Secondary text 7.57",
-            "bright 9.85"
+            "Secondary text 6.51",
+            "glass 7.8",
+            "bright 7.96"
           ]
         },
         "media": {
@@ -61,18 +59,20 @@
           ]
         },
         "env-misuse": {
-          "texts": 3,
-          "worst": 2.46,
-          "failures": 3,
+          "texts": 6,
+          "worst": 6.16,
+          "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 2.46",
-            "dim 2.75",
-            "glass 2.88"
+            "Secondary text 6.16",
+            "Secondary text 6.87",
+            "mid 7.36",
+            "glass 7.53",
+            "glass 7.98"
           ]
         }
       },
-      "blobs": {
+      "forest": {
         "card": {
           "texts": 22,
           "worst": 4.7,
@@ -80,10 +80,10 @@
           "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
-            "@bymxfmz 6.42",
-            "Switzerland 6.42",
-            "mfz.framer.website 6.42",
-            "Joined June 2023 6.42"
+            "Followers 7.32",
+            "@visualflow · 9h 7.82",
+            "Likes 8.21",
+            "Say goodbye to flat feeds. Asset 05 is l 8.44"
           ]
         },
         "controls": {
@@ -94,20 +94,20 @@
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
-            "Secondary text on the card. 6.51",
-            "Small 6.96",
-            "Message 7.06"
+            "Message 5.62",
+            "Small 8.99",
+            "Secondary text on the card. 10.39"
           ]
         },
         "environment": {
           "texts": 3,
-          "worst": 7.04,
+          "worst": 10.19,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 7.04",
-            "bright 9",
-            "glass 9.12"
+            "Secondary text 10.19",
+            "glass 12.69",
+            "bright 13.15"
           ]
         },
         "media": {
@@ -123,15 +123,15 @@
         },
         "env-misuse": {
           "texts": 6,
-          "worst": 2.64,
-          "failures": 3,
+          "worst": 5.18,
+          "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 2.64",
-            "dim 3.05",
-            "glass 3.05",
-            "Secondary text 5.11",
-            "mid 6.41"
+            "Secondary text 5.18",
+            "glass 5.72",
+            "dim 5.73",
+            "Secondary text 8.48",
+            "glass 10.17"
           ]
         }
       },
@@ -143,10 +143,10 @@
           "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
-            "mfz.framer.website 5.06",
-            "Switzerland 5.16",
-            "@bymxfmz 5.41",
-            "Joined June 2023 5.41"
+            "@bymxfmz 5.96",
+            "Max Fmz 7.35",
+            "UX/UI Designer. Outdoor enthusiast. Coff 7.56",
+            "Switzerland 9.45"
           ]
         },
         "controls": {
@@ -157,79 +157,20 @@
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
-            "Secondary text on the card. 9.22",
-            "Message 9.71",
-            "Small 9.71"
-          ]
-        },
-        "environment": {
-          "texts": 9,
-          "worst": 7.45,
-          "failures": 0,
-          "unmeasurable": 0,
-          "worstFive": [
-            "Secondary text 7.45",
-            "Secondary text 7.9",
-            "Secondary text 10.54",
-            "glass 11.21",
-            "glass 11.66"
-          ]
-        },
-        "media": {
-          "texts": 3,
-          "worst": 5.65,
-          "failures": 0,
-          "unmeasurable": 0,
-          "worstFive": [
-            "Visual asset 05 5.65",
-            "07 10.78",
-            "Designed for modern visual projects 11.9"
-          ]
-        },
-        "env-misuse": {
-          "texts": 0,
-          "worst": null,
-          "failures": 0,
-          "unmeasurable": 0,
-          "worstFive": []
-        }
-      },
-      "daylight": {
-        "card": {
-          "texts": 22,
-          "worst": 4.7,
-          "failures": 0,
-          "unmeasurable": 0,
-          "worstFive": [
-            "Tweets 4.7",
-            "@bymxfmz 6.16",
-            "Switzerland 6.16",
-            "mfz.framer.website 6.16",
-            "Joined June 2023 6.16"
-          ]
-        },
-        "controls": {
-          "texts": 11,
-          "worst": 4.7,
-          "failures": 0,
-          "unmeasurable": 0,
-          "worstFive": [
-            "Get verified 4.7",
-            "Tweets 4.7",
-            "Secondary text on the card. 6.34",
-            "Message 6.42",
-            "Small 6.44"
+            "Small 5.14",
+            "Secondary text on the card. 5.18",
+            "Replies 7.22"
           ]
         },
         "environment": {
           "texts": 3,
-          "worst": 6.37,
+          "worst": 8.39,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 6.37",
-            "bright 8.16",
-            "glass 8.17"
+            "Secondary text 8.39",
+            "bright 11.93",
+            "glass 12.73"
           ]
         },
         "media": {
@@ -245,15 +186,78 @@
         },
         "env-misuse": {
           "texts": 6,
-          "worst": 2.15,
-          "failures": 3,
+          "worst": 7.6,
+          "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 2.15",
-            "dim 2.41",
-            "glass 2.41",
-            "Secondary text 4.6",
-            "mid 5.71"
+            "Secondary text 7.6",
+            "dim 8.3",
+            "glass 8.75",
+            "Secondary text 10.38",
+            "mid 13.2"
+          ]
+        }
+      },
+      "city": {
+        "card": {
+          "texts": 22,
+          "worst": 4.7,
+          "failures": 0,
+          "unmeasurable": 0,
+          "worstFive": [
+            "Tweets 4.7",
+            "@bymxfmz 5.12",
+            "mfz.framer.website 5.27",
+            "Joined June 2023 5.36",
+            "@visualflow · 9h 5.39"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 4.7,
+          "failures": 0,
+          "unmeasurable": 0,
+          "worstFive": [
+            "Get verified 4.7",
+            "Tweets 4.7",
+            "Message 5.2",
+            "Secondary text on the card. 5.48",
+            "Small 6.15"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 5.05,
+          "failures": 0,
+          "unmeasurable": 0,
+          "worstFive": [
+            "Secondary text 5.05",
+            "bright 6.06",
+            "glass 6.14"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 5.65,
+          "failures": 0,
+          "unmeasurable": 0,
+          "worstFive": [
+            "Visual asset 05 5.65",
+            "07 10.78",
+            "Designed for modern visual projects 11.9"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 5.61,
+          "failures": 0,
+          "unmeasurable": 0,
+          "worstFive": [
+            "Secondary text 5.61",
+            "dim 6.53",
+            "Secondary text 6.53",
+            "glass 6.54",
+            "glass 7.4"
           ]
         }
       }
@@ -267,10 +271,10 @@
           "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
-            "@bymxfmz 10.43",
-            "Switzerland 10.43",
-            "mfz.framer.website 10.43",
-            "Joined June 2023 10.43"
+            "@bymxfmz 8.54",
+            "Switzerland 9.03",
+            "mfz.framer.website 9.15",
+            "Joined June 2023 9.27"
           ]
         },
         "controls": {
@@ -281,22 +285,20 @@
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
-            "Secondary text on the card. 10.43",
-            "Message 10.94",
-            "Small 10.94"
+            "Message 8.66",
+            "Secondary text on the card. 9.54",
+            "Small 9.8"
           ]
         },
         "environment": {
-          "texts": 6,
-          "worst": 10.43,
+          "texts": 3,
+          "worst": 9.54,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 10.43",
-            "Secondary text 10.43",
-            "mid 13.84",
-            "glass 13.84",
-            "bright 13.84"
+            "Secondary text 9.54",
+            "bright 11.62",
+            "glass 11.62"
           ]
         },
         "media": {
@@ -311,18 +313,20 @@
           ]
         },
         "env-misuse": {
-          "texts": 3,
-          "worst": 10.43,
+          "texts": 6,
+          "worst": 9.54,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 10.43",
-            "dim 13.84",
-            "glass 13.84"
+            "Secondary text 9.54",
+            "Secondary text 9.54",
+            "dim 11.46",
+            "glass 11.46",
+            "mid 11.62"
           ]
         }
       },
-      "blobs": {
+      "forest": {
         "card": {
           "texts": 22,
           "worst": 4.7,
@@ -330,10 +334,10 @@
           "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
-            "@bymxfmz 10.43",
-            "Switzerland 10.43",
-            "mfz.framer.website 10.43",
-            "Joined June 2023 10.43"
+            "@bymxfmz 8.54",
+            "Switzerland 9.03",
+            "mfz.framer.website 9.15",
+            "Joined June 2023 9.27"
           ]
         },
         "controls": {
@@ -344,20 +348,20 @@
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
-            "Secondary text on the card. 10.43",
-            "Message 10.94",
-            "Small 10.94"
+            "Message 8.66",
+            "Secondary text on the card. 9.54",
+            "Small 9.8"
           ]
         },
         "environment": {
           "texts": 3,
-          "worst": 10.43,
+          "worst": 9.54,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 10.43",
-            "bright 13.84",
-            "glass 13.84"
+            "Secondary text 9.54",
+            "bright 11.62",
+            "glass 11.62"
           ]
         },
         "media": {
@@ -373,15 +377,15 @@
         },
         "env-misuse": {
           "texts": 6,
-          "worst": 10.43,
+          "worst": 9.54,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 10.43",
-            "Secondary text 10.43",
-            "dim 13.84",
-            "glass 13.84",
-            "mid 13.84"
+            "Secondary text 9.54",
+            "Secondary text 9.54",
+            "dim 11.46",
+            "glass 11.46",
+            "mid 11.62"
           ]
         }
       },
@@ -393,10 +397,10 @@
           "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
-            "@bymxfmz 10.43",
-            "Switzerland 10.43",
-            "mfz.framer.website 10.43",
-            "Joined June 2023 10.43"
+            "@bymxfmz 8.54",
+            "Switzerland 9.03",
+            "mfz.framer.website 9.15",
+            "Joined June 2023 9.27"
           ]
         },
         "controls": {
@@ -407,79 +411,20 @@
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
-            "Secondary text on the card. 10.43",
-            "Message 10.94",
-            "Small 10.94"
-          ]
-        },
-        "environment": {
-          "texts": 9,
-          "worst": 10.43,
-          "failures": 0,
-          "unmeasurable": 0,
-          "worstFive": [
-            "Secondary text 10.43",
-            "Secondary text 10.43",
-            "Secondary text 10.43",
-            "dim 13.84",
-            "glass 13.84"
-          ]
-        },
-        "media": {
-          "texts": 3,
-          "worst": 5.65,
-          "failures": 0,
-          "unmeasurable": 0,
-          "worstFive": [
-            "Visual asset 05 5.65",
-            "07 10.78",
-            "Designed for modern visual projects 11.9"
-          ]
-        },
-        "env-misuse": {
-          "texts": 0,
-          "worst": null,
-          "failures": 0,
-          "unmeasurable": 0,
-          "worstFive": []
-        }
-      },
-      "daylight": {
-        "card": {
-          "texts": 22,
-          "worst": 4.7,
-          "failures": 0,
-          "unmeasurable": 0,
-          "worstFive": [
-            "Tweets 4.7",
-            "@bymxfmz 10.43",
-            "Switzerland 10.43",
-            "mfz.framer.website 10.43",
-            "Joined June 2023 10.43"
-          ]
-        },
-        "controls": {
-          "texts": 11,
-          "worst": 4.7,
-          "failures": 0,
-          "unmeasurable": 0,
-          "worstFive": [
-            "Get verified 4.7",
-            "Tweets 4.7",
-            "Secondary text on the card. 10.43",
-            "Message 10.94",
-            "Small 10.94"
+            "Message 8.66",
+            "Secondary text on the card. 9.54",
+            "Small 9.8"
           ]
         },
         "environment": {
           "texts": 3,
-          "worst": 10.43,
+          "worst": 9.54,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 10.43",
-            "bright 13.84",
-            "glass 13.84"
+            "Secondary text 9.54",
+            "bright 11.62",
+            "glass 11.62"
           ]
         },
         "media": {
@@ -495,15 +440,78 @@
         },
         "env-misuse": {
           "texts": 6,
-          "worst": 10.43,
+          "worst": 9.54,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 10.43",
-            "Secondary text 10.43",
-            "dim 13.84",
-            "glass 13.84",
-            "mid 13.84"
+            "Secondary text 9.54",
+            "Secondary text 9.54",
+            "dim 11.46",
+            "glass 11.46",
+            "mid 11.62"
+          ]
+        }
+      },
+      "city": {
+        "card": {
+          "texts": 22,
+          "worst": 4.7,
+          "failures": 0,
+          "unmeasurable": 0,
+          "worstFive": [
+            "Tweets 4.7",
+            "@bymxfmz 8.54",
+            "Switzerland 9.03",
+            "mfz.framer.website 9.15",
+            "Joined June 2023 9.27"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 4.7,
+          "failures": 0,
+          "unmeasurable": 0,
+          "worstFive": [
+            "Get verified 4.7",
+            "Tweets 4.7",
+            "Message 8.66",
+            "Secondary text on the card. 9.54",
+            "Small 9.8"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 9.54,
+          "failures": 0,
+          "unmeasurable": 0,
+          "worstFive": [
+            "Secondary text 9.54",
+            "bright 11.62",
+            "glass 11.62"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 5.65,
+          "failures": 0,
+          "unmeasurable": 0,
+          "worstFive": [
+            "Visual asset 05 5.65",
+            "07 10.78",
+            "Designed for modern visual projects 11.9"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 9.54,
+          "failures": 0,
+          "unmeasurable": 0,
+          "worstFive": [
+            "Secondary text 9.54",
+            "Secondary text 9.54",
+            "dim 11.46",
+            "glass 11.46",
+            "mid 11.62"
           ]
         }
       }
@@ -537,16 +545,14 @@
           ]
         },
         "environment": {
-          "texts": 6,
+          "texts": 3,
           "worst": 21,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "mid 21",
-            "glass 21",
-            "Secondary text 21",
             "bright 21",
-            "glass 21"
+            "glass 21",
+            "Secondary text 21"
           ]
         },
         "media": {
@@ -561,18 +567,20 @@
           ]
         },
         "env-misuse": {
-          "texts": 3,
+          "texts": 6,
           "worst": 21,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
             "dim 21",
             "glass 21",
-            "Secondary text 21"
+            "Secondary text 21",
+            "mid 21",
+            "glass 21"
           ]
         }
       },
-      "blobs": {
+      "forest": {
         "card": {
           "texts": 22,
           "worst": 21,
@@ -663,16 +671,14 @@
           ]
         },
         "environment": {
-          "texts": 9,
+          "texts": 3,
           "worst": 21,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "dim 21",
+            "bright 21",
             "glass 21",
-            "Secondary text 21",
-            "mid 21",
-            "glass 21"
+            "Secondary text 21"
           ]
         },
         "media": {
@@ -687,14 +693,20 @@
           ]
         },
         "env-misuse": {
-          "texts": 0,
-          "worst": null,
+          "texts": 6,
+          "worst": 21,
           "failures": 0,
           "unmeasurable": 0,
-          "worstFive": []
+          "worstFive": [
+            "dim 21",
+            "glass 21",
+            "Secondary text 21",
+            "mid 21",
+            "glass 21"
+          ]
         }
       },
-      "daylight": {
+      "city": {
         "card": {
           "texts": 22,
           "worst": 21,
@@ -762,53 +774,53 @@
   "docsPage": {
     "normal": {
       "room": {
-        "textElements": 928,
+        "textElements": 927,
         "failures": 0,
         "worstFive": [
+          "Read from rendered pixels on every scene 4.53",
           "Room 4.7",
           "Tweets 4.7",
           "Get verified 4.7",
-          "Name the action, not the icon: “Edit pro 4.7",
-          "Read from rendered pixels on every scene 4.7"
+          "Tweets 4.7"
         ]
       },
-      "blobs": {
-        "textElements": 928,
+      "forest": {
+        "textElements": 927,
         "failures": 0,
         "worstFive": [
-          "Soft blobs 4.7",
+          "Read from rendered pixels on every scene 4.69",
+          "Forest 4.7",
           "Tweets 4.7",
           "Get verified 4.7",
-          "Tweets 4.7",
-          "Visual asset 05 5.65"
+          "Tweets 4.7"
         ]
       },
       "night": {
-        "textElements": 928,
+        "textElements": 927,
         "failures": 0,
         "worstFive": [
-          "Night 4.7",
+          "Night café 4.7",
           "Tweets 4.7",
           "Get verified 4.7",
           "Tweets 4.7",
-          "Leave a decorative avatar announced — re 4.97"
+          "Worst-pixel text contrast, measured in 4.79"
         ]
       },
-      "daylight": {
-        "textElements": 928,
+      "city": {
+        "textElements": 927,
         "failures": 0,
         "worstFive": [
-          "Daylight 4.7",
+          "City 4.7",
           "Tweets 4.7",
           "Get verified 4.7",
           "Tweets 4.7",
-          "Visual asset 05 5.65"
+          "Read from rendered pixels on every scene 4.78"
         ]
       }
     },
     "reduced-transparency": {
       "room": {
-        "textElements": 928,
+        "textElements": 927,
         "failures": 0,
         "worstFive": [
           "Room 4.7",
@@ -818,11 +830,11 @@
           "Visual asset 05 5.65"
         ]
       },
-      "blobs": {
-        "textElements": 928,
+      "forest": {
+        "textElements": 927,
         "failures": 0,
         "worstFive": [
-          "Soft blobs 4.7",
+          "Forest 4.7",
           "Tweets 4.7",
           "Get verified 4.7",
           "Tweets 4.7",
@@ -830,21 +842,21 @@
         ]
       },
       "night": {
-        "textElements": 928,
+        "textElements": 927,
         "failures": 0,
         "worstFive": [
-          "Night 4.7",
+          "Night café 4.7",
           "Tweets 4.7",
           "Get verified 4.7",
           "Tweets 4.7",
           "Visual asset 05 5.65"
         ]
       },
-      "daylight": {
-        "textElements": 928,
+      "city": {
+        "textElements": 927,
         "failures": 0,
         "worstFive": [
-          "Daylight 4.7",
+          "City 4.7",
           "Tweets 4.7",
           "Get verified 4.7",
           "Tweets 4.7",
@@ -854,7 +866,7 @@
     },
     "forced-colors": {
       "room": {
-        "textElements": 928,
+        "textElements": 927,
         "failures": 0,
         "worstFive": [
           "Overview 13.99",
@@ -864,8 +876,8 @@
           "Avatar 13.99"
         ]
       },
-      "blobs": {
-        "textElements": 928,
+      "forest": {
+        "textElements": 927,
         "failures": 0,
         "worstFive": [
           "Overview 13.99",
@@ -876,7 +888,7 @@
         ]
       },
       "night": {
-        "textElements": 928,
+        "textElements": 927,
         "failures": 0,
         "worstFive": [
           "Overview 13.99",
@@ -886,8 +898,8 @@
           "Avatar 13.99"
         ]
       },
-      "daylight": {
-        "textElements": 928,
+      "city": {
+        "textElements": 927,
         "failures": 0,
         "worstFive": [
           "Overview 13.99",
@@ -901,12 +913,8 @@
   },
   "failures": [],
   "summary": {
-    "gatingChecks": 11595,
+    "gatingChecks": 11556,
     "gatingFailures": 0,
-    "informational": [
-      "normal/room env-misuse worst 2.46:1",
-      "normal/blobs env-misuse worst 2.64:1",
-      "normal/daylight env-misuse worst 2.15:1"
-    ]
+    "informational": []
   }
 }

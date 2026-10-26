@@ -127,6 +127,7 @@ thead th { font-weight: var(--ds-type-weight-semibold); }
 
 /* Environment demo tiles: each environment value shown on the kind of scene it is meant for. */
 .env-tile { padding: var(--ds-gap-inset); border-radius: var(--ds-corner-panel); overflow: hidden; }
-.env-tile[data-tile='night'] { background: radial-gradient(circle at 25% 30%, #ff5aa5aa, transparent 40%), radial-gradient(circle at 80% 70%, #3a7bff, transparent 45%), #0b1027; }
-.env-tile[data-tile='room'] { background: radial-gradient(ellipse at 10% 40%, #2f3d27, transparent 45%), radial-gradient(ellipse at 60% 0%, #f3eadb, transparent 55%), linear-gradient(180deg, #cdbfa7, #8a6a4c); }
-.env-tile[data-tile='daylight'] { background: radial-gradient(ellipse at 30% 20%, #ffffff, transparent 55%), linear-gradient(180deg, #f6f8fb, #dfe7ee); }
+.env-tile { background-size: cover; background-position: center; }
+.env-tile[data-tile='room'] { background-image: url(/scenes/room.jpg); }
+.env-tile[data-tile='forest'] { background-image: url(/scenes/forest.jpg); }
+.env-tile[data-tile='city'] { background-image: url(/scenes/city.jpg); }

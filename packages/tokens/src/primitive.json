@@ -29,21 +29,15 @@
       },
       "08": {
         "$value": "#FFFFFF14"
+      },
+      "10": {
+        "$value": "#FFFFFF1A"
+      },
+      "03": {
+        "$value": "#FFFFFF08"
       }
     },
     "graphite": {
-      "dim": {
-        "$value": "#58586080",
-        "$description": "rgba(88,88,96,.5) — glass in dim environments"
-      },
-      "mid": {
-        "$value": "#404048C7",
-        "$description": "rgba(64,64,72,.78) — glass in mid environments"
-      },
-      "bright": {
-        "$value": "#2C2C34D1",
-        "$description": "rgba(44,44,52,.82) — glass in bright environments"
-      },
       "solid": {
         "$value": "#2C2C34",
         "$description": "opaque fallback (D-005)"
@@ -85,13 +79,13 @@
       "$value": "20px"
     },
     "lg": {
-      "$value": "44px"
+      "$value": "40px"
     }
   },
   "saturate": {
     "$type": "number",
     "glass": {
-      "$value": 1.6
+      "$value": 1.8
     }
   },
   "space": {
@@ -270,6 +264,24 @@
         0,
         1
       ]
+    }
+  },
+  "brightness": {
+    "$type": "number",
+    "dim": {
+      "$value": 0.36,
+      "$description": "UNCALIBRATED: no genuinely dark photo measured yet; held at bright's measured value"
+    },
+    "mid": {
+      "$value": 0.36,
+      "$description": "UNCALIBRATED: held at bright's measured value"
+    },
+    "bright": {
+      "$value": 0.36,
+      "$description": "measured (glass-sweep, harness + scrolled docs): Room, Forest, Night cafe, City all pass at <=0.36"
+    },
+    "none": {
+      "$value": 1
     }
   }
 }

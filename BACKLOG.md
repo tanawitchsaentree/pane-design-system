@@ -25,7 +25,7 @@ Not a priority list — order of discovery.
 
 - **Safari/Firefox ไม่ได้วัด** — glass-evidence + conformance รันแค่ Chromium
 - **`@supports not (backdrop-filter)` ไม่ได้ทดสอบตรงๆ** — ค่าเดียวกับ reduced-transparency ซึ่งวัดแล้ว. UNVERIFIED.
-- **Scene เป็น gradient สังเคราะห์** ไม่ใช่รูปถ่ายจริง; avatar/cover เป็น placeholder
+- **ฉากเป็นรูปจริง 4 รูปแล้ว** แต่ทุกรูปมีจุดสว่าง → dim/mid ยัง UNCALIBRATED (0.36 เท่า bright) ต้องหารูปมืดจริงมาวัด; avatar/cover ยังเป็น placeholder
 - **Environment ต้องประกาศเอง** — เว็บอ่าน pixel หลังกระจกไม่ได้; ถ้าแอปตั้งต่ำกว่าจุดสว่างสุดของฉาก ตัวอักษรตก (harness `env-misuse` วัดได้ 2.15–2.64:1). ทางเลือกในอนาคต: sample ภาพพื้นหลังที่แอปรู้จักตอน build แล้วเลือก environment ให้อัตโนมัติ
 - **ตัวอักษรบนรูปใน post** ผ่านกับรูปตัวอย่าง (scrim + จัดตำแหน่ง) แต่ระบบไม่การันตีกับรูปจริง — ยังไม่มี component Media/Overlay ที่บังคับ scrim
 - **Props table เขียนมือ** — conformance จับ prop ที่เขียนแต่ไม่มีจริง แต่ไม่จับ prop จริงที่ไม่ได้เขียน; Tabs/Tag มีแค่ pass-through

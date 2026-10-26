@@ -23,12 +23,12 @@ export const COMPONENTS: ComponentDoc[] = [
   {
     name: 'Environment',
     summary:
-      'Declares how bright the world behind the glass is. Glass inside darkens to keep white text at 4.5:1 — the visionOS idea, made explicit because a web page cannot read the pixels behind it.',
+      'Declares how bright the world behind the glass is. Glass inside dims the backdrop accordingly so white text keeps 4.5:1 — the visionOS idea, made explicit because a web page cannot read the pixels behind it. Today all three levels share the one measured value (0.36); dim and mid need a genuinely dark photo to calibrate.',
     groups: ['environment'],
     demo: () => (
       <div className="env-demo">
         {/* each value on the kind of scene it is for — a dim card on a bright scene is misuse */}
-        {([['dim', 'night'], ['mid', 'room'], ['bright', 'daylight']] as const).map(([b, tile]) => (
+        {([['dim', 'room'], ['mid', 'forest'], ['bright', 'city']] as const).map(([b, tile]) => (
           <div key={b} className="env-tile" data-tile={tile}>
             <Environment brightness={b}>
               <Card as="div"><p className="flush"><b>{b}</b></p><p className="flush muted">For scenes like {tile}.</p></Card>
@@ -43,11 +43,11 @@ export const COMPONENTS: ComponentDoc[] = [
     ],
     a11y: ['No semantics of its own. Without it, glass uses the bright setting — the safe end.'],
     do: 'Set it once per scene, sized for the scene’s brightest region.',
-    dont: 'Pick dim because the scene is “mostly dark” — the bright window in the Room scene failed exactly that way during tuning.',
+    dont: 'Pick a darker setting because the scene is “mostly dark” — a card that lands on its one bright spot fails.',
   },
   {
     name: 'Card',
-    summary: 'The pane: environment-tinted glass, a specular rim instead of a border, a soft float shadow. The inset variant nests content inside a pane without stacking a second glass layer.',
+    summary: 'The pane: clear glass that blurs and dims the scene behind it (colour and detail stay visible), a specular rim instead of a border, a soft float shadow. The inset variant nests content inside a pane without stacking a second glass layer.',
     groups: ['card'],
     demo: () => (
       <Card as="div" className="demo-card">

@@ -2,15 +2,8 @@
   "surface": {
     "$type": "color",
     "glass": {
-      "$value": "{color.graphite.bright}",
-      "$description": "D-009: glass darkens with the environment the app declares; no declaration = bright (the safe end)",
-      "$extensions": {
-        "pane.environment": {
-          "dim": "{color.graphite.dim}",
-          "mid": "{color.graphite.mid}",
-          "bright": "{color.graphite.bright}"
-        }
-      }
+      "$value": "{color.white-a.06}",
+      "$description": "near-clear tint — the darkening that keeps white text readable comes from glass.brightness, not from grey (D-010)"
     },
     "solid": {
       "$value": "{color.graphite.solid}",
@@ -29,6 +22,12 @@
     },
     "placeholder-lo": {
       "$value": "{color.foliage.dark}"
+    },
+    "sheen-top": {
+      "$value": "{color.white-a.10}"
+    },
+    "sheen-bottom": {
+      "$value": "{color.white-a.03}"
     }
   },
   "text": {
@@ -94,6 +93,22 @@
     "saturate": {
       "$type": "number",
       "$value": "{saturate.glass}"
+    },
+    "brightness": {
+      "$type": "number",
+      "$value": "{brightness.bright}",
+      "$description": "D-010: backdrop dimming per environment — keeps the scene's colour and detail instead of washing it grey",
+      "$extensions": {
+        "pane.environment": {
+          "dim": "{brightness.dim}",
+          "mid": "{brightness.mid}",
+          "bright": "{brightness.bright}"
+        }
+      }
+    },
+    "brightness-none": {
+      "$type": "number",
+      "$value": "{brightness.none}"
     }
   },
   "elevation": {

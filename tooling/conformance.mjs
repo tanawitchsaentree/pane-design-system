@@ -73,30 +73,39 @@ try {
   const sec = (id) => page.locator(`section#${id}`);
 
   // --- Environment ----------------------------------------------------------------------------
-  const tileBg = () => sec('environment').locator('.env-tile [data-environment] > *').evaluateAll((els) => els.map((e) => getComputedStyle(e).backgroundColor));
-  await check('Environment', 'brightness actually changes the glass tint (dim ≠ mid ≠ bright)', async () => {
-    const bgs = await tileBg();
-    expect(bgs.length === 3 && new Set(bgs).size === 3, `computed backgrounds: ${bgs.join(' | ')}`);
-    return bgs.join(' · ');
-  });
-  await check('Environment', 'reduced transparency turns every environment opaque and identical (D-005)', async () => {
+  // Real brightness values are currently all equal (D-011), so the wiring is proven with distinct
+  // probe values set on :root for the duration of the check, then removed.
+  const probe = { dim: '0.9', mid: '0.6', bright: '0.3' };
+  const withProbe = async (fn) => {
+    await page.evaluate((p) => { for (const [k, v] of Object.entries(p)) document.documentElement.style.setProperty(`--ds-brightness-${k}`, v); }, probe);
+    try { return await fn(); } finally { await page.evaluate(() => { for (const k of ['dim', 'mid', 'bright']) document.documentElement.style.removeProperty(`--ds-brightness-${k}`); }); }
+  };
+  const tileFilters = () => sec('environment').locator('.env-tile [data-environment] > *').evaluateAll((els) => els.map((e) => getComputedStyle(e).backdropFilter));
+  await check('Environment', 'each brightness wires its own backdrop dimming into the card (probe values)', () => withProbe(async () => {
+    const f = await tileFilters();
+    const got = f.map((x) => x.match(/brightness\(([\d.]+)\)/)?.[1]);
+    expect(got.join() === [probe.dim, probe.mid, probe.bright].join(), `card backdrop-filter brightness per tile: ${got.join(', ')}`);
+    return `dim→${got[0]} mid→${got[1]} bright→${got[2]}`;
+  }));
+  await check('Environment', 'reduced transparency turns every environment opaque, no dimming (D-005)', async () => {
     const cdp = await ctx.newCDPSession(page);
     await cdp.send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-transparency', value: 'reduce' }] });
-    const bgs = await tileBg();
+    const st = await sec('environment').locator('.env-tile [data-environment] > *').evaluateAll((els) => els.map((e) => { const c = getComputedStyle(e); return `${c.backgroundColor}|${c.backdropFilter}`; }));
     await cdp.send('Emulation.setEmulatedMedia', { features: [] });
-    expect(new Set(bgs).size === 1 && !/rgba\(.*,\s*0?\.\d+\)/.test(bgs[0]), `computed backgrounds: ${bgs.join(' | ')}`);
-    return bgs[0];
+    expect(new Set(st).size === 1, `differs: ${st.join(' / ')}`);
+    expect(/rgb\(44, 44, 52\)/.test(st[0]) && /blur\(0px\)/.test(st[0]) && /brightness\(1\)/.test(st[0]), `not opaque/undimmed: ${st[0]}`);
+    return st[0];
   });
-  await check('Environment', 'no declaration falls back to bright (the safe end)', async () => {
+  await check('Environment', 'no declaration falls back to bright (the safe end)', () => withProbe(async () => {
     const v = await page.evaluate(() => {
       const d = document.createElement('div');
       document.body.append(d);
-      const out = getComputedStyle(d).getPropertyValue('--ds-surface-glass').trim();
+      const out = getComputedStyle(d).getPropertyValue('--ds-glass-brightness').trim();
       d.remove();
-      return [out, getComputedStyle(document.documentElement).getPropertyValue('--ds-color-graphite-bright').trim()];
+      return out;
     });
-    expect(v[0].includes('graphite-bright') || v[0] === v[1], `--ds-surface-glass outside any environment = ${v[0]}`);
-  });
+    expect(v === probe.bright, `--ds-glass-brightness outside any environment = ${v} (bright probe ${probe.bright})`);
+  }));
 
   // --- Card -----------------------------------------------------------------------------------
   await check('Card', 'glass card renders an <article> with backdrop blur', async () => {
@@ -125,7 +134,7 @@ try {
   });
   await check('Button', 'reachable with Tab', () => tabTo(page, follow));
   await check('Button', 'Enter and Space activate it', async () => {
-    const night = page.getByRole('button', { name: 'Night', exact: true });
+    const night = page.getByRole('button', { name: 'Night café', exact: true });
     const room = page.getByRole('button', { name: 'Room', exact: true });
     await tabTo(page, night);
     await page.keyboard.press('Enter');

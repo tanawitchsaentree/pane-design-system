@@ -139,16 +139,16 @@ function Foundations() {
         </ul>
       </Card>
       <Card as="section" aria-labelledby="f-env">
-        <h3 id="f-env" className="flush">Glass per environment (D-009)</h3>
+        <h3 id="f-env" className="flush">Glass per environment (D-009, D-010)</h3>
         <div className="table-wrap">
           <table>
-            <thead><tr><th scope="col">Environment</th><th scope="col">Glass token</th><th scope="col">Value</th><th scope="col">Scenes here</th></tr></thead>
+            <thead><tr><th scope="col">Environment</th><th scope="col">Backdrop brightness</th><th scope="col">Value</th><th scope="col">Scenes here</th></tr></thead>
             <tbody>
               {(['dim', 'mid', 'bright'] as const).map((b) => (
                 <tr key={b}>
                   <th scope="row">{b}</th>
-                  <td><code>color.graphite.{b}</code></td>
-                  <td>{TOKENS[`color.graphite.${b}`]?.description ?? TOKENS[`color.graphite.${b}`]?.value}</td>
+                  <td><code>brightness.{b}</code></td>
+                  <td>{TOKENS[`brightness.${b}`]?.value}</td>
                   <td>{SCENES.filter((s) => s.brightness === b).map((s) => s.label).join(', ') || '—'}</td>
                 </tr>
               ))}
@@ -222,7 +222,7 @@ export function App() {
           <Card as="div" className="hero-copy">
             <h2 id="overview-h" className="flush headline">One card, taken apart.</h2>
             <p className="flush lede">
-              The profile card on the right is the anchor you picked (A). Every part of it is a Pane component — Card, Avatar, Tabs, Button, IconButton, Tag — and the glass under it darkens with the scene so its text stays readable.
+              The profile card on the right is the anchor you picked (A). Every part of it is a Pane component — Card, Avatar, Tabs, Button, IconButton, Tag — and the glass under it blurs and dims the photo behind so its text stays readable.
             </p>
             <ul className="stats flush" aria-label="Verification summary">
               <li><Tag>{evidence ? `${evidence.summary.gatingChecks - evidence.summary.gatingFailures}/${evidence.summary.gatingChecks} glass checks pass` : 'glass: unverified'}</Tag></li>
@@ -252,10 +252,10 @@ export function App() {
               <li>It hides each text node, screenshots, and scores the text colour against every real pixel under it, after blur and saturate. Translucent text is blended per pixel. The score is the worst pixel.</li>
               <li>It does the same for every text node on this page, on every scene.</li>
               <li>Text on the post image is reported, not gated: it depends on the picture, which the system doesn’t control.</li>
-              <li>The glass tint per environment came from <code>tooling/anchor-sweep.mjs</code>: tint alpha alone could not pass — the anchor’s grey caps white text at ~4.6:1 even fully opaque.</li>
+              <li>How much the glass dims the photo came from <code>tooling/glass-sweep.mjs</code>: the clearest setting at which the harness and this whole page, scrolled, still pass on every photo — 0.36 for all four.</li>
             </ol>
             {evidence && <p className="flush muted">Last run {new Date(evidence.generatedAt).toLocaleString()} · {evidence.browser}{evidence.summary.informational.length ? ` · reported only: ${evidence.summary.informational.join('; ')}` : ''}</p>}
-            <p className="flush muted">Not covered: Safari and Firefox rendering, real photographs, light (white-text-free) theme.</p>
+            <p className="flush muted">Photos: Unsplash via Lorem Picsum (credits in <code>public/scenes/CREDITS.md</code>). Not covered: Safari and Firefox rendering, a genuinely dark photo for the dim level.</p>
           </Card>
         </section>
       </main>

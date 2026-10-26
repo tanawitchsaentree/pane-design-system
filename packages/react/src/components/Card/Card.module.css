@@ -15,9 +15,10 @@
   padding: 0 var(--ds-card-padding) var(--ds-card-padding);
   padding-block-start: var(--ds-card-padding);
   border-radius: var(--ds-card-radius);
-  background: var(--ds-card-bg);
-  -webkit-backdrop-filter: blur(var(--ds-card-blur)) saturate(var(--ds-glass-saturate));
-  backdrop-filter: blur(var(--ds-card-blur)) saturate(var(--ds-glass-saturate));
+  /* clear tint + a soft top sheen; the scene behind is dimmed (brightness), not greyed (D-010) */
+  background: linear-gradient(180deg, var(--ds-card-sheen-top), var(--ds-card-sheen-bottom) 40%), var(--ds-card-bg);
+  -webkit-backdrop-filter: blur(var(--ds-card-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-card-brightness));
+  backdrop-filter: blur(var(--ds-card-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-card-brightness));
   box-shadow: var(--ds-card-shadow);
   overflow: hidden;
 }

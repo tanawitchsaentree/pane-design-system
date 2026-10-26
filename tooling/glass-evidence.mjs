@@ -25,7 +25,7 @@ import { measurePageText } from './text-contrast.mjs';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const THRESHOLD = 4.5;
-const SCENES = ['room', 'blobs', 'night', 'daylight'];
+const SCENES = ['room', 'forest', 'night', 'city'];
 const GATING_GROUPS = ['card', 'controls', 'environment'];
 const INFO_GROUPS = ['media', 'env-misuse'];
 const MODES = {

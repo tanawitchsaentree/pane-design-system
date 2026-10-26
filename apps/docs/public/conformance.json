@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T09:48:23.293Z",
+  "generatedAt": "2026-10-26T10:03:47.559Z",
   "passed": 28,
   "total": 28,
   "checks": [
@@ -47,15 +47,15 @@
     },
     {
       "component": "Environment",
-      "name": "brightness actually changes the glass tint (dim ≠ mid ≠ bright)",
+      "name": "each brightness wires its own backdrop dimming into the card (probe values)",
       "ok": true,
-      "detail": "rgba(88, 88, 96, 0.5) · rgba(64, 64, 72, 0.78) · rgba(44, 44, 52, 0.82)"
+      "detail": "dim→0.9 mid→0.6 bright→0.3"
     },
     {
       "component": "Environment",
-      "name": "reduced transparency turns every environment opaque and identical (D-005)",
+      "name": "reduced transparency turns every environment opaque, no dimming (D-005)",
       "ok": true,
-      "detail": "rgb(44, 44, 52)"
+      "detail": "rgb(44, 44, 52)|blur(0px) saturate(1.8) brightness(1)"
     },
     {
       "component": "Environment",
@@ -146,13 +146,13 @@
       "component": "Docs page",
       "name": "axe: no violations (forced-colors none)",
       "ok": true,
-      "detail": "30 rules pass; color-contrast incomplete on 719 nodes (axe cannot see through backdrop-filter — settled per pixel by glass-evidence)"
+      "detail": "30 rules pass; color-contrast incomplete on 716 nodes (axe cannot see through backdrop-filter — settled per pixel by glass-evidence)"
     },
     {
       "component": "Docs page",
       "name": "axe: no violations (forced-colors active)",
       "ok": true,
-      "detail": "30 rules pass; color-contrast incomplete on 715 nodes (axe cannot see through backdrop-filter — settled per pixel by glass-evidence)"
+      "detail": "30 rules pass; color-contrast incomplete on 712 nodes (axe cannot see through backdrop-filter — settled per pixel by glass-evidence)"
     }
   ]
 }

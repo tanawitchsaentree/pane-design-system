@@ -1,10 +1,12 @@
 import type { EnvironmentBrightness } from 'pane-react';
 
-// Each scene declares the brightness of its brightest spot (D-009), which picks the glass tint.
+// Each scene declares the brightness of its brightest spot (D-009/D-010), which picks how much the
+// glass dims what is behind it. Measured by tooling/glass-sweep.mjs, not eyeballed: all four photos
+// have a bright spot somewhere in frame, so all four need the bright setting.
 export const SCENES: Array<{ id: string; label: string; brightness: EnvironmentBrightness }> = [
-  { id: 'room', label: 'Room', brightness: 'mid' },
-  { id: 'blobs', label: 'Soft blobs', brightness: 'bright' },
-  { id: 'night', label: 'Night', brightness: 'dim' },
-  { id: 'daylight', label: 'Daylight', brightness: 'bright' },
+  { id: 'room', label: 'Room', brightness: 'bright' },
+  { id: 'forest', label: 'Forest', brightness: 'bright' },
+  { id: 'night', label: 'Night café', brightness: 'bright' },
+  { id: 'city', label: 'City', brightness: 'bright' },
 ];
 export const sceneById = (id: string) => SCENES.find((s) => s.id === id) ?? SCENES[0];

@@ -67,6 +67,18 @@
     "cover-lo": {
       "$type": "color",
       "$value": "{surface.placeholder-lo}"
+    },
+    "brightness": {
+      "$type": "number",
+      "$value": "{glass.brightness}"
+    },
+    "sheen-top": {
+      "$type": "color",
+      "$value": "{surface.sheen-top}"
+    },
+    "sheen-bottom": {
+      "$type": "color",
+      "$value": "{surface.sheen-bottom}"
     }
   },
   "avatar": {
