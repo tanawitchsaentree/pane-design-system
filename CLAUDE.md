@@ -55,7 +55,14 @@ lineage, vector, and gate mechanics — this file routes to them, it doesn't res
     principles, patterns, accessibility evidence and a full token reference. The agent decides the
     structure and writes the substance — the user should never have to list what goes in. Docs that
     haven't cleared the content-model floors are not done (2026-10-26: a one-page docs and a first
-    book draft both shipped below floor because the skill was never loaded).
+    book draft both shipped below floor because the skill was never loaded). The **shell** counts
+    too: one chapter = one page that opens at the top with focus on its heading, a collapsing
+    Menu + drawer on narrow screens, container-owned spacing — gates G-S1–G-S4 in the content
+    model, checked at 375 / 768 / 1280px, plus a by-eye screenshot review at those widths.
+    Every sentence a reader sees also goes through **human-tone**: `tone_rules` before drafting,
+    `sniff_text` on existing prose (report the score first), `compare_text` after a rewrite, and the
+    rendered book must pass `lint.py` page by page (`tooling/tone-gate.mjs`, wired into verify). A
+    page of dashes, "X, not Y" and "Label:" lines is not done however dense it is.
 
 ## Phase order + who does it
 

@@ -36,3 +36,15 @@ Not a priority list — order of discovery.
 - **Environment ที่ sample รูปจริง** — ทางปิด E-001: แอปรู้รูปพื้นหลังของตัวเอง → วัดความสว่างใต้ตำแหน่งการ์ดตอน runtime/build แล้วหรี่เฉพาะการ์ดที่ทับจุดสว่าง (การ์ดอื่นใสได้ถึง ~0.6)
 - **ย้าย tooling วัดกระจกเข้า kiln engine** — text-contrast / glass-evidence / glass-sweep / docs-meta ตอนนี้อยู่ใน pilot เท่านั้น; ควรเป็นเครื่องมือกลางของ kiln (system-agnostic, อ่าน routes/harness จาก system config)
 - **docs-engine scripts/audit.mjs ยังไม่ได้รันกับหนังสือ Pane** — audit script ของ skill เขียนสำหรับ MDX/Fumadocs; content-model floors ตอนนี้บังคับผ่าน conformance ของ pilot แทน
+
+## Pane: gaps from the 10-system research (2026-10-26, not gated yet)
+
+- Live sandbox per example (StackBlitz/CodeSandbox) needs the packages published first, which is the user's call.
+- Props playground generated from the props table (Carbon, Spectrum), with a backdrop picker.
+- Increased-contrast token mode as a third column next to light and dark (HIG colour spec).
+- Content design foundation: voice and tone, inclusive language, date and time, messages (Atlassian).
+- Figma library whose variables mirror the tokens in both themes, with a parity check.
+- Versioned docs and migration guides before 1.0 (MUI, Carbon).
+- Feedback, research and roadmap sections per component (GOV.UK).
+- Screen reader passes (VoiceOver, NVDA) recorded by hand; until then nothing can be Stable.
+- Site-wide search over headings, tokens and props.

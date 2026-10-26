@@ -5,7 +5,7 @@ import styles from './Avatar.module.css';
 export type AvatarSize = 'sm' | 'md' | 'lg';
 
 export interface AvatarProps extends HTMLAttributes<HTMLSpanElement> {
-  /** Person or brand the avatar stands for — used as the accessible name and for initials. */
+  /** Person or brand the avatar stands for. Used as the accessible name and for the initials. */
   name: string;
   /** Photo URL. Omitted (or failing to load) = initials from `name`. */
   src?: string;

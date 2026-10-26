@@ -7,12 +7,13 @@ export type CardVariant = 'glass' | 'inset';
 export interface CardProps extends HTMLAttributes<HTMLElement> {
   /** `glass` = a floating pane. `inset` = content nested inside a pane (no second glass layer, top divider). */
   variant?: CardVariant;
-  /** Rendered element — `article` for self-contained content, `section` for a titled region, `header` for a page head. */
-  as?: 'article' | 'section' | 'header' | 'div';
+  /** Rendered element. Use `article` for self-contained content, `section` for a titled region, `aside` for complementary content and `header` for a page head. */
+  as?: 'article' | 'section' | 'aside' | 'header' | 'div';
 }
 
 export const Card = forwardRef<HTMLElement, CardProps>(function Card({ variant = 'glass', as: Tag = 'article', className, ...rest }, ref) {
-  return <Tag ref={ref as never} className={cx(styles.root, styles[variant], className)} {...rest} />;
+  // data-pane-card is a stable hook (class names are hashed) for tests and for consumers' own CSS
+  return <Tag ref={ref as never} data-pane-card={variant} className={cx(styles.root, styles[variant], className)} {...rest} />;
 });
 
 export interface CardCoverProps extends HTMLAttributes<HTMLDivElement> {

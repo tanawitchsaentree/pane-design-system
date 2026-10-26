@@ -1,0 +1,1057 @@
+{
+  "generatedAt": "2026-10-26T17:44:45.958Z",
+  "lint": "/Users/tanawitch.saentree/Downloads/human-tone-folder/.claude/skills/human-tone/scripts/lint.py",
+  "excluded": [
+    "/reference/decisions"
+  ],
+  "pages": {
+    "/": {
+      "ok": true,
+      "words": 487,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 20,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Glass, colour, type, space, shape, motion and icons. Each with live values."
+          },
+          {
+            "line": 31,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Pane is a pilot with 13 components, verified in Chromium only. It can lay out a "
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Kiln built it from one anchor component you picked, the profile card below, and "
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Token tables come from code, “tokens used” lists from each component’s CSS, cont"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/getting-started": {
+      "ok": true,
+      "words": 494,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 12,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Every verify run installs exactly these tarballs into an empty project and impor"
+          },
+          {
+            "line": 19,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Every token with tier, type, reference and resolved value. For build tools and F"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It defines every code custom property, the three environment blocks, and the fal"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "B · Workspace or file dependency\nC · Tokens only\nFor a non-React project, take c"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/principles": {
+      "ok": true,
+      "words": 272,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/glass": {
+      "ok": true,
+      "words": 561,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 23,
+            "rule": "suspect word: genuinely",
+            "code": "lexicon",
+            "text": "Each of the four scene photos has a sunlit or lamp-lit region somewhere in frame"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/color": {
+      "ok": true,
+      "words": 280,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 49,
+            "rule": "one contrast found: verify it passes the strawman test",
+            "code": "negation",
+            "text": "Blue is #0071E3, not Twitter blue. #1D9BF0 measured about 2.9:1 under white text"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#Check a pair\nPick any two solid colours from the palette to see their contrast "
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'read'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/themes": {
+      "ok": true,
+      "words": 712,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#Measured in both themes\nEvery check in the evidence run is repeated for each th"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "The table shows how many text elements failed per theme and scene."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "PASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/typography": {
+      "ok": true,
+      "words": 237,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 3,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Type your own words and try each size, weight and line height. The snippet below"
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'read'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/spacing": {
+      "ok": true,
+      "words": 123,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 6,
+            "rule": "suspect word: actual",
+            "code": "lexicon",
+            "text": "What components and layouts actually use. Each points at one step of the scale, "
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/grid": {
+      "ok": true,
+      "words": 183,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 5,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Columns, gutter and span"
+          },
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Read from code, code and code, whose code values the token build turns into code"
+          },
+          {
+            "line": 18,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Outside React the same grid is a few lines of CSS, code, and the variables alrea"
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'read'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/dimensions": {
+      "ok": true,
+      "words": 140,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#See the hit areas\nTouch targets\nThe outline is 44px square, centred on each con"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/shape": {
+      "ok": true,
+      "words": 151,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/motion": {
+      "ok": true,
+      "words": 184,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'read'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/icons": {
+      "ok": true,
+      "words": 90,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/container": {
+      "ok": true,
+      "words": 658,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 93,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Margins, gutters and breakpoints."
+          },
+          {
+            "line": 0,
+            "rule": "emoji or symbol decoration (5 in the document)",
+            "code": "formatting",
+            "text": ""
+          },
+          {
+            "line": 49,
+            "rule": "one contrast found: verify it passes the strawman test",
+            "code": "negation",
+            "text": "Choose a size from the reading width you need, not from the screen."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Container around a grid\n#On bright and dark backdrops\nContainers have no surface"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "sm is 640px, md 768, lg 1024, xl 1200 (the default) and 2xl 1440."
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/grid": {
+      "ok": true,
+      "words": 824,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 5,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "This grid has 4 columns below md (768px), 8 from md and 12 from lg (1024px), wit"
+          },
+          {
+            "line": 58,
+            "rule": "suspect word: truly",
+            "code": "lexicon",
+            "text": "Use full span on small screens unless the content truly fits in a narrow column."
+          },
+          {
+            "line": 0,
+            "rule": "emoji or symbol decoration (6 in the document)",
+            "code": "formatting",
+            "text": ""
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Use full span on small screens unless the content truly fits in a narrow column."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "The responsive column grid\nThe column count changes from 4 to 8 to 12 as the scr"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "4 → 8 → 12\nPASS GridItem spans switch per breakpoint (full → md 4/8 → lg 4/12)."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Column counts are fixed by the tokens at 4, 8 and 12."
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with '4'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/stack": {
+      "ok": true,
+      "words": 721,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Use something else for\nA real <ul>/<ol>, laid out with Stack inside if needed\n#A"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Worst-pixel text contrast under the glass in chromium 156.0.8078.4."
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/environment": {
+      "ok": true,
+      "words": 1069,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 37,
+            "rule": "suspect word: genuinely",
+            "code": "lexicon",
+            "text": "Uncalibrated. It equals bright until a genuinely dark photo is measured."
+          },
+          {
+            "line": 0,
+            "rule": "emoji or symbol decoration (3 in the document)",
+            "code": "formatting",
+            "text": ""
+          },
+          {
+            "line": 49,
+            "rule": "one contrast found: verify it passes the strawman test",
+            "code": "negation",
+            "text": "How bright the world behind the glass is (D-009). Glass inside darkens to keep t"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Around a region whose backdrop differs from the rest of the screen (a media view"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/card": {
+      "ok": true,
+      "words": 1045,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 74,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "PASS glass card blurs, saturates and dims what is behind it. blur(64px) saturate"
+          },
+          {
+            "line": 115,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "First release with glass, inset and solid variants and a cover slot. Glass dims "
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "In the light theme it lifts and whitens the scene and the text turns ink."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "A grid of panes\n#On bright and dark backdrops\nIn the dark theme the card dims wh"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "5 demos\nPASS glass card blurs, saturates and dims what is behind it."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "PASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/avatar": {
+      "ok": true,
+      "words": 813,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 13,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Avatar sizes, with and without a photo"
+          },
+          {
+            "line": 15,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Avatar sizes, with and without a photo"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Avatar sizes, with and without a photo\nThree sizes."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Use something else for\nAn icon\nAn <img> with real alt text\n#Anatomy\nCircle."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "#Related\nWhen the round thing is an action."
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/button": {
+      "ok": true,
+      "words": 919,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 13,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Light, accent and glass buttons"
+          },
+          {
+            "line": 15,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Light, accent and glass buttons"
+          },
+          {
+            "line": 29,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Actions such as follow, save, send and open."
+          },
+          {
+            "line": 117,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "First release with light, accent and glass variants and the soft hover lift."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Worst-pixel text contrast under the glass in chromium 156.0.8078.4."
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'code'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/icon-button": {
+      "ok": true,
+      "words": 803,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 29,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Well-known actions like edit, more, share and close."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "surface.quiet fill with its own 20px blur."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "37 pages\n#CSS API\nCustom properties this component reads, parsed from its CSS mo"
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'code'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/tabs": {
+      "ok": true,
+      "words": 832,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 6,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Radix supplies the behaviour, including the single tab stop, arrow keys, Home an"
+          },
+          {
+            "line": 23,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Two to five views of the same object, like Tweets, Replies and Media."
+          },
+          {
+            "line": 53,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Arrow keys, Home, End and wrap-around are verified in real Chromium."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Tabs in a card header, content below\n#On bright and dark backdrops\nThe selected "
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Controlled tabs that report the current view\nControl the value when something el"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "21 tokens referenced by code\nunselected, outline, outline-offset, box-shadow, bo"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/tag": {
+      "ok": true,
+      "words": 673,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Text on an image, kept inside a scrim on the text side\n#On bright and dark backd"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "#Change history\nFirst release, outline small caps label."
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'tags'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/badge": {
+      "ok": true,
+      "words": 757,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 5,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "A small pill of text. code is a glass ring with white text; code, code, code and"
+          },
+          {
+            "line": 47,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "code is a glass ring. code, code, code and code are solid status fills, each at "
+          },
+          {
+            "line": 56,
+            "rule": "one contrast found: verify it passes the strawman test",
+            "code": "negation",
+            "text": "Put the status in the text, not only in the colour or the dot."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "22 tokens referenced by code\ninline-size, block-size\nbox-shadow, border\n#Measure"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/chip": {
+      "ok": true,
+      "words": 777,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Removable input chips\n#On bright and dark backdrops\nSelected chips invert with t"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "What you still have to do\nWrap a set of chips in a group with a label that says "
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Controlled chips with a live count\nRemovable input chips\nGive a chip onRemove an"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "24 tokens referenced by code\ninline-size, block-size\noutline, outline-offset, bo"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/banner": {
+      "ok": true,
+      "words": 887,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Banners that appear because of something the user did should set code, with code"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Use something else for\nA dialog (not in Pane yet)\n#Anatomy\nTone bar."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Normal text needs 4.5 to 1 and large text needs 3 to 1."
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/patterns/profile-card": {
+      "ok": true,
+      "words": 137,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/patterns/feed-post": {
+      "ok": true,
+      "words": 77,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 2,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "A single post gets its own pane, with an author row, the body, media and actions"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/patterns/settings-panel": {
+      "ok": true,
+      "words": 68,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/patterns/text-on-images": {
+      "ok": true,
+      "words": 185,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/accessibility": {
+      "ok": true,
+      "words": 1297,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 13,
+            "rule": "suspect word: actual",
+            "code": "lexicon",
+            "text": "Reduced transparency. Opaque graphite, no blur, no dimming (emulated via the Chr"
+          },
+          {
+            "line": 26,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "PASS glass card blurs, saturates and dims what is behind it. blur(64px) saturate"
+          },
+          {
+            "line": 55,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "PASS choosing a chapter opens it as a new page at the top, with its heading in v"
+          },
+          {
+            "line": 64,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "PASS G-L1, all 13 component pages state a status, their own change history, limi"
+          },
+          {
+            "line": 169,
+            "rule": "suspect word: genuinely",
+            "code": "lexicon",
+            "text": "A genuinely dark backdrop, so the dim and mid levels are uncalibrated."
+          },
+          {
+            "line": 0,
+            "rule": "emoji or symbol decoration (4 in the document)",
+            "code": "formatting",
+            "text": ""
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "no props of its own (pass-through only)\nPASS demo floor met (≥ variant dimension"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "15 lines copied\nPASS G-T1, the theme control switches text and glass tokens, and"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Repeat one viewport at a time down the whole page, in normal, reduced-transparen"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "4 demos\nPASS non-decorative avatars are role=\"img\" named after the person\nPASS d"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "3 demos\nPASS one tab stop, so Tab lands on the selected tab and the next Tab lea"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "9 pages\nPASS G-C1, every code block on all 37 pages has a Copy button you can se"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "color-contrast incomplete on 10189 nodes because axe cannot see through backdrop"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "PASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/reference/tokens": {
+      "ok": true,
+      "words": 63,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/reference/changelog": {
+      "ok": true,
+      "words": 196,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 5,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "First release with glass, inset and solid variants and a cover slot. Glass dims "
+          },
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "First release with light, accent and glass variants and the soft hover lift."
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'first'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/reference/status": {
+      "ok": true,
+      "words": 199,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#What each status means\nBuilds and has a page, but part of its behaviour is not "
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/reference/exceptions": {
+      "ok": true,
+      "words": 25,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/reference/credits": {
+      "ok": true,
+      "words": 121,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 1,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Photography, engines and tools Pane stands on."
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    }
+  }
+}

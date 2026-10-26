@@ -1,4 +1,4 @@
-// @example Disabled — native attribute, with the reason in text
+// @example A disabled button with its reason
 import { Button, Card } from 'pane-react';
 
 export default function ButtonDisabled() {

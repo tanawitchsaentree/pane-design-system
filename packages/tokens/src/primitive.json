@@ -7,7 +7,7 @@
     "white-a": {
       "85": {
         "$value": "#FFFFFFD9",
-        "$description": "white at .85 — secondary text (D-009)"
+        "$description": "white at .85. secondary text (D-009)"
       },
       "55": {
         "$value": "#FFFFFF8C"
@@ -38,7 +38,19 @@
       },
       "92": {
         "$value": "#FFFFFFEB",
-        "$description": "white at .92 — secondary text (D-012: .85 measured 3.3-3.79:1 on the book over sunlit photos)"
+        "$description": "white at .92. secondary text (D-012: .85 measured 3.3-3.79:1 on the book over sunlit photos)"
+      },
+      "62": {
+        "$value": "#FFFFFF9E"
+      },
+      "90": {
+        "$value": "#FFFFFFE6"
+      },
+      "45": {
+        "$value": "#FFFFFF73"
+      },
+      "70": {
+        "$value": "#FFFFFFB3"
       }
     },
     "graphite": {
@@ -66,6 +78,9 @@
       },
       "35": {
         "$value": "#00000059"
+      },
+      "18": {
+        "$value": "#0000002E"
       }
     },
     "foliage": {
@@ -74,6 +89,44 @@
       },
       "dark": {
         "$value": "#26331F"
+      }
+    },
+    "green": {
+      "600": {
+        "$value": "#13803C",
+        "$description": "white text 5.02:1"
+      }
+    },
+    "amber": {
+      "400": {
+        "$value": "#F5B000",
+        "$description": "ink text 9.90:1"
+      }
+    },
+    "red": {
+      "600": {
+        "$value": "#C42B1C",
+        "$description": "white text 5.66:1"
+      }
+    },
+    "ink-a": {
+      "78": {
+        "$value": "#111214C7"
+      },
+      "25": {
+        "$value": "#11121440"
+      },
+      "14": {
+        "$value": "#11121424"
+      },
+      "08": {
+        "$value": "#11121414"
+      }
+    },
+    "paper": {
+      "50": {
+        "$value": "#F2F2F5",
+        "$description": "opaque fallback surface in the light theme"
       }
     }
   },
@@ -94,6 +147,16 @@
   },
   "space": {
     "$type": "dimension",
+    "$description": "4px-base spacing scale; key × 4 = px (e.g. space.6 = 24px)",
+    "0": {
+      "$value": "0px"
+    },
+    "px": {
+      "$value": "1px"
+    },
+    "0-5": {
+      "$value": "2px"
+    },
     "1": {
       "$value": "4px"
     },
@@ -102,6 +165,9 @@
     },
     "2": {
       "$value": "8px"
+    },
+    "2-5": {
+      "$value": "10px"
     },
     "3": {
       "$value": "12px"
@@ -113,13 +179,40 @@
       "$value": "16px"
     },
     "5": {
+      "$value": "20px"
+    },
+    "5-5": {
       "$value": "22px"
     },
     "6": {
-      "$value": "32px"
+      "$value": "24px"
     },
     "7": {
+      "$value": "28px"
+    },
+    "8": {
+      "$value": "32px"
+    },
+    "10": {
+      "$value": "40px"
+    },
+    "12": {
       "$value": "48px"
+    },
+    "14": {
+      "$value": "56px"
+    },
+    "16": {
+      "$value": "64px"
+    },
+    "20": {
+      "$value": "80px"
+    },
+    "24": {
+      "$value": "96px"
+    },
+    "32": {
+      "$value": "128px"
     }
   },
   "size": {
@@ -162,6 +255,22 @@
     },
     "measure": {
       "$value": "64ch"
+    },
+    "touch": {
+      "$value": "44px",
+      "$description": "minimum touch target (WCAG 2.5.8 asks 24px; Apple HIG 44pt)"
+    },
+    "sidebar": {
+      "$value": "280px"
+    },
+    "badge": {
+      "$value": "22px"
+    },
+    "dot": {
+      "$value": "6px"
+    },
+    "bar": {
+      "$value": "4px"
     }
   },
   "radius": {
@@ -255,6 +364,12 @@
     "halo": {
       "$value": "0 0 14px #00000073, 0 1px 2px #00000059",
       "$description": "legibility halo for white text on thin glass (WCAG 1.4.3 Understanding: text with a halo)"
+    },
+    "float-light": {
+      "$value": "0 30px 60px -24px #00000033"
+    },
+    "halo-light": {
+      "$value": "0 0 12px #FFFFFF99, 0 1px 1px #FFFFFF80"
     }
   },
   "duration": {
@@ -281,7 +396,7 @@
         0.36,
         1
       ],
-      "$description": "long, soft settle — no snap, no overshoot"
+      "$description": "long, soft settle. no snap, no overshoot"
     },
     "inout": {
       "$value": [
@@ -296,11 +411,11 @@
     "$type": "number",
     "dim": {
       "$value": 0.42,
-      "$description": "UNCALIBRATED: held at bright's value"
+      "$description": "Uncalibrated and held at the bright value"
     },
     "mid": {
       "$value": 0.42,
-      "$description": "UNCALIBRATED: held at bright's value"
+      "$description": "Uncalibrated and held at the bright value"
     },
     "bright": {
       "$value": 0.42,
@@ -308,6 +423,10 @@
     },
     "none": {
       "$value": 1
+    },
+    "light": {
+      "$value": 1.12,
+      "$description": "light theme lifts the backdrop instead of dimming it"
     }
   },
   "distance": {
@@ -323,6 +442,73 @@
     "$type": "number",
     "press": {
       "$value": 0.97
+    }
+  },
+  "breakpoint": {
+    "$type": "dimension",
+    "$description": "min-width breakpoints",
+    "sm": {
+      "$value": "640px"
+    },
+    "md": {
+      "$value": "768px"
+    },
+    "lg": {
+      "$value": "1024px"
+    },
+    "xl": {
+      "$value": "1280px"
+    },
+    "2xl": {
+      "$value": "1536px"
+    }
+  },
+  "container": {
+    "$type": "dimension",
+    "sm": {
+      "$value": "640px"
+    },
+    "md": {
+      "$value": "768px"
+    },
+    "lg": {
+      "$value": "1024px"
+    },
+    "xl": {
+      "$value": "1200px"
+    },
+    "2xl": {
+      "$value": "1440px"
+    }
+  },
+  "columns": {
+    "$type": "number",
+    "4": {
+      "$value": 4
+    },
+    "8": {
+      "$value": 8
+    },
+    "12": {
+      "$value": 12
+    }
+  },
+  "z": {
+    "$type": "number",
+    "base": {
+      "$value": 0
+    },
+    "raised": {
+      "$value": 10
+    },
+    "sticky": {
+      "$value": 100
+    },
+    "overlay": {
+      "$value": 1000
+    },
+    "toast": {
+      "$value": 1100
     }
   }
 }

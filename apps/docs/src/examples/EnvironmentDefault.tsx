@@ -1,4 +1,4 @@
-// @example No declaration — glass falls back to the bright level
+// @example A card with no Environment around it
 import { Card } from 'pane-react';
 
 export default function EnvironmentDefault() {

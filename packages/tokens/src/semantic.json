@@ -3,18 +3,38 @@
     "$type": "color",
     "glass": {
       "$value": "{color.white-a.06}",
-      "$description": "near-clear tint — the darkening that keeps white text readable comes from glass.brightness, not from grey (D-010)"
+      "$description": "near-clear tint. the darkening that keeps white text readable comes from glass.brightness, not from grey (D-010)",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.62}"
+        }
+      }
     },
     "solid": {
       "$value": "{color.graphite.solid}",
-      "$description": "D-005 opaque fallback for every glass surface"
+      "$description": "D-005 opaque fallback for every glass surface",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.paper.50}"
+        }
+      }
     },
     "quiet": {
       "$value": "{color.white-a.08}",
-      "$description": "glass-on-glass fill (glass buttons, icon discs) — .14 measured 4.25:1 under white text in the mid environment"
+      "$description": "glass-on-glass fill (glass buttons, icon discs). .14 measured 4.25:1 under white text in the mid environment",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.45}"
+        }
+      }
     },
     "light": {
-      "$value": "{color.white}"
+      "$value": "{color.white}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink.900}"
+        }
+      }
     },
     "placeholder-hi": {
       "$value": "{color.foliage.light}",
@@ -24,22 +44,51 @@
       "$value": "{color.foliage.dark}"
     },
     "sheen-top": {
-      "$value": "{color.white-a.10}"
+      "$value": "{color.white-a.10}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.70}"
+        }
+      }
     },
     "sheen-bottom": {
       "$value": "{color.white-a.03}"
+    },
+    "well": {
+      "$value": "{color.shade-a.18}",
+      "$description": "an inset that holds body text inside a glass card (banners). Darkens in dark so secondary text keeps its contrast over lamp-lit photos; the quiet white fill measured 3.57:1 there",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.45}"
+        }
+      }
     }
   },
   "text": {
     "$type": "color",
     "primary": {
-      "$value": "{color.white}"
+      "$value": "{color.white}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink.900}"
+        }
+      }
     },
     "secondary": {
-      "$value": "{color.white-a.92}"
+      "$value": "{color.white-a.92}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.78}"
+        }
+      }
     },
     "on-light": {
-      "$value": "{color.ink.900}"
+      "$value": "{color.ink.900}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white}"
+        }
+      }
     },
     "on-accent": {
       "$value": "{color.white}"
@@ -57,13 +106,28 @@
   "line": {
     "$type": "color",
     "ring": {
-      "$value": "{color.white-a.30}"
+      "$value": "{color.white-a.30}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.25}"
+        }
+      }
     },
     "divider": {
-      "$value": "{color.white-a.16}"
+      "$value": "{color.white-a.16}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.14}"
+        }
+      }
     },
     "rim-hi": {
-      "$value": "{color.white-a.55}"
+      "$value": "{color.white-a.55}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.90}"
+        }
+      }
     },
     "rim-mid": {
       "$value": "{color.white-a.28}"
@@ -75,10 +139,20 @@
   "focus": {
     "$type": "color",
     "ring": {
-      "$value": "{color.white}"
+      "$value": "{color.white}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink.900}"
+        }
+      }
     },
     "halo": {
-      "$value": "{color.shade-a.55}"
+      "$value": "{color.shade-a.55}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.90}"
+        }
+      }
     }
   },
   "glass": {
@@ -97,12 +171,15 @@
     "brightness": {
       "$type": "number",
       "$value": "{brightness.bright}",
-      "$description": "D-010: backdrop dimming per environment — keeps the scene's colour and detail instead of washing it grey",
+      "$description": "D-010: backdrop dimming per environment. keeps the scene's colour and detail instead of washing it grey",
       "$extensions": {
         "pane.environment": {
           "dim": "{brightness.dim}",
           "mid": "{brightness.mid}",
           "bright": "{brightness.bright}"
+        },
+        "pane.theme": {
+          "light": "{brightness.light}"
         }
       }
     },
@@ -114,13 +191,23 @@
   "elevation": {
     "$type": "shadow",
     "float": {
-      "$value": "{shadow.float}"
+      "$value": "{shadow.float}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.float-light}"
+        }
+      }
     },
     "lift": {
       "$value": "{shadow.lift}"
     },
     "halo": {
-      "$value": "{shadow.halo}"
+      "$value": "{shadow.halo}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.halo-light}"
+        }
+      }
     }
   },
   "width": {
@@ -136,6 +223,9 @@
     },
     "avatar-ring": {
       "$value": "{size.avatar-ring}"
+    },
+    "bar": {
+      "$value": "{size.bar}"
     }
   },
   "gap": {
@@ -159,13 +249,19 @@
       "$value": "{space.4}"
     },
     "inset": {
-      "$value": "{space.5}"
+      "$value": "{space.5-5}"
     },
     "section": {
-      "$value": "{space.6}"
+      "$value": "{space.8}"
     },
     "page": {
-      "$value": "{space.7}"
+      "$value": "{space.12}"
+    },
+    "3xl": {
+      "$value": "{space.6}"
+    },
+    "none": {
+      "$value": "{space.0}"
     }
   },
   "control": {
@@ -193,6 +289,12 @@
     },
     "avatar-lg": {
       "$value": "{size.avatar-lg}"
+    },
+    "badge": {
+      "$value": "{size.badge}"
+    },
+    "dot": {
+      "$value": "{size.dot}"
     }
   },
   "corner": {
@@ -320,6 +422,129 @@
     "press-scale": {
       "$type": "number",
       "$value": "{scale.press}"
+    }
+  },
+  "status": {
+    "$type": "color",
+    "positive": {
+      "$value": "{color.green.600}"
+    },
+    "on-positive": {
+      "$value": "{color.white}"
+    },
+    "warning": {
+      "$value": "{color.amber.400}"
+    },
+    "on-warning": {
+      "$value": "{color.ink.900}"
+    },
+    "critical": {
+      "$value": "{color.red.600}"
+    },
+    "on-critical": {
+      "$value": "{color.white}"
+    },
+    "info": {
+      "$value": "{color.blue.600}"
+    },
+    "on-info": {
+      "$value": "{color.white}"
+    }
+  },
+  "layout": {
+    "columns": {
+      "$type": "number",
+      "$value": "{columns.4}",
+      "$extensions": {
+        "pane.breakpoint": {
+          "md": "{columns.8}",
+          "lg": "{columns.12}"
+        }
+      }
+    },
+    "gutter": {
+      "$type": "dimension",
+      "$value": "{space.4}",
+      "$extensions": {
+        "pane.breakpoint": {
+          "md": "{space.6}",
+          "lg": "{space.8}"
+        }
+      }
+    },
+    "margin": {
+      "$type": "dimension",
+      "$value": "{space.4}",
+      "$extensions": {
+        "pane.breakpoint": {
+          "md": "{space.8}",
+          "lg": "{space.12}"
+        }
+      }
+    },
+    "container-sm": {
+      "$type": "dimension",
+      "$value": "{container.sm}"
+    },
+    "container-md": {
+      "$type": "dimension",
+      "$value": "{container.md}"
+    },
+    "container-lg": {
+      "$type": "dimension",
+      "$value": "{container.lg}"
+    },
+    "container-xl": {
+      "$type": "dimension",
+      "$value": "{container.xl}"
+    },
+    "container-2xl": {
+      "$type": "dimension",
+      "$value": "{container.2xl}"
+    },
+    "touch": {
+      "$type": "dimension",
+      "$value": "{size.touch}"
+    },
+    "sidebar": {
+      "$type": "dimension",
+      "$value": "{size.sidebar}"
+    }
+  },
+  "layer": {
+    "$type": "number",
+    "base": {
+      "$value": "{z.base}"
+    },
+    "raised": {
+      "$value": "{z.raised}"
+    },
+    "sticky": {
+      "$value": "{z.sticky}"
+    },
+    "overlay": {
+      "$value": "{z.overlay}"
+    },
+    "toast": {
+      "$value": "{z.toast}"
+    }
+  },
+  "viewport": {
+    "$type": "dimension",
+    "sm": {
+      "$value": "{breakpoint.sm}"
+    },
+    "md": {
+      "$value": "{breakpoint.md}"
+    },
+    "lg": {
+      "$value": "{breakpoint.lg}"
+    },
+    "xl": {
+      "$value": "{breakpoint.xl}"
+    },
+    "2xl": {
+      "$value": "{breakpoint.2xl}"
     }
   }
 }

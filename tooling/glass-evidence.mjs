@@ -36,7 +36,8 @@ const SCENES = ['room', 'forest', 'night', 'city'];
 // glass, so the backdrop no longer matters — every page on one scene keeps the run bounded.
 const ROUTES = JSON.parse(readFileSync(path.join(ROOT, 'apps', 'docs', 'src', 'book', 'routes.json'), 'utf8')).parts.flatMap((p) => p.pages.map((pg) => pg.path));
 const DOCS_SCENES = { normal: SCENES, 'reduced-transparency': ['room'], 'forced-colors': ['room'] };
-const GATING_GROUPS = ['card', 'controls', 'environment'];
+const THEMES = ['dark', 'light']; // D-015: every measurement runs in both themes
+const GATING_GROUPS = ['card', 'controls', 'status', 'layout', 'environment'];
 const INFO_GROUPS = ['media', 'env-misuse'];
 const MODES = {
   normal: {},
@@ -53,7 +54,7 @@ if (!process.argv.includes('--no-build')) {
 
 const srv = await serveDist(path.join(ROOT, 'apps', 'docs', 'dist'));
 const browser = await chromium.launch();
-const result = { generatedAt: new Date().toISOString(), browser: `chromium ${browser.version()}`, threshold: THRESHOLD, modes: Object.keys(MODES), harness: {}, docsPage: {}, failures: [], excepted: [], exceptionFloor: E001_FLOOR };
+const result = { generatedAt: new Date().toISOString(), browser: `chromium ${browser.version()}`, threshold: THRESHOLD, modes: Object.keys(MODES), themes: THEMES, harness: {}, docsPage: {}, failures: [], excepted: [], exceptionFloor: E001_FLOOR };
 
 async function open(mode, url) {
   const opt = MODES[mode];
@@ -87,34 +88,35 @@ try {
   for (const mode of Object.keys(MODES)) {
     result.harness[mode] = {};
     result.docsPage[mode] = {};
-    for (const scene of SCENES) {
-      const h = await open(mode, `${srv.base}/harness.html?scene=${scene}`);
+    for (const theme of THEMES) for (const scene of SCENES) {
+      const key = `${theme}/${scene}`;
+      const h = await open(mode, `${srv.base}/harness.html?scene=${scene}&theme=${theme}`);
       const r = await measurePageText(h.page, THRESHOLD);
       await h.close();
       const groups = {};
       for (const g of [...GATING_GROUPS, ...INFO_GROUPS]) groups[g] = summarise(r.all.filter((t) => t.group === g));
-      result.harness[mode][scene] = groups;
+      result.harness[mode][key] = groups;
       for (const g of GATING_GROUPS) for (const t of r.all.filter((t) => t.group === g && (t.min == null || t.min < t.required))) {
-        if (isExcepted(t)) result.excepted.push(`[${mode}] harness ${scene}/${g}: "${t.label}" ${t.min}`);
-        else result.failures.push(`[${mode}] harness ${scene}/${g}: "${t.label}" ${t.min}`);
+        if (isExcepted(t)) result.excepted.push(`[${mode}] harness ${key}/${g}: "${t.label}" ${t.min}`);
+        else result.failures.push(`[${mode}] harness ${key}/${g}: "${t.label}" ${t.min}`);
       }
 
-      result.docsPage[mode][scene] = { textElements: 0, failures: 0, pages: 0, worstFive: [] };
+      result.docsPage[mode][key] = { textElements: 0, failures: 0, pages: 0, worstFive: [] };
       if (DOCS_SCENES[mode].includes(scene)) for (const route of ROUTES) {
-        const d = await open(mode, `${srv.base}${route}?scene=${scene}`);
+        const d = await open(mode, `${srv.base}${route}?scene=${scene}&theme=${theme}`);
         const dr = await measurePageText(d.page, THRESHOLD);
         await d.close();
         // pattern pages and the overview show the anchor card's image text — reported like the harness's
         const gating = dr.failures.filter((t) => !INFO_GROUPS.includes(t.group));
-        const agg = result.docsPage[mode][scene];
+        const agg = result.docsPage[mode][key];
         agg.textElements += dr.textElements;
         agg.pages += 1;
         for (const t of gating) {
           if (isExcepted(t)) result.excepted.push(`[${mode}] docs ${route} ${scene}: "${t.label}" ${t.min}`);
-          else { agg.failures += 1; result.failures.push(`[${mode}] docs ${route} ${scene}: "${t.label}" ${t.min}`); }
+          else { agg.failures += 1; result.failures.push(`[${mode}] docs ${route} ${key}: "${t.label}" ${t.min}`); }
         }
       }
-      console.log(`${mode.padEnd(21)} ${scene.padEnd(9)} harness ${GATING_GROUPS.map((g) => `${g} ${groups[g].failures}/${groups[g].texts}`).join(' · ')} | media worst ${groups.media.worst} | docs ${result.docsPage[mode][scene].failures}/${result.docsPage[mode][scene].textElements} over ${result.docsPage[mode][scene].pages} pages`);
+      console.log(`${mode.padEnd(21)} ${key.padEnd(14)} harness ${GATING_GROUPS.map((g) => `${g} ${groups[g].failures}/${groups[g].texts}`).join(' · ')} | media worst ${groups.media.worst} | docs ${result.docsPage[mode][key].failures}/${result.docsPage[mode][key].textElements} over ${result.docsPage[mode][key].pages} pages`);
     }
   }
 } finally {

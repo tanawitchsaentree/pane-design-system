@@ -4,7 +4,7 @@ import { cx } from '../../cx';
 import styles from './Tag.module.css';
 
 export interface TagProps extends HTMLAttributes<HTMLSpanElement> {
-  /** The label. Written in normal case — CSS uppercases it, so screen readers read words. */
+  /** The label, written in normal case. CSS uppercases it, so screen readers still read words. */
   children?: React.ReactNode;
 }
 

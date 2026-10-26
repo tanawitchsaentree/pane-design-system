@@ -20,7 +20,7 @@ function walk(node, tier, trail, inheritedType) {
   if ('$value' in node) {
     const key = trail.join('.');
     if (tokens.has(key)) collisions.push(`${key} is defined in both ${tokens.get(key).tier} and ${tier} — paths must be unique across tiers`);
-    tokens.set(trail.join('.'), { tier, type, raw: node.$value, description: node.$description, env: node.$extensions?.['pane.environment'] });
+    tokens.set(trail.join('.'), { tier, type, raw: node.$value, description: node.$description, env: node.$extensions?.['pane.environment'], bp: node.$extensions?.['pane.breakpoint'], theme: node.$extensions?.['pane.theme'] });
     return;
   }
   for (const [k, v] of Object.entries(node)) {
@@ -40,6 +40,8 @@ const checkRef = (p, t, raw, label) => {
   else if (!ALLOWED[t.tier].includes(target.tier)) errors.push(`${t.tier} token ${p}${label} -> ${target.tier} {${m[1]}} (allowed: ${ALLOWED[t.tier].join(', ') || 'none'})`);
 };
 for (const [p, t] of tokens) for (const [env, raw] of Object.entries(t.env ?? {})) checkRef(p, t, raw, ` [${env}]`);
+for (const [p, t] of tokens) for (const [bp, raw] of Object.entries(t.bp ?? {})) checkRef(p, t, raw, ` [@${bp}]`);
+for (const [p, t] of tokens) for (const [th, raw] of Object.entries(t.theme ?? {})) checkRef(p, t, raw, ` [theme ${th}]`);
 for (const [p, t] of tokens) {
   const m = typeof t.raw === 'string' && t.raw.match(REF);
   if (!m) {
@@ -107,17 +109,17 @@ ${envBlocks}
 /* D-005 — glass is mood, never information: every way out of glass lands on the opaque surface.
    Selectors repeat [data-environment] so the fallback outranks the environment blocks above. */
 @media (prefers-reduced-transparency: reduce) {
-  :root, [data-environment] {
+  :root:root, :root [data-environment], :root [data-theme] {
 ${fallback.replace(/^/gm, '  ')}
   }
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  :root, [data-environment] {
+  :root:root, :root [data-environment], :root [data-theme] {
 ${fallback.replace(/^/gm, '  ')}
   }
 }
 @media (forced-colors: active) {
-  :root, [data-environment] {
+  :root:root, :root [data-environment], :root [data-theme] {
 ${fallback.replace(/^/gm, '  ')}
   }
 }
@@ -136,13 +138,71 @@ ${durations}
   }
 }
 `;
+// Themes (D-015): tokens with $extensions["pane.theme"] get a value per theme; $value is dark.
+// @scope gives proximity, so a [data-theme] element nested inside another theme wins for its own
+// subtree (the component pages put light and dark cells side by side). Environment-dependent tokens
+// keep their environment value in dark and take the theme value in light, so the environment blocks
+// are repeated inside each theme scope. A page with no data-theme follows prefers-color-scheme.
+const THEMES = [...new Set([...tokens.values()].flatMap((t) => Object.keys(t.theme ?? {})))];
+const themed = [...tokens].filter(([, t]) => t.theme);
+const themeDeps = [...tokens.keys()].filter((p) => themed.some(([o]) => dependsOn(p, o)));
+const themeBody = (th, indent) => [
+  ...themed.map(([p, t]) => `${indent}${cssName(p)}: ${th && t.theme[th] ? `var(${cssName(t.theme[th].slice(1, -1))})` : cssValue(p)};`),
+  ...themeDeps.map((p) => `${indent}${cssName(p)}: ${cssValue(p)};`),
+].join('\n');
+const envUnderTheme = (th, indent) => ENVS.map((env) => {
+  const own = [...tokens].filter(([, t]) => t.env?.[env]);
+  const deps = [...tokens.keys()].filter((p) => own.some(([o]) => dependsOn(p, o)));
+  const val = ([p, t]) => (th && t.theme?.[th] ? `var(${cssName(t.theme[th].slice(1, -1))})` : `var(${cssName(t.env[env].slice(1, -1))})`);
+  return `${indent}[data-environment="${env}"] {\n${[...own.map((o) => `${indent}  ${cssName(o[0])}: ${val(o)};`), ...deps.map((d) => `${indent}  ${cssName(d)}: ${cssValue(d)};`)].join('\n')}\n${indent}}`;
+}).join('\n');
+const themeCss = [
+  ...THEMES.map((th) => `@scope ([data-theme="${th}"]) {\n  :scope {\n${themeBody(th, '    ')}\n  }\n${envUnderTheme(th, '  ')}\n}`),
+  `@scope ([data-theme="dark"]) {\n  :scope {\n${themeBody(null, '    ')}\n  }\n${envUnderTheme(null, '  ')}\n}`,
+  ...THEMES.map((th) => `@media (prefers-color-scheme: ${th}) {\n  @scope (:root:not([data-theme])) {\n    :scope {\n${themeBody(th, '      ')}\n    }\n${envUnderTheme(th, '    ')}\n  }\n}`),
+].join('\n');
+
+// Responsive tokens (D-014): $extensions["pane.breakpoint"] → one @media block per breakpoint, at the
+// min-width the breakpoint token itself resolves to — no breakpoint is typed twice. Dependents are
+// re-declared for the same reason as in the environment blocks.
+const BPS = [...new Set([...tokens.values()].flatMap((t) => Object.keys(t.bp ?? {})))]
+  .sort((a, b) => parseFloat(resolve(`breakpoint.${a}`)) - parseFloat(resolve(`breakpoint.${b}`)));
+const bpBlocks = BPS.map((bp) => {
+  const own = [...tokens].filter(([, t]) => t.bp?.[bp]);
+  const deps = [...tokens.keys()].filter((p) => own.some(([o]) => dependsOn(p, o)));
+  const body = [
+    ...own.map(([p, t]) => `    ${cssName(p)}: var(${cssName(t.bp[bp].slice(1, -1))});`),
+    ...deps.map((p) => `    ${cssName(p)}: ${cssValue(p)};`),
+  ].join('\n');
+  return `@media (min-width: ${resolve(`breakpoint.${bp}`)}) {\n  :root {\n${body}\n  }\n}`;
+}).join('\n');
+// Grid spans: GridItem sets --pane-span-base(-md|-lg) inline (never --pane-span itself — inline would
+// beat the media rules) plus data attributes; which one applies is decided
+// here, from the same breakpoint tokens.
+const spanCss = `
+/* GridItem spans — generated from the breakpoint tokens (D-014) */
+[data-pane-span] { --pane-span: var(--pane-span-base, ${'var(' + cssName('grid.columns') + ')'}); grid-column: span min(var(--pane-span), ${'var(' + cssName('grid.columns') + ')'}); }
+${BPS.map((bp) => `@media (min-width: ${resolve(`breakpoint.${bp}`)}) { [data-pane-span-${bp}] { --pane-span: var(--pane-span-${bp}); } }`).join('\n')}
+`;
 const json = Object.fromEntries(
-  [...tokens].map(([p, t]) => [p, { tier: t.tier, type: t.type, value: format(t.type, resolve(p)), ref: typeof t.raw === 'string' && REF.test(t.raw) ? t.raw.slice(1, -1) : null, css: cssName(p), description: t.description ?? null }]),
+  [...tokens].map(([p, t]) => [p, { tier: t.tier, type: t.type, value: format(t.type, resolve(p)), ref: typeof t.raw === 'string' && REF.test(t.raw) ? t.raw.slice(1, -1) : null, css: cssName(p), description: t.description ?? null, ...(t.theme ? { themes: Object.fromEntries(Object.entries(t.theme).map(([th, r]) => [th, { ref: r.slice(1, -1), value: format(t.type, resolve(r.slice(1, -1))) }])) } : {}) }]),
 );
 
 mkdirSync(path.join(ROOT, 'build', 'css'), { recursive: true });
 mkdirSync(path.join(ROOT, 'build', 'json'), { recursive: true });
-writeFileSync(path.join(ROOT, 'build', 'css', 'tokens.css'), css + motionCss);
+writeFileSync(path.join(ROOT, 'build', 'css', 'tokens.css'), css.replace('/* D-005', `/* D-015 themes: dark is the default ($value); light via [data-theme="light"] or prefers-color-scheme */\n${themeCss}\n\n/* D-005`) + motionCss + '\n/* D-014 responsive layout */\n' + bpBlocks + '\n' + spanCss);
+
+// ---- other formats for consuming projects: ESM + types, SCSS ----
+mkdirSync(path.join(ROOT, 'build', 'js'), { recursive: true });
+mkdirSync(path.join(ROOT, 'build', 'scss'), { recursive: true });
+const flat = Object.fromEntries([...tokens.keys()].map((p) => [p, format(tokens.get(p).type, resolve(p))]));
+const vars = Object.fromEntries([...tokens.keys()].map((p) => [p, `var(${cssName(p)})`]));
+writeFileSync(path.join(ROOT, 'build', 'js', 'tokens.mjs'),
+  `// GENERATED by packages/tokens/build.mjs\n/** Resolved value of every token, by DTCG path. */\nexport const tokens = ${JSON.stringify(flat, null, 2)};\n/** CSS custom property reference for every token — use these in styles so themes/environments apply. */\nexport const cssVar = ${JSON.stringify(vars, null, 2)};\nexport default tokens;\n`);
+writeFileSync(path.join(ROOT, 'build', 'js', 'tokens.d.ts'),
+  `// GENERATED by packages/tokens/build.mjs\nexport type TokenName =\n${[...tokens.keys()].map((p) => `  | '${p}'`).join('\n')};\nexport declare const tokens: Readonly<Record<TokenName, string>>;\nexport declare const cssVar: Readonly<Record<TokenName, \`var(--ds-\${string})\`>>;\nexport default tokens;\n`);
+writeFileSync(path.join(ROOT, 'build', 'scss', '_tokens.scss'),
+  `// GENERATED by packages/tokens/build.mjs — \$ds-* hold var() references (theme/environment aware);\n// \$ds-raw-* hold resolved values for places that cannot take a custom property (media queries).\n${[...tokens.keys()].map((p) => `\$ds-${p.replace(/\./g, '-')}: var(${cssName(p)});`).join('\n')}\n${[...tokens.keys()].map((p) => `\$ds-raw-${p.replace(/\./g, '-')}: ${format(tokens.get(p).type, resolve(p))};`).join('\n')}\n`);
 writeFileSync(path.join(ROOT, 'build', 'json', 'tokens.json'), JSON.stringify(json, null, 2) + '\n');
 const count = (tier) => [...tokens.values()].filter((t) => t.tier === tier).length;
-console.log(`✓ ${tokens.size} tokens (${TIERS.map((t) => `${count(t)} ${t}`).join(', ')}), ${glassSurfaces.length} glass surface(s) with fallback, environments: ${ENVS.join(', ') || 'none'}`);
+console.log(`✓ ${tokens.size} tokens → css, json, js+d.ts, scss; themes: dark, ${THEMES.join(', ')}; breakpoints: ${BPS.join(', ')}; (${TIERS.map((t) => `${count(t)} ${t}`).join(', ')}), ${glassSurfaces.length} glass surface(s) with fallback, environments: ${ENVS.join(', ') || 'none'}`);

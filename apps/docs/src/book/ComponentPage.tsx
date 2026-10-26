@@ -2,15 +2,23 @@
 // a verb-first purpose, badge row from real sources, import, hero demo, demo ladder at or above the
 // computed floor, usage, do/don't, generated props, verified keyboard table, accessibility,
 // generated CSS API, related with reasons, footer with source.
-import { Tag } from 'pane-react';
+import { Card, Environment, Tag } from 'pane-react';
 import meta from './meta.json';
 import { inline, Code, ConformanceList, DoDont, EvidenceTable, Example, Link, Page, Section, TokensUsed, useVerify } from './kit';
 import type { ComponentChapter } from './components-data';
+import changelog from '../../../../packages/react/CHANGELOG.md?raw';
+
+// History per component, parsed from the package changelog: "## version (date)" then "- Name: text".
+export const HISTORY: Array<{ version: string; date: string; component: string; text: string }> = changelog.split(/^## /m).slice(1).flatMap((block) => {
+  const [, version, date] = block.match(/^(\S+) \((\d{4}-\d{2}-\d{2})\)/) ?? [];
+  return [...block.matchAll(/^- (\w+): (.*)$/gm)].map((m) => ({ version, date, component: m[1], text: m[2] }));
+});
+export const STATUS_LABEL = { alpha: 'Alpha', beta: 'Beta', stable: 'Stable' } as const;
 
 type Meta = typeof meta.components[keyof typeof meta.components];
 
 // Which evidence-harness groups hold this component's text.
-const EVIDENCE_GROUPS: Record<string, string[]> = { Environment: ['environment'], Card: ['card'], Avatar: ['card'], Button: ['controls'], IconButton: ['controls'], Tabs: ['controls'], Tag: ['controls', 'media'] };
+export const EVIDENCE_GROUPS: Record<string, string[]> = { Container: ['layout'], Grid: ['layout'], Stack: ['layout'], Badge: ['status'], Chip: ['status'], Banner: ['status'], Environment: ['environment'], Card: ['card'], Avatar: ['card'], Button: ['controls'], IconButton: ['controls'], Tabs: ['controls'], Tag: ['controls', 'media'] };
 
 const twoCol = (rows: Array<[string, string]>, a: string, b: string) => (
   <div className="table-wrap">
@@ -24,16 +32,19 @@ const twoCol = (rows: Array<[string, string]>, a: string, b: string) => (
 function BadgeRow({ c, m }: { c: ComponentChapter; m: Meta }) {
   const { conformance } = useVerify();
   const checks = conformance?.checks.filter((x) => x.component === c.name) ?? [];
-  const a11y = !conformance ? 'a11y: unverified (no run)' : checks.length === 0 ? 'a11y: unverified — no test' : checks.every((x) => x.ok) ? `a11y: verified · ${checks.length} checks` : `a11y: ${checks.filter((x) => !x.ok).length} failing`;
+  const a11y = !conformance ? 'a11y: unverified (no run)' : checks.length === 0 ? 'a11y: unverified. No test' : checks.every((x) => x.ok) ? `a11y: verified · ${checks.length} checks` : `a11y: ${checks.filter((x) => !x.ok).length} failing`;
   return (
     <ul className="stats flush" aria-label="Component facts">
       <li><Tag>{`${(m.bundle.gzip / 1024).toFixed(1)} kB min+gz`}</Tag></li>
       <li><Tag>{a11y}</Tag></li>
-      <li><Tag>{`since v${meta.version}`}</Tag></li>
-      <li><Tag>{m.source}</Tag></li>
+      <li><Link to="/reference/status"><Tag>{`status: ${STATUS_LABEL[c.status]}`}</Tag></Link></li>
+      <li><Tag>{`since v${HISTORY.filter((h) => h.component === c.name).at(-1)?.version ?? meta.version}`}</Tag></li>
+      <li><Tag>{`updated ${HISTORY.find((h) => h.component === c.name)?.date ?? 'never'}`}</Tag></li>
     </ul>
   );
 }
+
+const SourceLine = ({ m }: { m: Meta }) => <p className="flush small muted source-line">Source file <code>{m.source}</code></p>;
 
 function GeneratedProps({ m, inherits }: { m: Meta; inherits?: string }) {
   return (
@@ -49,10 +60,10 @@ function GeneratedProps({ m, inherits }: { m: Meta; inherits?: string }) {
                 <tbody>{e.props.map((p) => <tr key={p.name}><th scope="row"><code>{p.name}{p.required ? '' : '?'}</code></th><td><code>{p.type}</code></td><td>{p.default != null ? <code>{String(p.default)}</code> : '—'}</td><td>{p.description ? inline(p.description) : <span className="muted">UNDOCUMENTED</span>}</td></tr>)}</tbody>
               </table>
             </div>
-          ) : <p className="muted">No props of its own — everything is passed through.</p>}
+          ) : <p className="muted">No props of its own. Everything is passed through.</p>}
         </div>
       ))}
-      {inherits && <p className="muted">Also accepts: <code>{inherits}</code>.</p>}
+      {inherits && <p className="muted">It also passes through every prop of <code>{inherits}</code>.</p>}
     </>
   );
 }
@@ -70,7 +81,7 @@ function VerifiedKeyboard({ rows }: { rows: Array<[string, string, string]> }) {
               <tr key={k}>
                 <th scope="row"><kbd>{k}</kbd></th>
                 <td>{does}</td>
-                <td>{c ? <><span className={c.ok ? 'pass' : 'fail'}>{c.ok ? 'PASS' : 'FAIL'}</span> <span className="muted">{c.name}</span></> : <span className="fail">UNVERIFIED — no test</span>}</td>
+                <td>{c ? <><span className={c.ok ? 'pass' : 'fail'}>{c.ok ? 'PASS' : 'FAIL'}</span> <span className="muted">{c.name}</span></> : <span className="fail">UNVERIFIED. No test</span>}</td>
               </tr>
             );
           })}
@@ -84,10 +95,13 @@ export function ComponentPage({ c }: { c: ComponentChapter }) {
   const m = (meta.components as Record<string, Meta>)[c.name];
   const demos = 1 + c.ladder.length;
   return (
-    <Page eyebrow={`Components · ${c.name}`} title={c.name} lede={<><p className="purpose">{c.purpose}</p><BadgeRow c={c} m={m} /></>}>
+    <Page eyebrow={`Components · ${c.name}`} title={c.name} lede={<><p className="purpose">{c.purpose}</p><BadgeRow c={c} m={m} /><SourceLine m={m} /></>}>
       <Section id="overview" title="Overview">{c.overview}</Section>
 
-      <Section id="import" title="Import"><Code>{c.importLine}</Code></Section>
+      <Section id="import" title="Import and use">
+        <Code label="Import">{c.importLine}</Code>
+        <Code label="Usage">{c.usage}</Code>
+      </Section>
 
       <Section id="hero" title="In use" wide>
         <p>{c.hero.intro}</p>
@@ -105,6 +119,18 @@ export function ComponentPage({ c }: { c: ComponentChapter }) {
         ))}
       </Section>
 
+      <Section id="backdrops" title="On bright and dark backdrops" wide>
+        <p>{c.backdrops}</p>
+        <div className="backdrop-matrix">
+          {(['dark', 'light'] as const).flatMap((th) => (['night', 'city'] as const).map((sc) => (
+            <figure key={`${th}-${sc}`} className="backdrop-cell env-tile" data-tile={sc} data-theme={th}>
+              <figcaption className="backdrop-caption">{th} theme · {sc === 'night' ? 'dark scene' : 'bright scene'}</figcaption>
+              <Environment brightness="bright"><c.hero.Render /></Environment>
+            </figure>
+          )))}
+        </div>
+      </Section>
+
       <Section id="usage" title="Usage">
         <h3>Use it for</h3>
         <ul>{c.whenToUse.map((w) => <li key={w}>{w}</li>)}</ul>
@@ -113,7 +139,7 @@ export function ComponentPage({ c }: { c: ComponentChapter }) {
       </Section>
 
       <Section id="anatomy" title="Anatomy">
-        <ol className="anatomy">{c.anatomy.map(([part, what]) => <li key={part}><b>{part}</b> — {what}</li>)}</ol>
+        <ol className="anatomy">{c.anatomy.map(([part, what]) => <li key={part}><b>{part}</b>. {what}</li>)}</ol>
       </Section>
 
       {c.states && <Section id="states" title="States & motion">{twoCol(c.states, 'State', 'Behaviour')}</Section>}
@@ -127,9 +153,13 @@ export function ComponentPage({ c }: { c: ComponentChapter }) {
       <Section id="api" title="Props" wide><GeneratedProps m={m} inherits={c.inherits} /></Section>
 
       <Section id="accessibility" title="Accessibility">
+        <h3>What you get</h3>
         <ul>{c.a11y.map((x) => <li key={x}>{x}</li>)}</ul>
+        <h3>What you still have to do</h3>
+        <ul className="checklist">{c.youMust.map((x) => <li key={x}>{x}</li>)}</ul>
         {c.keyboard && <><h3>Keyboard</h3><VerifiedKeyboard rows={c.keyboard} /></>}
-        <h3>Every conformance check for {c.name}</h3>
+        <h3>How it is tested</h3>
+        <p>Automated checks run on every build. Screen reader passes with VoiceOver and NVDA have not been recorded yet, which is why no component is marked Stable.</p>
         <p className="muted">Executed against this built site in real Chromium by <code>tooling/conformance.mjs</code>.</p>
         <ConformanceList component={c.name} />
       </Section>
@@ -140,8 +170,21 @@ export function ComponentPage({ c }: { c: ComponentChapter }) {
       </Section>
 
       <Section id="evidence" title="Measured contrast" wide>
-        <p className="muted">Every text node of this component in the evidence harness, on every scene photo and in every mode, scored at its worst pixel.</p>
+        <p className="muted">Each text node of this component on the test page, scored at its worst pixel on every scene photo and in every mode.</p>
         <EvidenceTable groups={EVIDENCE_GROUPS[c.name] ?? []} />
+      </Section>
+
+      <Section id="limitations" title="Limitations">
+        <ul>{c.limitations.map((x) => <li key={x}>{x}</li>)}</ul>
+      </Section>
+
+      <Section id="history" title="Change history">
+        <div className="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Version</th><th scope="col">Date</th><th scope="col">Change</th></tr></thead>
+            <tbody>{HISTORY.filter((h) => h.component === c.name).map((h) => <tr key={h.text}><th scope="row">{h.version}</th><td>{h.date}</td><td>{inline(h.text)}</td></tr>)}</tbody>
+          </table>
+        </div>
       </Section>
 
       <Section id="related" title="Related">
@@ -151,7 +194,7 @@ export function ComponentPage({ c }: { c: ComponentChapter }) {
             <tbody>{c.related.map(([to, label, why]) => <tr key={to}><th scope="row"><Link to={to}>{label}</Link></th><td>{why}</td></tr>)}</tbody>
           </table>
         </div>
-        <p className="muted small">Source: <code>{m.source}</code> · styles: <code>{m.source.replace('.tsx', '.module.css')}</code></p>
+        <p className="muted small">The source is <code>{m.source}</code> and its styles are in <code>{m.source.replace('.tsx', '.module.css')}</code>.</p>
       </Section>
     </Page>
   );

@@ -1,4 +1,4 @@
-// @example Feed post — avatar, meta, body, media, action row
+// @example A feed post
 import { Avatar, Card, IconButton } from 'pane-react';
 import { IconHeart, IconMore, IconReply, IconRepost, IconShare, IconVerified, IconViews } from '../icons';
 
@@ -11,7 +11,7 @@ export default function FeedPost() {
         <span className="muted ellipsis">@Apple · 8h</span>
         <IconButton variant="ghost" size="sm" aria-label="More options" className="push"><IconMore /></IconButton>
       </header>
-      <p className="flush">The era of spatial computing is here — digital content that blends with your physical space.</p>
+      <p className="flush">The era of spatial computing is here. Digital content that blends with your physical space.</p>
       <div className="feed-media" role="img" aria-label="Product photo: headset on a white background" />
       <footer className="actions muted">
         <span><IconReply />268</span>

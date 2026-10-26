@@ -1,4 +1,4 @@
-// @example Leading icon — the icon is decorative, the label carries the meaning
+// @example Buttons with a leading icon
 import { Button, Card } from 'pane-react';
 import { IconShare } from '../icons';
 

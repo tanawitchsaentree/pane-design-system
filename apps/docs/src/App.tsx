@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Button, Card, Environment } from 'pane-react';
 import { PAGES, PARTS, navigate, useRoute } from './book/router';
-import { Link, VerifyContext, type Conformance, type Evidence } from './book/kit';
+import { Link, SceneContext, VerifyContext, type Conformance, type Evidence } from './book/kit';
 import { PAGE_COMPONENTS } from './book/pages';
 import { SCENES, sceneById } from './scenes';
 
@@ -25,18 +25,6 @@ function SceneBackdrop({ scene }: { scene: string }) {
   );
 }
 
-/** Sections rise into place as they scroll into view (disabled under reduced motion, in CSS). */
-function useReveal(path: string) {
-  useEffect(() => {
-    const els = [...document.querySelectorAll('.reveal')];
-    const io = new IntersectionObserver((entries) => {
-      for (const e of entries) if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
-    }, { rootMargin: '0px 0px -8% 0px' });
-    els.forEach((el, i) => { (el as HTMLElement).style.setProperty('--i', String(i % 6)); io.observe(el); });
-    return () => io.disconnect();
-  }, [path]);
-}
-
 function useOnThisPage(path: string) {
   const [items, setItems] = useState<Array<{ id: string; title: string }>>([]);
   useEffect(() => {
@@ -52,7 +40,37 @@ export function App() {
   const conformance = validConformance(useJson<Conformance>('/conformance.json'));
   const [scene, setScene] = useState(sceneById(new URLSearchParams(location.search).get('scene') ?? 'room').id);
   const [q, setQ] = useState('');
-  useReveal(path);
+  const [menuOpen, setMenuOpen] = useState(false);
+  // Theme: system follows prefers-color-scheme; the choice is stored; ?theme= overrides (tests).
+  const [themePref, setThemePref] = useState<'system' | 'light' | 'dark'>(() => (new URLSearchParams(location.search).get('theme') as 'light' | 'dark' | null) ?? ((localStorage.getItem('pane-theme') as 'system' | 'light' | 'dark' | null) ?? 'system'));
+  const [systemLight, setSystemLight] = useState(() => matchMedia('(prefers-color-scheme: light)').matches);
+  useEffect(() => {
+    const mq = matchMedia('(prefers-color-scheme: light)');
+    const on = () => setSystemLight(mq.matches);
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  }, []);
+  const theme = themePref === 'system' ? (systemLight ? 'light' : 'dark') : themePref;
+  useEffect(() => { document.documentElement.dataset.theme = theme; localStorage.setItem('pane-theme', themePref); }, [theme, themePref]);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const firstRender = useRef(true);
+
+  // A chapter is a new page: close the menu, start at the top, move focus to the page heading.
+  useEffect(() => {
+    setMenuOpen(false);
+    if (firstRender.current) { firstRender.current = false; return; }
+    if (location.hash) return;
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+    requestAnimationFrame(() => document.getElementById('page-title')?.focus({ preventScroll: true }));
+  }, [path]);
+  // Menu drawer (narrow screens): Esc closes, focus goes in on open and back to the button on close.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setMenuOpen(false); };
+    document.addEventListener('keydown', onKey);
+    requestAnimationFrame(() => document.querySelector<HTMLElement>('#book-nav input, #book-nav a')?.focus());
+    return () => { document.removeEventListener('keydown', onKey); menuButton.current?.focus(); };
+  }, [menuOpen]);
   const onPage = useOnThisPage(path);
 
   useEffect(() => {
@@ -62,7 +80,7 @@ export function App() {
   }, [scene]);
   useEffect(() => {
     const t = PAGES.find((p) => p.path === path)?.title;
-    document.title = t ? `${t} — Pane` : 'Pane';
+    document.title = t ? `${t}. Pane` : 'Pane';
   }, [path]);
 
   const PageComponent = PAGE_COMPONENTS[path];
@@ -72,16 +90,30 @@ export function App() {
 
   return (
     <VerifyContext.Provider value={{ evidence, conformance }}>
+    <SceneContext.Provider value={scene}>
       <Environment brightness={sceneById(scene).brightness} className="page">
         <SceneBackdrop scene={scene} />
         <a className="skip" href="#main">Skip to content</a>
 
-        <aside className="rail">
+        <header className="topbar">
+          <Link to="/"><span className="brand">Pane</span></Link>
+          <span className="topbar-title muted">{PAGES[PAGES.findIndex((p) => p.path === path)]?.title}</span>
+          <Button ref={menuButton} size="sm" variant="glass" aria-expanded={menuOpen} aria-controls="book-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? 'Close' : 'Menu'}</Button>
+        </header>
+        {menuOpen && <div className="drawer-scrim" aria-hidden="true" onClick={() => setMenuOpen(false)} />}
+
+        <aside className={`rail${menuOpen ? ' open' : ''}`} id="book-nav" aria-label="Book navigation">
           <Card as="div" className="brand-card">
             <Link to="/"><span className="brand">Pane</span></Link>
             <p className="flush muted small">Spatial glass design system · pilot</p>
           </Card>
           <Card as="div">
+            <p className="flush eyebrow" id="theme-label">Theme</p>
+            <div className="scene-picker" role="group" aria-labelledby="theme-label">
+              {(['system', 'light', 'dark'] as const).map((t) => (
+                <Button key={t} size="sm" variant={t === themePref ? 'accent' : 'glass'} aria-pressed={t === themePref} onClick={() => setThemePref(t)}>{t[0].toUpperCase() + t.slice(1)}</Button>
+              ))}
+            </div>
             <p className="flush eyebrow" id="scene-label">Scene behind the glass</p>
             <div className="scene-picker" role="group" aria-labelledby="scene-label">
               {SCENES.map((s) => <Button key={s.id} size="sm" variant={s.id === scene ? 'accent' : 'glass'} aria-pressed={s.id === scene} onClick={() => setScene(s.id)}>{s.label}</Button>)}
@@ -104,7 +136,7 @@ export function App() {
           </nav>
         </aside>
 
-        <main id="main" className="content" key={path}>
+        <main id="main" className="content" key={path} inert={menuOpen || undefined}>
           {PageComponent ? <PageComponent /> : (
             <Card as="section" aria-labelledby="nf"><h1 id="nf" className="flush page-title">Not in the book</h1><p className="flush muted">No chapter at {path}. <Link to="/">Back to the overview</Link>.</p></Card>
           )}
@@ -123,6 +155,7 @@ export function App() {
           </aside>
         )}
       </Environment>
+    </SceneContext.Provider>
     </VerifyContext.Provider>
   );
 }

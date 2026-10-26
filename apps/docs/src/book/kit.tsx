@@ -7,14 +7,14 @@ import { Button, Card, Tag } from 'pane-react';
 import { navigate } from './router';
 import { SCENES } from '../scenes';
 
-export type Token = { tier: string; type: string; value: string; ref: string | null; css: string; description: string | null };
+export type Token = { tier: string; type: string; value: string; ref: string | null; css: string; description: string | null; themes?: Record<string, { ref: string; value: string }> };
 export const TOKENS = tokens as Record<string, Token>;
 const BY_CSS = Object.fromEntries(Object.entries(TOKENS).map(([p, t]) => [t.css, p]));
 
 // ---------- verification data (loaded once by the shell) ----------
 export interface GroupResult { texts: number; worst: number | null; failures: number }
 export interface Evidence {
-  generatedAt: string; browser: string; threshold: number; modes: string[]; exceptionFloor?: number;
+  generatedAt: string; browser: string; threshold: number; modes: string[]; themes?: string[]; exceptionFloor?: number;
   harness: Record<string, Record<string, Record<string, GroupResult>>>;
   docsPage: Record<string, Record<string, { textElements: number; failures: number }>>;
   summary: { gatingChecks: number; gatingFailures: number; excepted?: number; informational: string[] };
@@ -22,6 +22,8 @@ export interface Evidence {
 export interface Conformance { generatedAt: string; passed: number; total: number; checks: Array<{ component: string; name: string; ok: boolean; detail?: string }> }
 export const VerifyContext = createContext<{ evidence: Evidence | null; conformance: Conformance | null }>({ evidence: null, conformance: null });
 export const useVerify = () => useContext(VerifyContext);
+export const SceneContext = createContext<string>('room');
+export const useScene = () => useContext(SceneContext);
 
 // ---------- navigation ----------
 export function Link({ to, children }: { to: string; children: ReactNode }) {
@@ -36,9 +38,9 @@ export function Link({ to, children }: { to: string; children: ReactNode }) {
 export function Page({ eyebrow, title, lede, children }: { eyebrow: string; title: string; lede: ReactNode; children: ReactNode }) {
   return (
     <article className="book-page">
-      <Card as="header" className="page-head reveal">
+      <Card as="header" className="page-head">
         <p className="flush eyebrow">{eyebrow}</p>
-        <h1 className="flush page-title">{title}</h1>
+        <h1 id="page-title" tabIndex={-1} className="flush page-title">{title}</h1>
         <div className="lede">{lede}</div>
       </Card>
       {children}
@@ -48,7 +50,7 @@ export function Page({ eyebrow, title, lede, children }: { eyebrow: string; titl
 
 export function Section({ id, title, children, wide }: { id: string; title: string; children: ReactNode; wide?: boolean }) {
   return (
-    <section id={id} className={`book-section reveal${wide ? ' wide' : ''}`} aria-labelledby={`${id}-h`}>
+    <section id={id} className={`book-section${wide ? ' wide' : ''}`} aria-labelledby={`${id}-h`}>
       <Card as="div" className="prose">
         <h2 id={`${id}-h`} className="flush"><a className="heading-anchor" href={`#${id}`} aria-hidden="true" tabIndex={-1}>#</a>{title}</h2>
         {children}
@@ -67,28 +69,42 @@ export function Callout({ tone = 'note', title, children }: { tone?: 'note' | 'r
   );
 }
 
-/** Live example + the exact source file that renders it (imported with ?raw). */
-export function Example({ title, code, children, plain }: { title: string; code: string; children: ReactNode; plain?: boolean }) {
-  const [open, setOpen] = useState(false);
+/** A code block with its copy button always visible (USER-STANDARDS #7, G-C1). Long blocks show the
+ *  first lines with "Show all"; Copy always copies the whole block. */
+export function CodeBlock({ code, label = 'Code', lines = 14 }: { code: string; label?: string; lines?: number }) {
+  const body = code.trim();
+  const long = body.split('\n').length > lines;
+  const [open, setOpen] = useState(!long);
   const [copied, setCopied] = useState(false);
+  const shown = open ? body : body.split('\n').slice(0, lines).join('\n');
+  return (
+    <div className="codeblock">
+      <div className="codeblock-bar">
+        <span className="codeblock-label">{label}</span>
+        <span className="codeblock-actions">
+          {long && <button type="button" className="copy-btn" aria-expanded={open} onClick={() => setOpen(!open)}>{open ? 'Show less' : `Show all ${body.split('\n').length} lines`}</button>}
+          <button type="button" className="copy-btn" data-copy="" onClick={() => { navigator.clipboard?.writeText(body); setCopied(true); setTimeout(() => setCopied(false), 1600); }}>{copied ? 'Copied' : 'Copy'}</button>
+        </span>
+      </div>
+      <pre className={open ? 'code' : 'code clipped'} tabIndex={0} aria-label={`${label} snippet`}><code>{shown}</code></pre>
+    </div>
+  );
+}
+
+/** Live example + the exact source file that renders it (imported with ?raw), code visible by default. */
+export function Example({ title, code, children, plain }: { title: string; code: string; children: ReactNode; plain?: boolean }) {
   const body = code.replace(/^\/\/ @example.*\n/m, '').trim();
   return (
     <figure className="example">
       <div className={plain ? 'example-live plain' : 'example-live'}>{children}</div>
-      <figcaption className="example-bar">
-        <span className="example-title">{title}</span>
-        <span className="example-actions">
-          <Button size="sm" variant="glass" aria-expanded={open} onClick={() => setOpen(!open)}>{open ? 'Hide code' : 'Show code'}</Button>
-          <Button size="sm" variant="glass" onClick={() => { navigator.clipboard?.writeText(body); setCopied(true); setTimeout(() => setCopied(false), 1600); }}>{copied ? 'Copied' : 'Copy'}</Button>
-        </span>
-      </figcaption>
-      {open && <pre className="code"><code>{body}</code></pre>}
+      <figcaption className="example-bar"><span className="example-title">{title}</span></figcaption>
+      <CodeBlock code={body} label="TSX" />
     </figure>
   );
 }
 
-export function Code({ children }: { children: string }) {
-  return <pre className="code"><code>{children.trim()}</code></pre>;
+export function Code({ children, label }: { children: string; label?: string }) {
+  return <CodeBlock code={children} label={label} />;
 }
 
 // ---------- tables ----------
@@ -142,7 +158,7 @@ export function TokenTable({ prefix, tier, query = '' }: { prefix?: string; tier
   return (
     <div className="table-wrap">
       <table>
-        <caption>{rows.length} token{rows.length === 1 ? '' : 's'} — read from <code>pane-tokens/json</code></caption>
+        <caption>{rows.length} token{rows.length === 1 ? '' : 's'}. Read from <code>pane-tokens/json</code></caption>
         <thead><tr><th scope="col">Token</th><th scope="col">Tier</th><th scope="col">Points at</th><th scope="col">Resolved value</th><th scope="col"><span className="visually-hidden">Copy</span></th></tr></thead>
         <tbody>
           {rows.map(([p, t]) => (
@@ -160,7 +176,7 @@ export function TokenTable({ prefix, tier, query = '' }: { prefix?: string; tier
   );
 }
 
-// Every component's CSS module, as text — the "tokens used" list is parsed from what the component
+// Every component's CSS module, as text. The "tokens used" list is parsed from what the component
 // actually references, so it cannot drift from the code.
 const CSS_MODULES = import.meta.glob('../../../../packages/react/src/components/*/*.module.css', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
 export function TokensUsed({ component }: { component: string }) {
@@ -188,18 +204,18 @@ export function TokensUsed({ component }: { component: string }) {
 // ---------- verification panels ----------
 export function EvidenceTable({ groups }: { groups: string[] }) {
   const { evidence } = useVerify();
-  if (!evidence) return <p className="muted">UNVERIFIED — evidence.json not found. Run <code>pnpm run verify</code>.</p>;
+  if (!evidence) return <p className="muted">UNVERIFIED. Evidence.json not found. Run <code>pnpm run verify</code>.</p>;
   return (
     <div className="table-wrap">
       <table>
-        <caption>Worst-pixel text contrast under the glass, {evidence.browser}. Normal text ≥ {evidence.threshold}:1, large text ≥ 3:1.</caption>
+        <caption>Worst-pixel text contrast under the glass in {evidence.browser}. Normal text needs {evidence.threshold} to 1 and large text needs 3 to 1.</caption>
         <thead><tr><th scope="col">Group · scene</th>{evidence.modes.map((m) => <th scope="col" key={m}>{m}</th>)}</tr></thead>
         <tbody>
-          {groups.flatMap((g) => SCENES.map((s) => (
-            <tr key={`${g}/${s.id}`}>
-              <th scope="row">{g} · {s.label}</th>
+          {groups.flatMap((g) => (evidence.themes ?? ['dark']).flatMap((th) => SCENES.map((s) => ({ th, s }))).map(({ th, s }) => (
+            <tr key={`${g}/${th}/${s.id}`}>
+              <th scope="row">{g} · {th} · {s.label}</th>
               {evidence.modes.map((m) => {
-                const r = evidence.harness[m]?.[s.id]?.[g];
+                const r = evidence.harness[m]?.[`${th}/${s.id}`]?.[g] ?? evidence.harness[m]?.[s.id]?.[g];
                 if (!r) return <td key={m}>—</td>;
                 const floor = evidence.exceptionFloor ?? 0;
                 const state = r.failures === 0 ? 'PASS' : r.worst != null && r.worst >= floor && g !== 'media' ? 'E-001' : g === 'media' ? 'FAIL (image)' : 'FAIL';
@@ -216,10 +232,10 @@ export function EvidenceTable({ groups }: { groups: string[] }) {
 export function ConformanceList({ component }: { component: string }) {
   const { conformance } = useVerify();
   const checks = conformance?.checks.filter((c) => c.component === component);
-  if (!checks) return <p className="muted">UNVERIFIED — conformance.json not found.</p>;
+  if (!checks) return <p className="muted">UNVERIFIED. Conformance.json not found.</p>;
   return (
     <ul className="checks flush">
-      {checks.map((c) => <li key={c.name}><span className={c.ok ? 'pass' : 'fail'}>{c.ok ? 'PASS' : 'FAIL'}</span> {c.name}{c.detail ? <span className="muted"> — {c.detail}</span> : null}</li>)}
+      {checks.map((c) => <li key={c.name}><span className={c.ok ? 'pass' : 'fail'}>{c.ok ? 'PASS' : 'FAIL'}</span> {c.name}{c.detail ? <span className="muted">. {c.detail}</span> : null}</li>)}
     </ul>
   );
 }
@@ -246,7 +262,13 @@ export function Markdown({ source, skipUntil }: { source: string; skipUntil?: Re
   const out: ReactNode[] = [];
   let list: string[] = [];
   const flush = () => { if (list.length) { out.push(<ul key={out.length} className="flush">{list.map((l, i) => <li key={i}>{inline(l)}</li>)}</ul>); list = []; } };
+  let fields: Array<[string, string]> = [];
+  const flushFields = () => { if (fields.length) { out.push(<dl key={out.length} className="record">{fields.map(([k, v], i) => <div key={i} className="record-row"><dt>{inline(k)}</dt><dd>{inline(v)}</dd></div>)}</dl>); fields = []; } };
   for (const l of lines) {
+    // a record field ("- **Where:** value") is a label/value pair, rendered as one
+    const field = l.match(/^- \*\*(.+?):\*\*\s*(.*)$/);
+    if (field && !l.slice(field[0].indexOf('**', 4) + 2).includes('**')) { flush(); fields.push([field[1], field[2]]); continue; }
+    flushFields();
     if (/^- /.test(l)) { list.push(l.slice(2)); continue; }
     flush();
     if (/^### /.test(l)) out.push(<h3 key={out.length} className="md-h3">{inline(l.slice(4))}</h3>);
@@ -256,5 +278,6 @@ export function Markdown({ source, skipUntil }: { source: string; skipUntil?: Re
     else out.push(<p key={out.length}>{inline(l)}</p>);
   }
   flush();
+  flushFields();
   return <div className="markdown">{out}</div>;
 }

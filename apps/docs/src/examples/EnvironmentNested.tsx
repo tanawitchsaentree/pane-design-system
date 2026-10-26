@@ -7,7 +7,7 @@ export default function EnvironmentNested() {
       <div className="env-tile" data-tile="city">
         <Card as="div">
           <p className="flush"><b>Gallery</b></p>
-          <p className="flush muted">A sunlit photo behind — the region declares bright.</p>
+          <p className="flush muted">A sunlit photo behind. The region declares bright.</p>
         </Card>
       </div>
     </Environment>

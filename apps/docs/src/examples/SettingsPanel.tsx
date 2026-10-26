@@ -1,4 +1,4 @@
-// @example Settings panel — tabs, grouped rows, one primary action
+// @example A settings panel
 import { Button, Card, Tabs, Tag } from 'pane-react';
 
 const ROWS = [
@@ -27,7 +27,7 @@ export default function SettingsPanel() {
             ))}
           </dl>
         </Tabs.Content>
-        <Tabs.Content value="notifications"><p className="flush muted tab-empty">Push, email and in-app — set per channel.</p></Tabs.Content>
+        <Tabs.Content value="notifications"><p className="flush muted tab-empty">Push, email and in-app. Set per channel.</p></Tabs.Content>
         <Tabs.Content value="display"><p className="flush muted tab-empty">Text size follows your system setting.</p></Tabs.Content>
       </Tabs.Root>
       <div className="demo-row">

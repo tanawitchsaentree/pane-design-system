@@ -1,4 +1,4 @@
-// @example Profile card — the anchor, assembled from Pane components
+// @example The anchor profile card
 import { Avatar, Button, Card, CardCover, IconButton, Tabs, Tag } from 'pane-react';
 import { IconArrow, IconCalendar, IconHeart, IconLink, IconMore, IconPencil, IconPin, IconReply, IconRepost, IconShare, IconVerified, IconViews } from '../icons';
 
@@ -36,8 +36,8 @@ export default function ProfileCard({ idPrefix = "anchor" }: { idPrefix?: string
               <span className="muted ellipsis">@visualflow · 9h</span>
               <IconButton variant="ghost" size="sm" aria-label="More options" className="push"><IconMore /></IconButton>
             </header>
-            <p className="flush">Say goodbye to flat feeds. Asset 05 is live — designed for modern visual projects.</p>
-            <div className="media" data-group="media">
+            <p className="flush">Say goodbye to flat feeds. Asset 05 is live. Designed for modern visual projects.</p>
+            <div className="media" data-group="media" data-theme="dark">
               <Tag className="media-tag">Visual asset 05</Tag>
               <span className="media-num">07</span>
               <span className="media-cap"><IconArrow />Designed for modern visual projects</span>

@@ -1,4 +1,4 @@
-// @example In an action row — ghost icons, labelled by action
+// @example Ghost icons in an action row
 import { Card, IconButton } from 'pane-react';
 import { IconHeart, IconReply, IconRepost, IconShare } from '../icons';
 

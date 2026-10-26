@@ -1,4 +1,4 @@
-// @example In a trends list — tag as the category line
+// @example Tags in a trends list
 import { Card, Tag } from 'pane-react';
 
 const TRENDS = [['Tech · Trending', '#VisionPro', '1.97M posts'], ['Design · Trending', '#UXUI', '412K posts']] as const;

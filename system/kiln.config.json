@@ -8,31 +8,47 @@
       "Motion"
     ],
     "Pilot": [
+      "Container",
+      "Grid",
+      "Stack",
       "Environment",
       "Card",
       "Avatar",
       "Button",
       "IconButton",
       "Tabs",
-      "Tag"
+      "Tag",
+      "Badge",
+      "Chip",
+      "Banner"
     ]
   },
   "smokeImport": {
     "expectedExports": [
-      "Environment",
+      "Button",
       "Card",
       "CardCover",
+      "Environment",
       "Avatar",
-      "Button",
       "IconButton",
       "Tabs",
-      "Tag"
+      "Tag",
+      "Grid",
+      "GridItem",
+      "Container",
+      "Stack",
+      "Badge",
+      "Chip",
+      "Banner"
     ],
-    "minExports": 8,
+    "minExports": 15,
     "renderProbes": [
       "Button",
       "Tag",
-      "Card"
+      "Card",
+      "Badge",
+      "Container",
+      "Stack"
     ],
     "legacyNames": []
   }

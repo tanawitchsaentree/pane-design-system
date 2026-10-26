@@ -54,7 +54,7 @@ export async function measurePageText(page, threshold = 4.5) {
     for (let n = walker.nextNode(); n; n = walker.nextNode()) nodes.push(n);
     for (const n of nodes) {
       const parent = n.parentElement;
-      if (!n.textContent.trim() || !parent || parent.closest('[aria-hidden="true"], .skip, script, style, title')) continue;
+      if (!n.textContent.trim() || !parent || parent.closest('[aria-hidden="true"], .skip, script, style, title, :disabled, [aria-disabled="true"]')) continue; // disabled controls are exempt (WCAG 1.4.3, inactive user interface components)
       let span = parent.matches('[data-ev-doc]') && parent.childNodes.length === 1 ? parent : null;
       if (!span) {
         span = document.createElement('span');

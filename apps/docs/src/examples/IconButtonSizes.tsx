@@ -1,4 +1,4 @@
-// @example Sizes — 36px disc, 32px for rows
+// @example Icon button sizes
 import { Card, IconButton } from 'pane-react';
 import { IconPencil } from '../icons';
 

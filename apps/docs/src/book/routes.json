@@ -1,43 +1,183 @@
 {
   "$comment": "The book's table of contents — read by the docs app and by tooling (evidence + conformance visit every page).",
   "parts": [
-    { "title": "Introduction", "pages": [
-      { "path": "/", "title": "Overview" },
-      { "path": "/getting-started", "title": "Getting started" },
-      { "path": "/principles", "title": "Principles" }
-    ]},
-    { "title": "Foundations", "pages": [
-      { "path": "/foundations/glass", "title": "Glass & environment" },
-      { "path": "/foundations/color", "title": "Colour" },
-      { "path": "/foundations/typography", "title": "Typography" },
-      { "path": "/foundations/spacing", "title": "Spacing & layout" },
-      { "path": "/foundations/shape", "title": "Shape & elevation" },
-      { "path": "/foundations/motion", "title": "Motion" },
-      { "path": "/foundations/icons", "title": "Iconography" }
-    ]},
-    { "title": "Components", "pages": [
-      { "path": "/components/environment", "title": "Environment" },
-      { "path": "/components/card", "title": "Card" },
-      { "path": "/components/avatar", "title": "Avatar" },
-      { "path": "/components/button", "title": "Button" },
-      { "path": "/components/icon-button", "title": "IconButton" },
-      { "path": "/components/tabs", "title": "Tabs" },
-      { "path": "/components/tag", "title": "Tag" }
-    ]},
-    { "title": "Patterns", "pages": [
-      { "path": "/patterns/profile-card", "title": "Profile card" },
-      { "path": "/patterns/feed-post", "title": "Feed post" },
-      { "path": "/patterns/settings-panel", "title": "Settings panel" },
-      { "path": "/patterns/text-on-images", "title": "Text on images" }
-    ]},
-    { "title": "Accessibility", "pages": [
-      { "path": "/accessibility", "title": "How Pane is verified" }
-    ]},
-    { "title": "Reference", "pages": [
-      { "path": "/reference/tokens", "title": "Tokens" },
-      { "path": "/reference/decisions", "title": "Decisions" },
-      { "path": "/reference/exceptions", "title": "Exceptions" },
-      { "path": "/reference/credits", "title": "Credits" }
-    ]}
+    {
+      "title": "Introduction",
+      "pages": [
+        {
+          "path": "/",
+          "title": "Overview"
+        },
+        {
+          "path": "/getting-started",
+          "title": "Getting started"
+        },
+        {
+          "path": "/principles",
+          "title": "Principles"
+        }
+      ]
+    },
+    {
+      "title": "Foundations",
+      "pages": [
+        {
+          "path": "/foundations/glass",
+          "title": "Glass & environment"
+        },
+        {
+          "path": "/foundations/color",
+          "title": "Colour"
+        },
+        {
+          "path": "/foundations/themes",
+          "title": "Themes & backdrops"
+        },
+        {
+          "path": "/foundations/typography",
+          "title": "Typography"
+        },
+        {
+          "path": "/foundations/spacing",
+          "title": "Spacing"
+        },
+        {
+          "path": "/foundations/grid",
+          "title": "Grid & layout"
+        },
+        {
+          "path": "/foundations/dimensions",
+          "title": "Dimensions"
+        },
+        {
+          "path": "/foundations/shape",
+          "title": "Shape & elevation"
+        },
+        {
+          "path": "/foundations/motion",
+          "title": "Motion"
+        },
+        {
+          "path": "/foundations/icons",
+          "title": "Iconography"
+        }
+      ]
+    },
+    {
+      "title": "Components",
+      "pages": [
+        {
+          "path": "/components/container",
+          "title": "Container"
+        },
+        {
+          "path": "/components/grid",
+          "title": "Grid"
+        },
+        {
+          "path": "/components/stack",
+          "title": "Stack"
+        },
+        {
+          "path": "/components/environment",
+          "title": "Environment"
+        },
+        {
+          "path": "/components/card",
+          "title": "Card"
+        },
+        {
+          "path": "/components/avatar",
+          "title": "Avatar"
+        },
+        {
+          "path": "/components/button",
+          "title": "Button"
+        },
+        {
+          "path": "/components/icon-button",
+          "title": "IconButton"
+        },
+        {
+          "path": "/components/tabs",
+          "title": "Tabs"
+        },
+        {
+          "path": "/components/tag",
+          "title": "Tag"
+        },
+        {
+          "path": "/components/badge",
+          "title": "Badge"
+        },
+        {
+          "path": "/components/chip",
+          "title": "Chip"
+        },
+        {
+          "path": "/components/banner",
+          "title": "Banner"
+        }
+      ]
+    },
+    {
+      "title": "Patterns",
+      "pages": [
+        {
+          "path": "/patterns/profile-card",
+          "title": "Profile card"
+        },
+        {
+          "path": "/patterns/feed-post",
+          "title": "Feed post"
+        },
+        {
+          "path": "/patterns/settings-panel",
+          "title": "Settings panel"
+        },
+        {
+          "path": "/patterns/text-on-images",
+          "title": "Text on images"
+        }
+      ]
+    },
+    {
+      "title": "Accessibility",
+      "pages": [
+        {
+          "path": "/accessibility",
+          "title": "How Pane is verified"
+        }
+      ]
+    },
+    {
+      "title": "Reference",
+      "pages": [
+        {
+          "path": "/reference/tokens",
+          "title": "Tokens"
+        },
+        {
+          "path": "/reference/changelog",
+          "title": "Change history"
+        },
+        {
+          "path": "/reference/status",
+          "title": "Status & accessibility matrix"
+        },
+        {
+          "path": "/reference/decisions",
+          "title": "Decisions"
+        },
+        {
+          "path": "/reference/exceptions",
+          "title": "Exceptions"
+        },
+        {
+          "path": "/reference/credits",
+          "title": "Credits"
+        }
+      ]
+    }
   ]
 }

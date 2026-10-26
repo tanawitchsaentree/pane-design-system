@@ -1,4 +1,4 @@
-// @example Soft motion — hover, press and a view change
+// @example Hover, press and a view change
 import { useState } from 'react';
 import { Button, Card, Tabs } from 'pane-react';
 
@@ -17,7 +17,7 @@ export default function MotionDemo() {
           <Tabs.Trigger value="b">Second</Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="a"><p className="flush tab-empty">The panel rises 8px and fades in.</p></Tabs.Content>
-        <Tabs.Content value="b"><p className="flush tab-empty">Same entrance, every time — motion is a token, not a one-off.</p></Tabs.Content>
+        <Tabs.Content value="b"><p className="flush tab-empty">Same entrance every time, because every duration comes from a token.</p></Tabs.Content>
       </Tabs.Root>
     </Card>
   );

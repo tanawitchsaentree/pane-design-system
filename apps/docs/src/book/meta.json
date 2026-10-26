@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-26T13:58:45.609Z",
-  "version": "0.0.0",
+  "generatedAt": "2026-10-26T17:11:48.827Z",
+  "version": "0.1.0",
   "components": {
     "Avatar": {
       "source": "packages/react/src/components/Avatar/Avatar.tsx",
@@ -13,7 +13,7 @@
               "type": "string",
               "required": true,
               "default": null,
-              "description": "Person or brand the avatar stands for — used as the accessible name and for initials.",
+              "description": "Person or brand the avatar stands for. Used as the accessible name and for the initials.",
               "enum": false
             },
             {
@@ -52,6 +52,119 @@
         "jsMin": 585,
         "cssMin": 738,
         "gzip": 676
+      }
+    },
+    "Badge": {
+      "source": "packages/react/src/components/Badge/Badge.tsx",
+      "exports": [
+        {
+          "displayName": "Badge",
+          "props": [
+            {
+              "name": "tone",
+              "type": "\"neutral\" | \"info\" | \"positive\" | \"warning\" | \"critical\"",
+              "required": false,
+              "default": "neutral",
+              "description": "`neutral` is a glass ring. `info`, `positive`, `warning` and `critical` are solid status fills, each at least 4.5:1 with its text.",
+              "enum": true
+            },
+            {
+              "name": "dot",
+              "type": "boolean",
+              "required": false,
+              "default": "false",
+              "description": "Show a leading dot, a shape cue on top of the colour.",
+              "enum": false
+            },
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "The status in words, e.g. \"Live\", \"3 new\", \"Failed\".",
+              "enum": false
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "tone"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 431,
+        "cssMin": 1143,
+        "gzip": 714
+      }
+    },
+    "Banner": {
+      "source": "packages/react/src/components/Banner/Banner.tsx",
+      "exports": [
+        {
+          "displayName": "Banner",
+          "props": [
+            {
+              "name": "tone",
+              "type": "\"info\" | \"positive\" | \"warning\" | \"critical\"",
+              "required": false,
+              "default": "info",
+              "description": "Each tone (info, positive, warning, critical) has its own icon, so tone has a shape cue as well as colour.",
+              "enum": true
+            },
+            {
+              "name": "title",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "One-line headline saying what happened.",
+              "enum": false
+            },
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Optional detail on what it means or what to do.",
+              "enum": false
+            },
+            {
+              "name": "action",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Optional action (e.g. a Button) shown after the text.",
+              "enum": false
+            },
+            {
+              "name": "onDismiss",
+              "type": "(() => void)",
+              "required": false,
+              "default": null,
+              "description": "Shows a dismiss button labelled \"Dismiss\".",
+              "enum": false
+            },
+            {
+              "name": "live",
+              "type": "\"polite\" | \"assertive\"",
+              "required": false,
+              "default": null,
+              "description": "Announce it when it appears. 'polite' gives role=\"status\" and 'assertive' gives role=\"alert\".\nLeave it unset for banners already present on page load, since announcing those interrupts for nothing.",
+              "enum": true
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "tone",
+        "live"
+      ],
+      "variantCount": 2,
+      "demoFloor": 5,
+      "bundle": {
+        "jsMin": 1624,
+        "cssMin": 2643,
+        "gzip": 1620
       }
     },
     "Button": {
@@ -107,10 +220,10 @@
             },
             {
               "name": "as",
-              "type": "\"article\" | \"section\" | \"header\" | \"div\"",
+              "type": "\"article\" | \"section\" | \"aside\" | \"header\" | \"div\"",
               "required": false,
               "default": "article",
-              "description": "Rendered element — `article` for self-contained content, `section` for a titled region, `header` for a page head.",
+              "description": "Rendered element. Use `article` for self-contained content, `section` for a titled region, `aside` for complementary content and `header` for a page head.",
               "enum": true
             }
           ]
@@ -136,9 +249,103 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 472,
+        "jsMin": 491,
         "cssMin": 2087,
-        "gzip": 1005
+        "gzip": 1019
+      }
+    },
+    "Chip": {
+      "source": "packages/react/src/components/Chip/Chip.tsx",
+      "exports": [
+        {
+          "displayName": "Chip",
+          "props": [
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The chip's label, which is also its accessible name.",
+              "enum": false
+            },
+            {
+              "name": "selected",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Controlled selection (filter chips). Selection is carried by aria-pressed and a check mark, never colour alone.",
+              "enum": false
+            },
+            {
+              "name": "defaultSelected",
+              "type": "boolean",
+              "required": false,
+              "default": "false",
+              "description": "Initial selection when uncontrolled.",
+              "enum": false
+            },
+            {
+              "name": "onSelectedChange",
+              "type": "((selected: boolean) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the new selection.",
+              "enum": false
+            },
+            {
+              "name": "onRemove",
+              "type": "(() => void)",
+              "required": false,
+              "default": null,
+              "description": "Makes it an input chip with a remove button named \"Remove {label}\".",
+              "enum": false
+            },
+            {
+              "name": "removeLabel",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Plain-text label for the remove button's name, when children is not plain text.",
+              "enum": false
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 1175,
+        "cssMin": 1494,
+        "gzip": 1152
+      }
+    },
+    "Container": {
+      "source": "packages/react/src/components/Container/Container.tsx",
+      "exports": [
+        {
+          "displayName": "Container",
+          "props": [
+            {
+              "name": "size",
+              "type": "\"sm\" | \"md\" | \"lg\" | \"xl\" | \"2xl\"",
+              "required": false,
+              "default": "xl",
+              "description": "Maximum width. sm is 640px, md 768, lg 1024, xl 1200 (the default) and 2xl 1440.",
+              "enum": true
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "size"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 330,
+        "cssMin": 335,
+        "gzip": 388
       }
     },
     "Environment": {
@@ -169,6 +376,61 @@
         "gzip": 165
       }
     },
+    "Grid": {
+      "source": "packages/react/src/components/Grid/Grid.tsx",
+      "exports": [
+        {
+          "displayName": "Grid",
+          "props": [
+            {
+              "name": "columns",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "Override the column count. By default it follows the layout tokens, which give 4, then 8 at md (768px), then 12 at lg (1024px).",
+              "enum": false
+            }
+          ]
+        },
+        {
+          "displayName": "GridItem",
+          "props": [
+            {
+              "name": "span",
+              "type": "GridSpan",
+              "required": false,
+              "default": "full",
+              "description": "Columns to span below md (and above, unless md/lg are set). 'full' = every column.",
+              "enum": false
+            },
+            {
+              "name": "md",
+              "type": "GridSpan",
+              "required": false,
+              "default": null,
+              "description": "Columns to span from the md breakpoint (768px).",
+              "enum": false
+            },
+            {
+              "name": "lg",
+              "type": "GridSpan",
+              "required": false,
+              "default": null,
+              "description": "Columns to span from the lg breakpoint (1024px).",
+              "enum": false
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 664,
+        "cssMin": 110,
+        "gzip": 472
+      }
+    },
     "IconButton": {
       "source": "packages/react/src/components/IconButton/IconButton.tsx",
       "exports": [
@@ -180,7 +442,7 @@
               "type": "string",
               "required": true,
               "default": null,
-              "description": "Required: an icon has no text, so this is the button's whole accessible name.",
+              "description": "Required, because an icon has no text and this is the button's whole accessible name.",
               "enum": false
             },
             {
@@ -212,6 +474,52 @@
         "jsMin": 351,
         "cssMin": 1338,
         "gzip": 710
+      }
+    },
+    "Stack": {
+      "source": "packages/react/src/components/Stack/Stack.tsx",
+      "exports": [
+        {
+          "displayName": "Stack",
+          "props": [
+            {
+              "name": "direction",
+              "type": "\"column\" | \"row\"",
+              "required": false,
+              "default": "column",
+              "description": "`column` (default) stacks vertically; `row` lays out inline and wraps.",
+              "enum": true
+            },
+            {
+              "name": "gap",
+              "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
+              "required": false,
+              "default": "md",
+              "description": "Space between children. xs is 4px, sm 8, md 16 (the default), lg 24 and xl 32.",
+              "enum": true
+            },
+            {
+              "name": "align",
+              "type": "\"start\" | \"center\" | \"end\" | \"stretch\"",
+              "required": false,
+              "default": "stretch",
+              "description": "Cross-axis alignment.",
+              "enum": true
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "direction",
+        "gap",
+        "align"
+      ],
+      "variantCount": 3,
+      "demoFloor": 6,
+      "bundle": {
+        "jsMin": 456,
+        "cssMin": 324,
+        "gzip": 474
       }
     },
     "Tabs": {
@@ -254,7 +562,7 @@
               "type": "ReactNode",
               "required": false,
               "default": null,
-              "description": "The label. Written in normal case — CSS uppercases it, so screen readers read words.",
+              "description": "The label, written in normal case. CSS uppercases it, so screen readers still read words.",
               "enum": false
             }
           ]

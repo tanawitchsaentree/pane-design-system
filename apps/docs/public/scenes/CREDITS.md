@@ -1,7 +1,7 @@
 # Scene photos
 
 Fetched via Lorem Picsum (https://picsum.photos), which serves photos from Unsplash under the
-Unsplash License. Used as backdrops behind glass in the docs and the evidence harness.
+Unsplash License. They are the backdrops behind the glass in the docs and on the test page.
 
 | file | picsum id | photographer | source |
 |---|---|---|---|

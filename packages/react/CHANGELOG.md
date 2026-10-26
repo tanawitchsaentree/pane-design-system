@@ -1,0 +1,21 @@
+# pane-react changelog
+
+Every entry names the component it touches, so each component page in the book can show its own history. The conformance run fails if a component has no entry.
+
+## 0.1.0 (2026-10-26)
+
+- Environment: First release with three brightness levels. Dim and mid resolve to the bright value until they are calibrated (E-001).
+- Card: First release with glass, inset and solid variants and a cover slot. Glass dims the photo behind it instead of greying it (D-010, D-011).
+- Card: Light theme lifts and whitens the scene and sets ink text (D-015).
+- Avatar: First release with photo, initials fallback and three sizes.
+- Button: First release with light, accent and glass variants and the soft hover lift.
+- Button: In the light theme the loud solid is ink with white text (D-015).
+- IconButton: First release. The type now requires aria-label.
+- Tabs: First release, built on Radix Tabs with pill styling.
+- Tag: First release, outline small caps label.
+- Container: First release with four widths and margins that grow at each breakpoint (D-014).
+- Grid: First release with 4, 8 and 12 columns and per breakpoint spans (D-014).
+- Stack: First release with row and column direction and the gap scale.
+- Badge: First release with five tones and an optional dot.
+- Chip: First release with toggle and input forms.
+- Banner: First release with four tones, a live option and dismiss.

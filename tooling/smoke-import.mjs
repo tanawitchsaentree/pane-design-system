@@ -82,7 +82,9 @@ function sh(cmd, args, cwd) {
 try {
   console.log(`[smoke-import] packing ${manifests.map((m) => `${m.pkg.name}@${m.pkg.version}`).join(' + ')}...`);
   const tarballs = manifests.map(({ dir, pkg }) => {
-    sh('npm', ['pack', '--pack-destination', scratch], join(REPO_ROOT, 'packages', dir));
+    // pnpm pack, not npm pack: it rewrites workspace:^ dependencies to real versions, exactly as a
+    // published tarball would carry them — npm pack would ship an uninstallable "workspace:^".
+    sh('pnpm', ['pack', '--pack-destination', scratch], join(REPO_ROOT, 'packages', dir));
     // npm pack names an unscoped tarball <name>-<version>.tgz; a scoped one gets the scope flattened
     // with a leading dash removed. Resolve by checking what actually landed instead of guessing.
     const unscoped = join(scratch, `${pkg.name}-${pkg.version}.tgz`);
@@ -156,7 +158,9 @@ try {
   record(named.ok, `${R} named exports present`, named.ok ? EXPECTED.join(', ') : named.err.split('\n')[0]);
 
   // 4. Types and the stylesheet consumers are told to import.
-  const dts = join(nm(R), 'dist', 'index.d.ts');
+  // the types entry the package itself declares — what a consumer's TypeScript will actually load
+  const rManifest = JSON.parse(readFileSync(join(nm(R), 'package.json'), 'utf8'));
+  const dts = join(nm(R), rManifest.exports?.['.']?.types ?? rManifest.types ?? 'dist/index.d.ts');
   const dtsName = EXPECTED[0];
   record(
     Boolean(dtsName) && existsSync(dts) && new RegExp(`\\b${dtsName}\\b`).test(readFileSync(dts, 'utf8')),

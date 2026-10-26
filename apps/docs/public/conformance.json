@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-26T14:10:42.420Z",
-  "passed": 38,
-  "total": 38,
+  "generatedAt": "2026-10-26T17:44:42.244Z",
+  "passed": 73,
+  "total": 73,
   "checks": [
     {
       "component": "Environment",
@@ -46,6 +46,42 @@
       "detail": "1 props"
     },
     {
+      "component": "Container",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props"
+    },
+    {
+      "component": "Grid",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props"
+    },
+    {
+      "component": "Stack",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "Badge",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "Chip",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props"
+    },
+    {
+      "component": "Banner",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props"
+    },
+    {
       "component": "Environment",
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
@@ -86,6 +122,42 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos"
+    },
+    {
+      "component": "Container",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Grid",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Stack",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
+      "ok": true,
+      "detail": "6 demos"
+    },
+    {
+      "component": "Badge",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Chip",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Banner",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
     },
     {
       "component": "Environment",
@@ -170,16 +242,16 @@
       "component": "IconButton",
       "name": "every button with no visible text, on every page of the book, has an accessible name",
       "ok": true,
-      "detail": "26 pages"
+      "detail": "37 pages"
     },
     {
       "component": "Tabs",
-      "name": "one tab stop: Tab lands on the selected tab, the next Tab leaves the list",
+      "name": "one tab stop, so Tab lands on the selected tab and the next Tab leaves the list",
       "ok": true
     },
     {
       "component": "Tabs",
-      "name": "→ / ← move focus and selection; Home / End jump",
+      "name": "arrow keys move focus and selection, and Home and End jump to the ends",
       "ok": true
     },
     {
@@ -189,7 +261,7 @@
     },
     {
       "component": "Tabs",
-      "name": "selected tab is not marked by colour alone in forced colours",
+      "name": "the selected tab keeps an underline in forced colours",
       "ok": true
     },
     {
@@ -199,20 +271,145 @@
     },
     {
       "component": "Docs page",
-      "name": "G-D3: no literal backtick in rendered text on any of the 26 pages",
+      "name": "G-D3, no literal backtick in rendered text on any of the 37 pages",
+      "ok": true
+    },
+    {
+      "component": "Grid",
+      "name": "columns follow the breakpoint tokens, with 4 at 375px, 8 at 800px and 12 at 1280px",
+      "ok": true,
+      "detail": "4 → 8 → 12"
+    },
+    {
+      "component": "Grid",
+      "name": "GridItem spans switch per breakpoint (full → md 4/8 → lg 4/12)",
+      "ok": true,
+      "detail": "100% → 48% → 31%"
+    },
+    {
+      "component": "Container",
+      "name": "xl caps at 1200px and the margin grows 16 → 32 → 48px",
+      "ok": true,
+      "detail": "16px → 32px → 48px"
+    },
+    {
+      "component": "Stack",
+      "name": "gap comes from the token scale (md = 16px, xl = 32px)",
+      "ok": true,
+      "detail": "4px · 8px · 16px · 24px · 32px"
+    },
+    {
+      "component": "Badge",
+      "name": "status is in the text, with no role (read in place)",
+      "ok": true
+    },
+    {
+      "component": "Chip",
+      "name": "reachable with Tab",
+      "ok": true
+    },
+    {
+      "component": "Chip",
+      "name": "Space and Enter toggle aria-pressed",
+      "ok": true
+    },
+    {
+      "component": "Chip",
+      "name": "a check mark marks the selected chip as well as its colour",
+      "ok": true
+    },
+    {
+      "component": "Chip",
+      "name": "an input chip’s remove button is named after the chip and removes it",
+      "ok": true
+    },
+    {
+      "component": "Banner",
+      "name": "dismiss is a named button and removes the banner",
+      "ok": true
+    },
+    {
+      "component": "Banner",
+      "name": "live=\"polite\" appears as role=\"status\", live=\"assertive\" as role=\"alert\"",
+      "ok": true
+    },
+    {
+      "component": "Banner",
+      "name": "the tone is spoken as prefix text",
       "ok": true
     },
     {
       "component": "Docs page",
-      "name": "axe: no violations on all 26 pages (forced-colors none)",
+      "name": "choosing a chapter opens it as a new page at the top, with its heading in view and focused, at 375, 768 and 1280px",
       "ok": true,
-      "detail": "color-contrast incomplete on 5061 nodes (axe cannot see through backdrop-filter — settled per pixel by glass-evidence)"
+      "detail": "all three widths"
     },
     {
       "component": "Docs page",
-      "name": "axe: no violations on all 26 pages (forced-colors active)",
+      "name": "G-S5, a new chapter is fully visible on its first painted frame with motion on",
+      "ok": true
+    },
+    {
+      "component": "Docs page",
+      "name": "on narrow screens Esc closes the menu and returns focus to the Menu button",
+      "ok": true
+    },
+    {
+      "component": "Docs page",
+      "name": "no two cards touch (under 8px) or overlap on any of the 37 pages at 375px and 1280px",
+      "ok": true
+    },
+    {
+      "component": "Docs page",
+      "name": "G-F1, every foundation page (9) has a playground whose first control changes its preview",
       "ok": true,
-      "detail": "color-contrast incomplete on 5033 nodes (axe cannot see through backdrop-filter — settled per pixel by glass-evidence)"
+      "detail": "9 pages"
+    },
+    {
+      "component": "Docs page",
+      "name": "G-C1, every code block on all 37 pages has a Copy button you can see",
+      "ok": true,
+      "detail": "106 code blocks"
+    },
+    {
+      "component": "Docs page",
+      "name": "G-C2, Copy puts the whole snippet on the clipboard, including lines a long block hides",
+      "ok": true,
+      "detail": "15 lines copied"
+    },
+    {
+      "component": "Docs page",
+      "name": "G-T1, the theme control switches text and glass tokens, and the evidence covers both themes",
+      "ok": true,
+      "detail": "text #FFFFFF → #111214"
+    },
+    {
+      "component": "Docs page",
+      "name": "G-B1, all 13 component pages show the component in both themes over a dark and a bright scene, and say what changes",
+      "ok": true
+    },
+    {
+      "component": "Docs page",
+      "name": "G-L1, all 13 component pages state a status, their own change history, limitations and the accessibility work left to the app",
+      "ok": true
+    },
+    {
+      "component": "Docs page",
+      "name": "G-M1, the accessibility matrix lists all 13 components and no cell is blank",
+      "ok": true,
+      "detail": "13 rows"
+    },
+    {
+      "component": "Docs page",
+      "name": "axe finds no violations on all 37 pages (forced-colors none)",
+      "ok": true,
+      "detail": "color-contrast incomplete on 10253 nodes because axe cannot see through backdrop-filter, and glass-evidence settles those per pixel"
+    },
+    {
+      "component": "Docs page",
+      "name": "axe finds no violations on all 37 pages (forced-colors active)",
+      "ok": true,
+      "detail": "color-contrast incomplete on 10189 nodes because axe cannot see through backdrop-filter, and glass-evidence settles those per pixel"
     }
   ]
 }

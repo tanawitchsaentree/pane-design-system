@@ -14,11 +14,14 @@
     "smoke:import": "node tooling/smoke-import.mjs",
     "tokens:build": "pnpm --filter pane-tokens build",
     "docs:dev": "pnpm --filter pane-docs dev",
-    "docs:build": "pnpm --filter pane-docs build",
+    "docs:build": "pnpm --filter pane-react build && pnpm --filter pane-docs build",
     "glass:evidence": "node tooling/glass-evidence.mjs",
     "conformance": "node tooling/conformance.mjs",
     "typecheck": "pnpm --filter pane-react typecheck && pnpm --filter pane-docs exec tsc --noEmit -p .",
-    "verify": "pnpm run tokens:build && pnpm run lint && node tooling/generate-barrel.mjs --check && pnpm run typecheck && node tooling/docs-meta.mjs && pnpm run docs:build && node tooling/glass-evidence.mjs --no-build && node tooling/conformance.mjs --no-build && pnpm run docs:build"
+    "verify": "pnpm run tokens:build && pnpm run lint && node tooling/generate-barrel.mjs --check && pnpm run typecheck && node tooling/docs-meta.mjs && pnpm run docs:build && node tooling/smoke-import.mjs && node tooling/glass-evidence.mjs --no-build && node tooling/conformance.mjs --no-build && pnpm run docs:build && node tooling/tone-gate.mjs",
+    "react:build": "pnpm --filter pane-react build",
+    "release:pack": "node tooling/release-pack.mjs",
+    "tone": "node tooling/tone-gate.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.0",

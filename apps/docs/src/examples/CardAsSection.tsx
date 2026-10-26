@@ -1,4 +1,4 @@
-// @example as="section" — a titled region, labelled by its heading
+// @example A card as a titled section
 import { Card } from 'pane-react';
 
 export default function CardAsSection() {

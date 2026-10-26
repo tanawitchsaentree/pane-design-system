@@ -1,4 +1,4 @@
-// @example A grid of panes — the backdrop shows in the gaps
+// @example A grid of panes
 import { Card } from 'pane-react';
 
 const STATS = [['Followers', '1.6M'], ['Posts', '1,284'], ['Saved', '96']] as const;

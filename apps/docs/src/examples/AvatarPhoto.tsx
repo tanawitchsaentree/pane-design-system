@@ -1,4 +1,4 @@
-// @example Photo or initials — the same name drives both
+// @example Photo or initials from the same name
 import { Avatar } from 'pane-react';
 
 export default function AvatarPhoto() {

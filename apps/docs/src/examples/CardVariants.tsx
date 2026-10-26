@@ -8,7 +8,7 @@ export default function CardVariants() {
       <h3 className="flush">Trip to Lauterbrunnen</h3>
       <p className="flush muted">Saturday · 3 people going</p>
       <Card variant="inset" as="div">
-        <p className="flush">Meet at the station at 07:40. Bring layers — it’s 4°C at the falls.</p>
+        <p className="flush">Meet at the station at 07:40. Bring layers. It’s 4°C at the falls.</p>
       </Card>
       <Button>Join</Button>
     </Card>
