@@ -1,0 +1,3418 @@
+{
+  "generatedAt": "2026-10-26T05:33:09.992Z",
+  "browser": "chromium 156.0.8078.4",
+  "thresholds": {
+    "text": 4.5,
+    "edge": 3,
+    "focus": 3,
+    "thumb": 3
+  },
+  "modes": {
+    "normal": {
+      "white/panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Panel title",
+            "min": 19.22,
+            "pixels": 2782,
+            "lumStd": 0
+          },
+          {
+            "label": "Secondary description text",
+            "min": 12.76,
+            "pixels": 4074,
+            "lumStd": 0
+          },
+          {
+            "label": "Body text on a regular pane.",
+            "min": 19.22,
+            "pixels": 4410,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "white/button-glass": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Glass button",
+            "min": 19.22,
+            "pixels": 1404,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "white/button-primary": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Primary button",
+            "min": 6.57,
+            "pixels": 1674,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "white/badge": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Neutral",
+            "min": 19.22,
+            "pixels": 720,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "white/field-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Email",
+            "min": 19.22,
+            "pixels": 646,
+            "lumStd": 0
+          },
+          {
+            "label": "Error: enter an email address",
+            "min": 10.05,
+            "pixels": 3515,
+            "lumStd": 0
+          },
+          {
+            "label": "Helper text",
+            "min": 12.76,
+            "pixels": 1311,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"name@example.com\"",
+            "min": 19.22,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          10.05
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "white/switch-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Off switch",
+            "min": 19.22,
+            "pixels": 1460,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": [
+          19.22
+        ]
+      },
+      "white/field-bare": {
+        "bare": true,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Bare label",
+            "min": 19.22,
+            "pixels": 1216,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"value\"",
+            "min": 19.22,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "black/panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Panel title",
+            "min": 9.69,
+            "pixels": 2782,
+            "lumStd": 0
+          },
+          {
+            "label": "Secondary description text",
+            "min": 6.43,
+            "pixels": 4074,
+            "lumStd": 0
+          },
+          {
+            "label": "Body text on a regular pane.",
+            "min": 9.69,
+            "pixels": 4410,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "black/button-glass": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Glass button",
+            "min": 9.69,
+            "pixels": 1404,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          21
+        ],
+        "thumb": []
+      },
+      "black/button-primary": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Primary button",
+            "min": 6.57,
+            "pixels": 1674,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          21
+        ],
+        "thumb": []
+      },
+      "black/badge": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Neutral",
+            "min": 13.88,
+            "pixels": 720,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "black/field-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Email",
+            "min": 9.69,
+            "pixels": 646,
+            "lumStd": 0
+          },
+          {
+            "label": "Error: enter an email address",
+            "min": 5.07,
+            "pixels": 3515,
+            "lumStd": 0
+          },
+          {
+            "label": "Helper text",
+            "min": 6.43,
+            "pixels": 1311,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"name@example.com\"",
+            "min": 18.73,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          5.07
+        ],
+        "focus": [
+          9.69
+        ],
+        "thumb": []
+      },
+      "black/switch-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Off switch",
+            "min": 9.69,
+            "pixels": 1460,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          8.82
+        ],
+        "focus": [
+          9.69
+        ],
+        "thumb": [
+          18.73
+        ]
+      },
+      "black/field-bare": {
+        "bare": true,
+        "pass": false,
+        "failures": [
+          "text \"Bare label\" 1.09 < 4.5"
+        ],
+        "text": [
+          {
+            "label": "Bare label",
+            "min": 1.09,
+            "pixels": 1216,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"value\"",
+            "min": 13.88,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          21
+        ],
+        "thumb": []
+      },
+      "midgray/panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Panel title",
+            "min": 13.62,
+            "pixels": 2782,
+            "lumStd": 0
+          },
+          {
+            "label": "Secondary description text",
+            "min": 9.04,
+            "pixels": 4074,
+            "lumStd": 0
+          },
+          {
+            "label": "Body text on a regular pane.",
+            "min": 13.62,
+            "pixels": 4410,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          4.48
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "midgray/button-glass": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Glass button",
+            "min": 13.62,
+            "pixels": 1404,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          4.48
+        ],
+        "focus": [
+          4.48
+        ],
+        "thumb": []
+      },
+      "midgray/button-primary": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Primary button",
+            "min": 6.57,
+            "pixels": 1674,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          4.48
+        ],
+        "focus": [
+          4.48
+        ],
+        "thumb": []
+      },
+      "midgray/badge": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Neutral",
+            "min": 16.27,
+            "pixels": 720,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          4.48
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "midgray/field-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Email",
+            "min": 13.62,
+            "pixels": 646,
+            "lumStd": 0
+          },
+          {
+            "label": "Error: enter an email address",
+            "min": 7.12,
+            "pixels": 3515,
+            "lumStd": 0
+          },
+          {
+            "label": "Helper text",
+            "min": 9.04,
+            "pixels": 1311,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"name@example.com\"",
+            "min": 18.89,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          7.12
+        ],
+        "focus": [
+          13.62
+        ],
+        "thumb": []
+      },
+      "midgray/switch-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Off switch",
+            "min": 13.62,
+            "pixels": 1460,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          12.39
+        ],
+        "focus": [
+          13.62
+        ],
+        "thumb": [
+          18.89
+        ]
+      },
+      "midgray/field-bare": {
+        "bare": true,
+        "pass": false,
+        "failures": [
+          "text \"Bare label\" 4.29 < 4.5"
+        ],
+        "text": [
+          {
+            "label": "Bare label",
+            "min": 4.29,
+            "pixels": 1216,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"value\"",
+            "min": 16.27,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          4.48
+        ],
+        "focus": [
+          4.48
+        ],
+        "thumb": []
+      },
+      "stripes/panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Panel title",
+            "min": 13.62,
+            "pixels": 2782,
+            "lumStd": 0
+          },
+          {
+            "label": "Secondary description text",
+            "min": 9.04,
+            "pixels": 4074,
+            "lumStd": 0
+          },
+          {
+            "label": "Body text on a regular pane.",
+            "min": 13.62,
+            "pixels": 4410,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "stripes/button-glass": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Glass button",
+            "min": 13.35,
+            "pixels": 1404,
+            "lumStd": 0.01
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "stripes/button-primary": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Primary button",
+            "min": 6.57,
+            "pixels": 1674,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "stripes/badge": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Neutral",
+            "min": 15.98,
+            "pixels": 720,
+            "lumStd": 0.01
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "stripes/field-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Email",
+            "min": 13.62,
+            "pixels": 646,
+            "lumStd": 0.01
+          },
+          {
+            "label": "Error: enter an email address",
+            "min": 7.12,
+            "pixels": 3515,
+            "lumStd": 0
+          },
+          {
+            "label": "Helper text",
+            "min": 9.04,
+            "pixels": 1311,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"name@example.com\"",
+            "min": 18.89,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          7.12
+        ],
+        "focus": [
+          13.48
+        ],
+        "thumb": []
+      },
+      "stripes/switch-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Off switch",
+            "min": 13.88,
+            "pixels": 1460,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          12.39
+        ],
+        "focus": [
+          13.48
+        ],
+        "thumb": [
+          18.89
+        ]
+      },
+      "stripes/field-bare": {
+        "bare": true,
+        "pass": false,
+        "failures": [
+          "text \"Bare label\" 1.09 < 4.5"
+        ],
+        "text": [
+          {
+            "label": "Bare label",
+            "min": 1.09,
+            "pixels": 1216,
+            "lumStd": 0.5
+          },
+          {
+            "label": "input value \"value\"",
+            "min": 16.12,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "gradient/panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Panel title",
+            "min": 15.2,
+            "pixels": 2782,
+            "lumStd": 0.03
+          },
+          {
+            "label": "Secondary description text",
+            "min": 9.6,
+            "pixels": 4074,
+            "lumStd": 0.03
+          },
+          {
+            "label": "Body text on a regular pane.",
+            "min": 13.57,
+            "pixels": 4410,
+            "lumStd": 0.04
+          }
+        ],
+        "edge": [
+          4.19
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "gradient/button-glass": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Glass button",
+            "min": 15.04,
+            "pixels": 1404,
+            "lumStd": 0.02
+          }
+        ],
+        "edge": [
+          4.19
+        ],
+        "focus": [
+          4.56
+        ],
+        "thumb": []
+      },
+      "gradient/button-primary": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Primary button",
+            "min": 6.57,
+            "pixels": 1674,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          4.21
+        ],
+        "focus": [
+          4.42
+        ],
+        "thumb": []
+      },
+      "gradient/badge": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Neutral",
+            "min": 17.09,
+            "pixels": 720,
+            "lumStd": 0.01
+          }
+        ],
+        "edge": [
+          6.1
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "gradient/field-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Email",
+            "min": 15.2,
+            "pixels": 646,
+            "lumStd": 0.03
+          },
+          {
+            "label": "Error: enter an email address",
+            "min": 7.83,
+            "pixels": 3515,
+            "lumStd": 0.03
+          },
+          {
+            "label": "Helper text",
+            "min": 10.09,
+            "pixels": 1311,
+            "lumStd": 0.02
+          },
+          {
+            "label": "input value \"name@example.com\"",
+            "min": 18.98,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          6.95
+        ],
+        "focus": [
+          13.14
+        ],
+        "thumb": []
+      },
+      "gradient/switch-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Off switch",
+            "min": 14.56,
+            "pixels": 1460,
+            "lumStd": 0.01
+          }
+        ],
+        "edge": [
+          14.24
+        ],
+        "focus": [
+          15.55
+        ],
+        "thumb": [
+          19.03
+        ]
+      },
+      "gradient/field-bare": {
+        "bare": true,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Bare label",
+            "min": 6.57,
+            "pixels": 1216,
+            "lumStd": 0.11
+          },
+          {
+            "label": "input value \"value\"",
+            "min": 16.29,
+            "pixels": 3024,
+            "lumStd": 0.02
+          }
+        ],
+        "edge": [
+          4.19
+        ],
+        "focus": [
+          4.4
+        ],
+        "thumb": []
+      },
+      "bauhaus/panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Panel title",
+            "min": 12.36,
+            "pixels": 2782,
+            "lumStd": 0.11
+          },
+          {
+            "label": "Secondary description text",
+            "min": 7.96,
+            "pixels": 4074,
+            "lumStd": 0.1
+          },
+          {
+            "label": "Body text on a regular pane.",
+            "min": 11.77,
+            "pixels": 4410,
+            "lumStd": 0.14
+          }
+        ],
+        "edge": [
+          5.21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "bauhaus/button-glass": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Glass button",
+            "min": 12.54,
+            "pixels": 1404,
+            "lumStd": 0.1
+          }
+        ],
+        "edge": [
+          5.21
+        ],
+        "focus": [
+          5.21
+        ],
+        "thumb": []
+      },
+      "bauhaus/button-primary": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Primary button",
+            "min": 6.57,
+            "pixels": 1674,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          5.21
+        ],
+        "focus": [
+          5.21
+        ],
+        "thumb": []
+      },
+      "bauhaus/badge": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Neutral",
+            "min": 15.42,
+            "pixels": 720,
+            "lumStd": 0.05
+          }
+        ],
+        "edge": [
+          5.21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "bauhaus/field-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Email",
+            "min": 12.36,
+            "pixels": 646,
+            "lumStd": 0
+          },
+          {
+            "label": "Error: enter an email address",
+            "min": 6.16,
+            "pixels": 3515,
+            "lumStd": 0.13
+          },
+          {
+            "label": "Helper text",
+            "min": 11.78,
+            "pixels": 1311,
+            "lumStd": 0.01
+          },
+          {
+            "label": "input value \"name@example.com\"",
+            "min": 18.84,
+            "pixels": 3024,
+            "lumStd": 0.01
+          }
+        ],
+        "edge": [
+          6.16
+        ],
+        "focus": [
+          11.78
+        ],
+        "thumb": []
+      },
+      "bauhaus/switch-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Off switch",
+            "min": 16.15,
+            "pixels": 1460,
+            "lumStd": 0.04
+          }
+        ],
+        "edge": [
+          11.25
+        ],
+        "focus": [
+          12.36
+        ],
+        "thumb": [
+          18.84
+        ]
+      },
+      "bauhaus/field-bare": {
+        "bare": true,
+        "pass": false,
+        "failures": [
+          "text \"Bare label\" 3.69 < 4.5"
+        ],
+        "text": [
+          {
+            "label": "Bare label",
+            "min": 3.69,
+            "pixels": 1216,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"value\"",
+            "min": 15.42,
+            "pixels": 3024,
+            "lumStd": 0.06
+          }
+        ],
+        "edge": [
+          5.21
+        ],
+        "focus": [
+          5.21
+        ],
+        "thumb": []
+      }
+    },
+    "reduced-transparency": {
+      "white/panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Panel title",
+            "min": 16.95,
+            "pixels": 2782,
+            "lumStd": 0
+          },
+          {
+            "label": "Secondary description text",
+            "min": 11.25,
+            "pixels": 4074,
+            "lumStd": 0
+          },
+          {
+            "label": "Body text on a regular pane.",
+            "min": 16.95,
+            "pixels": 4410,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "white/button-glass": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Glass button",
+            "min": 16.95,
+            "pixels": 1404,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "white/button-primary": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Primary button",
+            "min": 6.57,
+            "pixels": 1674,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "white/badge": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Neutral",
+            "min": 16.95,
+            "pixels": 720,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "white/field-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Email",
+            "min": 16.95,
+            "pixels": 646,
+            "lumStd": 0
+          },
+          {
+            "label": "Error: enter an email address",
+            "min": 8.87,
+            "pixels": 3515,
+            "lumStd": 0
+          },
+          {
+            "label": "Helper text",
+            "min": 11.25,
+            "pixels": 1311,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"name@example.com\"",
+            "min": 16.95,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          8.87
+        ],
+        "focus": [
+          16.95
+        ],
+        "thumb": []
+      },
+      "white/switch-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Off switch",
+            "min": 16.95,
+            "pixels": 1460,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          15.43
+        ],
+        "focus": [
+          16.95
+        ],
+        "thumb": [
+          16.95
+        ]
+      },
+      "white/field-bare": {
+        "bare": true,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Bare label",
+            "min": 19.22,
+            "pixels": 1216,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"value\"",
+            "min": 16.95,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "black/panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Panel title",
+            "min": 16.95,
+            "pixels": 2782,
+            "lumStd": 0
+          },
+          {
+            "label": "Secondary description text",
+            "min": 11.25,
+            "pixels": 4074,
+            "lumStd": 0
+          },
+          {
+            "label": "Body text on a regular pane.",
+            "min": 16.95,
+            "pixels": 4410,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "black/button-glass": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Glass button",
+            "min": 16.95,
+            "pixels": 1404,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          21
+        ],
+        "thumb": []
+      },
+      "black/button-primary": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Primary button",
+            "min": 6.57,
+            "pixels": 1674,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          21
+        ],
+        "thumb": []
+      },
+      "black/badge": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Neutral",
+            "min": 16.95,
+            "pixels": 720,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "black/field-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Email",
+            "min": 16.95,
+            "pixels": 646,
+            "lumStd": 0
+          },
+          {
+            "label": "Error: enter an email address",
+            "min": 8.87,
+            "pixels": 3515,
+            "lumStd": 0
+          },
+          {
+            "label": "Helper text",
+            "min": 11.25,
+            "pixels": 1311,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"name@example.com\"",
+            "min": 16.95,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          8.87
+        ],
+        "focus": [
+          16.95
+        ],
+        "thumb": []
+      },
+      "black/switch-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Off switch",
+            "min": 16.95,
+            "pixels": 1460,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          15.43
+        ],
+        "focus": [
+          16.95
+        ],
+        "thumb": [
+          16.95
+        ]
+      },
+      "black/field-bare": {
+        "bare": true,
+        "pass": false,
+        "failures": [
+          "text \"Bare label\" 1.09 < 4.5"
+        ],
+        "text": [
+          {
+            "label": "Bare label",
+            "min": 1.09,
+            "pixels": 1216,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"value\"",
+            "min": 16.95,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          21
+        ],
+        "thumb": []
+      },
+      "midgray/panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Panel title",
+            "min": 16.95,
+            "pixels": 2782,
+            "lumStd": 0
+          },
+          {
+            "label": "Secondary description text",
+            "min": 11.25,
+            "pixels": 4074,
+            "lumStd": 0
+          },
+          {
+            "label": "Body text on a regular pane.",
+            "min": 16.95,
+            "pixels": 4410,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          4.48
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "midgray/button-glass": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Glass button",
+            "min": 16.95,
+            "pixels": 1404,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          4.48
+        ],
+        "focus": [
+          4.48
+        ],
+        "thumb": []
+      },
+      "midgray/button-primary": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Primary button",
+            "min": 6.57,
+            "pixels": 1674,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          4.48
+        ],
+        "focus": [
+          4.48
+        ],
+        "thumb": []
+      },
+      "midgray/badge": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Neutral",
+            "min": 16.95,
+            "pixels": 720,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          4.48
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "midgray/field-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Email",
+            "min": 16.95,
+            "pixels": 646,
+            "lumStd": 0
+          },
+          {
+            "label": "Error: enter an email address",
+            "min": 8.87,
+            "pixels": 3515,
+            "lumStd": 0
+          },
+          {
+            "label": "Helper text",
+            "min": 11.25,
+            "pixels": 1311,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"name@example.com\"",
+            "min": 16.95,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          8.87
+        ],
+        "focus": [
+          16.95
+        ],
+        "thumb": []
+      },
+      "midgray/switch-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Off switch",
+            "min": 16.95,
+            "pixels": 1460,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          15.43
+        ],
+        "focus": [
+          16.95
+        ],
+        "thumb": [
+          16.95
+        ]
+      },
+      "midgray/field-bare": {
+        "bare": true,
+        "pass": false,
+        "failures": [
+          "text \"Bare label\" 4.29 < 4.5"
+        ],
+        "text": [
+          {
+            "label": "Bare label",
+            "min": 4.29,
+            "pixels": 1216,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"value\"",
+            "min": 16.95,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          4.48
+        ],
+        "focus": [
+          4.48
+        ],
+        "thumb": []
+      },
+      "stripes/panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Panel title",
+            "min": 16.95,
+            "pixels": 2782,
+            "lumStd": 0
+          },
+          {
+            "label": "Secondary description text",
+            "min": 11.25,
+            "pixels": 4074,
+            "lumStd": 0
+          },
+          {
+            "label": "Body text on a regular pane.",
+            "min": 16.95,
+            "pixels": 4410,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "stripes/button-glass": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Glass button",
+            "min": 16.95,
+            "pixels": 1404,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "stripes/button-primary": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Primary button",
+            "min": 6.57,
+            "pixels": 1674,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "stripes/badge": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Neutral",
+            "min": 16.95,
+            "pixels": 720,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "stripes/field-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Email",
+            "min": 16.95,
+            "pixels": 646,
+            "lumStd": 0
+          },
+          {
+            "label": "Error: enter an email address",
+            "min": 8.87,
+            "pixels": 3515,
+            "lumStd": 0
+          },
+          {
+            "label": "Helper text",
+            "min": 11.25,
+            "pixels": 1311,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"name@example.com\"",
+            "min": 16.95,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          8.87
+        ],
+        "focus": [
+          16.95
+        ],
+        "thumb": []
+      },
+      "stripes/switch-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Off switch",
+            "min": 16.95,
+            "pixels": 1460,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          15.43
+        ],
+        "focus": [
+          16.95
+        ],
+        "thumb": [
+          16.95
+        ]
+      },
+      "stripes/field-bare": {
+        "bare": true,
+        "pass": false,
+        "failures": [
+          "text \"Bare label\" 1.09 < 4.5"
+        ],
+        "text": [
+          {
+            "label": "Bare label",
+            "min": 1.09,
+            "pixels": 1216,
+            "lumStd": 0.5
+          },
+          {
+            "label": "input value \"value\"",
+            "min": 16.95,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          17.49
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "gradient/panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Panel title",
+            "min": 16.95,
+            "pixels": 2782,
+            "lumStd": 0
+          },
+          {
+            "label": "Secondary description text",
+            "min": 11.25,
+            "pixels": 4074,
+            "lumStd": 0
+          },
+          {
+            "label": "Body text on a regular pane.",
+            "min": 16.95,
+            "pixels": 4410,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          4.19
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "gradient/button-glass": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Glass button",
+            "min": 16.95,
+            "pixels": 1404,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          4.19
+        ],
+        "focus": [
+          4.56
+        ],
+        "thumb": []
+      },
+      "gradient/button-primary": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Primary button",
+            "min": 6.57,
+            "pixels": 1674,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          4.21
+        ],
+        "focus": [
+          4.42
+        ],
+        "thumb": []
+      },
+      "gradient/badge": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Neutral",
+            "min": 16.95,
+            "pixels": 720,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          6.1
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "gradient/field-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Email",
+            "min": 16.95,
+            "pixels": 646,
+            "lumStd": 0
+          },
+          {
+            "label": "Error: enter an email address",
+            "min": 8.87,
+            "pixels": 3515,
+            "lumStd": 0
+          },
+          {
+            "label": "Helper text",
+            "min": 11.25,
+            "pixels": 1311,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"name@example.com\"",
+            "min": 16.95,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          8.87
+        ],
+        "focus": [
+          16.95
+        ],
+        "thumb": []
+      },
+      "gradient/switch-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Off switch",
+            "min": 16.95,
+            "pixels": 1460,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          15.43
+        ],
+        "focus": [
+          16.95
+        ],
+        "thumb": [
+          16.95
+        ]
+      },
+      "gradient/field-bare": {
+        "bare": true,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Bare label",
+            "min": 6.57,
+            "pixels": 1216,
+            "lumStd": 0.11
+          },
+          {
+            "label": "input value \"value\"",
+            "min": 16.95,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          4.19
+        ],
+        "focus": [
+          4.4
+        ],
+        "thumb": []
+      },
+      "bauhaus/panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Panel title",
+            "min": 16.95,
+            "pixels": 2782,
+            "lumStd": 0
+          },
+          {
+            "label": "Secondary description text",
+            "min": 11.25,
+            "pixels": 4074,
+            "lumStd": 0
+          },
+          {
+            "label": "Body text on a regular pane.",
+            "min": 16.95,
+            "pixels": 4410,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          5.21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "bauhaus/button-glass": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Glass button",
+            "min": 16.95,
+            "pixels": 1404,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          5.21
+        ],
+        "focus": [
+          5.21
+        ],
+        "thumb": []
+      },
+      "bauhaus/button-primary": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Primary button",
+            "min": 6.57,
+            "pixels": 1674,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          5.21
+        ],
+        "focus": [
+          5.21
+        ],
+        "thumb": []
+      },
+      "bauhaus/badge": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Neutral",
+            "min": 16.95,
+            "pixels": 720,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          5.21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "bauhaus/field-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Email",
+            "min": 16.95,
+            "pixels": 646,
+            "lumStd": 0
+          },
+          {
+            "label": "Error: enter an email address",
+            "min": 8.87,
+            "pixels": 3515,
+            "lumStd": 0
+          },
+          {
+            "label": "Helper text",
+            "min": 11.25,
+            "pixels": 1311,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"name@example.com\"",
+            "min": 16.95,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          8.87
+        ],
+        "focus": [
+          16.95
+        ],
+        "thumb": []
+      },
+      "bauhaus/switch-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Off switch",
+            "min": 16.95,
+            "pixels": 1460,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          15.43
+        ],
+        "focus": [
+          16.95
+        ],
+        "thumb": [
+          16.95
+        ]
+      },
+      "bauhaus/field-bare": {
+        "bare": true,
+        "pass": false,
+        "failures": [
+          "text \"Bare label\" 3.69 < 4.5"
+        ],
+        "text": [
+          {
+            "label": "Bare label",
+            "min": 3.69,
+            "pixels": 1216,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"value\"",
+            "min": 16.95,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          5.21
+        ],
+        "focus": [
+          5.21
+        ],
+        "thumb": []
+      }
+    },
+    "forced-colors": {
+      "white/panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Panel title",
+            "min": 21,
+            "pixels": 2782,
+            "lumStd": 0
+          },
+          {
+            "label": "Secondary description text",
+            "min": 21,
+            "pixels": 4074,
+            "lumStd": 0
+          },
+          {
+            "label": "Body text on a regular pane.",
+            "min": 21,
+            "pixels": 4410,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "white/button-glass": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Glass button",
+            "min": 21,
+            "pixels": 1404,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "white/button-primary": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Primary button",
+            "min": 21,
+            "pixels": 1674,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "white/badge": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Neutral",
+            "min": 21,
+            "pixels": 720,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "white/field-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Email",
+            "min": 21,
+            "pixels": 646,
+            "lumStd": 0
+          },
+          {
+            "label": "Error: enter an email address",
+            "min": 21,
+            "pixels": 3515,
+            "lumStd": 0
+          },
+          {
+            "label": "Helper text",
+            "min": 21,
+            "pixels": 1311,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"name@example.com\"",
+            "min": 18.52,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "white/switch-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Off switch",
+            "min": 21,
+            "pixels": 1460,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": [
+          21
+        ]
+      },
+      "white/field-bare": {
+        "bare": true,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Bare label",
+            "min": 21,
+            "pixels": 1216,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"value\"",
+            "min": 18.52,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "black/panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Panel title",
+            "min": 21,
+            "pixels": 2782,
+            "lumStd": 0
+          },
+          {
+            "label": "Secondary description text",
+            "min": 21,
+            "pixels": 4074,
+            "lumStd": 0
+          },
+          {
+            "label": "Body text on a regular pane.",
+            "min": 21,
+            "pixels": 4410,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "black/button-glass": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Glass button",
+            "min": 21,
+            "pixels": 1404,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "black/button-primary": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Primary button",
+            "min": 21,
+            "pixels": 1674,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "black/badge": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Neutral",
+            "min": 21,
+            "pixels": 720,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "black/field-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Email",
+            "min": 21,
+            "pixels": 646,
+            "lumStd": 0
+          },
+          {
+            "label": "Error: enter an email address",
+            "min": 21,
+            "pixels": 3515,
+            "lumStd": 0
+          },
+          {
+            "label": "Helper text",
+            "min": 21,
+            "pixels": 1311,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"name@example.com\"",
+            "min": 18.52,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "black/switch-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Off switch",
+            "min": 21,
+            "pixels": 1460,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": [
+          21
+        ]
+      },
+      "black/field-bare": {
+        "bare": true,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Bare label",
+            "min": 21,
+            "pixels": 1216,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"value\"",
+            "min": 18.52,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "midgray/panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Panel title",
+            "min": 21,
+            "pixels": 2782,
+            "lumStd": 0
+          },
+          {
+            "label": "Secondary description text",
+            "min": 21,
+            "pixels": 4074,
+            "lumStd": 0
+          },
+          {
+            "label": "Body text on a regular pane.",
+            "min": 21,
+            "pixels": 4410,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "midgray/button-glass": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Glass button",
+            "min": 21,
+            "pixels": 1404,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "midgray/button-primary": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Primary button",
+            "min": 21,
+            "pixels": 1674,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "midgray/badge": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Neutral",
+            "min": 21,
+            "pixels": 720,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "midgray/field-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Email",
+            "min": 21,
+            "pixels": 646,
+            "lumStd": 0
+          },
+          {
+            "label": "Error: enter an email address",
+            "min": 21,
+            "pixels": 3515,
+            "lumStd": 0
+          },
+          {
+            "label": "Helper text",
+            "min": 21,
+            "pixels": 1311,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"name@example.com\"",
+            "min": 18.52,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "midgray/switch-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Off switch",
+            "min": 21,
+            "pixels": 1460,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": [
+          21
+        ]
+      },
+      "midgray/field-bare": {
+        "bare": true,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Bare label",
+            "min": 21,
+            "pixels": 1216,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"value\"",
+            "min": 18.52,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "stripes/panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Panel title",
+            "min": 21,
+            "pixels": 2782,
+            "lumStd": 0
+          },
+          {
+            "label": "Secondary description text",
+            "min": 21,
+            "pixels": 4074,
+            "lumStd": 0
+          },
+          {
+            "label": "Body text on a regular pane.",
+            "min": 21,
+            "pixels": 4410,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "stripes/button-glass": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Glass button",
+            "min": 21,
+            "pixels": 1404,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "stripes/button-primary": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Primary button",
+            "min": 21,
+            "pixels": 1674,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "stripes/badge": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Neutral",
+            "min": 21,
+            "pixels": 720,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "stripes/field-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Email",
+            "min": 21,
+            "pixels": 646,
+            "lumStd": 0
+          },
+          {
+            "label": "Error: enter an email address",
+            "min": 21,
+            "pixels": 3515,
+            "lumStd": 0
+          },
+          {
+            "label": "Helper text",
+            "min": 21,
+            "pixels": 1311,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"name@example.com\"",
+            "min": 18.52,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "stripes/switch-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Off switch",
+            "min": 21,
+            "pixels": 1460,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": [
+          21
+        ]
+      },
+      "stripes/field-bare": {
+        "bare": true,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Bare label",
+            "min": 21,
+            "pixels": 1216,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"value\"",
+            "min": 18.52,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "gradient/panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Panel title",
+            "min": 21,
+            "pixels": 2782,
+            "lumStd": 0
+          },
+          {
+            "label": "Secondary description text",
+            "min": 21,
+            "pixels": 4074,
+            "lumStd": 0
+          },
+          {
+            "label": "Body text on a regular pane.",
+            "min": 21,
+            "pixels": 4410,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "gradient/button-glass": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Glass button",
+            "min": 21,
+            "pixels": 1404,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "gradient/button-primary": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Primary button",
+            "min": 21,
+            "pixels": 1674,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "gradient/badge": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Neutral",
+            "min": 21,
+            "pixels": 720,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "gradient/field-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Email",
+            "min": 21,
+            "pixels": 646,
+            "lumStd": 0
+          },
+          {
+            "label": "Error: enter an email address",
+            "min": 21,
+            "pixels": 3515,
+            "lumStd": 0
+          },
+          {
+            "label": "Helper text",
+            "min": 21,
+            "pixels": 1311,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"name@example.com\"",
+            "min": 18.52,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "gradient/switch-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Off switch",
+            "min": 21,
+            "pixels": 1460,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": [
+          21
+        ]
+      },
+      "gradient/field-bare": {
+        "bare": true,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Bare label",
+            "min": 21,
+            "pixels": 1216,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"value\"",
+            "min": 18.52,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "bauhaus/panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Panel title",
+            "min": 21,
+            "pixels": 2782,
+            "lumStd": 0
+          },
+          {
+            "label": "Secondary description text",
+            "min": 21,
+            "pixels": 4074,
+            "lumStd": 0
+          },
+          {
+            "label": "Body text on a regular pane.",
+            "min": 21,
+            "pixels": 4410,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "bauhaus/button-glass": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Glass button",
+            "min": 21,
+            "pixels": 1404,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "bauhaus/button-primary": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Primary button",
+            "min": 21,
+            "pixels": 1674,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "bauhaus/badge": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Neutral",
+            "min": 21,
+            "pixels": 720,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [],
+        "thumb": []
+      },
+      "bauhaus/field-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Email",
+            "min": 21,
+            "pixels": 646,
+            "lumStd": 0
+          },
+          {
+            "label": "Error: enter an email address",
+            "min": 21,
+            "pixels": 3515,
+            "lumStd": 0
+          },
+          {
+            "label": "Helper text",
+            "min": 21,
+            "pixels": 1311,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"name@example.com\"",
+            "min": 18.52,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      },
+      "bauhaus/switch-on-panel": {
+        "bare": false,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Off switch",
+            "min": 21,
+            "pixels": 1460,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": [
+          21
+        ]
+      },
+      "bauhaus/field-bare": {
+        "bare": true,
+        "pass": true,
+        "failures": [],
+        "text": [
+          {
+            "label": "Bare label",
+            "min": 21,
+            "pixels": 1216,
+            "lumStd": 0
+          },
+          {
+            "label": "input value \"value\"",
+            "min": 18.52,
+            "pixels": 3024,
+            "lumStd": 0
+          }
+        ],
+        "edge": [
+          21
+        ],
+        "focus": [
+          19.22
+        ],
+        "thumb": []
+      }
+    }
+  },
+  "docsPage": {
+    "normal": {
+      "textElements": 763,
+      "failures": [],
+      "worst": [
+        {
+          "label": "FAIL (bare, expected)",
+          "min": 6.16,
+          "color": "rgb(127, 29, 21)",
+          "at": {
+            "x": 886,
+            "y": 9126,
+            "rgb": [
+              188,
+              201,
+              250
+            ]
+          },
+          "rects": 1
+        },
+        {
+          "label": "FAIL (bare, expected)",
+          "min": 6.16,
+          "color": "rgb(127, 29, 21)",
+          "at": {
+            "x": 848,
+            "y": 9202,
+            "rgb": [
+              188,
+              201,
+              250
+            ]
+          },
+          "rects": 1
+        },
+        {
+          "label": "FAIL (bare, expected)",
+          "min": 6.16,
+          "color": "rgb(127, 29, 21)",
+          "at": {
+            "x": 848,
+            "y": 9240,
+            "rgb": [
+              188,
+              201,
+              250
+            ]
+          },
+          "rects": 1
+        },
+        {
+          "label": "FAIL (bare, expected)",
+          "min": 6.16,
+          "color": "rgb(127, 29, 21)",
+          "at": {
+            "x": 746,
+            "y": 9290,
+            "rgb": [
+              188,
+              201,
+              249
+            ]
+          },
+          "rects": 1
+        },
+        {
+          "label": "FAIL (bare, expected)",
+          "min": 6.16,
+          "color": "rgb(127, 29, 21)",
+          "at": {
+            "x": 848,
+            "y": 9278,
+            "rgb": [
+              188,
+              201,
+              250
+            ]
+          },
+          "rects": 1
+        }
+      ]
+    },
+    "reduced-transparency": {
+      "textElements": 763,
+      "failures": [],
+      "worst": [
+        {
+          "label": "bauhaus",
+          "min": 6.57,
+          "color": "rgb(255, 255, 255)",
+          "at": {
+            "x": 370,
+            "y": 2023,
+            "rgb": [
+              180,
+              35,
+              24
+            ]
+          },
+          "rects": 1
+        },
+        {
+          "label": "Publish",
+          "min": 6.57,
+          "color": "rgb(255, 255, 255)",
+          "at": {
+            "x": 370,
+            "y": 2341,
+            "rgb": [
+              180,
+              35,
+              24
+            ]
+          },
+          "rects": 1
+        },
+        {
+          "label": "Live",
+          "min": 6.57,
+          "color": "rgb(255, 255, 255)",
+          "at": {
+            "x": 425,
+            "y": 4366,
+            "rgb": [
+              180,
+              35,
+              24
+            ]
+          },
+          "rects": 1
+        },
+        {
+          "label": "Open",
+          "min": 6.57,
+          "color": "rgb(255, 255, 255)",
+          "at": {
+            "x": 395,
+            "y": 5973,
+            "rgb": [
+              180,
+              35,
+              24
+            ]
+          },
+          "rects": 1
+        },
+        {
+          "label": "Error: enter a full email address",
+          "min": 8.87,
+          "color": "rgb(127, 29, 21)",
+          "at": {
+            "x": 378,
+            "y": 7651,
+            "rgb": [
+              238,
+              241,
+              244
+            ]
+          },
+          "rects": 1
+        }
+      ]
+    },
+    "forced-colors": {
+      "textElements": 763,
+      "failures": [],
+      "worst": [
+        {
+          "label": "Principles",
+          "min": 13.99,
+          "color": "rgb(0, 0, 159)",
+          "at": {
+            "x": 49,
+            "y": 521,
+            "rgb": [
+              255,
+              255,
+              255
+            ]
+          },
+          "rects": 1
+        },
+        {
+          "label": "Foundations",
+          "min": 13.99,
+          "color": "rgb(0, 0, 159)",
+          "at": {
+            "x": 49,
+            "y": 553,
+            "rgb": [
+              255,
+              255,
+              255
+            ]
+          },
+          "rects": 1
+        },
+        {
+          "label": "Button",
+          "min": 13.99,
+          "color": "rgb(0, 0, 159)",
+          "at": {
+            "x": 49,
+            "y": 585,
+            "rgb": [
+              255,
+              255,
+              255
+            ]
+          },
+          "rects": 1
+        },
+        {
+          "label": "Badge",
+          "min": 13.99,
+          "color": "rgb(0, 0, 159)",
+          "at": {
+            "x": 49,
+            "y": 617,
+            "rgb": [
+              255,
+              255,
+              255
+            ]
+          },
+          "rects": 1
+        },
+        {
+          "label": "Panel",
+          "min": 13.99,
+          "color": "rgb(0, 0, 159)",
+          "at": {
+            "x": 49,
+            "y": 649,
+            "rgb": [
+              255,
+              255,
+              255
+            ]
+          },
+          "rects": 1
+        }
+      ]
+    }
+  },
+  "summary": {
+    "gatingScenes": 108,
+    "gatingFailures": 0,
+    "bareFailures": 8,
+    "docsTextElements": 2289,
+    "docsTextFailures": 0
+  }
+}

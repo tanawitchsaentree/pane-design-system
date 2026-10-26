@@ -1,0 +1,54 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-switch-gap);
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--ds-type-family);
+  font-size: var(--ds-type-body);
+  color: var(--ds-text-primary);
+  cursor: pointer;
+}
+.track {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  inline-size: var(--ds-switch-track-inline);
+  block-size: var(--ds-switch-track-block);
+  padding-inline: var(--ds-gap-tight);
+  background: var(--ds-switch-track-off);
+  backdrop-filter: blur(var(--ds-switch-blur)) saturate(var(--ds-glass-saturate));
+  -webkit-backdrop-filter: blur(var(--ds-switch-blur)) saturate(var(--ds-glass-saturate));
+  border: var(--ds-line-hairline) solid var(--ds-border-mullion-outer);
+  border-radius: var(--ds-switch-radius);
+  box-shadow: inset 0 0 0 var(--ds-line-hairline) var(--ds-border-mullion-inner);
+}
+/* flex-end, not a translateX: the thumb follows the writing direction, so RTL needs nothing extra. */
+.track[data-on] {
+  justify-content: flex-end;
+  background: var(--ds-switch-track-on);
+}
+.thumb {
+  box-sizing: border-box;
+  /* transparent edge: invisible normally, painted as a real line in forced-colors mode */
+  border: var(--ds-line-hairline) solid transparent;
+  inline-size: var(--ds-switch-thumb);
+  block-size: var(--ds-switch-thumb);
+  border-radius: var(--ds-switch-radius);
+  background: var(--ds-switch-thumb-off);
+}
+.track[data-on] .thumb { background: var(--ds-switch-thumb-on); }
+.root:focus-visible { outline: none; }
+.root:focus-visible .track {
+  outline: var(--ds-line-ring) solid var(--ds-focus-ring-inner);
+  outline-offset: 0;
+  box-shadow:
+    inset 0 0 0 var(--ds-line-hairline) var(--ds-border-mullion-inner),
+    0 0 0 calc(var(--ds-line-ring) * 2) var(--ds-focus-ring-outer);
+}
+@media (forced-colors: active) {
+  .thumb { forced-color-adjust: none; background: CanvasText; }
+  .track[data-on] .thumb { background: Highlight; }
+}

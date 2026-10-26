@@ -1,0 +1,27 @@
+/* A pane in its frame (D-002/D-004): glass infill, opaque double mullion. */
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-panel-gap);
+  padding: var(--ds-panel-padding);
+  background: var(--ds-panel-bg);
+  backdrop-filter: blur(var(--ds-panel-blur)) saturate(var(--ds-glass-saturate));
+  -webkit-backdrop-filter: blur(var(--ds-panel-blur)) saturate(var(--ds-glass-saturate));
+  border: var(--ds-line-hairline) solid var(--ds-border-mullion-outer);
+  border-radius: var(--ds-panel-radius);
+  box-shadow: inset 0 0 0 var(--ds-line-hairline) var(--ds-border-mullion-inner);
+  color: var(--ds-panel-fg);
+  font-family: var(--ds-type-family);
+  font-size: var(--ds-type-body);
+  line-height: var(--ds-type-leading-body);
+}
+.title {
+  margin: 0;
+  font-size: var(--ds-type-title);
+  font-weight: var(--ds-type-weight-bold);
+  line-height: var(--ds-type-leading-tight);
+}
+.description {
+  margin: 0;
+  color: var(--ds-panel-fg-muted);
+}

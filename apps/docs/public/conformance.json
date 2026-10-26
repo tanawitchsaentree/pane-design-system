@@ -1,0 +1,134 @@
+{
+  "generatedAt": "2026-10-26T05:33:30.549Z",
+  "passed": 24,
+  "total": 24,
+  "checks": [
+    {
+      "component": "Button",
+      "name": "every documented prop exists in the TS source",
+      "ok": true,
+      "detail": "2 props"
+    },
+    {
+      "component": "Badge",
+      "name": "every documented prop exists in the TS source",
+      "ok": true,
+      "detail": "1 props"
+    },
+    {
+      "component": "Panel",
+      "name": "every documented prop exists in the TS source",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "TextField",
+      "name": "every documented prop exists in the TS source",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "Switch",
+      "name": "every documented prop exists in the TS source",
+      "ok": true,
+      "detail": "4 props"
+    },
+    {
+      "component": "Button",
+      "name": "renders a native <button type=\"button\">",
+      "ok": true
+    },
+    {
+      "component": "Button",
+      "name": "reachable with Tab",
+      "ok": true
+    },
+    {
+      "component": "Button",
+      "name": "Enter and Space activate it",
+      "ok": true
+    },
+    {
+      "component": "Button",
+      "name": "keyboard focus draws the double ring (2px solid outline)",
+      "ok": true
+    },
+    {
+      "component": "Button",
+      "name": "disabled: native disabled attribute + dashed mullion (non-colour cue)",
+      "ok": true
+    },
+    {
+      "component": "Badge",
+      "name": "renders as plain text with no role",
+      "ok": true
+    },
+    {
+      "component": "Panel",
+      "name": "is a <section> whose title is a real heading at headingLevel",
+      "ok": true
+    },
+    {
+      "component": "TextField",
+      "name": "label is programmatically tied to the input",
+      "ok": true
+    },
+    {
+      "component": "TextField",
+      "name": "errorText sets aria-invalid and is announced via aria-describedby (error first)",
+      "ok": true
+    },
+    {
+      "component": "TextField",
+      "name": "helperText is linked via aria-describedby",
+      "ok": true
+    },
+    {
+      "component": "TextField",
+      "name": "reachable with Tab",
+      "ok": true
+    },
+    {
+      "component": "Switch",
+      "name": "role=\"switch\" with aria-checked=\"false\" initially",
+      "ok": true
+    },
+    {
+      "component": "Switch",
+      "name": "Space toggles it on, Enter toggles it off",
+      "ok": true
+    },
+    {
+      "component": "Switch",
+      "name": "click toggles it",
+      "ok": true
+    },
+    {
+      "component": "Switch",
+      "name": "controlled: onCheckedChange drives external state",
+      "ok": true
+    },
+    {
+      "component": "Switch",
+      "name": "state has a non-colour cue (thumb moves to the other end)",
+      "ok": true
+    },
+    {
+      "component": "Switch",
+      "name": "thumb follows writing direction in RTL",
+      "ok": true
+    },
+    {
+      "component": "Docs page",
+      "name": "axe: no violations (forced-colors none)",
+      "ok": true,
+      "detail": "28 rules pass; color-contrast incomplete on 686 nodes (axe cannot see through backdrop-filter — settled per pixel by glass-evidence docs-page pass)"
+    },
+    {
+      "component": "Docs page",
+      "name": "axe: no violations (forced-colors active)",
+      "ok": true,
+      "detail": "28 rules pass; color-contrast incomplete on 4 nodes (axe cannot see through backdrop-filter — settled per pixel by glass-evidence docs-page pass)"
+    }
+  ]
+}

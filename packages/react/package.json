@@ -1,0 +1,14 @@
+{
+  "name": "pane-react",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Pane React components — glass on a Dessau curtain-wall frame.",
+  "main": "./src/index.ts",
+  "exports": { ".": "./src/index.ts" },
+  "peerDependencies": { "react": ">=18", "react-dom": ">=18", "pane-tokens": "workspace:*" },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p .",
+    "barrel:check": "node ../../tooling/generate-barrel.mjs --check"
+  }
+}

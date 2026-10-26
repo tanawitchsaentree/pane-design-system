@@ -1,12 +1,13 @@
 {
-  "$comment": "Per-system names the engine's gates read. Fill in as the system grows — empty lists make smoke-import FAIL on purpose (nothing proven), never pass.",
+  "$comment": "Per-system names the engine's gates read.",
   "storyCategories": {
-    "Foundations": ["Colors", "Typography", "Spacing", "Motion"]
+    "Foundations": ["Colors", "Typography", "Spacing", "Motion"],
+    "Pilot": ["Button", "Badge", "Panel", "TextField", "Switch"]
   },
   "smokeImport": {
-    "expectedExports": [],
-    "minExports": 1,
-    "renderProbes": [],
+    "expectedExports": ["Button", "Badge", "Panel", "TextField", "Switch"],
+    "minExports": 5,
+    "renderProbes": ["Button", "Badge", "Panel"],
     "legacyNames": []
   }
 }

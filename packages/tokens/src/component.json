@@ -1,0 +1,196 @@
+{
+  "button": {
+    "primary-bg": {
+      "$type": "color",
+      "$value": "{action.primary}"
+    },
+    "primary-bg-hover": {
+      "$type": "color",
+      "$value": "{action.primary-hover}"
+    },
+    "primary-fg": {
+      "$type": "color",
+      "$value": "{text.on-accent}"
+    },
+    "glass-bg": {
+      "$type": "color",
+      "$value": "{surface.glass.regular}"
+    },
+    "glass-blur": {
+      "$type": "dimension",
+      "$value": "{glass.blur.regular}"
+    },
+    "fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "height-sm": {
+      "$type": "dimension",
+      "$value": "{control.sm}"
+    },
+    "height-md": {
+      "$type": "dimension",
+      "$value": "{control.md}"
+    },
+    "padding-inline": {
+      "$type": "dimension",
+      "$value": "{gap.loose}"
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "{gap.snug}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.pane}"
+    }
+  },
+  "panel": {
+    "bg": {
+      "$type": "color",
+      "$value": "{surface.glass.regular}"
+    },
+    "blur": {
+      "$type": "dimension",
+      "$value": "{glass.blur.regular}"
+    },
+    "fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "fg-muted": {
+      "$type": "color",
+      "$value": "{text.secondary}"
+    },
+    "padding": {
+      "$type": "dimension",
+      "$value": "{gap.section}"
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "{gap.base}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.pane}"
+    }
+  },
+  "field": {
+    "bg": {
+      "$type": "color",
+      "$value": "{surface.glass.thick}"
+    },
+    "blur": {
+      "$type": "dimension",
+      "$value": "{glass.blur.thick}"
+    },
+    "fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "label-fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "helper-fg": {
+      "$type": "color",
+      "$value": "{text.secondary}"
+    },
+    "error-fg": {
+      "$type": "color",
+      "$value": "{text.danger}"
+    },
+    "height": {
+      "$type": "dimension",
+      "$value": "{control.md}"
+    },
+    "padding-inline": {
+      "$type": "dimension",
+      "$value": "{gap.base}"
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "{gap.tight}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.pane}"
+    }
+  },
+  "badge": {
+    "neutral-bg": {
+      "$type": "color",
+      "$value": "{surface.glass.thick}"
+    },
+    "neutral-fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "accent-bg": {
+      "$type": "color",
+      "$value": "{action.primary}"
+    },
+    "accent-fg": {
+      "$type": "color",
+      "$value": "{text.on-accent}"
+    },
+    "blur": {
+      "$type": "dimension",
+      "$value": "{glass.blur.thin}"
+    },
+    "padding-inline": {
+      "$type": "dimension",
+      "$value": "{gap.snug}"
+    },
+    "padding-block": {
+      "$type": "dimension",
+      "$value": "{gap.tight}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.pane}"
+    }
+  },
+  "switch": {
+    "track-off": {
+      "$type": "color",
+      "$value": "{surface.glass.thick}"
+    },
+    "track-on": {
+      "$type": "color",
+      "$value": "{action.primary}"
+    },
+    "thumb-off": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "thumb-on": {
+      "$type": "color",
+      "$value": "{text.on-accent}"
+    },
+    "blur": {
+      "$type": "dimension",
+      "$value": "{glass.blur.thin}"
+    },
+    "track-inline": {
+      "$type": "dimension",
+      "$value": "{control.switch-track-inline}"
+    },
+    "track-block": {
+      "$type": "dimension",
+      "$value": "{control.switch-track-block}"
+    },
+    "thumb": {
+      "$type": "dimension",
+      "$value": "{control.switch-thumb}"
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "{gap.snug}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.round}"
+    }
+  }
+}

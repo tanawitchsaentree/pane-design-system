@@ -1,0 +1,52 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-button-gap);
+  padding-inline: var(--ds-button-padding-inline);
+  border: var(--ds-line-hairline) solid var(--ds-border-mullion-outer);
+  border-radius: var(--ds-button-radius);
+  font-family: var(--ds-type-family);
+  font-size: var(--ds-type-label);
+  font-weight: var(--ds-type-weight-medium);
+  line-height: var(--ds-type-leading-tight);
+  color: var(--ds-button-fg);
+  cursor: pointer;
+  transition: background-color var(--ds-motion-fast) var(--ds-motion-easing);
+}
+.sm { min-block-size: var(--ds-button-height-sm); }
+.md { min-block-size: var(--ds-button-height-md); }
+
+.primary {
+  background: var(--ds-button-primary-bg);
+  color: var(--ds-button-primary-fg);
+  box-shadow: inset 0 0 0 var(--ds-line-hairline) var(--ds-border-mullion-inner);
+}
+.primary:hover:not(:disabled) { background: var(--ds-button-primary-bg-hover); }
+
+/* D-004 double mullion: dark outer border + light inner line. */
+.glass {
+  background: var(--ds-button-glass-bg);
+  backdrop-filter: blur(var(--ds-button-glass-blur)) saturate(var(--ds-glass-saturate));
+  -webkit-backdrop-filter: blur(var(--ds-button-glass-blur)) saturate(var(--ds-glass-saturate));
+  box-shadow: inset 0 0 0 var(--ds-line-hairline) var(--ds-border-mullion-inner);
+}
+.glass:hover:not(:disabled) { background: var(--ds-surface-raised); }
+
+.root:focus-visible {
+  outline: var(--ds-line-ring) solid var(--ds-focus-ring-inner);
+  outline-offset: 0;
+  box-shadow:
+    inset 0 0 0 var(--ds-line-hairline) var(--ds-border-mullion-inner),
+    0 0 0 calc(var(--ds-line-ring) * 2) var(--ds-focus-ring-outer);
+}
+
+/* Disabled: not only fainter — the outer mullion turns dashed, a cue that survives without colour. */
+.root:disabled {
+  cursor: not-allowed;
+  background: var(--ds-surface-solid);
+  color: var(--ds-text-secondary);
+  border-style: dashed;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}

@@ -20,3 +20,20 @@ Not a priority list — order of discovery.
 - `.claude/settings.json` hooks don't enforce: PostToolUse lint ends in `|| echo` (always exit 0,
   never blocks), PreToolUse reads `$CLAUDE_TOOL_INPUT`, which hooks don't receive (input comes as
   JSON on stdin), so the DECISIONS.md guard likely never fires. UNVERIFIED — not run yet.
+
+## Pane pilot (2026-10-26)
+
+- **Safari/Firefox ไม่ได้วัด** — glass-evidence + conformance รันแค่ Chromium. WebKit/Firefox มี browser
+  binary ในเครื่องแล้ว แต่ backdrop-filter ของ WebKit และ CDP media emulation (reduced-transparency)
+  ใช้คนละทาง ต้องทำ mode ของแต่ละ engine แยก
+- **`@supports not (backdrop-filter)` ไม่ได้ทดสอบตรงๆ** — บล็อกนี้มีค่าเดียวกับ reduced-transparency
+  (ซึ่งวัดแล้ว) แต่ยังไม่มี browser ที่บังคับให้ @supports เป็น false ใน run. UNVERIFIED.
+- **Backdrop เป็นของสังเคราะห์** — ยังไม่มีรูปถ่ายจริง (หน้าคน, ข้อความในรูป) ใน harness
+- **Dark theme** ไม่มี (D-001)
+- **Props table เขียนมือใน `apps/docs/src/content.tsx`** — conformance จับได้ว่า prop ที่เขียนไว้มีจริง
+  แต่ยังจับไม่ได้ว่า prop จริงตัวไหนไม่ได้เขียนไว้ (ทางเดียว). ควร generate จาก TS (react-docgen-typescript)
+- **Placeholder ใน TextField demo** ("Ada Lovelace") สี text.secondary ดูคล้าย value — ควรจางกว่าหรือเลิกใช้ใน demo
+- **Stack deviation:** token build เป็น script ของเอง (`packages/tokens/build.mjs`) ไม่ใช่ Style Dictionary
+  ตามที่ CLAUDE.md ล็อกไว้ — เลือกเพราะต้องบังคับ tier rule ตอน build; ต้องตัดสินว่าจะย้ายไป SD หรือแก้ blueprint
+- **Docs ไม่ได้ใช้ Fumadocs** ตาม blueprint — Vite หน้าเดียวตาม D-006
+- **user-level hook `~/.claude/hooks/amac-linter/lint.sh`** fail บนทุก .tsx (ไม่มี eslint config ใน repo นี้) — ไม่มี stderr, ไม่ใช่ของ kiln

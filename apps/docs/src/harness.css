@@ -1,0 +1,4 @@
+body { margin: 0; }
+.harness { display: grid; grid-template-columns: repeat(7, max-content); gap: 0; }
+.scene { padding: 32px; }
+.scene > * { max-inline-size: 280px; }
