@@ -47,6 +47,15 @@ lineage, vector, and gate mechanics — this file routes to them, it doesn't res
    inside the direction of the user's refs, differing on axes that matter — in `apps/lab/`. The
    user picks one as the anchor; everything after derives from it. Never pick the visual
    direction on the user's behalf.
+10. **Docs are a book, built to `docs-engine`'s content model — never a page written on request.**
+    Any docs work (a page, a site, a pilot) loads skill `docs-engine` first and builds to
+    `references/content-model.md` in full: every component page at its 13 points with the demo
+    floor `variant_count + 3`, generated props/keyboard/CSS tables, badge row from real sources;
+    foundations with live specimens; overview/guides with a non-prose structure; plus chapters for
+    principles, patterns, accessibility evidence and a full token reference. The agent decides the
+    structure and writes the substance — the user should never have to list what goes in. Docs that
+    haven't cleared the content-model floors are not done (2026-10-26: a one-page docs and a first
+    book draft both shipped below floor because the skill was never loaded).
 
 ## Phase order + who does it
 

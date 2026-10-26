@@ -9,6 +9,7 @@
   color: var(--ds-avatar-fallback-fg);
   font-family: var(--ds-type-family);
   font-weight: var(--ds-type-weight-semibold);
+  text-shadow: none;
 }
 .sm { inline-size: var(--ds-avatar-size-sm); block-size: var(--ds-avatar-size-sm); font-size: var(--ds-type-micro); }
 .md { inline-size: var(--ds-avatar-size-md); block-size: var(--ds-avatar-size-md); font-size: var(--ds-type-label); }

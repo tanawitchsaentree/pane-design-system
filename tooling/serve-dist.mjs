@@ -10,6 +10,8 @@ export async function serveDist(dist) {
   const server = createServer((req, res) => {
     let file = path.join(dist, decodeURIComponent(new URL(req.url, 'http://x').pathname));
     if (existsSync(file) && statSync(file).isDirectory()) file = path.join(file, 'index.html');
+    // SPA fallback: an extension-less path that isn't a file is a docs route
+    if (!existsSync(file) && !path.extname(file)) file = path.join(dist, 'index.html');
     if (!existsSync(file)) return res.writeHead(404).end();
     res.writeHead(200, { 'content-type': MIME[path.extname(file)] ?? 'application/octet-stream' }).end(readFileSync(file));
   });

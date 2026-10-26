@@ -36,7 +36,7 @@
       "$value": "{color.white}"
     },
     "secondary": {
-      "$value": "{color.white-a.85}"
+      "$value": "{color.white-a.92}"
     },
     "on-light": {
       "$value": "{color.ink.900}"
@@ -118,6 +118,9 @@
     },
     "lift": {
       "$value": "{shadow.lift}"
+    },
+    "halo": {
+      "$value": "{shadow.halo}"
     }
   },
   "width": {
@@ -278,13 +281,45 @@
     }
   },
   "motion": {
-    "fast": {
+    "hover": {
       "$type": "duration",
-      "$value": "{duration.fast}"
+      "$value": "{duration.gentle}"
+    },
+    "press": {
+      "$type": "duration",
+      "$value": "{duration.quick}"
+    },
+    "enter": {
+      "$type": "duration",
+      "$value": "{duration.slow}"
+    },
+    "scene": {
+      "$type": "duration",
+      "$value": "{duration.slow}"
+    },
+    "stagger": {
+      "$type": "duration",
+      "$value": "{duration.stagger}"
     },
     "easing": {
       "$type": "cubicBezier",
-      "$value": "{easing.standard}"
+      "$value": "{easing.soft}"
+    },
+    "easing-inout": {
+      "$type": "cubicBezier",
+      "$value": "{easing.inout}"
+    },
+    "rise": {
+      "$type": "dimension",
+      "$value": "{distance.rise}"
+    },
+    "lift": {
+      "$type": "dimension",
+      "$value": "{distance.lift}"
+    },
+    "press-scale": {
+      "$type": "number",
+      "$value": "{scale.press}"
     }
   }
 }

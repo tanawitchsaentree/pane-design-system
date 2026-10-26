@@ -7,7 +7,9 @@ export type AvatarSize = 'sm' | 'md' | 'lg';
 export interface AvatarProps extends HTMLAttributes<HTMLSpanElement> {
   /** Person or brand the avatar stands for — used as the accessible name and for initials. */
   name: string;
+  /** Photo URL. Omitted (or failing to load) = initials from `name`. */
   src?: string;
+  /** `sm` 30px for post headers, `md` 44px for lists, `lg` 84px with a rim ring for profile headers. */
   size?: AvatarSize;
   /** Set when a visible name sits right next to the avatar, so screen readers don't hear it twice. */
   decorative?: boolean;

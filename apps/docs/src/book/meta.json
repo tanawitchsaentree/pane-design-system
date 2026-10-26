@@ -1,0 +1,273 @@
+{
+  "generatedAt": "2026-10-26T13:58:45.609Z",
+  "version": "0.0.0",
+  "components": {
+    "Avatar": {
+      "source": "packages/react/src/components/Avatar/Avatar.tsx",
+      "exports": [
+        {
+          "displayName": "Avatar",
+          "props": [
+            {
+              "name": "name",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Person or brand the avatar stands for — used as the accessible name and for initials.",
+              "enum": false
+            },
+            {
+              "name": "src",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Photo URL. Omitted (or failing to load) = initials from `name`.",
+              "enum": false
+            },
+            {
+              "name": "size",
+              "type": "\"sm\" | \"md\" | \"lg\"",
+              "required": false,
+              "default": "md",
+              "description": "`sm` 30px for post headers, `md` 44px for lists, `lg` 84px with a rim ring for profile headers.",
+              "enum": true
+            },
+            {
+              "name": "decorative",
+              "type": "boolean",
+              "required": false,
+              "default": "false",
+              "description": "Set when a visible name sits right next to the avatar, so screen readers don't hear it twice.",
+              "enum": false
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "size"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 585,
+        "cssMin": 738,
+        "gzip": 676
+      }
+    },
+    "Button": {
+      "source": "packages/react/src/components/Button/Button.tsx",
+      "exports": [
+        {
+          "displayName": "Button",
+          "props": [
+            {
+              "name": "variant",
+              "type": "\"light\" | \"accent\" | \"glass\"",
+              "required": false,
+              "default": "light",
+              "description": "`light` = solid white pill, the one main action on a card. `accent` = blue. `glass` = quiet fill.",
+              "enum": true
+            },
+            {
+              "name": "size",
+              "type": "\"sm\" | \"md\"",
+              "required": false,
+              "default": "md",
+              "description": "`md` = 44px tall (default, touch-friendly); `sm` = 32px for dense rows and toolbars.",
+              "enum": true
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "variant",
+        "size"
+      ],
+      "variantCount": 2,
+      "demoFloor": 5,
+      "bundle": {
+        "jsMin": 358,
+        "cssMin": 1637,
+        "gzip": 811
+      }
+    },
+    "Card": {
+      "source": "packages/react/src/components/Card/Card.tsx",
+      "exports": [
+        {
+          "displayName": "Card",
+          "props": [
+            {
+              "name": "variant",
+              "type": "\"glass\" | \"inset\"",
+              "required": false,
+              "default": "glass",
+              "description": "`glass` = a floating pane. `inset` = content nested inside a pane (no second glass layer, top divider).",
+              "enum": true
+            },
+            {
+              "name": "as",
+              "type": "\"article\" | \"section\" | \"header\" | \"div\"",
+              "required": false,
+              "default": "article",
+              "description": "Rendered element — `article` for self-contained content, `section` for a titled region, `header` for a page head.",
+              "enum": true
+            }
+          ]
+        },
+        {
+          "displayName": "CardCover",
+          "props": [
+            {
+              "name": "src",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Image URL; omit for a decorative gradient placeholder.",
+              "enum": false
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "variant",
+        "as"
+      ],
+      "variantCount": 2,
+      "demoFloor": 5,
+      "bundle": {
+        "jsMin": 472,
+        "cssMin": 2087,
+        "gzip": 1005
+      }
+    },
+    "Environment": {
+      "source": "packages/react/src/components/Environment/Environment.tsx",
+      "exports": [
+        {
+          "displayName": "Environment",
+          "props": [
+            {
+              "name": "brightness",
+              "type": "\"dim\" | \"mid\" | \"bright\"",
+              "required": false,
+              "default": "bright",
+              "description": "How bright the world behind the glass is (D-009). Glass inside darkens to keep text ≥4.5:1.\nSize it for the brightest spot a card can land on, not the scene's average. Default `bright`.",
+              "enum": true
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "brightness"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 202,
+        "cssMin": 0,
+        "gzip": 165
+      }
+    },
+    "IconButton": {
+      "source": "packages/react/src/components/IconButton/IconButton.tsx",
+      "exports": [
+        {
+          "displayName": "IconButton",
+          "props": [
+            {
+              "name": "aria-label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Required: an icon has no text, so this is the button's whole accessible name.",
+              "enum": false
+            },
+            {
+              "name": "variant",
+              "type": "\"glass\" | \"ghost\"",
+              "required": false,
+              "default": "glass",
+              "description": "`glass` = round frosted disc. `ghost` = icon only, for dense rows (actions, overflow).",
+              "enum": true
+            },
+            {
+              "name": "size",
+              "type": "\"sm\" | \"md\"",
+              "required": false,
+              "default": "md",
+              "description": "`md` = 36px disc; `sm` = 32px for action rows.",
+              "enum": true
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "variant",
+        "size"
+      ],
+      "variantCount": 2,
+      "demoFloor": 5,
+      "bundle": {
+        "jsMin": 351,
+        "cssMin": 1338,
+        "gzip": 710
+      }
+    },
+    "Tabs": {
+      "source": "packages/react/src/components/Tabs/Tabs.tsx",
+      "exports": [
+        {
+          "displayName": "TabsRoot",
+          "props": []
+        },
+        {
+          "displayName": "TabsList",
+          "props": []
+        },
+        {
+          "displayName": "TabsTrigger",
+          "props": []
+        },
+        {
+          "displayName": "TabsContent",
+          "props": []
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 28281,
+        "cssMin": 1535,
+        "gzip": 10339
+      }
+    },
+    "Tag": {
+      "source": "packages/react/src/components/Tag/Tag.tsx",
+      "exports": [
+        {
+          "displayName": "Tag",
+          "props": [
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "The label. Written in normal case — CSS uppercases it, so screen readers read words.",
+              "enum": false
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 245,
+        "cssMin": 460,
+        "gzip": 426
+      }
+    }
+  }
+}

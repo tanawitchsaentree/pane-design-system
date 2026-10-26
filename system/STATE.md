@@ -6,6 +6,8 @@
 - **Wave ปัจจุบัน:** pilot · **Component ผ่าน QA:** 7/7 (Environment, Card, Avatar, Button, IconButton, Tabs, Tag)
 - **ค้าง/blocked:** — (ดู BACKLOG.md)
 ## Log ย่อ (ใหม่สุดบน ≤15 บรรทัด)
+- 2026-10-26 กระจกบาง 0.46 + halo + E-001 (42 nodes 3.85–4.49), motion นุ่ม (token), docs → หนังสือ 26 บทตาม docs-engine content model: props generate (react-docgen-typescript), demo floor บังคับใน conformance (gate-proofed), bundle size esbuild, keyboard ผูก test
+- 2026-10-26 บั๊กที่ evidence จับได้: class `.anchor` ของ heading ชนกับการ์ด anchor → การ์ดหลุดนอกจอ (x=-228)
 - 2026-10-26 user: "เทามาเลย ไม่เบลอ ไม่ใส" → tint เทา .82 ทิ้ง, ใช้ backdrop brightness + รูป Unsplash 4 รูป; glass-sweep วัดทั้งหน้า → 0.36 ทุกรูป; verify: glass 11556/11556, conformance 28/28
 - 2026-10-26 verify: tokens 201 (tier + collision gate) · lint 0/23 · barrel ok · tsc 0 · glass 11595/11595 text checks (4 scenes × 3 modes, harness + docs page) · conformance 28/28 · axe 0 (normal + forced-colors)
 - 2026-10-26 gate proof: graphite.bright .82 → .5 = 1609 checks แดง; คืนค่า = เขียว

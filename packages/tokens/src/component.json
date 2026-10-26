@@ -79,6 +79,10 @@
     "sheen-bottom": {
       "$type": "color",
       "$value": "{surface.sheen-bottom}"
+    },
+    "text-halo": {
+      "$type": "shadow",
+      "$value": "{elevation.halo}"
     }
   },
   "avatar": {

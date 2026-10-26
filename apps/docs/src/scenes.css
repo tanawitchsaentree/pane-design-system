@@ -1,8 +1,12 @@
 /* Scene photos (public/scenes, credits in CREDITS.md) — real detail behind the glass, so the blur
-   has something to blur. Fixed to the viewport like a spatial environment. */
-.env { position: fixed; inset: 0; z-index: -1; background-size: cover; background-position: center; }
+   has something to blur. Fixed to the viewport like a spatial environment; a new scene fades in
+   over the old one (motion.scene). The harness still selects by [data-scene] on <body>. */
+.env { position: fixed; inset: 0; z-index: -1; }
+.env-layer { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.env-in { animation: env-in var(--ds-motion-scene) var(--ds-motion-easing-inout) both; }
+@keyframes env-in { from { opacity: 0; } }
 .env i { display: none; }
-[data-scene="room"] .env { background-image: url(/scenes/room.jpg); }
-[data-scene="forest"] .env { background-image: url(/scenes/forest.jpg); }
-[data-scene="night"] .env { background-image: url(/scenes/night.jpg); }
-[data-scene="city"] .env { background-image: url(/scenes/city.jpg); }
+[data-scene="room"] .env:not(:has(.env-layer)) { background: center / cover url(/scenes/room.jpg); }
+[data-scene="forest"] .env:not(:has(.env-layer)) { background: center / cover url(/scenes/forest.jpg); }
+[data-scene="night"] .env:not(:has(.env-layer)) { background: center / cover url(/scenes/night.jpg); }
+[data-scene="city"] .env:not(:has(.env-layer)) { background: center / cover url(/scenes/city.jpg); }

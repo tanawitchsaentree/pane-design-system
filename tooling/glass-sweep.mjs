@@ -14,7 +14,8 @@ import { measurePageText } from './text-contrast.mjs';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SCENES = ['room', 'forest', 'night', 'city'];
-const LEVELS = [0.5, 0.45, 0.4, 0.36, 0.32, 0.28];
+const LEVELS = (process.env.LEVELS ?? '0.54,0.5,0.46,0.42,0.38').split(',').map(Number);
+const BLURS = (process.env.BLURS ?? '40').split(',').map(Number); // px — heavier blur averages bright spots away
 const GATED = ['card', 'controls'];
 const srv = await serveDist(path.join(ROOT, 'apps', 'docs', 'dist'));
 const browser = await chromium.launch();
@@ -28,31 +29,30 @@ try {
     await docs.goto(`${srv.base}/index.html?scene=${scene}`, { waitUntil: 'networkidle' });
     await docs.evaluate(() => document.fonts.ready);
     out.scenes[scene] = [];
-    for (const b of LEVELS) {
+    for (const blur of BLURS) for (const b of LEVELS) {
       await page.evaluate((v) => {
-        for (const el of document.querySelectorAll('[data-environment]')) { el.style.setProperty('--ds-glass-brightness', v); el.style.setProperty('--ds-card-brightness', v); }
-      }, String(b));
+        for (const el of document.querySelectorAll('[data-environment]')) { el.style.setProperty('--ds-glass-brightness', v.b); el.style.setProperty('--ds-card-brightness', v.b); el.style.setProperty('--ds-card-blur', v.blur); }
+      }, { b: String(b), blur: `${blur}px` });
       const r = await measurePageText(page, 4.5);
       const ts = r.all.filter((t) => GATED.includes(t.group));
       // same level on the docs page, scrolled top to bottom
       await docs.evaluate((v) => {
-        for (const el of document.querySelectorAll('[data-environment]')) { el.style.setProperty('--ds-glass-brightness', v); el.style.setProperty('--ds-card-brightness', v); }
-      }, String(b));
+        for (const el of document.querySelectorAll('[data-environment]')) { el.style.setProperty('--ds-glass-brightness', v.b); el.style.setProperty('--ds-card-brightness', v.b); el.style.setProperty('--ds-card-blur', v.blur); }
+      }, { b: String(b), blur: `${blur}px` });
       const d = await measurePageText(docs, 4.5);
       const dfails = d.failures.filter((t) => t.group !== 'media');
-      const fails = [...ts.filter((t) => t.min == null || t.min < 4.5), ...dfails];
+      const fails = [...ts.filter((t) => t.min == null || t.min < t.required), ...dfails];
       ts.push(...d.all.filter((t) => t.group !== 'media'));
-      out.scenes[scene].push({ brightness: b, fails: fails.length, texts: ts.length, worst: Math.min(...ts.map((t) => t.min ?? 0)) });
-      console.log(`${scene.padEnd(7)} brightness ${b}: ${fails.length}/${ts.length} fail, worst ${Math.min(...ts.map((t) => t.min ?? 0))}`);
+      out.scenes[scene].push({ blur, brightness: b, fails: fails.length, texts: ts.length, worst: Math.min(...ts.map((t) => t.min ?? 0)) });
+      console.log(`${scene.padEnd(7)} blur ${blur} brightness ${b}: ${fails.length}/${ts.length} fail, worst ${Math.min(...ts.map((t) => t.min ?? 0))}`);
     }
-    const pass = out.scenes[scene].filter((r) => r.fails === 0).map((r) => r.brightness);
-    out.scenes[scene].clearest = pass.length ? Math.max(...pass) : null;
+
   }
 } finally {
   await browser.close();
   srv.close();
 }
-const summary = Object.fromEntries(SCENES.map((s) => [s, Math.max(...out.scenes[s].filter((r) => r.fails === 0).map((r) => r.brightness), -Infinity)]));
+const summary = Object.fromEntries(BLURS.map((bl) => [bl, Object.fromEntries(SCENES.map((s) => [s, Math.max(...out.scenes[s].filter((r) => r.blur === bl && r.fails === 0).map((r) => r.brightness), -Infinity)]))]));
 out.clearestPassing = summary;
 writeFileSync(path.join(ROOT, 'system', 'reports', `glass-sweep-${out.generatedAt.slice(0, 10)}.json`), JSON.stringify(out, null, 2) + '\n');
-console.log('\nclearest passing brightness per scene:', JSON.stringify(summary));
+console.log('\nclearest passing brightness per blur per scene:', JSON.stringify(summary));

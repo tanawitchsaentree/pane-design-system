@@ -9,6 +9,7 @@ export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
   'aria-label': string;
   /** `glass` = round frosted disc. `ghost` = icon only, for dense rows (actions, overflow). */
   variant?: IconButtonVariant;
+  /** `md` = 36px disc; `sm` = 32px for action rows. */
   size?: 'sm' | 'md';
 }
 

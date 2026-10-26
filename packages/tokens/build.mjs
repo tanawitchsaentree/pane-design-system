@@ -123,13 +123,26 @@ ${fallback.replace(/^/gm, '  ')}
 }
 `;
 
+// Reduced motion: every duration collapses to 0 at the token level, so no component can forget it.
+const durations = [...tokens].filter(([, t]) => t.type === 'duration').map(([p]) => `    ${cssName(p)}: 0ms;`).join('\n');
+const motionCss = `
+/* Reduced motion — durations are zero everywhere; movement distances too. */
+@media (prefers-reduced-motion: reduce) {
+  :root, [data-environment] {
+${durations}
+    ${cssName('distance.rise')}: 0px;
+    ${cssName('distance.lift')}: 0px;
+    ${cssName('scale.press')}: 1;
+  }
+}
+`;
 const json = Object.fromEntries(
   [...tokens].map(([p, t]) => [p, { tier: t.tier, type: t.type, value: format(t.type, resolve(p)), ref: typeof t.raw === 'string' && REF.test(t.raw) ? t.raw.slice(1, -1) : null, css: cssName(p), description: t.description ?? null }]),
 );
 
 mkdirSync(path.join(ROOT, 'build', 'css'), { recursive: true });
 mkdirSync(path.join(ROOT, 'build', 'json'), { recursive: true });
-writeFileSync(path.join(ROOT, 'build', 'css', 'tokens.css'), css);
+writeFileSync(path.join(ROOT, 'build', 'css', 'tokens.css'), css + motionCss);
 writeFileSync(path.join(ROOT, 'build', 'json', 'tokens.json'), JSON.stringify(json, null, 2) + '\n');
 const count = (tier) => [...tokens.values()].filter((t) => t.tier === tier).length;
 console.log(`✓ ${tokens.size} tokens (${TIERS.map((t) => `${count(t)} ${t}`).join(', ')}), ${glassSurfaces.length} glass surface(s) with fallback, environments: ${ENVS.join(', ') || 'none'}`);

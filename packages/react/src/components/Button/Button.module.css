@@ -9,10 +9,17 @@
   font-weight: var(--ds-type-weight-semibold);
   line-height: var(--ds-type-leading-tight);
   cursor: pointer;
-  transition: background-color var(--ds-motion-fast) var(--ds-motion-easing);
+  /* soft motion: long, settling ease; press is shorter so it still feels like a response */
+  transition:
+    background-color var(--ds-motion-hover) var(--ds-motion-easing),
+    transform var(--ds-motion-hover) var(--ds-motion-easing),
+    box-shadow var(--ds-motion-hover) var(--ds-motion-easing);
 }
+.root:hover:not(:disabled) { transform: translateY(calc(var(--ds-motion-lift) * -1)); }
+.root:active:not(:disabled) { transform: scale(var(--ds-motion-press-scale)); transition-duration: var(--ds-motion-press); }
 .sm { min-block-size: var(--ds-button-height-sm); padding-inline: var(--ds-button-padding-sm); font-size: var(--ds-type-label); }
 .md { min-block-size: var(--ds-button-height-md); padding-inline: var(--ds-button-padding-md); font-size: var(--ds-type-body); }
+.light, .accent { text-shadow: none; }
 .light { background: var(--ds-button-light-bg); color: var(--ds-button-light-fg); box-shadow: var(--ds-button-shadow); }
 .accent { background: var(--ds-button-accent-bg); color: var(--ds-button-accent-fg); box-shadow: var(--ds-button-shadow); }
 .accent:hover:not(:disabled) { background: var(--ds-button-accent-bg-hover); }

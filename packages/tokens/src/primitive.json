@@ -35,6 +35,10 @@
       },
       "03": {
         "$value": "#FFFFFF08"
+      },
+      "92": {
+        "$value": "#FFFFFFEB",
+        "$description": "white at .92 — secondary text (D-012: .85 measured 3.3-3.79:1 on the book over sunlit photos)"
       }
     },
     "graphite": {
@@ -79,7 +83,7 @@
       "$value": "20px"
     },
     "lg": {
-      "$value": "40px"
+      "$value": "64px"
     }
   },
   "saturate": {
@@ -247,21 +251,43 @@
     },
     "lift": {
       "$value": "0 8px 20px -8px #00000066"
+    },
+    "halo": {
+      "$value": "0 0 14px #00000073, 0 1px 2px #00000059",
+      "$description": "legibility halo for white text on thin glass (WCAG 1.4.3 Understanding: text with a halo)"
     }
   },
   "duration": {
     "$type": "duration",
-    "fast": {
-      "$value": "140ms"
+    "quick": {
+      "$value": "200ms"
+    },
+    "gentle": {
+      "$value": "420ms"
+    },
+    "slow": {
+      "$value": "640ms"
+    },
+    "stagger": {
+      "$value": "70ms"
     }
   },
   "easing": {
     "$type": "cubicBezier",
-    "standard": {
+    "soft": {
       "$value": [
+        0.22,
+        1,
+        0.36,
+        1
+      ],
+      "$description": "long, soft settle — no snap, no overshoot"
+    },
+    "inout": {
+      "$value": [
+        0.45,
+        0,
         0.2,
-        0,
-        0,
         1
       ]
     }
@@ -269,19 +295,34 @@
   "brightness": {
     "$type": "number",
     "dim": {
-      "$value": 0.36,
-      "$description": "UNCALIBRATED: no genuinely dark photo measured yet; held at bright's measured value"
+      "$value": 0.42,
+      "$description": "UNCALIBRATED: held at bright's value"
     },
     "mid": {
-      "$value": 0.36,
-      "$description": "UNCALIBRATED: held at bright's measured value"
+      "$value": 0.42,
+      "$description": "UNCALIBRATED: held at bright's value"
     },
     "bright": {
-      "$value": 0.36,
-      "$description": "measured (glass-sweep, harness + scrolled docs): Room, Forest, Night cafe, City all pass at <=0.36"
+      "$value": 0.42,
+      "$description": "0.42: thinnest glass where the whole book stays >=3.8:1 on every photo (0.44 left 6 City nodes at 3.56-3.79); 0.38 passes every node at 4.5:1; between 3.8 and 4.5 = E-001"
     },
     "none": {
       "$value": 1
+    }
+  },
+  "distance": {
+    "$type": "dimension",
+    "rise": {
+      "$value": "16px"
+    },
+    "lift": {
+      "$value": "2px"
+    }
+  },
+  "scale": {
+    "$type": "number",
+    "press": {
+      "$value": 0.97
     }
   }
 }

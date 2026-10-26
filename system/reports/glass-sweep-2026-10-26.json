@@ -1,171 +1,168 @@
 {
-  "generatedAt": "2026-10-26T09:55:36.096Z",
+  "generatedAt": "2026-10-26T12:03:15.104Z",
   "levels": [
+    0.54,
     0.5,
-    0.45,
-    0.4,
-    0.36,
-    0.32,
-    0.28
+    0.46,
+    0.42,
+    0.38
   ],
   "scenes": {
     "room": [
       {
+        "blur": 64,
+        "brightness": 0.54,
+        "fails": 58,
+        "texts": 957,
+        "worst": 3.18
+      },
+      {
+        "blur": 64,
         "brightness": 0.5,
-        "fails": 68,
-        "texts": 908,
-        "worst": 3.26
+        "fails": 17,
+        "texts": 957,
+        "worst": 3.51
       },
       {
-        "brightness": 0.45,
-        "fails": 16,
-        "texts": 908,
-        "worst": 3.7
+        "blur": 64,
+        "brightness": 0.46,
+        "fails": 7,
+        "texts": 957,
+        "worst": 3.85
       },
       {
-        "brightness": 0.4,
-        "fails": 6,
-        "texts": 908,
-        "worst": 4.26
+        "blur": 64,
+        "brightness": 0.42,
+        "fails": 5,
+        "texts": 957,
+        "worst": 4.23
       },
       {
-        "brightness": 0.36,
+        "blur": 64,
+        "brightness": 0.38,
         "fails": 0,
-        "texts": 908,
-        "worst": 4.7
-      },
-      {
-        "brightness": 0.32,
-        "fails": 0,
-        "texts": 908,
-        "worst": 4.7
-      },
-      {
-        "brightness": 0.28,
-        "fails": 0,
-        "texts": 908,
-        "worst": 4.7
+        "texts": 957,
+        "worst": 4.69
       }
     ],
     "forest": [
       {
+        "blur": 64,
+        "brightness": 0.54,
+        "fails": 28,
+        "texts": 957,
+        "worst": 3.29
+      },
+      {
+        "blur": 64,
         "brightness": 0.5,
-        "fails": 32,
-        "texts": 908,
-        "worst": 3.19
+        "fails": 15,
+        "texts": 957,
+        "worst": 3.59
       },
       {
-        "brightness": 0.45,
-        "fails": 11,
-        "texts": 908,
-        "worst": 3.61
+        "blur": 64,
+        "brightness": 0.46,
+        "fails": 4,
+        "texts": 957,
+        "worst": 3.97
       },
       {
-        "brightness": 0.4,
-        "fails": 3,
-        "texts": 908,
-        "worst": 4.1
+        "blur": 64,
+        "brightness": 0.42,
+        "fails": 1,
+        "texts": 957,
+        "worst": 4.35
       },
       {
-        "brightness": 0.36,
+        "blur": 64,
+        "brightness": 0.38,
         "fails": 0,
-        "texts": 908,
-        "worst": 4.56
-      },
-      {
-        "brightness": 0.32,
-        "fails": 0,
-        "texts": 908,
-        "worst": 4.7
-      },
-      {
-        "brightness": 0.28,
-        "fails": 0,
-        "texts": 908,
+        "texts": 957,
         "worst": 4.7
       }
     ],
     "night": [
       {
-        "brightness": 0.5,
-        "fails": 106,
-        "texts": 908,
+        "blur": 64,
+        "brightness": 0.54,
+        "fails": 33,
+        "texts": 957,
         "worst": 3.39
       },
       {
-        "brightness": 0.45,
-        "fails": 37,
-        "texts": 908,
-        "worst": 3.82
+        "blur": 64,
+        "brightness": 0.5,
+        "fails": 10,
+        "texts": 957,
+        "worst": 3.73
       },
       {
-        "brightness": 0.4,
+        "blur": 64,
+        "brightness": 0.46,
         "fails": 3,
-        "texts": 908,
-        "worst": 4.33
+        "texts": 957,
+        "worst": 4.13
       },
       {
-        "brightness": 0.36,
+        "blur": 64,
+        "brightness": 0.42,
         "fails": 0,
-        "texts": 908,
-        "worst": 4.7
+        "texts": 957,
+        "worst": 4.57
       },
       {
-        "brightness": 0.32,
+        "blur": 64,
+        "brightness": 0.38,
         "fails": 0,
-        "texts": 908,
-        "worst": 4.7
-      },
-      {
-        "brightness": 0.28,
-        "fails": 0,
-        "texts": 908,
+        "texts": 957,
         "worst": 4.7
       }
     ],
     "city": [
       {
+        "blur": 64,
+        "brightness": 0.54,
+        "fails": 195,
+        "texts": 957,
+        "worst": 3.29
+      },
+      {
+        "blur": 64,
         "brightness": 0.5,
-        "fails": 183,
-        "texts": 908,
-        "worst": 3.34
+        "fails": 91,
+        "texts": 957,
+        "worst": 3.59
       },
       {
-        "brightness": 0.45,
-        "fails": 71,
-        "texts": 908,
-        "worst": 3.78
+        "blur": 64,
+        "brightness": 0.46,
+        "fails": 27,
+        "texts": 957,
+        "worst": 3.97
       },
       {
-        "brightness": 0.4,
-        "fails": 2,
-        "texts": 908,
-        "worst": 4.3
+        "blur": 64,
+        "brightness": 0.42,
+        "fails": 1,
+        "texts": 957,
+        "worst": 4.37
       },
       {
-        "brightness": 0.36,
+        "blur": 64,
+        "brightness": 0.38,
         "fails": 0,
-        "texts": 908,
-        "worst": 4.7
-      },
-      {
-        "brightness": 0.32,
-        "fails": 0,
-        "texts": 908,
-        "worst": 4.7
-      },
-      {
-        "brightness": 0.28,
-        "fails": 0,
-        "texts": 908,
+        "texts": 957,
         "worst": 4.7
       }
     ]
   },
   "clearestPassing": {
-    "room": 0.36,
-    "forest": 0.36,
-    "night": 0.36,
-    "city": 0.36
+    "64": {
+      "room": 0.38,
+      "forest": 0.38,
+      "night": 0.42,
+      "city": 0.38
+    }
   }
 }

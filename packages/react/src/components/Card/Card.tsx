@@ -7,8 +7,8 @@ export type CardVariant = 'glass' | 'inset';
 export interface CardProps extends HTMLAttributes<HTMLElement> {
   /** `glass` = a floating pane. `inset` = content nested inside a pane (no second glass layer, top divider). */
   variant?: CardVariant;
-  /** Rendered element — `article` for self-contained content, `section` for a titled region. */
-  as?: 'article' | 'section' | 'div';
+  /** Rendered element — `article` for self-contained content, `section` for a titled region, `header` for a page head. */
+  as?: 'article' | 'section' | 'header' | 'div';
 }
 
 export const Card = forwardRef<HTMLElement, CardProps>(function Card({ variant = 'glass', as: Tag = 'article', className, ...rest }, ref) {

@@ -8,6 +8,7 @@ export type ButtonSize = 'sm' | 'md';
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** `light` = solid white pill, the one main action on a card. `accent` = blue. `glass` = quiet fill. */
   variant?: ButtonVariant;
+  /** `md` = 44px tall (default, touch-friendly); `sm` = 32px for dense rows and toolbars. */
   size?: ButtonSize;
 }
 

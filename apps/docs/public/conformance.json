@@ -1,49 +1,91 @@
 {
-  "generatedAt": "2026-10-26T10:03:47.559Z",
-  "passed": 28,
-  "total": 28,
+  "generatedAt": "2026-10-26T14:10:42.420Z",
+  "passed": 38,
+  "total": 38,
   "checks": [
     {
       "component": "Environment",
-      "name": "every documented prop exists in the TS source",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "1 props"
     },
     {
       "component": "Card",
-      "name": "every documented prop exists in the TS source",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "3 props"
     },
     {
       "component": "Avatar",
-      "name": "every documented prop exists in the TS source",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "4 props"
     },
     {
       "component": "Button",
-      "name": "every documented prop exists in the TS source",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "2 props"
     },
     {
       "component": "IconButton",
-      "name": "every documented prop exists in the TS source",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "3 props"
     },
     {
       "component": "Tabs",
-      "name": "every documented prop exists in the TS source",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "only pass-through props documented — nothing of its own to cross-check"
+      "detail": "no props of its own (pass-through only)"
     },
     {
       "component": "Tag",
-      "name": "every documented prop exists in the TS source",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "only pass-through props documented — nothing of its own to cross-check"
+      "detail": "1 props"
+    },
+    {
+      "component": "Environment",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Card",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "Avatar",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Button",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "IconButton",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "Tabs",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Tag",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
     },
     {
       "component": "Environment",
@@ -63,9 +105,15 @@
       "ok": true
     },
     {
-      "component": "Card",
-      "name": "glass card renders an <article> with backdrop blur",
+      "component": "Environment",
+      "name": "reduced motion zeroes every motion duration at the token level",
       "ok": true
+    },
+    {
+      "component": "Card",
+      "name": "glass card blurs, saturates and dims what is behind it",
+      "ok": true,
+      "detail": "blur(64px) saturate(1.8) brightness(0.42)"
     },
     {
       "component": "Card",
@@ -108,9 +156,10 @@
       "ok": true
     },
     {
-      "component": "IconButton",
-      "name": "every button with no visible text on the page has an accessible name",
-      "ok": true
+      "component": "Button",
+      "name": "hover motion uses the soft tokens (420ms, cubic-bezier(0.22, 1, 0.36, 1))",
+      "ok": true,
+      "detail": "0.42s cubic-bezier(0.22, 1, 0.36, 1)"
     },
     {
       "component": "IconButton",
@@ -118,8 +167,14 @@
       "ok": true
     },
     {
+      "component": "IconButton",
+      "name": "every button with no visible text, on every page of the book, has an accessible name",
+      "ok": true,
+      "detail": "26 pages"
+    },
+    {
       "component": "Tabs",
-      "name": "roving tabindex: only the selected tab is in the tab order",
+      "name": "one tab stop: Tab lands on the selected tab, the next Tab leaves the list",
       "ok": true
     },
     {
@@ -144,15 +199,20 @@
     },
     {
       "component": "Docs page",
-      "name": "axe: no violations (forced-colors none)",
-      "ok": true,
-      "detail": "30 rules pass; color-contrast incomplete on 716 nodes (axe cannot see through backdrop-filter — settled per pixel by glass-evidence)"
+      "name": "G-D3: no literal backtick in rendered text on any of the 26 pages",
+      "ok": true
     },
     {
       "component": "Docs page",
-      "name": "axe: no violations (forced-colors active)",
+      "name": "axe: no violations on all 26 pages (forced-colors none)",
       "ok": true,
-      "detail": "30 rules pass; color-contrast incomplete on 712 nodes (axe cannot see through backdrop-filter — settled per pixel by glass-evidence)"
+      "detail": "color-contrast incomplete on 5061 nodes (axe cannot see through backdrop-filter — settled per pixel by glass-evidence)"
+    },
+    {
+      "component": "Docs page",
+      "name": "axe: no violations on all 26 pages (forced-colors active)",
+      "ok": true,
+      "detail": "color-contrast incomplete on 5033 nodes (axe cannot see through backdrop-filter — settled per pixel by glass-evidence)"
     }
   ]
 }

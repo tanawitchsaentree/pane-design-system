@@ -54,3 +54,11 @@
 ### D-011: ค่า brightness วัดใหม่ทั้งหน้า → 0.36 ทุกรูป, dim/mid ยังไม่ calibrate
 - **วันที่:** 2026-10-26 · **Phase:** 2
 - **เลือก:** brightness.bright = 0.36; dim/mid ตั้งเท่า bright และติด UNCALIBRATED; ทั้ง 4 ฉากใช้ environment bright / **เพราะ:** glass-sweep รอบสอง (harness + หน้า docs เลื่อนทั้งหน้า) — ฉากติดกับ viewport การ์ดจึงผ่านทุกส่วนของรูปตอนเลื่อน; รอบแรกวัดแค่ harness ได้ 0.4–0.5 แล้วหน้า docs ตก 67/878 บน Room / **ตัวเลือกที่ตัดทิ้ง:** ค่า 0.4–0.5 จากรอบแรก (วัดไม่ครบพื้นที่), เดาค่า dim/mid โดยไม่มีรูปมืดจริง / **กระทบ:** environment ยังเป็นกลไกที่ใช้ได้ แต่จะมีผลจริงเมื่อมีรูปมืดที่วัดแล้ว; เพิ่มรูปใหม่ต้องรัน glass-sweep
+
+### D-012: กระจกบางลง (brightness 0.46, blur 64, halo) + motion นุ่ม + docs เป็นหนังสือตาม docs-engine
+- **วันที่:** 2026-10-26 · **Phase:** 2
+- **เลือก:** brightness.bright 0.46 + blur 64px + text halo (`elevation.halo`, นับตาม WCAG 1.4.3 text-with-halo) + เกณฑ์ large text 3:1 ต่อ node; ส่วนที่เหลือ 3.8–4.5:1 = E-001. Motion: duration 200/420/640ms, easing.soft cubic-bezier(0.22,1,0.36,1), rise 16px, lift 2px, press 0.97; reduced motion = 0 ที่ระดับ token. Docs = หนังสือ 26 บท ตาม `docs-engine/references/content-model.md` (props/demo floor/bundle จาก `tooling/docs-meta.mjs`) / **เพราะ:** user: "กระจกทึบไป ต้องบางกว่านี้ / motion จังหวะนุ่ม ไม่รวดเร็ว / doc ต้องเหมือนหนังสือแน่นๆ"; glass-sweep วัดแล้ว 0.38 คือค่าใสสุดที่ผ่านครบ — 0.46 แลกกับ exception ที่วัดและจำกัดขอบเขตไว้ / **ตัวเลือกที่ตัดทิ้ง:** 0.36–0.38 (ทึบ), 0.5+ (ตก <3.8:1 บนรูป City), motion เร็วแบบ UI ทั่วไป (150–200ms), docs หน้าเดียว / **กระทบ:** E-001 เปิดอยู่จนกว่าจะมี environment ที่ sample รูปจริง; ทุก component ใหม่ต้องมี demo ≥ floor และ JSDoc ครบ (conformance บังคับ)
+
+### D-013: brightness 0.46 → 0.42 และ secondary text .85 → .92 — วัดทั้งเล่ม (supersedes ค่าใน D-012)
+- **วันที่:** 2026-10-26 · **Phase:** 2
+- **เลือก:** brightness ทุกระดับ 0.42; `text.secondary` = white .92 / **เพราะ:** วัดหนังสือ 26 หน้าบน 4 รูปแล้ว 0.46 ทิ้ง 65 node บนรูป City ต่ำกว่า floor 3.8 ของ E-001; .92 กู้ตัวรองได้โดยไม่ต้องทำกระจกให้ทึบ; 0.42 คือค่าใสที่สุดที่ไม่มี node ไหนต่ำกว่า 3.8 / **ตัวเลือกที่ตัดทิ้ง:** 0.44 (เหลือ 6 node ที่ 3.56–3.79), ลด floor ของ E-001 (ขยายขอบเขต exception — ห้าม) / **กระทบ:** E-001 อัปเดตเป็น 73/34,482 node; เพิ่มหน้า docs = ต้องวัดใหม่ เพราะ floor ผูกกับพื้นที่ข้อความทั้งเล่ม

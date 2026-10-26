@@ -32,3 +32,7 @@ Not a priority list — order of discovery.
 - **Stack deviation:** token build เป็น script ของเอง ไม่ใช่ Style Dictionary; docs เป็น Vite ไม่ใช่ Fumadocs
 - **Avatar fallback** เป็นขาว/ink ไม่ใช่ portrait gradient แบบใน anchor — ถ้าอยากได้ต้องเพิ่ม token
 - **user-level hook `amac-linter`** fail บนทุก .tsx (ไม่มี eslint config) — ไม่ใช่ของ kiln
+
+- **Environment ที่ sample รูปจริง** — ทางปิด E-001: แอปรู้รูปพื้นหลังของตัวเอง → วัดความสว่างใต้ตำแหน่งการ์ดตอน runtime/build แล้วหรี่เฉพาะการ์ดที่ทับจุดสว่าง (การ์ดอื่นใสได้ถึง ~0.6)
+- **ย้าย tooling วัดกระจกเข้า kiln engine** — text-contrast / glass-evidence / glass-sweep / docs-meta ตอนนี้อยู่ใน pilot เท่านั้น; ควรเป็นเครื่องมือกลางของ kiln (system-agnostic, อ่าน routes/harness จาก system config)
+- **docs-engine scripts/audit.mjs ยังไม่ได้รันกับหนังสือ Pane** — audit script ของ skill เขียนสำหรับ MDX/Fumadocs; content-model floors ตอนนี้บังคับผ่าน conformance ของ pilot แทน

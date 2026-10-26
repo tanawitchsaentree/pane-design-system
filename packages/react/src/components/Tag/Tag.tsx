@@ -1,8 +1,12 @@
 import { forwardRef, type HTMLAttributes } from 'react';
+import type * as React from 'react';
 import { cx } from '../../cx';
 import styles from './Tag.module.css';
 
-export type TagProps = HTMLAttributes<HTMLSpanElement>;
+export interface TagProps extends HTMLAttributes<HTMLSpanElement> {
+  /** The label. Written in normal case — CSS uppercases it, so screen readers read words. */
+  children?: React.ReactNode;
+}
 
 /** Outlined small-caps label — for categorising content (asset 05, trending), not for status. */
 export const Tag = forwardRef<HTMLSpanElement, TagProps>(function Tag({ className, ...rest }, ref) {

@@ -6,7 +6,14 @@
   border: 0;
   border-radius: var(--ds-icon-button-radius);
   cursor: pointer;
+  transition:
+    background-color var(--ds-motion-hover) var(--ds-motion-easing),
+    color var(--ds-motion-hover) var(--ds-motion-easing),
+    transform var(--ds-motion-hover) var(--ds-motion-easing);
 }
+.root:hover { transform: translateY(calc(var(--ds-motion-lift) * -1)); }
+.ghost:hover { color: var(--ds-icon-button-fg); }
+.root:active { transform: scale(var(--ds-motion-press-scale)); transition-duration: var(--ds-motion-press); }
 .md { inline-size: var(--ds-icon-button-size); block-size: var(--ds-icon-button-size); }
 .sm { inline-size: var(--ds-icon-button-size-sm); block-size: var(--ds-icon-button-size-sm); }
 .root > svg { inline-size: var(--ds-icon-button-icon); block-size: var(--ds-icon-button-icon); }
