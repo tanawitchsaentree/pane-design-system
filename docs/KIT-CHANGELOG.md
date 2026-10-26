@@ -56,3 +56,16 @@
 - **v12** — System Sheet: โปสเตอร์ PNG สรุประบบ (apps/sheet template+render.mjs, skill system-sheet) refresh อัตโนมัติหลังทุก lock/wave · เก็บทุกใบใน system/sheets/ = timeline วิวัฒนาการ
 - **v13 (cleanup)** — ทำความสะอาด repo: ลบ blueprint file ซ้ำที่ root และ kit v1 เก่าที่ถูกแทนที่แล้ว, รวมโฟลเดอร์ที่ซ้ำซ้อนกันเหลือชุดเดียว · รีเซ็ต `system/` กลับเป็น blank template (ล้าง D-001/D-002/D-003 neumorphism/mobile-first demo, ล้าง apps/lab/candidates.js, ลบ system/refs/archive ที่ไม่มี ref จริง) · แก้ path ค้าง (`DECISIONS.md`/`STATE.md`/`reports/`/`refs/` ที่ไม่มี `system/` prefix) ในหลาย agents/skills ให้ตรงกับ Factory edition (v11) · BLUEPRINT.md เขียนใหม่รวม gap-audit (size/space namespace, token categories ครบ, system dimensions, API standards, governance) เป็นเนื้อเดียว ไม่มี addendum แปะท้ายอีก · แพตช์ subagent ที่ตกหล่นจาก gap-audit (foundation-inference เพิ่ม sizing step, token-architect เพิ่ม token category checklist, qa-a11y เพิ่ม forced-colors baseline check, docs-publisher เพิ่ม content guidelines + deprecation policy)
 - **v14 (agent-native workshop, merged selectively)** — ดึงจาก kit drop v14 ภายนอกเฉพาะส่วนที่ไม่กระทบโครง Dial ที่สร้างไปแล้ว (React-only, ยัง Wave 1-2 อยู่): (1) **Reuse Check** ก่อนสร้างทุก component ใน `production-run` + `component-engineer` — grep/MCP หาของใกล้เคียงก่อนสร้างใหม่ กัน pattern drift ตอน wave หลังๆ (2) **Storybook MCP note** ใน `qa-a11y` — ใช้เป็นหลักฐานเพิ่มถ้ามี addon-mcp ติดตั้ง อำนาจ PASS/FAIL ยังอยู่ที่ checklist เดิม ไม่บล็อกงานถ้าไม่มี (3) **Contrast self-check บังคับ** ใน `component-engineer` ก่อนส่ง qa-a11y — ป้องกันรอบ QA-fail-fix-reverify ที่กินเวลาที่สุดใน Wave 2 (4) เพิ่ม docs อ้างอิง `PORTABILITY.md` / `DISTRIBUTION.md` / `QUICKSTART.md` / `STORYBOOK-MCP.md` เป็น reference สำหรับ system ใหม่ในอนาคตที่อาจต้องการ multi-adapter — **ไม่ retrofit Dial** เพราะ commit React ไปแล้วเต็มตัว รื้อตอนนี้ไม่คุ้มเวลา
+
+## v3.0 — 2026-10-26 — engine split: kiln has no system of its own
+- Dial moved out to its own repo (cloned from tag `dial-final`, full history). kiln keeps the
+  engine only: agents, skills, tooling, templates, apps/lab + apps/sheet, docs.
+- `system/` reset from `templates/system/`, which gained `EXCEPTIONS.md`, `sheets/` and
+  `kiln.config.json` (per-system names gates read: story categories, smoke-import exports/render
+  probes/legacy names).
+- Hooks rewritten to actually enforce (`tooling/hooks/`, gate-proofed by `hooks.selftest.mjs`):
+  lint blocks with exit 2 on the edited file; `DECISIONS.md` is append-only with full fields and
+  sequential D-numbers.
+- `docs/CATALOG.md` back to the full 108-component engine default; per-system trimming goes
+  through `/lock-decision`.
+- `gate:selftest` 7/7 on a blank engine.
