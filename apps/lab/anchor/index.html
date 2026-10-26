@@ -97,6 +97,17 @@ const VARIANTS = [
   { id: 'C', cls: 'v-smoke', name: 'C · Smoked', note: 'Dark tinted glass with a specular rim — keeps the spatial look and reads best of the four; still short on light backdrops (see numbers).' },
   { id: 'D', cls: 'v-depth', name: 'D · Layered depth', note: 'Glass sheets stacked in Z: raised post sheet, recessed tab track, slight spatial tilt.' },
 ];
+const ROUND = new URLSearchParams(location.search).get('round');
+if (ROUND === 'tune') {
+  VARIANTS.length = 0;
+  VARIANTS.push(
+    { id: 'A0', cls: 'v-spatial', name: 'A0 · as picked', note: 'Your pick, unchanged: grey glass rgba(118,118,128,.32), Twitter blue tab.' },
+    { id: 'A1', cls: 'v-spatial v-a-tuned v-a1', name: 'A1 · adaptive glass', note: 'Closest to your pick in dim scenes; the glass darkens as the environment gets brighter (the app declares its environment, sized for its brightest spot). Darker blue tab, ringed tabs.' },
+    { id: 'A2', cls: 'v-spatial v-a-tuned v-a2', name: 'A2 · one dark glass', note: 'A single darker glass rgba(44,44,52,.82) on every backdrop. Darker blue tab, ringed tabs.' },
+  );
+  document.querySelector('.bar-title strong').textContent = 'Anchor A · tuning round';
+  document.querySelector('.bar-title span').textContent = 'A0 is your pick. A1 and A2 are the two ways the measurements allow it to pass.';
+}
 const grid = document.getElementById('grid');
 const tpl = document.getElementById('card');
 let evidence = null;
@@ -106,7 +117,7 @@ for (const v of VARIANTS) {
   col.className = 'col';
   col.setAttribute('aria-label', v.name);
   const card = tpl.content.firstElementChild.cloneNode(true);
-  card.classList.add(v.cls);
+  card.classList.add(...v.cls.split(' '));
   card.dataset.group = v.id;
   card.querySelector('.media').dataset.group = `${v.id}-media`; // text on the image is scored on its own
   const cap = document.createElement('div');
@@ -143,7 +154,7 @@ grid.addEventListener('click', (e) => {
 });
 const q = new URLSearchParams(location.search).get('scene');
 if (q) document.querySelector(`[data-scene-btn="${q}"]`)?.click();
-fetch('anchor-evidence.json').then((r) => (r.ok ? r.json() : null)).then((j) => { evidence = j; paintEvidence(); }).catch(() => {});
+fetch(ROUND === 'tune' ? 'anchor-evidence-tune.json' : 'anchor-evidence.json').then((r) => (r.ok ? r.json() : null)).then((j) => { evidence = j; paintEvidence(); }).catch(() => {});
 </script>
 </body>
 </html>

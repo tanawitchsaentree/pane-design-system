@@ -12,13 +12,14 @@ import { measurePageText } from './text-contrast.mjs';
 
 const DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'apps', 'lab', 'anchor');
 const SCENES = ['room', 'blobs', 'night', 'daylight'];
+const ROUND = process.argv.find((a) => a.startsWith('--round='))?.slice(8) ?? null; // e.g. --round=tune
 const srv = await serveDist(DIR);
 const browser = await chromium.launch();
 const out = { generatedAt: new Date().toISOString(), browser: `chromium ${browser.version()}`, threshold: 4.5, scenes: {} };
 try {
   for (const scene of SCENES) {
     const page = await browser.newPage({ viewport: { width: 1640, height: 1000 }, deviceScaleFactor: 1 });
-    await page.goto(`${srv.base}/index.html?scene=${scene}`, { waitUntil: 'networkidle' });
+    await page.goto(`${srv.base}/index.html?scene=${scene}${ROUND ? `&round=${ROUND}` : ''}`, { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts.ready);
     const r = await measurePageText(page, out.threshold);
     const groups = {};
@@ -40,6 +41,6 @@ try {
   await browser.close();
   srv.close();
 }
-writeFileSync(path.join(DIR, 'anchor-evidence.json'), JSON.stringify(out, null, 2) + '\n');
+writeFileSync(path.join(DIR, ROUND ? `anchor-evidence-${ROUND}.json` : 'anchor-evidence.json'), JSON.stringify(out, null, 2) + '\n');
 for (const [scene, gs] of Object.entries(out.scenes))
   console.log(scene.padEnd(9), Object.entries(gs).map(([g, v]) => `${g}: worst ${v.worst} · ${v.below45}/${v.texts} <4.5`).join('   '));

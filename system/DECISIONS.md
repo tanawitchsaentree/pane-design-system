@@ -38,3 +38,7 @@
 ### D-007: ข้อความ error บนกระจกใช้ red.800 ไม่ใช่สีแดงของ action
 - **วันที่:** 2026-10-26 · **Phase:** 2
 - **เลือก:** semantic `text.danger` = `red.800 #7F1D15`; `field.error-fg` ชี้ไปที่นี่ / **เพราะ:** glass-evidence รอบแรกวัดได้ `red.600` บน panel ทับพื้นดำ = 3.31:1, ทับ bauhaus = 4.03:1 (ตก 4.5) — คำนวณย้อน: บนพื้นแย่สุด (กระจก 0.72 ทับดำ, L≈0.48) แดงต้องมี L ≤ 0.068; red.700 = 0.071 ยังไม่พอ / **ตัวเลือกที่ตัดทิ้ง:** ใช้ ink + ข้อความนำหน้า (เสียความหมายของสี), เพิ่ม alpha ของ panel (กระทบทุก surface) / **กระทบ:** สีแดงใหม่ใดๆ ที่วางบนกระจกต้องผ่าน evidence run; action.primary ยังใช้ได้เฉพาะเป็น fill ทึบ
+
+### D-008: Anchor = A · Spatial (visionOS-style grey glass) — supersedes D-002, D-004
+- **วันที่:** 2026-10-26 · **Phase:** 0
+- **เลือก:** การ์ด A จาก anchor round (`apps/lab/anchor/`, refs `system/refs/ref-01-spatial-twitter.png`, `ref-02-visual-flow-card.png`): กระจกเทากลาง rgba(118,118,128,.32) blur 44 saturate 160%, ตัวอักษรขาว + รองขาวโปร่ง, radius 40, ไม่มีขอบแข็ง (specular rim gradient), แท็บแคปซูล selected = ฟ้า, CTA ขาวทึบ / **เพราะ:** user เลือกเองจาก 4 แบบที่เนื้อหาเดียวกัน; Pane เดิม (Bauhaus, double mullion) ผิดทิศทางที่ user ต้องการ / **ตัวเลือกที่ตัดทิ้ง:** B Milk frost, C Smoked, D Layered depth; D-002 Dessau lineage และ D-004 double mullion (supersede) / **กระทบ:** tokens/components/docs ของ Pane ต้องสร้างใหม่จาก A; D-003 (วัด pixel จริง) และ D-005 (fallback ทึบ) ยังใช้ต่อ; A ตามที่ render ยังไม่ผ่าน 4.5:1 (12–21/22 ข้อความบนพื้นต่างๆ) — ต้องจูนให้ผ่านโดยไม่เสียหน้าตา ก่อนเข้า Phase 2
