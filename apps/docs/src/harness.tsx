@@ -1,60 +1,52 @@
-// Evidence harness — every glass surface on every worst-case backdrop, tagged for measurement.
-// data-ev-text   = text whose contrast is measured against the real pixels under it
-// data-ev-edge   = element whose double mullion is measured against the backdrop beside it
-// data-ev-thumb  = non-text graphic (Switch thumb) measured against the pixels under it
-// data-scene     = "{backdrop}/{surface}" — the row key in evidence.json
+// Evidence harness — the anchor card plus every component variant, on one scene per page load
+// (?scene=room|blobs|night|daylight). Text is grouped by data-group for tooling/glass-evidence.mjs:
+//   card      — the anchor card's own text (minus the image)
+//   media     — text on the post image (reported, not gated: depends on the picture)
+//   controls  — every Button / IconButton / Tabs / Tag variant on a glass card
+//   environment — cards whose declared environment is at least as bright as the scene (gated)
+//   env-misuse  — cards declared darker than the scene (reported, not gated)
 import { createRoot } from 'react-dom/client';
 import 'pane-tokens/css';
-import './backdrops.css';
-import './harness.css';
-import { Badge, Button, Panel, Switch, TextField } from 'pane-react';
+import './scenes.css';
+import './docs.css';
+import { Button, Card, Environment, IconButton, Tabs, Tag } from 'pane-react';
+import { AnchorCard } from './AnchorCard';
+import { IconMore, IconPencil } from './icons';
+import { sceneById } from './scenes';
 
-export const BACKDROPS = ['white', 'black', 'midgray', 'stripes', 'gradient', 'bauhaus'] as const;
-
-const t = { 'data-ev-text': '' };
-
-function Surfaces({ bd }: { bd: string }) {
-  return (
-    <>
-      <div className={`scene bd-${bd}`} data-scene={`${bd}/panel`}>
-        <Panel data-ev-edge="" title={<span {...t}>Panel title</span>} description={<span {...t}>Secondary description text</span>}>
-          <p {...t} style={{ margin: 0 }}>Body text on a regular pane.</p>
-        </Panel>
-      </div>
-      <div className={`scene bd-${bd}`} data-scene={`${bd}/button-glass`}>
-        <Button variant="glass" data-ev-edge=""><span {...t}>Glass button</span></Button>
-      </div>
-      <div className={`scene bd-${bd}`} data-scene={`${bd}/button-primary`}>
-        <Button variant="primary" data-ev-edge=""><span {...t}>Primary button</span></Button>
-      </div>
-      <div className={`scene bd-${bd}`} data-scene={`${bd}/badge`}>
-        <Badge data-ev-edge=""><span {...t}>Neutral</span></Badge>
-      </div>
-      <div className={`scene bd-${bd}`} data-scene={`${bd}/field-on-panel`}>
-        <Panel>
-          <TextField
-            label={<span {...t}>Email</span>}
-            helperText={<span {...t}>Helper text</span>}
-            errorText={<span {...t}>Error: enter an email address</span>}
-            defaultValue="name@example.com"
-            data-ev-input=""
-          />
-        </Panel>
-      </div>
-      <div className={`scene bd-${bd}`} data-scene={`${bd}/switch-on-panel`}>
-        <Panel>
-          <Switch label={<span {...t}>Off switch</span>} data-ev-switch="" />
-        </Panel>
-      </div>
-      <div className={`scene bd-${bd}`} data-scene={`${bd}/field-bare`}>
-        <TextField label={<span {...t}>Bare label</span>} defaultValue="value" data-ev-input="" />
-      </div>
-    </>
-  );
-}
+const LEVELS = ['dim', 'mid', 'bright'] as const;
+const scene = sceneById(new URLSearchParams(location.search).get('scene') ?? 'room');
+document.body.dataset.scene = scene.id;
 
 createRoot(document.getElementById('root')!).render(
-  <main className="harness">
-    {BACKDROPS.map((bd) => <Surfaces key={bd} bd={bd} />)}
-  </main>,
+  <Environment brightness={scene.brightness} className="harness">
+    <div className="env" aria-hidden="true"><i className="e1" /><i className="e2" /><i className="e3" /><i className="e4" /><i className="e5" /></div>
+    <main className="harness-grid">
+      <div data-group="card" className="harness-anchor"><AnchorCard idPrefix="h" /></div>
+      <div data-group="controls">
+        <Card as="div">
+          <div className="demo-row">
+            <Button>Follow</Button><Button variant="accent">Get verified</Button><Button variant="glass">Message</Button><Button variant="glass" size="sm">Small</Button>
+          </div>
+          <div className="demo-row">
+            <IconButton aria-label="Edit"><IconPencil /></IconButton><IconButton variant="ghost" aria-label="More"><IconMore /></IconButton>
+            <Tag>Visual asset 05</Tag><Tag>Trending</Tag>
+          </div>
+          <Tabs.Root defaultValue="a">
+            <Tabs.List aria-label="Harness tabs"><Tabs.Trigger value="a">Tweets</Tabs.Trigger><Tabs.Trigger value="b">Replies</Tabs.Trigger><Tabs.Trigger value="c">Media</Tabs.Trigger><Tabs.Trigger value="d">Likes</Tabs.Trigger></Tabs.List>
+            <Tabs.Content value="a"><p className="flush muted">Secondary text on the card.</p></Tabs.Content>
+          </Tabs.Root>
+        </Card>
+      </div>
+      <div className="harness-envs">
+        {/* One card per environment. A card declared darker than the scene's brightness is misuse —
+            it is measured as "env-misuse" (reported, not gated) to show why the rule exists. */}
+        {LEVELS.map((b) => (
+          <Environment key={b} brightness={b} data-env-probe={b} data-group={LEVELS.indexOf(b) >= LEVELS.indexOf(scene.brightness) ? 'environment' : 'env-misuse'}>
+            <Card as="div"><p className="flush">{b} glass</p><p className="flush muted">Secondary text</p></Card>
+          </Environment>
+        ))}
+      </div>
+    </main>
+  </Environment>,
 );

@@ -1,15 +1,16 @@
-// Per-component docs content. Props listed here are checked against each component's TS source by
-// tooling/conformance.mjs (a documented prop that doesn't exist fails the run), so this file can't
-// silently drift from the code.
-import { useState, type ReactNode } from 'react';
-import { Badge, Button, Panel, Switch, TextField } from 'pane-react';
+// Per-component docs content. tooling/conformance.mjs checks every listed prop against the
+// component's TS source (entries starting with "…" are pass-through groups and are skipped), so this
+// file can't silently drift from the code.
+import type { ReactNode } from 'react';
+import { Avatar, Button, Card, CardCover, Environment, IconButton, Tabs, Tag } from 'pane-react';
+import { IconMore, IconPencil, IconShare } from './icons';
 
 export interface PropDoc { name: string; type: string; default?: string; description: string }
 export interface ComponentDoc {
   name: string;
   summary: string;
-  /** harness scene keys (`{backdrop}/{scene}`) whose measurements belong to this component */
-  scenes: string[];
+  /** harness data-group keys whose measurements belong to this component */
+  groups: string[];
   demo: () => ReactNode;
   props: PropDoc[];
   keyboard?: Array<[string, string]>;
@@ -18,137 +19,164 @@ export interface ComponentDoc {
   dont: string;
 }
 
-function SwitchDemo() {
-  const [on, setOn] = useState(true);
-  return (
-    <Panel>
-      <div className="demo-row">
-        <Switch label="Sync over Wi-Fi only" checked={on} onCheckedChange={setOn} />
-        <Switch label="Uncontrolled" />
-        <Badge>{on ? 'On' : 'Off'}</Badge>
-      </div>
-    </Panel>
-  );
-}
-
 export const COMPONENTS: ComponentDoc[] = [
   {
+    name: 'Environment',
+    summary:
+      'Declares how bright the world behind the glass is. Glass inside darkens to keep white text at 4.5:1 — the visionOS idea, made explicit because a web page cannot read the pixels behind it.',
+    groups: ['environment'],
+    demo: () => (
+      <div className="env-demo">
+        {/* each value on the kind of scene it is for — a dim card on a bright scene is misuse */}
+        {([['dim', 'night'], ['mid', 'room'], ['bright', 'daylight']] as const).map(([b, tile]) => (
+          <div key={b} className="env-tile" data-tile={tile}>
+            <Environment brightness={b}>
+              <Card as="div"><p className="flush"><b>{b}</b></p><p className="flush muted">For scenes like {tile}.</p></Card>
+            </Environment>
+          </div>
+        ))}
+      </div>
+    ),
+    props: [
+      { name: 'brightness', type: "'dim' | 'mid' | 'bright'", default: "'bright'", description: 'Brightness of the brightest spot a card can land on — not the scene average.' },
+      { name: '…div attributes', type: 'HTMLAttributes<HTMLDivElement>', description: 'Rendered as a <div data-environment>.' },
+    ],
+    a11y: ['No semantics of its own. Without it, glass uses the bright setting — the safe end.'],
+    do: 'Set it once per scene, sized for the scene’s brightest region.',
+    dont: 'Pick dim because the scene is “mostly dark” — the bright window in the Room scene failed exactly that way during tuning.',
+  },
+  {
+    name: 'Card',
+    summary: 'The pane: environment-tinted glass, a specular rim instead of a border, a soft float shadow. The inset variant nests content inside a pane without stacking a second glass layer.',
+    groups: ['card'],
+    demo: () => (
+      <Card as="div" className="demo-card">
+        <CardCover />
+        <p className="flush"><b>Glass card</b></p>
+        <p className="flush muted">Cover, text and a nested inset section.</p>
+        <Card variant="inset" as="div"><p className="flush muted">Inset content sits on the same pane, under a divider.</p></Card>
+      </Card>
+    ),
+    props: [
+      { name: 'variant', type: "'glass' | 'inset'", default: "'glass'", description: 'Floating pane, or content nested inside one.' },
+      { name: 'as', type: "'article' | 'section' | 'div'", default: "'article'", description: 'Rendered element.' },
+      { name: 'src', type: 'string', description: 'CardCover only — image URL; omitted = gradient placeholder.' },
+      { name: '…element attributes', type: 'HTMLAttributes<HTMLElement>', description: 'Passed through.' },
+    ],
+    a11y: [
+      'Renders a real <article>/<section> — give a section a heading.',
+      'In forced-colours mode the rim becomes a solid CanvasText border; with reduced transparency the glass turns opaque.',
+    ],
+    do: 'Put every piece of text on a Card.',
+    dont: 'Stack a second glass Card inside one — use variant="inset"; double blur muddies the text behind it.',
+  },
+  {
+    name: 'Avatar',
+    summary: 'Round portrait with initials fallback. The large size carries the rim-coloured ring from the anchor card.',
+    groups: ['card'],
+    demo: () => (
+      <div className="demo-row">
+        <Avatar name="Max Fmz" size="lg" />
+        <Avatar name="Visual Flow" size="md" />
+        <Avatar name="Ada Lovelace" size="sm" />
+      </div>
+    ),
+    props: [
+      { name: 'name', type: 'string', description: 'Required — accessible name and source of the initials.' },
+      { name: 'src', type: 'string', description: 'Photo URL; omitted = initials.' },
+      { name: 'size', type: "'sm' | 'md' | 'lg'", default: "'md'", description: '30 / 44 / 84px.' },
+      { name: 'decorative', type: 'boolean', default: 'false', description: 'Hide from screen readers when the name is printed right beside it.' },
+    ],
+    a11y: ['role="img" + aria-label from name, or aria-hidden when decorative — never both.'],
+    do: 'Mark it decorative next to a visible name, as in the anchor card.',
+    dont: 'Leave a decorative avatar announced — readers hear “Max Fmz, Max Fmz”.',
+  },
+  {
     name: 'Button',
-    summary:
-      'Two variants. Primary is an opaque Dessau-red fill for the one main action on a pane; glass is a pane on its own mullion frame for everything else.',
-    scenes: ['button-glass', 'button-primary'],
+    summary: 'Pill buttons. Light is the solid white action from the anchor (“Follow”); accent is the blue; glass is a quiet fill for secondary actions.',
+    groups: ['controls'],
     demo: () => (
-      <div className="demo-row">
-        <Button>Publish</Button>
-        <Button variant="glass">Save draft</Button>
-        <Button variant="glass" size="sm">Small</Button>
-        <Button disabled>Disabled</Button>
-      </div>
-    ),
-    props: [
-      { name: 'variant', type: "'primary' | 'glass'", default: "'primary'", description: 'Opaque fill for the main action, or glass on a mullion frame.' },
-      { name: 'size', type: "'sm' | 'md'", default: "'md'", description: 'Minimum block size from control.sm / control.md.' },
-      { name: '…button attributes', type: 'ButtonHTMLAttributes', description: 'Native <button> — type defaults to "button", not "submit".' },
-    ],
-    keyboard: [['Tab', 'Moves focus to the button'], ['Enter / Space', 'Activates it (native button)']],
-    a11y: [
-      'Native <button>, so role, focus and activation come from the browser.',
-      'Disabled changes the outer mullion to dashed — the state reads without colour.',
-      'Focus ring is two opaque rings (ink inside, white outside), measured ≥3:1 on every backdrop.',
-    ],
-    do: 'One primary button per pane, for the action the pane exists for.',
-    dont: 'Two primary buttons side by side — the red stops meaning "this one".',
-  },
-  {
-    name: 'Badge',
-    summary: 'A short status label. Neutral is thick glass; accent is the opaque red fill.',
-    scenes: ['badge'],
-    demo: () => (
-      <div className="demo-row">
-        <Badge>Draft</Badge>
-        <Badge tone="accent">Live</Badge>
-      </div>
-    ),
-    props: [
-      { name: 'tone', type: "'neutral' | 'accent'", default: "'neutral'", description: 'Glass, or opaque red for the one thing that needs attention.' },
-      { name: '…span attributes', type: 'HTMLAttributes<HTMLSpanElement>', description: 'Rendered as a <span>.' },
-    ],
-    a11y: ['Static text — no role. If the badge carries state that changes, put the change in an aria-live region near it.'],
-    do: 'One or two words that say what state the thing is in.',
-    dont: 'Use the accent tone for decoration — it is the only loud colour the system has.',
-  },
-  {
-    name: 'Panel',
-    summary:
-      'The pane itself: regular glass infill inside an opaque double mullion. Every piece of text in a Pane interface sits on one of these.',
-    scenes: ['panel'],
-    demo: () => (
-      <Panel title="Quarterly report" headingLevel={4} description="Last updated 2 hours ago">
-        <p className="flush">Revenue is up 12% on the previous quarter.</p>
+      <Card as="div" className="demo-card">
         <div className="demo-row">
-          <Button size="sm">Open</Button>
-          <Button size="sm" variant="glass">Share</Button>
+          <Button>Follow</Button>
+          <Button variant="accent">Get verified</Button>
+          <Button variant="glass">Message</Button>
+          <Button size="sm" variant="glass">Small</Button>
+          <Button disabled>Disabled</Button>
         </div>
-      </Panel>
+      </Card>
     ),
     props: [
-      { name: 'title', type: 'ReactNode', description: 'Rendered as a heading.' },
-      { name: 'headingLevel', type: '2 | 3 | 4', default: '3', description: 'Pick the level that fits the page outline.' },
-      { name: 'description', type: 'ReactNode', description: 'Secondary text under the title.' },
-      { name: '…section attributes', type: 'HTMLAttributes<HTMLElement>', description: 'Rendered as a <section>.' },
+      { name: 'variant', type: "'light' | 'accent' | 'glass'", default: "'light'", description: 'Solid white, blue, or quiet glass fill.' },
+      { name: 'size', type: "'sm' | 'md'", default: "'md'", description: '32 / 44px tall.' },
+      { name: '…button attributes', type: 'ButtonHTMLAttributes', description: 'Native <button>, type defaults to "button".' },
     ],
-    a11y: [
-      'A <section> with a real heading, so it shows up in the screen-reader outline.',
-      'With reduced transparency, forced colours, or no backdrop-filter support the glass becomes opaque paper — measured in all three modes.',
-    ],
-    do: 'Put text, fields and switches on a Panel.',
-    dont: 'Put body text straight on a photo or gradient — the bare-backdrop rows in the evidence table show why.',
+    keyboard: [['Tab', 'Moves focus to the button'], ['Enter / Space', 'Activates it']],
+    a11y: ['Native <button>.', 'Focus: 2px white ring with a dark halo, visible on light and dark glass alike.'],
+    do: 'One light button per card, for the action the card exists for.',
+    dont: 'Use accent and light side by side for equal actions — two loud buttons cancel out.',
   },
   {
-    name: 'TextField',
-    summary: 'Label, thick-glass input, helper text and an error message that is shown as words, not only as a red edge.',
-    scenes: ['field-on-panel', 'field-bare'],
+    name: 'IconButton',
+    summary: 'Round icon-only button: a frosted disc (edit, close) or a bare icon for dense rows (more, share).',
+    groups: ['controls'],
     demo: () => (
-      <Panel>
-        <div className="demo-stack">
-          <TextField label="Full name" helperText="As it appears on your ID" placeholder="Ada Lovelace" />
-          <TextField label="Email" defaultValue="ada@" errorText="Error: enter a full email address" />
+      <Card as="div" className="demo-card">
+        <div className="demo-row">
+          <IconButton aria-label="Edit profile"><IconPencil /></IconButton>
+          <IconButton variant="ghost" aria-label="More options"><IconMore /></IconButton>
+          <IconButton variant="ghost" size="sm" aria-label="Share"><IconShare /></IconButton>
         </div>
-      </Panel>
+      </Card>
     ),
     props: [
-      { name: 'label', type: 'ReactNode', description: 'Required visible label, tied to the input with for/id.' },
-      { name: 'helperText', type: 'ReactNode', description: 'Hint under the input, linked through aria-describedby.' },
-      { name: 'errorText', type: 'ReactNode', description: 'Sets aria-invalid and shows the message; read before the helper.' },
-      { name: '…input attributes', type: 'InputHTMLAttributes', description: 'Passed to the <input>.' },
+      { name: 'aria-label', type: 'string', description: 'Required by the type — the button’s only name.' },
+      { name: 'variant', type: "'glass' | 'ghost'", default: "'glass'", description: 'Frosted disc, or icon only.' },
+      { name: 'size', type: "'sm' | 'md'", default: "'md'", description: '32 / 36px.' },
     ],
-    keyboard: [['Tab', 'Moves focus into the field']],
-    a11y: [
-      'The label is a real <label> — a placeholder is never the label.',
-      'Error text is red.800 (D-007): red.600 measured 3.31:1 on glass over black, so the error colour was changed, not the test.',
-      'Error and helper ids go in aria-describedby, error first.',
-    ],
-    do: 'Write the error as the fix: “Enter a full email address”.',
-    dont: 'Put the label on a raw backdrop — see the field-bare rows in the evidence table below.',
+    keyboard: [['Tab', 'Moves focus to it'], ['Enter / Space', 'Activates it']],
+    a11y: ['aria-label is required at the type level, so an unnamed icon button does not compile.'],
+    do: 'Name the action, not the icon: “Edit profile”, not “Pencil”.',
+    dont: 'Put an icon-only button where the action isn’t obvious from context.',
   },
   {
-    name: 'Switch',
-    summary: 'An on/off control. The thumb’s position carries the state; the track turns red when on.',
-    scenes: ['switch-on-panel'],
-    demo: () => <SwitchDemo />,
+    name: 'Tabs',
+    summary: 'Pill tabs from the anchor card. Selected = blue pill; the others keep only a ring, because a white fill lifted the backdrop under white text.',
+    groups: ['controls'],
+    demo: () => (
+      <Card as="div" className="demo-card">
+        <Tabs.Root defaultValue="a">
+          <Tabs.List aria-label="Demo sections">
+            <Tabs.Trigger value="a">Tweets</Tabs.Trigger>
+            <Tabs.Trigger value="b">Replies</Tabs.Trigger>
+            <Tabs.Trigger value="c">Media</Tabs.Trigger>
+          </Tabs.List>
+          <Tabs.Content value="a"><p className="flush muted tab-empty">Tweets panel.</p></Tabs.Content>
+          <Tabs.Content value="b"><p className="flush muted tab-empty">Replies panel.</p></Tabs.Content>
+          <Tabs.Content value="c"><p className="flush muted tab-empty">Media panel.</p></Tabs.Content>
+        </Tabs.Root>
+      </Card>
+    ),
     props: [
-      { name: 'label', type: 'ReactNode', description: 'Visible label, which is also the accessible name.' },
-      { name: 'checked', type: 'boolean', description: 'Controlled state.' },
-      { name: 'defaultChecked', type: 'boolean', default: 'false', description: 'Initial state when uncontrolled.' },
-      { name: 'onCheckedChange', type: '(checked: boolean) => void', description: 'Called with the new state.' },
+      { name: '…Radix Tabs props', type: 'Root: value / defaultValue / onValueChange · Trigger: value · Content: value', description: 'Behaviour is Radix’s (roving tabindex, arrow keys); Pane adds the look only.' },
     ],
-    keyboard: [['Tab', 'Moves focus to the switch'], ['Space / Enter', 'Toggles it']],
-    a11y: [
-      'role="switch" on a native <button>, aria-checked reflects the state.',
-      'Thumb position follows writing direction (flex-end, not translateX), so RTL needs nothing extra.',
-      'In forced-colours mode the thumb keeps CanvasText / Highlight and gains a real edge.',
-    ],
-    do: 'Use it for a setting that takes effect immediately.',
-    dont: 'Use it inside a form that needs a submit — that is a checkbox.',
+    keyboard: [['Tab', 'Into the tab list (selected tab), then to the panel'], ['← / →', 'Previous / next tab'], ['Home / End', 'First / last tab']],
+    a11y: ['tablist / tab / tabpanel roles with aria-controls and aria-selected, from Radix.', 'Forced colours: selected tab gets a Highlight border and an underline.'],
+    do: 'Keep labels to one short word each — the row must not wrap.',
+    dont: 'Use tabs to switch between actions; they switch views.',
+  },
+  {
+    name: 'Tag',
+    summary: 'Outlined small-caps label for categorising content — the “VISUAL ASSET 05” pill from ref 2.',
+    groups: ['controls', 'media'],
+    demo: () => (
+      <Card as="div" className="demo-card">
+        <div className="demo-row"><Tag>Visual asset 05</Tag><Tag>Trending</Tag><Tag>Tech</Tag></div>
+      </Card>
+    ),
+    props: [{ name: '…span attributes', type: 'HTMLAttributes<HTMLSpanElement>', description: 'Rendered as a <span>.' }],
+    a11y: ['Plain text, no role. Not for status — status needs words a screen reader can act on.'],
+    do: 'Two words or fewer.',
+    dont: 'Make it clickable — it has no button semantics.',
   },
 ];

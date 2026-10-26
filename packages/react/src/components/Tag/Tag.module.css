@@ -1,0 +1,15 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  padding-inline: var(--ds-tag-padding-inline);
+  padding-block: var(--ds-tag-padding-block);
+  border: var(--ds-card-rim-width) solid var(--ds-tag-ring);
+  border-radius: var(--ds-tag-radius);
+  color: var(--ds-tag-fg);
+  font-family: var(--ds-type-family);
+  font-size: var(--ds-type-micro);
+  font-weight: var(--ds-type-weight-medium);
+  letter-spacing: var(--ds-type-tracking-caps);
+  text-transform: uppercase;
+  line-height: var(--ds-type-leading-tight);
+}

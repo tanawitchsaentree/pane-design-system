@@ -1,75 +1,97 @@
 {
   "color": {
     "$type": "color",
+    "white": {
+      "$value": "#FFFFFF"
+    },
+    "white-a": {
+      "85": {
+        "$value": "#FFFFFFD9",
+        "$description": "white at .85 — secondary text (D-009)"
+      },
+      "55": {
+        "$value": "#FFFFFF8C"
+      },
+      "30": {
+        "$value": "#FFFFFF4D"
+      },
+      "28": {
+        "$value": "#FFFFFF47"
+      },
+      "16": {
+        "$value": "#FFFFFF29"
+      },
+      "14": {
+        "$value": "#FFFFFF24"
+      },
+      "06": {
+        "$value": "#FFFFFF0F"
+      },
+      "08": {
+        "$value": "#FFFFFF14"
+      }
+    },
+    "graphite": {
+      "dim": {
+        "$value": "#58586080",
+        "$description": "rgba(88,88,96,.5) — glass in dim environments"
+      },
+      "mid": {
+        "$value": "#404048C7",
+        "$description": "rgba(64,64,72,.78) — glass in mid environments"
+      },
+      "bright": {
+        "$value": "#2C2C34D1",
+        "$description": "rgba(44,44,52,.82) — glass in bright environments"
+      },
+      "solid": {
+        "$value": "#2C2C34",
+        "$description": "opaque fallback (D-005)"
+      }
+    },
     "ink": {
-      "950": {
-        "$value": "#0B0F14"
-      },
-      "700": {
-        "$value": "#2A3340"
-      },
-      "500": {
-        "$value": "#4A5563"
-      }
-    },
-    "paper": {
-      "0": {
-        "$value": "#FFFFFF"
-      },
-      "100": {
-        "$value": "#EEF1F4"
-      },
-      "200": {
-        "$value": "#DDE2E8"
-      }
-    },
-    "steel": {
       "900": {
-        "$value": "#141A22"
+        "$value": "#111214"
       }
     },
-    "red": {
+    "blue": {
       "600": {
-        "$value": "#B42318"
+        "$value": "#0071E3"
       },
       "700": {
-        "$value": "#912018"
-      },
-      "800": {
-        "$value": "#7F1D15"
+        "$value": "#0062C4"
       }
     },
-    "glass": {
-      "white-55": {
-        "$value": "#FFFFFF8C",
-        "$description": "white at 0.55 alpha"
+    "shade-a": {
+      "55": {
+        "$value": "#0000008C"
       },
-      "white-72": {
-        "$value": "#FFFFFFB8",
-        "$description": "white at 0.72 alpha"
+      "35": {
+        "$value": "#00000059"
+      }
+    },
+    "foliage": {
+      "light": {
+        "$value": "#6F8F5A"
       },
-      "white-86": {
-        "$value": "#FFFFFFDB",
-        "$description": "white at 0.86 alpha"
+      "dark": {
+        "$value": "#26331F"
       }
     }
   },
   "blur": {
     "$type": "dimension",
-    "sm": {
-      "$value": "8px"
-    },
     "md": {
-      "$value": "16px"
+      "$value": "20px"
     },
     "lg": {
-      "$value": "28px"
+      "$value": "44px"
     }
   },
   "saturate": {
     "$type": "number",
     "glass": {
-      "$value": 1.4
+      "$value": 1.6
     }
   },
   "space": {
@@ -77,17 +99,23 @@
     "1": {
       "$value": "4px"
     },
+    "1-5": {
+      "$value": "6px"
+    },
     "2": {
       "$value": "8px"
     },
     "3": {
       "$value": "12px"
     },
+    "3-5": {
+      "$value": "14px"
+    },
     "4": {
       "$value": "16px"
     },
     "5": {
-      "$value": "24px"
+      "$value": "22px"
     },
     "6": {
       "$value": "32px"
@@ -104,32 +132,50 @@
     "ring": {
       "$value": "2px"
     },
+    "halo": {
+      "$value": "5px"
+    },
+    "avatar-ring": {
+      "$value": "4px"
+    },
+    "avatar-sm": {
+      "$value": "30px"
+    },
+    "avatar-md": {
+      "$value": "44px"
+    },
+    "avatar-lg": {
+      "$value": "84px"
+    },
     "control-sm": {
       "$value": "32px"
     },
     "control-md": {
-      "$value": "40px"
+      "$value": "36px"
     },
-    "switch-track-inline": {
+    "control-lg": {
       "$value": "44px"
     },
-    "switch-track-block": {
-      "$value": "24px"
-    },
-    "switch-thumb": {
+    "icon-sm": {
       "$value": "16px"
     },
+    "icon-md": {
+      "$value": "18px"
+    },
     "measure": {
-      "$value": "68ch"
+      "$value": "64ch"
     }
   },
   "radius": {
     "$type": "dimension",
-    "none": {
-      "$value": "0px"
+    "md": {
+      "$value": "18px"
     },
-    "sm": {
-      "$value": "2px"
+    "lg": {
+      "$value": "24px"
+    },
+    "xl": {
+      "$value": "40px"
     },
     "pill": {
       "$value": "999px"
@@ -139,28 +185,34 @@
     "family": {
       "$type": "fontFamily",
       "sans": {
-        "$value": "Futura, 'Avenir Next', 'Century Gothic', system-ui, sans-serif"
+        "$value": "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', Inter, system-ui, sans-serif"
       }
     },
     "size": {
       "$type": "dimension",
       "100": {
-        "$value": "12px"
+        "$value": "11px"
       },
       "200": {
-        "$value": "14px"
+        "$value": "13px"
       },
       "300": {
-        "$value": "16px"
+        "$value": "14px"
       },
       "400": {
-        "$value": "20px"
+        "$value": "15px"
       },
       "500": {
-        "$value": "28px"
+        "$value": "17px"
       },
       "600": {
-        "$value": "40px"
+        "$value": "21px"
+      },
+      "700": {
+        "$value": "28px"
+      },
+      "800": {
+        "$value": "44px"
       }
     },
     "weight": {
@@ -169,29 +221,44 @@
         "$value": 400
       },
       "medium": {
-        "$value": 500
+        "$value": 550
       },
-      "bold": {
-        "$value": 700
+      "semibold": {
+        "$value": 650
       }
     },
     "leading": {
       "$type": "number",
       "tight": {
-        "$value": 1.2
+        "$value": 1.15
       },
       "body": {
-        "$value": 1.5
+        "$value": 1.42
       }
+    },
+    "tracking": {
+      "$type": "dimension",
+      "caps": {
+        "$value": "0.08em"
+      },
+      "display": {
+        "$value": "-0.02em"
+      }
+    }
+  },
+  "shadow": {
+    "$type": "shadow",
+    "float": {
+      "$value": "0 30px 60px -20px #00000059"
+    },
+    "lift": {
+      "$value": "0 8px 20px -8px #00000066"
     }
   },
   "duration": {
     "$type": "duration",
     "fast": {
-      "$value": "120ms"
-    },
-    "base": {
-      "$value": "200ms"
+      "$value": "140ms"
     }
   },
   "easing": {

@@ -3,50 +3,24 @@
   align-items: center;
   justify-content: center;
   gap: var(--ds-button-gap);
-  padding-inline: var(--ds-button-padding-inline);
-  border: var(--ds-line-hairline) solid var(--ds-border-mullion-outer);
+  border: 0;
   border-radius: var(--ds-button-radius);
   font-family: var(--ds-type-family);
-  font-size: var(--ds-type-label);
-  font-weight: var(--ds-type-weight-medium);
+  font-weight: var(--ds-type-weight-semibold);
   line-height: var(--ds-type-leading-tight);
-  color: var(--ds-button-fg);
   cursor: pointer;
   transition: background-color var(--ds-motion-fast) var(--ds-motion-easing);
 }
-.sm { min-block-size: var(--ds-button-height-sm); }
-.md { min-block-size: var(--ds-button-height-md); }
-
-.primary {
-  background: var(--ds-button-primary-bg);
-  color: var(--ds-button-primary-fg);
-  box-shadow: inset 0 0 0 var(--ds-line-hairline) var(--ds-border-mullion-inner);
-}
-.primary:hover:not(:disabled) { background: var(--ds-button-primary-bg-hover); }
-
-/* D-004 double mullion: dark outer border + light inner line. */
-.glass {
-  background: var(--ds-button-glass-bg);
-  backdrop-filter: blur(var(--ds-button-glass-blur)) saturate(var(--ds-glass-saturate));
-  -webkit-backdrop-filter: blur(var(--ds-button-glass-blur)) saturate(var(--ds-glass-saturate));
-  box-shadow: inset 0 0 0 var(--ds-line-hairline) var(--ds-border-mullion-inner);
-}
-.glass:hover:not(:disabled) { background: var(--ds-surface-raised); }
-
+.sm { min-block-size: var(--ds-button-height-sm); padding-inline: var(--ds-button-padding-sm); font-size: var(--ds-type-label); }
+.md { min-block-size: var(--ds-button-height-md); padding-inline: var(--ds-button-padding-md); font-size: var(--ds-type-body); }
+.light { background: var(--ds-button-light-bg); color: var(--ds-button-light-fg); box-shadow: var(--ds-button-shadow); }
+.accent { background: var(--ds-button-accent-bg); color: var(--ds-button-accent-fg); box-shadow: var(--ds-button-shadow); }
+.accent:hover:not(:disabled) { background: var(--ds-button-accent-bg-hover); }
+.glass { background: var(--ds-button-glass-bg); color: var(--ds-button-glass-fg); }
 .root:focus-visible {
-  outline: var(--ds-line-ring) solid var(--ds-focus-ring-inner);
-  outline-offset: 0;
-  box-shadow:
-    inset 0 0 0 var(--ds-line-hairline) var(--ds-border-mullion-inner),
-    0 0 0 calc(var(--ds-line-ring) * 2) var(--ds-focus-ring-outer);
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-width);
+  box-shadow: 0 0 0 calc(var(--ds-focus-ring-width) * 2 + var(--ds-focus-ring-halo-width)) var(--ds-focus-ring-halo);
 }
-
-/* Disabled: not only fainter — the outer mullion turns dashed, a cue that survives without colour. */
-.root:disabled {
-  cursor: not-allowed;
-  background: var(--ds-surface-solid);
-  color: var(--ds-text-secondary);
-  border-style: dashed;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-}
+.root:disabled { cursor: not-allowed; opacity: 0.5; }
+@media (forced-colors: active) { .root { border: var(--ds-focus-ring-width) solid ButtonText; } }

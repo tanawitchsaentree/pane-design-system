@@ -1,13 +1,39 @@
 {
   "$comment": "Per-system names the engine's gates read.",
   "storyCategories": {
-    "Foundations": ["Colors", "Typography", "Spacing", "Motion"],
-    "Pilot": ["Button", "Badge", "Panel", "TextField", "Switch"]
+    "Foundations": [
+      "Colors",
+      "Typography",
+      "Spacing",
+      "Motion"
+    ],
+    "Pilot": [
+      "Environment",
+      "Card",
+      "Avatar",
+      "Button",
+      "IconButton",
+      "Tabs",
+      "Tag"
+    ]
   },
   "smokeImport": {
-    "expectedExports": ["Button", "Badge", "Panel", "TextField", "Switch"],
-    "minExports": 5,
-    "renderProbes": ["Button", "Badge", "Panel"],
+    "expectedExports": [
+      "Environment",
+      "Card",
+      "CardCover",
+      "Avatar",
+      "Button",
+      "IconButton",
+      "Tabs",
+      "Tag"
+    ],
+    "minExports": 8,
+    "renderProbes": [
+      "Button",
+      "Tag",
+      "Card"
+    ],
     "legacyNames": []
   }
 }

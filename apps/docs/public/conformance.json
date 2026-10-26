@@ -1,8 +1,26 @@
 {
-  "generatedAt": "2026-10-26T05:33:30.549Z",
-  "passed": 24,
-  "total": 24,
+  "generatedAt": "2026-10-26T09:48:23.293Z",
+  "passed": 28,
+  "total": 28,
   "checks": [
+    {
+      "component": "Environment",
+      "name": "every documented prop exists in the TS source",
+      "ok": true,
+      "detail": "1 props"
+    },
+    {
+      "component": "Card",
+      "name": "every documented prop exists in the TS source",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "Avatar",
+      "name": "every documented prop exists in the TS source",
+      "ok": true,
+      "detail": "4 props"
+    },
     {
       "component": "Button",
       "name": "every documented prop exists in the TS source",
@@ -10,32 +28,63 @@
       "detail": "2 props"
     },
     {
-      "component": "Badge",
-      "name": "every documented prop exists in the TS source",
-      "ok": true,
-      "detail": "1 props"
-    },
-    {
-      "component": "Panel",
+      "component": "IconButton",
       "name": "every documented prop exists in the TS source",
       "ok": true,
       "detail": "3 props"
     },
     {
-      "component": "TextField",
+      "component": "Tabs",
       "name": "every documented prop exists in the TS source",
       "ok": true,
-      "detail": "3 props"
+      "detail": "only pass-through props documented — nothing of its own to cross-check"
     },
     {
-      "component": "Switch",
+      "component": "Tag",
       "name": "every documented prop exists in the TS source",
       "ok": true,
-      "detail": "4 props"
+      "detail": "only pass-through props documented — nothing of its own to cross-check"
+    },
+    {
+      "component": "Environment",
+      "name": "brightness actually changes the glass tint (dim ≠ mid ≠ bright)",
+      "ok": true,
+      "detail": "rgba(88, 88, 96, 0.5) · rgba(64, 64, 72, 0.78) · rgba(44, 44, 52, 0.82)"
+    },
+    {
+      "component": "Environment",
+      "name": "reduced transparency turns every environment opaque and identical (D-005)",
+      "ok": true,
+      "detail": "rgb(44, 44, 52)"
+    },
+    {
+      "component": "Environment",
+      "name": "no declaration falls back to bright (the safe end)",
+      "ok": true
+    },
+    {
+      "component": "Card",
+      "name": "glass card renders an <article> with backdrop blur",
+      "ok": true
+    },
+    {
+      "component": "Card",
+      "name": "inset variant adds no second glass layer",
+      "ok": true
+    },
+    {
+      "component": "Avatar",
+      "name": "non-decorative avatars are role=\"img\" named after the person",
+      "ok": true
+    },
+    {
+      "component": "Avatar",
+      "name": "decorative avatar beside a visible name is hidden from assistive tech",
+      "ok": true
     },
     {
       "component": "Button",
-      "name": "renders a native <button type=\"button\">",
+      "name": "native <button type=\"button\">",
       "ok": true
     },
     {
@@ -50,85 +99,60 @@
     },
     {
       "component": "Button",
-      "name": "keyboard focus draws the double ring (2px solid outline)",
+      "name": "keyboard focus draws a 2px white ring with a dark halo",
       "ok": true
     },
     {
       "component": "Button",
-      "name": "disabled: native disabled attribute + dashed mullion (non-colour cue)",
+      "name": "disabled is the native attribute",
       "ok": true
     },
     {
-      "component": "Badge",
-      "name": "renders as plain text with no role",
+      "component": "IconButton",
+      "name": "every button with no visible text on the page has an accessible name",
       "ok": true
     },
     {
-      "component": "Panel",
-      "name": "is a <section> whose title is a real heading at headingLevel",
-      "ok": true
-    },
-    {
-      "component": "TextField",
-      "name": "label is programmatically tied to the input",
-      "ok": true
-    },
-    {
-      "component": "TextField",
-      "name": "errorText sets aria-invalid and is announced via aria-describedby (error first)",
-      "ok": true
-    },
-    {
-      "component": "TextField",
-      "name": "helperText is linked via aria-describedby",
-      "ok": true
-    },
-    {
-      "component": "TextField",
+      "component": "IconButton",
       "name": "reachable with Tab",
       "ok": true
     },
     {
-      "component": "Switch",
-      "name": "role=\"switch\" with aria-checked=\"false\" initially",
+      "component": "Tabs",
+      "name": "roving tabindex: only the selected tab is in the tab order",
       "ok": true
     },
     {
-      "component": "Switch",
-      "name": "Space toggles it on, Enter toggles it off",
+      "component": "Tabs",
+      "name": "→ / ← move focus and selection; Home / End jump",
       "ok": true
     },
     {
-      "component": "Switch",
-      "name": "click toggles it",
+      "component": "Tabs",
+      "name": "each tab controls a tabpanel that exists",
       "ok": true
     },
     {
-      "component": "Switch",
-      "name": "controlled: onCheckedChange drives external state",
+      "component": "Tabs",
+      "name": "selected tab is not marked by colour alone in forced colours",
       "ok": true
     },
     {
-      "component": "Switch",
-      "name": "state has a non-colour cue (thumb moves to the other end)",
-      "ok": true
-    },
-    {
-      "component": "Switch",
-      "name": "thumb follows writing direction in RTL",
+      "component": "Tag",
+      "name": "plain text with no role, small caps via CSS (source text stays readable)",
       "ok": true
     },
     {
       "component": "Docs page",
       "name": "axe: no violations (forced-colors none)",
       "ok": true,
-      "detail": "28 rules pass; color-contrast incomplete on 686 nodes (axe cannot see through backdrop-filter — settled per pixel by glass-evidence docs-page pass)"
+      "detail": "30 rules pass; color-contrast incomplete on 719 nodes (axe cannot see through backdrop-filter — settled per pixel by glass-evidence)"
     },
     {
       "component": "Docs page",
       "name": "axe: no violations (forced-colors active)",
       "ok": true,
-      "detail": "28 rules pass; color-contrast incomplete on 4 nodes (axe cannot see through backdrop-filter — settled per pixel by glass-evidence docs-page pass)"
+      "detail": "30 rules pass; color-contrast incomplete on 715 nodes (axe cannot see through backdrop-filter — settled per pixel by glass-evidence)"
     }
   ]
 }

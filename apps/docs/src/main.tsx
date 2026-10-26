@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import 'pane-tokens/css';
-import './backdrops.css';
+import './scenes.css';
 import './docs.css';
 import { App } from './App';
 

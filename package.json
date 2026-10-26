@@ -2,7 +2,7 @@
   "name": "pane-design-system",
   "private": true,
   "version": "0.0.0",
-  "description": "Pane \u2014 glass on a Dessau curtain-wall frame. Built with the kiln engine.",
+  "description": "Pane — glass on a Dessau curtain-wall frame. Built with the kiln engine.",
   "packageManager": "pnpm@9.0.0",
   "scripts": {
     "build": "turbo run build",
@@ -21,12 +21,12 @@
     "verify": "pnpm run tokens:build && pnpm run lint && node tooling/generate-barrel.mjs --check && pnpm run typecheck && pnpm run docs:build && node tooling/glass-evidence.mjs --no-build && node tooling/conformance.mjs --no-build && pnpm run docs:build"
   },
   "devDependencies": {
-    "@playwright/test": "^1.62.1",
-    "playwright": "^1.62.1",
-    "turbo": "^2.0.0",
-    "pngjs": "^7.0.0",
     "@axe-core/playwright": "^4.10.0",
-    "typescript": "^5.6.0",
-    "@types/react": "^19.0.0"
+    "@playwright/test": "^1.62.1",
+    "@types/react": "^19.0.0",
+    "playwright": "^1.62.1",
+    "pngjs": "^7.0.0",
+    "turbo": "^2.0.0",
+    "typescript": "^5.6.0"
   }
 }

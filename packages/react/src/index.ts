@@ -3,10 +3,12 @@
 // each component's own src/components/{Name}/index.ts. Regenerate with:
 //   node tooling/generate-barrel.mjs
 
-// Pilot (D-006): Button, Badge, Panel, TextField, Switch.
+// Anchor A — the parts of the profile card: Environment, Card, Avatar, Button, IconButton, Tabs, Tag.
 
+export * from './components/Environment';
+export * from './components/Card';
+export * from './components/Avatar';
 export * from './components/Button';
-export * from './components/Badge';
-export * from './components/Panel';
-export * from './components/TextField';
-export * from './components/Switch';
+export * from './components/IconButton';
+export * from './components/Tabs';
+export * from './components/Tag';

@@ -2,112 +2,149 @@
   "surface": {
     "$type": "color",
     "glass": {
-      "thin": {
-        "$value": "{color.glass.white-55}"
-      },
-      "regular": {
-        "$value": "{color.glass.white-72}"
-      },
-      "thick": {
-        "$value": "{color.glass.white-86}"
+      "$value": "{color.graphite.bright}",
+      "$description": "D-009: glass darkens with the environment the app declares; no declaration = bright (the safe end)",
+      "$extensions": {
+        "pane.environment": {
+          "dim": "{color.graphite.dim}",
+          "mid": "{color.graphite.mid}",
+          "bright": "{color.graphite.bright}"
+        }
       }
     },
     "solid": {
-      "$value": "{color.paper.100}",
+      "$value": "{color.graphite.solid}",
       "$description": "D-005 opaque fallback for every glass surface"
     },
-    "raised": {
-      "$value": "{color.paper.0}"
+    "quiet": {
+      "$value": "{color.white-a.08}",
+      "$description": "glass-on-glass fill (glass buttons, icon discs) — .14 measured 4.25:1 under white text in the mid environment"
+    },
+    "light": {
+      "$value": "{color.white}"
+    },
+    "placeholder-hi": {
+      "$value": "{color.foliage.light}",
+      "$description": "decorative image placeholder"
+    },
+    "placeholder-lo": {
+      "$value": "{color.foliage.dark}"
     }
   },
   "text": {
     "$type": "color",
     "primary": {
-      "$value": "{color.ink.950}"
+      "$value": "{color.white}"
     },
     "secondary": {
-      "$value": "{color.ink.700}"
+      "$value": "{color.white-a.85}"
+    },
+    "on-light": {
+      "$value": "{color.ink.900}"
     },
     "on-accent": {
-      "$value": "{color.paper.0}"
-    },
-    "danger": {
-      "$value": "{color.red.800}",
-      "$description": "D-007 red for text on glass — measured ≥4.5:1 over the black backdrop; action.primary (red.600) measured 3.31:1 there"
-    }
-  },
-  "border": {
-    "$type": "color",
-    "mullion-outer": {
-      "$value": "{color.steel.900}",
-      "$description": "D-004 dark line, outside"
-    },
-    "mullion-inner": {
-      "$value": "{color.paper.0}",
-      "$description": "D-004 light line, inside"
+      "$value": "{color.white}"
     }
   },
   "action": {
     "$type": "color",
-    "primary": {
-      "$value": "{color.red.600}"
+    "accent": {
+      "$value": "{color.blue.600}"
     },
-    "primary-hover": {
-      "$value": "{color.red.700}"
+    "accent-hover": {
+      "$value": "{color.blue.700}"
+    }
+  },
+  "line": {
+    "$type": "color",
+    "ring": {
+      "$value": "{color.white-a.30}"
+    },
+    "divider": {
+      "$value": "{color.white-a.16}"
+    },
+    "rim-hi": {
+      "$value": "{color.white-a.55}"
+    },
+    "rim-mid": {
+      "$value": "{color.white-a.28}"
+    },
+    "rim-lo": {
+      "$value": "{color.white-a.06}"
     }
   },
   "focus": {
     "$type": "color",
-    "ring-inner": {
-      "$value": "{color.ink.950}"
+    "ring": {
+      "$value": "{color.white}"
     },
-    "ring-outer": {
-      "$value": "{color.paper.0}"
+    "halo": {
+      "$value": "{color.shade-a.55}"
     }
   },
   "glass": {
     "blur": {
       "$type": "dimension",
-      "thin": {
-        "$value": "{blur.sm}"
-      },
-      "regular": {
-        "$value": "{blur.md}"
-      },
-      "thick": {
-        "$value": "{blur.lg}"
-      }
+      "$value": "{blur.lg}"
+    },
+    "blur-small": {
+      "$type": "dimension",
+      "$value": "{blur.md}"
     },
     "saturate": {
       "$type": "number",
       "$value": "{saturate.glass}"
     }
   },
-  "line": {
+  "elevation": {
+    "$type": "shadow",
+    "float": {
+      "$value": "{shadow.float}"
+    },
+    "lift": {
+      "$value": "{shadow.lift}"
+    }
+  },
+  "width": {
     "$type": "dimension",
     "hairline": {
       "$value": "{size.hairline}"
     },
     "ring": {
       "$value": "{size.ring}"
+    },
+    "halo": {
+      "$value": "{size.halo}"
+    },
+    "avatar-ring": {
+      "$value": "{size.avatar-ring}"
     }
   },
   "gap": {
     "$type": "dimension",
-    "tight": {
+    "xs": {
       "$value": "{space.1}"
     },
-    "snug": {
+    "sm": {
+      "$value": "{space.1-5}"
+    },
+    "md": {
       "$value": "{space.2}"
     },
-    "base": {
+    "lg": {
       "$value": "{space.3}"
     },
-    "loose": {
+    "xl": {
+      "$value": "{space.3-5}"
+    },
+    "2xl": {
       "$value": "{space.4}"
     },
-    "section": {
+    "inset": {
       "$value": "{space.5}"
+    },
+    "section": {
+      "$value": "{space.6}"
     },
     "page": {
       "$value": "{space.7}"
@@ -121,20 +158,35 @@
     "md": {
       "$value": "{size.control-md}"
     },
-    "switch-track-inline": {
-      "$value": "{size.switch-track-inline}"
+    "lg": {
+      "$value": "{size.control-lg}"
     },
-    "switch-track-block": {
-      "$value": "{size.switch-track-block}"
+    "icon-sm": {
+      "$value": "{size.icon-sm}"
     },
-    "switch-thumb": {
-      "$value": "{size.switch-thumb}"
+    "icon-md": {
+      "$value": "{size.icon-md}"
+    },
+    "avatar-sm": {
+      "$value": "{size.avatar-sm}"
+    },
+    "avatar-md": {
+      "$value": "{size.avatar-md}"
+    },
+    "avatar-lg": {
+      "$value": "{size.avatar-lg}"
     }
   },
   "corner": {
     "$type": "dimension",
-    "pane": {
-      "$value": "{radius.sm}"
+    "panel": {
+      "$value": "{radius.xl}"
+    },
+    "inner": {
+      "$value": "{radius.lg}"
+    },
+    "media": {
+      "$value": "{radius.md}"
     },
     "round": {
       "$value": "{radius.pill}"
@@ -145,29 +197,37 @@
       "$type": "fontFamily",
       "$value": "{font.family.sans}"
     },
-    "caption": {
+    "micro": {
       "$type": "dimension",
       "$value": "{font.size.100}"
     },
-    "label": {
+    "caption": {
       "$type": "dimension",
       "$value": "{font.size.200}"
     },
-    "body": {
+    "label": {
       "$type": "dimension",
       "$value": "{font.size.300}"
     },
-    "title": {
+    "body": {
       "$type": "dimension",
       "$value": "{font.size.400}"
     },
-    "headline": {
+    "emphasis": {
       "$type": "dimension",
       "$value": "{font.size.500}"
     },
-    "display": {
+    "title": {
       "$type": "dimension",
       "$value": "{font.size.600}"
+    },
+    "headline": {
+      "$type": "dimension",
+      "$value": "{font.size.700}"
+    },
+    "display": {
+      "$type": "dimension",
+      "$value": "{font.size.800}"
     },
     "weight-regular": {
       "$type": "fontWeight",
@@ -177,9 +237,9 @@
       "$type": "fontWeight",
       "$value": "{font.weight.medium}"
     },
-    "weight-bold": {
+    "weight-semibold": {
       "$type": "fontWeight",
-      "$value": "{font.weight.bold}"
+      "$value": "{font.weight.semibold}"
     },
     "leading-tight": {
       "$type": "number",
@@ -188,6 +248,14 @@
     "leading-body": {
       "$type": "number",
       "$value": "{font.leading.body}"
+    },
+    "tracking-caps": {
+      "$type": "dimension",
+      "$value": "{font.tracking.caps}"
+    },
+    "tracking-display": {
+      "$type": "dimension",
+      "$value": "{font.tracking.display}"
     },
     "measure": {
       "$type": "dimension",
@@ -198,10 +266,6 @@
     "fast": {
       "$type": "duration",
       "$value": "{duration.fast}"
-    },
-    "base": {
-      "$type": "duration",
-      "$value": "{duration.base}"
     },
     "easing": {
       "$type": "cubicBezier",

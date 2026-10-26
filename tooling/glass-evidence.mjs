@@ -1,21 +1,18 @@
 #!/usr/bin/env node
 // glass-evidence — D-003: glass passes by measured pixels, never by token arithmetic.
 //
-// Renders apps/docs/harness.html (every glass surface × every worst-case backdrop) in real
-// Chromium, hides the measured text/graphics, screenshots, and reads the actual composited pixels
-// (after backdrop-filter blur + saturate) under every glyph box. Text colour is opaque and known,
-// so contrast = WCAG ratio of that colour against each real pixel; the score is the WORST pixel.
+// For every scene × mode it loads apps/docs/harness.html (the anchor card + every component
+// variant + one card per environment) and the docs page itself, and scores every text node
+// against the real pixels under it (tooling/text-contrast.mjs: hide text, screenshot, worst pixel,
+// translucent text blended per pixel). Threshold 4.5:1 for all text.
 //
-//   text   ≥ 4.5:1 at the worst pixel under the text box               (WCAG 1.4.3)
-//   edge   ≥ 3:1 at every perimeter point, for the better of the two    (WCAG 1.4.11, D-004)
-//          mullion lines against the backdrop pixel just outside
-//   focus  same rule for the two focus-ring colours, 6px outside         (WCAG 2.4.11-ish)
-//   thumb  ≥ 3:1, Switch thumb vs the pixels under it                   (WCAG 1.4.11)
+//   gating        harness groups card / controls / environment, and every docs-page text node
+//   informational harness group media — text on the post image depends on the picture, which the
+//                 system doesn't control; and env-misuse — a card declared darker than its scene.
+//                 Both are reported, never hidden.
 //
-// Modes: normal, reduced-transparency (CDP media emulation), forced-colors.
-// `*-bare` scenes put text straight on a backdrop with no pane; they are reported but expected to
-// fail — that measured failure is the reason for the "text sits on a pane" usage rule.
-//
+// Modes: normal, reduced-transparency (CDP media emulation), forced-colors. Each mode checks its
+// emulation actually took effect before measuring.
 // Usage: node tooling/glass-evidence.mjs [--no-build]
 // Writes apps/docs/public/evidence.json and system/reports/glass-evidence-{date}.json.
 import { writeFileSync, mkdirSync } from 'node:fs';
@@ -23,13 +20,19 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { chromium } from 'playwright';
-import { PNG } from 'pngjs';
 import { serveDist } from './serve-dist.mjs';
-import { ratio, lum, parseColor, measurePageText } from './text-contrast.mjs';
+import { measurePageText } from './text-contrast.mjs';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const DIST = path.join(ROOT, 'apps', 'docs', 'dist');
-const T = { text: 4.5, edge: 3, focus: 3, thumb: 3 };
+const THRESHOLD = 4.5;
+const SCENES = ['room', 'blobs', 'night', 'daylight'];
+const GATING_GROUPS = ['card', 'controls', 'environment'];
+const INFO_GROUPS = ['media', 'env-misuse'];
+const MODES = {
+  normal: {},
+  'reduced-transparency': { features: [{ name: 'prefers-reduced-transparency', value: 'reduce' }] },
+  'forced-colors': { forcedColors: 'active' },
+};
 
 if (!process.argv.includes('--no-build')) {
   for (const f of ['pane-tokens', 'pane-docs']) {
@@ -38,190 +41,76 @@ if (!process.argv.includes('--no-build')) {
   }
 }
 
-// --- WCAG maths ---------------------------------------------------------------------------
+const srv = await serveDist(path.join(ROOT, 'apps', 'docs', 'dist'));
+const browser = await chromium.launch();
+const result = { generatedAt: new Date().toISOString(), browser: `chromium ${browser.version()}`, threshold: THRESHOLD, modes: Object.keys(MODES), harness: {}, docsPage: {}, failures: [] };
 
-const srv = await serveDist(DIST);
-const BASE = srv.base;
-
-// --- measurement --------------------------------------------------------------------------
-const HIDE = `
-  [data-ev-text], [data-ev-input] { color: transparent !important; caret-color: transparent !important; forced-color-adjust: none !important; }
-  [data-ev-switch] [aria-hidden] > span { visibility: hidden !important; }
-`;
-
-async function plan(page) {
-  return page.evaluate(() => {
-    const css = (el, p) => getComputedStyle(el).getPropertyValue(p);
-    const root = getComputedStyle(document.documentElement);
-    const rectOf = (r) => ({ x: r.left + scrollX, y: r.top + scrollY, w: r.width, h: r.height });
-    return [...document.querySelectorAll('[data-scene]')].map((scene) => {
-      const texts = [...scene.querySelectorAll('[data-ev-text]')].map((el) => {
-        const range = document.createRange();
-        range.selectNodeContents(el);
-        return { label: el.textContent, color: css(el, 'color'), rects: [...range.getClientRects()].map(rectOf) };
-      });
-      for (const el of scene.querySelectorAll('[data-ev-input]')) {
-        const r = el.getBoundingClientRect();
-        const pad = parseFloat(css(el, 'padding-inline-start'));
-        const fs = parseFloat(css(el, 'font-size'));
-        texts.push({
-          label: `input value "${el.value}"`,
-          color: css(el, 'color'),
-          rects: [{ x: r.left + scrollX + pad, y: r.top + scrollY + (r.height - fs) / 2, w: r.width - pad * 2, h: fs }],
-        });
-      }
-      const edgeEls = [...scene.querySelectorAll('[data-ev-edge], [data-ev-input], [data-ev-switch] [aria-hidden]')];
-      const edges = edgeEls.map((el) => ({
-        rect: rectOf(el.getBoundingClientRect()),
-        outer: css(el, 'border-top-color'),
-        // box-shadow carries the inner mullion; forced-colors drops box-shadow, so it only counts when painted
-        inner: css(el, 'box-shadow') !== 'none' ? root.getPropertyValue('--ds-border-mullion-inner') : null,
-        focusable: el.matches('button, input, [aria-hidden]'),
-      }));
-      const thumbs = [...scene.querySelectorAll('[data-ev-switch] [aria-hidden] > span')].map((el) => ({
-        rect: rectOf(el.getBoundingClientRect()),
-        color: css(el, 'background-color'),
-      }));
-      return {
-        id: scene.dataset.scene,
-        texts,
-        edges,
-        thumbs,
-        ring: [root.getPropertyValue('--ds-focus-ring-inner'), root.getPropertyValue('--ds-focus-ring-outer')],
-      };
-    });
-  });
+async function open(mode, url) {
+  const opt = MODES[mode];
+  const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, forcedColors: opt.forcedColors ?? 'none' });
+  const page = await ctx.newPage();
+  if (opt.features) await (await ctx.newCDPSession(page)).send('Emulation.setEmulatedMedia', { features: opt.features });
+  await page.goto(url, { waitUntil: 'networkidle' });
+  await page.evaluate(() => document.fonts.ready);
+  const active = await page.evaluate((m) => ({
+    normal: true,
+    'reduced-transparency': matchMedia('(prefers-reduced-transparency: reduce)').matches,
+    'forced-colors': matchMedia('(forced-colors: active)').matches,
+  })[m], mode);
+  if (!active) throw new Error(`mode ${mode} did not take effect in this browser`);
+  return { page, close: () => ctx.close() };
 }
 
-function measure(png, scenes) {
-  const px = (x, y) => {
-    x = Math.round(x); y = Math.round(y);
-    if (x < 0 || y < 0 || x >= png.width || y >= png.height) return null;
-    const i = (y * png.width + x) * 4;
-    return [png.data[i], png.data[i + 1], png.data[i + 2]];
+const summarise = (ts) => {
+  const scored = ts.filter((t) => t.min != null);
+  return {
+    texts: ts.length,
+    worst: scored.length ? Math.min(...scored.map((t) => t.min)) : null,
+    failures: ts.filter((t) => t.min == null || t.min < THRESHOLD).length,
+    unmeasurable: ts.filter((t) => t.min == null).length,
+    worstFive: [...scored].sort((a, b) => a.min - b.min).slice(0, 5).map((t) => `${t.label} ${t.min}`),
   };
-  const pixelsIn = (r) => {
-    const out = [];
-    for (let y = Math.ceil(r.y); y < Math.floor(r.y + r.h); y++)
-      for (let x = Math.ceil(r.x); x < Math.floor(r.x + r.w); x++) { const p = px(x, y); if (p) out.push(p); }
-    return out;
-  };
-  const perimeter = (r, off, step = 3) => {
-    const pts = [];
-    const [x0, y0, x1, y1] = [r.x - off, r.y - off, r.x + r.w + off, r.y + r.h + off];
-    for (let x = x0; x <= x1; x += step) pts.push([x, y0], [x, y1]);
-    for (let y = y0; y <= y1; y += step) pts.push([x0, y], [x1, y]);
-    return pts.map(([x, y]) => px(x, y)).filter(Boolean);
-  };
-  const worst = (pixels, score) => pixels.reduce((m, p) => Math.min(m, score(p)), Infinity);
-  const r2 = (n) => (Number.isFinite(n) ? Math.round(n * 100) / 100 : null);
-
-  return Object.fromEntries(scenes.map((s) => {
-    const text = s.texts.map((t) => {
-      const fg = parseColor(t.color);
-      const under = t.rects.flatMap(pixelsIn);
-      const ls = under.map(lum);
-      const mean = ls.reduce((a, b) => a + b, 0) / (ls.length || 1);
-      const std = Math.sqrt(ls.reduce((a, b) => a + (b - mean) ** 2, 0) / (ls.length || 1));
-      return { label: t.label, min: fg && under.length ? r2(worst(under, (p) => ratio(fg, p))) : null, pixels: under.length, lumStd: r2(std) };
-    });
-    const pair = (a, b) => [parseColor(a), parseColor(b)].filter(Boolean);
-    const edge = s.edges.map((e) => {
-      const lines = pair(e.outer, e.inner);
-      return r2(worst(perimeter(e.rect, 2), (p) => Math.max(...lines.map((c) => ratio(c, p)))));
-    });
-    const ring = pair(...s.ring);
-    const focus = s.edges.filter((e) => e.focusable).map((e) => r2(worst(perimeter(e.rect, 6), (p) => Math.max(...ring.map((c) => ratio(c, p))))));
-    const thumb = s.thumbs.map((th) => {
-      const c = parseColor(th.color);
-      return c ? r2(worst(pixelsIn(th.rect), (p) => ratio(c, p))) : null;
-    });
-    const bare = s.id.endsWith('-bare');
-    const checks = [
-      ...text.map((t) => ['text', t.label, t.min, T.text]),
-      ...edge.map((v) => ['edge', 'double mullion', v, T.edge]),
-      ...focus.map((v) => ['focus', 'focus ring', v, T.focus]),
-      ...thumb.map((v) => ['thumb', 'switch thumb', v, T.thumb]),
-    ];
-    const failures = checks.filter(([, , v, min]) => v == null || v < min).map(([k, l, v, min]) => `${k} "${l}" ${v} < ${min}`);
-    return [s.id, { bare, pass: failures.length === 0, failures, text, edge, focus, thumb }];
-  }));
-}
-
-const MODES = {
-  normal: {},
-  'reduced-transparency': { features: [{ name: 'prefers-reduced-transparency', value: 'reduce' }] },
-  'forced-colors': { forcedColors: 'active' },
 };
 
-const browser = await chromium.launch();
-const result = { generatedAt: new Date().toISOString(), browser: `chromium ${browser.version()}`, thresholds: T, modes: {} };
 try {
-  for (const [mode, opt] of Object.entries(MODES)) {
-    const page = await browser.newPage({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1, forcedColors: opt.forcedColors ?? 'none' });
-    if (opt.features) {
-      const cdp = await page.context().newCDPSession(page);
-      await cdp.send('Emulation.setEmulatedMedia', { features: opt.features });
-    }
-    await page.goto(`${BASE}/harness.html`, { waitUntil: 'networkidle' });
-    await page.evaluate(() => document.fonts.ready);
-    // Proves the emulation actually took effect — a mode that silently didn't apply would report
-    // normal-mode numbers under the wrong name.
-    const active = await page.evaluate((m) => ({
-      normal: true,
-      'reduced-transparency': matchMedia('(prefers-reduced-transparency: reduce)').matches,
-      'forced-colors': matchMedia('(forced-colors: active)').matches,
-    })[m], mode);
-    if (!active) throw new Error(`mode ${mode} did not take effect in this browser`);
-    const scenes = await plan(page);
-    await page.addStyleTag({ content: HIDE });
-    await page.waitForTimeout(100);
-    const png = PNG.sync.read(await page.screenshot({ fullPage: true }));
-    result.modes[mode] = measure(png, scenes);
+  for (const mode of Object.keys(MODES)) {
+    result.harness[mode] = {};
+    result.docsPage[mode] = {};
+    for (const scene of SCENES) {
+      const h = await open(mode, `${srv.base}/harness.html?scene=${scene}`);
+      const r = await measurePageText(h.page, THRESHOLD);
+      await h.close();
+      const groups = {};
+      for (const g of [...GATING_GROUPS, ...INFO_GROUPS]) groups[g] = summarise(r.all.filter((t) => t.group === g));
+      result.harness[mode][scene] = groups;
+      for (const g of GATING_GROUPS) for (const t of r.all.filter((t) => t.group === g && (t.min == null || t.min < THRESHOLD)))
+        result.failures.push(`[${mode}] harness ${scene}/${g}: "${t.label}" ${t.min}`);
 
-    // The docs page itself, every visible text element, one viewport at a time — what a reader
-    // actually sees while scrolling (the page backdrop is fixed, so a full-page capture would not
-    // match). This is what settles axe's "incomplete" colour-contrast nodes on the real page.
-    await page.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
-    await page.evaluate(() => document.fonts.ready);
-    result.docsPage ??= {};
-    result.docsPage[mode] = await measurePageText(page, T.text);
-    await page.close();
+      const d = await open(mode, `${srv.base}/index.html?scene=${scene}`);
+      const dr = await measurePageText(d.page, THRESHOLD);
+      await d.close();
+      result.docsPage[mode][scene] = { textElements: dr.textElements, failures: dr.failures.filter((t) => !INFO_GROUPS.includes(t.group)).length, worstFive: dr.worst.map((t) => `${t.label} ${t.min}`) };
+      // the docs hero is the anchor card, image included — its image text is reported like the harness's
+      const docsGating = dr.failures.filter((t) => !INFO_GROUPS.includes(t.group));
+      for (const t of docsGating) result.failures.push(`[${mode}] docs ${scene}: "${t.label}" ${t.min}`);
+      console.log(`${mode.padEnd(21)} ${scene.padEnd(9)} harness ${GATING_GROUPS.map((g) => `${g} ${groups[g].failures}/${groups[g].texts}`).join(' · ')} | media worst ${groups.media.worst} | docs ${result.docsPage[mode][scene].failures}/${dr.textElements}`);
+    }
   }
 } finally {
   await browser.close();
   srv.close();
 }
 
-// --- report -------------------------------------------------------------------------------
-let gating = 0;
-let expectedBare = 0;
-for (const [mode, scenes] of Object.entries(result.modes)) {
-  for (const [id, s] of Object.entries(scenes)) {
-    if (s.pass) continue;
-    if (s.bare) { expectedBare++; continue; }
-    gating++;
-    console.log(`✗ [${mode}] ${id}: ${s.failures.join('; ')}`);
-  }
-}
-const total = Object.values(result.modes).reduce((n, m) => n + Object.values(m).filter((s) => !s.bare).length, 0);
-let docsFailures = 0;
-for (const [mode, d] of Object.entries(result.docsPage ?? {})) {
-  for (const f of d.failures) console.log(`✗ [${mode}] docs page text "${f.label}" ${f.min} < ${T.text}`);
-  docsFailures += d.failures.length;
-}
-gating += docsFailures;
-result.summary = {
-  gatingScenes: total,
-  gatingFailures: gating - docsFailures,
-  bareFailures: expectedBare,
-  docsTextElements: Object.values(result.docsPage ?? {}).reduce((n, d) => n + d.textElements, 0),
-  docsTextFailures: docsFailures,
-};
+const gatingChecks = Object.values(result.harness).reduce((n, m) => n + Object.values(m).reduce((k, s) => k + GATING_GROUPS.reduce((j, g) => j + s[g].texts, 0), 0), 0)
+  + Object.values(result.docsPage).reduce((n, m) => n + Object.values(m).reduce((k, s) => k + s.textElements, 0), 0);
+const informational = [];
+for (const [mode, m] of Object.entries(result.harness)) for (const [scene, s] of Object.entries(m)) { if (s.media.failures) informational.push(`${mode}/${scene} image text worst ${s.media.worst}:1`); if (s['env-misuse'].failures) informational.push(`${mode}/${scene} env-misuse worst ${s['env-misuse'].worst}:1`); }
+result.summary = { gatingChecks, gatingFailures: result.failures.length, informational };
 
 for (const out of [path.join(ROOT, 'apps', 'docs', 'public', 'evidence.json'), path.join(ROOT, 'system', 'reports', `glass-evidence-${result.generatedAt.slice(0, 10)}.json`)]) {
   mkdirSync(path.dirname(out), { recursive: true });
   writeFileSync(out, JSON.stringify(result, null, 2) + '\n');
 }
-console.log(`\n${gating ? "✗" : "✓"} glass evidence: ${result.summary.gatingScenes - result.summary.gatingFailures}/${total} gating scenes pass, docs page ${result.summary.docsTextElements - docsFailures}/${result.summary.docsTextElements} text elements pass across ${Object.keys(MODES).length} modes (${result.browser}); ${expectedBare} bare-backdrop scene(s) fail as expected`);
-process.exit(gating ? 1 : 0);
+for (const f of result.failures.slice(0, 40)) console.log(`✗ ${f}`);
+console.log(`\n${result.failures.length ? '✗' : '✓'} glass evidence: ${gatingChecks - result.failures.length}/${gatingChecks} text checks pass (${SCENES.length} scenes × ${Object.keys(MODES).length} modes, harness + docs page, ${result.browser}); image text reported only: ${informational.length} scene/mode(s) below ${THRESHOLD}:1`);
+process.exit(result.failures.length ? 1 : 0);

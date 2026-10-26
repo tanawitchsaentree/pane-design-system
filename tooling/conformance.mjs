@@ -29,6 +29,13 @@ async function check(component, name, fn) {
   }
 }
 const expect = (cond, msg) => { if (!cond) throw new Error(msg); };
+// Radix moves roving focus in a setTimeout, so selection lands a tick after the key press.
+async function eventually(read, want, msg, ms = 1000) {
+  const end = Date.now() + ms;
+  let got;
+  while (Date.now() < end) { if ((got = await read()) === want) return; await new Promise((r) => setTimeout(r, 25)); }
+  throw new Error(`${msg} (got ${got})`);
+}
 
 // Press Tab until `locator` has focus — proves it is in the keyboard tab sequence. (Chromium starts
 // from its sequential-navigation point, not the page top, so the press count is not meaningful.)
@@ -51,138 +58,150 @@ for (const block of blocks) {
   const src = readFileSync(path.join(ROOT, `packages/react/src/components/${comp}/${comp}.tsx`), 'utf8');
   const documented = [...block.matchAll(/\{ name: '([^'…]+)'/g)].map((m) => m[1]);
   await check(comp, 'every documented prop exists in the TS source', () => {
-    const missing = documented.filter((p) => !new RegExp(`\\b${p}\\??:`).test(src));
+    const missing = documented.filter((p) => !new RegExp(`['"]?\\b${p}['"]?\\??:`).test(src));
     expect(missing.length === 0, `documented but not in ${comp}.tsx: ${missing.join(', ')}`);
-    return `${documented.length} props`;
+    return documented.length ? `${documented.length} props` : 'only pass-through props documented — nothing of its own to cross-check';
   });
 }
 
 const srv = await serveDist(path.join(ROOT, 'apps/docs/dist'));
 const browser = await chromium.launch();
 try {
-  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const page = await ctx.newPage();
   await page.goto(`${srv.base}/index.html`, { waitUntil: 'networkidle' });
+  const sec = (id) => page.locator(`section#${id}`);
+
+  // --- Environment ----------------------------------------------------------------------------
+  const tileBg = () => sec('environment').locator('.env-tile [data-environment] > *').evaluateAll((els) => els.map((e) => getComputedStyle(e).backgroundColor));
+  await check('Environment', 'brightness actually changes the glass tint (dim ≠ mid ≠ bright)', async () => {
+    const bgs = await tileBg();
+    expect(bgs.length === 3 && new Set(bgs).size === 3, `computed backgrounds: ${bgs.join(' | ')}`);
+    return bgs.join(' · ');
+  });
+  await check('Environment', 'reduced transparency turns every environment opaque and identical (D-005)', async () => {
+    const cdp = await ctx.newCDPSession(page);
+    await cdp.send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-transparency', value: 'reduce' }] });
+    const bgs = await tileBg();
+    await cdp.send('Emulation.setEmulatedMedia', { features: [] });
+    expect(new Set(bgs).size === 1 && !/rgba\(.*,\s*0?\.\d+\)/.test(bgs[0]), `computed backgrounds: ${bgs.join(' | ')}`);
+    return bgs[0];
+  });
+  await check('Environment', 'no declaration falls back to bright (the safe end)', async () => {
+    const v = await page.evaluate(() => {
+      const d = document.createElement('div');
+      document.body.append(d);
+      const out = getComputedStyle(d).getPropertyValue('--ds-surface-glass').trim();
+      d.remove();
+      return [out, getComputedStyle(document.documentElement).getPropertyValue('--ds-color-graphite-bright').trim()];
+    });
+    expect(v[0].includes('graphite-bright') || v[0] === v[1], `--ds-surface-glass outside any environment = ${v[0]}`);
+  });
+
+  // --- Card -----------------------------------------------------------------------------------
+  await check('Card', 'glass card renders an <article> with backdrop blur', async () => {
+    const card = page.getByRole('article', { name: 'Max Fmz profile' }).first();
+    const bf = await card.evaluate((el) => getComputedStyle(el).backdropFilter);
+    expect(/blur\(/.test(bf), `backdrop-filter: ${bf}`);
+  });
+  await check('Card', 'inset variant adds no second glass layer', async () => {
+    const bf = await sec('card').locator('.demo-card [class*="inset"]').first().evaluate((el) => getComputedStyle(el).backdropFilter);
+    expect(bf === 'none', `inset backdrop-filter: ${bf}`);
+  });
+
+  // --- Avatar ---------------------------------------------------------------------------------
+  await check('Avatar', 'non-decorative avatars are role="img" named after the person', async () => {
+    for (const n of ['Max Fmz', 'Visual Flow', 'Ada Lovelace']) expect((await sec('avatar').getByRole('img', { name: n }).count()) === 1, `no img named ${n}`);
+  });
+  await check('Avatar', 'decorative avatar beside a visible name is hidden from assistive tech', async () => {
+    const hidden = await page.locator('#overview [aria-hidden="true"]').filter({ hasText: 'MF' }).count();
+    expect(hidden >= 1, 'hero avatar is not aria-hidden');
+  });
 
   // --- Button ---------------------------------------------------------------------------------
-  const publish = page.getByRole('button', { name: 'Publish' });
-  await check('Button', 'renders a native <button type="button">', async () => {
-    expect((await publish.getAttribute('type')) === 'button', 'type is not "button"');
+  const follow = sec('button').getByRole('button', { name: 'Follow' });
+  await check('Button', 'native <button type="button">', async () => {
+    expect((await follow.getAttribute('type')) === 'button', 'type is not "button"');
   });
-  await check('Button', 'reachable with Tab', () => tabTo(page, publish));
+  await check('Button', 'reachable with Tab', () => tabTo(page, follow));
   await check('Button', 'Enter and Space activate it', async () => {
-    const draft = page.getByRole('button', { name: 'bauhaus', exact: true });
-    const white = page.getByRole('button', { name: 'white', exact: true });
-    await tabTo(page, white);
+    const night = page.getByRole('button', { name: 'Night', exact: true });
+    const room = page.getByRole('button', { name: 'Room', exact: true });
+    await tabTo(page, night);
     await page.keyboard.press('Enter');
-    expect((await white.getAttribute('aria-pressed')) === 'true', 'Enter did not activate');
-    await tabTo(page, draft);
+    expect((await night.getAttribute('aria-pressed')) === 'true', 'Enter did not activate');
+    await tabTo(page, room);
     await page.keyboard.press('Space');
-    expect((await draft.getAttribute('aria-pressed')) === 'true', 'Space did not activate');
+    expect((await room.getAttribute('aria-pressed')) === 'true', 'Space did not activate');
   });
-  await check('Button', 'keyboard focus draws the double ring (2px solid outline)', async () => {
-    const save = page.getByRole('button', { name: 'Save draft' });
-    await tabTo(page, save);
-    const s = await save.evaluate((el) => { const c = getComputedStyle(el); return { style: c.outlineStyle, width: c.outlineWidth, shadow: c.boxShadow }; });
-    expect(s.style === 'solid' && s.width === '2px', `outline ${s.style} ${s.width}`);
-    expect((s.shadow.match(/rgb/g) ?? []).length >= 2, 'outer white ring missing from box-shadow');
+  await check('Button', 'keyboard focus draws a 2px white ring with a dark halo', async () => {
+    await tabTo(page, follow);
+    const s = await follow.evaluate((el) => { const c = getComputedStyle(el); return { style: c.outlineStyle, width: c.outlineWidth, color: c.outlineColor, shadow: c.boxShadow }; });
+    expect(s.style === 'solid' && s.width === '2px' && s.color === 'rgb(255, 255, 255)', `outline ${s.style} ${s.width} ${s.color}`);
+    expect(/rgba\(0, 0, 0/.test(s.shadow), `halo missing: ${s.shadow}`);
   });
-  await check('Button', 'disabled: native disabled attribute + dashed mullion (non-colour cue)', async () => {
-    const dis = page.getByRole('button', { name: 'Disabled' });
-    expect(await dis.isDisabled(), 'not disabled');
-    expect((await dis.evaluate((el) => getComputedStyle(el).borderTopStyle)) === 'dashed', 'disabled mullion is not dashed (non-colour cue)');
+  await check('Button', 'disabled is the native attribute', async () => {
+    expect(await sec('button').getByRole('button', { name: 'Disabled' }).isDisabled(), 'not disabled');
   });
 
-  // --- Badge ----------------------------------------------------------------------------------
-  await check('Badge', 'renders as plain text with no role', async () => {
-    const b = page.locator('span', { hasText: /^Live$/ }).first();
-    expect((await b.getAttribute('role')) === null, 'has a role');
+  // --- IconButton -----------------------------------------------------------------------------
+  await check('IconButton', 'every button with no visible text on the page has an accessible name', async () => {
+    const unnamed = await page.locator('button').evaluateAll((bs) => bs.filter((b) => !b.innerText.trim() && !(b.getAttribute('aria-label') || '').trim()).length);
+    expect(unnamed === 0, `${unnamed} unnamed icon-only buttons`);
+  });
+  await check('IconButton', 'reachable with Tab', () => tabTo(page, sec('iconbutton').getByRole('button', { name: 'Edit profile' })));
+
+  // --- Tabs -----------------------------------------------------------------------------------
+  const list = sec('tabs').getByRole('tablist', { name: 'Demo sections' });
+  const tab = (n) => list.getByRole('tab', { name: n });
+  await check('Tabs', 'roving tabindex: only the selected tab is in the tab order', async () => {
+    const idx = await list.getByRole('tab').evaluateAll((ts) => ts.map((t) => t.getAttribute('tabindex')));
+    expect(idx[0] === '0' && idx.slice(1).every((v) => v === '-1'), `tabindex: ${idx.join(',')}`);
+  });
+  await check('Tabs', '→ / ← move focus and selection; Home / End jump', async () => {
+    await tabTo(page, tab('Tweets'));
+    const sel = (n) => () => tab(n).getAttribute('aria-selected');
+    await page.keyboard.press('ArrowRight');
+    await eventually(sel('Replies'), 'true', 'ArrowRight did not select Replies');
+    await page.keyboard.press('End');
+    await eventually(sel('Media'), 'true', 'End did not select Media');
+    await page.keyboard.press('Home');
+    await eventually(sel('Tweets'), 'true', 'Home did not select Tweets');
+    await page.keyboard.press('ArrowLeft');
+    await eventually(sel('Media'), 'true', 'ArrowLeft from first did not wrap to last');
+  });
+  await check('Tabs', 'each tab controls a tabpanel that exists', async () => {
+    const ids = await list.getByRole('tab').evaluateAll((ts) => ts.map((t) => t.getAttribute('aria-controls')));
+    for (const id of ids) expect((await page.locator(`[id="${id}"][role="tabpanel"]`).count()) === 1, `no tabpanel #${id}`);
+  });
+  await check('Tabs', 'selected tab is not marked by colour alone in forced colours', async () => {
+    const fc = await browser.newContext({ viewport: { width: 1440, height: 900 }, forcedColors: 'active' });
+    const p2 = await fc.newPage();
+    await p2.goto(`${srv.base}/index.html`, { waitUntil: 'networkidle' });
+    const deco = await p2.locator('section#tabs [role="tab"][aria-selected="true"]').evaluate((el) => getComputedStyle(el).textDecorationLine);
+    await fc.close();
+    expect(deco.includes('underline'), `selected tab text-decoration: ${deco}`);
   });
 
-  // --- Panel ----------------------------------------------------------------------------------
-  await check('Panel', 'is a <section> whose title is a real heading at headingLevel', async () => {
-    const h = page.getByRole('heading', { name: 'Quarterly report', level: 4 });
-    expect((await h.count()) === 1, 'no h4 "Quarterly report"');
-    expect((await h.evaluate((el) => el.parentElement?.tagName)) === 'SECTION', 'heading parent is not a section');
-  });
-
-  // --- TextField ------------------------------------------------------------------------------
-  await check('TextField', 'label is programmatically tied to the input', async () => {
-    expect((await page.getByLabel('Full name').count()) === 1, 'getByLabel("Full name") found no input');
-  });
-  await check('TextField', 'errorText sets aria-invalid and is announced via aria-describedby (error first)', async () => {
-    const input = page.getByLabel('Email', { exact: true });
-    expect((await input.getAttribute('aria-invalid')) === 'true', 'aria-invalid not true');
-    const ids = (await input.getAttribute('aria-describedby'))?.split(' ') ?? [];
-    const first = await page.locator(`[id="${ids[0]}"]`).textContent();
-    expect(/enter a full email/i.test(first ?? ''), `first describedby is "${first}"`);
-  });
-  await check('TextField', 'helperText is linked via aria-describedby', async () => {
-    const ids = (await page.getByLabel('Full name').getAttribute('aria-describedby'))?.split(' ') ?? [];
-    const txt = await page.locator(`[id="${ids[0]}"]`).textContent();
-    expect(/as it appears/i.test(txt ?? ''), `describedby is "${txt}"`);
-  });
-  await check('TextField', 'reachable with Tab', () => tabTo(page, page.getByLabel('Full name')));
-
-  // --- Switch ---------------------------------------------------------------------------------
-  const sw = page.getByRole('switch', { name: 'Uncontrolled' });
-  await check('Switch', 'role="switch" with aria-checked="false" initially', async () => {
-    expect((await sw.getAttribute('aria-checked')) === 'false', `aria-checked=${await sw.getAttribute('aria-checked')}`);
-  });
-  await check('Switch', 'Space toggles it on, Enter toggles it off', async () => {
-    await tabTo(page, sw);
-    await page.keyboard.press('Space');
-    expect((await sw.getAttribute('aria-checked')) === 'true', 'Space did not turn it on');
-    await page.keyboard.press('Enter');
-    expect((await sw.getAttribute('aria-checked')) === 'false', 'Enter did not turn it off');
-  });
-  await check('Switch', 'click toggles it', async () => {
-    await sw.click();
-    expect((await sw.getAttribute('aria-checked')) === 'true', 'click did not toggle');
-    await sw.click();
-  });
-  await check('Switch', 'controlled: onCheckedChange drives external state', async () => {
-    const ctl = page.getByRole('switch', { name: 'Sync over Wi-Fi only' });
-    const badge = ctl.locator('xpath=ancestor::div[1]').locator('span', { hasText: /^(On|Off)$/ });
-    expect((await badge.textContent()) === 'On', 'badge did not start On');
-    await ctl.click();
-    expect((await ctl.getAttribute('aria-checked')) === 'false' && (await badge.textContent()) === 'Off', 'state did not flow out');
-  });
-  await check('Switch', 'state has a non-colour cue (thumb moves to the other end)', async () => {
-    const thumbX = async () => sw.locator('[aria-hidden] > span').evaluate((el) => el.getBoundingClientRect().left);
-    const off = await thumbX();
-    await sw.click();
-    const on = await thumbX();
-    await sw.click();
-    expect(on - off >= 16, `thumb moved ${on - off}px`);
-  });
-  await check('Switch', 'thumb follows writing direction in RTL', async () => {
-    const pos = await sw.evaluate((el) => {
-      const thumb = el.querySelector('[aria-hidden] > span');
-      const track = el.querySelector('[aria-hidden]');
-      const read = () => thumb.getBoundingClientRect().left - track.getBoundingClientRect().left;
-      const ltrOff = read();
-      el.closest('section').setAttribute('dir', 'rtl');
-      const rtlOff = read();
-      el.closest('section').removeAttribute('dir');
-      return { ltrOff, rtlOff };
-    });
-    expect(pos.rtlOff > pos.ltrOff, `off-state thumb did not move to the right edge in RTL (${pos.ltrOff} -> ${pos.rtlOff})`);
+  // --- Tag ------------------------------------------------------------------------------------
+  await check('Tag', 'plain text with no role, small caps via CSS (source text stays readable)', async () => {
+    const t = sec('tag').getByText('Visual asset 05', { exact: true });
+    expect((await t.getAttribute('role')) === null, 'has a role');
+    expect((await t.evaluate((el) => getComputedStyle(el).textTransform)) === 'uppercase', 'not uppercase');
   });
 
   // --- whole page: axe ------------------------------------------------------------------------
   for (const mode of ['none', 'active']) {
-    const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, forcedColors: mode });
-    const p = await ctx.newPage();
+    const c = await browser.newContext({ viewport: { width: 1440, height: 900 }, forcedColors: mode });
+    const p = await c.newPage();
     await p.goto(`${srv.base}/index.html`, { waitUntil: 'networkidle' });
     await check('Docs page', `axe: no violations (forced-colors ${mode})`, async () => {
       const r = await new AxeBuilder({ page: p }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze();
       expect(r.violations.length === 0, r.violations.map((v) => `${v.id} ×${v.nodes.length}`).join(', '));
-      // axe cannot see through backdrop-filter, so it reports glass contrast as "incomplete" —
-      // that is what glass-evidence.mjs exists to settle; say so instead of hiding it.
       const cc = r.incomplete.find((i) => i.id === 'color-contrast');
-      return `${r.passes.length} rules pass; color-contrast incomplete on ${cc?.nodes.length ?? 0} nodes (axe cannot see through backdrop-filter — settled per pixel by glass-evidence docs-page pass)`;
+      return `${r.passes.length} rules pass; color-contrast incomplete on ${cc?.nodes.length ?? 0} nodes (axe cannot see through backdrop-filter — settled per pixel by glass-evidence)`;
     });
-    await ctx.close();
+    await c.close();
   }
 } finally {
   await browser.close();
