@@ -41,6 +41,12 @@ lineage, vector, and gate mechanics — this file routes to them, it doesn't res
    static/T2 interactive/T3 keyboard-focus get different QA depth, never a different bar.
 8. **Docs pages are written the moment a component passes QA**, not batched to the end — see
    pipeline Phase 4–5 below. A component "done" with no docs page is not done.
+9. **Anchor round before any build.** Before tokens, components, docs or a pilot, pick ONE
+   concept-dense component (e.g. a card with several overlapping layers: image, avatar over cover,
+   stats, pill tabs, a nested card, actions) and render 3–4 variants of it — same content, all
+   inside the direction of the user's refs, differing on axes that matter — in `apps/lab/`. The
+   user picks one as the anchor; everything after derives from it. Never pick the visual
+   direction on the user's behalf.
 
 ## Phase order + who does it
 
