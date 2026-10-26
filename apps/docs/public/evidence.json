@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T17:11:59.478Z",
+  "generatedAt": "2026-10-26T17:50:40.035Z",
   "browser": "chromium 156.0.8078.4",
   "threshold": 4.5,
   "modes": [
@@ -430,13 +430,13 @@
         },
         "media": {
           "texts": 3,
-          "worst": 1.38,
-          "failures": 3,
+          "worst": 8.36,
+          "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Designed for modern visual projects 1.38",
-            "07 1.4",
-            "Visual asset 05 1.98"
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
           ]
         },
         "env-misuse": {
@@ -518,13 +518,13 @@
         },
         "media": {
           "texts": 3,
-          "worst": 1.38,
-          "failures": 3,
+          "worst": 8.36,
+          "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Designed for modern visual projects 1.38",
-            "07 1.4",
-            "Visual asset 05 1.98"
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
           ]
         },
         "env-misuse": {
@@ -606,13 +606,13 @@
         },
         "media": {
           "texts": 3,
-          "worst": 1.38,
-          "failures": 3,
+          "worst": 8.36,
+          "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Designed for modern visual projects 1.38",
-            "07 1.4",
-            "Visual asset 05 1.98"
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
           ]
         },
         "env-misuse": {
@@ -694,13 +694,13 @@
         },
         "media": {
           "texts": 3,
-          "worst": 1.38,
-          "failures": 3,
+          "worst": 8.36,
+          "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Designed for modern visual projects 1.38",
-            "07 1.4",
-            "Visual asset 05 1.98"
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
           ]
         },
         "env-misuse": {
@@ -1136,13 +1136,13 @@
         },
         "media": {
           "texts": 3,
-          "worst": 1.38,
-          "failures": 3,
+          "worst": 8.36,
+          "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Designed for modern visual projects 1.38",
-            "07 1.4",
-            "Visual asset 05 1.98"
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
           ]
         },
         "env-misuse": {
@@ -1224,13 +1224,13 @@
         },
         "media": {
           "texts": 3,
-          "worst": 1.38,
-          "failures": 3,
+          "worst": 8.36,
+          "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Designed for modern visual projects 1.38",
-            "07 1.4",
-            "Visual asset 05 1.98"
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
           ]
         },
         "env-misuse": {
@@ -1312,13 +1312,13 @@
         },
         "media": {
           "texts": 3,
-          "worst": 1.38,
-          "failures": 3,
+          "worst": 8.36,
+          "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Designed for modern visual projects 1.38",
-            "07 1.4",
-            "Visual asset 05 1.98"
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
           ]
         },
         "env-misuse": {
@@ -1400,13 +1400,13 @@
         },
         "media": {
           "texts": 3,
-          "worst": 1.38,
-          "failures": 3,
+          "worst": 8.36,
+          "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Designed for modern visual projects 1.38",
-            "07 1.4",
-            "Visual asset 05 1.98"
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
           ]
         },
         "env-misuse": {
@@ -2134,49 +2134,49 @@
   "docsPage": {
     "normal": {
       "dark/room": {
-        "textElements": 11945,
+        "textElements": 11943,
         "failures": 0,
         "pages": 37,
         "worstFive": []
       },
       "dark/forest": {
-        "textElements": 11945,
+        "textElements": 11943,
         "failures": 0,
         "pages": 37,
         "worstFive": []
       },
       "dark/night": {
-        "textElements": 11945,
+        "textElements": 11943,
         "failures": 0,
         "pages": 37,
         "worstFive": []
       },
       "dark/city": {
-        "textElements": 11945,
+        "textElements": 11943,
         "failures": 0,
         "pages": 37,
         "worstFive": []
       },
       "light/room": {
-        "textElements": 11945,
+        "textElements": 11943,
         "failures": 0,
         "pages": 37,
         "worstFive": []
       },
       "light/forest": {
-        "textElements": 11945,
+        "textElements": 11943,
         "failures": 0,
         "pages": 37,
         "worstFive": []
       },
       "light/night": {
-        "textElements": 11945,
+        "textElements": 11943,
         "failures": 0,
         "pages": 37,
         "worstFive": []
       },
       "light/city": {
-        "textElements": 11945,
+        "textElements": 11943,
         "failures": 0,
         "pages": 37,
         "worstFive": []
@@ -2184,7 +2184,7 @@
     },
     "reduced-transparency": {
       "dark/room": {
-        "textElements": 11945,
+        "textElements": 11943,
         "failures": 0,
         "pages": 37,
         "worstFive": []
@@ -2208,7 +2208,7 @@
         "worstFive": []
       },
       "light/room": {
-        "textElements": 11945,
+        "textElements": 11943,
         "failures": 0,
         "pages": 37,
         "worstFive": []
@@ -2234,7 +2234,7 @@
     },
     "forced-colors": {
       "dark/room": {
-        "textElements": 11945,
+        "textElements": 11943,
         "failures": 0,
         "pages": 37,
         "worstFive": []
@@ -2258,7 +2258,7 @@
         "worstFive": []
       },
       "light/room": {
-        "textElements": 11945,
+        "textElements": 11943,
         "failures": 0,
         "pages": 37,
         "worstFive": []
@@ -2289,7 +2289,7 @@
     "[normal] docs / room: \"All tokens, the decision log, the except\" 4.26",
     "[normal] docs /components/grid room: \"Saved\" 4.43",
     "[normal] docs /components/stack room: \"variant dimension\" 4.39",
-    "[normal] docs /components/button room: \"Message\" 4.42",
+    "[normal] docs /components/button room: \"Message\" 4.36",
     "[normal] docs /components/icon-button room: \"variant dimension\" 4.36",
     "[normal] docs /components/icon-button room: \"2\" 4.44",
     "[normal] docs /components/chip room: \"Tokens\" 4.46",
@@ -2343,8 +2343,7 @@
     "[normal] docs / night: \"Glass, colour, type, space, shape, motio\" 4.23",
     "[normal] docs / night: \"Every component in depth, with demos, us\" 4.3",
     "[normal] docs / night: \"What Pane is, how to start, the rules be\" 4.49",
-    "[normal] docs /components/card night: \"Asset 05 is live. Designed for modern vi\" 4.44",
-    "[normal] docs /components/button night: \"Share\" 4.37",
+    "[normal] docs /components/button night: \"Share\" 4.34",
     "[normal] docs /components/chip night: \"Videos\" 4.27",
     "[normal] docs /patterns/feed-post night: \"@Apple · 8h\" 4.25",
     "[normal] docs / city: \"What Pane is, how to start, the rules be\" 3.85",
@@ -2380,15 +2379,16 @@
     "[normal] docs /components/grid city: \"Saved\" 4.46",
     "[normal] docs /components/stack city: \"start\" 4.15",
     "[normal] docs /components/stack city: \"center\" 4.25",
-    "[normal] docs /components/card city: \"Asset 05 is live. Designed for modern vi\" 4.04",
-    "[normal] docs /components/card city: \"Saved\" 4.11",
-    "[normal] docs /components/card city: \"· 9h\" 4.15",
-    "[normal] docs /components/card city: \"Followers\" 4.23",
+    "[normal] docs /components/card city: \"· 9h\" 4.08",
+    "[normal] docs /components/card city: \"Asset 05 is live. Designed for modern vi\" 4.11",
+    "[normal] docs /components/card city: \"Followers\" 4.13",
+    "[normal] docs /components/card city: \"Worth reading before the launch.\" 4.21",
+    "[normal] docs /components/card city: \"Saved\" 4.22",
     "[normal] docs /components/card city: \"Posts\" 4.24",
-    "[normal] docs /components/card city: \"Worth reading before the launch.\" 4.34",
-    "[normal] docs /components/button city: \"Message\" 3.99",
-    "[normal] docs /components/button city: \"Add a title to publish.\" 4.36",
-    "[normal] docs /components/icon-button city: \"@Apple · 8h\" 4.11",
+    "[normal] docs /components/card city: \"Saturday · 3 people going\" 4.37",
+    "[normal] docs /components/button city: \"Message\" 4.19",
+    "[normal] docs /components/button city: \"Add a title to publish.\" 4.49",
+    "[normal] docs /components/icon-button city: \"@Apple · 8h\" 4.06",
     "[normal] docs /components/icon-button city: \"1.7M\" 4.29",
     "[normal] docs /components/icon-button city: \"6,707\" 4.36",
     "[normal] docs /components/icon-button city: \"The disc sits on the photo, away from th\" 4.43",
@@ -2419,18 +2419,9 @@
   ],
   "exceptionFloor": 3.8,
   "summary": {
-    "gatingChecks": 144588,
+    "gatingChecks": 144564,
     "gatingFailures": 0,
     "excepted": 131,
-    "informational": [
-      "normal/light/room image text worst 1.38:1",
-      "normal/light/forest image text worst 1.38:1",
-      "normal/light/night image text worst 1.38:1",
-      "normal/light/city image text worst 1.38:1",
-      "reduced-transparency/light/room image text worst 1.38:1",
-      "reduced-transparency/light/forest image text worst 1.38:1",
-      "reduced-transparency/light/night image text worst 1.38:1",
-      "reduced-transparency/light/city image text worst 1.38:1"
-    ]
+    "informational": []
   }
 }

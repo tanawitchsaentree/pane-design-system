@@ -1,11 +1,12 @@
 # STATE — working memory ของ system นี้
 - **System:** Pane (`pane-tokens`, `pane-react`) — spatial glass จาก anchor A (D-008): กระจกใส + หรี่ฉากหลัง (D-010/D-011) บนรูปถ่ายจริง
-- **Phase ปัจจุบัน:** pilot เสร็จจาก anchor — 7 components + docs หน้าเดียว
-- **งานล่าสุดที่เสร็จ:** anchor round → user เลือก A → sweep → A1 → tokens/components/docs สร้างใหม่ทั้งชุด · `pnpm run verify` เขียว (2026-10-26)
-- **งานถัดไป:** user ดู docs (http://localhost:4173) → ถ้าไปต่อ = component ถัดไปตาม docs/CATALOG.md โดยเริ่มด้วย anchor round ตาม iron rule 9
-- **Wave ปัจจุบัน:** pilot · **Component ผ่าน QA:** 7/7 (Environment, Card, Avatar, Button, IconButton, Tabs, Tag)
+- **Phase ปัจจุบัน:** pilot ขยายเป็นหนังสือ 37 บท + 13 components, ธีม light/dark วัดทั้งคู่ (D-015)
+- **งานล่าสุดที่เสร็จ:** playground ทุกหน้า foundation, copy คลิกเดียว, บท Themes & backdrops, ตาราง 2×2 ทุก component, status/history/limitations/a11y matrix จาก benchmark 10 DS · verify เขียว (2026-10-27)
+- **งานถัดไป:** user ดู docs → gap ที่เหลือใน BACKLOG (sandbox ต้อง publish ก่อน, Figma, increased contrast, screen reader pass)
+- **Wave ปัจจุบัน:** pilot · **Component ผ่าน QA:** 13/13 (Alpha 1: Environment, Beta 12)
 - **ค้าง/blocked:** — (ดู BACKLOG.md)
 ## Log ย่อ (ใหม่สุดบน ≤15 บรรทัด)
+- 2026-10-27 verify: glass 144,433/144,564 (131 excepted E-001, ทั้งหมดในธีม dark; light 0 fail ที่ 4.5:1) · conformance 73/73 (G-F1/C1/C2/T1/B1/L1/M1 gate-proofed) · tone 36/36 · smoke 19/19 · bug ที่จับได้: halo ขาวสืบทอดเข้า nested theme, Banner 3.57 → surface.well, ตัวอักษรบนรูปเป็น ink ในธีม light (1.38) → overlay pin dark
 - 2026-10-26 กระจกบาง 0.46 + halo + E-001 (42 nodes 3.85–4.49), motion นุ่ม (token), docs → หนังสือ 26 บทตาม docs-engine content model: props generate (react-docgen-typescript), demo floor บังคับใน conformance (gate-proofed), bundle size esbuild, keyboard ผูก test
 - 2026-10-26 บั๊กที่ evidence จับได้: class `.anchor` ของ heading ชนกับการ์ด anchor → การ์ดหลุดนอกจอ (x=-228)
 - 2026-10-26 user: "เทามาเลย ไม่เบลอ ไม่ใส" → tint เทา .82 ทิ้ง, ใช้ backdrop brightness + รูป Unsplash 4 รูป; glass-sweep วัดทั้งหน้า → 0.36 ทุกรูป; verify: glass 11556/11556, conformance 28/28

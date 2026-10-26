@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T17:44:42.244Z",
+  "generatedAt": "2026-10-26T18:23:17.802Z",
   "passed": 73,
   "total": 73,
   "checks": [
@@ -403,13 +403,13 @@
       "component": "Docs page",
       "name": "axe finds no violations on all 37 pages (forced-colors none)",
       "ok": true,
-      "detail": "color-contrast incomplete on 10253 nodes because axe cannot see through backdrop-filter, and glass-evidence settles those per pixel"
+      "detail": "color-contrast incomplete on 10252 nodes because axe cannot see through backdrop-filter, and glass-evidence settles those per pixel"
     },
     {
       "component": "Docs page",
       "name": "axe finds no violations on all 37 pages (forced-colors active)",
       "ok": true,
-      "detail": "color-contrast incomplete on 10189 nodes because axe cannot see through backdrop-filter, and glass-evidence settles those per pixel"
+      "detail": "color-contrast incomplete on 10188 nodes because axe cannot see through backdrop-filter, and glass-evidence settles those per pixel"
     }
   ]
 }

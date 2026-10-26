@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T17:44:45.958Z",
+  "generatedAt": "2026-10-26T18:23:21.153Z",
   "lint": "/Users/tanawitch.saentree/Downloads/human-tone-folder/.claude/skills/human-tone/scripts/lint.py",
   "excluded": [
     "/reference/decisions"
@@ -688,7 +688,7 @@
     },
     "/components/tag": {
       "ok": true,
-      "words": 673,
+      "words": 649,
       "hard": 0,
       "report": {
         "hard": [],
@@ -698,12 +698,6 @@
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
             "text": "Text on an image, kept inside a scrim on the text side\n#On bright and dark backd"
-          },
-          {
-            "line": 0,
-            "rule": "150-word stretch with nothing under 7 words",
-            "code": "rhythm",
-            "text": "#Change history\nFirst release, outline small caps label."
           },
           {
             "line": 0,
@@ -871,7 +865,7 @@
     },
     "/accessibility": {
       "ok": true,
-      "words": 1297,
+      "words": 1273,
       "hard": 0,
       "report": {
         "hard": [],
@@ -952,7 +946,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "color-contrast incomplete on 10189 nodes because axe cannot see through backdrop"
+            "text": "color-contrast incomplete on 10188 nodes because axe cannot see through backdrop"
           },
           {
             "line": 0,
