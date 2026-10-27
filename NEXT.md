@@ -6,6 +6,10 @@
 - verify v9 (รวม crafted controls) **ถูกตัดกลางทาง** ตอนปิด terminal → ต้องรันใหม่: `pnpm run verify` (ใช้เวลานาน ~40–60 นาที เพราะวัด 2 ธีม)
 - server preview (`pnpm --filter pane-docs preview`, port 4173) ปิดไปพร้อม terminal
 
+## กติกาเครื่อง (user สั่ง 2026-10-27: ห้ามให้เครื่องกระตุกอีก)
+- ระหว่างทำงานใช้ `pnpm run verify:quick` (ไม่มี glass evidence) · `pnpm run verify` เต็มรันได้เฉพาะเมื่อบอก user ก่อนและ user ตกลง
+- ขั้นที่ใช้ browser รันที่ `nice -n 19` แล้ว · ห้ามทิ้ง process เบื้องหลังค้างไว้ตอนจบ turn
+
 ## ทำต่อตามลำดับ
 1. `pnpm run verify` → ถ้าเขียว commit WIP crafted controls (G-N1)
 2. **Button ถึงระดับ Carbon** (reference implementation ของ `component-depth.md`):
