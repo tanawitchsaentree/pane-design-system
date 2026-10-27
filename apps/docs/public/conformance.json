@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-27T11:29:10.711Z",
-  "passed": 74,
+  "generatedAt": "2026-10-27T14:37:20.075Z",
+  "passed": 72,
   "total": 74,
   "checks": [
     {
@@ -242,7 +242,7 @@
       "component": "IconButton",
       "name": "every button with no visible text, on every page of the book, has an accessible name",
       "ok": true,
-      "detail": "37 pages"
+      "detail": "76 pages"
     },
     {
       "component": "Tabs",
@@ -271,7 +271,7 @@
     },
     {
       "component": "Docs page",
-      "name": "G-D3, no literal backtick in rendered text on any of the 37 pages",
+      "name": "G-D3, no literal backtick in rendered text on any of the 76 pages",
       "ok": true
     },
     {
@@ -356,9 +356,9 @@
     },
     {
       "component": "Docs page",
-      "name": "no two cards touch (under 8px) or overlap on any of the 37 pages at 375px and 1280px",
+      "name": "no two cards touch (under 8px) or overlap on any of the 76 pages at 375px and 1280px",
       "ok": true,
-      "detail": "330 cards across both widths"
+      "detail": "834 cards across both widths"
     },
     {
       "component": "Docs page",
@@ -368,9 +368,9 @@
     },
     {
       "component": "Docs page",
-      "name": "G-C1, every code block on all 37 pages has a Copy button you can see",
+      "name": "G-C1, every code block on all 76 pages has a Copy button you can see",
       "ok": true,
-      "detail": "115 code blocks"
+      "detail": "180 code blocks"
     },
     {
       "component": "Docs page",
@@ -402,21 +402,21 @@
     },
     {
       "component": "Docs page",
-      "name": "G-N1, no form control on any of the 37 pages shows the browser's default look: selects and sliders are drawn from tokens in both themes",
+      "name": "G-N1, no form control on any of the 76 pages shows the browser's default look, because selects and sliders are drawn from tokens in both themes",
       "ok": true,
-      "detail": "26 controls per theme"
+      "detail": "138 controls per theme"
     },
     {
       "component": "Docs page",
-      "name": "axe finds no violations on all 37 pages (forced-colors none)",
-      "ok": true,
-      "detail": "color-contrast incomplete on 715 nodes because axe cannot see through backdrop-filter, and glass-evidence settles those per pixel"
+      "name": "axe finds no violations on all 76 pages (forced-colors none)",
+      "ok": false,
+      "detail": "/components/avatar/usage role-img-alt×1, /components/tabs/usage aria-valid-attr-value×1"
     },
     {
       "component": "Docs page",
-      "name": "axe finds no violations on all 37 pages (forced-colors active)",
-      "ok": true,
-      "detail": "color-contrast incomplete on 13751 nodes because axe cannot see through backdrop-filter, and glass-evidence settles those per pixel"
+      "name": "axe finds no violations on all 76 pages (forced-colors active)",
+      "ok": false,
+      "detail": "/components/avatar/usage role-img-alt×1, /components/tabs/usage aria-valid-attr-value×1"
     }
   ]
 }

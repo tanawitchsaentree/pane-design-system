@@ -64,7 +64,8 @@ for (const { name } of CHAPTERS) {
 }
 
 const srv = await serveDist(path.join(ROOT, 'apps/docs/dist'));
-const ROUTES = JSON.parse(readFileSync(path.join(ROOT, 'apps/docs/src/book/routes.json'), 'utf8')).parts.flatMap((p) => p.pages.map((pg) => pg.path));
+// a page with tabs is one route per tab (docs-engine component-depth.md), so every tab gets visited
+const ROUTES = JSON.parse(readFileSync(path.join(ROOT, 'apps/docs/src/book/routes.json'), 'utf8')).parts.flatMap((p) => p.pages.flatMap((pg) => (pg.tabs ? pg.tabs.map((t) => `${pg.path}/${t}`) : [pg.path])));
 const browser = await chromium.launch();
 try {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' });
@@ -72,17 +73,19 @@ try {
   const go = (route) => page.goto(`${srv.base}${route}?scene=room&theme=dark`, { waitUntil: 'networkidle' });
   const main = () => page.locator('main');
 
+  // a component page is four tab routes (component-depth.md); its demos are counted across all of them
+  const TABS = ['usage', 'style', 'code', 'accessibility'];
   for (const { name, slug } of CHAPTERS) {
-    await go(`/components/${slug}`);
     await check(name, `demo floor met (≥ variant dimensions + 3 = ${META.components[name].demoFloor})`, async () => {
-      const n = await main().locator('figure.example').count();
-      expect(n >= META.components[name].demoFloor, `${n} demos on the page`);
+      let n = 0;
+      for (const t of TABS) { await go(`/components/${slug}/${t}`); n += await main().locator('figure.example').count(); }
+      expect(n >= META.components[name].demoFloor, `${n} demos across the tabs`);
       return `${n} demos`;
     });
   }
 
   // --- Environment ----------------------------------------------------------------------------
-  await go('/components/environment');
+  await go('/components/environment/code');
   // Real brightness values are currently all equal (D-011), so the wiring is proven with distinct
   // probe values set on :root for the duration of the check, then removed.
   const probe = { dim: '0.9', mid: '0.6', bright: '0.3' };
@@ -115,7 +118,7 @@ try {
   });
 
   // --- Card -----------------------------------------------------------------------------------
-  await go('/components/card');
+  await go('/components/card/code');
   await check('Card', 'glass card blurs, saturates and dims what is behind it', async () => {
     const bf = await main().getByRole('article', { name: 'Trip to Lauterbrunnen' }).first().evaluate((el) => getComputedStyle(el).backdropFilter);
     expect(/blur\(/.test(bf) && /saturate\(/.test(bf) && /brightness\(/.test(bf), `backdrop-filter: ${bf}`);
@@ -127,7 +130,7 @@ try {
   });
 
   // --- Avatar ---------------------------------------------------------------------------------
-  await go('/components/avatar');
+  await go('/components/avatar/code');
   await check('Avatar', 'non-decorative avatars are role="img" named after the person', async () => {
     for (const n of ['Max Fmz', 'Visual Flow', 'Ada Lovelace', 'Grace Hopper']) expect((await main().getByRole('img', { name: n }).count()) >= 1, `no img named ${n}`);
   });
@@ -137,7 +140,7 @@ try {
   });
 
   // --- Button ---------------------------------------------------------------------------------
-  await go('/components/button');
+  await go('/components/button/code');
   const follow = main().getByRole('button', { name: 'Follow', exact: true }).first();
   await check('Button', 'native <button type="button">', async () => {
     expect((await follow.getAttribute('type')) === 'button', 'type is not "button"');
@@ -172,7 +175,7 @@ try {
   });
 
   // --- IconButton -----------------------------------------------------------------------------
-  await go('/components/icon-button');
+  await go('/components/icon-button/code');
   await check('IconButton', 'reachable with Tab', () => tabTo(page, main().getByRole('button', { name: 'Edit profile' }).first()));
   await check('IconButton', 'every button with no visible text, on every page of the book, has an accessible name', async () => {
     let unnamed = [];
@@ -186,7 +189,7 @@ try {
   });
 
   // --- Tabs -----------------------------------------------------------------------------------
-  await go('/components/tabs');
+  await go('/components/tabs/code');
   const list = main().getByRole('tablist', { name: 'Profile sections' }).first();
   const tab = (n) => list.getByRole('tab', { name: n });
   // Behaviour, not attributes: Radix makes the tablist the tab stop and forwards focus, so the
@@ -224,7 +227,7 @@ try {
   });
 
   // --- Tag ------------------------------------------------------------------------------------
-  await go('/components/tag');
+  await go('/components/tag/code');
   await check('Tag', 'plain text with no role, small caps via CSS (source text stays readable)', async () => {
     const t = main().getByText('Visual asset 05', { exact: true }).first();
     expect((await t.getAttribute('role')) === null, 'has a role');
@@ -250,7 +253,7 @@ try {
     const got = [];
     for (const w of [375, 800, 1280]) {
       await page.setViewportSize({ width: w, height: 900 });
-      await go('/components/grid');
+      await go('/components/grid/code');
       got.push(await main().locator('#demos .demo-full').first().evaluate((el) => getComputedStyle(el).gridTemplateColumns.split(' ').length));
     }
     await page.setViewportSize({ width: 1440, height: 900 });
@@ -261,7 +264,7 @@ try {
     const ratios = [];
     for (const w of [375, 800, 1280]) {
       await page.setViewportSize({ width: w, height: 900 });
-      await go('/components/grid');
+      await go('/components/grid/code');
       ratios.push(await main().locator('#hero .demo-full').first().evaluate((g) => Math.round((g.firstElementChild.getBoundingClientRect().width / g.getBoundingClientRect().width) * 100)));
     }
     await page.setViewportSize({ width: 1440, height: 900 });
@@ -272,7 +275,7 @@ try {
     const pads = [];
     for (const w of [375, 800, 1280]) {
       await page.setViewportSize({ width: w, height: 900 });
-      await go('/components/container');
+      await go('/components/container/code');
       pads.push(await page.evaluate(() => { const d = document.createElement('div'); d.className = document.querySelector('main #hero .demo-full')?.className ?? ''; return getComputedStyle(document.querySelector('main #hero .demo-full')).paddingInlineStart; }));
     }
     await page.setViewportSize({ width: 1440, height: 900 });
@@ -280,19 +283,19 @@ try {
     return pads.join(' → ');
   });
   await check('Stack', 'gap comes from the token scale (md = 16px, xl = 32px)', async () => {
-    await go('/components/stack');
+    await go('/components/stack/code');
     const gaps = await main().locator('#demos .demo-card').nth(1).locator('> div').evaluateAll((els) => els.map((e) => getComputedStyle(e).columnGap));
     expect(gaps.join() === '4px,8px,16px,24px,32px', `gaps: ${gaps.join(', ')}`);
     return gaps.join(' · ');
   });
 
   // --- Badge / Chip / Banner ------------------------------------------------------------------------
-  await go('/components/badge');
+  await go('/components/badge/code');
   await check('Badge', 'status is in the text, with no role (read in place)', async () => {
     const b = main().getByText('Failed', { exact: true }).first();
     expect((await b.getAttribute('role')) === null, 'has a role');
   });
-  await go('/components/chip');
+  await go('/components/chip/code');
   const photos = main().getByRole('button', { name: 'Photos' }).first();
   await check('Chip', 'reachable with Tab', () => tabTo(page, photos));
   await check('Chip', 'Space and Enter toggle aria-pressed', async () => {
@@ -313,7 +316,44 @@ try {
     await rm.click();
     expect((await main().getByRole('button', { name: 'Remove Grace Hopper' }).count()) === 0, 'chip still there');
   });
-  await go('/components/banner');
+  // --- Select and Slider: behaviour is Radix's, these prove it survived Pane's wrapping ---
+  await go('/components/select/code');
+  const trigger = main().getByRole('combobox', { name: 'Who can message you' });
+  await check('Select', 'reachable with Tab', () => tabTo(page, trigger));
+  await check('Select', 'Enter opens the list and Escape closes it', async () => {
+    await tabTo(page, trigger);
+    await page.keyboard.press('Enter');
+    await eventually(() => trigger.getAttribute('aria-expanded'), 'true', 'Enter did not open the list');
+    expect((await page.getByRole('option').count()) === 3, 'the list does not show three options');
+    await page.keyboard.press('Escape');
+    await eventually(() => trigger.getAttribute('aria-expanded'), 'false', 'Escape did not close the list');
+    expect(await trigger.evaluate((el) => document.activeElement === el), 'focus did not return to the trigger');
+  });
+  await check('Select', 'arrow keys and Enter choose a new value', async () => {
+    await tabTo(page, trigger);
+    await page.keyboard.press('Enter');
+    await eventually(() => trigger.getAttribute('aria-expanded'), 'true', 'did not open');
+    await page.keyboard.press('ArrowDown');
+    await page.keyboard.press('Enter');
+    await eventually(() => trigger.textContent(), 'No one', 'ArrowDown then Enter did not pick the next option');
+  });
+  await go('/components/slider/code');
+  const thumb = main().getByRole('slider', { name: 'Volume' }).first();
+  await check('Slider', 'reachable with Tab', () => tabTo(page, thumb));
+  await check('Slider', 'arrow keys, Home and End change the value', async () => {
+    await tabTo(page, thumb);
+    const now = () => thumb.getAttribute('aria-valuenow');
+    await page.keyboard.press('Home'); await eventually(now, '0', 'Home did not go to 0');
+    await page.keyboard.press('ArrowRight'); await eventually(now, '1', 'ArrowRight did not add one step');
+    await page.keyboard.press('End'); await eventually(now, '100', 'End did not go to 100');
+    expect((await thumb.getAttribute('aria-valuetext')) === '100%', 'the spoken value is not formatted');
+  });
+  await check('Slider', 'the press area is at least 44px tall', async () => {
+    const h = await thumb.evaluate((el) => el.closest('[data-component="Slider"] *[class*="slider"]')?.getBoundingClientRect().height ?? 0);
+    expect(h >= 44, `press area ${h}px`);
+  });
+
+  await go('/components/banner/code');
   await check('Banner', 'dismiss is a named button and removes the banner', async () => {
     const d = main().getByRole('button', { name: 'Dismiss' }).first();
     // the banner itself: a static Banner is a <section> labelled by its tone
@@ -465,7 +505,7 @@ try {
     const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce', permissions: ['clipboard-read', 'clipboard-write'] });
     const p = await ctx.newPage();
     try {
-      await p.goto(`${srv.base}/components/card?scene=room&theme=dark`, { waitUntil: 'networkidle' });
+      await p.goto(`${srv.base}/components/card/code?scene=room&theme=dark`, { waitUntil: 'networkidle' });
       const idx = await p.evaluate(() => [...document.querySelectorAll('main .codeblock')].findIndex((b) => b.querySelector('pre.clipped')));
       expect(idx >= 0, 'no clipped code block on the Card page to test with');
       const block = p.locator('main .codeblock').nth(idx);
@@ -496,7 +536,7 @@ try {
   await check('Docs page', `G-B1, all ${CHAPTERS.length} component pages show the component in both themes over a dark and a bright scene, and say what changes`, async () => {
     const bad = [];
     for (const { name, slug } of CHAPTERS) {
-      await go(`/components/${slug}`);
+      await go(`/components/${slug}/style`);
       const r = await page.evaluate(() => {
         const sec = document.getElementById('backdrops')?.closest('section') ?? document.getElementById('backdrops');
         if (!sec) return 'no backdrops section';
@@ -515,14 +555,19 @@ try {
   await check('Docs page', `G-L1, all ${CHAPTERS.length} component pages state a status, their own change history, limitations and the accessibility work left to the app`, async () => {
     const bad = [];
     for (const { name, slug } of CHAPTERS) {
-      await go(`/components/${slug}`);
-      const r = await page.evaluate(() => {
-        const rows = (id) => document.querySelectorAll(`#${id} tbody tr, #${id} li`).length;
-        const status = [...document.querySelectorAll('[aria-label="Component facts"] li')].some((l) => /^status: (Alpha|Beta|Stable)$/.test(l.textContent.trim()));
-        const must = [...document.querySelectorAll('#accessibility h3')].find((h) => h.textContent === 'What you still have to do')?.nextElementSibling?.querySelectorAll('li').length ?? 0;
-        return [status ? null : 'no status', rows('history') ? null : 'no history rows', rows('limitations') ? null : 'no limitations', must ? null : 'no app duties'].filter(Boolean).join(', ') || null;
-      });
-      if (r) bad.push(`${name}: ${r}`);
+      const seen = { status: false, history: false, limitations: false, duties: false };
+      for (const t of TABS) {
+        await go(`/components/${slug}/${t}`);
+        const r = await page.evaluate(() => ({
+          status: [...document.querySelectorAll('[data-fact="status"]')].some((l) => /^status: (Alpha|Beta|Stable)$/.test(l.textContent.trim())),
+          history: document.querySelectorAll('[data-history] tbody tr').length > 0,
+          limitations: document.querySelectorAll('[data-limitations] li').length > 0,
+          duties: document.querySelectorAll('[data-a11y-duties] li').length > 0,
+        }));
+        for (const k of Object.keys(seen)) seen[k] ||= r[k];
+      }
+      const miss = Object.entries(seen).filter(([, v]) => !v).map(([k]) => ({ status: 'no status', history: 'no history rows', limitations: 'no limitations', duties: 'no app duties' })[k]);
+      if (miss.length) bad.push(`${name}: ${miss.join(', ')}`);
     }
     expect(bad.length === 0, bad.join(' | '));
   });
@@ -535,7 +580,7 @@ try {
     expect(!blank.length, blank.map(([c, n]) => `${c}: ${n} blank`).join(', '));
     return `${r.length} rows`;
   });
-  await check('Docs page', `G-N1, no form control on any of the ${ROUTES.length} pages shows the browser's default look: selects and sliders are drawn from tokens in both themes`, async () => {
+  await check('Docs page', `G-N1, no form control on any of the ${ROUTES.length} pages shows the browser's default look, because selects and sliders are drawn from tokens in both themes`, async () => {
     const bad = [];
     let n = 0;
     for (const th of ['dark', 'light']) for (const r of ROUTES) {

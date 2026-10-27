@@ -1,5 +1,5 @@
 {
-  "concept": "A banner is a line written on the pane, not a box placed in it: one sheet of glass stays one layer, and only a small glyph carries the tone colour.",
+  "concept": "A banner is a line written on the pane. One sheet of glass stays one layer, and only a small glyph carries the tone colour.",
   "default_to_avoid": [
     {
       "pattern": "start-edge accent stripe, tinted icon disc, bold title over muted body, a box inside the pane (Carbon inline notification, Material banner, every admin template)",
@@ -84,7 +84,7 @@
     "glyph": {
       "p": "P6",
       "axis": "shape",
-      "why": "each tone has its own glyph shape (circle, check, triangle, octagon), so the tone is readable without its colour"
+      "why": "each tone has its own glyph shape (circle, check, triangle, octagon), and the shape alone tells the tones apart for anyone who cannot see the colour"
     },
     "info": {
       "p": "P1",
@@ -114,7 +114,7 @@
     "title": {
       "p": "P5",
       "axis": "type",
-      "why": "the title is the only semibold text in the line, so the message is caught in one glance without a coloured box"
+      "why": "the title is the only semibold text in the line, which makes the message the first thing the eye catches with no coloured box around it"
     },
     "detail": {
       "p": "P2",

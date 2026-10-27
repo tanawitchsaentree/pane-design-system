@@ -8,11 +8,12 @@ import { Link } from './kit';
 const MODS = import.meta.glob('../examples/*.tsx', { eager: true }) as Record<string, { default: ComponentType }>;
 const SRCS = import.meta.glob('../examples/*.tsx', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
 
-export interface ExampleRef { file: string; title: string; intro: string; Render: ComponentType; code: string; plain?: boolean }
-const ex = (file: string, intro: string, plain?: boolean): ExampleRef => {
+export interface ExampleRef { file: string; title: string; intro: string; Render: ComponentType; code: string; plain?: boolean; backdrop?: 'field' }
+// backdrop 'field': a structure diagram whose labels are measured on the plain Field, never on a photo (D-019)
+const ex = (file: string, intro: string, plain?: boolean, backdrop?: 'field'): ExampleRef => {
   const key = `../examples/${file}.tsx`;
   const code = SRCS[key] ?? '';
-  return { file, title: code.match(/^\/\/ @example (.*)$/m)?.[1] ?? file, intro, Render: MODS[key].default, code, plain };
+  return { file, title: code.match(/^\/\/ @example (.*)$/m)?.[1] ?? file, intro, Render: MODS[key].default, code, plain, backdrop };
 };
 
 export interface ComponentChapter {
@@ -131,7 +132,7 @@ export const COMPONENTS: ComponentChapter[] = [
     name: 'Avatar',
     slug: 'avatar',
     status: 'beta',
-    limitations: ['Initials are taken from the first two words of the name and do not handle every script.', 'There is no presence or status dot yet.'],
+    limitations: ['Initials are taken from the first two words of the name and do not handle every script.', 'There is no presence or status dot yet.', 'There is no forced-colours rule, so the circle loses its edge in high contrast mode.'],
     youMust: ['Pass the person’s full name, or set decorative when the name is already visible next to it.', 'Use a real photo URL you are allowed to show. The image has no built-in error reporting beyond the initials fallback.'],
     usage: '<Avatar name="Max Fmz" size="md" decorative />',
     backdrops: 'The rim ring of the large size stays white in both themes. The initials fallback flips with the solid fill, ink on white in dark and white on ink in light.',
@@ -165,7 +166,7 @@ export const COMPONENTS: ComponentChapter[] = [
     name: 'Button',
     slug: 'button',
     status: 'beta',
-    limitations: ['There is no loading state built in.', 'Buttons are not links. Navigation needs an anchor element.'],
+    limitations: ['There is no loading state built in.', 'Buttons are not links. Navigation needs an anchor element.', 'The sm size is 32px with no 44px press area, below what P6 asks for.', 'Disabled uses a raw 0.5 opacity instead of a token.'],
     youMust: ['Write a label that says what happens, in a verb.', 'Keep one solid button per card. Everything else uses the glass variant.'],
     usage: '<Button>Follow</Button>\n<Button variant="glass">Message</Button>',
     backdrops: 'The solid button inverts with the theme, white with ink text in dark and ink with white text in light, so it stays the loudest thing on the card. Accent blue is the same in both.',
@@ -202,7 +203,7 @@ export const COMPONENTS: ComponentChapter[] = [
     name: 'IconButton',
     slug: 'icon-button',
     status: 'beta',
-    limitations: ['There is no tooltip, so the name is only exposed to assistive tech.', 'Only two sizes exist, both meeting the 44px touch target.'],
+    limitations: ['There is no tooltip, so the name is only exposed to assistive tech.', 'Both sizes are below the 44px P6 asks for. md is 36px and sm is 32px, and neither has a larger press area yet.'],
     youMust: ['Always pass aria-label. The type requires it, and it should name the action.', 'Pick an icon whose meaning is common. If you have to explain it, use a Button with text.'],
     usage: '<IconButton aria-label="Edit profile"><IconPencil /></IconButton>',
     backdrops: "The glass disc follows the theme's quiet fill. Ghost icons take the secondary text colour, white in dark and ink in light.",
@@ -239,7 +240,7 @@ export const COMPONENTS: ComponentChapter[] = [
     name: 'Tabs',
     slug: 'tabs',
     status: 'beta',
-    limitations: ['Tabs do not scroll when they overflow. Keep the list short enough to fit at 375px.', 'Vertical tabs are not styled yet.'],
+    limitations: ['Tabs do not scroll when they overflow. Keep the list short enough to fit at 375px.', 'Vertical tabs are not styled yet.', 'Each pill is 32px tall with no 44px press area, below what P6 asks for.', 'Hover has no visual answer yet.'],
     youMust: ['Give Tabs.List an aria-label that names the set.', 'Keep each panel’s content related. Tabs are not a way to hide unrelated pages.'],
     usage: '<Tabs.Root defaultValue="a">\n  <Tabs.List aria-label="Sections">\n    <Tabs.Trigger value="a">Tweets</Tabs.Trigger>\n    <Tabs.Trigger value="b">Replies</Tabs.Trigger>\n  </Tabs.List>\n  <Tabs.Content value="a">…</Tabs.Content>\n</Tabs.Root>',
     backdrops: 'The selected pill is accent blue in both themes. Unselected rings switch from white to ink at low opacity.',
@@ -313,7 +314,7 @@ export const COMPONENTS: ComponentChapter[] = [
     limitations: ['It sets width and margins only. It does not centre content vertically.', 'There is no full-bleed escape hatch for one child.'],
     youMust: ['Wrap each page region once. Containers inside containers double the margins.', 'Choose a size from the reading width you need, not from the screen.'],
     usage: '<Container size="lg">…</Container>',
-    backdrops: 'Containers have no surface, so themes and backdrops leave them unchanged.',
+    backdrops: 'Container paints nothing, so it looks the same in both themes and over any scene. What changes is the glass inside it. The cards dim a bright photo in the dark theme and lift a dark one in the light theme.',
     purpose: 'Centres a page or region at a maximum width, with the responsive page margin on both sides.',
     importLine: "import { Container } from 'pane-react';",
     overview: (
@@ -358,7 +359,7 @@ export const COMPONENTS: ComponentChapter[] = [
     ),
     hero: ex('GridResponsive', 'These cards go full width on phones, halves at md and thirds at lg.', true),
     ladder: [
-      ex('GridBasic', 'The column count changes from 4 to 8 to 12 as the screen grows. Resize the window to watch it.', true),
+      ex('GridBasic', 'The column count changes from 4 to 8 to 12 as the screen grows. Resize the window to watch it.', true, 'field'),
       ex('GridPage', 'Main content and a sidebar. Under lg the sidebar drops below the content.', true),
       ex('GridColumns', 'Pass columns for a local grid that should keep its own count.', true),
     ],
@@ -379,7 +380,7 @@ export const COMPONENTS: ComponentChapter[] = [
     name: 'Stack',
     slug: 'stack',
     status: 'beta',
-    limitations: ['It does not wrap items onto a new line. Use Grid for that.', 'Gaps are limited to the token scale.'],
+    limitations: ['A row stack wraps, but its items do not line up in columns across lines. Use Grid for that.', 'Gaps are limited to the token scale.'],
     youMust: ['Use the smallest gap that still separates the items.', 'Use a list element inside the Stack when the items are a list.'],
     usage: '<Stack gap="md">…</Stack>',
     backdrops: 'Stacks only space things out, so they look the same in every theme.',
@@ -449,7 +450,7 @@ export const COMPONENTS: ComponentChapter[] = [
     name: 'Chip',
     slug: 'chip',
     status: 'beta',
-    limitations: ['There is no group component that limits selection to one chip.', 'Removed chips are gone. There is no undo built in.'],
+    limitations: ['There is no group component that limits selection to one chip.', 'Removed chips are gone. There is no undo built in.', 'Chips are 32px tall with no 44px press area, below what P6 asks for.'],
     youMust: ['Wrap a set of chips in a group with a label that says what they filter.', 'Move focus to a sensible place after a chip is removed.'],
     usage: '<Chip defaultSelected>Photos</Chip>\n<Chip onRemove={() => {}}>Ada Lovelace</Chip>',
     backdrops: 'Selected chips invert with the theme the same way solid buttons do. Unselected chips follow the quiet glass fill.',
@@ -480,14 +481,79 @@ export const COMPONENTS: ComponentChapter[] = [
     related: [['/components/tabs', 'Tabs', 'When exactly one view is shown at a time.'], ['/components/tag', 'Tag', 'When it’s just a label.']],
   },
   {
+    name: 'Select',
+    slug: 'select',
+    status: 'alpha',
+    limitations: ['One value at a time. There is no multi-select or search yet (Combobox and MultiSelect are planned for wave 5).', 'Options are a flat list with no groups or separators.', 'Disabled uses a raw 0.5 opacity instead of a token.'],
+    youMust: ['Give it a label that names the setting, even when hideLabel is set.', 'Write the reason next to a disabled select, since it cannot be focused to ask.'],
+    usage: '<Select label="Who can message you" defaultValue="following"\n  options={[{ value: \'everyone\', label: \'Everyone\' }, …]} />',
+    backdrops: 'The closed control is a quiet glass pill, white text in the dark theme and ink in the light theme. The open list is an opaque raised surface in both themes, because a menu is read and should not compete with the scene.',
+    purpose: 'Lets people pick one value from a list that opens on its own popup, drawn from tokens instead of the operating system menu.',
+    importLine: "import { Select } from 'pane-react';",
+    overview: (
+      <>
+        <p>A select holds one value from a short list, such as who can message you or which size to print. Closed, it is a pill showing the current value. Open, the list is a Pane popup with a check on the chosen option.</p>
+        <p>Radix supplies the behaviour, including the listbox roles, typeahead, arrow keys, Escape and focus returning to the trigger. Pane draws the trigger and the list from tokens, so the control looks the same on every operating system.</p>
+      </>
+    ),
+    hero: ex('SelectBasic', 'A select on a settings pane, labelled by the setting it changes.'),
+    ladder: [
+      ex('SelectSizes', 'md is 44px and suits touch. sm is 32px for toolbars and dense forms.'),
+      ex('SelectPlaceholder', 'A placeholder until the reader chooses, and an option that is shown but cannot be chosen.'),
+      ex('SelectDisabled', 'Disabled uses the native behaviour. Write the reason beside it.'),
+    ],
+    whenToUse: ['One value from four to fifteen options, such as a size or a privacy level.'],
+    whenNotToUse: [['Two or three options', 'Radio buttons (planned) or a segmented control'], ['Switching views', 'Tabs'], ['Many options that people search', 'Combobox (planned)']],
+    anatomy: [['Label', 'Visible by default, always the accessible name.'], ['Trigger', 'Quiet glass pill with the value and a chevron.'], ['List', 'Opaque raised popup with a check on the chosen option.']],
+    states: [['Closed', 'Pill with the current value.'], ['Open', 'List below the trigger; the chevron turns.'], ['Disabled', 'Native disabled, half opacity, cannot open.']],
+    content: ['Label it with the setting, such as Print size, and keep option labels short and parallel.'],
+    dodont: [{ do: 'Use it for four or more options.', dont: 'Use it for Yes and No. A switch or two radios show both at once.' }],
+    a11y: ['Radix listbox with typeahead, arrow keys, Home, End and Escape.', 'The label is the trigger’s accessible name, also when hidden.', 'The list is drawn from tokens, so G-N1 finds no browser control on any page.'],
+    keyboard: [['Tab', 'Moves focus to the trigger', 'Select: reachable with Tab'], ['Enter / Space', 'Opens the list', 'Select: Enter opens the list and Escape closes it'], ['Escape', 'Closes the list and returns focus', 'Select: Enter opens the list and Escape closes it']],
+    inherits: 'Radix Select (wrapped). Pane passes label, options, value, defaultValue, onValueChange, placeholder, size, disabled and name.',
+    related: [['/components/tabs', 'Tabs', 'When the choice switches views.'], ['/components/chip', 'Chip', 'When several filters can be on.']],
+  },
+  {
+    name: 'Slider',
+    slug: 'slider',
+    status: 'alpha',
+    limitations: ['One thumb only. A range with two thumbs is planned for wave 8.', 'There are no tick marks or labels along the track.', 'Disabled uses a raw 0.5 opacity instead of a token.'],
+    youMust: ['Format the value with its unit so it is spoken with meaning, such as 60%.', 'Offer a text field next to it when people need an exact number.'],
+    usage: '<Slider label="Volume" defaultValue={40} format={(v) => `${v}%`} />',
+    backdrops: 'The track is a quiet glass rail with a ring and the filled part is the accent blue in both themes. The knob is white with a shadow, so it reads on dark and light glass alike.',
+    purpose: 'Lets people set a value along a range by dragging or with the arrow keys, with the current value shown beside the label.',
+    importLine: "import { Slider } from 'pane-react';",
+    overview: (
+      <>
+        <p>A slider sets a value where the exact number matters less than the feel, such as volume or a blur amount. The label sits above the track with the current value at the other end, formatted with its unit.</p>
+        <p>Radix supplies the behaviour, including the slider role, arrow keys, Page Up and Down, Home and End, pointer dragging and the spoken value. The press area is 44px tall even though the track is thin.</p>
+      </>
+    ),
+    hero: ex('SliderBasic', 'A volume slider on a player, with its value as a percentage.'),
+    ladder: [
+      ex('SliderFormat', 'Set min, max and step for the range, and format to show the unit.'),
+      ex('SliderDisabled', 'Disabled keeps the value visible and explains why it cannot change.'),
+    ],
+    whenToUse: ['A value along a range where feel matters, such as volume, brightness or a radius.'],
+    whenNotToUse: [['An exact number', 'A number field (planned)'], ['A few named levels', 'Select or radio buttons']],
+    anatomy: [['Label and value', 'Above the track, value at the end, formatted.'], ['Track', 'Quiet glass rail with a ring.'], ['Range', 'The filled part in the accent blue.'], ['Thumb', 'White knob with a shadow, on a 44px press area.']],
+    states: [['Rest', 'Thumb at the value.'], ['Dragging', 'The value updates as it moves.'], ['Disabled', 'Half opacity, cannot move.']],
+    content: ['Name the setting, such as Volume, and always show the unit in the value.'],
+    dodont: [{ do: 'Show the value with its unit.', dont: 'Leave a bare number with no unit.' }],
+    a11y: ['Radix slider role with arrow keys, Page Up, Page Down, Home and End.', 'The formatted value is the spoken value (aria-valuetext).', 'A 44px press area around the thin track.'],
+    keyboard: [['Tab', 'Moves focus to the thumb', 'Slider: reachable with Tab'], ['→ / ←', 'Changes the value by one step', 'Slider: arrow keys, Home and End change the value'], ['Home / End', 'Jumps to the minimum or maximum', 'Slider: arrow keys, Home and End change the value']],
+    inherits: 'Radix Slider (wrapped). Pane passes label, value, defaultValue, onValueChange, min, max, step, format and disabled.',
+    related: [['/components/select', 'Select', 'For a few named levels.'], ['/foundations/motion', 'Motion', 'Timing for the thumb.']],
+  },
+  {
     name: 'Banner',
     slug: 'banner',
     status: 'beta',
     limitations: ['Banners stack in source order. There is no queue, limit or priority sorting.', 'Dismiss state is not remembered across visits.', 'A message that must interrupt every pane at once, such as a lost connection, needs an app-level surface that Pane does not have yet.'],
     youMust: ['Set live only for banners that appear after the page loads.', 'Keep the title to one short sentence and put the detail in the body.'],
     usage: '<Card>\n  <Banner tone="warning" title="Card expires next month">\n    Update it to avoid a pause.\n  </Banner>\n  …\n</Card>',
-    backdrops: 'The banner has no surface, so it takes the pane it is written on. Only the glyph changes: brighter tone colours on dark glass, deeper ones on light glass, so a small mark stays visible on both.',
-    purpose: 'Tells people something about the pane it sits on, as a line written on the glass: what happened and what to do.',
+    backdrops: 'The banner has no surface, so it takes the pane it is written on. Only the glyph changes, with brighter tone colours on dark glass and deeper ones on light glass, so a small mark stays visible on both.',
+    purpose: 'Tells people what happened on the pane it sits on and what to do next, as a line written on the glass.',
     importLine: "import { Banner } from 'pane-react';",
     overview: (
       <>
@@ -496,7 +562,7 @@ export const COMPONENTS: ComponentChapter[] = [
         <p>Banners already on the page when it loads stay silent, since announcing them would interrupt for nothing. Banners that appear because of something the reader did set <code>live</code>, with <code>polite</code> for news and <code>assertive</code> for errors.</p>
       </>
     ),
-    hero: ex('BannerInPage', 'The message is the first line of the pane it is about, separated by a hairline. There is no box: one sheet of glass stays one layer.'),
+    hero: ex('BannerInPage', 'The message is the first line of the pane it is about, separated by a hairline. There is no box, because one sheet of glass stays one layer.'),
     ladder: [
       ex('BannerTones', 'Four tones. Each has its own glyph shape and its own spoken word, and only the glyph carries the tone colour.'),
       ex('BannerAction', 'Actions sit at the end of the line. Keep them quiet, unless acting on the message is the only thing the pane is for.'),

@@ -14,7 +14,7 @@ export interface BannerProps extends Omit<HTMLAttributes<HTMLElement>, 'title'> 
   tone?: BannerTone;
   /** One line saying what happened. */
   title: ReactNode;
-  /** Optional detail: what it means or what to do. Shown under the title. */
+  /** Optional detail saying what it means or what to do. Shown under the title. */
   children?: ReactNode;
   /** Optional action at the end of the line, normally a quiet Button. Use the loud solid only when acting on this message is the pane's main task. */
   action?: ReactNode;

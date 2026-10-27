@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Form controls derivation round · Pane</title>
+<link rel="stylesheet" href="../../../packages/tokens/build/css/tokens.css" />
+<style>
+  /* Lab only: the same form four ways. 0 is the habit to avoid; A, B and C each follow the
+     derivation in Input.why.json / Checkbox / Radio / Switch in a different way. One pick sets the
+     form language for the whole W3 family (Input, Textarea, Checkbox, Radio, Switch, Label,
+     FormField, HelperText, Fieldset, InputGroup, PinInput). */
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--ds-type-family); background: var(--ds-surface-page); color: var(--ds-text-primary); -webkit-font-smoothing: antialiased; }
+  header.lab { padding: 32px 40px 8px; max-width: 1500px; margin: 0 auto; }
+  header.lab h1 { margin: 0 0 8px; font-size: 28px; }
+  header.lab p { margin: 0 0 16px; color: var(--ds-text-secondary); max-width: 74ch; line-height: 1.6; }
+  .controls { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .controls button { font: inherit; font-size: 14px; padding: 6px 14px; border-radius: 999px; border: 0; background: var(--ds-surface-sunken); color: var(--ds-text-primary); cursor: pointer; }
+  .controls button[aria-pressed="true"] { background: var(--ds-surface-raised); box-shadow: inset 0 0 0 1px var(--ds-line-divider); font-weight: 650; }
+  main { display: flex; flex-direction: column; gap: 48px; padding: 24px 40px 80px; max-width: 1500px; margin: 0 auto; }
+  figure { margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  figcaption b { font-size: 17px; } figcaption p { margin: 4px 0 0; color: var(--ds-text-secondary); font-size: 14px; line-height: 1.55; max-width: 92ch; }
+  .pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+  @media (max-width: 1000px) { .pair { grid-template-columns: 1fr; } }
+  .stage { position: relative; padding: 48px 40px; border-radius: 24px; background: center / cover url(../../docs/public/scenes/forest.webp); display: grid; place-items: center; overflow: hidden; }
+  body[data-scene="city"] .stage { background-image: url(../../docs/public/scenes/city.webp); }
+  body[data-scene="night"] .stage { background-image: url(../../docs/public/scenes/night.webp); }
+  body[data-scene="room"] .stage { background-image: url(../../docs/public/scenes/room.webp); }
+  .page { padding: 32px 40px; border-radius: 24px; background: var(--ds-surface-page); box-shadow: inset 0 0 0 1px var(--ds-line-divider); }
+  .page .sec { max-width: 520px; background: var(--ds-surface-raised); border-radius: 12px; box-shadow: inset 0 0 0 1px var(--ds-line-divider); padding: 24px; }
+  .tag { font-size: 12px; font-weight: 650; letter-spacing: .04em; text-transform: uppercase; color: var(--ds-text-secondary); margin: 0 0 14px; }
+
+  /* the pane: Card's real recipe */
+  .pane { position: relative; isolation: isolate; width: min(100%, 480px); padding: var(--ds-card-padding); border-radius: var(--ds-card-radius);
+    background: linear-gradient(180deg, var(--ds-card-sheen-top), var(--ds-card-sheen-bottom) 40%), var(--ds-card-bg);
+    -webkit-backdrop-filter: blur(var(--ds-card-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-card-brightness));
+    backdrop-filter: blur(var(--ds-card-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-card-brightness));
+    box-shadow: var(--ds-card-shadow), inset 0 0 0 1px var(--ds-line-rim-mid); color: var(--ds-text-primary); text-shadow: var(--ds-card-text-halo); }
+  h3 { margin: 0 0 18px; font-size: var(--ds-type-title); }
+
+  /* shared form skeleton */
+  form { display: flex; flex-direction: column; gap: 18px; margin: 0; }
+  .f { display: flex; flex-direction: column; gap: 6px; }
+  .f label, legend { font-size: 14px; font-weight: 600; }
+  .help { font-size: 13px; color: var(--ds-text-secondary); }
+  .err { font-size: 13px; display: flex; gap: 6px; align-items: center; }
+  .err svg { width: 16px; height: 16px; flex: none; color: var(--ds-status-critical-mark, var(--ds-status-critical)); }
+  fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  legend { padding: 0; margin-bottom: 4px; }
+  .opt { display: flex; align-items: center; gap: 12px; min-height: 32px; font-size: 15px; cursor: pointer; }
+  .row { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 15px; }
+  .row small { display: block; color: var(--ds-text-secondary); font-size: 13px; margin-top: 2px; }
+  input[type=text], textarea { font: inherit; font-size: 15px; color: inherit; width: 100%; margin: 0; text-shadow: inherit; }
+  textarea { resize: vertical; min-height: 104px; line-height: 1.5; }
+  input[type=checkbox], input[type=radio] { appearance: none; margin: 0; flex: none; cursor: pointer; position: relative; display: grid; place-items: center; }
+  input[type=checkbox]::after { content: ''; }
+  button[role=switch] { flex: none; border: 0; padding: 0; cursor: pointer; position: relative; }
+  :focus-visible { outline: var(--ds-focus-ring-width, 2px) solid var(--ds-focus-ring-color, #fff); outline-offset: 2px; box-shadow: var(--ds-focus-halo, 0 0 0 5px rgba(0,0,0,.5)); }
+  .check-svg { position: absolute; inset: 0; margin: auto; width: 14px; height: 14px; pointer-events: none; opacity: 0; transform: scale(.6); transition: opacity 200ms, transform 420ms var(--ds-motion-easing); }
+  .box:has(input:checked) .check-svg { opacity: 1; transform: none; }
+  .box { position: relative; display: inline-grid; flex: none; }
+
+  /* ---------- 0 · the habit: Material outlined field with floating label, blue square checkbox, iOS green switch ---------- */
+  .v0 input[type=text], .v0 textarea { background: transparent; border: 1px solid var(--ds-line-ring); border-radius: 4px; padding: 14px 12px; outline-offset: 0; }
+  .v0 .f.bad input, .v0 .f.bad textarea { border-color: var(--ds-status-critical); }
+  .v0 .f label { font-size: 12px; font-weight: 400; color: var(--ds-action-accent); margin-bottom: -14px; margin-left: 10px; padding: 0 4px; position: relative; z-index: 1; align-self: flex-start; background: var(--ds-surface-raised); }
+  .v0 .pane .f label { background: transparent; }
+  .v0 .err { color: var(--ds-status-critical); }
+  .v0 input[type=checkbox] { width: 18px; height: 18px; border: 2px solid var(--ds-text-secondary); border-radius: 2px; }
+  .v0 input[type=checkbox]:checked { background: var(--ds-action-accent); border-color: var(--ds-action-accent); }
+  .v0 .check-svg { color: #fff; }
+  .v0 input[type=radio] { width: 20px; height: 20px; border: 2px solid var(--ds-text-secondary); border-radius: 50%; }
+  .v0 input[type=radio]:checked { border-color: var(--ds-action-accent); background: radial-gradient(var(--ds-action-accent) 45%, transparent 50%); }
+  .v0 button[role=switch] { width: 51px; height: 31px; border-radius: 999px; background: var(--ds-text-secondary); }
+  .v0 button[role=switch][aria-checked=true] { background: #34c759; }
+  .v0 button[role=switch]::after { content: ''; position: absolute; top: 2px; left: 2px; width: 27px; height: 27px; border-radius: 50%; background: #fff; transition: transform 200ms; }
+  .v0 button[role=switch][aria-checked=true]::after { transform: translateX(20px); }
+
+  /* ---------- A · a well in the pane: the field is a dimmed recess, a held pill (P1 depth, P3 shape) ---------- */
+  .vA input[type=text], .vA textarea { background: var(--ds-surface-well); border: 0; border-radius: var(--ds-radius-pill); padding: 0 18px; min-height: var(--ds-control-md); box-shadow: inset 0 1px 2px rgba(0,0,0,.28), inset 0 0 0 1px var(--ds-line-rim-lo); transition: box-shadow var(--ds-motion-hover) var(--ds-motion-easing); }
+  .vA textarea { border-radius: 20px; padding: 12px 18px; min-height: 104px; }
+  .page.vA input[type=text], .page.vA textarea, .vA .page input[type=text] { background: var(--ds-surface-sunken); box-shadow: inset 0 0 0 1px var(--ds-line-divider); }
+  .vA .f.bad input, .vA .f.bad textarea { box-shadow: inset 0 1px 2px rgba(0,0,0,.28), inset 0 0 0 2px var(--ds-status-critical-mark, var(--ds-status-critical)); }
+  .vA input:focus-visible, .vA textarea:focus-visible { outline-offset: 3px; }
+  .vA input[type=checkbox] { width: 24px; height: 24px; border-radius: 8px; background: var(--ds-surface-well); box-shadow: inset 0 1px 2px rgba(0,0,0,.3), inset 0 0 0 1px var(--ds-line-ring); }
+  .vA .check-svg { color: var(--ds-text-primary); }
+  .vA input[type=radio] { width: 24px; height: 24px; border-radius: 50%; background: var(--ds-surface-well); box-shadow: inset 0 1px 2px rgba(0,0,0,.3), inset 0 0 0 1px var(--ds-line-ring); }
+  .vA input[type=radio]::after { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--ds-text-primary); transform: scale(0); transition: transform 420ms var(--ds-motion-easing); }
+  .vA input[type=radio]:checked::after { transform: none; }
+  .vA button[role=switch] { width: 52px; height: 32px; border-radius: 999px; background: var(--ds-surface-well); box-shadow: inset 0 1px 2px rgba(0,0,0,.3), inset 0 0 0 1px var(--ds-line-ring); transition: background 420ms var(--ds-motion-easing); }
+  .vA button[role=switch][aria-checked=true] { background: var(--ds-action-accent); }
+  .vA button[role=switch]::after { content: ''; position: absolute; top: 4px; left: 4px; width: 24px; height: 24px; border-radius: 50%; background: var(--ds-surface-knob, #fff); box-shadow: 0 1px 3px rgba(0,0,0,.35); transition: transform 420ms var(--ds-motion-easing); }
+  .vA button[role=switch][aria-checked=true]::after { transform: translateX(20px); }
+  .vA button[role=switch] .mark { position: absolute; left: 10px; top: 0; bottom: 0; margin: auto; width: 2px; height: 12px; border-radius: 1px; background: var(--ds-text-on-accent, #fff); opacity: 0; transition: opacity 420ms; }
+  .vA button[role=switch][aria-checked=true] .mark { opacity: 1; }
+
+  /* ---------- B · written on the pane: no second surface, a hairline baseline (P3 one sheet one layer, P1 colour) ---------- */
+  .vB input[type=text], .vB textarea { background: transparent; border: 0; border-radius: 0; padding: 8px 0 10px; box-shadow: inset 0 -1px 0 var(--ds-line-ring); transition: box-shadow var(--ds-motion-hover) var(--ds-motion-easing); }
+  .vB input[type=text]:hover, .vB textarea:hover { box-shadow: inset 0 -1px 0 var(--ds-text-secondary); }
+  .vB input:focus-visible, .vB textarea:focus-visible { outline: 0; box-shadow: inset 0 -2px 0 var(--ds-focus-ring-color, #fff), 0 2px 0 var(--ds-focus-ring-halo, rgba(0,0,0,.5)); }
+  .vB .f.bad input, .vB .f.bad textarea { box-shadow: inset 0 -2px 0 var(--ds-status-critical-mark, var(--ds-status-critical)); }
+  .vB .f label { font-size: 13px; color: var(--ds-text-secondary); font-weight: 600; }
+  .vB input[type=checkbox] { width: 22px; height: 22px; border-radius: 6px; box-shadow: inset 0 0 0 1.5px var(--ds-text-secondary); }
+  .vB input[type=checkbox]:checked { box-shadow: inset 0 0 0 1.5px var(--ds-text-primary); }
+  .vB .check-svg { color: var(--ds-text-primary); }
+  .vB input[type=radio] { width: 22px; height: 22px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px var(--ds-text-secondary); }
+  .vB input[type=radio]::after { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--ds-text-primary); transform: scale(0); transition: transform 420ms var(--ds-motion-easing); }
+  .vB input[type=radio]:checked { box-shadow: inset 0 0 0 1.5px var(--ds-text-primary); }
+  .vB input[type=radio]:checked::after { transform: none; }
+  .vB button[role=switch] { width: 48px; height: 28px; background: transparent; }
+  .vB button[role=switch]::before { content: ''; position: absolute; left: 4px; right: 4px; top: 13px; height: 2px; border-radius: 1px; background: var(--ds-text-secondary); transition: background 420ms; }
+  .vB button[role=switch][aria-checked=true]::before { background: var(--ds-text-primary); }
+  .vB button[role=switch]::after { content: ''; position: absolute; top: 3px; left: 0; width: 22px; height: 22px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px var(--ds-text-secondary); background: var(--ds-surface-page); transition: transform 420ms var(--ds-motion-easing), background 420ms, box-shadow 420ms; }
+  .vB .pane button[role=switch]::after { background: transparent; -webkit-backdrop-filter: blur(6px) brightness(.6); backdrop-filter: blur(6px) brightness(.6); }
+  .vB button[role=switch][aria-checked=true]::after { transform: translateX(26px); background: var(--ds-text-primary); box-shadow: none; }
+  .vB .err { color: var(--ds-text-primary); }
+
+  /* ---------- C · held objects: each control is a small object with its own rim and shadow (P3 depth, P4 settle) ---------- */
+  .vC input[type=text], .vC textarea { background: var(--ds-surface-quiet); border: 0; border-radius: var(--ds-radius-pill); padding: 0 18px; min-height: var(--ds-control-md); box-shadow: inset 0 0 0 1px var(--ds-line-rim-hi), 0 1px 2px rgba(0,0,0,.18); transition: transform var(--ds-motion-hover) var(--ds-motion-easing), box-shadow var(--ds-motion-hover) var(--ds-motion-easing); }
+  .vC textarea { border-radius: 20px; padding: 12px 18px; min-height: 104px; }
+  .vC input[type=text]:hover, .vC textarea:hover { transform: translateY(-1px); box-shadow: inset 0 0 0 1px var(--ds-line-rim-hi), var(--ds-elevation-lift); }
+  .page.vC input[type=text], .vC .page input[type=text], .vC .page textarea { background: var(--ds-surface-raised); box-shadow: inset 0 0 0 1px var(--ds-line-ring); }
+  .vC .page input[type=text]:hover, .vC .page textarea:hover { transform: none; box-shadow: inset 0 0 0 1px var(--ds-text-secondary); }
+  .vC .f.bad input, .vC .f.bad textarea { box-shadow: inset 0 0 0 2px var(--ds-status-critical-mark, var(--ds-status-critical)), 0 1px 2px rgba(0,0,0,.18); }
+  .vC input[type=checkbox] { width: 26px; height: 26px; border-radius: 9px; background: var(--ds-surface-quiet); box-shadow: inset 0 0 0 1px var(--ds-line-rim-hi), 0 1px 3px rgba(0,0,0,.25); transition: transform 200ms var(--ds-motion-easing); }
+  .vC input[type=checkbox]:active, .vC input[type=radio]:active { transform: scale(var(--ds-motion-press-scale, .96)); }
+  .vC input[type=checkbox]:checked { box-shadow: inset 0 0 0 2px var(--ds-text-primary), 0 1px 3px rgba(0,0,0,.25); }
+  .vC .check-svg { color: var(--ds-text-primary); width: 15px; height: 15px; }
+  .vC input[type=radio] { width: 26px; height: 26px; border-radius: 50%; background: var(--ds-surface-quiet); box-shadow: inset 0 0 0 1px var(--ds-line-rim-hi), 0 1px 3px rgba(0,0,0,.25); transition: transform 200ms var(--ds-motion-easing); }
+  .vC input[type=radio]::after { content: ''; width: 12px; height: 12px; border-radius: 50%; background: var(--ds-text-primary); box-shadow: 0 1px 2px rgba(0,0,0,.35); transform: scale(0) translateY(-6px); transition: transform 520ms var(--ds-motion-easing); }
+  .vC input[type=radio]:checked { box-shadow: inset 0 0 0 2px var(--ds-text-primary), 0 1px 3px rgba(0,0,0,.25); }
+  .vC input[type=radio]:checked::after { transform: none; }
+  .vC button[role=switch] { width: 54px; height: 32px; border-radius: 999px; background: var(--ds-surface-quiet); box-shadow: inset 0 0 0 1px var(--ds-line-rim-hi); transition: background 520ms var(--ds-motion-easing); }
+  .vC button[role=switch][aria-checked=true] { background: var(--ds-action-accent); box-shadow: inset 0 0 0 1px var(--ds-line-rim-hi); }
+  .vC button[role=switch]::after { content: ''; position: absolute; top: 3px; left: 3px; width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(180deg, #fff, #e9ebee); box-shadow: 0 2px 6px rgba(0,0,0,.35), inset 0 1px 0 #fff; transition: transform 520ms var(--ds-motion-easing), width 200ms; }
+  .vC button[role=switch]:active::after { width: 30px; }
+  .vC button[role=switch][aria-checked=true]::after { transform: translateX(22px); }
+  .vC button[role=switch][aria-checked=true]:active::after { transform: translateX(18px); }
+  .vC .err { color: var(--ds-text-primary); }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body data-scene="forest">
+<header class="lab">
+  <h1>Form controls · derivation round</h1>
+  <p>The same form four ways: a text field, a bio with an error, a checkbox, a radio group and a switch, each on a glass pane over a real photo and on an ordinary settings page, because P7 says forms are a reading surface. <b>0</b> is the habit (Material's outlined field, a blue square checkbox, an iOS green switch) and is here only to compare against. <b>A</b>, <b>B</b> and <b>C</b> each come from the principles in a different way. Everything is clickable; press Tab to see focus. One pick sets the form language for all 11 W3 components.</p>
+  <div class="controls">
+    <span>Theme</span><button data-t="dark" aria-pressed="true">Dark</button><button data-t="light">Light</button>
+    <span style="margin-left:16px">Scene</span><button data-s="forest" aria-pressed="true">Forest</button><button data-s="city">City (bright)</button><button data-s="night">Night café</button><button data-s="room">Room</button>
+  </div>
+</header>
+<template id="form">
+  <form onsubmit="return false">
+    <div class="f"><label for="n-ID">Display name</label><input id="n-ID" type="text" value="Ada Lovelace" autocomplete="off" /></div>
+    <div class="f bad"><label for="b-ID">Bio</label><textarea id="b-ID" aria-invalid="true" aria-describedby="be-ID">Writes about engines, poetry and the numbers between them. Writes about engines, poetry and the numbers between them, again.</textarea>
+      <span class="err" id="be-ID"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 3h7L21 8.5v7L15.5 21h-7L3 15.5v-7z"/><path d="M12 8v5M12 16v.01"/></svg>Error: keep it under 120 characters (126 now).</span></div>
+    <label class="opt"><span class="box"><input type="checkbox" checked /><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Show my email on my profile</label>
+    <fieldset><legend>Who can message me</legend>
+      <label class="opt"><input type="radio" name="r-ID" checked />Everyone</label>
+      <label class="opt"><input type="radio" name="r-ID" />People I follow</label>
+      <label class="opt"><input type="radio" name="r-ID" />No one</label>
+    </fieldset>
+    <div class="row"><span id="s-ID">Private account<small>Only followers see your posts.</small></span><button type="button" role="switch" aria-checked="true" aria-labelledby="s-ID"><span class="mark"></span></button></div>
+  </form>
+</template>
+<main>
+  <figure class="v0"><div class="pair"><div class="stage"><div class="pane"><h3>Edit profile</h3><div data-form></div></div></div><div class="page"><p class="tag">Settings page</p><div class="sec"><h3>Profile</h3><div data-form></div></div></div></div>
+    <figcaption><b>0 · The habit to avoid</b><p>Material's outlined field with a floating label, a filled blue square checkbox and the iOS green switch. A box drawn on the glass, colour that the scene should own (blue fill, green track), and a label that leaves its place.</p></figcaption></figure>
+  <figure class="vA"><div class="pair"><div class="stage"><div class="pane"><h3>Edit profile</h3><div data-form></div></div></div><div class="page"><p class="tag">Settings page</p><div class="sec"><h3>Profile</h3><div data-form></div></div></div></div>
+    <figcaption><b>A · A well in the pane</b><p>The field is a dimmed recess pressed into the glass. Legibility comes from dimming, never from an opaque fill (P1 depth), and it is a full pill because a control is held in the hand (P3 shape). Checkbox, radio and switch are smaller wells. Selected states add a mark: a check, a dot, a tick on the track (P6). Blue appears only on the switch track, which is the one place the system uses its own colour. On the settings page the well becomes the ordinary sunken surface.</p></figcaption></figure>
+  <figure class="vB"><div class="pair"><div class="stage"><div class="pane"><h3>Edit profile</h3><div data-form></div></div></div><div class="page"><p class="tag">Settings page</p><div class="sec"><h3>Profile</h3><div data-form></div></div></div></div>
+    <figcaption><b>B · Written on the pane</b><p>The same idea as the Banner you picked (C): no second surface inside one sheet of glass (P3). A field is a line you write on, a hairline baseline that thickens to a 2px white line with a dark halo on focus (P2 interaction). Checkbox and radio are rings, and the switch is a thin rail with a knob. No colour at all: the selected knob is white, so the scene keeps every hue (P1 colour). On the settings page it is the plain hairline P7 asks for.</p></figcaption></figure>
+  <figure class="vC"><div class="pair"><div class="stage"><div class="pane"><h3>Edit profile</h3><div data-form></div></div></div><div class="page"><p class="tag">Settings page</p><div class="sec"><h3>Profile</h3><div data-form></div></div></div></div>
+    <figcaption><b>C · Held objects</b><p>Each control is a small object sitting on the pane with its own rim of light and a soft shadow (P3 depth), the way visionOS controls are raised. Fields lift 1px on hover (P4 space). Checkbox and radio shrink when pressed, the radio dot drops in and settles, and the switch knob is a lit sphere that stretches while held and rolls over in 520ms (P4 motion). Blue only on the switch track. On the settings page the objects flatten to raised surfaces with a ring.</p></figcaption></figure>
+</main>
+<script>
+  let n = 0;
+  document.querySelectorAll('[data-form]').forEach((slot) => { n++; slot.innerHTML = document.getElementById('form').innerHTML.replaceAll('ID', String(n)); });
+  document.querySelectorAll('button[role=switch]').forEach((s) => s.onclick = () => s.setAttribute('aria-checked', String(s.getAttribute('aria-checked') !== 'true')));
+  const set = (attr, el) => el.parentElement.querySelectorAll(`[data-${attr}]`).forEach((b) => b.setAttribute('aria-pressed', String(b === el)));
+  document.querySelectorAll('[data-t]').forEach((b) => b.onclick = () => { document.documentElement.dataset.theme = b.dataset.t; set('t', b); });
+  document.querySelectorAll('[data-s]').forEach((b) => b.onclick = () => { document.body.dataset.scene = b.dataset.s; set('s', b); });
+</script>
+</body>
+</html>

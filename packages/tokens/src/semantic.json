@@ -10,7 +10,7 @@
         },
         "kiln.why": {
           "p": "P1",
-          "why": "almost clear white (6 percent) so the scene stays visible; legibility comes from the dimming in glass.brightness, not from this tint"
+          "why": "almost clear white (6 percent) so the scene stays visible; legibility comes from the dimming in glass.brightness and this tint only gives the sheet a surface"
         }
       }
     },
@@ -36,7 +36,7 @@
         },
         "kiln.why": {
           "p": "P5",
-          "why": "glass on glass for secondary controls: visible as an object, quieter than the one loud solid"
+          "why": "glass on glass for secondary controls, visible as an object and quieter than the one loud solid"
         }
       }
     },
@@ -88,7 +88,7 @@
       "$extensions": {
         "kiln.why": {
           "p": "P3",
-          "why": "the sheen fades out lower down, so it reads as light on an edge, not as a fill"
+          "why": "the sheen fades out lower down, so it reads as light catching the top edge"
         }
       }
     },
@@ -247,7 +247,7 @@
     "$extensions": {
       "kiln.why": {
         "p": "P3",
-        "why": "hairlines that give panes and controls an edge: rings for controls, dividers inside panes, and a rim of light brightest at the top left"
+        "why": "hairlines that give panes and controls an edge, as rings for controls, dividers inside panes and a rim of light brightest at the top left"
       }
     }
   },
@@ -311,7 +311,7 @@
     "$extensions": {
       "kiln.why": {
         "p": "P2",
-        "why": "the measured glass recipe in one place: blur, saturation and the brightness per environment and theme"
+        "why": "the measured glass recipe in one place, with blur, saturation and the brightness per environment and theme"
       }
     }
   },
@@ -339,7 +339,7 @@
     "$extensions": {
       "kiln.why": {
         "p": "P3",
-        "why": "how high a surface floats: float for panes, lift for controls, halo for text on thin glass"
+        "why": "how high a surface floats, with float for panes, lift for controls and halo for text on thin glass"
       }
     }
   },
@@ -363,7 +363,7 @@
     "$extensions": {
       "kiln.why": {
         "p": "P6",
-        "why": "stroke widths that survive zoom and forced colours: hairline edges, a 2px ring and a halo wide enough to separate the ring from any backdrop"
+        "why": "stroke widths that survive zoom and forced colours, for hairline edges, a 2px ring and a halo wide enough to separate the ring from any backdrop"
       }
     }
   },
@@ -485,7 +485,7 @@
             "P3",
             "P6"
           ],
-          "why": "drawings in diagrams are marks, not objects, so they get a small corner that keeps narrow plates from turning into pills and hiding their width"
+          "why": "drawings in diagrams are marks on a plan, so they get a small corner that keeps narrow plates from turning into pills and hiding their width"
         }
       }
     }
@@ -666,7 +666,7 @@
             "P1",
             "P6"
           ],
-          "why": "the info tone as a small glyph colour only: the scene keeps its hue, and the glyph shape and spoken word carry the meaning too"
+          "why": "the info tone as a small glyph colour only, so the scene keeps its hue while the glyph shape and spoken word carry the meaning too"
         }
       }
     },
@@ -681,7 +681,7 @@
             "P1",
             "P6"
           ],
-          "why": "the positive tone as a small glyph colour only: the scene keeps its hue, and the glyph shape and spoken word carry the meaning too"
+          "why": "the positive tone as a small glyph colour only, so the scene keeps its hue while the glyph shape and spoken word carry the meaning too"
         }
       }
     },
@@ -696,7 +696,7 @@
             "P1",
             "P6"
           ],
-          "why": "the warning tone as a small glyph colour only: the scene keeps its hue, and the glyph shape and spoken word carry the meaning too"
+          "why": "the warning tone as a small glyph colour only, so the scene keeps its hue while the glyph shape and spoken word carry the meaning too"
         }
       }
     },
@@ -711,7 +711,7 @@
             "P1",
             "P6"
           ],
-          "why": "the critical tone as a small glyph colour only: the scene keeps its hue, and the glyph shape and spoken word carry the meaning too"
+          "why": "the critical tone as a small glyph colour only, so the scene keeps its hue while the glyph shape and spoken word carry the meaning too"
         }
       }
     }
@@ -838,7 +838,7 @@
           "P1",
           "P3"
         ],
-        "why": "a neutral backdrop for when there is no scene to show, such as diagrams and layout demos: a faint gradient for the glass to blur and fine construction lines that show the grid the panes sit on"
+        "why": "a neutral backdrop for diagrams and layout demos, where no scene is shown, with a faint gradient for the glass to blur and fine construction lines that show the grid the panes sit on"
       }
     },
     "base": {
@@ -885,14 +885,14 @@
       "$value": "{color.sky-a.60}",
       "$extensions": {
         "pane.theme": {
-          "light": "{color.blue-a.80}"
+          "light": "{color.blue.600}"
         },
         "kiln.why": {
           "p": [
             "P6",
             "P3"
           ],
-          "why": "diagram columns in the accent so they stand at least 3:1 off the ground in both themes and read as the place where content goes"
+          "why": "diagram columns in the accent so they stand at least 3:1 off the ground in both themes, read as the place where content goes, and carry white column numbers at 4.5:1 (solid in light, where 80% blue measured 3.51)"
         }
       }
     },

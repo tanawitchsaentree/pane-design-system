@@ -117,8 +117,8 @@ export function GridLayoutPage() {
   return (
     <Page eyebrow="Foundations" title="Grid & layout" lede={<p>Pane lays panes out on a column grid that has 4, 8 or 12 columns depending on the screen. The gaps between columns are where the scene shows through, so the grid decides how much of the world the reader sees as much as where things go. Every number on this page is read from the layout tokens.</p>}>
       <Section id="scope" title="What the grid governs">
-        <p>The grid places top-level panes in the main content area: cards, feeds, players, settings groups. It does not place anything inside a pane, where the gap tokens take over, and it does not place the top bar, the side rail or anything that floats above the content, such as menus, ornaments and dialogs. Those sit in their own regions, described under screen regions below.</p>
-        <p>The reason is the concept. A pane is an object in space (<Link to="/principles#p3">P3</Link>). Objects line up with each other on shared edges, but what is drawn on an object follows the object, not the room.</p>
+        <p>The grid places top-level panes in the main content area, such as cards, feeds, players and settings groups. It does not place anything inside a pane, where the gap tokens take over, and it does not place the top bar, the side rail or anything that floats above the content, such as menus, ornaments and dialogs. Those sit in their own regions, described under screen regions below.</p>
+        <p>The reason is the concept. A pane is an object in space (<Link to="/principles#p3">P3</Link>). Objects line up with each other on shared edges, and what is drawn on an object follows the object itself.</p>
       </Section>
 
       <Section id="unit" title="The unit everything is built from">
@@ -162,8 +162,8 @@ export function GridLayoutPage() {
 
       <Section id="types" title="Fluid, fixed and hybrid">
         <ul>
-          <li><b>Fluid.</b> Columns divide the width, so things get bigger as the screen grows. Use it when people want to see more of each item: a photo, a post, a player.</li>
-          <li><b>Fixed.</b> Boxes have a size from the scale and tile, so more of them fit as the screen grows. Use it when people want to see more items: a grid of avatars, album covers, chips.</li>
+          <li><b>Fluid.</b> Columns divide the width, so things get bigger as the screen grows. Use it when people want to see more of each item, such as a photo, a post or a player.</li>
+          <li><b>Fixed.</b> Boxes have a size from the scale and tile, so more of them fit as the screen grows. Use it when people want to see more items, such as a grid of avatars, album covers or chips.</li>
           <li><b>Hybrid.</b> One dimension is fixed and the other fluid, such as a top bar that is fluid in width and fixed in height. Most components are hybrid.</li>
         </ul>
         <p>Pane's default is fluid for panes, because a pane is an object that should grow with the room, and fixed for small things placed on a pane.</p>
@@ -187,17 +187,17 @@ export function GridLayoutPage() {
       </Section>
 
       <Section id="gutters" title="Gutters">
-        <p>Gutters are fixed inside a breakpoint: {BPS.map((b) => `${b.gutter}px on ${b.label.toLowerCase()}`).join(', ')}. In most systems a gutter only separates content. In Pane it is also the gap through which the reader sees the scene (<Link to="/principles#p1">P1</Link>), which is why Pane never uses a gutterless grid for panes. Two panes that touch read as one sheet of glass, and nothing in the system can tell them apart again.</p>
+        <p>Gutters are fixed inside a breakpoint, at {BPS.map((b) => `${b.gutter}px on ${b.label.toLowerCase()}`).join(', ')}. In most systems a gutter only separates content. In Pane it is also the gap through which the reader sees the scene (<Link to="/principles#p1">P1</Link>), which is why Pane never uses a gutterless grid for panes. Two panes that touch read as one sheet of glass, and nothing in the system can tell them apart again.</p>
         <p>Content stays inside its columns. Shadows and the rim light of a pane may fall into the gutter; text and controls never do.</p>
       </Section>
 
       <Section id="margins" title="Margins">
-        <p>Margins are the space between the outermost columns and the edge of the screen: {BPS.map((b) => `${b.margin}px on ${b.label.toLowerCase()}`).join(', ')}. They are fixed per breakpoint and always come from <code>layout.margin</code>. Leaving an empty column at each side to make a margin breaks as soon as the column count changes.</p>
+        <p>Margins are the space between the outermost columns and the edge of the screen, at {BPS.map((b) => `${b.margin}px on ${b.label.toLowerCase()}`).join(', ')}. They are fixed per breakpoint and always come from <code>layout.margin</code>. Leaving an empty column at each side to make a margin breaks as soon as the column count changes.</p>
       </Section>
 
       <Section id="padding" title="Padding and the type edge">
         <p>Inside a pane the padding is <code>gap.inset</code> ({TOKENS['gap.inset'].value}), always larger than any gap between items in that pane, so the edge of the pane reads as the edge of the object (<Link to="/principles#p3">P3</Link>). Text sits against the padding edge. A pane's title, its body and its buttons all start on the same line, which is the key line the eye follows down the pane.</p>
-        <p>Corners nest by the same numbers: the pane corner minus the padding gives the corner of anything inside it. See <Link to="/foundations/shape">Shape & elevation</Link>.</p>
+        <p>Corners nest by the same numbers. The pane corner minus the padding gives the corner of anything inside it. See <Link to="/foundations/shape">Shape & elevation</Link>.</p>
       </Section>
 
       <Section id="what-aligns" title="What aligns to the grid">
@@ -209,7 +209,7 @@ export function GridLayoutPage() {
       </Section>
 
       <Section id="nested" title="Nested grids">
-        <p>A large pane can hold its own grid, for example a gallery inside a profile. The inner grid uses the gap tokens instead of the page gutter, because it is spacing on an object, not between objects. Nested panes get the inner corner and add no second blur, since one sheet of glass is one layer.</p>
+        <p>A large pane can hold its own grid, for example a gallery inside a profile. The inner grid uses the gap tokens instead of the page gutter, because it is spacing on one object. Nested panes get the inner corner and add no second blur, since one sheet of glass is one layer.</p>
       </Section>
 
       <Section id="behaviours" title="More things, or bigger things">
@@ -243,7 +243,7 @@ export function GridLayoutPage() {
       </Section>
 
       <Section id="key-lines" title="Key lines" wide>
-        <p>Whatever the layout, the edges of panes should form lines the eye can follow, vertically and horizontally. Here the same screen is drawn with its key lines: every pane edge lands on a column edge, and every row of panes starts on the same line.</p>
+        <p>Whatever the layout, the edges of panes should form lines the eye can follow, vertically and horizontally. Here the same screen is drawn with its key lines. Every pane edge lands on a column edge, and every row of panes starts on the same line.</p>
         <Regions keyLines />
       </Section>
 

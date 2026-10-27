@@ -389,7 +389,8 @@ try {
         const miss = ['status', 'updated'].filter((f) => !head.querySelector(`[data-fact="${f}"]`));
         const demo = head.querySelector('[data-live-demo]');
         if (!demo) miss.push('live demo');
-        else for (const s of ['theme', 'variant']) if (!demo.querySelector(`select[data-selector="${s}"]`)) miss.push(`${s} selector`);
+        // any element: a system draws its own selects (G-N1), so a native <select> is not required
+        else for (const s of ['theme', 'variant']) if (!demo.querySelector(`[data-selector="${s}"]`)) miss.push(`${s} selector`);
         return miss.length ? `missing ${miss.join(', ')}` : null;
       });
       if (h) bad.push(`${pg.title}: ${h}`);
@@ -506,7 +507,8 @@ try {
         const cells = [...box.querySelectorAll('[data-cell]')].map((c) => `${c.dataset.theme}/${c.dataset.sceneKind}`);
         const want = themes.flatMap((t) => ['dark', 'bright'].map((k) => `${t}/${k}`));
         const miss = want.filter((w) => !cells.includes(w));
-        const prose = [...box.querySelectorAll('p')].map((p) => p.textContent).join(' ').split(/\s+/).length;
+        // guidance only: text inside a demo cell is the demo talking, not the page explaining what changes
+        const prose = [...box.querySelectorAll('p')].filter((p) => !p.closest('[data-cell]')).map((p) => p.textContent).join(' ').split(/\s+/).filter(Boolean).length;
         return [miss.length ? `missing ${miss.join(', ')}` : null, prose >= 12 ? null : 'no text saying what changes'].filter(Boolean).join('; ') || null;
       }, C.themes);
       if (r) bad.push(`${pg.title}: ${r}`);

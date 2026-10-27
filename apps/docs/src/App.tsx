@@ -1,8 +1,9 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Environment, Select } from 'pane-react';
-import { PAGES, PARTS, navigate, useRoute } from './book/router';
+import { PAGES, PARTS, navigate, pageOf, useRoute } from './book/router';
 import { Link, SceneContext, VerifyContext, type Conformance, type Evidence } from './book/kit';
 import { PAGE_COMPONENTS } from './book/pages';
+import { plannedWaves } from './book/catalog';
 import { SCENES, sceneById } from './scenes';
 
 // Verification results ship inside the bundle (the verify run rebuilds the docs after writing them),
@@ -21,6 +22,8 @@ function useOnThisPage(path: string) {
   }, [path]);
   return items;
 }
+
+const PLANNED = plannedWaves(PARTS.find((p) => p.title === 'Components')?.pages.map((p) => p.title) ?? []);
 
 export function App() {
   const path = useRoute();
@@ -67,12 +70,14 @@ export function App() {
     history.replaceState(null, '', u);
   }, [scene]);
   useEffect(() => {
-    const t = PAGES.find((p) => p.path === path)?.title;
-    document.title = t ? `${t}. Pane` : 'Pane';
+    const pg = pageOf(path);
+    const tab = pg?.tabs && path !== pg.path ? path.slice(pg.path.length + 1) : null;
+    document.title = pg ? `${pg.title}${tab ? ` ${tab[0].toUpperCase()}${tab.slice(1)}` : ''}. Pane` : 'Pane';
   }, [path]);
 
   const PageComponent = PAGE_COMPONENTS[path];
-  const idx = PAGES.findIndex((p) => p.path === path);
+  const here = pageOf(path);
+  const idx = here ? PAGES.indexOf(here) : -1;
   const [prev, next] = [PAGES[idx - 1], PAGES[idx + 1]];
   const filtered = useMemo(() => PARTS.map((part) => ({ ...part, pages: part.pages.filter((p) => !q || p.title.toLowerCase().includes(q.toLowerCase()) || part.title.toLowerCase().includes(q.toLowerCase())) })).filter((p) => p.pages.length), [q]);
 
@@ -85,7 +90,7 @@ export function App() {
 
         <header className="topbar">
           <Link to="/" className="brand-link"><span className="brand">Pane</span><span className="brand-sub">design system</span></Link>
-          <span className="topbar-title">{PAGES[PAGES.findIndex((p) => p.path === path)]?.title}</span>
+          <span className="topbar-title">{here?.title}</span>
           <div className="topbar-tools">
             <div className="seg" role="group" aria-label="Theme" data-theme-control="">
               {(['system', 'light', 'dark'] as const).map((t) => (
@@ -107,8 +112,14 @@ export function App() {
               <div key={part.title} className="nav-part">
                 <p className="nav-part-title" data-nav-part="">{part.title}</p>
                 <ul className="toc flush">
-                  {part.pages.map((p) => <li key={p.path}><a href={p.path} aria-current={p.path === path ? 'page' : undefined} onClick={(e) => { e.preventDefault(); navigate(p.path); }}>{p.title}</a></li>)}
+                  {part.pages.map((p) => <li key={p.path}><a href={p.path} aria-current={p.path === here?.path ? 'page' : undefined} onClick={(e) => { e.preventDefault(); navigate(p.path); }}>{p.title}</a></li>)}
                 </ul>
+                {part.title === 'Components' && !q && PLANNED.map((w) => (
+                  <details key={w.wave} className="nav-planned">
+                    <summary>Planned · wave {w.wave} {w.title} ({w.items.length})</summary>
+                    <ul className="toc flush">{w.items.map((n) => <li key={n} data-planned="">{n} <span className="visually-hidden">Planned · wave {w.wave}</span></li>)}</ul>
+                  </details>
+                ))}
               </div>
             ))}
           </nav>

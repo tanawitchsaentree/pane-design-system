@@ -1,0 +1,2837 @@
+{
+  "generatedAt": "2026-10-27T14:27:10.897Z",
+  "lint": "/Users/tanawitch.saentree/Downloads/human-tone-folder/.claude/skills/human-tone/scripts/lint.py",
+  "excluded": [
+    "/reference/decisions"
+  ],
+  "pages": {
+    "/": {
+      "ok": true,
+      "words": 474,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 19,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Glass, colour, type, space, shape, motion and icons. Each with live values."
+          },
+          {
+            "line": 30,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Pane is a pilot with 15 components, verified in Chromium only. It can lay out a "
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Kiln built it from one anchor component you picked, the profile card below, and "
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "If a file is missing the page says UNVERIFIED instead of showing a number."
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/getting-started": {
+      "ok": true,
+      "words": 488,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 12,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Every verify run installs exactly these tarballs into an empty project and impor"
+          },
+          {
+            "line": 19,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Every token with tier, type, reference and resolved value. For build tools and F"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It defines every code custom property, the three environment blocks, and the fal"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "B · Workspace or file dependency\nC · Tokens only\nFor a non-React project, take c"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/principles": {
+      "ok": true,
+      "words": 1039,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 19,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "brightness, blur and tint per theme are the thinnest values that pass on every t"
+          },
+          {
+            "line": 35,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Objects have weight, so they arrive, respond and come to rest instead of snappin"
+          },
+          {
+            "line": 69,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "opaque page, raised and sunken surfaces; no blur."
+          },
+          {
+            "line": 14,
+            "rule": "one contrast found: verify it passes the strawman test",
+            "code": "negation",
+            "text": "#P2 · Measured, not predicted"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "white on dark glass and ink on light glass, because the text colour must contras"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#P4 · Things settle\nObjects have weight, so they arrive, respond and come to res"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "the loud action is a solid pill; everything else is a quiet pill or text."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "selected and pressed states change shape or add a mark (a check, a ring), never "
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "The Why column in every token table and the reasons section on every component p"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/glass": {
+      "ok": true,
+      "words": 563,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 23,
+            "rule": "suspect word: genuinely",
+            "code": "lexicon",
+            "text": "Each of the four scene photos has a sunlit or lamp-lit region somewhere in frame"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/color": {
+      "ok": true,
+      "words": 813,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 90,
+            "rule": "one contrast found: verify it passes the strawman test",
+            "code": "negation",
+            "text": "Blue is #0071E3, not Twitter blue. #1D9BF0 measured about 2.9:1 under white text"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#Check a pair\nPick any two solid colours from the palette to see their contrast "
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Read from code\nP1 almost clear white (6 percent) so the scene stays visible; leg"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Secondary text is the same colour at a lower opacity, held at the lowest value t"
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'read'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/themes": {
+      "ok": true,
+      "words": 750,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#Measured in both themes\nEvery check in the evidence run is repeated for each th"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "A nested region gets fresh token values, but CSS still hands it the colour and t"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Accent blue and the status colours stay the same in both, because their text pai"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "PASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/typography": {
+      "ok": true,
+      "words": 401,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 3,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Type your own words and try each size, weight and line height. The snippet below"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Dark glow around dark text on white would be mud."
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'read'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/spacing": {
+      "ok": true,
+      "words": 409,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 6,
+            "rule": "suspect word: actual",
+            "code": "lexicon",
+            "text": "What components and layouts actually use. Each points at one step of the scale, "
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/grid": {
+      "ok": true,
+      "words": 2477,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 4,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "The grid places top-level panes in the main content area, such as cards, feeds, "
+          },
+          {
+            "line": 9,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Columns, gutters and margins"
+          },
+          {
+            "line": 13,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Generated from code, code, code and the viewport tokens"
+          },
+          {
+            "line": 27,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Fluid, fixed and hybrid"
+          },
+          {
+            "line": 49,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Panes do. Cards, feeds, players and settings groups span columns."
+          },
+          {
+            "line": 50,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Things on a pane don't. Buttons, avatars, tags and the parts of a card are space"
+          },
+          {
+            "line": 51,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Floating things don't. Menus, ornaments and dialogs float above the grid on thei"
+          },
+          {
+            "line": 70,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Floating panels. Menus, dialogs and ornaments cover what is below them, so they "
+          },
+          {
+            "line": 72,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Whatever the layout, the edges of panes should form lines the eye can follow, ve"
+          },
+          {
+            "line": 111,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "In a design tool, set a layout grid with the column count, gutter and margin fro"
+          },
+          {
+            "line": 114,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Columns, gutter and span"
+          },
+          {
+            "line": 117,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 118,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 119,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 120,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 121,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 122,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 123,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 124,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 125,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 126,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 142,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "2x Grid, Carbon, for fluid, fixed and hybrid boxes."
+          },
+          {
+            "line": 145,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Its sections come from the topics Carbon, Atlassian and Dell cover on their grid"
+          },
+          {
+            "line": 22,
+            "rule": "one contrast found: verify it passes the strawman test",
+            "code": "negation",
+            "text": "Breakpoints measure the viewport, not the content area. Opening the side rail do"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "The inner grid uses the gap tokens instead of the page gutter, because it is spa"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "A feed of photos is the second case; a list of people to follow is the first."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Below the first one it is a phone grid; above the second it is a desktop grid."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Inside a breakpoint their width is the available width, minus margins and gutter"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "#How components size\nFluid, its column span\nIts content\nIts label\nFixed, 44px or"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Read from code\nP3 grid columns, gutters, margins and container widths per breakp"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Read from code\nP7 maximum content widths, so reading lines and grids stop growin"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/dimensions": {
+      "ok": true,
+      "words": 1159,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P6 widths where the layout changes column count, chosen at common phone, tablet "
+          },
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P6 widths where the layout changes column count, chosen at common phone, tablet "
+          },
+          {
+            "line": 9,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P6 widths where the layout changes column count, chosen at common phone, tablet "
+          },
+          {
+            "line": 10,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P6 widths where the layout changes column count, chosen at common phone, tablet "
+          },
+          {
+            "line": 11,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P6 widths where the layout changes column count, chosen at common phone, tablet "
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#See the hit areas\nTouch targets\nThe outline is 44px square, centred on each con"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Read from code\nP6 control heights and icon sizes; 44px is the default so every c"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/shape": {
+      "ok": true,
+      "words": 213,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/motion": {
+      "ok": true,
+      "words": 514,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 9,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 10,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 11,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 12,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 13,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 14,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 15,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 16,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 17,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 18,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Read from code\nP4 a long ease-out that lands softly for things arriving or respo"
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'read'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/foundations/icons": {
+      "ok": true,
+      "words": 90,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/container/usage": {
+      "ok": true,
+      "words": 503,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 44,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Mouse, keyboard and touch"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Content inside it never runs edge to edge on a wide screen, and never touches th"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/container/style": {
+      "ok": true,
+      "words": 390,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "P7 centred with margins that grow at each breakpoint, so content never touches t"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/container/code": {
+      "ok": true,
+      "words": 163,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/container/accessibility": {
+      "ok": true,
+      "words": 321,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "emoji or symbol decoration (4 in the document)",
+            "code": "formatting",
+            "text": ""
+          },
+          {
+            "line": 8,
+            "rule": "one contrast found: verify it passes the strawman test",
+            "code": "negation",
+            "text": "Choose a size from the reading width you need, not from the screen."
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/grid/usage": {
+      "ok": true,
+      "words": 489,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 36,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Mouse, keyboard and touch"
+          },
+          {
+            "line": 52,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Columns, gutters and breakpoints."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#When to use it\nUse Grid for\nA collection of cards, such as a feed or a gallery."
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/grid/style": {
+      "ok": true,
+      "words": 286,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 34,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 column count, gutter and margin come from the layout tokens per breakpoint, s"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/grid/code": {
+      "ok": true,
+      "words": 220,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/grid/accessibility": {
+      "ok": true,
+      "words": 365,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 9,
+            "rule": "suspect word: truly",
+            "code": "lexicon",
+            "text": "Use full span on small screens unless the content truly fits in a narrow column."
+          },
+          {
+            "line": 0,
+            "rule": "emoji or symbol decoration (6 in the document)",
+            "code": "formatting",
+            "text": ""
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Use full span on small screens unless the content truly fits in a narrow column."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "PASS 14.36:1\nPASS 11.04:1\nPASS 21.00:1\nPASS 14.36:1\nPASS 11.04:1\nPASS 21.00:1\nPA"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/stack/usage": {
+      "ok": true,
+      "words": 465,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 9,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "The inside of a card, with its title, text and actions."
+          },
+          {
+            "line": 15,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Not applicable. Stack has no variant prop. Direction, gap and alignment are layo"
+          },
+          {
+            "line": 36,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Mouse, keyboard and touch"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Children never carry their own margins, so spacing is owned by the parent and st"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#When to use it\nUse Stack for\nThe inside of a card, with its title, text and act"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/stack/style": {
+      "ok": true,
+      "words": 419,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 34,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 one flex container; direction, gap and alignment are the only decisions it ma"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "P3 one flex container; direction, gap and alignment are the only decisions it ma"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/stack/code": {
+      "ok": true,
+      "words": 227,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/stack/accessibility": {
+      "ok": true,
+      "words": 323,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/environment/usage": {
+      "ok": true,
+      "words": 521,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 39,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Mouse, keyboard and touch"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/environment/style": {
+      "ok": true,
+      "words": 364,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/environment/code": {
+      "ok": true,
+      "words": 225,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          },
+          {
+            "line": 17,
+            "rule": "one contrast found: verify it passes the strawman test",
+            "code": "negation",
+            "text": "How bright the world behind the glass is (D-009). Glass inside darkens to keep t"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/environment/accessibility": {
+      "ok": true,
+      "words": 398,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "emoji or symbol decoration (3 in the document)",
+            "code": "formatting",
+            "text": ""
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "PASS 14.50:1\nPASS 11.18:1\nPASS 21.00:1\nPASS 14.50:1\nPASS 11.18:1\nPASS 21.00:1\nPA"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/card/usage": {
+      "ok": true,
+      "words": 1125,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 26,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Inset keeps the content and padding but drops the glass, rim and shadow, and add"
+          },
+          {
+            "line": 58,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Mouse, keyboard and touch"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Long labels\nLong words and URLs break inside the card instead of pushing it wide"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/card/style": {
+      "ok": true,
+      "words": 631,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 68,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 the glass variant blurs, saturates and dims the scene rather than painting ov"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Over a dark photo the light glass has to work hardest, because ink needs a pale "
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "P2 the root sets the measured text colour and halo every text node on the pane i"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/card/code": {
+      "ok": true,
+      "words": 256,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/card/accessibility": {
+      "ok": true,
+      "words": 375,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 16,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "PASS glass card blurs, saturates and dims what is behind it. blur(64px) saturate"
+          },
+          {
+            "line": 49,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "First release with glass, inset and solid variants and a cover slot. Glass dims "
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "PASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/avatar/usage": {
+      "ok": true,
+      "words": 759,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 54,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Mouse, keyboard and touch"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/avatar/style": {
+      "ok": true,
+      "words": 461,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "P3 the round frame with a light rim makes the face an object on the pane instead"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/avatar/code": {
+      "ok": true,
+      "words": 232,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          },
+          {
+            "line": 9,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Avatar sizes, with and without a photo"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "A stack of participants with a count\nIn a stack of participants the group carrie"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/avatar/accessibility": {
+      "ok": true,
+      "words": 353,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "There is no presence or status dot yet."
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/button/usage": {
+      "ok": true,
+      "words": 2459,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 68,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "An object rising to meet the pointer, colour and lift as one event (P4)."
+          },
+          {
+            "line": 77,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Mouse, keyboard and touch"
+          },
+          {
+            "line": 125,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Apple Human Interface Guidelines · Buttons. Pane's lineage. Sizes, roles and the"
+          },
+          {
+            "line": 73,
+            "rule": "one contrast found: verify it passes the strawman test",
+            "code": "negation",
+            "text": "Native disabled attribute, 50% opacity, no motion, not focusable."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Secondary actions beside it, such as Message, Cancel or Not now, in the glass we"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#Content\nA label is a verb, or a verb and its object, in sentence case."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Long labels\nA button never truncates its label, because a cut verb can change th"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Use it for the action most readers came to take, even when another action is mor"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Best practices\nUse glass for Cancel, Not now and every other way out, so leaving"
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'code'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/button/style": {
+      "ok": true,
+      "words": 961,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "P3 a full pill because it is held, with the label centred and the whole pill as "
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/button/code": {
+      "ok": true,
+      "words": 233,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          },
+          {
+            "line": 9,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Light, accent and glass buttons"
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'code'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/button/accessibility": {
+      "ok": true,
+      "words": 418,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 62,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "First release with light, accent and glass variants and the soft hover lift."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "PASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/icon-button/usage": {
+      "ok": true,
+      "words": 882,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 10,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "A row of familiar actions under a post, such as reply, repost, like and share."
+          },
+          {
+            "line": 57,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Mouse, keyboard and touch"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It saves room in rows where a text label on every action would crowd the pane, s"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#Each variant in depth\nThe glass disc gives a single icon a body, so it reads as"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/icon-button/style": {
+      "ok": true,
+      "words": 645,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "P6 a round target with an accessible name required by its type, because the icon"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/icon-button/code": {
+      "ok": true,
+      "words": 219,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'code'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/icon-button/accessibility": {
+      "ok": true,
+      "words": 366,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "PASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/tabs/usage": {
+      "ok": true,
+      "words": 1476,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 5,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Tabs switch between a few views of the same thing. A profile has Posts, Replies "
+          },
+          {
+            "line": 11,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Two to five views of the same object, such as Posts, Replies and Media on a prof"
+          },
+          {
+            "line": 12,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Grouped settings on one pane, such as Privacy, Notifications and Display."
+          },
+          {
+            "line": 64,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Mouse, keyboard and touch"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Tabs keep the reader in one place, so the address does not change when a tab doe"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Remember the reader’s last choice only when they come back to the same pane ofte"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "If a panel’s content loads when its tab is chosen, select the tab at once and sh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#Related and references\nA value in a form, where the choice is data and not a vi"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Grouped settings on one pane, such as Privacy, Notifications and Display."
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/tabs/style": {
+      "ok": true,
+      "words": 475,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "P3 pills sit in one row with a small gap, a set of objects of the same kind\nP6 e"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/tabs/code": {
+      "ok": true,
+      "words": 152,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/tabs/accessibility": {
+      "ok": false,
+      "words": 455,
+      "hard": 2,
+      "report": {
+        "hard": [
+          {
+            "line": 23,
+            "rule": "label colon in prose",
+            "code": "label_colon",
+            "text": "FAIL one tab stop, so Tab lands on the selected tab and the next Tab leaves the "
+          },
+          {
+            "line": 24,
+            "rule": "label colon in prose",
+            "code": "label_colon",
+            "text": "FAIL arrow keys move focus and selection, and Home and End jump to the ends. loc"
+          }
+        ],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Arrow keys, Home, End and wrap-around are verified in real Chromium."
+          }
+        ],
+        "pass": false,
+        "profile": []
+      }
+    },
+    "/components/tag/usage": {
+      "ok": true,
+      "words": 904,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 5,
+            "rule": "suspect word: landscape",
+            "code": "lexicon",
+            "text": "A tag names what something is about. An album is Landscape, a post is Travel, an"
+          },
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Show tags only when they help the reader choose or understand. A gallery where e"
+          },
+          {
+            "line": 11,
+            "rule": "suspect word: landscape",
+            "code": "lexicon",
+            "text": "Categories and topics on a piece of content, such as Landscape or Travel."
+          },
+          {
+            "line": 31,
+            "rule": "suspect word: landscape",
+            "code": "lexicon",
+            "text": "A category and a state on the same item, such as Landscape and New."
+          },
+          {
+            "line": 34,
+            "rule": "suspect word: landscape",
+            "code": "lexicon",
+            "text": "Keep a short list of allowed tags per product and reuse it, so filtering and sea"
+          },
+          {
+            "line": 45,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Mouse, keyboard and touch"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Readers scan the title first and the tag answers the second question, which is w"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/tag/style": {
+      "ok": true,
+      "words": 313,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/tag/code": {
+      "ok": true,
+      "words": 139,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/tag/accessibility": {
+      "ok": true,
+      "words": 350,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "#Change history\nFirst release, outline small caps label."
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/badge/usage": {
+      "ok": true,
+      "words": 989,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 55,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Mouse, keyboard and touch"
+          },
+          {
+            "line": 52,
+            "rule": "one contrast found: verify it passes the strawman test",
+            "code": "negation",
+            "text": "A status, not a control (P3)."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#When to use it\nUse Badge for\nThe state of an item, such as Live, Draft or Faile"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "If most rows in a list carry the same badge, the badge has stopped carrying info"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "#Related and references\nA topic or category."
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'the'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/badge/style": {
+      "ok": true,
+      "words": 723,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "P6 a compact pill that carries the status as text, readable without seeing its c"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/badge/code": {
+      "ok": true,
+      "words": 191,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          },
+          {
+            "line": 17,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "code is a glass ring. code, code, code and code are solid status fills, each at "
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/badge/accessibility": {
+      "ok": true,
+      "words": 323,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "one contrast found: verify it passes the strawman test",
+            "code": "negation",
+            "text": "Put the status in the text, not only in the colour or the dot."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "#Change history\nFirst release with five tones and an optional dot."
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/chip/usage": {
+      "ok": true,
+      "words": 871,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 51,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Mouse, keyboard and touch"
+          },
+          {
+            "line": 68,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Not applicable. Chip has no variant prop. Its two kinds, filter and input, are b"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "An input chip keeps its label as plain text and puts removal on a separate butto"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Values the reader added and can remove, such as recipients or tags on a draft."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Report the new count in text, such as 24 results, and announce it politely if th"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/chip/style": {
+      "ok": true,
+      "words": 521,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "P3 a pill with a ring, the same held shape as buttons at a smaller size\nP6 selec"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/chip/code": {
+      "ok": true,
+      "words": 180,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/chip/accessibility": {
+      "ok": true,
+      "words": 384,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "An input chip keeps its label as plain text and puts removal on its own button n"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "PASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/banner/usage": {
+      "ok": true,
+      "words": 1575,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 67,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Mouse, keyboard and touch"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Each banner competes with the pane’s own content, so a third one usually means t"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "While the action runs, show progress where the action happened and keep the bann"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/banner/style": {
+      "ok": true,
+      "words": 855,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#Why it looks and moves like this\nA banner is a line written on the pane."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "P3 the banner has no surface of its own, because a second fill inside one sheet "
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/banner/code": {
+      "ok": false,
+      "words": 405,
+      "hard": 1,
+      "report": {
+        "hard": [
+          {
+            "line": 27,
+            "rule": "label colon in prose",
+            "code": "label_colon",
+            "text": "Optional detail: what it means or what to do. Shown under the title."
+          }
+        ],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Keep them quiet, unless acting on the message is the only thing the pane is for."
+          }
+        ],
+        "pass": false,
+        "profile": []
+      }
+    },
+    "/components/banner/accessibility": {
+      "ok": true,
+      "words": 428,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "PASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/patterns/profile-card": {
+      "ok": true,
+      "words": 135,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/patterns/feed-post": {
+      "ok": true,
+      "words": 75,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 2,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "A single post gets its own pane, with an author row, the body, media and actions"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/patterns/settings-panel": {
+      "ok": true,
+      "words": 66,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/patterns/text-on-images": {
+      "ok": true,
+      "words": 182,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/accessibility": {
+      "ok": false,
+      "words": 1316,
+      "hard": 3,
+      "report": {
+        "hard": [
+          {
+            "line": 46,
+            "rule": "label colon in prose",
+            "code": "label_colon",
+            "text": "FAIL one tab stop, so Tab lands on the selected tab and the next Tab leaves the "
+          },
+          {
+            "line": 47,
+            "rule": "label colon in prose",
+            "code": "label_colon",
+            "text": "FAIL arrow keys move focus and selection, and Home and End jump to the ends. loc"
+          },
+          {
+            "line": 66,
+            "rule": "label colon in prose",
+            "code": "label_colon",
+            "text": "PASS G-N1, no form control on any of the 76 pages shows the browser's default lo"
+          }
+        ],
+        "warn": [
+          {
+            "line": 13,
+            "rule": "suspect word: actual",
+            "code": "lexicon",
+            "text": "Reduced transparency. Opaque graphite, no blur, no dimming (emulated via the Chr"
+          },
+          {
+            "line": 26,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "PASS glass card blurs, saturates and dims what is behind it. blur(64px) saturate"
+          },
+          {
+            "line": 55,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "PASS choosing a chapter opens it as a new page at the top, with its heading in v"
+          },
+          {
+            "line": 64,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "PASS G-L1, all 13 component pages state a status, their own change history, limi"
+          },
+          {
+            "line": 170,
+            "rule": "suspect word: genuinely",
+            "code": "lexicon",
+            "text": "A genuinely dark backdrop, so the dim and mid levels are uncalibrated."
+          },
+          {
+            "line": 0,
+            "rule": "emoji or symbol decoration (4 in the document)",
+            "code": "formatting",
+            "text": ""
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "no props of its own (pass-through only)\nPASS demo floor met (≥ variant dimension"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "190 code blocks\nPASS G-C2, Copy puts the whole snippet on the clipboard, includi"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Repeat one viewport at a time down the whole page, in normal, reduced-transparen"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "5 demos\nPASS non-decorative avatars are role=\"img\" named after the person\nPASS d"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "4 demos\nFAIL one tab stop, so Tab lands on the selected tab and the next Tab lea"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "13 rows\nPASS G-N1, no form control on any of the 76 pages shows the browser's de"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "PASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4.70:1\nPASS 4.70:1\nPASS 21.00:1\nPASS 4"
+          }
+        ],
+        "pass": false,
+        "profile": []
+      }
+    },
+    "/reference/tokens": {
+      "ok": true,
+      "words": 11375,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 white at fixed opacities makes glass, rims, rings and dividers, so each one r"
+          },
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 white at fixed opacities makes glass, rims, rings and dividers, so each one r"
+          },
+          {
+            "line": 9,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 white at fixed opacities makes glass, rims, rings and dividers, so each one r"
+          },
+          {
+            "line": 10,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 white at fixed opacities makes glass, rims, rings and dividers, so each one r"
+          },
+          {
+            "line": 11,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 white at fixed opacities makes glass, rims, rings and dividers, so each one r"
+          },
+          {
+            "line": 12,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 white at fixed opacities makes glass, rims, rings and dividers, so each one r"
+          },
+          {
+            "line": 13,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 white at fixed opacities makes glass, rims, rings and dividers, so each one r"
+          },
+          {
+            "line": 14,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 white at fixed opacities makes glass, rims, rings and dividers, so each one r"
+          },
+          {
+            "line": 15,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 white at fixed opacities makes glass, rims, rings and dividers, so each one r"
+          },
+          {
+            "line": 16,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 white at fixed opacities makes glass, rims, rings and dividers, so each one r"
+          },
+          {
+            "line": 17,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 white at fixed opacities makes glass, rims, rings and dividers, so each one r"
+          },
+          {
+            "line": 18,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 white at fixed opacities makes glass, rims, rings and dividers, so each one r"
+          },
+          {
+            "line": 19,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 white at fixed opacities makes glass, rims, rings and dividers, so each one r"
+          },
+          {
+            "line": 20,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 white at fixed opacities makes glass, rims, rings and dividers, so each one r"
+          },
+          {
+            "line": 21,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 white at fixed opacities makes glass, rims, rings and dividers, so each one r"
+          },
+          {
+            "line": 22,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 white at fixed opacities makes glass, rims, rings and dividers, so each one r"
+          },
+          {
+            "line": 23,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 white at fixed opacities makes glass, rims, rings and dividers, so each one r"
+          },
+          {
+            "line": 43,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 ink at fixed opacities builds the light theme the same way white builds the d"
+          },
+          {
+            "line": 44,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 ink at fixed opacities builds the light theme the same way white builds the d"
+          },
+          {
+            "line": 45,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 ink at fixed opacities builds the light theme the same way white builds the d"
+          },
+          {
+            "line": 46,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 ink at fixed opacities builds the light theme the same way white builds the d"
+          },
+          {
+            "line": 47,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 ink at fixed opacities builds the light theme the same way white builds the d"
+          },
+          {
+            "line": 48,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P1 ink at fixed opacities builds the light theme the same way white builds the d"
+          },
+          {
+            "line": 49,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P7P6 opaque near-whites for light reading surfaces and the light-theme fallback,"
+          },
+          {
+            "line": 50,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P7P6 opaque near-whites for light reading surfaces and the light-theme fallback,"
+          },
+          {
+            "line": 51,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P7P6 opaque near-whites for light reading surfaces and the light-theme fallback,"
+          },
+          {
+            "line": 144,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P6 widths where the layout changes column count, chosen at common phone, tablet "
+          },
+          {
+            "line": 145,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P6 widths where the layout changes column count, chosen at common phone, tablet "
+          },
+          {
+            "line": 146,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P6 widths where the layout changes column count, chosen at common phone, tablet "
+          },
+          {
+            "line": 147,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P6 widths where the layout changes column count, chosen at common phone, tablet "
+          },
+          {
+            "line": 148,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P6 widths where the layout changes column count, chosen at common phone, tablet "
+          },
+          {
+            "line": 188,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P2 the measured glass recipe in one place, with blur, saturation and the brightn"
+          },
+          {
+            "line": 189,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P2 the measured glass recipe in one place, with blur, saturation and the brightn"
+          },
+          {
+            "line": 190,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P2 the measured glass recipe in one place, with blur, saturation and the brightn"
+          },
+          {
+            "line": 191,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P2 the measured glass recipe in one place, with blur, saturation and the brightn"
+          },
+          {
+            "line": 192,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P2 the measured glass recipe in one place, with blur, saturation and the brightn"
+          },
+          {
+            "line": 225,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 panel, inner and media corners nest by the padding between them, and round is"
+          },
+          {
+            "line": 226,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 panel, inner and media corners nest by the padding between them, and round is"
+          },
+          {
+            "line": 227,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 panel, inner and media corners nest by the padding between them, and round is"
+          },
+          {
+            "line": 228,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 panel, inner and media corners nest by the padding between them, and round is"
+          },
+          {
+            "line": 249,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 250,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 251,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 252,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 253,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 254,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 255,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 256,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 257,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 258,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P4 motion roles mapped to durations and distances, so hover, press and entry alw"
+          },
+          {
+            "line": 271,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 272,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 273,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 274,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 275,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 276,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 277,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 278,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 279,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 280,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters, margins and container widths per breakpoint, so pages "
+          },
+          {
+            "line": 366,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters and spans read from the layout roles, so panes on a pag"
+          },
+          {
+            "line": 367,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters and spans read from the layout roles, so panes on a pag"
+          },
+          {
+            "line": 368,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "P3 grid columns, gutters and spans read from the layout roles, so panes on a pag"
+          },
+          {
+            "line": 170,
+            "rule": "repeated 'from X to Y' contrast across the document",
+            "code": "symmetry",
+            "text": "P2 a slight darkening inside a pane that holds body text, measured to lift banne"
+          },
+          {
+            "line": 349,
+            "rule": "repeated 'from X to Y' contrast across the document",
+            "code": "symmetry",
+            "text": "P6 tab pills change from a ring to a solid blue fill when selected, so selection"
+          },
+          {
+            "line": 350,
+            "rule": "repeated 'from X to Y' contrast across the document",
+            "code": "symmetry",
+            "text": "P6 tab pills change from a ring to a solid blue fill when selected, so selection"
+          },
+          {
+            "line": 351,
+            "rule": "repeated 'from X to Y' contrast across the document",
+            "code": "symmetry",
+            "text": "P6 tab pills change from a ring to a solid blue fill when selected, so selection"
+          },
+          {
+            "line": 352,
+            "rule": "repeated 'from X to Y' contrast across the document",
+            "code": "symmetry",
+            "text": "P6 tab pills change from a ring to a solid blue fill when selected, so selection"
+          },
+          {
+            "line": 353,
+            "rule": "repeated 'from X to Y' contrast across the document",
+            "code": "symmetry",
+            "text": "P6 tab pills change from a ring to a solid blue fill when selected, so selection"
+          },
+          {
+            "line": 354,
+            "rule": "repeated 'from X to Y' contrast across the document",
+            "code": "symmetry",
+            "text": "P6 tab pills change from a ring to a solid blue fill when selected, so selection"
+          },
+          {
+            "line": 355,
+            "rule": "repeated 'from X to Y' contrast across the document",
+            "code": "symmetry",
+            "text": "P6 tab pills change from a ring to a solid blue fill when selected, so selection"
+          },
+          {
+            "line": 356,
+            "rule": "repeated 'from X to Y' contrast across the document",
+            "code": "symmetry",
+            "text": "P6 tab pills change from a ring to a solid blue fill when selected, so selection"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/reference/changelog": {
+      "ok": true,
+      "words": 315,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 10,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "First release with glass, inset and solid variants and a cover slot. Glass dims "
+          },
+          {
+            "line": 13,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "First release with light, accent and glass variants and the soft hover lift."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "code and code now ship type declarations, so code passes on TypeScript 6 and lat"
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'first'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/reference/status": {
+      "ok": true,
+      "words": 199,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#What each status means\nBuilds and has a page, but part of its behaviour is not "
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/reference/exceptions": {
+      "ok": true,
+      "words": 25,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/reference/credits": {
+      "ok": true,
+      "words": 121,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 1,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Photography, engines and tools Pane stands on."
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    }
+  }
+}

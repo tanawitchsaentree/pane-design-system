@@ -55,7 +55,7 @@
       "$extensions": {
         "kiln.why": {
           "p": "P1",
-          "why": "white at fixed opacities is how glass, rims, rings and dividers are made: light on top of the scene, never a paint that hides it"
+          "why": "white at fixed opacities makes glass, rims, rings and dividers, so each one reads as light on top of the scene and the scene stays visible under it"
         }
       },
       "05": {
@@ -88,7 +88,7 @@
             "P6",
             "P7"
           ],
-          "why": "opaque greys for the two places glass is wrong: the reduced-transparency fallback and ordinary reading surfaces such as docs and settings"
+          "why": "opaque greys for the two places glass is wrong, the reduced-transparency fallback and ordinary reading surfaces such as docs and settings"
         }
       }
     },
@@ -216,7 +216,7 @@
       "$extensions": {
         "kiln.why": {
           "p": "P1",
-          "why": "ink at fixed opacities builds the light theme the same way white builds the dark one: rings, dividers and secondary text over a lifted scene"
+          "why": "ink at fixed opacities builds the light theme the same way white builds the dark one, with rings, dividers and secondary text over a lifted scene"
         }
       },
       "06": {
@@ -310,7 +310,7 @@
     "$extensions": {
       "kiln.why": {
         "p": "P1",
-        "why": "glass slightly boosts the colour it shows so the dimmed scene still reads as the same place, not as a grey version of it"
+        "why": "glass slightly boosts the colour it shows so the dimmed scene still reads as the same place in its own colours"
       }
     }
   },
@@ -463,7 +463,7 @@
     "$extensions": {
       "kiln.why": {
         "p": "P6",
-        "why": "fixed physical sizes: hairlines and rings that stay crisp, a 44px touch size, avatar and icon sizes that keep the anchor proportions"
+        "why": "fixed physical sizes for hairlines and rings that stay crisp, a 44px touch size, and avatar and icon sizes that keep the anchor proportions"
       }
     }
   },
@@ -484,7 +484,7 @@
     "$extensions": {
       "kiln.why": {
         "p": "P3",
-        "why": "corners nest: the 40px pane minus its 22px inset padding gives the 18px media corner, minus 16px gives the 24px inner surface, and controls are full pills because they are held"
+        "why": "corners nest, so the 40px pane minus its 22px inset padding gives the 18px media corner, minus 16px gives the 24px inner surface, and controls are full pills because they are held"
       }
     },
     "sm": {
@@ -537,7 +537,7 @@
       "$extensions": {
         "kiln.why": {
           "p": "P7",
-          "why": "a short scale chosen for roles, not steps: 11 to 17 for interface text, 16 for long reading, 21 to 44 for titles"
+          "why": "a short scale with one size per role, 11 to 17 for interface text, 16 for long reading and 21 to 44 for titles"
         }
       }
     },
@@ -705,7 +705,7 @@
     "$extensions": {
       "kiln.why": {
         "p": "P4",
-        "why": "movement is small: a 2px lift on hover and a 16px rise on entry, so the layout never appears to shift"
+        "why": "movement is small, a 2px lift on hover and a 16px rise on entry, so the layout never appears to shift"
       }
     }
   },

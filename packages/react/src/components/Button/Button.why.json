@@ -1,5 +1,5 @@
 {
-  "concept": "A button is an object held in the hand of the pane: a pill that lifts when approached and gives a little when pressed, with one loud kind per pane.",
+  "concept": "A button is an object held in the hand of the pane. It is a pill that lifts when approached and gives a little when pressed, with one loud kind per pane.",
   "parts": {
     "root": {
       "p": "P3",
@@ -33,7 +33,7 @@
     },
     "active": {
       "p": "P4",
-      "why": "a press shrinks the control briefly and faster than hover, because a press is a reply, not an arrival"
+      "why": "a press shrinks the control briefly and faster than hover, because a press is a reply to the reader"
     },
     "disabled": {
       "p": "P6",

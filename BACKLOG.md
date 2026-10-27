@@ -48,3 +48,10 @@ Not a priority list — order of discovery.
 - Feedback, research and roadmap sections per component (GOV.UK).
 - Screen reader passes (VoiceOver, NVDA) recorded by hand; until then nothing can be Stable.
 - Site-wide search over headings, tokens and props.
+
+## Found by spec-capture (2026-10-27)
+
+- **Raw `opacity: 0.5` for disabled** in `Button.module.css:32`, `Select.module.css:18,43`, `Slider.module.css:8`. Iron rule 1 says component code holds no raw values, and `tooling/no-hardcode-lint.mjs` does not check `opacity`, so it slipped through. Fix: a semantic `opacity.disabled` token with a kiln.why, used in all four, and `opacity` added to the lint. Blocked on the derivation guard (all three are in `rationale.pendingDerivation`), so it lands with each one's derivation round.
+- **Tag letter-spacing shows "no token" on the Style tab**: spec-capture cannot match Tag's `letter-spacing` (0.88px) back to `type.tracking-caps` because the em ratio rounds off. Match em tokens with a tolerance instead of string equality.
+- **Every 32–36px control is below P6's touch floor**: Button `sm`, IconButton (both sizes, 36px and 32px), Chip and Tabs triggers are 32–36px with no 44px hit area, while P6 says "every target is at least 44px in its smaller dimension or has a 44px hit area". Banner's dismiss shows the fix already in the system (a `::after` hit area from `layout.touch`). Tabs also has a hover transition and no hover rule (P4). Found while writing the depth pages (the first-edition IconButton chapter even claimed both its sizes met 44px); the docs now say so under each component's Limitations. Fix lands with each component's derivation round (all are in `pendingDerivation`), and a conformance check for 44px hit areas should land first so it cannot recur.
+- **Avatar has no forced-colours rule**: in high contrast mode the circle has no edge (P6 says structure survives without glass). Fix lands with Avatar's derivation round.

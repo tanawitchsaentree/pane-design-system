@@ -22,7 +22,10 @@ import { ThemePlayground, GlassPlayground, ContrastPlayground, TypePlayground, S
 import { inline, useScene, Stage, PRINCIPLES, CONCEPT_INTRO, Callout, Code, CopyButton, ConformanceList, EvidenceTable, Example, Link, Markdown, Page, Section, TOKENS, TokenTable, VerifiedTags, useVerify } from './kit';
 import { COMPONENTS } from './components-data';
 import { GridLayoutPage } from './grid-page';
-import { ComponentPage, EVIDENCE_GROUPS, HISTORY, STATUS_LABEL } from './ComponentPage';
+import { ComponentPage, EVIDENCE_GROUPS, HISTORY, STATUS_LABEL, TABS } from './ComponentPage';
+import { TabRedirect } from './TabRedirect';
+import { PATTERN_DEPTH } from '../patterns/content';
+import { PatternDepthPage } from '../patterns/PatternDepth';
 import { SCENES } from '../scenes';
 import { PARTS } from './router';
 import meta from './meta.json';
@@ -811,7 +814,11 @@ export const PAGE_COMPONENTS: Record<string, () => ReactElement> = {
   '/foundations/shape': Shape,
   '/foundations/motion': Motion,
   '/foundations/icons': IconsPage,
-  ...Object.fromEntries(COMPONENTS.map((c) => [`/components/${c.slug}`, () => <ComponentPage c={c} />])),
+  ...Object.fromEntries(COMPONENTS.flatMap((c) => [
+    [`/components/${c.slug}`, () => <TabRedirect to={`/components/${c.slug}/usage`} />] as const,
+    ...TABS.map((t) => [`/components/${c.slug}/${t}`, () => <ComponentPage c={c} tab={t} />] as const),
+  ])),
+  ...Object.fromEntries(Object.entries(PATTERN_DEPTH).map(([path, p]) => [path, () => <PatternDepthPage p={p} />])),
   ...PATTERNS,
   '/accessibility': Accessibility,
   '/reference/tokens': Tokens,

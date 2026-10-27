@@ -68,61 +68,207 @@
       "pages": [
         {
           "path": "/components/container",
-          "title": "Container"
+          "title": "Container",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
         },
         {
           "path": "/components/grid",
-          "title": "Grid"
+          "title": "Grid",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
         },
         {
           "path": "/components/stack",
-          "title": "Stack"
+          "title": "Stack",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
         },
         {
           "path": "/components/environment",
-          "title": "Environment"
+          "title": "Environment",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
         },
         {
           "path": "/components/card",
-          "title": "Card"
+          "title": "Card",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
         },
         {
           "path": "/components/avatar",
-          "title": "Avatar"
+          "title": "Avatar",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
         },
         {
           "path": "/components/button",
-          "title": "Button"
+          "title": "Button",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
         },
         {
           "path": "/components/icon-button",
-          "title": "IconButton"
+          "title": "IconButton",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
         },
         {
           "path": "/components/tabs",
-          "title": "Tabs"
+          "title": "Tabs",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
         },
         {
           "path": "/components/tag",
-          "title": "Tag"
+          "title": "Tag",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
         },
         {
           "path": "/components/badge",
-          "title": "Badge"
+          "title": "Badge",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
         },
         {
           "path": "/components/chip",
-          "title": "Chip"
+          "title": "Chip",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/select",
+          "title": "Select",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/slider",
+          "title": "Slider",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
         },
         {
           "path": "/components/banner",
-          "title": "Banner"
+          "title": "Banner",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
         }
       ]
     },
     {
       "title": "Patterns",
       "pages": [
+        {
+          "path": "/patterns/common-actions",
+          "title": "Common actions"
+        },
+        {
+          "path": "/patterns/dialogs",
+          "title": "Dialogs"
+        },
+        {
+          "path": "/patterns/disabled-states",
+          "title": "Disabled states"
+        },
+        {
+          "path": "/patterns/empty-states",
+          "title": "Empty states"
+        },
+        {
+          "path": "/patterns/filtering",
+          "title": "Filtering"
+        },
+        {
+          "path": "/patterns/forms",
+          "title": "Forms"
+        },
+        {
+          "path": "/patterns/loading",
+          "title": "Loading"
+        },
+        {
+          "path": "/patterns/notifications",
+          "title": "Notifications"
+        },
+        {
+          "path": "/patterns/overflow-content",
+          "title": "Overflow content"
+        },
+        {
+          "path": "/patterns/read-only-states",
+          "title": "Read-only states"
+        },
+        {
+          "path": "/patterns/search",
+          "title": "Search"
+        },
+        {
+          "path": "/patterns/status-indicators",
+          "title": "Status indicators"
+        },
         {
           "path": "/patterns/profile-card",
           "title": "Profile card"

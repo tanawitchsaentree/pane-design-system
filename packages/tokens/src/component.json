@@ -87,7 +87,7 @@
     "$extensions": {
       "kiln.why": {
         "p": "P3",
-        "why": "the card is the pane itself: glass fill, sheen, rim, float shadow, panel corner and inset padding, each mapped from the material and depth roles so every pane is the same object"
+        "why": "the card is the pane itself, so its glass fill, sheen, rim, float shadow, panel corner and inset padding all map from the material and depth roles and every pane is the same object"
       }
     }
   },
@@ -191,7 +191,7 @@
     "$extensions": {
       "kiln.why": {
         "p": "P5",
-        "why": "button roles: the loud solid, the blue promoted fill and the quiet glass fill, pill shaped and 44px tall so the one main action is unmistakable and easy to hit"
+        "why": "three button roles, the loud solid, the blue promoted fill and the quiet glass fill, all full pills so the one main action is unmistakable; md is 44px for touch and sm is 32px for dense rows"
       }
     }
   },
@@ -274,7 +274,7 @@
     "$extensions": {
       "kiln.why": {
         "p": "P6",
-        "why": "tab pills: the selected one is filled blue and also outlined, so selection is shown by shape as well as colour, and each pill is a full touch target"
+        "why": "tab pills change from a ring to a solid blue fill when selected, so selection is shown by shape as well as colour; they are 32px tall, below the 44px touch size"
       }
     }
   },
@@ -302,7 +302,7 @@
     "$extensions": {
       "kiln.why": {
         "p": "P1",
-        "why": "a label drawn as an outline only, so it marks content without adding another fill to a pane that already has its one loud thing"
+        "why": "a label drawn as an outline only; a pane already has its one loud thing, and a tag adds a mark but never a second fill"
       }
     }
   },
@@ -326,7 +326,7 @@
     "$extensions": {
       "kiln.why": {
         "p": "P6",
-        "why": "one ring for every component: the text colour, 2px, offset, with a halo of the opposite colour so focus shows on any backdrop"
+        "why": "one ring for every component, 2px in the text colour and offset from the edge, with a halo of the opposite colour so focus shows on any backdrop"
       }
     }
   },
@@ -533,7 +533,7 @@
           "P3",
           "P1"
         ],
-        "why": "a banner is a line on the pane, not a box in it: tone marks are glyph colours only, a hairline separates it from the content, and spacing follows the pane"
+        "why": "a banner is a line written on the pane, so tone marks are glyph colours only, a hairline separates it from the content, and its spacing follows the pane"
       }
     },
     "mark-info": {

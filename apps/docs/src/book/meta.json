@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-27T06:26:13.701Z",
-  "version": "0.1.0",
+  "generatedAt": "2026-10-27T14:28:12.650Z",
+  "version": "0.2.0",
   "components": {
     "Avatar": {
       "source": "packages/react/src/components/Avatar/Avatar.tsx",
@@ -63,9 +63,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 585,
+        "jsMin": 611,
         "cssMin": 738,
-        "gzip": 676
+        "gzip": 690
       }
     },
     "Badge": {
@@ -126,9 +126,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 431,
+        "jsMin": 456,
         "cssMin": 1143,
-        "gzip": 714
+        "gzip": 730
       }
     },
     "Banner": {
@@ -151,7 +151,7 @@
               "type": "\"info\" | \"positive\" | \"warning\" | \"critical\"",
               "required": false,
               "default": "info",
-              "description": "Each tone (info, positive, warning, critical) has its own icon, so tone has a shape cue as well as colour.",
+              "description": "The tone. Each has its own glyph shape (circle, check, triangle, octagon) and its spoken word, so colour is never the only cue.",
               "enum": true,
               "options": [
                 "info",
@@ -165,7 +165,7 @@
               "type": "ReactNode",
               "required": true,
               "default": null,
-              "description": "One-line headline saying what happened.",
+              "description": "One line saying what happened.",
               "enum": false,
               "options": null
             },
@@ -174,7 +174,7 @@
               "type": "ReactNode",
               "required": false,
               "default": null,
-              "description": "Optional detail on what it means or what to do.",
+              "description": "Optional detail saying what it means or what to do. Shown under the title.",
               "enum": false,
               "options": null
             },
@@ -183,7 +183,7 @@
               "type": "ReactNode",
               "required": false,
               "default": null,
-              "description": "Optional action (e.g. a Button) shown after the text.",
+              "description": "Optional action at the end of the line, normally a quiet Button. Use the loud solid only when acting on this message is the pane's main task.",
               "enum": false,
               "options": null
             },
@@ -192,7 +192,7 @@
               "type": "(() => void)",
               "required": false,
               "default": null,
-              "description": "Shows a dismiss button labelled \"Dismiss\".",
+              "description": "Shows a Dismiss button. Called after the line has closed, so remove the banner from state here.",
               "enum": false,
               "options": null
             },
@@ -218,9 +218,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 1624,
-        "cssMin": 2763,
-        "gzip": 1653
+        "jsMin": 1897,
+        "cssMin": 2555,
+        "gzip": 1833
       }
     },
     "Button": {
@@ -275,9 +275,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 358,
+        "jsMin": 384,
         "cssMin": 1637,
-        "gzip": 811
+        "gzip": 824
       }
     },
     "Card": {
@@ -344,9 +344,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 491,
+        "jsMin": 515,
         "cssMin": 2030,
-        "gzip": 1010
+        "gzip": 1023
       }
     },
     "Chip": {
@@ -418,9 +418,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 1175,
+        "jsMin": 1199,
         "cssMin": 1494,
-        "gzip": 1152
+        "gzip": 1167
       }
     },
     "Container": {
@@ -461,9 +461,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 330,
+        "jsMin": 359,
         "cssMin": 335,
-        "gzip": 388
+        "gzip": 403
       }
     },
     "Environment": {
@@ -557,9 +557,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 664,
+        "jsMin": 688,
         "cssMin": 110,
-        "gzip": 472
+        "gzip": 486
       }
     },
     "IconButton": {
@@ -621,9 +621,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 351,
+        "jsMin": 381,
         "cssMin": 1338,
-        "gzip": 710
+        "gzip": 722
       }
     },
     "Select": {
@@ -926,9 +926,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 456,
+        "jsMin": 481,
         "cssMin": 324,
-        "gzip": 474
+        "gzip": 488
       }
     },
     "Tabs": {
@@ -957,9 +957,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 28281,
+        "jsMin": 28305,
         "cssMin": 1535,
-        "gzip": 10339
+        "gzip": 10349
       }
     },
     "Tag": {
@@ -986,9 +986,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 245,
+        "jsMin": 268,
         "cssMin": 460,
-        "gzip": 426
+        "gzip": 441
       }
     }
   }
