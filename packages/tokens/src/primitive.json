@@ -465,6 +465,15 @@
         "p": "P6",
         "why": "fixed physical sizes for hairlines and rings that stay crisp, a 44px touch size, and avatar and icon sizes that keep the anchor proportions"
       }
+    },
+    "check": {
+      "$value": "24px"
+    },
+    "switch": {
+      "$value": "52px"
+    },
+    "mark": {
+      "$value": "10px"
     }
   },
   "radius": {
@@ -489,6 +498,9 @@
     },
     "sm": {
       "$value": "4px"
+    },
+    "check": {
+      "$value": "7px"
     }
   },
   "font": {
@@ -617,6 +629,12 @@
         "p": "P3",
         "why": "shadows sit below a pane to say how far it floats; the halo is the measured text halo that WCAG allows on thin glass, with lighter variants for the light theme"
       }
+    },
+    "well": {
+      "$value": "inset 0 1px 2px #0000004D"
+    },
+    "well-light": {
+      "$value": "inset 0 1px 2px #00000024"
     }
   },
   "duration": {
@@ -809,6 +827,18 @@
       "kiln.why": {
         "p": "P3",
         "why": "a few named layers in order (content, raised, sticky, overlay, toast) so a pane never ends up behind something it should float above"
+      }
+    }
+  },
+  "alpha": {
+    "$type": "number",
+    "half": {
+      "$value": 0.5
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "one fixed half opacity, so every disabled control fades by the same amount and reads as the same state everywhere"
       }
     }
   }

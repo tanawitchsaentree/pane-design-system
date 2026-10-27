@@ -29,3 +29,17 @@ export * from './components/Banner';
 
 export * from './components/Select';
 export * from './components/Slider';
+
+// W3 forms (D-020): the well in the pane. Field parts first, because the controls read FormField's context.
+
+export * from './components/Label';
+export * from './components/HelperText';
+export * from './components/FormField';
+export * from './components/Fieldset';
+export * from './components/Input';
+export * from './components/Textarea';
+export * from './components/InputGroup';
+export * from './components/PinInput';
+export * from './components/Checkbox';
+export * from './components/Radio';
+export * from './components/Switch';

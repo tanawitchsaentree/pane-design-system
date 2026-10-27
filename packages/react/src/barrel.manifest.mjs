@@ -17,4 +17,8 @@ export const BARREL_MANIFEST = [
     header: `Form controls (D-017): Select, Slider — Radix behaviour, Pane look, never the OS menu.`,
     components: ['Select', 'Slider'],
   },
+  {
+    header: `W3 forms (D-020): the well in the pane. Field parts first, because the controls read FormField's context.`,
+    components: ['Label', 'HelperText', 'FormField', 'Fieldset', 'Input', 'Textarea', 'InputGroup', 'PinInput', 'Checkbox', 'Radio', 'Switch'],
+  },
 ];

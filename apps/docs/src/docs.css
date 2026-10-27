@@ -467,3 +467,6 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 /* Planned catalog in the nav (G-IA1): visible as a gap, quieter than the pages that exist */
 .nav-planned summary { cursor: pointer; padding: var(--ds-gap-sm) 0; font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
 .nav-planned li { padding: var(--ds-gap-xs) var(--ds-gap-lg); font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+
+/* a demo wider than its column scrolls inside the column instead of spilling its text onto the scene */
+.demo-scroll { max-inline-size: 100%; overflow-x: auto; display: flex; }

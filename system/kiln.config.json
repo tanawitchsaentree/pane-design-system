@@ -110,7 +110,18 @@
       "$comment": "components built before references/derivation.md; each leaves this list only by going through a derivation round with a user pick. The list may only shrink."
     },
     "benchmarkTopics": {
-      "/foundations/grid": "grid"
+      "/foundations/grid": "grid",
+      "/foundations/color": "color",
+      "/foundations/typography": "typography",
+      "/foundations/spacing": "spacing",
+      "/foundations/motion": "motion",
+      "/foundations/icons": "icons",
+      "/foundations/themes": "themes",
+      "/foundations/shape": "shape",
+      "/foundations/dimensions": "dimensions",
+      "/foundations/glass": "glass",
+      "/foundations/content": "content",
+      "/foundations/accessibility": "accessibility"
     },
     "topicsDir": "../kiln/marketplace/plugins/kiln/skills/docs-engine/benchmarks/topics"
   }

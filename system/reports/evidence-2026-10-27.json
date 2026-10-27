@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T13:01:27.303Z",
+  "generatedAt": "2026-10-27T15:38:52.539Z",
   "browser": "chromium 156.0.8078.4",
   "threshold": 4.5,
   "modes": [
@@ -1972,51 +1972,51 @@
   "docsPage": {
     "normal": {
       "dark/room": {
-        "textElements": 14663,
-        "failures": 9,
-        "pages": 37
+        "textElements": 34779,
+        "failures": 0,
+        "pages": 146
       },
       "dark/forest": {
-        "textElements": 14663,
-        "failures": 8,
-        "pages": 37
+        "textElements": 34779,
+        "failures": 0,
+        "pages": 146
       },
       "dark/night": {
-        "textElements": 14663,
-        "failures": 7,
-        "pages": 37
+        "textElements": 34779,
+        "failures": 0,
+        "pages": 146
       },
       "dark/city": {
-        "textElements": 14663,
-        "failures": 12,
-        "pages": 37
+        "textElements": 34779,
+        "failures": 0,
+        "pages": 146
       },
       "light/room": {
-        "textElements": 14663,
-        "failures": 14,
-        "pages": 37
+        "textElements": 34779,
+        "failures": 1,
+        "pages": 146
       },
       "light/forest": {
-        "textElements": 14663,
-        "failures": 16,
-        "pages": 37
+        "textElements": 34779,
+        "failures": 1,
+        "pages": 146
       },
       "light/night": {
-        "textElements": 14663,
-        "failures": 18,
-        "pages": 37
+        "textElements": 34779,
+        "failures": 0,
+        "pages": 146
       },
       "light/city": {
-        "textElements": 14663,
-        "failures": 22,
-        "pages": 37
+        "textElements": 34779,
+        "failures": 1,
+        "pages": 146
       }
     },
     "reduced-transparency": {
       "dark/room": {
-        "textElements": 14663,
-        "failures": 9,
-        "pages": 37
+        "textElements": 34779,
+        "failures": 0,
+        "pages": 146
       },
       "dark/forest": {
         "textElements": 0,
@@ -2034,9 +2034,9 @@
         "pages": 0
       },
       "light/room": {
-        "textElements": 14663,
-        "failures": 14,
-        "pages": 37
+        "textElements": 34779,
+        "failures": 1,
+        "pages": 146
       },
       "light/forest": {
         "textElements": 0,
@@ -2056,9 +2056,9 @@
     },
     "forced-colors": {
       "dark/room": {
-        "textElements": 14644,
-        "failures": 1,
-        "pages": 37
+        "textElements": 34794,
+        "failures": 0,
+        "pages": 146
       },
       "dark/forest": {
         "textElements": 0,
@@ -2076,9 +2076,9 @@
         "pages": 0
       },
       "light/room": {
-        "textElements": 14644,
+        "textElements": 34794,
         "failures": 0,
-        "pages": 37
+        "pages": 146
       },
       "light/forest": {
         "textElements": 0,
@@ -2098,180 +2098,26 @@
     }
   },
   "failures": [
-    "[normal] docs /components/grid dark/room: \"7\" 2.31",
-    "[normal] docs /components/grid dark/room: \"8\" 2.34",
-    "[normal] docs /components/grid dark/room: \"10\" 2.42",
-    "[normal] docs /components/grid dark/room: \"5\" 2.43",
-    "[normal] docs /components/grid dark/room: \"3\" 2.57",
-    "[normal] docs /components/grid dark/room: \"9\" 2.62",
-    "[normal] docs /components/grid dark/room: \"1\" 3.45",
-    "[normal] docs /components/grid dark/room: \"4\" 3.52",
-    "[normal] docs /components/grid dark/room: \"12\" 3.64",
-    "[normal] docs /components/grid dark/forest: \"4\" 2.02",
-    "[normal] docs /components/grid dark/forest: \"8\" 2.1",
-    "[normal] docs /components/grid dark/forest: \"12\" 2.72",
-    "[normal] docs /components/grid dark/forest: \"2\" 2.79",
-    "[normal] docs /components/grid dark/forest: \"7\" 2.84",
-    "[normal] docs /components/grid dark/forest: \"1\" 3",
-    "[normal] docs /components/grid dark/forest: \"6\" 3.06",
-    "[normal] docs /components/grid dark/forest: \"10\" 3.53",
-    "[normal] docs /components/grid dark/night: \"5\" 1.79",
-    "[normal] docs /components/grid dark/night: \"9\" 1.95",
-    "[normal] docs /components/grid dark/night: \"7\" 1.99",
-    "[normal] docs /components/grid dark/night: \"10\" 2.08",
-    "[normal] docs /components/grid dark/night: \"6\" 2.12",
-    "[normal] docs /components/grid dark/night: \"8\" 2.27",
-    "[normal] docs /components/grid dark/night: \"12\" 3.06",
-    "[normal] docs /components/grid dark/city: \"5\" 1.81",
-    "[normal] docs /components/grid dark/city: \"9\" 1.85",
-    "[normal] docs /components/grid dark/city: \"3\" 1.9",
-    "[normal] docs /components/grid dark/city: \"6\" 1.92",
-    "[normal] docs /components/grid dark/city: \"4\" 1.96",
-    "[normal] docs /components/grid dark/city: \"2\" 1.99",
-    "[normal] docs /components/grid dark/city: \"7\" 2",
-    "[normal] docs /components/grid dark/city: \"8\" 2.02",
-    "[normal] docs /components/grid dark/city: \"1\" 2.17",
-    "[normal] docs /components/grid dark/city: \"10\" 2.22",
-    "[normal] docs /components/grid dark/city: \"12\" 2.47",
-    "[normal] docs /components/grid dark/city: \"11\" 2.67",
-    "[normal] docs /foundations/grid light/room: \"5\" 3.51",
-    "[normal] docs /foundations/grid light/room: \"6\" 3.51",
-    "[normal] docs /foundations/grid light/room: \"7\" 3.51",
-    "[normal] docs /foundations/grid light/room: \"8\" 3.51",
-    "[normal] docs /foundations/grid light/room: \"9\" 3.51",
-    "[normal] docs /foundations/grid light/room: \"10\" 3.51",
-    "[normal] docs /foundations/grid light/room: \"11\" 3.51",
-    "[normal] docs /foundations/grid light/room: \"12\" 3.51",
-    "[normal] docs /foundations/grid light/room: \"4\" 3.52",
-    "[normal] docs /foundations/grid light/room: \"1\" 3.55",
-    "[normal] docs /foundations/grid light/room: \"2\" 3.55",
-    "[normal] docs /foundations/grid light/room: \"3\" 3.55",
-    "[normal] docs /foundations/grid light/room: \"span\" 3.59",
-    "[normal] docs /foundations/grid light/room: \"4\" 3.59",
-    "[normal] docs /foundations/grid light/forest: \"5\" 3.51",
-    "[normal] docs /foundations/grid light/forest: \"6\" 3.51",
-    "[normal] docs /foundations/grid light/forest: \"7\" 3.51",
-    "[normal] docs /foundations/grid light/forest: \"8\" 3.51",
-    "[normal] docs /foundations/grid light/forest: \"9\" 3.51",
-    "[normal] docs /foundations/grid light/forest: \"10\" 3.51",
-    "[normal] docs /foundations/grid light/forest: \"11\" 3.51",
-    "[normal] docs /foundations/grid light/forest: \"12\" 3.51",
-    "[normal] docs /foundations/grid light/forest: \"4\" 3.52",
-    "[normal] docs /foundations/grid light/forest: \"1\" 3.55",
-    "[normal] docs /foundations/grid light/forest: \"2\" 3.55",
-    "[normal] docs /foundations/grid light/forest: \"3\" 3.55",
-    "[normal] docs /foundations/grid light/forest: \"span\" 3.59",
-    "[normal] docs /foundations/grid light/forest: \"4\" 3.59",
-    "[normal] docs /components/grid light/forest: \"4\" 3.69",
-    "[normal] docs /components/grid light/forest: \"8\" 3.77",
-    "[normal] docs /foundations/grid light/night: \"5\" 3.51",
-    "[normal] docs /foundations/grid light/night: \"6\" 3.51",
-    "[normal] docs /foundations/grid light/night: \"7\" 3.51",
-    "[normal] docs /foundations/grid light/night: \"8\" 3.51",
-    "[normal] docs /foundations/grid light/night: \"9\" 3.51",
-    "[normal] docs /foundations/grid light/night: \"10\" 3.51",
-    "[normal] docs /foundations/grid light/night: \"11\" 3.51",
-    "[normal] docs /foundations/grid light/night: \"12\" 3.51",
-    "[normal] docs /foundations/grid light/night: \"4\" 3.52",
-    "[normal] docs /foundations/grid light/night: \"1\" 3.55",
-    "[normal] docs /foundations/grid light/night: \"2\" 3.55",
-    "[normal] docs /foundations/grid light/night: \"3\" 3.55",
-    "[normal] docs /foundations/grid light/night: \"span\" 3.59",
-    "[normal] docs /foundations/grid light/night: \"4\" 3.59",
-    "[normal] docs /components/grid light/night: \"5\" 3.47",
-    "[normal] docs /components/grid light/night: \"9\" 3.65",
-    "[normal] docs /components/grid light/night: \"7\" 3.69",
-    "[normal] docs /components/grid light/night: \"10\" 3.78",
-    "[normal] docs /foundations/grid light/city: \"5\" 3.51",
-    "[normal] docs /foundations/grid light/city: \"6\" 3.51",
-    "[normal] docs /foundations/grid light/city: \"7\" 3.51",
-    "[normal] docs /foundations/grid light/city: \"8\" 3.51",
-    "[normal] docs /foundations/grid light/city: \"9\" 3.51",
-    "[normal] docs /foundations/grid light/city: \"10\" 3.51",
-    "[normal] docs /foundations/grid light/city: \"11\" 3.51",
-    "[normal] docs /foundations/grid light/city: \"12\" 3.51",
-    "[normal] docs /foundations/grid light/city: \"4\" 3.52",
-    "[normal] docs /foundations/grid light/city: \"1\" 3.55",
-    "[normal] docs /foundations/grid light/city: \"2\" 3.55",
-    "[normal] docs /foundations/grid light/city: \"3\" 3.55",
-    "[normal] docs /foundations/grid light/city: \"span\" 3.59",
-    "[normal] docs /foundations/grid light/city: \"4\" 3.59",
-    "[normal] docs /components/grid light/city: \"5\" 3.51",
-    "[normal] docs /components/grid light/city: \"9\" 3.54",
-    "[normal] docs /components/grid light/city: \"3\" 3.58",
-    "[normal] docs /components/grid light/city: \"6\" 3.62",
-    "[normal] docs /components/grid light/city: \"2\" 3.7",
-    "[normal] docs /components/grid light/city: \"4\" 3.71",
-    "[normal] docs /components/grid light/city: \"7\" 3.73",
-    "[normal] docs /components/grid light/city: \"8\" 3.76",
-    "[reduced-transparency] docs /components/grid dark/room: \"7\" 2.31",
-    "[reduced-transparency] docs /components/grid dark/room: \"8\" 2.34",
-    "[reduced-transparency] docs /components/grid dark/room: \"10\" 2.42",
-    "[reduced-transparency] docs /components/grid dark/room: \"5\" 2.43",
-    "[reduced-transparency] docs /components/grid dark/room: \"3\" 2.57",
-    "[reduced-transparency] docs /components/grid dark/room: \"9\" 2.62",
-    "[reduced-transparency] docs /components/grid dark/room: \"1\" 3.45",
-    "[reduced-transparency] docs /components/grid dark/room: \"4\" 3.52",
-    "[reduced-transparency] docs /components/grid dark/room: \"12\" 3.64",
-    "[reduced-transparency] docs /foundations/grid light/room: \"5\" 3.51",
-    "[reduced-transparency] docs /foundations/grid light/room: \"6\" 3.51",
-    "[reduced-transparency] docs /foundations/grid light/room: \"7\" 3.51",
-    "[reduced-transparency] docs /foundations/grid light/room: \"8\" 3.51",
-    "[reduced-transparency] docs /foundations/grid light/room: \"9\" 3.51",
-    "[reduced-transparency] docs /foundations/grid light/room: \"10\" 3.51",
-    "[reduced-transparency] docs /foundations/grid light/room: \"11\" 3.51",
-    "[reduced-transparency] docs /foundations/grid light/room: \"12\" 3.51",
-    "[reduced-transparency] docs /foundations/grid light/room: \"4\" 3.52",
-    "[reduced-transparency] docs /foundations/grid light/room: \"1\" 3.55",
-    "[reduced-transparency] docs /foundations/grid light/room: \"2\" 3.55",
-    "[reduced-transparency] docs /foundations/grid light/room: \"3\" 3.55",
-    "[reduced-transparency] docs /foundations/grid light/room: \"span\" 3.59",
-    "[reduced-transparency] docs /foundations/grid light/room: \"4\" 3.59",
-    "[forced-colors] docs /foundations/shape dark/room: \"Pane\" 1.14"
+    "[normal] docs /components/tabs/usage light/room: \"About\" 2.99",
+    "[normal] docs /components/tabs/usage light/forest: \"About\" 1.16",
+    "[normal] docs /components/tabs/usage light/city: \"About\" 3.51",
+    "[reduced-transparency] docs /components/tabs/usage light/room: \"About\" 2.99"
   ],
   "excepted": [
     "[normal] docs /foundations/grid dark/room: \"span\" 4.47",
-    "[normal] docs /components/grid dark/room: \"11\" 3.85",
-    "[normal] docs /components/grid dark/room: \"2\" 3.87",
     "[normal] docs /foundations/grid dark/forest: \"span\" 4.47",
-    "[normal] docs /components/grid dark/forest: \"3\" 3.81",
-    "[normal] docs /components/grid dark/forest: \"11\" 3.93",
-    "[normal] docs /components/grid dark/forest: \"9\" 4.32",
     "[normal] docs /foundations/grid dark/night: \"span\" 4.47",
-    "[normal] docs /components/grid dark/night: \"11\" 4.42",
     "[normal] docs /foundations/grid dark/city: \"span\" 4.47",
-    "[normal] docs /components/grid light/room: \"7\" 4.04",
-    "[normal] docs /components/grid light/room: \"8\" 4.05",
-    "[normal] docs /components/grid light/room: \"5\" 4.14",
-    "[normal] docs /components/grid light/room: \"10\" 4.15",
-    "[normal] docs /components/grid light/room: \"3\" 4.24",
-    "[normal] docs /components/grid light/room: \"9\" 4.37",
-    "[normal] docs /components/grid light/forest: \"12\" 4.39",
-    "[normal] docs /components/grid light/forest: \"2\" 4.48",
-    "[normal] docs /components/grid light/night: \"6\" 3.82",
-    "[normal] docs /components/grid light/night: \"8\" 3.97",
-    "[normal] docs /components/grid light/city: \"1\" 3.87",
-    "[normal] docs /components/grid light/city: \"10\" 3.97",
-    "[normal] docs /components/grid light/city: \"12\" 4.19",
-    "[normal] docs /components/grid light/city: \"11\" 4.39",
+    "[normal] docs /components/tabs/usage light/night: \"About\" 3.93",
     "[reduced-transparency] docs /foundations/grid dark/room: \"span\" 4.47",
-    "[reduced-transparency] docs /components/grid dark/room: \"11\" 3.85",
-    "[reduced-transparency] docs /components/grid dark/room: \"2\" 3.87",
-    "[reduced-transparency] docs /foundations/shape light/room: \"Pane\" 4.07",
-    "[reduced-transparency] docs /components/grid light/room: \"7\" 4.04",
-    "[reduced-transparency] docs /components/grid light/room: \"8\" 4.05",
-    "[reduced-transparency] docs /components/grid light/room: \"5\" 4.14",
-    "[reduced-transparency] docs /components/grid light/room: \"10\" 4.15",
-    "[reduced-transparency] docs /components/grid light/room: \"3\" 4.24",
-    "[reduced-transparency] docs /components/grid light/room: \"9\" 4.37",
-    "[forced-colors] docs /foundations/shape light/room: \"Pane\" 4.43"
+    "[reduced-transparency] docs /foundations/shape light/room: \"Pane\" 4.07"
   ],
   "exception": "E-001",
   "exceptionFloor": 3.8,
   "summary": {
-    "gatingChecks": 177166,
-    "gatingFailures": 130,
-    "excepted": 35,
+    "gatingChecks": 418626,
+    "gatingFailures": 4,
+    "excepted": 7,
     "informational": []
   }
 }

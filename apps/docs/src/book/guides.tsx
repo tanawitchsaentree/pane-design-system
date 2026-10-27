@@ -43,8 +43,8 @@ export function Developing() {
   return (
     <Page eyebrow="Getting started" title="Developing with Pane" lede={<p>The set-up details the install steps leave out, covering TypeScript, the Environment, scene images, themes and server rendering.</p>}>
       <Section id="css" title="Load the styles once">
-        <p>Import the token stylesheet and the component stylesheet once, at the root of the app. Both exports ship type declarations, so <code>tsc</code> passes on TypeScript 6 and later, which check side-effect imports by default.</p>
-        <Code label="main.tsx">{"import 'pane-tokens/css';\nimport 'pane-react/styles.css';"}</Code>
+        <p>Import one stylesheet once, at the root of the app. It holds the tokens and every component’s styles. It ships a type declaration, so <code>tsc</code> passes on TypeScript 6 and later, which check side-effect imports by default.</p>
+        <Code label="main.tsx">{"import 'pane-react/all.css';"}</Code>
       </Section>
       <Section id="environment" title="Wrap the screen in an Environment">
         <p>Glass needs to know how bright the scene behind it can get. Put one Environment at the top of the screen with the level measured for its backdrop, and a nested one only where a region sits over a different backdrop. Without one, the glass falls back to the bright level, which is the safe choice.</p>
@@ -104,6 +104,7 @@ export function Migrating() {
           <li>Banner was redrawn as a line on the pane. Remove any wrapper styles that gave it a box, and move the removal of a dismissed banner into <code>onDismiss</code>, which now runs after the line has closed.</li>
           <li>Select and Slider are new. Replace native selects and range inputs on glass with them, because a native control opens the operating system’s look on top of the pane.</li>
           <li>The CSS exports ship type declarations. If you added a <code>declare module 'pane-tokens/css'</code> shim, you can delete it.</li>
+          <li>From 0.3.0, install only <code>pane-react</code> and import <code>pane-react/all.css</code>. The two old imports still work, so nothing breaks if you keep them.</li>
           <li>In the light theme, <code>field.column</code> is now solid blue, so white labels on diagram columns pass 4.5:1.</li>
         </ul>
       </Section>

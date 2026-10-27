@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-27T14:28:12.650Z",
-  "version": "0.2.0",
+  "generatedAt": "2026-10-27T15:37:56.574Z",
+  "version": "0.3.0",
   "components": {
     "Avatar": {
       "source": "packages/react/src/components/Avatar/Avatar.tsx",
@@ -349,6 +349,118 @@
         "gzip": 1023
       }
     },
+    "Checkbox": {
+      "source": "packages/react/src/components/Checkbox/Checkbox.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Checkbox",
+          "props": [
+            {
+              "name": "label",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The choice in words. Clicking it toggles the box, and it is the box's accessible name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "description",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Optional secondary line under the label.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "checked",
+              "type": "boolean | \"indeterminate\"",
+              "required": false,
+              "default": null,
+              "description": "Controlled state. `'indeterminate'` shows a dash for a parent of mixed children.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultChecked",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Starting state when uncontrolled.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onCheckedChange",
+              "type": "((checked: boolean | \"indeterminate\") => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the new state.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "required",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Name for form submission.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Value submitted when checked. Defaults to \"on\".",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "disabled"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 17248,
+        "cssMin": 1934,
+        "gzip": 7009
+      }
+    },
     "Chip": {
       "source": "packages/react/src/components/Chip/Chip.tsx",
       "kinds": {},
@@ -501,6 +613,125 @@
         "gzip": 165
       }
     },
+    "Fieldset": {
+      "source": "packages/react/src/components/Fieldset/Fieldset.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Fieldset",
+          "props": [
+            {
+              "name": "legend",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The group's name, read before every control in it.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "help",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Optional help for the whole group, under the legend.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 492,
+        "cssMin": 401,
+        "gzip": 514
+      }
+    },
+    "FormField": {
+      "source": "packages/react/src/components/FormField/FormField.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "FormField",
+          "props": [
+            {
+              "name": "label",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The field's name, shown above the control and used as its accessible name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "help",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Optional help shown under the control and read after the label.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "error",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "An error message. Setting it marks the control invalid and shows the error under it.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "required",
+              "type": "boolean",
+              "required": false,
+              "default": "false",
+              "description": "Marks the field required. The label says (required) in words, never with a colour or an asterisk alone.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": "false",
+              "description": "Disables the control inside.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The control, usually one Input, Textarea or PinInput.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        },
+        {
+          "displayName": "useField",
+          "props": []
+        }
+      ],
+      "variantDimensions": [
+        "error",
+        "disabled"
+      ],
+      "variantCount": 2,
+      "demoFloor": 5,
+      "bundle": {
+        "jsMin": 1658,
+        "cssMin": 1046,
+        "gzip": 1201
+      }
+    },
     "Grid": {
       "source": "packages/react/src/components/Grid/Grid.tsx",
       "kinds": {},
@@ -560,6 +791,45 @@
         "jsMin": 688,
         "cssMin": 110,
         "gzip": 486
+      }
+    },
+    "HelperText": {
+      "source": "packages/react/src/components/HelperText/HelperText.tsx",
+      "kinds": {
+        "tone": [
+          "help",
+          "error"
+        ]
+      },
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "HelperText",
+          "props": [
+            {
+              "name": "tone",
+              "type": "\"help\" | \"error\"",
+              "required": false,
+              "default": "help",
+              "description": "`help` is secondary text. `error` adds the octagon glyph and the spoken word Error, so the tone is never colour alone.",
+              "enum": true,
+              "options": [
+                "help",
+                "error"
+              ]
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "tone"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 644,
+        "cssMin": 715,
+        "gzip": 770
       }
     },
     "IconButton": {
@@ -624,6 +894,408 @@
         "jsMin": 381,
         "cssMin": 1338,
         "gzip": 722
+      }
+    },
+    "Input": {
+      "source": "packages/react/src/components/Input/Input.tsx",
+      "kinds": {},
+      "sizes": [
+        "sm",
+        "md"
+      ],
+      "exports": [
+        {
+          "displayName": "Input",
+          "props": [
+            {
+              "name": "size",
+              "type": "\"sm\" | \"md\"",
+              "required": false,
+              "default": "md",
+              "description": "`md` is 44px tall for touch (default); `sm` is 32px for dense toolbars, below the 44px touch size.",
+              "enum": true,
+              "options": [
+                "sm",
+                "md"
+              ]
+            },
+            {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the value as wrong. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "size",
+        "invalid"
+      ],
+      "variantCount": 2,
+      "demoFloor": 5,
+      "bundle": {
+        "jsMin": 653,
+        "cssMin": 2667,
+        "gzip": 1194
+      }
+    },
+    "InputGroup": {
+      "source": "packages/react/src/components/InputGroup/InputGroup.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "InputGroup",
+          "props": [
+            {
+              "name": "start",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Shown before the input inside the same well, such as a search icon or a currency. Decorative unless it is a control.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "end",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Shown after the input inside the same well, such as a unit or a small Button.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "One Input.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 442,
+        "cssMin": 1160,
+        "gzip": 744
+      }
+    },
+    "Label": {
+      "source": "packages/react/src/components/Label/Label.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Label",
+          "props": [
+            {
+              "name": "required",
+              "type": "boolean",
+              "required": false,
+              "default": "false",
+              "description": "Adds \"(required)\" after the text, in words, so the state is never shown by colour alone.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 393,
+        "cssMin": 218,
+        "gzip": 394
+      }
+    },
+    "PinInput": {
+      "source": "packages/react/src/components/PinInput/PinInput.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "PinInput",
+          "props": [
+            {
+              "name": "length",
+              "type": "number",
+              "required": false,
+              "default": "6",
+              "description": "Number of cells, usually 4 or 6.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Controlled value, as a string of up to `length` characters.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "string",
+              "required": false,
+              "default": "",
+              "description": "Starting value when uncontrolled.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((value: string) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the whole code on every change.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onComplete",
+              "type": "((value: string) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called once every cell is filled.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "type",
+              "type": "\"numeric\" | \"alphanumeric\"",
+              "required": false,
+              "default": "numeric",
+              "description": "`numeric` (default) shows the number keyboard on phones and accepts digits only.",
+              "enum": true,
+              "options": [
+                "numeric",
+                "alphanumeric"
+              ]
+            },
+            {
+              "name": "aria-label",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Names the group when it is not inside a FormField, such as \"Verification code\".",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the code as wrong. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Name for form submission; the code is submitted as one value.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "type",
+        "invalid",
+        "disabled"
+      ],
+      "variantCount": 3,
+      "demoFloor": 6,
+      "bundle": {
+        "jsMin": 1913,
+        "cssMin": 2139,
+        "gzip": 1783
+      }
+    },
+    "Radio": {
+      "source": "packages/react/src/components/Radio/Radio.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "RadioGroup",
+          "props": [
+            {
+              "name": "label",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The question the group answers, shown above the options and used as the group's name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "help",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Optional help under the label.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Controlled value.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Starting value when uncontrolled.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((value: string) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the chosen value.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Name for form submission.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "required",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The Radio options.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            }
+          ]
+        },
+        {
+          "displayName": "Radio",
+          "props": [
+            {
+              "name": "value",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The value this option reports.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The option in words, also its accessible name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "description",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Optional secondary line.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "disabled"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 32723,
+        "cssMin": 1940,
+        "gzip": 11930
       }
     },
     "Select": {
@@ -931,6 +1603,100 @@
         "gzip": 488
       }
     },
+    "Switch": {
+      "source": "packages/react/src/components/Switch/Switch.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Switch",
+          "props": [
+            {
+              "name": "label",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The setting in words, also the switch's accessible name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "description",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Optional secondary line, such as what turning it on does.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "checked",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Controlled state.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultChecked",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Starting state when uncontrolled.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onCheckedChange",
+              "type": "((checked: boolean) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the new state. A switch applies at once, so save here.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Name for form submission.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "disabled"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 13993,
+        "cssMin": 2406,
+        "gzip": 6014
+      }
+    },
     "Tabs": {
       "source": "packages/react/src/components/Tabs/Tabs.tsx",
       "kinds": {},
@@ -989,6 +1755,37 @@
         "jsMin": 268,
         "cssMin": 460,
         "gzip": 441
+      }
+    },
+    "Textarea": {
+      "source": "packages/react/src/components/Textarea/Textarea.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Textarea",
+          "props": [
+            {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the value as wrong. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "invalid"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 647,
+        "cssMin": 2258,
+        "gzip": 1136
       }
     }
   }

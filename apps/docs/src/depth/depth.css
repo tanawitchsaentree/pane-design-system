@@ -43,3 +43,4 @@ main a.tab-link:hover { color: var(--ds-text-primary); }
 .rl-p { inset-inline-start: var(--ds-gap-2xl); inset-block-start: 0; }
 /* loading placeholders for the patterns (surface.placeholder tokens), the size of the text they stand for */
 .placeholder-line { display: block; block-size: var(--ds-type-body); border-radius: var(--ds-radius-pill); background: linear-gradient(90deg, var(--ds-surface-placeholder-lo), var(--ds-surface-placeholder-hi)); }
+.indent { padding-inline-start: var(--ds-gap-2xl); }

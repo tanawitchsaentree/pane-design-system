@@ -1,7 +1,7 @@
 // How to render each component for the Style tab and the header's live demo, given the enum props
 // a reader picks. Only the content is fixed here; which options exist comes from meta.json.
 import type { ReactNode } from 'react';
-import { Avatar, Badge, Banner, Button, Card, Chip, Container, Environment, Grid, GridItem, IconButton, Select, Slider, Stack, Tabs, Tag } from 'pane-react';
+import { Avatar, Badge, Banner, Button, Card, Checkbox, Chip, Container, Environment, Fieldset, FormField, Grid, GridItem, HelperText, IconButton, Input, InputGroup, Label, PinInput, Radio, RadioGroup, Select, Slider, Stack, Switch, Tabs, Tag, Textarea } from 'pane-react';
 import { IconShare } from '../icons';
 
 type P = Record<string, string>;
@@ -14,6 +14,17 @@ const attrs = (p: P) => Object.entries(p).map(([k, v]) => ` ${k}="${v}"`).join('
 export const OnPane = ({ children }: { children: ReactNode }) => <Card as="div" className="demo-card"><div className="demo-row spec-row">{children}</div></Card>;
 
 export const SUBJECTS: Record<string, Subject> = {
+  Input: { disabled: true, render: (p, d) => <FormField label="Display name"><Input {...p} defaultValue="Mara Lind" disabled={d} /></FormField>, code: (p) => `<FormField label="Display name">\n  <Input${attrs(p)} defaultValue="Mara Lind" />\n</FormField>` },
+  Textarea: { disabled: true, render: (_p, d) => <FormField label="Bio"><Textarea defaultValue="Landscape photographer." disabled={d} /></FormField>, code: () => '<FormField label="Bio">\n  <Textarea />\n</FormField>' },
+  Checkbox: { disabled: true, render: (_p, d) => <Checkbox label="Show my email" defaultChecked disabled={d} />, code: () => '<Checkbox label="Show my email" defaultChecked />' },
+  Radio: { disabled: true, render: (_p, d) => <RadioGroup label="Who can message you" defaultValue="a" disabled={d}><Radio value="a" label="Everyone" /><Radio value="b" label="No one" /></RadioGroup>, code: () => '<RadioGroup label="Who can message you" defaultValue="a">\n  <Radio value="a" label="Everyone" />\n  <Radio value="b" label="No one" />\n</RadioGroup>' },
+  Switch: { disabled: true, render: (_p, d) => <Switch label="Private account" defaultChecked disabled={d} />, code: () => '<Switch label="Private account" defaultChecked />' },
+  FormField: { render: () => <FormField label="Email" help="We send the receipt here."><Input type="email" /></FormField>, code: () => '<FormField label="Email" help="We send the receipt here.">\n  <Input type="email" />\n</FormField>' },
+  Label: { render: () => <Label htmlFor="subj-label" required>Display name</Label>, code: () => '<Label htmlFor="name" required>Display name</Label>' },
+  HelperText: { render: () => <HelperText tone="error">Keep it under 40 characters.</HelperText>, code: () => '<HelperText tone="error">Keep it under 40 characters.</HelperText>' },
+  Fieldset: { render: () => <Fieldset legend="Shipping address"><FormField label="City"><Input defaultValue="Bergen" /></FormField></Fieldset>, code: () => '<Fieldset legend="Shipping address">…</Fieldset>' },
+  InputGroup: { render: () => <InputGroup end="NOK"><Input aria-label="Price" defaultValue="950" /></InputGroup>, code: () => '<InputGroup end="NOK">\n  <Input aria-label="Price" />\n</InputGroup>' },
+  PinInput: { render: () => <PinInput aria-label="Code" length={4} defaultValue="48" />, code: () => '<PinInput aria-label="Code" length={4} />' },
   Button: { disabled: true, render: (p, d) => <Button {...p} disabled={d}>Follow</Button>, code: (p) => `<Button${attrs(p)}>Follow</Button>` },
   IconButton: { disabled: true, render: (p, d) => <IconButton aria-label="Share" {...p} disabled={d}><IconShare /></IconButton>, code: (p) => `<IconButton aria-label="Share"${attrs(p)}>\n  <IconShare />\n</IconButton>` },
   Badge: { render: (p) => <Badge {...p}>3 new</Badge>, code: (p) => `<Badge${attrs(p)}>3 new</Badge>` },

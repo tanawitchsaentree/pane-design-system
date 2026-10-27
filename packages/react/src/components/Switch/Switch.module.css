@@ -1,0 +1,28 @@
+/* A well track; on turns it the system blue (the one blue a form uses, P1) and shows a tick, and the knob's
+   position says on as well (P6). The knob travels over the hover duration and settles (P4). */
+.root { display: flex; align-items: center; justify-content: space-between; gap: var(--ds-gap-lg); min-block-size: var(--ds-switch-hit); font-family: var(--ds-type-family); }
+.text { display: flex; flex-direction: column; }
+.label { font-size: var(--ds-type-body); color: var(--ds-text-primary); cursor: pointer; }
+.description { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.track {
+  position: relative; flex: none; padding: 0; border: 0; cursor: pointer;
+  inline-size: var(--ds-switch-width); block-size: var(--ds-switch-height); border-radius: var(--ds-corner-round);
+  background: var(--ds-switch-bg-page); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-switch-ring);
+  transition: background-color var(--ds-motion-hover) var(--ds-motion-easing);
+}
+.track::after { content: ''; position: absolute; inset: calc((var(--ds-switch-height) - var(--ds-switch-hit)) / 2) 0; }
+:global([data-pane-card='glass']) .track { background: var(--ds-switch-bg); box-shadow: var(--ds-switch-inset), inset 0 0 0 var(--ds-width-hairline) var(--ds-switch-ring); }
+.track[data-state='checked'], :global([data-pane-card='glass']) .track[data-state='checked'] { background: var(--ds-switch-on-bg); box-shadow: none; }
+.track:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.track:disabled { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
+.knob {
+  position: absolute; inset-block-start: var(--ds-switch-inset-gap); inset-inline-start: var(--ds-switch-inset-gap);
+  inline-size: var(--ds-switch-knob); block-size: var(--ds-switch-knob); border-radius: var(--ds-corner-round);
+  background: var(--ds-switch-knob-bg); box-shadow: var(--ds-switch-knob-shadow);
+  transition: transform var(--ds-motion-hover) var(--ds-motion-easing);
+}
+.knob[data-state='checked'] { transform: translateX(calc(var(--ds-switch-width) - var(--ds-switch-knob) - var(--ds-switch-inset-gap) * 2)); }
+:global([dir='rtl']) .knob[data-state='checked'] { transform: translateX(calc((var(--ds-switch-width) - var(--ds-switch-knob) - var(--ds-switch-inset-gap) * 2) * -1)); }
+.tick { position: absolute; inset-block: 0; inset-inline-start: calc(var(--ds-switch-inset-gap) * 3); margin-block: auto; inline-size: var(--ds-width-ring); block-size: var(--ds-control-icon-sm); border-radius: var(--ds-corner-round); background: var(--ds-switch-tick); opacity: 0; transition: opacity var(--ds-motion-hover) var(--ds-motion-easing); }
+.track[data-state='checked'] .tick { opacity: 1; }
+@media (forced-colors: active) { .track { border: var(--ds-width-hairline) solid ButtonText; } .track[data-state='checked'] { background: Highlight; } .knob { background: ButtonText; } }

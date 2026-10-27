@@ -84,7 +84,7 @@ export const TABS: Depth = {
     ],
     avoid: [
       { title: 'two sets of tabs on one pane', why: 'Nested tabs make the reader track two selections. Split the pane.', render: <Card as="div" className="demo-card"><Set labels={['Posts', 'Media']} /><Set label="Post filters" labels={['Latest', 'Top']} /></Card> },
-      { title: 'six tabs', why: 'Past five the list wraps or shrinks. Use a list of sections.', render: <Card as="div" className="demo-card" style={{ overflow: 'hidden' }}><Set labels={['Posts', 'Replies', 'Media', 'Likes', 'Lists', 'About']} /></Card> },
+      { title: 'six tabs', why: 'Past five the list wraps or shrinks. Use a list of sections.', render: <div className="demo-scroll"><Card as="div" className="demo-card" style={{ flex: 'none', inlineSize: 'max-content', maxInlineSize: 'none' }}><Set labels={['Posts', 'Replies', 'Media', 'Likes', 'Lists', 'About']} /></Card></div> },
     ],
   },
   content: {

@@ -25,6 +25,7 @@ import { GridLayoutPage } from './grid-page';
 import { ComponentPage, EVIDENCE_GROUPS, HISTORY, STATUS_LABEL, TABS } from './ComponentPage';
 import { TabRedirect } from './TabRedirect';
 import { PATTERN_DEPTH } from '../patterns/content';
+import { EXTRAS } from './foundation-extras';
 import { AccessibilityFoundation, ContentFoundation, Contributing, Designing, Developing, Migrating } from './guides';
 import { PatternDepthPage } from '../patterns/PatternDepth';
 import { SCENES } from '../scenes';
@@ -101,7 +102,10 @@ function GettingStarted() {
   return (
     <Page eyebrow="Getting started" title="Getting started" lede={<p>Install the two packages and load the token stylesheet once. Then wrap the screen in an Environment that matches its backdrop and put your content on Cards.</p>}>
       <Section id="install" title="1 · Install">
-        <p>Pane ships as two packages. The tokens package has no dependencies; the React package needs React 18 or newer.</p>
+        <p>One package and one import are enough. <code>pane-react</code> carries the tokens inside it, so a React app installs nothing else and loads one stylesheet. It needs React 18 or newer.</p>
+        <Code label="Install">{'npm install pane-react'}</Code>
+        <Code label="main.tsx">{"import 'pane-react/all.css';\nimport { Environment, Card, Button } from 'pane-react';"}</Code>
+        <p>The tokens are also on their own as <code>pane-tokens</code>, for projects that are not React. The React package includes them as <code>pane-react/tokens.css</code> and <code>pane-react/tokens</code>, so you never need both.</p>
         <div className="pkg-grid">
           <div className="panel" data-surface="">
             <p className="flush"><b>pane-tokens</b> <span className="muted">v{meta.version}</span></p>
@@ -122,7 +126,7 @@ function GettingStarted() {
 pnpm run release:pack            # → release/pane-tokens-${meta.version}.tgz, release/pane-react-${meta.version}.tgz
 
 # in the other project
-npm install /path/to/release/pane-tokens-${meta.version}.tgz /path/to/release/pane-react-${meta.version}.tgz`}</Code>
+npm install /path/to/release/pane-react-${meta.version}.tgz`}</Code>
         <p>Every verify run installs exactly these tarballs into an empty project and imports, requires and server-renders them (<code>tooling/smoke-import.mjs</code>), so this path is tested on every run.</p>
         <h3>B · Workspace or file dependency</h3>
         <Code>{`// other-project/package.json
@@ -801,7 +805,7 @@ function ChangelogPage() {
 
 // ================================ routing table ================================
 
-export const PAGE_COMPONENTS: Record<string, () => ReactElement> = {
+const BASE_PAGES: Record<string, () => ReactElement> = {
   '/': Overview,
   '/getting-started': GettingStarted,
   '/getting-started/designing': Designing,
@@ -835,3 +839,9 @@ export const PAGE_COMPONENTS: Record<string, () => ReactElement> = {
   '/reference/exceptions': Exceptions,
   '/reference/credits': Credits,
 };
+
+// Foundation pages carry the extra sections that cover the reference systems' topics (G-BT1).
+export const PAGE_COMPONENTS: Record<string, () => ReactElement> = Object.fromEntries(Object.entries(BASE_PAGES).map(([route, Page]) => {
+  const Extra = EXTRAS[route];
+  return [route, Extra ? () => <><Page /><Extra /></> : Page];
+}));

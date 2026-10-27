@@ -1,0 +1,7 @@
+/* Help reads as secondary; an error keeps the primary text colour and carries its tone in the glyph only. */
+.root { display: flex; align-items: flex-start; gap: var(--ds-gap-sm); margin: 0; font-family: var(--ds-type-family); font-size: var(--ds-type-label); line-height: var(--ds-type-leading-body); }
+.help { color: var(--ds-field-help-fg); }
+.error { color: var(--ds-field-error-fg); }
+.glyph { flex: none; inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); margin-block-start: calc((1lh - var(--ds-control-icon-sm)) / 2); fill: none; stroke: var(--ds-field-error-mark); stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.sr { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (forced-colors: active) { .glyph { stroke: CanvasText; } }

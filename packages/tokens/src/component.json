@@ -699,5 +699,217 @@
         "why": "a thin track with an accent range and a white knob that reads on both themes; the 44px hit area is kept even though the track is only 6px"
       }
     }
+  },
+  "input": {
+    "bg": {
+      "$type": "color",
+      "$value": "{surface.well}"
+    },
+    "bg-page": {
+      "$type": "color",
+      "$value": "{surface.sunken}"
+    },
+    "fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "placeholder": {
+      "$type": "color",
+      "$value": "{text.secondary}"
+    },
+    "ring": {
+      "$type": "color",
+      "$value": "{line.rim-lo}"
+    },
+    "ring-page": {
+      "$type": "color",
+      "$value": "{line.divider}"
+    },
+    "ring-hover": {
+      "$type": "color",
+      "$value": "{line.ring}"
+    },
+    "ring-invalid": {
+      "$type": "color",
+      "$value": "{status.critical-mark}"
+    },
+    "inset": {
+      "$type": "shadow",
+      "$value": "{elevation.well}"
+    },
+    "height-md": {
+      "$type": "dimension",
+      "$value": "{control.lg}"
+    },
+    "height-sm": {
+      "$type": "dimension",
+      "$value": "{control.sm}"
+    },
+    "padding": {
+      "$type": "dimension",
+      "$value": "{gap.lg}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.round}"
+    },
+    "radius-multiline": {
+      "$type": "dimension",
+      "$value": "{corner.media}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1",
+          "P3"
+        ],
+        "why": "a field is a dimmed well in the glass, a full pill because it is held, with the sunken page surface on reading pages"
+      }
+    }
+  },
+  "check": {
+    "size": {
+      "$type": "dimension",
+      "$value": "{control.check}"
+    },
+    "hit": {
+      "$type": "dimension",
+      "$value": "{layout.touch}"
+    },
+    "bg": {
+      "$type": "color",
+      "$value": "{surface.well}"
+    },
+    "bg-page": {
+      "$type": "color",
+      "$value": "{surface.sunken}"
+    },
+    "ring": {
+      "$type": "color",
+      "$value": "{line.ring}"
+    },
+    "mark": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "dot": {
+      "$type": "dimension",
+      "$value": "{control.mark}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.check}"
+    },
+    "inset": {
+      "$type": "shadow",
+      "$value": "{elevation.well}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P6",
+          "P1"
+        ],
+        "why": "checkbox and radio are small wells with a 44px hit area; checked shows a check and chosen shows a dot, never colour alone"
+      }
+    }
+  },
+  "switch": {
+    "width": {
+      "$type": "dimension",
+      "$value": "{control.switch}"
+    },
+    "height": {
+      "$type": "dimension",
+      "$value": "{control.sm}"
+    },
+    "knob": {
+      "$type": "dimension",
+      "$value": "{control.check}"
+    },
+    "hit": {
+      "$type": "dimension",
+      "$value": "{layout.touch}"
+    },
+    "inset-gap": {
+      "$type": "dimension",
+      "$value": "{gap.xs}"
+    },
+    "bg": {
+      "$type": "color",
+      "$value": "{surface.well}"
+    },
+    "bg-page": {
+      "$type": "color",
+      "$value": "{surface.sunken}"
+    },
+    "ring": {
+      "$type": "color",
+      "$value": "{line.ring}"
+    },
+    "on-bg": {
+      "$type": "color",
+      "$value": "{action.accent}"
+    },
+    "knob-bg": {
+      "$type": "color",
+      "$value": "{surface.knob}"
+    },
+    "tick": {
+      "$type": "color",
+      "$value": "{text.on-accent}"
+    },
+    "inset": {
+      "$type": "shadow",
+      "$value": "{elevation.well}"
+    },
+    "knob-shadow": {
+      "$type": "shadow",
+      "$value": "{elevation.lift}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1",
+          "P6"
+        ],
+        "why": "the switch track is a well that turns the system blue when on, the one place a form uses its own colour, and a tick and the knob position say on"
+      }
+    }
+  },
+  "field": {
+    "gap": {
+      "$type": "dimension",
+      "$value": "{gap.sm}"
+    },
+    "label-fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "help-fg": {
+      "$type": "color",
+      "$value": "{text.secondary}"
+    },
+    "error-fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "error-mark": {
+      "$type": "color",
+      "$value": "{status.critical-mark}"
+    },
+    "group-gap": {
+      "$type": "dimension",
+      "$value": "{gap.md}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P7",
+          "P6"
+        ],
+        "why": "labels sit above their field and look like labels, help reads as secondary, and an error carries a glyph and a spoken word as well as colour"
+      }
+    }
   }
 }

@@ -56,7 +56,7 @@ export const STATUS_LABEL = { alpha: 'Alpha', beta: 'Beta', stable: 'Stable' } a
 type Meta = typeof meta.components[keyof typeof meta.components];
 
 // Which evidence-harness groups hold this component's text.
-export const EVIDENCE_GROUPS: Record<string, string[]> = { Container: ['layout'], Grid: ['layout'], Stack: ['layout'], Badge: ['status'], Chip: ['status'], Banner: ['status'], Environment: ['environment'], Card: ['card'], Avatar: ['card'], Button: ['controls'], IconButton: ['controls'], Tabs: ['controls'], Tag: ['controls', 'media'], Select: ['controls'], Slider: ['controls'] };
+export const EVIDENCE_GROUPS: Record<string, string[]> = { Container: ['layout'], Grid: ['layout'], Stack: ['layout'], Badge: ['status'], Chip: ['status'], Banner: ['status'], Environment: ['environment'], Card: ['card'], Avatar: ['card'], Button: ['controls'], IconButton: ['controls'], Tabs: ['controls'], Tag: ['controls', 'media'], Select: ['controls'], Slider: ['controls'], Input: ['forms'], Textarea: ['forms'], Checkbox: ['forms'], Radio: ['forms'], Switch: ['forms'], FormField: ['forms'], Label: ['forms'], HelperText: ['forms'], Fieldset: ['forms'], InputGroup: ['forms'], PinInput: ['forms'] };
 
 const twoCol = (rows: Array<[string, string]>, a: string, b: string) => (
   <div className="table-wrap">

@@ -1,0 +1,5 @@
+/* A group with no box of its own: the legend is the heading and the fields follow at the group gap. */
+.root { margin: 0; padding: 0; border: 0; min-inline-size: 0; font-family: var(--ds-type-family); }
+.legend { padding: 0; margin-block-end: var(--ds-field-gap); font-size: var(--ds-type-body); font-weight: var(--ds-type-weight-semibold); color: var(--ds-field-label-fg); }
+.help { margin: 0 0 var(--ds-field-gap); font-size: var(--ds-type-label); color: var(--ds-field-help-fg); }
+.fields { display: flex; flex-direction: column; gap: var(--ds-field-group-gap); }

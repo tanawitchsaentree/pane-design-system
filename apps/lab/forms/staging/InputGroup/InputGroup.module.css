@@ -1,0 +1,15 @@
+/* The group is the well; the input inside drops its own surface so the adornments sit in the same recess. */
+.root {
+  display: flex; align-items: center; gap: var(--ds-gap-sm); min-inline-size: 0;
+  padding-inline: var(--ds-input-padding) var(--ds-gap-xs); border-radius: var(--ds-input-radius);
+  background: var(--ds-input-bg-page); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring-page);
+  color: var(--ds-input-placeholder); font-family: var(--ds-type-family); font-size: var(--ds-type-body);
+}
+:global([data-pane-card='glass']) .root { background: var(--ds-input-bg); box-shadow: var(--ds-input-inset), inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring); text-shadow: none; }
+.root:focus-within { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.root:has([aria-invalid='true']) { box-shadow: inset 0 0 0 var(--ds-width-ring) var(--ds-input-ring-invalid); }
+.field { flex: 1; min-inline-size: 0; }
+.field :global([data-component='Input']), :global([data-pane-card='glass']) .field :global([data-component='Input']) { padding-inline: 0; background: transparent; box-shadow: none; outline: 0; }
+.start, .end { display: inline-flex; align-items: center; flex: none; }
+.start svg, .end svg { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); }
+@media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid FieldText; } }

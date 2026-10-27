@@ -1,0 +1,3 @@
+/* A label reads as a label: semibold, primary text, the same size as the control text below it. */
+.root { font-family: var(--ds-type-family); font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); color: var(--ds-field-label-fg); }
+.required { font-weight: var(--ds-type-weight-regular); color: var(--ds-field-help-fg); }

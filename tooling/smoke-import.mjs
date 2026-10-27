@@ -237,7 +237,7 @@ try {
   // CI while building fine. Forced on, and without vite/client, so the result is the same on any TS
   // version and any bundler.
   sh('npm', ['install', '--no-audit', '--no-fund', 'typescript', '@types/react@18', '@types/react-dom@18'], scratch);
-  const cssSpecs = [`${R}/styles.css`, ...subpaths.filter((s) => /[./]css$/.test(s)).map((s) => T + s.slice(1))];
+  const cssSpecs = [`${R}/all.css`, `${R}/styles.css`, ...subpaths.filter((s) => /[./]css$/.test(s)).map((s) => T + s.slice(1))];
   writeFileSync(
     join(scratch, 'consumer.ts'),
     cssSpecs.map((s) => `import '${s}';\n`).join('') +
@@ -252,6 +252,26 @@ try {
   );
   const tscOut = (tsc.stdout || tsc.stderr || '').trim();
   record(tsc.status === 0, `consumer tsc passes on ${cssSpecs.join(' + ')} + named imports`, tsc.status === 0 ? 'clean' : tscOut.split('\n')[0]);
+
+  // 10. One tarball is enough. A second empty project installs only pane-react and must resolve
+  // all.css (tokens and components in one file), the bundled tokens, and render a component, with
+  // nothing fetched for pane-tokens. This is the "one install" promise on the Getting started page.
+  const solo = mkdtempSync(join(tmpdir(), 'kiln-smoke-solo-'));
+  try {
+    writeFileSync(join(solo, 'package.json'), JSON.stringify({ name: 'solo', private: true, type: 'module' }));
+    sh('npm', ['install', '--no-audit', '--no-fund', tarballs[manifests.findIndex((m) => m.dir === 'react')], 'react@18', 'react-dom@18'], solo);
+    const has = existsSync(join(solo, 'node_modules', T));
+    record(!has, `${R} installs alone, without ${T}`, has ? `${T} was installed as a dependency` : 'only pane-react');
+    writeFileSync(join(solo, 'p.mjs'), `import { createRequire } from 'node:module'; const require = createRequire(import.meta.url);
+const fs = require('node:fs'); const css = fs.readFileSync(require.resolve('${R}/all.css'), 'utf8');
+if (!/--ds-surface-glass\\s*:/.test(css) || !/pane-Button-module__root/.test(css)) { console.error('all.css lacks tokens or component styles'); process.exit(1); }
+const t = await import('${R}/tokens'); if (!t.tokens || !Object.keys(t.tokens).length) { console.error('no bundled tokens'); process.exit(1); }
+const { renderToStaticMarkup } = await import('react-dom/server'); const React = (await import('react')).default; const m = await import('${R}');
+const html = renderToStaticMarkup(React.createElement(m.Button, null, 'solo')); if (!/solo/.test(html)) process.exit(1);
+console.log(Math.round(css.length / 1024) + ' kB all.css, ' + Object.keys(t.tokens).length + ' tokens');`);
+    const r = spawnSync('node', ['p.mjs'], { cwd: solo, encoding: 'utf8' });
+    record(r.status === 0, `${R}/all.css carries tokens and styles, ${R}/tokens resolves, a component renders`, r.status === 0 ? r.stdout.trim() : (r.stderr || r.stdout).trim().split('\n')[0]);
+  } finally { rmSync(solo, { recursive: true, force: true }); }
 
   // 8. The old scoped names must be gone. A stale symlink or a leftover dependency entry would let
   // the repo keep working locally while a real consumer gets ERR_MODULE_NOT_FOUND.

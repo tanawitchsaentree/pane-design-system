@@ -2,6 +2,21 @@
 
 Every entry names the component it touches, so each component page in the book can show its own history. The conformance run fails if a component has no entry.
 
+## 0.3.0 (2026-10-27)
+
+- Input: First release, part of the W3 form family drawn as a well in the pane (D-020).
+- Textarea: First release, part of the W3 form family drawn as a well in the pane (D-020).
+- Checkbox: First release, part of the W3 form family drawn as a well in the pane (D-020).
+- Radio: First release, part of the W3 form family drawn as a well in the pane (D-020).
+- Switch: First release, part of the W3 form family drawn as a well in the pane (D-020).
+- FormField: First release, part of the W3 form family drawn as a well in the pane (D-020).
+- Label: First release, part of the W3 form family drawn as a well in the pane (D-020).
+- HelperText: First release, part of the W3 form family drawn as a well in the pane (D-020).
+- Fieldset: First release, part of the W3 form family drawn as a well in the pane (D-020).
+- InputGroup: First release, part of the W3 form family drawn as a well in the pane (D-020).
+- PinInput: First release, part of the W3 form family drawn as a well in the pane (D-020).
+- Packaging: a semantic `opacity.disabled` token and `elevation.well`, used by every new form control.
+
 ## 0.2.0 (2026-10-27)
 
 - Banner: Redrawn from the concept (derivation C, picked by the user) as a line written on the pane with a hairline, no box, no stripe and no tinted disc. Tones are glyph shapes, glyph colours and spoken words. Arriving and dismissing open and close its height. onDismiss now runs after the line has closed.

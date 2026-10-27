@@ -4,12 +4,11 @@ React components for **Pane** — clear, blurred glass panes over a real scene, 
 contrast.
 
 ```bash
-npm install pane-tokens pane-react   # React 18+
+npm install pane-react   # React 18+. The tokens are inside, so this is the only package you need.
 ```
 
 ```tsx
-import 'pane-tokens/css';
-import 'pane-react/styles.css';
+import 'pane-react/all.css';   // tokens and component styles in one file, once at the root
 import { Environment, Container, Grid, GridItem, Card, Button, Badge } from 'pane-react';
 
 export function App() {

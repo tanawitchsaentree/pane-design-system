@@ -341,6 +341,18 @@
         "p": "P3",
         "why": "how high a surface floats, with float for panes, lift for controls and halo for text on thin glass"
       }
+    },
+    "well": {
+      "$value": "{shadow.well}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.well-light}"
+        },
+        "kiln.why": {
+          "p": "P1",
+          "why": "a field is a well pressed into the glass, so a faint inner shadow at its top edge says it sits below the surface without painting a fill"
+        }
+      }
     }
   },
   "width": {
@@ -455,6 +467,33 @@
         "p": "P6",
         "why": "control heights and icon sizes; 44px is the default so every control is a comfortable touch target, 32px only for dense rows"
       }
+    },
+    "check": {
+      "$value": "{size.check}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P6",
+          "why": "checkbox, radio and switch knob are 24px marks inside a 44px hit area, large enough to read and to hit"
+        }
+      }
+    },
+    "switch": {
+      "$value": "{size.switch}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P6",
+          "why": "the switch track is 52px wide so the knob travels far enough that on and off read by position as well as colour"
+        }
+      }
+    },
+    "mark": {
+      "$value": "{size.mark}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P6",
+          "why": "the chosen radio shows a 10px dot, a shape that says selected without relying on colour"
+        }
+      }
     }
   },
   "corner": {
@@ -486,6 +525,15 @@
             "P6"
           ],
           "why": "drawings in diagrams are marks on a plan, so they get a small corner that keeps narrow plates from turning into pills and hiding their width"
+        }
+      }
+    },
+    "check": {
+      "$value": "{radius.check}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P3",
+          "why": "a checkbox is a held control with soft corners, yet stays square enough to read differently from a round radio"
         }
       }
     }
@@ -909,6 +957,18 @@
           ],
           "why": "margins are hatched in the text colour so they are told apart from columns by pattern as well as by tone"
         }
+      }
+    }
+  },
+  "opacity": {
+    "$type": "number",
+    "disabled": {
+      "$value": "{alpha.half}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "a disabled control fades to half, and its reason is written beside it because a faded control cannot be focused to ask"
       }
     }
   }
