@@ -1,0 +1,25 @@
+# NEXT — handoff 2026-10-27 (terminal closed mid-work)
+
+## สถานะตอนปิด
+- commit ล่าสุด: `2d3f2b6` (verify เขียวครบ 2 ธีม: glass 144,433/144,564 · 131 excepted E-001 · conformance 73/73 · tone 36/36 · smoke 19/19)
+- **ยังไม่ commit (WIP):** crafted controls — slider/select วาดจาก token, chevron, `color-scheme` ต่อธีมใน tokens build, check ใหม่ G-N1 ใน conformance (gate-proof แล้วด้วย probe แยก)
+- verify v9 (รวม crafted controls) **ถูกตัดกลางทาง** ตอนปิด terminal → ต้องรันใหม่: `pnpm run verify` (ใช้เวลานาน ~40–60 นาที เพราะวัด 2 ธีม)
+- server preview (`pnpm --filter pane-docs preview`, port 4173) ปิดไปพร้อม terminal
+
+## ทำต่อตามลำดับ
+1. `pnpm run verify` → ถ้าเขียว commit WIP crafted controls (G-N1)
+2. **Button ถึงระดับ Carbon** (reference implementation ของ `component-depth.md`):
+   - component: เพิ่ม variant `ghost`, `danger`, `danger-ghost` · size `lg` · `loading` (spinner, aria-busy, disabled, คงความกว้าง) · `icon` + `iconPosition` · `fullWidth` · `data-part` (container/label/icon/spinner) · token ใหม่ใน component.json (+ สีแดงสำหรับตัวอักษรบนกระจก dark ต้องวัดก่อน) · CHANGELOG entry · harness + conformance (loading, danger)
+   - docs: 4 tab routes `/components/<slug>/{usage,style,code,accessibility}` (routes.json เพิ่ม `tabs`, router + tooling ทุกตัวที่อ่าน routes.json ต้อง expand), header ร่วม (status, last updated, live demo + theme/variant selector)
+   - Usage registry U1–U14 (ตารางใน component-depth.md) — do/don't เป็น component จริงทุกคู่, RTL + overflow live, references ≥2 URL
+   - Style tab: `tooling/spec-capture.mjs` — Playwright + CDP `CSS.forcePseudoState` วัดทุก variant × size × state × theme → `specs.json` → reverse-map เป็นชื่อ token, redline diagram
+   - gates G-K1–G-K8 ใน conformance + gate-proof (ใส่บั๊กให้แดง แล้วแก้กลับ)
+   - เป้า: usage ≥ 0.5 × Carbon Button (5,260 คำ / 36 sections)
+3. อีก 12 component ไล่ทีละตัวตาม registry เดียวกัน
+4. benchmark Carbon ที่เหลือ 28 ตัว: `node <kiln>/marketplace/plugins/kiln/skills/docs-engine/scripts/benchmark-depth.mjs` (resume ได้, ต้องมี network; รอบแรกโดน throttle)
+5. G-IA1: nav แสดง catalog เต็ม (planned = "Planned · wave N" จาก kiln `docs/CATALOG.md`), เพิ่มหมวด Getting started (designing/developing/contributing/migrating), Foundations Content/Accessibility, Patterns ~12 หน้า
+6. แล้วค่อยขยาย breadth ทีละ wave ตาม CATALOG (W3 Forms-Core: Input, Checkbox, Radio, Switch… ก่อน)
+
+## kiln (commit แล้ว, local เท่านั้น ห้าม push)
+- marketplace `09bb5f5` component-depth.md + benchmark script · `2ffc15a` G-L1/G-M1 · G-N1
+- kiln `7963f30` rule 10 + standard #14 · USER-STANDARDS #12–#14

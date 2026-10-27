@@ -721,7 +721,7 @@ function Tokens() {
         <div className="token-filter">
           <label className="field"><span>Search</span><input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="e.g. glass, accent, 40px" /></label>
           <label className="field"><span>Tier</span>
-            <select value={tier} onChange={(e) => setTier(e.target.value)}><option value="">All</option><option value="primitive">Primitive</option><option value="semantic">Semantic</option><option value="component">Component</option></select>
+            <span className="select"><select value={tier} onChange={(e) => setTier(e.target.value)}><option value="">All</option><option value="primitive">Primitive</option><option value="semantic">Semantic</option><option value="component">Component</option></select><Icons.IconChevronDown className="select-chevron" /></span>
           </label>
         </div>
         <TokenTable tier={tier || undefined} query={q} />

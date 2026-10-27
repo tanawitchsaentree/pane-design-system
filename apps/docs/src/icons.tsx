@@ -21,3 +21,4 @@ export const IconVerified = ({ label = 'Verified', ...p }: P & { label?: string 
     <path fill="none" stroke="var(--ds-action-accent)" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" d="M8 12.2l2.7 2.6L16.2 9" />
   </svg>
 );
+export const IconChevronDown = (p: P) => <svg {...base} strokeWidth={2} {...p}><path d="M7 10l5 5 5-5" /></svg>;

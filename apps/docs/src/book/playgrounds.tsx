@@ -1,7 +1,7 @@
 // Foundation playgrounds (USER-STANDARDS #6, docs-engine G-F1). Each one has real controls that change
 // a live preview and a copy-ready snippet of the current setting. Values come from the token JSON, so a
 // playground never offers a number the system doesn't have.
-import { useEffect, useMemo, useRef, useState, type ReactElement, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type ReactElement, type ReactNode } from 'react';
 import { Badge, Button, Card, Chip, Stack, Tag } from 'pane-react';
 import * as Icons from '../icons';
 import { CodeBlock, TOKENS } from './kit';
@@ -14,7 +14,7 @@ function Range({ label, min, max, step, value, onChange, unit = '' }: { label: s
   return (
     <label className="pg-control">
       <span className="pg-label">{label}<span className="pg-value">{value}{unit}</span></span>
-      <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(Number(e.target.value))} />
+      <input type="range" min={min} max={max} step={step} value={value} style={{ '--pct': `${((value - min) / (max - min)) * 100}%` } as CSSProperties} onChange={(e) => onChange(Number(e.target.value))} />
     </label>
   );
 }
@@ -22,7 +22,7 @@ function Select<T extends string>({ label, value, options, onChange }: { label: 
   return (
     <label className="pg-control">
       <span className="pg-label">{label}</span>
-      <select value={value} onChange={(e) => onChange(e.target.value as T)}>{options.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
+      <span className="select"><select value={value} onChange={(e) => onChange(e.target.value as T)}>{options.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select><Icons.IconChevronDown className="select-chevron" /></span>
     </label>
   );
 }

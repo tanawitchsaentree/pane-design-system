@@ -143,7 +143,7 @@ thead th { font-weight: var(--ds-type-weight-semibold); }
 .toc a { color: var(--ds-text-secondary); font-weight: var(--ds-type-weight-medium); transition: color var(--ds-motion-hover) var(--ds-motion-easing); }
 .toc a:hover { color: var(--ds-text-primary); }
 .field { display: flex; flex-direction: column; gap: var(--ds-gap-sm); }
-.field input, .field select {
+.field input {
   font: inherit; font-size: var(--ds-type-label); color: var(--ds-text-primary);
   min-block-size: var(--ds-control-md); padding-inline: var(--ds-gap-xl);
   border: 0; border-radius: var(--ds-corner-round); background: var(--ds-surface-quiet);
@@ -151,8 +151,7 @@ thead th { font-weight: var(--ds-type-weight-semibold); }
   transition: box-shadow var(--ds-motion-hover) var(--ds-motion-easing);
 }
 .field input::placeholder { color: var(--ds-text-secondary); }
-.field select option { color: var(--ds-text-on-light); }
-.field input:focus-visible, .field select:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.field input:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
 .token-filter { display: flex; gap: var(--ds-gap-2xl); flex-wrap: wrap; }
 .token-filter .field { min-inline-size: 220px; }
 
@@ -336,9 +335,18 @@ main a:not([class]) { text-decoration: underline; text-underline-offset: 3px; te
 .pg-control { display: flex; flex-direction: column; gap: var(--ds-gap-xs); font-size: var(--ds-type-label); }
 .pg-label { display: flex; justify-content: space-between; gap: var(--ds-gap-md); }
 .pg-value { font-variant-numeric: tabular-nums; color: var(--ds-text-secondary); }
-.pg-control input[type='range'] { inline-size: 100%; accent-color: var(--ds-action-accent); }
-.pg-control select, .pg-control input:not([type='range']) { font: inherit; color: var(--ds-text-primary); background: var(--ds-surface-quiet); border: 0; border-radius: var(--ds-corner-media); min-block-size: var(--ds-control-md); padding-inline: var(--ds-gap-lg); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-ring); }
-.pg-control select option { color: var(--ds-text-on-light); }
+/* Range: drawn from tokens so it follows the theme (the native track is always light grey) */
+.pg-control input[type='range'] { -webkit-appearance: none; appearance: none; inline-size: 100%; block-size: var(--ds-layout-touch); margin-block: calc((var(--ds-control-icon-sm) - var(--ds-layout-touch)) / 2); background: transparent; cursor: pointer; }
+.pg-control input[type='range']::-webkit-slider-runnable-track { block-size: 6px; border-radius: var(--ds-corner-round); background: linear-gradient(to right, var(--ds-action-accent) var(--pct, 50%), var(--ds-surface-quiet) var(--pct, 50%)); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-ring); }
+.pg-control input[type='range']::-moz-range-track { block-size: 6px; border-radius: var(--ds-corner-round); background: var(--ds-surface-quiet); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-ring); }
+.pg-control input[type='range']::-moz-range-progress { block-size: 6px; border-radius: var(--ds-corner-round); background: var(--ds-action-accent); }
+.pg-control input[type='range']::-webkit-slider-thumb { -webkit-appearance: none; inline-size: 20px; block-size: 20px; margin-block-start: -7px; border-radius: var(--ds-corner-round); background: var(--ds-color-white); box-shadow: 0 0 0 var(--ds-width-hairline) var(--ds-line-ring), var(--ds-elevation-lift); transition: transform var(--ds-motion-hover) var(--ds-motion-easing); }
+.pg-control input[type='range']::-moz-range-thumb { inline-size: 20px; block-size: 20px; border: 0; border-radius: var(--ds-corner-round); background: var(--ds-color-white); box-shadow: 0 0 0 var(--ds-width-hairline) var(--ds-line-ring), var(--ds-elevation-lift); }
+.pg-control input[type='range']:active::-webkit-slider-thumb { transform: scale(1.1); }
+.pg-control input[type='range']:focus-visible { outline: none; }
+.pg-control input[type='range']:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 var(--ds-focus-ring-width) var(--ds-focus-ring-color), 0 0 0 calc(var(--ds-focus-ring-width) * 2) var(--ds-focus-ring-halo); }
+.pg-control input[type='range']:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 var(--ds-focus-ring-width) var(--ds-focus-ring-color), 0 0 0 calc(var(--ds-focus-ring-width) * 2) var(--ds-focus-ring-halo); }
+.pg-control input:not([type='range']) { font: inherit; color: var(--ds-text-primary); background: var(--ds-surface-quiet); border: 0; border-radius: var(--ds-corner-media); min-block-size: var(--ds-control-md); padding-inline: var(--ds-gap-lg); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-ring); }
 .pg-control :focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
 .pg-preview { min-inline-size: 0; }
 .pg-note p { max-inline-size: var(--ds-type-measure); }
@@ -379,3 +387,12 @@ main a:not([class]) { text-decoration: underline; text-underline-offset: 3px; te
 .checklist li::before { content: '☐'; position: absolute; inset-inline-start: 0; }
 /* A nested theme region re-resolves its tokens but inherits the parent's computed colour and halo, so reset both. */
 [data-theme] [data-theme] { color: var(--ds-text-primary); text-shadow: var(--ds-card-text-halo); }
+
+/* Select: native control for keyboard, screen readers and the mobile picker, drawn from tokens.
+   The browser arrow is removed and a chevron icon sits inside the padding, so text never runs under it. */
+.select { position: relative; display: grid; align-items: center; }
+.select select { -webkit-appearance: none; appearance: none; inline-size: 100%; font: inherit; color: var(--ds-text-primary); background: var(--ds-surface-quiet); border: 0; border-radius: var(--ds-corner-media); min-block-size: var(--ds-control-md); padding-inline: var(--ds-gap-lg) calc(var(--ds-gap-lg) * 2 + var(--ds-control-icon-sm)); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-ring); cursor: pointer; text-overflow: ellipsis; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing), box-shadow var(--ds-motion-hover) var(--ds-motion-easing); }
+.select select:hover { background: var(--ds-line-divider); }
+.select select:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.select-chevron { position: absolute; inset-inline-end: var(--ds-gap-lg); inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); color: var(--ds-text-primary); pointer-events: none; transition: transform var(--ds-motion-hover) var(--ds-motion-easing); }
+.select:hover .select-chevron { transform: translateY(1px); }

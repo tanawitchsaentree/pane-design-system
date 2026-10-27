@@ -2,7 +2,7 @@
 - **System:** Pane (`pane-tokens`, `pane-react`) — spatial glass จาก anchor A (D-008): กระจกใส + หรี่ฉากหลัง (D-010/D-011) บนรูปถ่ายจริง
 - **Phase ปัจจุบัน:** pilot ขยายเป็นหนังสือ 37 บท + 13 components, ธีม light/dark วัดทั้งคู่ (D-015)
 - **งานล่าสุดที่เสร็จ:** playground ทุกหน้า foundation, copy คลิกเดียว, บท Themes & backdrops, ตาราง 2×2 ทุก component, status/history/limitations/a11y matrix จาก benchmark 10 DS · verify เขียว (2026-10-27)
-- **งานถัดไป:** user ดู docs → gap ที่เหลือใน BACKLOG (sandbox ต้อง publish ก่อน, Figma, increased contrast, screen reader pass)
+- **งานถัดไป:** ดู `NEXT.md` (handoff 2026-10-27) — ยกทุกหน้า component ให้ถึงระดับ Carbon ตาม kiln `docs-engine/references/component-depth.md` เริ่มที่ Button
 - **Wave ปัจจุบัน:** pilot · **Component ผ่าน QA:** 13/13 (Alpha 1: Environment, Beta 12)
 - **ค้าง/blocked:** — (ดู BACKLOG.md)
 ## Log ย่อ (ใหม่สุดบน ≤15 บรรทัด)

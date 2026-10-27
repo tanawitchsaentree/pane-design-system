@@ -527,6 +527,25 @@ try {
     expect(!blank.length, blank.map(([c, n]) => `${c}: ${n} blank`).join(', '));
     return `${r.length} rows`;
   });
+  await check('Docs page', `G-N1, no form control on any of the ${ROUTES.length} pages shows the browser's default look: selects and sliders are drawn from tokens in both themes`, async () => {
+    const bad = [];
+    let n = 0;
+    for (const th of ['dark', 'light']) for (const r of ROUTES) {
+      await page.goto(`${srv.base}${r}?scene=room&theme=${th}`, { waitUntil: 'networkidle' });
+      const res = await page.evaluate(() => [...document.querySelectorAll('main select, main input[type="range"], #book-nav select')].map((e) => {
+        const cs = getComputedStyle(e);
+        if (cs.appearance !== 'none') return `${e.tagName.toLowerCase()} has appearance ${cs.appearance}`;
+        if (e.tagName === 'SELECT' && !e.parentElement.querySelector('.select-chevron')) return 'select without its chevron';
+        return null;
+      }));
+      n += res.length;
+      res.forEach((x) => x && bad.push(`${th} ${r}: ${x}`));
+    }
+    expect(n > 0, 'NO CONTROLS FOUND, so nothing was checked');
+    expect(bad.length === 0, `${bad.length} — ${bad.slice(0, 4).join(' | ')}`);
+    return `${n / 2} controls per theme`;
+  });
+
   // --- every page: axe -----------------------------------------------------------------------
   for (const mode of ['none', 'active']) {
     const c = await browser.newContext({ viewport: { width: 1440, height: 900 }, forcedColors: mode, reducedMotion: 'reduce' });

@@ -157,9 +157,10 @@ const envUnderTheme = (th, indent) => ENVS.map((env) => {
   return `${indent}[data-environment="${env}"] {\n${[...own.map((o) => `${indent}  ${cssName(o[0])}: ${val(o)};`), ...deps.map((d) => `${indent}  ${cssName(d)}: ${cssValue(d)};`)].join('\n')}\n${indent}}`;
 }).join('\n');
 const themeCss = [
-  ...THEMES.map((th) => `@scope ([data-theme="${th}"]) {\n  :scope {\n${themeBody(th, '    ')}\n  }\n${envUnderTheme(th, '  ')}\n}`),
-  `@scope ([data-theme="dark"]) {\n  :scope {\n${themeBody(null, '    ')}\n  }\n${envUnderTheme(null, '  ')}\n}`,
-  ...THEMES.map((th) => `@media (prefers-color-scheme: ${th}) {\n  @scope (:root:not([data-theme])) {\n    :scope {\n${themeBody(th, '      ')}\n    }\n${envUnderTheme(th, '    ')}\n  }\n}`),
+  // color-scheme too, so native parts (select popups, scrollbars, date pickers) follow the theme
+  ...THEMES.map((th) => `@scope ([data-theme="${th}"]) {\n  :scope {\n    color-scheme: ${th};\n${themeBody(th, '    ')}\n  }\n${envUnderTheme(th, '  ')}\n}`),
+  `@scope ([data-theme="dark"]) {\n  :scope {\n    color-scheme: dark;\n${themeBody(null, '    ')}\n  }\n${envUnderTheme(null, '  ')}\n}`,
+  ...THEMES.map((th) => `@media (prefers-color-scheme: ${th}) {\n  @scope (:root:not([data-theme])) {\n    :scope {\n      color-scheme: ${th};\n${themeBody(th, '      ')}\n    }\n${envUnderTheme(th, '    ')}\n  }\n}`),
 ].join('\n');
 
 // Responsive tokens (D-014): $extensions["pane.breakpoint"] → one @media block per breakpoint, at the
