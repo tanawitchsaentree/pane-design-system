@@ -376,7 +376,8 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
   .topbar-title { display: block; flex: 1; min-inline-size: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
   .topbar-tools { margin-inline-start: 0; gap: var(--ds-gap-md); }
   .menu-btn { display: inline-flex; align-items: center; }
-  .rail { position: fixed; inset-block: var(--topbar) 0; inset-inline-start: 0; z-index: var(--ds-layer-overlay); inline-size: min(88vw, 340px); block-size: auto; background: var(--ds-surface-page); box-shadow: var(--ds-elevation-float); transform: translateX(-105%); visibility: hidden; transition: transform var(--ds-motion-enter) var(--ds-motion-easing), visibility 0s linear var(--ds-motion-enter); }
+  /* stretch: the desktop rule says align-self start, and on a fixed box that shrinks it to its content, so the drawer never scrolled */
+  .rail { position: fixed; inset-block: var(--topbar) 0; inset-inline-start: 0; z-index: var(--ds-layer-overlay); inline-size: min(88vw, 340px); block-size: auto; align-self: stretch; background: var(--ds-surface-page); box-shadow: var(--ds-elevation-float); transform: translateX(-105%); visibility: hidden; transition: transform var(--ds-motion-enter) var(--ds-motion-easing), visibility 0s linear var(--ds-motion-enter); }
   .rail.open { transform: none; visibility: visible; transition: transform var(--ds-motion-enter) var(--ds-motion-easing); }
   .drawer-scrim { position: fixed; inset: var(--topbar) 0 0; z-index: calc(var(--ds-layer-overlay) - 1); background: var(--ds-color-shade-a-55); }
   .content { padding: var(--ds-gap-2xl) var(--ds-gap-lg) var(--ds-gap-page); }

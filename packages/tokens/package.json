@@ -1,11 +1,14 @@
 {
   "name": "pane-tokens",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "type": "module",
-  "description": "Pane design tokens \u2014 CSS custom properties, JSON, ESM (+types) and SCSS, built from DTCG in three tiers.",
+  "description": "Pane design tokens — CSS custom properties, JSON, ESM (+types) and SCSS, built from DTCG in three tiers.",
   "exports": {
-    "./css": "./build/css/tokens.css",
+    "./css": {
+      "types": "./css.d.ts",
+      "default": "./build/css/tokens.css"
+    },
     "./json": "./build/json/tokens.json",
     "./js": {
       "types": "./build/js/tokens.d.ts",
@@ -16,7 +19,8 @@
   },
   "files": [
     "build",
-    "README.md"
+    "README.md",
+    "css.d.ts"
   ],
   "scripts": {
     "build": "node build.mjs",

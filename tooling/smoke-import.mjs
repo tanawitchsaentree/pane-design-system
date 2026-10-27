@@ -22,6 +22,7 @@
 //   M3  react exports './styles.css' -> ./dist/nope.css              → 2 red
 //   M4  files[] narrowed to ['src'] so the tarball ships no dist     → 3 red (ESM+CJS+parity)
 //   M5  package renamed back to @dial/react                          → 1 red (old name resolves again)
+//   M6  (Pane, 2026-10-27) tokens './css' back to a bare string, no types → 1 red (consumer tsc TS2882)
 // M5 is the one that proves this gate reads the manifest instead of a hardcoded string: renaming the
 // package makes the "old name is gone" check fire rather than silently testing a name nobody ships.
 // M4 dropping exactly the three root-import checks, and M2 exactly one, is what says those checks
@@ -229,6 +230,28 @@ try {
       `console.log(${JSON.stringify(RENDER_PROBES.join(' + '))} + ' render with real markup');`,
   );
   record(render.ok, 'components render server-side', render.ok ? render.out : render.err.split('\n')[0]);
+
+  // 9. A consumer's own `tsc` must pass on the documented imports. Runtime resolution (4, 5) passing
+  // said nothing here: TypeScript 6+ checks side-effect imports by default, and `import 'pane-tokens/css'`
+  // has no .css extension for a bundler's `*.css` shim to match, so a fresh Vite + TS app went red in
+  // CI while building fine. Forced on, and without vite/client, so the result is the same on any TS
+  // version and any bundler.
+  sh('npm', ['install', '--no-audit', '--no-fund', 'typescript', '@types/react@18', '@types/react-dom@18'], scratch);
+  const cssSpecs = [`${R}/styles.css`, ...subpaths.filter((s) => /[./]css$/.test(s)).map((s) => T + s.slice(1))];
+  writeFileSync(
+    join(scratch, 'consumer.ts'),
+    cssSpecs.map((s) => `import '${s}';\n`).join('') +
+      `import * as pane from '${R}';\n` +
+      `const names: (keyof typeof pane)[] = ${JSON.stringify(EXPECTED)};\nexport default names;\n`,
+  );
+  const tsc = spawnSync(
+    join(scratch, 'node_modules', '.bin', 'tsc'),
+    ['--noEmit', '--strict', '--module', 'esnext', '--moduleResolution', 'bundler', '--target', 'es2022',
+      '--noUncheckedSideEffectImports', '--types', '', 'consumer.ts'],
+    { cwd: scratch, encoding: 'utf8' },
+  );
+  const tscOut = (tsc.stdout || tsc.stderr || '').trim();
+  record(tsc.status === 0, `consumer tsc passes on ${cssSpecs.join(' + ')} + named imports`, tsc.status === 0 ? 'clean' : tscOut.split('\n')[0]);
 
   // 8. The old scoped names must be gone. A stale symlink or a leftover dependency entry would let
   // the repo keep working locally while a real consumer gets ERR_MODULE_NOT_FOUND.

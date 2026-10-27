@@ -7,6 +7,7 @@ Every entry names the component it touches, so each component page in the book c
 - Banner: Redrawn from the concept (derivation C, picked by the user): a line written on the pane with a hairline, no box, no stripe and no tinted disc. Tones are glyph shapes, glyph colours and spoken words. Arriving and dismissing open and close its height. onDismiss now runs after the line has closed.
 - Select: First release. The list is a Pane popup drawn from tokens with typeahead and full keyboard support, never the operating system menu.
 - Slider: First release, with a visible label and value, a 44px hit area and a white knob that reads in both themes.
+- Packaging: `pane-react/styles.css` and `pane-tokens/css` now ship type declarations, so `tsc` passes on TypeScript 6 and later, which check side-effect imports by default.
 
 ## 0.1.0 (2026-10-26)
 

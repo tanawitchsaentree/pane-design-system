@@ -144,14 +144,13 @@ try {
   });
   await check('Button', 'reachable with Tab', () => tabTo(page, follow));
   await check('Button', 'Enter and Space activate it', async () => {
-    const night = page.getByRole('button', { name: 'Night café', exact: true });
-    const room = page.getByRole('button', { name: 'Room', exact: true });
-    await tabTo(page, night);
+    // Counted on the real Button, not on a docs control: the scene toggles this used to press became a Select (D-017).
+    await follow.evaluate((el) => { el.dataset.clicks = '0'; el.addEventListener('click', () => { el.dataset.clicks = String(Number(el.dataset.clicks) + 1); }); });
+    await tabTo(page, follow);
     await page.keyboard.press('Enter');
-    await eventually(() => night.getAttribute('aria-pressed'), 'true', 'Enter did not activate');
-    await tabTo(page, room);
+    await eventually(() => follow.getAttribute('data-clicks'), '1', 'Enter did not activate');
     await page.keyboard.press('Space');
-    await eventually(() => room.getAttribute('aria-pressed'), 'true', 'Space did not activate');
+    await eventually(() => follow.getAttribute('data-clicks'), '2', 'Space did not activate');
   });
   await check('Button', 'keyboard focus draws a 2px white ring with a dark halo', async () => {
     await tabTo(page, follow);
@@ -391,13 +390,15 @@ try {
   // --- spacing: no glass card touches or overlaps another, on any page, at phone and desktop width ---
   await check('Docs page', `no two cards touch (under 8px) or overlap on any of the ${ROUTES.length} pages at 375px and 1280px`, async () => {
     const bad = [];
+    let seen = 0;
     for (const w of [375, 1280]) {
       await page.setViewportSize({ width: w, height: 900 });
       for (const r of ROUTES) {
         await go(r);
         const hits = await page.evaluate(() => {
-          const cards = [...document.querySelectorAll('main [data-pane-card="glass"]')].filter((c) => c.getBoundingClientRect().width > 0);
-          const out = cards.length ? [] : ['NO CARDS FOUND, so the selector is broken and nothing was checked'];
+          // Prose pages carry no glass since the opaque shell (D-016), and a Don't example shows touching cards on purpose.
+          const cards = [...document.querySelectorAll('main [data-pane-card="glass"]')].filter((c) => c.getBoundingClientRect().width > 0 && !c.closest('[data-dont]'));
+          const out = [];
           for (let i = 0; i < cards.length; i++) for (let j = i + 1; j < cards.length; j++) {
             const a = cards[i], b = cards[j];
             if (a.contains(b) || b.contains(a)) continue;
@@ -406,13 +407,16 @@ try {
             const gap = Math.max(dx, dy); // negative = overlap
             if (gap < 8) out.push(`${(a.textContent || '').trim().slice(0, 18)} ↔ ${(b.textContent || '').trim().slice(0, 18)} (${Math.round(gap)}px)`);
           }
-          return out;
+          return { out, n: cards.length };
         });
-        for (const h of hits) bad.push(`${w}px ${r}: ${h}`);
+        seen += hits.n;
+        for (const h of hits.out) bad.push(`${w}px ${r}: ${h}`);
       }
     }
     await page.setViewportSize({ width: 1440, height: 900 });
+    expect(seen > 0, 'NO CARDS FOUND on any page, so the selector is broken and nothing was checked');
     expect(bad.length === 0, `${bad.length} — ${bad.slice(0, 4).join(' | ')}`);
+    return `${seen} cards across both widths`;
   });
 
   // --- USER-STANDARDS #5-#8 (docs-engine G-F1, G-C1, G-C2, G-T1, G-B1) ---------------------------
@@ -425,9 +429,12 @@ try {
       if (!(await pg.count())) { bad.push(`${r}: no playground`); continue; }
       const preview = pg.locator('.pg-preview');
       const before = await preview.evaluate((e) => e.outerHTML);
-      const ctl = pg.locator('.pg-controls input, .pg-controls select').first();
-      const kind = await ctl.evaluate((e) => (e.tagName === 'SELECT' ? 'select' : e.type));
-      if (kind === 'select') { const opts = await ctl.evaluate((e) => [...e.options].map((o) => o.value)); const cur = await ctl.inputValue(); await ctl.selectOption(opts.find((o) => o !== cur)); }
+      // Playground controls are Pane's own Select and Slider since D-017; native inputs still count.
+      const ctl = pg.locator('.pg-controls :is(input, select, [role="combobox"], [role="slider"])').first();
+      const kind = await ctl.evaluate((e) => e.getAttribute('role') ?? (e.tagName === 'SELECT' ? 'select' : e.type));
+      if (kind === 'combobox') { await ctl.click(); await page.getByRole('option', { selected: false }).first().click(); }
+      else if (kind === 'slider') { await ctl.focus(); await page.keyboard.press((await ctl.getAttribute('aria-valuenow')) === (await ctl.getAttribute('aria-valuemin')) ? 'End' : 'Home'); }
+      else if (kind === 'select') { const opts = await ctl.evaluate((e) => [...e.options].map((o) => o.value)); const cur = await ctl.inputValue(); await ctl.selectOption(opts.find((o) => o !== cur)); }
       else if (kind === 'range') await ctl.evaluate((e) => { const set = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set; set.call(e, String(Number(e.value) === Number(e.min) ? e.max : e.min)); e.dispatchEvent(new Event('input', { bubbles: true })); });
       else await ctl.fill('pane');
       await page.waitForTimeout(50);
@@ -533,7 +540,9 @@ try {
     let n = 0;
     for (const th of ['dark', 'light']) for (const r of ROUTES) {
       await page.goto(`${srv.base}${r}?scene=room&theme=${th}`, { waitUntil: 'networkidle' });
-      const res = await page.evaluate(() => [...document.querySelectorAll('main select, main input[type="range"], #book-nav select')].map((e) => {
+      const res = await page.evaluate(() => [...document.querySelectorAll('main select, main input[type="range"], #book-nav select, main [role="combobox"], main [role="slider"]')].map((e) => {
+        // Pane's Select and Slider (D-017) draw everything from tokens; a native element behind those roles is the default look back.
+        if (e.matches('[role="combobox"], [role="slider"]')) return e.closest('[data-component="Select"], [data-component="Slider"]') && !e.matches('select, input') ? null : `${e.tagName.toLowerCase()} role=${e.getAttribute('role')} is not a Pane control`;
         const cs = getComputedStyle(e);
         if (cs.appearance !== 'none') return `${e.tagName.toLowerCase()} has appearance ${cs.appearance}`;
         if (e.tagName === 'SELECT' && !e.parentElement.querySelector('.select-chevron')) return 'select without its chevron';

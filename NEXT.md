@@ -11,7 +11,7 @@
 - ขั้นที่ใช้ browser รันที่ `nice -n 19` แล้ว · ห้ามทิ้ง process เบื้องหลังค้างไว้ตอนจบ turn
 
 ## ทำต่อตามลำดับ
-1. `pnpm run verify` → ถ้าเขียว commit WIP crafted controls (G-N1)
+1. ~~commit WIP crafted controls~~ เสร็จแล้ว · 2026-10-27 เย็น: 0.2.0 ผ่าน consumer test + verify:quick 74/74 — `pnpm run verify` เต็ม (glass evidence) ยังไม่ได้รันตั้งแต่ 2d3f2b6 ต้องขอ user ก่อน
 2. **Button ถึงระดับ Carbon** (reference implementation ของ `component-depth.md`):
    - component: เพิ่ม variant `ghost`, `danger`, `danger-ghost` · size `lg` · `loading` (spinner, aria-busy, disabled, คงความกว้าง) · `icon` + `iconPosition` · `fullWidth` · `data-part` (container/label/icon/spinner) · token ใหม่ใน component.json (+ สีแดงสำหรับตัวอักษรบนกระจก dark ต้องวัดก่อน) · CHANGELOG entry · harness + conformance (loading, danger)
    - docs: 4 tab routes `/components/<slug>/{usage,style,code,accessibility}` (routes.json เพิ่ม `tabs`, router + tooling ทุกตัวที่อ่าน routes.json ต้อง expand), header ร่วม (status, last updated, live demo + theme/variant selector)

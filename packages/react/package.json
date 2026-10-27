@@ -1,6 +1,6 @@
 {
   "name": "pane-react",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "type": "module",
   "description": "Pane — spatial glass React components. Load pane-tokens/css and pane-react/styles.css once.",
@@ -11,7 +11,10 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./styles.css": "./dist/styles.css",
+    "./styles.css": {
+      "types": "./styles.css.d.ts",
+      "default": "./dist/styles.css"
+    },
     "./package.json": "./package.json"
   },
   "peerDependencies": {
@@ -35,7 +38,8 @@
   "files": [
     "dist",
     "README.md",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "styles.css.d.ts"
   ],
   "sideEffects": [
     "*.css"
