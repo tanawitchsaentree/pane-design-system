@@ -9,12 +9,33 @@
           "title": "Overview"
         },
         {
+          "path": "/principles",
+          "title": "Principles"
+        }
+      ]
+    },
+    {
+      "title": "Getting started",
+      "pages": [
+        {
           "path": "/getting-started",
           "title": "Getting started"
         },
         {
-          "path": "/principles",
-          "title": "Principles"
+          "path": "/getting-started/designing",
+          "title": "Designing"
+        },
+        {
+          "path": "/getting-started/developing",
+          "title": "Developing"
+        },
+        {
+          "path": "/getting-started/contributing",
+          "title": "Contributing"
+        },
+        {
+          "path": "/getting-started/migrating",
+          "title": "Migrating"
         }
       ]
     },
@@ -60,6 +81,14 @@
         {
           "path": "/foundations/icons",
           "title": "Iconography"
+        },
+        {
+          "path": "/foundations/content",
+          "title": "Content"
+        },
+        {
+          "path": "/foundations/accessibility",
+          "title": "Accessibility"
         }
       ]
     },

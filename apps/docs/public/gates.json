@@ -1,17 +1,11 @@
 {
-  "generatedAt": "2026-10-27T14:15:50.881Z",
-  "passed": 2,
-  "total": 2,
+  "generatedAt": "2026-10-27T14:43:12.187Z",
+  "passed": 1,
+  "total": 1,
   "results": [
     {
-      "id": "G-K6",
-      "name": "usage depth ≥ 0.5 × the Carbon page for the same component (words and sections)",
-      "ok": true,
-      "detail": "Container 480w/24s (no benchmark) · Grid 501w/25s (no benchmark) · Stack 478w/25s (no benchmark) · Environment 529w/25s (no benchmark) · Card 1200/2181w 35/44s · Avatar 784w/30s (no benchmark) · Button 2694/5260w 43/36s · IconButton 921w/29s (no benchmark) · Tabs 1562/3081w 33/33s · Tag 960/1910w 31/27s · Badge 1065w/34s (no benchmark) · Chip 952w/29s (no benchmark) · Banner 1731/2507w 47/34s"
-    },
-    {
-      "id": "G-B1",
-      "name": "every component is shown in every theme over a dark and a bright scene",
+      "id": "G-IA1",
+      "name": "the nav shows the whole catalog (planned items marked) and the required parts and pages",
       "ok": true
     }
   ]

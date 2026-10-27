@@ -25,6 +25,7 @@ import { GridLayoutPage } from './grid-page';
 import { ComponentPage, EVIDENCE_GROUPS, HISTORY, STATUS_LABEL, TABS } from './ComponentPage';
 import { TabRedirect } from './TabRedirect';
 import { PATTERN_DEPTH } from '../patterns/content';
+import { AccessibilityFoundation, ContentFoundation, Contributing, Designing, Developing, Migrating } from './guides';
 import { PatternDepthPage } from '../patterns/PatternDepth';
 import { SCENES } from '../scenes';
 import { PARTS } from './router';
@@ -98,7 +99,7 @@ function Overview() {
 
 function GettingStarted() {
   return (
-    <Page eyebrow="Introduction" title="Getting started" lede={<p>Install the two packages and load the token stylesheet once. Then wrap the screen in an Environment that matches its backdrop and put your content on Cards.</p>}>
+    <Page eyebrow="Getting started" title="Getting started" lede={<p>Install the two packages and load the token stylesheet once. Then wrap the screen in an Environment that matches its backdrop and put your content on Cards.</p>}>
       <Section id="install" title="1 · Install">
         <p>Pane ships as two packages. The tokens package has no dependencies; the React package needs React 18 or newer.</p>
         <div className="pkg-grid">
@@ -803,6 +804,12 @@ function ChangelogPage() {
 export const PAGE_COMPONENTS: Record<string, () => ReactElement> = {
   '/': Overview,
   '/getting-started': GettingStarted,
+  '/getting-started/designing': Designing,
+  '/getting-started/developing': Developing,
+  '/getting-started/contributing': Contributing,
+  '/getting-started/migrating': Migrating,
+  '/foundations/content': ContentFoundation,
+  '/foundations/accessibility': AccessibilityFoundation,
   '/principles': Principles,
   '/foundations/glass': Glass,
   '/foundations/color': ColorPage,

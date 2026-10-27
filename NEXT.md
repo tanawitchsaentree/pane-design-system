@@ -10,7 +10,11 @@
 - ระหว่างทำงานใช้ `pnpm run verify:quick` (ไม่มี glass evidence) · `pnpm run verify` เต็มรันได้เฉพาะเมื่อบอก user ก่อนและ user ตกลง
 - ขั้นที่ใช้ browser รันที่ `nice -n 19` แล้ว · ห้ามทิ้ง process เบื้องหลังค้างไว้ตอนจบ turn
 
-## ทำต่อตามลำดับ
+## ทำต่อตามลำดับ (อัปเดต 2026-10-27 ดึก)
+- ✅ ข้อ 2 (docs ส่วน), 3, 4, 5 เสร็จ: ทุก component 4 tab ถึง Carbon, benchmark 32/32, G-IA1 เขียว
+- ⏳ รอ user: เลือกแบบ form ใน apps/lab/forms (A well / B written / C held) → แล้วสร้าง Input/Textarea/Checkbox/Radio/Switch + Label/FormField/HelperText/Fieldset/InputGroup/PinInput
+- ต่อไป: derivation round ของ Button variant ใหม่ (ghost, danger, danger-ghost, lg, loading, icon, fullWidth) · G-BT1 (หัวข้อจาก 3 ระบบ × 9 หน้า foundation) · derivation round ของ 10 ตัวใน pendingDerivation พร้อมแก้บั๊กใน BACKLOG
+
 1. ~~commit WIP crafted controls~~ เสร็จแล้ว · 2026-10-27 เย็น: 0.2.0 ผ่าน consumer test + verify:quick 74/74 — `pnpm run verify` เต็ม (glass evidence) ยังไม่ได้รันตั้งแต่ 2d3f2b6 ต้องขอ user ก่อน
 2. **Button ถึงระดับ Carbon** (reference implementation ของ `component-depth.md`):
    - component: เพิ่ม variant `ghost`, `danger`, `danger-ghost` · size `lg` · `loading` (spinner, aria-busy, disabled, คงความกว้าง) · `icon` + `iconPosition` · `fullWidth` · `data-part` (container/label/icon/spinner) · token ใหม่ใน component.json (+ สีแดงสำหรับตัวอักษรบนกระจก dark ต้องวัดก่อน) · CHANGELOG entry · harness + conformance (loading, danger)
