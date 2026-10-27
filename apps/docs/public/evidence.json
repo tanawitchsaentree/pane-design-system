@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T05:53:02.576Z",
+  "generatedAt": "2026-10-27T06:26:25.354Z",
   "browser": "chromium 156.0.8078.4",
   "threshold": 4.5,
   "modes": [
@@ -11,6 +11,12 @@
     "dark",
     "light"
   ],
+  "scenes": [
+    "room",
+    "forest",
+    "night",
+    "city"
+  ],
   "harness": {
     "normal": {
       "dark/room": {
@@ -18,7 +24,6 @@
           "texts": 22,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
             "@bymxfmz 12.98",
@@ -31,7 +36,6 @@
           "texts": 11,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
@@ -44,7 +48,6 @@
           "texts": 12,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Beta 4.7",
             "Live 5.02",
@@ -57,7 +60,6 @@
           "texts": 4,
           "worst": 14.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary 14.36",
             "Secondary 14.5",
@@ -69,7 +71,6 @@
           "texts": 3,
           "worst": 14.5,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 14.5",
             "bright 15.67",
@@ -80,7 +81,6 @@
           "texts": 3,
           "worst": 8.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 8.36",
             "07 11.07",
@@ -91,7 +91,6 @@
           "texts": 6,
           "worst": 14.5,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 14.5",
             "Secondary text 14.5",
@@ -106,7 +105,6 @@
           "texts": 22,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
             "@bymxfmz 12.98",
@@ -119,7 +117,6 @@
           "texts": 11,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
@@ -132,7 +129,6 @@
           "texts": 12,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Beta 4.7",
             "Live 5.02",
@@ -145,7 +141,6 @@
           "texts": 4,
           "worst": 14.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary 14.36",
             "Secondary 14.5",
@@ -157,7 +152,6 @@
           "texts": 3,
           "worst": 14.5,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 14.5",
             "bright 15.67",
@@ -168,7 +162,6 @@
           "texts": 3,
           "worst": 8.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 8.36",
             "07 11.07",
@@ -179,7 +172,6 @@
           "texts": 6,
           "worst": 14.5,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 14.5",
             "Secondary text 14.5",
@@ -194,7 +186,6 @@
           "texts": 22,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
             "@bymxfmz 12.98",
@@ -207,7 +198,6 @@
           "texts": 11,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
@@ -220,7 +210,6 @@
           "texts": 12,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Beta 4.7",
             "Live 5.02",
@@ -233,7 +222,6 @@
           "texts": 4,
           "worst": 14.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary 14.36",
             "Secondary 14.5",
@@ -245,7 +233,6 @@
           "texts": 3,
           "worst": 14.5,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 14.5",
             "bright 15.67",
@@ -256,7 +243,6 @@
           "texts": 3,
           "worst": 8.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 8.36",
             "07 11.07",
@@ -267,7 +253,6 @@
           "texts": 6,
           "worst": 14.5,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 14.5",
             "Secondary text 14.5",
@@ -282,7 +267,6 @@
           "texts": 22,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
             "@bymxfmz 12.98",
@@ -295,7 +279,6 @@
           "texts": 11,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
@@ -308,7 +291,6 @@
           "texts": 12,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Beta 4.7",
             "Live 5.02",
@@ -321,7 +303,6 @@
           "texts": 4,
           "worst": 14.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary 14.36",
             "Secondary 14.5",
@@ -333,7 +314,6 @@
           "texts": 3,
           "worst": 14.5,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 14.5",
             "bright 15.67",
@@ -344,7 +324,6 @@
           "texts": 3,
           "worst": 8.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 8.36",
             "07 11.07",
@@ -355,7 +334,6 @@
           "texts": 6,
           "worst": 14.5,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 14.5",
             "Secondary text 14.5",
@@ -370,7 +348,6 @@
           "texts": 22,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
             "@bymxfmz 9.38",
@@ -383,7 +360,6 @@
           "texts": 11,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
@@ -396,7 +372,6 @@
           "texts": 12,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Beta 4.7",
             "Live 5.02",
@@ -409,7 +384,6 @@
           "texts": 4,
           "worst": 9.43,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary 9.43",
             "Secondary 9.43",
@@ -421,7 +395,6 @@
           "texts": 3,
           "worst": 9.43,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 9.43",
             "bright 18.58",
@@ -432,7 +405,6 @@
           "texts": 3,
           "worst": 8.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 8.36",
             "07 11.07",
@@ -443,7 +415,6 @@
           "texts": 6,
           "worst": 9.43,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 9.43",
             "Secondary text 9.43",
@@ -458,7 +429,6 @@
           "texts": 22,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
             "@bymxfmz 9.38",
@@ -471,7 +441,6 @@
           "texts": 11,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
@@ -484,7 +453,6 @@
           "texts": 12,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Beta 4.7",
             "Live 5.02",
@@ -497,7 +465,6 @@
           "texts": 4,
           "worst": 9.43,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary 9.43",
             "Secondary 9.43",
@@ -509,7 +476,6 @@
           "texts": 3,
           "worst": 9.43,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 9.43",
             "bright 18.58",
@@ -520,7 +486,6 @@
           "texts": 3,
           "worst": 8.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 8.36",
             "07 11.07",
@@ -531,7 +496,6 @@
           "texts": 6,
           "worst": 9.43,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 9.43",
             "Secondary text 9.43",
@@ -546,7 +510,6 @@
           "texts": 22,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
             "@bymxfmz 9.38",
@@ -559,7 +522,6 @@
           "texts": 11,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
@@ -572,7 +534,6 @@
           "texts": 12,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Beta 4.7",
             "Live 5.02",
@@ -585,7 +546,6 @@
           "texts": 4,
           "worst": 9.43,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary 9.43",
             "Secondary 9.43",
@@ -597,7 +557,6 @@
           "texts": 3,
           "worst": 9.43,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 9.43",
             "bright 18.58",
@@ -608,7 +567,6 @@
           "texts": 3,
           "worst": 8.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 8.36",
             "07 11.07",
@@ -619,7 +577,6 @@
           "texts": 6,
           "worst": 9.43,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 9.43",
             "Secondary text 9.43",
@@ -634,7 +591,6 @@
           "texts": 22,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
             "@bymxfmz 9.38",
@@ -647,7 +603,6 @@
           "texts": 11,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
@@ -660,7 +615,6 @@
           "texts": 12,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Beta 4.7",
             "Live 5.02",
@@ -673,7 +627,6 @@
           "texts": 4,
           "worst": 9.43,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary 9.43",
             "Secondary 9.43",
@@ -685,7 +638,6 @@
           "texts": 3,
           "worst": 9.43,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 9.43",
             "bright 18.58",
@@ -696,7 +648,6 @@
           "texts": 3,
           "worst": 8.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 8.36",
             "07 11.07",
@@ -707,7 +658,6 @@
           "texts": 6,
           "worst": 9.43,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 9.43",
             "Secondary text 9.43",
@@ -724,7 +674,6 @@
           "texts": 22,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
             "@bymxfmz 10.13",
@@ -737,7 +686,6 @@
           "texts": 11,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
@@ -750,7 +698,6 @@
           "texts": 12,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Beta 4.7",
             "Live 5.02",
@@ -763,7 +710,6 @@
           "texts": 4,
           "worst": 11.04,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary 11.04",
             "Secondary 11.18",
@@ -775,7 +721,6 @@
           "texts": 3,
           "worst": 11.18,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 11.18",
             "bright 11.79",
@@ -786,7 +731,6 @@
           "texts": 3,
           "worst": 8.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 8.36",
             "07 11.07",
@@ -797,7 +741,6 @@
           "texts": 6,
           "worst": 11.18,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 11.18",
             "Secondary text 11.18",
@@ -812,7 +755,6 @@
           "texts": 22,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
             "@bymxfmz 10.13",
@@ -825,7 +767,6 @@
           "texts": 11,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
@@ -838,7 +779,6 @@
           "texts": 12,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Beta 4.7",
             "Live 5.02",
@@ -851,7 +791,6 @@
           "texts": 4,
           "worst": 11.04,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary 11.04",
             "Secondary 11.18",
@@ -863,7 +802,6 @@
           "texts": 3,
           "worst": 11.18,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 11.18",
             "bright 11.79",
@@ -874,7 +812,6 @@
           "texts": 3,
           "worst": 8.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 8.36",
             "07 11.07",
@@ -885,7 +822,6 @@
           "texts": 6,
           "worst": 11.18,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 11.18",
             "Secondary text 11.18",
@@ -900,7 +836,6 @@
           "texts": 22,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
             "@bymxfmz 10.13",
@@ -913,7 +848,6 @@
           "texts": 11,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
@@ -926,7 +860,6 @@
           "texts": 12,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Beta 4.7",
             "Live 5.02",
@@ -939,7 +872,6 @@
           "texts": 4,
           "worst": 11.04,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary 11.04",
             "Secondary 11.18",
@@ -951,7 +883,6 @@
           "texts": 3,
           "worst": 11.18,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 11.18",
             "bright 11.79",
@@ -962,7 +893,6 @@
           "texts": 3,
           "worst": 8.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 8.36",
             "07 11.07",
@@ -973,7 +903,6 @@
           "texts": 6,
           "worst": 11.18,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 11.18",
             "Secondary text 11.18",
@@ -988,7 +917,6 @@
           "texts": 22,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
             "@bymxfmz 10.13",
@@ -1001,7 +929,6 @@
           "texts": 11,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
@@ -1014,7 +941,6 @@
           "texts": 12,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Beta 4.7",
             "Live 5.02",
@@ -1027,7 +953,6 @@
           "texts": 4,
           "worst": 11.04,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary 11.04",
             "Secondary 11.18",
@@ -1039,7 +964,6 @@
           "texts": 3,
           "worst": 11.18,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 11.18",
             "bright 11.79",
@@ -1050,7 +974,6 @@
           "texts": 3,
           "worst": 8.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 8.36",
             "07 11.07",
@@ -1061,7 +984,6 @@
           "texts": 6,
           "worst": 11.18,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 11.18",
             "Secondary text 11.18",
@@ -1076,7 +998,6 @@
           "texts": 22,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
             "Following 8.82",
@@ -1089,7 +1010,6 @@
           "texts": 11,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
@@ -1102,7 +1022,6 @@
           "texts": 12,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Beta 4.7",
             "Live 5.02",
@@ -1115,7 +1034,6 @@
           "texts": 4,
           "worst": 8.82,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary 8.82",
             "Secondary 8.82",
@@ -1127,7 +1045,6 @@
           "texts": 3,
           "worst": 8.82,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 8.82",
             "bright 16.77",
@@ -1138,7 +1055,6 @@
           "texts": 3,
           "worst": 8.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 8.36",
             "07 11.07",
@@ -1149,7 +1065,6 @@
           "texts": 6,
           "worst": 8.82,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 8.82",
             "Secondary text 8.82",
@@ -1164,7 +1079,6 @@
           "texts": 22,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
             "Following 8.82",
@@ -1177,7 +1091,6 @@
           "texts": 11,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
@@ -1190,7 +1103,6 @@
           "texts": 12,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Beta 4.7",
             "Live 5.02",
@@ -1203,7 +1115,6 @@
           "texts": 4,
           "worst": 8.82,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary 8.82",
             "Secondary 8.82",
@@ -1215,7 +1126,6 @@
           "texts": 3,
           "worst": 8.82,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 8.82",
             "bright 16.77",
@@ -1226,7 +1136,6 @@
           "texts": 3,
           "worst": 8.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 8.36",
             "07 11.07",
@@ -1237,7 +1146,6 @@
           "texts": 6,
           "worst": 8.82,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 8.82",
             "Secondary text 8.82",
@@ -1252,7 +1160,6 @@
           "texts": 22,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
             "Following 8.82",
@@ -1265,7 +1172,6 @@
           "texts": 11,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
@@ -1278,7 +1184,6 @@
           "texts": 12,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Beta 4.7",
             "Live 5.02",
@@ -1291,7 +1196,6 @@
           "texts": 4,
           "worst": 8.82,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary 8.82",
             "Secondary 8.82",
@@ -1303,7 +1207,6 @@
           "texts": 3,
           "worst": 8.82,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 8.82",
             "bright 16.77",
@@ -1314,7 +1217,6 @@
           "texts": 3,
           "worst": 8.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 8.36",
             "07 11.07",
@@ -1325,7 +1227,6 @@
           "texts": 6,
           "worst": 8.82,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 8.82",
             "Secondary text 8.82",
@@ -1340,7 +1241,6 @@
           "texts": 22,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
             "Following 8.82",
@@ -1353,7 +1253,6 @@
           "texts": 11,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
@@ -1366,7 +1265,6 @@
           "texts": 12,
           "worst": 4.7,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Beta 4.7",
             "Live 5.02",
@@ -1379,7 +1277,6 @@
           "texts": 4,
           "worst": 8.82,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary 8.82",
             "Secondary 8.82",
@@ -1391,7 +1288,6 @@
           "texts": 3,
           "worst": 8.82,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 8.82",
             "bright 16.77",
@@ -1402,7 +1298,6 @@
           "texts": 3,
           "worst": 8.36,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 8.36",
             "07 11.07",
@@ -1413,7 +1308,6 @@
           "texts": 6,
           "worst": 8.82,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Secondary text 8.82",
             "Secondary text 8.82",
@@ -1430,7 +1324,6 @@
           "texts": 22,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Max Fmz 21",
             "@bymxfmz 21",
@@ -1443,7 +1336,6 @@
           "texts": 11,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Follow 21",
             "Get verified 21",
@@ -1456,7 +1348,6 @@
           "texts": 12,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Draft 21",
             "Beta 21",
@@ -1469,7 +1360,6 @@
           "texts": 4,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Grid cell 21",
             "Secondary 21",
@@ -1481,7 +1371,6 @@
           "texts": 3,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "bright 21",
             "glass 21",
@@ -1492,7 +1381,6 @@
           "texts": 3,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 21",
             "07 21",
@@ -1503,7 +1391,6 @@
           "texts": 6,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "dim 21",
             "glass 21",
@@ -1518,7 +1405,6 @@
           "texts": 22,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Max Fmz 21",
             "@bymxfmz 21",
@@ -1531,7 +1417,6 @@
           "texts": 11,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Follow 21",
             "Get verified 21",
@@ -1544,7 +1429,6 @@
           "texts": 12,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Draft 21",
             "Beta 21",
@@ -1557,7 +1441,6 @@
           "texts": 4,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Grid cell 21",
             "Secondary 21",
@@ -1569,7 +1452,6 @@
           "texts": 3,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "bright 21",
             "glass 21",
@@ -1580,7 +1462,6 @@
           "texts": 3,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 21",
             "07 21",
@@ -1591,7 +1472,6 @@
           "texts": 6,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "dim 21",
             "glass 21",
@@ -1606,7 +1486,6 @@
           "texts": 22,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Max Fmz 21",
             "@bymxfmz 21",
@@ -1619,7 +1498,6 @@
           "texts": 11,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Follow 21",
             "Get verified 21",
@@ -1632,7 +1510,6 @@
           "texts": 12,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Draft 21",
             "Beta 21",
@@ -1645,7 +1522,6 @@
           "texts": 4,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Grid cell 21",
             "Secondary 21",
@@ -1657,7 +1533,6 @@
           "texts": 3,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "bright 21",
             "glass 21",
@@ -1668,7 +1543,6 @@
           "texts": 3,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 21",
             "07 21",
@@ -1679,7 +1553,6 @@
           "texts": 6,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "dim 21",
             "glass 21",
@@ -1694,7 +1567,6 @@
           "texts": 22,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Max Fmz 21",
             "@bymxfmz 21",
@@ -1707,7 +1579,6 @@
           "texts": 11,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Follow 21",
             "Get verified 21",
@@ -1720,7 +1591,6 @@
           "texts": 12,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Draft 21",
             "Beta 21",
@@ -1733,7 +1603,6 @@
           "texts": 4,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Grid cell 21",
             "Secondary 21",
@@ -1745,7 +1614,6 @@
           "texts": 3,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "bright 21",
             "glass 21",
@@ -1756,7 +1624,6 @@
           "texts": 3,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 21",
             "07 21",
@@ -1767,7 +1634,6 @@
           "texts": 6,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "dim 21",
             "glass 21",
@@ -1782,7 +1648,6 @@
           "texts": 22,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Max Fmz 21",
             "@bymxfmz 21",
@@ -1795,7 +1660,6 @@
           "texts": 11,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Follow 21",
             "Get verified 21",
@@ -1808,7 +1672,6 @@
           "texts": 12,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Draft 21",
             "Beta 21",
@@ -1821,7 +1684,6 @@
           "texts": 4,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Grid cell 21",
             "Secondary 21",
@@ -1833,7 +1695,6 @@
           "texts": 3,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "bright 21",
             "glass 21",
@@ -1844,7 +1705,6 @@
           "texts": 3,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 21",
             "07 21",
@@ -1855,7 +1715,6 @@
           "texts": 6,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "dim 21",
             "glass 21",
@@ -1870,7 +1729,6 @@
           "texts": 22,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Max Fmz 21",
             "@bymxfmz 21",
@@ -1883,7 +1741,6 @@
           "texts": 11,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Follow 21",
             "Get verified 21",
@@ -1896,7 +1753,6 @@
           "texts": 12,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Draft 21",
             "Beta 21",
@@ -1909,7 +1765,6 @@
           "texts": 4,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Grid cell 21",
             "Secondary 21",
@@ -1921,7 +1776,6 @@
           "texts": 3,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "bright 21",
             "glass 21",
@@ -1932,7 +1786,6 @@
           "texts": 3,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 21",
             "07 21",
@@ -1943,7 +1796,6 @@
           "texts": 6,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "dim 21",
             "glass 21",
@@ -1958,7 +1810,6 @@
           "texts": 22,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Max Fmz 21",
             "@bymxfmz 21",
@@ -1971,7 +1822,6 @@
           "texts": 11,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Follow 21",
             "Get verified 21",
@@ -1984,7 +1834,6 @@
           "texts": 12,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Draft 21",
             "Beta 21",
@@ -1997,7 +1846,6 @@
           "texts": 4,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Grid cell 21",
             "Secondary 21",
@@ -2009,7 +1857,6 @@
           "texts": 3,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "bright 21",
             "glass 21",
@@ -2020,7 +1867,6 @@
           "texts": 3,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 21",
             "07 21",
@@ -2031,7 +1877,6 @@
           "texts": 6,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "dim 21",
             "glass 21",
@@ -2046,7 +1891,6 @@
           "texts": 22,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Max Fmz 21",
             "@bymxfmz 21",
@@ -2059,7 +1903,6 @@
           "texts": 11,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Follow 21",
             "Get verified 21",
@@ -2072,7 +1915,6 @@
           "texts": 12,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Draft 21",
             "Beta 21",
@@ -2085,7 +1927,6 @@
           "texts": 4,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Grid cell 21",
             "Secondary 21",
@@ -2097,7 +1938,6 @@
           "texts": 3,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "bright 21",
             "glass 21",
@@ -2108,7 +1948,6 @@
           "texts": 3,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "Visual asset 05 21",
             "07 21",
@@ -2119,7 +1958,6 @@
           "texts": 6,
           "worst": 21,
           "failures": 0,
-          "unmeasurable": 0,
           "worstFive": [
             "dim 21",
             "glass 21",
@@ -2134,408 +1972,163 @@
   "docsPage": {
     "normal": {
       "dark/room": {
-        "textElements": 11712,
-        "failures": 4,
-        "pages": 37,
-        "worstFive": []
+        "textElements": 13579,
+        "failures": 2,
+        "pages": 37
       },
       "dark/forest": {
-        "textElements": 11712,
-        "failures": 6,
-        "pages": 37,
-        "worstFive": []
+        "textElements": 13579,
+        "failures": 4,
+        "pages": 37
       },
       "dark/night": {
-        "textElements": 11712,
-        "failures": 2,
-        "pages": 37,
-        "worstFive": []
+        "textElements": 13579,
+        "failures": 0,
+        "pages": 37
       },
       "dark/city": {
-        "textElements": 11712,
-        "failures": 7,
-        "pages": 37,
-        "worstFive": []
+        "textElements": 13579,
+        "failures": 5,
+        "pages": 37
       },
       "light/room": {
-        "textElements": 11712,
-        "failures": 10,
-        "pages": 37,
-        "worstFive": []
+        "textElements": 13579,
+        "failures": 0,
+        "pages": 37
       },
       "light/forest": {
-        "textElements": 11712,
-        "failures": 10,
-        "pages": 37,
-        "worstFive": []
+        "textElements": 13579,
+        "failures": 0,
+        "pages": 37
       },
       "light/night": {
-        "textElements": 11712,
-        "failures": 10,
-        "pages": 37,
-        "worstFive": []
+        "textElements": 13579,
+        "failures": 0,
+        "pages": 37
       },
       "light/city": {
-        "textElements": 11712,
-        "failures": 10,
-        "pages": 37,
-        "worstFive": []
+        "textElements": 13579,
+        "failures": 0,
+        "pages": 37
       }
     },
     "reduced-transparency": {
       "dark/room": {
-        "textElements": 11712,
-        "failures": 4,
-        "pages": 37,
-        "worstFive": []
+        "textElements": 13579,
+        "failures": 2,
+        "pages": 37
       },
       "dark/forest": {
         "textElements": 0,
         "failures": 0,
-        "pages": 0,
-        "worstFive": []
+        "pages": 0
       },
       "dark/night": {
         "textElements": 0,
         "failures": 0,
-        "pages": 0,
-        "worstFive": []
+        "pages": 0
       },
       "dark/city": {
         "textElements": 0,
         "failures": 0,
-        "pages": 0,
-        "worstFive": []
+        "pages": 0
       },
       "light/room": {
-        "textElements": 11712,
-        "failures": 10,
-        "pages": 37,
-        "worstFive": []
+        "textElements": 13579,
+        "failures": 0,
+        "pages": 37
       },
       "light/forest": {
         "textElements": 0,
         "failures": 0,
-        "pages": 0,
-        "worstFive": []
+        "pages": 0
       },
       "light/night": {
         "textElements": 0,
         "failures": 0,
-        "pages": 0,
-        "worstFive": []
+        "pages": 0
       },
       "light/city": {
         "textElements": 0,
         "failures": 0,
-        "pages": 0,
-        "worstFive": []
+        "pages": 0
       }
     },
     "forced-colors": {
       "dark/room": {
-        "textElements": 11705,
-        "failures": 82,
-        "pages": 37,
-        "worstFive": []
+        "textElements": 13556,
+        "failures": 1,
+        "pages": 37
       },
       "dark/forest": {
         "textElements": 0,
         "failures": 0,
-        "pages": 0,
-        "worstFive": []
+        "pages": 0
       },
       "dark/night": {
         "textElements": 0,
         "failures": 0,
-        "pages": 0,
-        "worstFive": []
+        "pages": 0
       },
       "dark/city": {
         "textElements": 0,
         "failures": 0,
-        "pages": 0,
-        "worstFive": []
+        "pages": 0
       },
       "light/room": {
-        "textElements": 11705,
-        "failures": 81,
-        "pages": 37,
-        "worstFive": []
+        "textElements": 13556,
+        "failures": 0,
+        "pages": 37
       },
       "light/forest": {
         "textElements": 0,
         "failures": 0,
-        "pages": 0,
-        "worstFive": []
+        "pages": 0
       },
       "light/night": {
         "textElements": 0,
         "failures": 0,
-        "pages": 0,
-        "worstFive": []
+        "pages": 0
       },
       "light/city": {
         "textElements": 0,
         "failures": 0,
-        "pages": 0,
-        "worstFive": []
+        "pages": 0
       }
     }
   },
   "failures": [
     "[normal] docs /foundations/shape dark/room: \"Pane\" 3.77",
     "[normal] docs /components/container dark/room: \"sm\" 2.33",
-    "[normal] docs /components/banner dark/room: \"Open feed\" 1.02",
-    "[normal] docs /patterns/settings-panel dark/room: \"Save changes\" 1.02",
     "[normal] docs /foundations/shape dark/forest: \"Pane\" 1.96",
     "[normal] docs /components/container dark/forest: \"sm\" 1.36",
     "[normal] docs /components/container dark/forest: \"xl\" 2.47",
     "[normal] docs /components/container dark/forest: \"md\" 2.48",
-    "[normal] docs /components/banner dark/forest: \"Open feed\" 1.02",
-    "[normal] docs /patterns/settings-panel dark/forest: \"Save changes\" 1.02",
-    "[normal] docs /components/banner dark/night: \"Open feed\" 1.02",
-    "[normal] docs /patterns/settings-panel dark/night: \"Save changes\" 1.02",
     "[normal] docs /foundations/shape dark/city: \"Pane\" 1.28",
     "[normal] docs /components/container dark/city: \"sm\" 1.26",
     "[normal] docs /components/container dark/city: \"md\" 1.43",
     "[normal] docs /components/container dark/city: \"lg\" 1.49",
     "[normal] docs /components/container dark/city: \"xl\" 2.95",
-    "[normal] docs /components/banner dark/city: \"Open feed\" 1.02",
-    "[normal] docs /patterns/settings-panel dark/city: \"Save changes\" 1.02",
-    "[normal] docs /components/grid light/room: \"dark\" 1",
-    "[normal] docs /components/grid light/room: \"theme ·\" 1",
-    "[normal] docs /components/grid light/room: \"dark scene\" 1",
-    "[normal] docs /components/grid light/room: \"dark\" 1",
-    "[normal] docs /components/grid light/room: \"theme ·\" 1",
-    "[normal] docs /components/grid light/room: \"bright scene\" 1",
-    "[normal] docs /components/banner light/room: \"Open feed\" 1",
-    "[normal] docs /components/banner light/room: \"Plan: Pro · renews 1 Dec\" 1",
-    "[normal] docs /components/banner light/room: \"Plan: Pro · renews 1 Dec\" 1",
-    "[normal] docs /patterns/settings-panel light/room: \"Save changes\" 1",
-    "[normal] docs /components/grid light/forest: \"dark\" 1",
-    "[normal] docs /components/grid light/forest: \"theme ·\" 1",
-    "[normal] docs /components/grid light/forest: \"dark scene\" 1",
-    "[normal] docs /components/grid light/forest: \"dark\" 1",
-    "[normal] docs /components/grid light/forest: \"theme ·\" 1",
-    "[normal] docs /components/grid light/forest: \"bright scene\" 1",
-    "[normal] docs /components/banner light/forest: \"Open feed\" 1",
-    "[normal] docs /components/banner light/forest: \"Plan: Pro · renews 1 Dec\" 1",
-    "[normal] docs /components/banner light/forest: \"Plan: Pro · renews 1 Dec\" 1",
-    "[normal] docs /patterns/settings-panel light/forest: \"Save changes\" 1",
-    "[normal] docs /components/grid light/night: \"dark\" 1",
-    "[normal] docs /components/grid light/night: \"theme ·\" 1",
-    "[normal] docs /components/grid light/night: \"dark scene\" 1",
-    "[normal] docs /components/grid light/night: \"dark\" 1",
-    "[normal] docs /components/grid light/night: \"theme ·\" 1",
-    "[normal] docs /components/grid light/night: \"bright scene\" 1",
-    "[normal] docs /components/banner light/night: \"Open feed\" 1",
-    "[normal] docs /components/banner light/night: \"Plan: Pro · renews 1 Dec\" 1",
-    "[normal] docs /components/banner light/night: \"Plan: Pro · renews 1 Dec\" 1",
-    "[normal] docs /patterns/settings-panel light/night: \"Save changes\" 1",
-    "[normal] docs /components/grid light/city: \"dark\" 1",
-    "[normal] docs /components/grid light/city: \"theme ·\" 1",
-    "[normal] docs /components/grid light/city: \"dark scene\" 1",
-    "[normal] docs /components/grid light/city: \"dark\" 1",
-    "[normal] docs /components/grid light/city: \"theme ·\" 1",
-    "[normal] docs /components/grid light/city: \"bright scene\" 1",
-    "[normal] docs /components/banner light/city: \"Open feed\" 1",
-    "[normal] docs /components/banner light/city: \"Plan: Pro · renews 1 Dec\" 1",
-    "[normal] docs /components/banner light/city: \"Plan: Pro · renews 1 Dec\" 1",
-    "[normal] docs /patterns/settings-panel light/city: \"Save changes\" 1",
     "[reduced-transparency] docs /foundations/shape dark/room: \"Pane\" 3.77",
     "[reduced-transparency] docs /components/container dark/room: \"sm\" 2.33",
-    "[reduced-transparency] docs /components/banner dark/room: \"Open feed\" 1.02",
-    "[reduced-transparency] docs /patterns/settings-panel dark/room: \"Save changes\" 1.02",
-    "[reduced-transparency] docs /components/grid light/room: \"dark\" 1",
-    "[reduced-transparency] docs /components/grid light/room: \"theme ·\" 1",
-    "[reduced-transparency] docs /components/grid light/room: \"dark scene\" 1",
-    "[reduced-transparency] docs /components/grid light/room: \"dark\" 1",
-    "[reduced-transparency] docs /components/grid light/room: \"theme ·\" 1",
-    "[reduced-transparency] docs /components/grid light/room: \"bright scene\" 1",
-    "[reduced-transparency] docs /components/banner light/room: \"Open feed\" 1",
-    "[reduced-transparency] docs /components/banner light/room: \"Plan: Pro · renews 1 Dec\" 1",
-    "[reduced-transparency] docs /components/banner light/room: \"Plan: Pro · renews 1 Dec\" 1",
-    "[reduced-transparency] docs /patterns/settings-panel light/room: \"Save changes\" 1",
-    "[forced-colors] docs / dark/room: \"Whole screens assembled from the compone\" 1",
-    "[forced-colors] docs / dark/room: \"How every claim in this book is measured\" 1",
-    "[forced-colors] docs / dark/room: \"All tokens, the decision log, the except\" 1",
-    "[forced-colors] docs /principles dark/room: \"Pane can only vouch for contrast on surf\" 1",
-    "[forced-colors] docs /foundations/color dark/room: \"color.shade-a.35\" 1",
-    "[forced-colors] docs /foundations/themes dark/room: \"Switching themes\" 1",
-    "[forced-colors] docs /foundations/typography dark/room: \"Copy\" 1",
-    "[forced-colors] docs /foundations/grid dark/room: \"semantic\" 1",
-    "[forced-colors] docs /foundations/dimensions dark/room: \"Token\" 1",
-    "[forced-colors] docs /foundations/dimensions dark/room: \"Tier\" 1",
-    "[forced-colors] docs /foundations/dimensions dark/room: \"Points at\" 1",
-    "[forced-colors] docs /foundations/dimensions dark/room: \"Resolved value\" 1",
-    "[forced-colors] docs /foundations/dimensions dark/room: \"--ds-size-dot\" 1",
-    "[forced-colors] docs /foundations/dimensions dark/room: \"primitive\" 1",
-    "[forced-colors] docs /foundations/dimensions dark/room: \"—\" 1",
-    "[forced-colors] docs /foundations/dimensions dark/room: \"6px\" 1",
-    "[forced-colors] docs /foundations/dimensions dark/room: \"Copy\" 1",
-    "[forced-colors] docs /foundations/shape dark/room: \"corner.media\" 1",
-    "[forced-colors] docs /foundations/shape dark/room: \"Pane\" 1.14",
-    "[forced-colors] docs /foundations/icons dark/room: \"IconReply\" 1",
-    "[forced-colors] docs /components/container dark/room: \"Generated from the TypeScript source by \" 1",
-    "[forced-colors] docs /components/grid dark/room: \"Limitations\" 1",
-    "[forced-colors] docs /components/stack dark/room: \"In use\" 1",
-    "[forced-colors] docs /components/environment dark/room: \"Anatomy\" 1",
-    "[forced-colors] docs /components/environment dark/room: \"Re-measure with glass-sweep whenever the\" 1",
-    "[forced-colors] docs /components/environment dark/room: \"Copy another app’s level. The number bel\" 1",
-    "[forced-colors] docs /components/environment dark/room: \"Measured contrast\" 1",
-    "[forced-colors] docs /components/card dark/room: \"<Card as=\"section\" aria-labelledby=\"titl\" 1",
-    "[forced-colors] docs /components/card dark/room: \"TSX\" 1",
-    "[forced-colors] docs /components/card dark/room: \"Show all 16 lines\" 1",
-    "[forced-colors] docs /components/card dark/room: \"Copy\" 1",
-    "[forced-colors] docs /components/avatar dark/room: \"Situation\" 1",
-    "[forced-colors] docs /components/avatar dark/room: \"Use instead\" 1",
-    "[forced-colors] docs /components/avatar dark/room: \"inline-size, block-size\" 1",
-    "[forced-colors] docs /components/button dark/room: \"--ds-motion-press\" 1",
-    "[forced-colors] docs /components/button dark/room: \"transform, transition-duration\" 1",
-    "[forced-colors] docs /components/button dark/room: \"duration.quick\" 1",
-    "[forced-colors] docs /components/button dark/room: \"200ms\" 1",
-    "[forced-colors] docs /components/icon-button dark/room: \"variant dimension\" 1",
-    "[forced-colors] docs /components/icon-button dark/room: \"s\" 1",
-    "[forced-colors] docs /components/icon-button dark/room: \": variant, size\" 1",
-    "[forced-colors] docs /components/icon-button dark/room: \"+ 3), computed from its TypeScript props\" 1",
-    "[forced-colors] docs /components/icon-button dark/room: \"import { Avatar, Card, IconButton } from\" 1",
-    "[forced-colors] docs /components/icon-button dark/room: \"--ds-motion-lift\" 1",
-    "[forced-colors] docs /components/icon-button dark/room: \"transform\" 1",
-    "[forced-colors] docs /components/icon-button dark/room: \"distance.lift\" 1",
-    "[forced-colors] docs /components/icon-button dark/room: \"2px\" 1",
-    "[forced-colors] docs /components/tabs dark/room: \"Panel\" 1",
-    "[forced-colors] docs /components/tabs dark/room: \".\" 1",
-    "[forced-colors] docs /components/tabs dark/room: \"tabpanel labelled by its tab; animated e\" 1",
-    "[forced-colors] docs /components/tabs dark/room: \"--ds-tabs-on-fg\" 1",
-    "[forced-colors] docs /components/tag dark/room: \"padding-block\" 1",
-    "[forced-colors] docs /components/badge dark/room: \"Variants, states & compositions\" 1",
-    "[forced-colors] docs /components/badge dark/room: \"Do & don’t\" 1",
-    "[forced-colors] docs /components/chip dark/room: \"Makes it an input chip with a remove but\" 1",
-    "[forced-colors] docs /components/banner dark/room: \"<Banner tone=\"warning\" title=\"Card expir\" 1",
-    "[forced-colors] docs /components/banner dark/room: \"import { useState } from 'react';\nimport\" 1",
-    "[forced-colors] docs /patterns/feed-post dark/room: \"Feed post\" 1",
-    "[forced-colors] docs /patterns/settings-panel dark/room: \"Save changes\" 1",
-    "[forced-colors] docs /patterns/settings-panel dark/room: \"Cancel\" 1",
-    "[forced-colors] docs /accessibility dark/room: \"PASS\" 1",
-    "[forced-colors] docs /accessibility dark/room: \"every button with no visible text, on ev\" 1",
-    "[forced-colors] docs /reference/tokens dark/room: \"--ds-breakpoint-sm\" 1",
-    "[forced-colors] docs /reference/tokens dark/room: \"--ds-surface-solid\" 1",
-    "[forced-colors] docs /reference/tokens dark/room: \"semantic\" 1",
-    "[forced-colors] docs /reference/tokens dark/room: \"color.graphite.solid\" 1",
-    "[forced-colors] docs /reference/tokens dark/room: \"#2C2C34\" 1",
-    "[forced-colors] docs /reference/tokens dark/room: \"--ds-control-avatar-sm\" 1",
-    "[forced-colors] docs /reference/tokens dark/room: \"--ds-type-title\" 1",
-    "[forced-colors] docs /reference/tokens dark/room: \"semantic\" 1",
-    "[forced-colors] docs /reference/tokens dark/room: \"font.size.600\" 1",
-    "[forced-colors] docs /reference/tokens dark/room: \"21px\" 1",
-    "[forced-colors] docs /reference/tokens dark/room: \"component\" 1",
-    "[forced-colors] docs /reference/tokens dark/room: \"--ds-button-height-sm\" 1",
-    "[forced-colors] docs /reference/tokens dark/room: \"component\" 1",
-    "[forced-colors] docs /reference/tokens dark/room: \"control.sm\" 1",
-    "[forced-colors] docs /reference/tokens dark/room: \"32px\" 1",
-    "[forced-colors] docs /reference/tokens dark/room: \"Copy\" 1",
-    "[forced-colors] docs /reference/tokens dark/room: \"component\" 1",
-    "[forced-colors] docs /reference/changelog dark/room: \"0.1.0 (2026-10-26)\" 1",
-    "[forced-colors] docs /reference/status dark/room: \"Accessibility matrix\" 1",
-    "[forced-colors] docs /reference/decisions dark/room: \"D-007: ข้อความ error บนกระจกใช้ red.800 \" 1",
-    "[forced-colors] docs / light/room: \"Whole screens assembled from the compone\" 1",
-    "[forced-colors] docs / light/room: \"How every claim in this book is measured\" 1",
-    "[forced-colors] docs / light/room: \"All tokens, the decision log, the except\" 1",
-    "[forced-colors] docs /principles light/room: \"Pane can only vouch for contrast on surf\" 1",
-    "[forced-colors] docs /foundations/color light/room: \"color.shade-a.35\" 1",
-    "[forced-colors] docs /foundations/themes light/room: \"Switching themes\" 1",
-    "[forced-colors] docs /foundations/typography light/room: \"Copy\" 1",
-    "[forced-colors] docs /foundations/grid light/room: \"semantic\" 1",
-    "[forced-colors] docs /foundations/dimensions light/room: \"Token\" 1",
-    "[forced-colors] docs /foundations/dimensions light/room: \"Tier\" 1",
-    "[forced-colors] docs /foundations/dimensions light/room: \"Points at\" 1",
-    "[forced-colors] docs /foundations/dimensions light/room: \"Resolved value\" 1",
-    "[forced-colors] docs /foundations/dimensions light/room: \"--ds-size-dot\" 1",
-    "[forced-colors] docs /foundations/dimensions light/room: \"primitive\" 1",
-    "[forced-colors] docs /foundations/dimensions light/room: \"—\" 1",
-    "[forced-colors] docs /foundations/dimensions light/room: \"6px\" 1",
-    "[forced-colors] docs /foundations/dimensions light/room: \"Copy\" 1",
-    "[forced-colors] docs /foundations/shape light/room: \"corner.media\" 1",
-    "[forced-colors] docs /foundations/icons light/room: \"IconReply\" 1",
-    "[forced-colors] docs /components/container light/room: \"Generated from the TypeScript source by \" 1",
-    "[forced-colors] docs /components/grid light/room: \"Limitations\" 1",
-    "[forced-colors] docs /components/stack light/room: \"In use\" 1",
-    "[forced-colors] docs /components/environment light/room: \"Anatomy\" 1",
-    "[forced-colors] docs /components/environment light/room: \"Re-measure with glass-sweep whenever the\" 1",
-    "[forced-colors] docs /components/environment light/room: \"Copy another app’s level. The number bel\" 1",
-    "[forced-colors] docs /components/environment light/room: \"Measured contrast\" 1",
-    "[forced-colors] docs /components/card light/room: \"<Card as=\"section\" aria-labelledby=\"titl\" 1",
-    "[forced-colors] docs /components/card light/room: \"TSX\" 1",
-    "[forced-colors] docs /components/card light/room: \"Show all 16 lines\" 1",
-    "[forced-colors] docs /components/card light/room: \"Copy\" 1",
-    "[forced-colors] docs /components/avatar light/room: \"Situation\" 1",
-    "[forced-colors] docs /components/avatar light/room: \"Use instead\" 1",
-    "[forced-colors] docs /components/avatar light/room: \"inline-size, block-size\" 1",
-    "[forced-colors] docs /components/button light/room: \"--ds-motion-press\" 1",
-    "[forced-colors] docs /components/button light/room: \"transform, transition-duration\" 1",
-    "[forced-colors] docs /components/button light/room: \"duration.quick\" 1",
-    "[forced-colors] docs /components/button light/room: \"200ms\" 1",
-    "[forced-colors] docs /components/icon-button light/room: \"variant dimension\" 1",
-    "[forced-colors] docs /components/icon-button light/room: \"s\" 1",
-    "[forced-colors] docs /components/icon-button light/room: \": variant, size\" 1",
-    "[forced-colors] docs /components/icon-button light/room: \"+ 3), computed from its TypeScript props\" 1",
-    "[forced-colors] docs /components/icon-button light/room: \"import { Avatar, Card, IconButton } from\" 1",
-    "[forced-colors] docs /components/icon-button light/room: \"--ds-motion-lift\" 1",
-    "[forced-colors] docs /components/icon-button light/room: \"transform\" 1",
-    "[forced-colors] docs /components/icon-button light/room: \"distance.lift\" 1",
-    "[forced-colors] docs /components/icon-button light/room: \"2px\" 1",
-    "[forced-colors] docs /components/tabs light/room: \"Panel\" 1",
-    "[forced-colors] docs /components/tabs light/room: \".\" 1",
-    "[forced-colors] docs /components/tabs light/room: \"tabpanel labelled by its tab; animated e\" 1",
-    "[forced-colors] docs /components/tabs light/room: \"--ds-tabs-on-fg\" 1",
-    "[forced-colors] docs /components/tag light/room: \"padding-block\" 1",
-    "[forced-colors] docs /components/badge light/room: \"Variants, states & compositions\" 1",
-    "[forced-colors] docs /components/badge light/room: \"Do & don’t\" 1",
-    "[forced-colors] docs /components/chip light/room: \"Makes it an input chip with a remove but\" 1",
-    "[forced-colors] docs /components/banner light/room: \"<Banner tone=\"warning\" title=\"Card expir\" 1",
-    "[forced-colors] docs /components/banner light/room: \"import { useState } from 'react';\nimport\" 1",
-    "[forced-colors] docs /patterns/feed-post light/room: \"Feed post\" 1",
-    "[forced-colors] docs /patterns/settings-panel light/room: \"Save changes\" 1",
-    "[forced-colors] docs /patterns/settings-panel light/room: \"Cancel\" 1",
-    "[forced-colors] docs /accessibility light/room: \"PASS\" 1",
-    "[forced-colors] docs /accessibility light/room: \"every button with no visible text, on ev\" 1",
-    "[forced-colors] docs /reference/tokens light/room: \"--ds-breakpoint-sm\" 1",
-    "[forced-colors] docs /reference/tokens light/room: \"--ds-surface-solid\" 1",
-    "[forced-colors] docs /reference/tokens light/room: \"semantic\" 1",
-    "[forced-colors] docs /reference/tokens light/room: \"color.graphite.solid\" 1",
-    "[forced-colors] docs /reference/tokens light/room: \"#2C2C34\" 1",
-    "[forced-colors] docs /reference/tokens light/room: \"--ds-control-avatar-sm\" 1",
-    "[forced-colors] docs /reference/tokens light/room: \"--ds-type-title\" 1",
-    "[forced-colors] docs /reference/tokens light/room: \"semantic\" 1",
-    "[forced-colors] docs /reference/tokens light/room: \"font.size.600\" 1",
-    "[forced-colors] docs /reference/tokens light/room: \"21px\" 1",
-    "[forced-colors] docs /reference/tokens light/room: \"component\" 1",
-    "[forced-colors] docs /reference/tokens light/room: \"--ds-button-height-sm\" 1",
-    "[forced-colors] docs /reference/tokens light/room: \"component\" 1",
-    "[forced-colors] docs /reference/tokens light/room: \"control.sm\" 1",
-    "[forced-colors] docs /reference/tokens light/room: \"32px\" 1",
-    "[forced-colors] docs /reference/tokens light/room: \"Copy\" 1",
-    "[forced-colors] docs /reference/tokens light/room: \"component\" 1",
-    "[forced-colors] docs /reference/changelog light/room: \"0.1.0 (2026-10-26)\" 1",
-    "[forced-colors] docs /reference/status light/room: \"Accessibility matrix\" 1",
-    "[forced-colors] docs /reference/decisions light/room: \"D-007: ข้อความ error บนกระจกใช้ red.800 \" 1"
+    "[forced-colors] docs /foundations/shape dark/room: \"Pane\" 1.14"
   ],
   "excepted": [
-    "[normal] docs /foundations/shape room: \"Pane\" 3.95",
-    "[normal] docs /components/container room: \"xl\" 4.15",
-    "[normal] docs /components/container room: \"md\" 4.37",
-    "[normal] docs /foundations/shape forest: \"Pane\" 4.12",
-    "[normal] docs /foundations/shape night: \"Pane\" 4.42",
-    "[reduced-transparency] docs /foundations/shape room: \"Pane\" 3.95",
-    "[reduced-transparency] docs /components/container room: \"xl\" 4.15",
-    "[reduced-transparency] docs /components/container room: \"md\" 4.37",
-    "[forced-colors] docs /foundations/shape room: \"Pane\" 4.43"
+    "[normal] docs /foundations/shape light/room: \"Pane\" 3.95",
+    "[normal] docs /components/container light/room: \"xl\" 4.15",
+    "[normal] docs /components/container light/room: \"md\" 4.37",
+    "[normal] docs /foundations/shape light/forest: \"Pane\" 4.12",
+    "[normal] docs /foundations/shape light/night: \"Pane\" 4.42",
+    "[reduced-transparency] docs /foundations/shape light/room: \"Pane\" 3.95",
+    "[reduced-transparency] docs /components/container light/room: \"xl\" 4.15",
+    "[reduced-transparency] docs /components/container light/room: \"md\" 4.37",
+    "[forced-colors] docs /foundations/shape light/room: \"Pane\" 4.43"
   ],
+  "exception": "E-001",
   "exceptionFloor": 3.8,
   "summary": {
-    "gatingChecks": 141778,
-    "gatingFailures": 236,
+    "gatingChecks": 164150,
+    "gatingFailures": 14,
     "excepted": 9,
     "informational": []
   }

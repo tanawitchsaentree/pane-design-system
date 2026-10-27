@@ -29,7 +29,7 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
   const on = selected ?? inner;
   const label = removeLabel ?? (typeof children === 'string' ? children : 'item');
   return (
-    <span className={cx(styles.root, on && styles.on, onRemove && styles.removable, className)}>
+    <span data-component="Chip" className={cx(styles.root, on && styles.on, onRemove && styles.removable, className)}>
       <button
         ref={ref}
         type="button"

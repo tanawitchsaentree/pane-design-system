@@ -13,11 +13,23 @@ const CONCEPT = `# Concept\n\nA fixture system used only to prove the rationale 
 const W = (p, why) => ({ 'kiln.why': { p, why } });
 const TOKENS = { space: { $extensions: W('P1', 'a four pixel step keeps related lines close and separates unrelated groups clearly'), 4: { $value: '16px' } } };
 const CSS = `.root { border-radius: var(--r); transition: transform var(--d); }\n.root:hover { transform: translateY(-1px); }\n.label { color: var(--t); }\n`;
-const WHY = { concept: 'The button is the one action a reader takes after reading, so it stays quiet until needed.', parts: { root: { p: 'P3', why: 'the whole pill is the target so a thumb never misses the action' }, label: { p: 'P1', why: 'the label says the verb so the reader knows what happens before pressing' } }, states: { hover: { p: 'P2', why: 'a small lift confirms the pointer is over the target without pulling the eye away' } }, motion: { transform: { p: 'P2', why: 'the lift settles over a long ease so it reads as a response, not as decoration' } } };
+const LAB = 'apps/lab/button';
+const WHY = { concept: 'The button is the one action a reader takes after reading, so it stays quiet until needed.',
+  default_to_avoid: [{ pattern: 'gradient filled pill with a drop shadow from UI kits', why_not: 'it shouts on every screen and competes with the words the page exists for' }],
+  references: [{ title: 'fixture lineage', source: 'fixture' }],
+  derivation: [
+    { p: 'P1', axis: 'type', consequence: 'one family, weight carries rank', form: 'the label uses the body family and only semibold weight marks it as the action' },
+    { p: 'P2', axis: 'motion', consequence: 'things settle, never snap', form: 'hover lifts by one pixel over a long ease and settles instead of jumping' },
+    { p: 'P3', axis: 'interaction', consequence: 'every target is reachable by touch', form: 'the whole pill is a 44px target so touch never misses it' },
+  ],
+  variants: { lab: LAB, options: ['A', 'B', 'C'], picked: 'B', by: 'user' },
+  parts: { root: { p: 'P3', axis: 'interaction', why: 'the whole pill is the target so a thumb never misses the action' }, label: { p: 'P1', axis: 'type', why: 'the label says the verb so the reader knows what happens before pressing' } },
+  states: { hover: { p: 'P2', axis: 'motion', why: 'a small lift confirms the pointer is over the target without pulling the eye away' } },
+  motion: { transform: { p: 'P2', axis: 'motion', why: 'the lift settles over a long ease so it reads as a response, not as decoration' } } };
 
 function run(mutate) {
   const dir = mkdtempSync(path.join(tmpdir(), 'rationale-'));
-  const files = { 'system/CONCEPT.md': CONCEPT, 'system/kiln.config.json': JSON.stringify({ docs: { componentsDir: 'c' } }), 'packages/tokens/src/primitive.json': JSON.stringify(TOKENS), 'c/Button/Button.module.css': CSS, 'c/Button/Button.why.json': JSON.stringify(WHY) };
+  const files = { 'system/CONCEPT.md': CONCEPT, 'system/kiln.config.json': JSON.stringify({ docs: { componentsDir: 'c' } }), 'packages/tokens/src/primitive.json': JSON.stringify(TOKENS), 'c/Button/Button.module.css': CSS, 'c/Button/Button.why.json': JSON.stringify(WHY), [`${LAB}/index.html`]: '<!doctype html>' };
   mutate?.(files);
   for (const [f, body] of Object.entries(files)) { mkdirSync(path.dirname(path.join(dir, f)), { recursive: true }); if (body != null) writeFileSync(path.join(dir, f), body); }
   const r = spawnSync('node', [TOOL], { env: { ...process.env, KILN_SYSTEM_ROOT: dir }, encoding: 'utf8' });
@@ -34,6 +46,11 @@ const cases = [
   ['transition with no reason', (f) => { f['c/Button/Button.module.css'] = CSS.replace('transition: transform var(--d);', 'transition: transform var(--d), background-color var(--d);'); }, 1, /motion "background-color"/],
   ['state with no reason', (f) => { f['c/Button/Button.module.css'] = CSS + '.root:disabled { opacity: .5; }\n'; }, 1, /states "disabled"/],
   ['stale reason for a part that no longer exists', (f) => { f['c/Button/Button.why.json'] = JSON.stringify({ ...WHY, parts: { ...WHY.parts, ghost: { p: 'P1', why: 'a ghost part that the stylesheet no longer has at all' } } }); }, 1, /stale/],
+  ['derivation that paraphrases instead of quoting the principle', (f) => { const w = structuredClone(WHY); w.derivation[0].consequence = 'weight shows how important things are'; f['c/Button/Button.why.json'] = JSON.stringify(w); }, 1, /must quote the principle/],
+  ['variant picked by the agent, not the user', (f) => { const w = structuredClone(WHY); w.variants.by = 'agent'; f['c/Button/Button.why.json'] = JSON.stringify(w); }, 1, /the user picks the variant/],
+  ['no generic default named', (f) => { const w = structuredClone(WHY); w.default_to_avoid = []; f['c/Button/Button.why.json'] = JSON.stringify(w); }, 1, /generic default it avoids/],
+  ['reason on an axis the principle does not touch', (f) => { const w = structuredClone(WHY); f['system/CONCEPT.md'] = CONCEPT.replace(/interaction: every target is reachable by touch\./g, 'interaction: not affected.'); f['c/Button/Button.why.json'] = JSON.stringify(w); }, 1, /says nothing about interaction/],
+  ['pending component is reported, not failed', (f) => { f['system/kiln.config.json'] = JSON.stringify({ docs: { componentsDir: 'c', rationale: { pendingDerivation: ['Button'] } } }); f['c/Button/Button.why.json'] = JSON.stringify({ ...WHY, derivation: [], variants: {} }); }, 0, /awaiting its derivation round/],
   ['component without a why file', (f) => { f['c/Button/Button.why.json'] = null; }, 1, /no Button.why.json/],
 ];
 let failed = 0;

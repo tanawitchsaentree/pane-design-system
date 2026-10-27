@@ -10,5 +10,5 @@ export interface TagProps extends HTMLAttributes<HTMLSpanElement> {
 
 /** Outlined small-caps label — for categorising content (asset 05, trending), not for status. */
 export const Tag = forwardRef<HTMLSpanElement, TagProps>(function Tag({ className, ...rest }, ref) {
-  return <span ref={ref} className={cx(styles.root, className)} {...rest} />;
+  return <span ref={ref} data-component="Tag" className={cx(styles.root, className)} {...rest} />;
 });

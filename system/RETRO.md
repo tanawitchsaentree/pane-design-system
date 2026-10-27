@@ -1,0 +1,35 @@
+# RETRO — what the user caught, and which step made it
+
+One entry per criticism. The fix is a change to the step that produced the result, not only a new check.
+
+### R-001: Banner is AI slop
+- **Date:** 2026-10-27
+- **User said:** "banner นี่แม่งวิ่งเข้าหา ai slop เต็มๆ … แม่งวิ่งไปหา design เหี้ยๆ แบบนี้ทุกรอบ"
+- **What was wrong:** an accent stripe on the start edge, a tinted icon disc, a bold title over muted text: Carbon's inline notification with glass on top. Nothing in it came from the concept.
+- **Step that produced it:** component creation. After the one anchor round, every component started from "what pattern libraries do" and got tokens applied; reasons were written afterwards and explained the habit.
+- **What changed in that step:** kiln `references/derivation.md`: default to avoid → lineage reference → derivation quoting the principles → three variants → user pick → code. The derivation-guard hook blocks component CSS/TSX before that.
+- **Check that now catches it:** rationale derivation checks (selftest 15/15), G-X1 (flags this banner's stripe and icon disc).
+
+### R-002: dropdown, slider and flyout were not designed
+- **Date:** 2026-10-27
+- **User said:** "dropdown flyout ก็ไม่ทำ ไปเอาของระบบมาเฉย" · "slider นี้คือส่วนนึงของ design system หรือยังไง"
+- **What was wrong:** the docs needed controls, so they were made on the spot: first native and docs-only CSS, then Radix defaults with a white iOS knob.
+- **Step that produced it:** docs controls were treated as plumbing, outside the component pipeline.
+- **What changed in that step:** controls the docs need are system components and go through derivation like any other (Select and Slider are in rationale.pendingDerivation).
+- **Check that now catches it:** G-N1 (system components only), derivation-guard.
+
+### R-003: the docs wore the system's look
+- **Date:** 2026-10-27
+- **User said:** "กูไม่ชอบ layout แบบ glass เลยวะ … มันค่อยไปโชว์ใน foundation, component, pattern"
+- **What was wrong:** the reading layout was built out of glass panes over a photo.
+- **Step that produced it:** the docs shell was designed as a showcase of the system instead of a reading tool.
+- **What changed in that step:** D-016, plain opaque chrome; the system appears on demo stages only (standard #15).
+- **Check that now catches it:** G-SH1.
+
+### R-004: text hard to read, slow, out-of-step loading, links look like labels
+- **Date:** 2026-10-27
+- **User said:** "typo มองยาก โหลดช้ามาก … จังหวะการโหลดไม่พร้อมกัน … ตรงที่คลิกได้กับคลิกไม่ได้ มองแทบไม่ออก"
+- **What was wrong:** 15px text, 85+ character lines, theme set after first paint, verification data fetched after mount, 0.3–0.7 MB photos, nav links and part titles alike.
+- **Step that produced it:** the docs shell had no reading, loading or affordance requirements at build time.
+- **What changed in that step:** reading size and measure tokens; theme before paint; bundled data; WebP and small variants.
+- **Check that now catches it:** G-R1, G-PF1, G-PF2, G-A1.

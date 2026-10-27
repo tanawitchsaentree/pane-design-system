@@ -1,6 +1,6 @@
 // text-contrast — worst-pixel WCAG contrast for every visible text node on a page, read from the
 // real rendered pixels (after backdrop-filter, gradients, images — whatever is actually behind it).
-// Shared by glass-evidence (harness + docs page) and anchor-evidence (lab anchor round).
+// Shared by tooling/engine/evidence.mjs (harness + docs pages) and the lab anchor round.
 import { PNG } from 'pngjs';
 
 export const lin = (c) => ((c /= 255) <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
@@ -52,6 +52,11 @@ export async function measurePageText(page, threshold = 4.5) {
     // red fill back in forced-colors mode and measure a colour pair no reader ever sees).
     const nodes = [];
     for (let n = walker.nextNode(); n; n = walker.nextNode()) nodes.push(n);
+    // Text sliding under a sticky or fixed bar (top bar, bottom bar) is covered there; its pixels belong
+    // to the bar, not to the text's background. Every box is clipped to the band the bars leave visible.
+    const barEls = [...document.querySelectorAll('body *')].filter((e) => { const cs = getComputedStyle(e); if (!(cs.position === 'fixed' || cs.position === 'sticky') || cs.visibility === 'hidden') return false; const b = e.getBoundingClientRect(); return b.width > innerWidth * 0.5 && b.height > 0 && b.height < innerHeight * 0.5; });
+    const bars = barEls.map((e) => e.getBoundingClientRect());
+    const band = { left: 0, right: innerWidth, top: Math.max(0, ...bars.filter((b) => b.top <= 1).map((b) => b.bottom)), bottom: Math.min(innerHeight, ...bars.filter((b) => b.bottom >= innerHeight - 1).map((b) => b.top)) };
     for (const n of nodes) {
       const parent = n.parentElement;
       if (!n.textContent.trim() || !parent || parent.closest('[aria-hidden="true"], .skip, script, style, title, :disabled, [aria-disabled="true"]')) continue; // disabled controls are exempt (WCAG 1.4.3, inactive user interface components)
@@ -80,6 +85,7 @@ export async function measurePageText(page, threshold = 4.5) {
         const left = Math.max(c.left, k.left), top = Math.max(c.top, k.top), right = Math.min(c.right, k.right), bottom = Math.min(c.bottom, k.bottom);
         return { left, top, right, bottom, width: Math.max(0, right - left), height: Math.max(0, bottom - top) };
       }, { left: r.left, top: r.top, right: r.right, bottom: r.bottom, width: r.width, height: r.height });
+      if (!barEls.some((e) => e.contains(span))) clips.push(band); // the bar's own text is measured in full
       const rects = [...span.getClientRects()].map(clip).filter((r) => {
         if (!(r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight)) return false;
         const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);

@@ -11,5 +11,5 @@ export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
 
 /** Centres content at a maximum width with the responsive page margin (16 → 32 → 48px). */
 export const Container = forwardRef<HTMLDivElement, ContainerProps>(function Container({ size = 'xl', className, ...rest }, ref) {
-  return <div ref={ref} className={cx(styles.root, styles[`s-${size}`], className)} {...rest} />;
+  return <div ref={ref} data-component="Container" className={cx(styles.root, styles[`s-${size}`], className)} {...rest} />;
 });

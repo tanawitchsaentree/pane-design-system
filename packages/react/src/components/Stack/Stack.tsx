@@ -15,5 +15,5 @@ export interface StackProps extends HTMLAttributes<HTMLDivElement> {
 
 /** One-dimensional layout with a token gap — the spacing between things, never margins on the things. */
 export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack({ direction = 'column', gap = 'md', align = 'stretch', className, ...rest }, ref) {
-  return <div ref={ref} className={cx(styles.root, styles[direction], styles[`g-${gap}`], styles[`a-${align}`], className)} {...rest} />;
+  return <div ref={ref} data-component="Stack" className={cx(styles.root, styles[direction], styles[`g-${gap}`], styles[`a-${align}`], className)} {...rest} />;
 });

@@ -10,7 +10,7 @@ export interface GridProps extends HTMLAttributes<HTMLDivElement> {
 /** Responsive column grid. Columns, gutter and breakpoints all come from the layout tokens. */
 export const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid({ columns, className, style, ...rest }, ref) {
   const s = columns ? ({ ...style, '--ds-grid-columns': columns } as CSSProperties) : style;
-  return <div ref={ref} className={cx(styles.root, className)} style={s} {...rest} />;
+  return <div ref={ref} data-component="Grid" className={cx(styles.root, className)} style={s} {...rest} />;
 });
 
 export type GridSpan = number | 'full';

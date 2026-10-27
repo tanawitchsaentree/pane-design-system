@@ -9,7 +9,7 @@ import styles from './Tabs.module.css';
 export const TabsRoot = RT.Root;
 
 export const TabsList = forwardRef<ElementRef<typeof RT.List>, ComponentPropsWithoutRef<typeof RT.List>>(function TabsList({ className, ...rest }, ref) {
-  return <RT.List ref={ref} className={cx(styles.list, className)} {...rest} />;
+  return <RT.List ref={ref} data-component="Tabs" className={cx(styles.list, className)} {...rest} />;
 });
 
 export const TabsTrigger = forwardRef<ElementRef<typeof RT.Trigger>, ComponentPropsWithoutRef<typeof RT.Trigger>>(function TabsTrigger({ className, ...rest }, ref) {

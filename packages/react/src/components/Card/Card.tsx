@@ -13,7 +13,7 @@ export interface CardProps extends HTMLAttributes<HTMLElement> {
 
 export const Card = forwardRef<HTMLElement, CardProps>(function Card({ variant = 'glass', as: Tag = 'article', className, ...rest }, ref) {
   // data-pane-card is a stable hook (class names are hashed) for tests and for consumers' own CSS
-  return <Tag ref={ref as never} data-pane-card={variant} className={cx(styles.root, styles[variant], className)} {...rest} />;
+  return <Tag ref={ref as never} data-pane-card={variant} data-component="Card" className={cx(styles.root, styles[variant], className)} {...rest} />;
 });
 
 export interface CardCoverProps extends HTMLAttributes<HTMLDivElement> {

@@ -37,7 +37,7 @@ export const Banner = forwardRef<HTMLElement, BannerProps>(function Banner(
 ) {
   const role = live === 'assertive' ? 'alert' : live === 'polite' ? 'status' : undefined;
   return (
-    <section ref={ref} className={cx(styles.root, styles[tone], className)} role={role} aria-label={role ? undefined : TONE_LABEL[tone]} {...rest}>
+    <section ref={ref} data-component="Banner" className={cx(styles.root, styles[tone], className)} role={role} aria-label={role ? undefined : TONE_LABEL[tone]} {...rest}>
       <span className={styles.icon} aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">{ICONS[tone]}</svg>
       </span>

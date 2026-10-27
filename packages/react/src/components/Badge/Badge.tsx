@@ -16,7 +16,7 @@ export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
 /** A short status label: a count, a state, a version. Not interactive. */
 export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(function Badge({ tone = 'neutral', dot = false, className, children, ...rest }, ref) {
   return (
-    <span ref={ref} className={cx(styles.root, styles[tone], className)} {...rest}>
+    <span ref={ref} data-component="Badge" className={cx(styles.root, styles[tone], className)} {...rest}>
       {dot && <span className={styles.dot} aria-hidden="true" />}
       {children}
     </span>

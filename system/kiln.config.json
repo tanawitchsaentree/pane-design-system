@@ -93,6 +93,22 @@
       ]
     },
     "catalog": "../kiln/docs/CATALOG.md",
-    "benchmark": "../kiln/marketplace/plugins/kiln/skills/docs-engine/benchmarks/carbon-depth.json"
+    "benchmark": "../kiln/marketplace/plugins/kiln/skills/docs-engine/benchmarks/carbon-depth.json",
+    "rationale": {
+      "pendingDerivation": [
+        "Avatar",
+        "Badge",
+        "Banner",
+        "Button",
+        "Card",
+        "Chip",
+        "IconButton",
+        "Select",
+        "Slider",
+        "Tabs",
+        "Tag"
+      ],
+      "$comment": "components built before references/derivation.md; each leaves this list only by going through a derivation round with a user pick. The list may only shrink."
+    }
   }
 }

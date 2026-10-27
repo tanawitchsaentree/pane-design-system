@@ -205,7 +205,7 @@ export function ShapePlayground() {
         <Select label="Corner" value={corner} options={corners.map(([p, t]) => [p, `${p} · ${t.value}`])} onChange={setCorner} />
         <Select label="Shadow" value={shadow} options={elev.map(([p]) => [p, p])} onChange={setShadow} />
       </>}
-      preview={<div className="pg-shape" style={{ borderRadius: `var(${TOKENS[corner].css})`, boxShadow: `var(${TOKENS[shadow].css})` }}>Pane</div>}
+      preview={<Card as="div" className="pg-shape" style={{ borderRadius: `var(${TOKENS[corner].css})`, boxShadow: `var(${TOKENS[shadow].css})` }}>Pane</Card>}
       code={`border-radius: var(${TOKENS[corner].css});\nbox-shadow: var(${TOKENS[shadow].css});`}
     />
   );

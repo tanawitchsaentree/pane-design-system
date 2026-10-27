@@ -17,5 +17,5 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(functio
   { variant = 'glass', size = 'md', type = 'button', className, ...rest },
   ref,
 ) {
-  return <button ref={ref} type={type} className={cx(styles.root, styles[variant], styles[size], className)} {...rest} />;
+  return <button ref={ref} type={type} data-component="IconButton" className={cx(styles.root, styles[variant], styles[size], className)} {...rest} />;
 });

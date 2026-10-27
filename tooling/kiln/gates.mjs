@@ -9,12 +9,13 @@
 //   chrome       G-SH1 plain opaque shell; the system's look lives in demo stages only
 //   foundations  G-F1 G-N1                          themes      G-T1
 //   components   G-K1–G-K8 G-B1 G-L1 demo floor     reference   G-M1 G-IA1      a11y  axe ×2
+//   identity     G-X1 habitual patterns (accent stripe, icon-disc alert) need a derivation that justifies them
 //   reasons      G-W1 (Why column, component reasons section; data from rationale.mjs)
 //
 // Usage: node tooling/engine/gates.mjs [--only G-K2,G-K3] [--report]
 //   --report  also writes system/reports/docs-audit-{date}.md, a ranked punch list
 // Writes <app>/public/gates.json. Exit 1 on any failed gate.
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
@@ -553,6 +554,54 @@ try {
     }
     fail(bad, 'gaps');
     return `${cells} token rows with reasons`;
+  });
+
+  // ------------------------------------------------------------------ generic patterns (AI slop)
+  // Shapes every pattern library ships and every model reaches for first. Finding one is not wrong in
+  // itself; finding one the component's derivation does not name and justify (why.json
+  // allowed_patterns) means the form came from habit, not from the concept.
+  const WHY = {};
+  const compDir = C.abs(C.componentsDir);
+  if (existsSync(compDir)) for (const n of readdirSync(compDir)) { const f = path.join(compDir, n, `${n}.why.json`); if (existsSync(f)) WHY[n] = JSON.parse(readFileSync(f, 'utf8')); }
+  await gate('G-X1', 'no habitual pattern (accent stripe, tinted icon disc with bold title and muted body) unless the derivation names and justifies it', async () => {
+    const bad = [];
+    for (const theme of C.themes.slice(0, 1)) for (const r of ROUTES) {
+      await go(r, { theme });
+      const hits = await page.evaluate(() => {
+        const out = [];
+        const rgb = (c) => (c.match(/[\d.]+/g) ?? []).map(Number);
+        const tinted = (c) => { const [r, g, b, a = 1] = rgb(c); if (a < 0.3) return false; const mx = Math.max(r, g, b), mn = Math.min(r, g, b); return mx > 0 && (mx - mn) / mx > 0.35; };
+        const owner = (e) => e.closest('[data-component]')?.dataset.component ?? 'docs chrome';
+        for (const e of document.querySelectorAll('main *, nav *, header *')) {
+          const cs = getComputedStyle(e); const box = e.getBoundingClientRect();
+          const big = box.width >= 40 && box.height >= 24;
+          // accent stripe: a thick coloured edge on the start side only (border, inset shadow, or a pseudo-element bar)
+          const bs = parseFloat(cs.borderInlineStartWidth), be = parseFloat(cs.borderInlineEndWidth);
+          if (big && bs >= 3 && be <= 1 && tinted(cs.borderInlineStartColor)) out.push({ kind: 'accent-stripe', owner: owner(e) });
+          if (big && /inset\s+[3-9]px\s+0(px)?\s+0/.test(cs.boxShadow) || /rgba?\([^)]*\)\s+[3-9]px\s+0px\s+0px\s+0px\s+inset/.test(cs.boxShadow)) out.push({ kind: 'accent-stripe', owner: owner(e) });
+          if (big) for (const pseudo of ['::before', '::after']) {
+            const p = getComputedStyle(e, pseudo);
+            if (p.content === 'none' || p.position !== 'absolute') continue;
+            const w = parseFloat(p.width), h = parseFloat(p.height);
+            if (w > 0 && w <= 8 && (h >= box.height * 0.6 || p.insetBlock === '0px' || (p.top === '0px' && p.bottom === '0px')) && (p.backgroundColor !== 'rgba(0, 0, 0, 0)' || p.backgroundImage !== 'none')) out.push({ kind: 'accent-stripe', owner: owner(e) });
+          }
+          // the alert trope: a small tinted disc with an icon, beside a bold title over muted text
+          const r = parseFloat(cs.borderTopLeftRadius);
+          if (box.width >= 20 && box.width <= 48 && Math.abs(box.width - box.height) < 2 && r >= box.width / 2 - 1 && tinted(cs.backgroundColor) && e.querySelector('svg')) {
+            const sib = e.nextElementSibling;
+            const texts = sib ? [...sib.querySelectorAll('*')].filter((x) => x.childElementCount === 0 && x.textContent.trim()) : [];
+            const weights = texts.map((x) => Number(getComputedStyle(x).fontWeight));
+            if (weights.some((w) => w >= 600) && weights.some((w) => w < 600)) out.push({ kind: 'icon-disc-alert', owner: owner(e) });
+          }
+        }
+        return out;
+      });
+      for (const h of hits) {
+        const ok = WHY[h.owner]?.allowed_patterns?.[h.kind] && String(WHY[h.owner].allowed_patterns[h.kind]).split(/\s+/).length >= 12;
+        if (!ok) bad.push(`${r}: ${h.kind} in ${h.owner}`);
+      }
+    }
+    fail([...new Set(bad)], 'habitual patterns');
   });
 
   // ------------------------------------------------------------------ reference

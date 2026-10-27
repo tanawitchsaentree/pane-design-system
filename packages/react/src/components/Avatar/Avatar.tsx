@@ -24,7 +24,7 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
 ) {
   const a11y = decorative ? { 'aria-hidden': true as const } : { role: 'img', 'aria-label': name };
   return (
-    <span ref={ref} className={cx(styles.root, styles[size], className)} {...a11y} {...rest}>
+    <span ref={ref} data-component="Avatar" className={cx(styles.root, styles[size], className)} {...a11y} {...rest}>
       {src ? <img className={styles.img} src={src} alt="" /> : <span className={styles.initials} aria-hidden="true">{initials(name)}</span>}
     </span>
   );
