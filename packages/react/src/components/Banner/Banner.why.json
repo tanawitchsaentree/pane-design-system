@@ -1,5 +1,63 @@
 {
   "concept": "A banner is a message placed on a pane: its tone is shown by a bar, an icon and words, and it arrives the way objects settle.",
+  "default_to_avoid": [
+    {
+      "pattern": "start-edge accent stripe, tinted icon disc, bold title over muted body, a box inside the pane (Carbon inline notification, Material banner, every admin template)",
+      "why_not": "it treats a floating pane as a page and the message as a form error, adds a second surface inside one sheet of glass, and paints the tone in colour the scene should own"
+    }
+  ],
+  "references": [
+    {
+      "title": "visionOS HIG · Ornaments",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/ornaments"
+    },
+    {
+      "title": "visionOS HIG · Alerts",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/alerts"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "a soft shadow below and a rim of light on the top-left edge say where the pane floats",
+      "form": "a message that needs attention is its own object with its own shadow and rim, placed relative to the pane it is about"
+    },
+    {
+      "p": "P3",
+      "axis": "motion",
+      "consequence": "panes enter by rising a short distance and settling, as an object placed in space would",
+      "form": "the message arrives by rising a few pixels and settling instead of fading in place"
+    },
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns almost no colour of its own",
+      "form": "no tinted fill or stripe; the tone colour appears only on a small glyph"
+    },
+    {
+      "p": "P6",
+      "axis": "colour",
+      "consequence": "status is spoken in text as well as shown in colour",
+      "form": "each tone has its own glyph shape and the tone is spoken as a word before the message"
+    },
+    {
+      "p": "P5",
+      "axis": "space",
+      "consequence": "the loud action sits apart from secondary ones, never between them",
+      "form": "a message action sits at the far end of the message, never inline with the pane own actions"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/banner/",
+    "options": [
+      "A ornament",
+      "B stacked sheet",
+      "C line on the pane"
+    ],
+    "picked": null,
+    "by": null
+  },
   "parts": {
     "root": {
       "p": "P2",
