@@ -817,5 +817,57 @@
         "why": "breakpoints by role, used only for layout changes, never to hide content"
       }
     }
+  },
+  "field": {
+    "$type": "color",
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1",
+          "P3"
+        ],
+        "why": "a neutral backdrop for when there is no scene to show, such as diagrams and layout demos: a faint gradient for the glass to blur and fine construction lines that show the grid the panes sit on"
+      }
+    },
+    "base": {
+      "$value": "{color.graphite.950}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.paper.50}"
+        }
+      }
+    },
+    "glow": {
+      "$value": "{color.blue-a.22}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.blue-a.10}"
+        }
+      }
+    },
+    "glow-soft": {
+      "$value": "{color.white-a.06}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.70}"
+        }
+      }
+    },
+    "line": {
+      "$value": "{color.white-a.05}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.06}"
+        }
+      }
+    },
+    "line-major": {
+      "$value": "{color.white-a.08}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.08}"
+        }
+      }
+    }
   }
 }

@@ -617,6 +617,8 @@ try {
     const bad = []; let n = 0;
     const routesFor = Object.entries(map);
     expect(routesFor.length, 'NO PAGES MAPPED to benchmark topics (docs.benchmarkTopics)');
+    // every foundation page needs a topic list; a page without one is exactly where gaps hide
+    for (const r of ROUTES.filter((x) => x.startsWith(`${C.foundationsBase}/`) && !(x in map))) bad.push(`${r}: no benchmark topic list yet (docs.benchmarkTopics)`);
     for (const [route, name] of routesFor) {
       const f = path.join(dir, `${name}.json`);
       if (!existsSync(f)) { bad.push(`${route}: no topic list ${name}.json`); continue; }

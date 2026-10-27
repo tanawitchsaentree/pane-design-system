@@ -12,7 +12,7 @@
         var pref = q.get('theme') || localStorage.getItem('pane-theme') || 'system';
         var theme = pref === 'system' ? (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark') : pref;
         var colors = __SCENE_COLORS__;
-        var scene = colors[q.get('scene')] ? q.get('scene') : 'room';
+        var scene = colors[q.get('scene')] ? q.get('scene') : 'room'; // field has no photo to preload
         document.documentElement.dataset.theme = theme;
         var l = document.createElement('link'); l.rel = 'preload'; l.as = 'image'; l.href = '/scenes/' + scene + '.webp'; l.type = 'image/webp'; l.fetchPriority = 'high';
         document.head.appendChild(l);

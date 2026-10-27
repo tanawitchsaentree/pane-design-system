@@ -51,7 +51,7 @@ function AnatomyPicker() {
   return (
     <Stack gap="lg">
       <div className="gx-pick"><Select label="Breakpoint" size="sm" value={id} onValueChange={(v) => setId(v as BP['id'])} options={BPS.map((b) => ({ value: b.id, label: `${b.label} · ${b.columns} columns` }))} /></div>
-      <Stage className="gx-stage"><Anatomy bp={bp} /></Stage>
+      <Stage className="gx-stage" backdrop="field"><Anatomy bp={bp} /></Stage>
     </Stack>
   );
 }
@@ -63,7 +63,7 @@ const SPLITS: Array<[string, number[], number?]> = [
 ];
 function SpanGallery() {
   return (
-    <Stage className="gx-stage">
+    <Stage className="gx-stage" backdrop="field">
       <div className="gx-spans">
         {SPLITS.map(([name, spans, offset]) => (
           <div key={name} className="gx-span-row">
@@ -81,7 +81,7 @@ function SpanGallery() {
 // ---------- regions: a whole Pane screen with its regions numbered ----------
 function Regions({ keyLines = false }: { keyLines?: boolean }) {
   return (
-    <Stage className="gx-stage">
+    <Stage className="gx-stage" backdrop="field">
       <div className={`gx-app${keyLines ? ' lines' : ''}`} role="img" aria-label="A Pane screen: top bar, side rail, panes on the grid, an ornament and a menu floating above">
         <div className="gx-r top"><span className="gx-n">1</span>Top bar</div>
         <div className="gx-r gx-rail"><span className="gx-n">2</span>Side rail</div>
@@ -104,8 +104,8 @@ function Pair({ title, doLabel, dontLabel, good, bad }: { title: string; doLabel
     <div className="gx-pair">
       <h3>{title}</h3>
       <div className="gx-pair-row">
-        <figure className="gx-pair-cell" data-do=""><Stage className="gx-mini">{good}</Stage><figcaption><b>Do.</b> {doLabel}</figcaption></figure>
-        <figure className="gx-pair-cell" data-dont=""><Stage className="gx-mini">{bad}</Stage><figcaption><b>Don’t.</b> {dontLabel}</figcaption></figure>
+        <figure className="gx-pair-cell" data-do=""><Stage className="gx-mini" backdrop="field">{good}</Stage><figcaption><b>Do.</b> {doLabel}</figcaption></figure>
+        <figure className="gx-pair-cell" data-dont=""><Stage className="gx-mini" backdrop="field">{bad}</Stage><figcaption><b>Don’t.</b> {dontLabel}</figcaption></figure>
       </div>
     </div>
   );

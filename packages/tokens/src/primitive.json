@@ -57,6 +57,9 @@
           "p": "P1",
           "why": "white at fixed opacities is how glass, rims, rings and dividers are made: light on top of the scene, never a paint that hides it"
         }
+      },
+      "05": {
+        "$value": "#FFFFFF0D"
       }
     },
     "graphite": {
@@ -212,6 +215,9 @@
           "p": "P1",
           "why": "ink at fixed opacities builds the light theme the same way white builds the dark one: rings, dividers and secondary text over a lifted scene"
         }
+      },
+      "06": {
+        "$value": "#1112140F"
       }
     },
     "paper": {
@@ -241,6 +247,20 @@
       "kiln.why": {
         "p": "P1",
         "why": "the system owns almost no colour because the scene behind the glass supplies the hue; white is the base every translucent layer is made of"
+      }
+    },
+    "blue-a": {
+      "$extensions": {
+        "kiln.why": {
+          "p": "P1",
+          "why": "the accent blue at low opacity, the only tint a plain field is allowed, so a field stays almost colourless and the scene keeps the colour"
+        }
+      },
+      "10": {
+        "$value": "#0071E31A"
+      },
+      "22": {
+        "$value": "#0071E338"
       }
     }
   },

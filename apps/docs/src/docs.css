@@ -437,3 +437,21 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .gx-read { inline-size: 100%; } .gx-read.narrow { max-inline-size: 22em; }
 .why-line { font-size: var(--ds-type-label); }
 @media (max-width: 860px) { .gx-pair-row, .gx-span-row { grid-template-columns: minmax(0, 1fr); } .gx-app { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'top' 'main'; } .gx-r.gx-rail { display: none; } }
+
+/* Field: the backdrop for demos with no scene. A faint accent glow and a soft light for the glass to
+   blur, over fine construction lines on the 4px grid (minor every 8px, major every 32px). Theme-aware
+   through the field tokens; quiet enough that the panes stay the subject. */
+.stage-field {
+  background-color: var(--ds-field-base);
+  background-image:
+    radial-gradient(60% 80% at 15% 10%, var(--ds-field-glow), transparent 70%),
+    radial-gradient(50% 70% at 90% 100%, var(--ds-field-glow-soft), transparent 70%),
+    linear-gradient(var(--ds-field-line-major) var(--ds-width-hairline), transparent var(--ds-width-hairline)),
+    linear-gradient(90deg, var(--ds-field-line-major) var(--ds-width-hairline), transparent var(--ds-width-hairline)),
+    linear-gradient(var(--ds-field-line) var(--ds-width-hairline), transparent var(--ds-width-hairline)),
+    linear-gradient(90deg, var(--ds-field-line) var(--ds-width-hairline), transparent var(--ds-width-hairline));
+  background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px, 8px 8px, 8px 8px;
+  background-position: center;
+  box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider);
+}
+.stage-field .gx-col { background: var(--ds-surface-quiet); -webkit-backdrop-filter: none; backdrop-filter: none; }

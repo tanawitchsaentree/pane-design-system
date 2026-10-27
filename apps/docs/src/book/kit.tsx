@@ -94,10 +94,13 @@ export function CodeBlock({ code, label = 'Code', lines = 14 }: { code: string; 
 
 /** A demo stage: the one place glass appears in the docs. The current demo backdrop sits behind it,
  *  so a component is always seen the way it will be used, over a scene. */
-export function Stage({ children, plain, className = '' }: { children: ReactNode; plain?: boolean; className?: string }) {
-  const scene = useScene();
+export function Stage({ children, plain, className = '', backdrop }: { children: ReactNode; plain?: boolean; className?: string; backdrop?: 'scene' | 'field' }) {
+  const chosen = useScene();
+  // diagrams pass backdrop="field": the subject is structure, so a photo would only compete with it
+  const field = backdrop === 'field' || (backdrop !== 'scene' && chosen === 'field');
+  const scene = field ? 'field' : chosen;
   return (
-    <div className={`example-live${plain ? ' plain' : ''} ${className}`} data-example-live="" data-surface="" style={{ backgroundImage: `url(/scenes/${scene}.webp)` }}>
+    <div className={`example-live${plain ? ' plain' : ''}${field ? ' stage-field' : ''} ${className}`} data-example-live="" data-surface="" style={field ? undefined : { backgroundImage: `url(/scenes/${scene}.webp)` }}>
       <Environment brightness={sceneById(scene).brightness} className="stage-env">{children}</Environment>
     </div>
   );
