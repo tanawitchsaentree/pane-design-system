@@ -121,9 +121,9 @@ export function ComponentPage({ c }: { c: ComponentChapter }) {
 
       <Section id="backdrops" title="On bright and dark backdrops" wide>
         <p>{c.backdrops}</p>
-        <div className="backdrop-matrix">
+        <div className="backdrop-matrix" data-backdrops="">
           {(['dark', 'light'] as const).flatMap((th) => (['night', 'city'] as const).map((sc) => (
-            <figure key={`${th}-${sc}`} className="backdrop-cell env-tile" data-tile={sc} data-theme={th}>
+            <figure key={`${th}-${sc}`} className="backdrop-cell env-tile" data-cell="" data-scene-kind={sc === "night" ? "dark" : "bright"} data-tile={sc} data-theme={th}>
               <figcaption className="backdrop-caption">{th} theme · {sc === 'night' ? 'dark scene' : 'bright scene'}</figcaption>
               <Environment brightness="bright"><c.hero.Render /></Environment>
             </figure>

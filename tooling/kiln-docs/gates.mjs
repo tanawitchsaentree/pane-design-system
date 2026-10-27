@@ -6,6 +6,7 @@
 //
 //   shell        G-D3 G-S1 G-S2 G-S3 G-S5          copy        G-C1 G-C2
 //   reading      G-R1 (size, leading, measure)      affordance  G-A1      loading  G-PF1 G-PF2
+//   chrome       G-SH1 plain opaque shell; the system's look lives in demo stages only
 //   foundations  G-F1 G-N1                          themes      G-T1
 //   components   G-K1–G-K8 G-B1 G-L1 demo floor     reference   G-M1 G-IA1      a11y  axe ×2
 //
@@ -238,6 +239,27 @@ try {
       if (total > 1.5 * 1024 * 1024) bad.push(`${r}: ${Math.round(total / 1024)} kB total`);
     }
     fail([...new Set(bad)], 'over budget');
+  });
+
+  await gate('G-SH1', 'the docs chrome is plain and opaque: no blur or see-through surface outside demo stages', async () => {
+    const bad = [];
+    for (const r of ROUTES) {
+      await go(r);
+      const hits = await page.evaluate(() => {
+        const out = [];
+        for (const e of document.querySelectorAll('body *')) {
+          if (e.closest('[data-example-live], [data-cell], [data-preview], [data-harness]')) continue;
+          const cs = getComputedStyle(e);
+          if ((cs.backdropFilter && cs.backdropFilter !== 'none') || (cs.webkitBackdropFilter && cs.webkitBackdropFilter !== 'none')) out.push(`${e.tagName.toLowerCase()}.${String(e.className).split(' ')[0]} blurs what is behind it`);
+        }
+        const bg = getComputedStyle(document.body).backgroundColor;
+        const a = bg.match(/rgba?\(([^)]+)\)/)?.[1].split(',').map(Number)[3] ?? 1;
+        if (a < 1 || bg === 'transparent') out.push(`page background is see-through (${bg})`);
+        return [...new Set(out)].slice(0, 5);
+      });
+      hits.forEach((h) => bad.push(`${r}: ${h}`));
+    }
+    fail(bad, 'chrome problems');
   });
 
   // ------------------------------------------------------------------ copy

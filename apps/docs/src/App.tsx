@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { Button, Card, Environment } from 'pane-react';
+import { Environment } from 'pane-react';
+import { IconChevronDown } from './icons';
 import { PAGES, PARTS, navigate, useRoute } from './book/router';
 import { Link, SceneContext, VerifyContext, type Conformance, type Evidence } from './book/kit';
 import { PAGE_COMPONENTS } from './book/pages';
@@ -12,31 +13,6 @@ const verifyFile = <T,>(name: string) => (VERIFY[`../public/${name}.json`] as T 
 // A stale or older-format file must read as "unverified", never crash the page or show wrong numbers.
 const validEvidence = (e: Evidence | null) => (e && Array.isArray(e.modes) && e.harness && e.docsPage && Array.isArray(e.summary?.informational) ? e : null);
 const validConformance = (c: Conformance | null) => (c && Array.isArray(c.checks) ? c : null);
-
-/** Backdrop photo; on change the new scene fades in over the old one (motion.scene). */
-function SceneBackdrop({ scene }: { scene: string }) {
-  const [layers, setLayers] = useState([scene]);
-  useEffect(() => { setLayers((l) => (l[l.length - 1] === scene ? l : [l[l.length - 1], scene])); }, [scene]);
-  return (
-    <div className="env" aria-hidden="true">
-      {layers.map((s, i) => <SceneLayer key={`${s}-${i}`} scene={s} fade={i === layers.length - 1 && layers.length > 1} />)}
-    </div>
-  );
-}
-
-// The photo fades in once it has decoded, over the scene's average colour painted by index.html on the
-// first frame, so the backdrop never pops in half-loaded.
-function SceneLayer({ scene, fade }: { scene: string; fade: boolean }) {
-  const [ready, setReady] = useState(false);
-  useEffect(() => {
-    const img = new Image();
-    img.src = `/scenes/${scene}.webp`;
-    let live = true;
-    img.decode().catch(() => {}).then(() => live && setReady(true));
-    return () => { live = false; };
-  }, [scene]);
-  return <div className={`env-layer${fade ? ' env-in' : ''}${ready ? ' ready' : ''}`} style={{ backgroundImage: ready ? `url(/scenes/${scene}.webp)` : undefined }} />;
-}
 
 function useOnThisPage(path: string) {
   const [items, setItems] = useState<Array<{ id: string; title: string }>>([]);
@@ -104,67 +80,55 @@ export function App() {
   return (
     <VerifyContext.Provider value={{ evidence, conformance }}>
     <SceneContext.Provider value={scene}>
+      {/* Plain, opaque docs chrome (D-016). Glass appears only inside demo stages, over a scene. */}
       <Environment brightness={sceneById(scene).brightness} className="page">
-        <SceneBackdrop scene={scene} />
         <a className="skip" href="#main">Skip to content</a>
 
         <header className="topbar">
-          <Link to="/"><span className="brand">Pane</span></Link>
-          <span className="topbar-title muted">{PAGES[PAGES.findIndex((p) => p.path === path)]?.title}</span>
-          <Button ref={menuButton} data-menu-toggle="" size="sm" variant="glass" aria-expanded={menuOpen} aria-controls="book-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? 'Close' : 'Menu'}</Button>
+          <Link to="/" className="brand-link"><span className="brand">Pane</span><span className="brand-sub">design system</span></Link>
+          <span className="topbar-title">{PAGES[PAGES.findIndex((p) => p.path === path)]?.title}</span>
+          <div className="topbar-tools">
+            <div className="seg" role="group" aria-label="Theme" data-theme-control="">
+              {(['system', 'light', 'dark'] as const).map((t) => (
+                <button key={t} type="button" className="seg-btn" aria-pressed={t === themePref} data-theme-value={t} onClick={() => setThemePref(t)}>{t[0].toUpperCase() + t.slice(1)}</button>
+              ))}
+            </div>
+            <label className="topbar-scene"><span className="topbar-scene-label">Demo backdrop</span>
+              <span className="select"><select value={scene} onChange={(e) => setScene(e.target.value)} data-scene-control="">{SCENES.map((s) => <option key={s.id} value={s.id}>{s.label}</option>)}</select><IconChevronDown className="select-chevron" data-chevron="" /></span>
+            </label>
+          </div>
+          <button ref={menuButton} type="button" className="menu-btn" data-menu-toggle="" aria-expanded={menuOpen} aria-controls="book-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? 'Close' : 'Menu'}</button>
         </header>
         {menuOpen && <div className="drawer-scrim" aria-hidden="true" onClick={() => setMenuOpen(false)} />}
 
         <aside className={`rail${menuOpen ? ' open' : ''}`} id="book-nav" aria-label="Book navigation">
-          <Card as="div" className="brand-card">
-            <Link to="/"><span className="brand">Pane</span></Link>
-            <p className="flush muted small">Spatial glass design system · pilot</p>
-          </Card>
-          <Card as="div">
-            <p className="flush eyebrow" id="theme-label">Theme</p>
-            <div className="scene-picker" role="group" aria-labelledby="theme-label" data-theme-control="">
-              {(['system', 'light', 'dark'] as const).map((t) => (
-                <Button key={t} size="sm" variant={t === themePref ? 'accent' : 'glass'} aria-pressed={t === themePref} data-theme-value={t} onClick={() => setThemePref(t)}>{t[0].toUpperCase() + t.slice(1)}</Button>
-              ))}
-            </div>
-            <p className="flush eyebrow" id="scene-label">Scene behind the glass</p>
-            <div className="scene-picker" role="group" aria-labelledby="scene-label">
-              {SCENES.map((s) => <Button key={s.id} size="sm" variant={s.id === scene ? 'accent' : 'glass'} aria-pressed={s.id === scene} onClick={() => setScene(s.id)}>{s.label}</Button>)}
-            </div>
-          </Card>
           <nav aria-label="Book" data-book-nav="">
-            <Card as="div" className="nav-card">
-              <label className="field"><span className="eyebrow">Find a chapter</span><input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Button, motion, tokens…" /></label>
-              <div className="nav-scroll">
-              {filtered.map((part) => (
-                <div key={part.title} className="nav-part">
-                  <p className="nav-part-title" data-nav-part="">{part.title}</p>
-                  <ul className="toc flush">
-                    {part.pages.map((p) => <li key={p.path}><a href={p.path} aria-current={p.path === path ? 'page' : undefined} onClick={(e) => { e.preventDefault(); navigate(p.path); }}>{p.title}</a></li>)}
-                  </ul>
-                </div>
-              ))}
+            <label className="field"><span className="visually-hidden">Find a chapter</span><input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find a chapter" /></label>
+            {filtered.map((part) => (
+              <div key={part.title} className="nav-part">
+                <p className="nav-part-title" data-nav-part="">{part.title}</p>
+                <ul className="toc flush">
+                  {part.pages.map((p) => <li key={p.path}><a href={p.path} aria-current={p.path === path ? 'page' : undefined} onClick={(e) => { e.preventDefault(); navigate(p.path); }}>{p.title}</a></li>)}
+                </ul>
               </div>
-            </Card>
+            ))}
           </nav>
         </aside>
 
         <main id="main" className="content" key={path} inert={menuOpen || undefined}>
           {PageComponent ? <PageComponent /> : (
-            <Card as="section" aria-labelledby="nf"><h1 id="nf" className="flush page-title">Not in the book</h1><p className="flush muted">No chapter at {path}. <Link to="/">Back to the overview</Link>.</p></Card>
+            <section aria-labelledby="nf"><h1 id="nf" className="flush page-title">Not in the book</h1><p className="muted">No chapter at {path}. <Link to="/">Back to the overview</Link>.</p></section>
           )}
           <nav className="pager" aria-label="Chapters">
-            {prev ? <Card as="div" className="pager-card" data-surface=""><p className="flush eyebrow">Previous</p><Link to={prev.path}>{prev.title}</Link></Card> : <span />}
-            {next ? <Card as="div" className="pager-card next" data-surface=""><p className="flush eyebrow">Next</p><Link to={next.path}>{next.title}</Link></Card> : <span />}
+            {prev ? <Link to={prev.path} className="pager-link" data-surface=""><span className="eyebrow">Previous</span><span className="pager-title">{prev.title}</span></Link> : <span />}
+            {next ? <Link to={next.path} className="pager-link next" data-surface=""><span className="eyebrow">Next</span><span className="pager-title">{next.title}</span></Link> : <span />}
           </nav>
         </main>
 
         {onPage.length > 2 && (
           <aside className="on-page" aria-label="On this page">
-            <Card as="div">
-              <p className="flush eyebrow">On this page</p>
-              <ul className="toc flush">{onPage.map((s) => <li key={s.id}><a href={`#${s.id}`}>{s.title}</a></li>)}</ul>
-            </Card>
+            <p className="flush nav-part-title">On this page</p>
+            <ul className="toc flush">{onPage.map((s) => <li key={s.id}><a href={`#${s.id}`}>{s.title}</a></li>)}</ul>
           </aside>
         )}
       </Environment>

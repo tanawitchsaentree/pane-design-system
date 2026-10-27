@@ -1,4 +1,5 @@
-/* Docs chrome. Layout uses system tokens; the page obeys the system's own rule: all text on glass. */
+/* Docs chrome (D-016): a plain, opaque reading layout like Carbon, MUI or Apple's docs. Glass appears
+   only inside demo stages (.example-live), over the chosen demo backdrop. */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 html, body { margin: 0; }
@@ -10,19 +11,6 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-.page {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(250px, 290px) minmax(0, 1fr) minmax(0, 220px);
-  gap: var(--ds-gap-section);
-  padding: var(--ds-gap-section);
-  align-items: start;
-  min-block-size: 100vh;
-}
-.rail { position: sticky; inset-block-start: var(--ds-gap-section); display: flex; flex-direction: column; gap: var(--ds-gap-2xl); max-block-size: calc(100vh - var(--ds-gap-section) * 2); overflow-y: auto; scrollbar-width: none; }
-.content { display: flex; flex-direction: column; gap: var(--ds-gap-page); min-inline-size: 0; }
-.on-page { position: sticky; inset-block-start: var(--ds-gap-section); }
-.component { display: flex; flex-direction: column; gap: var(--ds-gap-2xl); }
 .flush { margin: 0; }
 .muted { color: var(--ds-text-secondary); }
 .small { font-size: var(--ds-type-caption); }
@@ -51,7 +39,6 @@ kbd { display: inline-block; padding: var(--ds-gap-xs) var(--ds-gap-md); border-
   outline-offset: var(--ds-focus-ring-width);
   box-shadow: 0 0 0 calc(var(--ds-focus-ring-width) * 2 + var(--ds-focus-ring-halo-width)) var(--ds-focus-ring-halo);
 }
-.scene-picker { display: flex; flex-wrap: wrap; gap: var(--ds-gap-sm); }
 
 .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 380px); gap: var(--ds-gap-section); align-items: start; }
 .hero-copy { display: flex; flex-direction: column; gap: var(--ds-gap-2xl); }
@@ -140,8 +127,6 @@ thead th { font-weight: var(--ds-type-weight-semibold); }
 
 /* ================= book ================= */
 .brand { font-size: var(--ds-type-headline); font-weight: var(--ds-type-weight-semibold); letter-spacing: var(--ds-type-tracking-display); color: var(--ds-text-primary); }
-.brand-card a { text-decoration: none; }
-.nav-card { gap: var(--ds-gap-2xl); }
 .nav-part { display: flex; flex-direction: column; gap: var(--ds-gap-sm); }
 .field { display: flex; flex-direction: column; gap: var(--ds-gap-sm); }
 .field input {
@@ -214,23 +199,11 @@ main td p, main [data-example-live] p { max-inline-size: none; }
 .settings-row dt { font-weight: var(--ds-type-weight-medium); }
 .settings-row dd { margin: 0; text-align: end; }
 .pager { display: flex; justify-content: space-between; gap: var(--ds-gap-2xl); }
-.pager-card { min-inline-size: 220px; gap: var(--ds-gap-xs); }
-.pager-card.next { text-align: end; }
-.pager-card a { color: var(--ds-text-primary); font-size: var(--ds-type-emphasis); font-weight: var(--ds-type-weight-semibold); }
 
 /* No entrance animation on page content: a chapter appears at once (measured: the old staggered
    rise left content at opacity 0 for ~1s after every page switch). Motion stays in the components. */
 
-@media (max-width: 1280px) { .page { grid-template-columns: minmax(240px, 280px) minmax(0, 1fr); } .on-page { display: none; } }
 
-/* fixes after the first visual pass */
-.rail > * { flex-shrink: 0; }
-.rail { max-block-size: none; overflow: visible; }
-/* the chapter list scrolls inside its own pane instead of the rail clipping the pane mid-word */
-/* the chapter list scrolls inside the pane's padding, so its clip edge is a straight line on glass,
-   never the pane's rounded corner */
-.nav-scroll { max-block-size: calc(100vh - 470px); overflow-y: auto; scrollbar-width: thin; display: flex; flex-direction: column; gap: var(--ds-gap-2xl); }
-main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 main a:not([class]) { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .heading-anchor { opacity: 0; transition: opacity var(--ds-motion-hover) var(--ds-motion-easing); text-decoration: none !important; }
 .book-section h2:hover .heading-anchor, .heading-anchor:focus-visible { opacity: 1; }
@@ -273,48 +246,8 @@ main a:not([class]) { text-decoration: underline; text-underline-offset: 3px; te
   .page-title { font-size: var(--ds-type-headline); }
 }
 
-/* ================= shell: top bar + drawer on narrow screens ================= */
-.topbar { display: none; }
-#page-title:focus { outline: none; }
-#page-title:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-gap-sm); }
-@media (max-width: 1100px) {
-  .page { grid-template-columns: minmax(0, 1fr); padding: var(--ds-gap-2xl); padding-block-start: calc(var(--ds-control-lg) + var(--ds-gap-2xl) * 2); }
-  .on-page { display: none; }
-  .topbar {
-    display: flex; align-items: center; gap: var(--ds-gap-lg);
-    position: fixed; inset-block-start: var(--ds-gap-md); inset-inline: var(--ds-gap-md); z-index: var(--ds-layer-sticky);
-    padding: var(--ds-gap-md) var(--ds-gap-md) var(--ds-gap-md) var(--ds-gap-2xl);
-    border-radius: var(--ds-corner-round);
-    background: linear-gradient(180deg, var(--ds-card-sheen-top), var(--ds-card-sheen-bottom)), var(--ds-surface-glass);
-    -webkit-backdrop-filter: blur(var(--ds-glass-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-glass-brightness));
-    backdrop-filter: blur(var(--ds-glass-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-glass-brightness));
-    box-shadow: var(--ds-elevation-float), inset 0 0 0 var(--ds-width-hairline) var(--ds-line-ring);
-    text-shadow: var(--ds-card-text-halo);
-  }
-  .topbar a { text-decoration: none; }
-  .topbar .brand { font-size: var(--ds-type-title); }
-  .topbar-title { flex: 1; min-inline-size: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: var(--ds-type-label); }
-  .rail {
-    position: fixed; inset-block: 0; inset-inline-start: 0; z-index: var(--ds-layer-overlay);
-    inline-size: min(88vw, 340px); padding: var(--ds-gap-2xl); overflow-y: auto;
-    transform: translateX(-105%); visibility: hidden;
-    transition: transform var(--ds-motion-enter) var(--ds-motion-easing), visibility 0s linear var(--ds-motion-enter);
-  }
-  .rail.open { transform: none; visibility: visible; transition: transform var(--ds-motion-enter) var(--ds-motion-easing); }
-  .nav-scroll { max-block-size: none; overflow: visible; }
-  .drawer-scrim { position: fixed; inset: 0; z-index: calc(var(--ds-layer-overlay) - 1); background: var(--ds-color-shade-a-55); animation: env-in var(--ds-motion-hover) var(--ds-motion-easing); }
-  .hero { grid-template-columns: minmax(0, 1fr); }
-}
-@media (max-width: 1100px) and (prefers-reduced-motion: reduce) { .rail, .rail.open { transition: none; } }
 
 .source-line { margin-block-start: var(--ds-gap-lg); overflow-wrap: anywhere; }
-@media (max-width: 1100px) {
-  /* the drawer is one opaque-enough pane: the page behind must not read through the menu */
-  .rail.open { background: var(--ds-color-graphite-solid); box-shadow: var(--ds-elevation-float); }
-  .rail [data-pane-card='glass'] { background: var(--ds-surface-quiet); -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none; }
-  .drawer-scrim { background: var(--ds-color-shade-a-55); -webkit-backdrop-filter: blur(var(--ds-blur-md)); backdrop-filter: blur(var(--ds-blur-md)); }
-  .heading-anchor { display: none; }
-}
 
 .record { margin: 0; display: grid; gap: var(--ds-gap-md); }
 .record-row { display: grid; grid-template-columns: minmax(140px, 220px) minmax(0, 1fr); gap: var(--ds-gap-lg); }
@@ -401,3 +334,77 @@ main a:not([class]) { text-decoration: underline; text-underline-offset: 3px; te
 .select select:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
 .select-chevron { position: absolute; inset-inline-end: var(--ds-gap-lg); inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); color: var(--ds-text-primary); pointer-events: none; transition: transform var(--ds-motion-hover) var(--ds-motion-easing); }
 .select:hover .select-chevron { transform: translateY(1px); }
+
+/* ================= plain shell (D-016) ================= */
+html { background: var(--ds-surface-page); }
+body { background: var(--ds-surface-page); color: var(--ds-text-primary); }
+.page { --topbar: 60px; --rail: 272px; display: grid; grid-template-columns: var(--rail) minmax(0, 1fr) 220px; grid-template-rows: var(--topbar) auto; min-block-size: 100vh; }
+.topbar { grid-column: 1 / -1; position: sticky; inset-block-start: 0; z-index: var(--ds-layer-sticky); display: flex; align-items: center; gap: var(--ds-gap-2xl); padding-inline: var(--ds-gap-2xl); block-size: var(--topbar); background: var(--ds-surface-page); border-block-end: var(--ds-width-hairline) solid var(--ds-line-divider); }
+.brand-link { display: flex; align-items: baseline; gap: var(--ds-gap-md); color: var(--ds-text-primary); text-decoration: none; }
+.brand { font-size: var(--ds-type-title); font-weight: var(--ds-type-weight-semibold); letter-spacing: var(--ds-type-tracking-display); }
+.brand-sub { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.topbar-title { display: none; }
+.topbar-tools { margin-inline-start: auto; display: flex; align-items: center; gap: var(--ds-gap-2xl); }
+.topbar-scene { display: flex; align-items: center; gap: var(--ds-gap-md); font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.topbar-scene .select select { min-block-size: var(--ds-control-sm); font-size: var(--ds-type-label); }
+.seg { display: inline-flex; padding: var(--ds-space-0-5); border-radius: var(--ds-corner-round); background: var(--ds-surface-sunken); }
+.seg-btn { font: inherit; font-size: var(--ds-type-label); border: 0; background: transparent; color: var(--ds-text-secondary); padding: var(--ds-gap-xs) var(--ds-gap-lg); min-block-size: var(--ds-control-sm); border-radius: var(--ds-corner-round); cursor: pointer; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing), color var(--ds-motion-hover) var(--ds-motion-easing); }
+.seg-btn:hover { color: var(--ds-text-primary); }
+.seg-btn[aria-pressed='true'] { background: var(--ds-surface-raised); color: var(--ds-text-primary); font-weight: var(--ds-type-weight-semibold); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); }
+.seg-btn:focus-visible, .menu-btn:focus-visible, .pager-link:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.menu-btn { display: none; font: inherit; font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-primary); background: var(--ds-surface-raised); border: 0; border-radius: var(--ds-corner-round); padding: var(--ds-gap-sm) var(--ds-gap-xl); min-block-size: var(--ds-control-md); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); cursor: pointer; }
+.rail { position: sticky; inset-block-start: var(--topbar); align-self: start; block-size: calc(100vh - var(--topbar)); overflow-y: auto; padding: var(--ds-gap-2xl) var(--ds-gap-xl) var(--ds-gap-section); border-inline-end: var(--ds-width-hairline) solid var(--ds-line-divider); scrollbar-width: thin; }
+.rail nav { display: flex; flex-direction: column; gap: var(--ds-gap-2xl); }
+.rail .field input { inline-size: 100%; background: var(--ds-surface-sunken); box-shadow: none; }
+.content { min-inline-size: 0; padding: var(--ds-gap-section) clamp(var(--ds-gap-2xl), 4vw, var(--ds-gap-page)) var(--ds-gap-page); display: flex; flex-direction: column; gap: var(--ds-gap-page); }
+.content > article { max-inline-size: 960px; }
+.on-page { position: sticky; inset-block-start: var(--topbar); align-self: start; padding: var(--ds-gap-section) var(--ds-gap-xl); display: flex; flex-direction: column; gap: var(--ds-gap-md); }
+.on-page .toc a { font-size: var(--ds-type-label); padding-block: var(--ds-gap-xs); color: var(--ds-text-secondary); }
+.on-page .toc a:hover { color: var(--ds-text-primary); }
+main a, .on-page a, .rail a { color: var(--ds-text-primary); }
+
+/* sections read like a book: no boxes, a hairline above each one */
+.book-page { gap: var(--ds-gap-page); }
+.page-head { display: flex; flex-direction: column; gap: var(--ds-gap-lg); }
+.book-section { padding-block-start: var(--ds-gap-section); border-block-start: var(--ds-width-hairline) solid var(--ds-line-divider); }
+.prose { display: flex; flex-direction: column; gap: var(--ds-gap-lg); }
+.panel { display: flex; flex-direction: column; gap: var(--ds-gap-md); padding: var(--ds-gap-2xl); border-radius: var(--ds-corner-inner); background: var(--ds-surface-raised); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); }
+.callout { background: var(--ds-surface-raised); box-shadow: inset calc(var(--ds-width-ring) + 1px) 0 0 var(--ds-action-accent), inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); }
+.pager { display: flex; justify-content: space-between; gap: var(--ds-gap-2xl); max-inline-size: 960px; }
+.pager-link { display: flex; flex-direction: column; gap: var(--ds-gap-xs); min-inline-size: 220px; padding: var(--ds-gap-xl) var(--ds-gap-2xl); border-radius: var(--ds-corner-inner); text-decoration: none; box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
+.pager-link:hover { background: var(--ds-surface-raised); }
+.pager-link.next { text-align: end; }
+.pager-title { font-size: var(--ds-type-emphasis); font-weight: var(--ds-type-weight-semibold); }
+
+/* demo stage: the only glass on the page */
+.example-live { background-color: var(--ds-surface-raised); background-size: cover; background-position: center; padding: var(--ds-gap-section) var(--ds-gap-2xl); border-radius: var(--ds-corner-inner); box-shadow: none; }
+.example-live.plain { padding: var(--ds-gap-2xl); }
+.stage-env { display: flex; flex-wrap: wrap; gap: var(--ds-gap-2xl); align-items: flex-start; inline-size: 100%; }
+.hero-card { padding: var(--ds-gap-2xl); }
+.pg-preview .example-live { padding: var(--ds-gap-2xl); }
+.codeblock { box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); }
+.codeblock-bar { background: var(--ds-surface-raised); }
+.code, [data-theme='light'] .code { background: var(--ds-surface-sunken); text-shadow: none; }
+.playground { background: transparent; box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); }
+.select select { background: var(--ds-surface-sunken); }
+[data-example-live] .select select, .stage-env .select select { background: var(--ds-surface-quiet); }
+
+/* narrow: top bar with Menu, the chapter list as a drawer */
+@media (max-width: 1280px) { .page { grid-template-columns: var(--rail) minmax(0, 1fr); } .on-page { display: none; } }
+@media (max-width: 1100px) {
+  .page { grid-template-columns: minmax(0, 1fr); }
+  .topbar { gap: var(--ds-gap-lg); padding-inline: var(--ds-gap-lg); }
+  .brand-sub, .topbar-scene-label { display: none; }
+  .topbar-title { display: block; flex: 1; min-inline-size: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+  .topbar-tools { margin-inline-start: 0; gap: var(--ds-gap-md); }
+  .menu-btn { display: inline-flex; align-items: center; }
+  .rail { position: fixed; inset-block: var(--topbar) 0; inset-inline-start: 0; z-index: var(--ds-layer-overlay); inline-size: min(88vw, 340px); block-size: auto; background: var(--ds-surface-page); box-shadow: var(--ds-elevation-float); transform: translateX(-105%); visibility: hidden; transition: transform var(--ds-motion-enter) var(--ds-motion-easing), visibility 0s linear var(--ds-motion-enter); }
+  .rail.open { transform: none; visibility: visible; transition: transform var(--ds-motion-enter) var(--ds-motion-easing); }
+  .drawer-scrim { position: fixed; inset: var(--topbar) 0 0; z-index: calc(var(--ds-layer-overlay) - 1); background: var(--ds-color-shade-a-55); }
+  .content { padding: var(--ds-gap-2xl) var(--ds-gap-lg) var(--ds-gap-page); }
+  .heading-anchor { display: none; }
+  .hero { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) { .seg-btn { padding-inline: var(--ds-gap-md); } .topbar-scene { display: none; } }
+@media (max-width: 1100px) and (prefers-reduced-motion: reduce) { .rail, .rail.open { transition: none; } }
+.rail .toc a { margin-inline: 0; }

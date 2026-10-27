@@ -57,6 +57,18 @@
       "solid": {
         "$value": "#2C2C34",
         "$description": "opaque fallback (D-005)"
+      },
+      "950": {
+        "$value": "#141418",
+        "$description": "page background for solid (non-glass) screens, dark theme"
+      },
+      "900": {
+        "$value": "#1C1C22",
+        "$description": "raised panel on a solid dark page"
+      },
+      "850": {
+        "$value": "#25252C",
+        "$description": "sunken well (code) on a solid dark page"
       }
     },
     "ink": {
@@ -127,6 +139,14 @@
       "50": {
         "$value": "#F2F2F5",
         "$description": "opaque fallback surface in the light theme"
+      },
+      "0": {
+        "$value": "#FFFFFF",
+        "$description": "page background for solid screens, light theme"
+      },
+      "100": {
+        "$value": "#E9E9EE",
+        "$description": "sunken well (code) on a solid light page"
       }
     }
   },

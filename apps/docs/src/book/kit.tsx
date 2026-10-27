@@ -1,11 +1,11 @@
 // The book's building blocks. Everything derivable is derived: tokens from pane-tokens/json,
 // "tokens used" from each component's real CSS module, evidence and conformance from the JSON the
 // verify run writes. Prose is the only hand-written part.
-import { createContext, useContext, useState, type ReactNode } from 'react';
+import { createContext, useContext, useState, type AnchorHTMLAttributes, type ReactNode } from 'react';
 import tokens from 'pane-tokens/json';
-import { Button, Card, Tag } from 'pane-react';
+import { Button, Card, Environment, Tag } from 'pane-react';
 import { navigate } from './router';
-import { SCENES } from '../scenes';
+import { SCENES, sceneById } from '../scenes';
 
 export type Token = { tier: string; type: string; value: string; ref: string | null; css: string; description: string | null; themes?: Record<string, { ref: string; value: string }> };
 export const TOKENS = tokens as Record<string, Token>;
@@ -26,9 +26,9 @@ export const SceneContext = createContext<string>('room');
 export const useScene = () => useContext(SceneContext);
 
 // ---------- navigation ----------
-export function Link({ to, children }: { to: string; children: ReactNode }) {
+export function Link({ to, children, ...rest }: { to: string; children: ReactNode } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & Record<`data-${string}`, string>) {
   return (
-    <a href={to} onClick={(e) => { if (e.metaKey || e.ctrlKey) return; e.preventDefault(); navigate(to); }}>
+    <a {...rest} href={to} onClick={(e) => { if (e.metaKey || e.ctrlKey) return; e.preventDefault(); navigate(to); }}>
       {children}
     </a>
   );
@@ -38,11 +38,11 @@ export function Link({ to, children }: { to: string; children: ReactNode }) {
 export function Page({ eyebrow, title, lede, children }: { eyebrow: string; title: string; lede: ReactNode; children: ReactNode }) {
   return (
     <article className="book-page">
-      <Card as="header" className="page-head" data-surface="">
+      <header className="page-head">
         <p className="flush eyebrow">{eyebrow}</p>
         <h1 id="page-title" tabIndex={-1} className="flush page-title">{title}</h1>
         <div className="lede">{lede}</div>
-      </Card>
+      </header>
       {children}
     </article>
   );
@@ -51,10 +51,10 @@ export function Page({ eyebrow, title, lede, children }: { eyebrow: string; titl
 export function Section({ id, title, children, wide }: { id: string; title: string; children: ReactNode; wide?: boolean }) {
   return (
     <section id={id} className={`book-section${wide ? ' wide' : ''}`} aria-labelledby={`${id}-h`}>
-      <Card as="div" className="prose" data-surface="">
+      <div className="prose">
         <h2 id={`${id}-h`} className="flush"><a className="heading-anchor" href={`#${id}`} aria-hidden="true" tabIndex={-1}>#</a>{title}</h2>
         {children}
-      </Card>
+      </div>
     </section>
   );
 }
@@ -91,12 +91,23 @@ export function CodeBlock({ code, label = 'Code', lines = 14 }: { code: string; 
   );
 }
 
+/** A demo stage: the one place glass appears in the docs. The current demo backdrop sits behind it,
+ *  so a component is always seen the way it will be used, over a scene. */
+export function Stage({ children, plain, className = '' }: { children: ReactNode; plain?: boolean; className?: string }) {
+  const scene = useScene();
+  return (
+    <div className={`example-live${plain ? ' plain' : ''} ${className}`} data-example-live="" data-surface="" style={{ backgroundImage: `url(/scenes/${scene}.webp)` }}>
+      <Environment brightness={sceneById(scene).brightness} className="stage-env">{children}</Environment>
+    </div>
+  );
+}
+
 /** Live example + the exact source file that renders it (imported with ?raw), code visible by default. */
 export function Example({ title, code, children, plain }: { title: string; code: string; children: ReactNode; plain?: boolean }) {
   const body = code.replace(/^\/\/ @example.*\n/m, '').trim();
   return (
     <figure className="example" data-example="">
-      <div className={plain ? 'example-live plain' : 'example-live'} data-example-live="">{children}</div>
+      <Stage plain={plain}>{children}</Stage>
       <figcaption className="example-bar"><span className="example-title">{title}</span></figcaption>
       <CodeBlock code={body} label="TSX" />
     </figure>

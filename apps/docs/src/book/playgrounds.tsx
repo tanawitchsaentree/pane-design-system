@@ -4,7 +4,7 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type ReactElement, type ReactNode } from 'react';
 import { Badge, Button, Card, Chip, Stack, Tag } from 'pane-react';
 import * as Icons from '../icons';
-import { CodeBlock, TOKENS } from './kit';
+import { CodeBlock, Stage, TOKENS } from './kit';
 
 const byPrefix = (pre: string) => Object.entries(TOKENS).filter(([p]) => p.startsWith(pre));
 const num = (v: string) => parseFloat(String(v));
@@ -32,7 +32,7 @@ function Playground({ title, controls, preview, code, note }: { title: string; c
       <p className="flush pg-title">{title}</p>
       <div className="pg-body">
         <div className="pg-controls" data-controls="">{controls}</div>
-        <div className="pg-preview" data-preview="">{preview}</div>
+        <div className="pg-preview" data-preview=""><Stage className="pg-stage">{preview}</Stage></div>
       </div>
       {note && <div className="pg-note">{note}</div>}
       <CodeBlock code={code} />

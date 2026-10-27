@@ -19,7 +19,7 @@ import TextOnImage from '../examples/TextOnImage';
 import TextOnImageSrc from '../examples/TextOnImage.tsx?raw';
 import * as Icons from '../icons';
 import { ThemePlayground, GlassPlayground, ContrastPlayground, TypePlayground, SpacingPlayground, GridPlayground, ShapePlayground, MotionPlayground, IconBrowser, TouchTargetPlayground } from './playgrounds';
-import { inline, useScene, Callout, Code, CopyButton, ConformanceList, EvidenceTable, Example, Link, Markdown, Page, Section, TOKENS, TokenTable, VerifiedTags, useVerify } from './kit';
+import { inline, useScene, Stage, Callout, Code, CopyButton, ConformanceList, EvidenceTable, Example, Link, Markdown, Page, Section, TOKENS, TokenTable, VerifiedTags, useVerify } from './kit';
 import { COMPONENTS } from './components-data';
 import { ComponentPage, EVIDENCE_GROUPS, HISTORY, STATUS_LABEL } from './ComponentPage';
 import { SCENES } from '../scenes';
@@ -49,7 +49,7 @@ function Overview() {
     >
       <section className="hero" aria-label="The anchor card">
         <div className="hero-copy">
-          <Card as="div">
+          <div className="panel" data-surface="">
             <h2 className="flush">What is in the box</h2>
             <ul>
               <li><b>pane-tokens</b>. {Object.keys(TOKENS).length} design tokens in three tiers (primitive → semantic → component), shipped as CSS, JS (+ types), SCSS and JSON.</li>
@@ -57,27 +57,27 @@ function Overview() {
               <li><b>This book</b>. Foundations, every component in depth, patterns, accessibility evidence and the full token reference.</li>
             </ul>
             <VerifiedTags />
-          </Card>
-          <Card as="div">
+          </div>
+          <div className="panel" data-surface="">
             <h2 className="flush">Read this first</h2>
             <ol>
               <li><Link to="/getting-started">Getting started</Link>. Install, wrap a screen in an Environment, place your first Card.</li>
               <li><Link to="/foundations/glass">Glass & environment</Link>. Why glass needs to know what is behind it.</li>
               <li><Link to="/components/card">Card</Link>. The surface everything else sits on.</li>
             </ol>
-          </Card>
+          </div>
         </div>
-        <div className="hero-card"><ProfileCard idPrefix="hero" /></div>
+        <Stage className="hero-card"><ProfileCard idPrefix="hero" /></Stage>
       </section>
 
       <Section id="chapters" title="The book" wide>
         <div className="category-grid">
           {PARTS.map((part) => (
-            <Card key={part.title} as="div">
+            <div key={part.title} className="panel" data-surface="">
               <Link to={part.pages[0].path}><span className="card-link">{part.title}</span></Link>
               <p className="flush muted">{PART_BLURB[part.title]}</p>
               <p className="flush small muted">{part.pages.length} chapter{part.pages.length === 1 ? '' : 's'}: {part.pages.map((p) => p.title).join(' · ')}</p>
-            </Card>
+            </div>
           ))}
         </div>
       </Section>
@@ -98,16 +98,16 @@ function GettingStarted() {
       <Section id="install" title="1 · Install">
         <p>Pane ships as two packages. The tokens package has no dependencies; the React package needs React 18 or newer.</p>
         <div className="pkg-grid">
-          <Card as="div">
+          <div className="panel" data-surface="">
             <p className="flush"><b>pane-tokens</b> <span className="muted">v{meta.version}</span></p>
             <p className="flush muted">{Object.keys(TOKENS).length} tokens as CSS custom properties (<code>pane-tokens/css</code>) and resolved JSON (<code>pane-tokens/json</code>).</p>
             <Code>{'pnpm add pane-tokens'}</Code>
-          </Card>
-          <Card as="div">
+          </div>
+          <div className="panel" data-surface="">
             <p className="flush"><b>pane-react</b> <span className="muted">v{meta.version}</span></p>
             <p className="flush muted">{Object.keys(meta.components).length} components, {(Object.values(meta.components).reduce((n, c) => n + c.bundle.gzip, 0) / 1024).toFixed(1)} kB min+gz all together (measured with esbuild; Tabs carries Radix).</p>
             <Code>{'pnpm add pane-react'}</Code>
-          </Card>
+          </div>
         </div>
       </Section>
       <Section id="other-project" title="Using Pane in another project">
@@ -307,7 +307,7 @@ function ThemeMatrixDemo() {
   return (
     <div className="theme-matrix">
       {(['dark', 'light'] as const).map((th) => SCENES.map((sc) => (
-        <figure key={`${th}-${sc.id}`} className="backdrop-cell env-tile" data-tile={sc.id} data-theme={th}>
+        <figure key={`${th}-${sc.id}`} className="backdrop-cell env-tile" data-cell="" data-scene-kind={sc.id === "night" ? "dark" : "bright"} data-tile={sc.id} data-theme={th}>
           <figcaption className="backdrop-caption">{th} · {sc.label}</figcaption>
           <Environment brightness="bright"><Hero /></Environment>
         </figure>
