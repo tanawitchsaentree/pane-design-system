@@ -41,3 +41,11 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **Step that produced it:** foundation pages had no depth standard; only component pages did. Nothing listed what a grid page must cover, so the user found gaps page by page.
 - **What changed in that step:** kiln `foundation-depth.md`: every foundation, pattern and guide page starts from a topic list built from at least three reference systems (`benchmarks/topics/<page>.json`, grid done); each topic is covered with live, token-generated material or declined with a reason from the concept (`system/benchmark-coverage.json`). Standard #18.
 - **Check that now catches it:** G-BT1 (27/27 grid topics; gate-proofed by removing one mapping and pointing one at a missing section). The other foundation pages have no topic lists yet and are the next gap.
+
+### R-006: diagram parts could not be told apart; a layout demo still sat on a photo
+- **Date:** 2026-10-27
+- **User said:** "ใครจะไปเห็นวะ แถมยังมีแบบนี้อีก"
+- **What was wrong:** columns, gutters and margins were all translucent grey on a dark field with construction lines showing through; the column-count demo was still on the forest photo with pill-shaped plates.
+- **Step that produced it:** diagrams were styled with the system's glass materials instead of being designed as diagrams, and only the stages I had just touched were moved to the field.
+- **What changed in that step:** diagrams use distinct encodings drawn from tokens (accent columns, hatched margins, empty gutters, plain ground, corner.mark plates); every layout demo and playground on the page uses the field.
+- **Check that now catches it:** G-NT1 measures each marked diagram part against its ground at 3:1 (WCAG 1.4.11) in both themes; it failed the margins at 2.15 and 1.40 before the fix.
