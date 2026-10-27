@@ -1,5 +1,5 @@
 import { useState, type ReactElement, type ReactNode } from 'react';
-import { Card, Environment, Tag } from 'pane-react';
+import { Card, Environment, Select, Tag } from 'pane-react';
 import decisionsMd from '../../../../system/DECISIONS.md?raw';
 import exceptionsMd from '../../../../system/EXCEPTIONS.md?raw';
 import creditsMd from '../../public/scenes/CREDITS.md?raw';
@@ -208,7 +208,7 @@ function Glass() {
   return (
     <Page eyebrow="Foundations" title="Glass & environment" lede={<p>The material is four operations applied to whatever is behind a pane. Blur, saturate, dim, tint. Plus a rim of light. This chapter explains each, how the numbers were chosen, and what happens when the user’s system says no to transparency.</p>}>
       <Section id="playground" title="Try the recipe" wide>
-        <p>Move the sliders over the current scene and watch the card. Switch the scene in the sidebar to see why one value has to hold over every photo.</p>
+        <p>Move the sliders over the current scene and watch the card. Switch the demo backdrop in the top bar to see why one value has to hold over every photo.</p>
         <GlassPlaygroundWithScene />
       </Section>
       <Section id="recipe" title="The recipe">
@@ -724,9 +724,7 @@ function Tokens() {
       <Section id="all" title="All tokens" wide>
         <div className="token-filter">
           <label className="field"><span>Search</span><input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="e.g. glass, accent, 40px" /></label>
-          <label className="field"><span>Tier</span>
-            <span className="select"><select value={tier} onChange={(e) => setTier(e.target.value)}><option value="">All</option><option value="primitive">Primitive</option><option value="semantic">Semantic</option><option value="component">Component</option></select><Icons.IconChevronDown className="select-chevron" data-chevron="" /></span>
-          </label>
+          <Select label="Tier" size="md" value={tier || 'all'} onValueChange={(v) => setTier(v === 'all' ? '' : v)} options={[{ value: 'all', label: 'All' }, { value: 'primitive', label: 'Primitive' }, { value: 'semantic', label: 'Semantic' }, { value: 'component', label: 'Component' }]} />
         </div>
         <TokenTable tier={tier || undefined} query={q} />
       </Section>

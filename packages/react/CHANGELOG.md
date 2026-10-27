@@ -2,6 +2,11 @@
 
 Every entry names the component it touches, so each component page in the book can show its own history. The conformance run fails if a component has no entry.
 
+## 0.2.0 (2026-10-27)
+
+- Select: First release. The list is a Pane popup drawn from tokens with typeahead and full keyboard support, never the operating system menu.
+- Slider: First release, with a visible label and value, a 44px hit area and a white knob that reads in both themes.
+
 ## 0.1.0 (2026-10-26)
 
 - Environment: First release with three brightness levels. Dim and mid resolve to the bright value until they are calibrated (E-001).

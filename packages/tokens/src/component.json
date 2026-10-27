@@ -508,5 +508,110 @@
       "$type": "color",
       "$value": "{surface.well}"
     }
+  },
+  "select": {
+    "trigger-bg": {
+      "$type": "color",
+      "$value": "{surface.quiet}"
+    },
+    "trigger-fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "trigger-ring": {
+      "$type": "color",
+      "$value": "{line.ring}"
+    },
+    "height-sm": {
+      "$type": "dimension",
+      "$value": "{control.sm}"
+    },
+    "height-md": {
+      "$type": "dimension",
+      "$value": "{control.lg}"
+    },
+    "padding": {
+      "$type": "dimension",
+      "$value": "{gap.lg}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.round}"
+    },
+    "menu-bg": {
+      "$type": "color",
+      "$value": "{surface.raised}",
+      "$description": "opaque: a list over glass must not let the scene read through the options"
+    },
+    "menu-ring": {
+      "$type": "color",
+      "$value": "{line.divider}"
+    },
+    "menu-radius": {
+      "$type": "dimension",
+      "$value": "{corner.inner}"
+    },
+    "menu-shadow": {
+      "$type": "shadow",
+      "$value": "{elevation.float}"
+    },
+    "menu-min": {
+      "$type": "dimension",
+      "$value": "{control.menu-min}"
+    },
+    "item-hover": {
+      "$type": "color",
+      "$value": "{surface.quiet}"
+    },
+    "item-check": {
+      "$type": "color",
+      "$value": "{action.accent}"
+    },
+    "item-radius": {
+      "$type": "dimension",
+      "$value": "{corner.media}"
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "{gap.sm}"
+    }
+  },
+  "slider": {
+    "track": {
+      "$type": "dimension",
+      "$value": "{control.track}"
+    },
+    "track-bg": {
+      "$type": "color",
+      "$value": "{surface.quiet}"
+    },
+    "track-ring": {
+      "$type": "color",
+      "$value": "{line.ring}"
+    },
+    "range-bg": {
+      "$type": "color",
+      "$value": "{action.accent}"
+    },
+    "thumb": {
+      "$type": "dimension",
+      "$value": "{control.thumb}"
+    },
+    "thumb-bg": {
+      "$type": "color",
+      "$value": "{surface.knob}"
+    },
+    "thumb-shadow": {
+      "$type": "shadow",
+      "$value": "{elevation.lift}"
+    },
+    "hit": {
+      "$type": "dimension",
+      "$value": "{layout.touch}"
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "{gap.xs}"
+    }
   }
 }

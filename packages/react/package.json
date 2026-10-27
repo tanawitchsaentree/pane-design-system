@@ -25,6 +25,8 @@
     "prepack": "pnpm run build"
   },
   "dependencies": {
+    "@radix-ui/react-select": "^2",
+    "@radix-ui/react-slider": "^1",
     "@radix-ui/react-tabs": "^1.2.1",
     "pane-tokens": "workspace:^"
   },

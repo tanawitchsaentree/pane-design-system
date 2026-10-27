@@ -89,6 +89,10 @@
           "light": "{color.paper.100}"
         }
       }
+    },
+    "knob": {
+      "$value": "{color.white}",
+      "$description": "white handle that reads on both themes (slider thumb, switch knob); the ring and shadow separate it from light surfaces"
     }
   },
   "text": {
@@ -322,6 +326,15 @@
     },
     "dot": {
       "$value": "{size.dot}"
+    },
+    "thumb": {
+      "$value": "{size.thumb}"
+    },
+    "track": {
+      "$value": "{size.track}"
+    },
+    "menu-min": {
+      "$value": "{size.menu-min}"
     }
   },
   "corner": {

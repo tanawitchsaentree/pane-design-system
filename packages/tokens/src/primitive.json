@@ -292,6 +292,18 @@
     },
     "bar": {
       "$value": "4px"
+    },
+    "thumb": {
+      "$value": "20px",
+      "$description": "slider thumb"
+    },
+    "track": {
+      "$value": "6px",
+      "$description": "slider track thickness"
+    },
+    "menu-min": {
+      "$value": "180px",
+      "$description": "narrowest a dropdown list may be"
     }
   },
   "radius": {

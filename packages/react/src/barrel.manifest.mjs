@@ -13,4 +13,8 @@ export const BARREL_MANIFEST = [
     header: `Status (D-014): Badge, Chip, Banner.`,
     components: ['Badge', 'Chip', 'Banner'],
   },
+  {
+    header: `Form controls (D-017): Select, Slider — Radix behaviour, Pane look, never the OS menu.`,
+    components: ['Select', 'Slider'],
+  },
 ];

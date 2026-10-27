@@ -1,6 +1,5 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { Environment } from 'pane-react';
-import { IconChevronDown } from './icons';
+import { Environment, Select } from 'pane-react';
 import { PAGES, PARTS, navigate, useRoute } from './book/router';
 import { Link, SceneContext, VerifyContext, type Conformance, type Evidence } from './book/kit';
 import { PAGE_COMPONENTS } from './book/pages';
@@ -93,9 +92,9 @@ export function App() {
                 <button key={t} type="button" className="seg-btn" aria-pressed={t === themePref} data-theme-value={t} onClick={() => setThemePref(t)}>{t[0].toUpperCase() + t.slice(1)}</button>
               ))}
             </div>
-            <label className="topbar-scene"><span className="topbar-scene-label">Demo backdrop</span>
-              <span className="select"><select value={scene} onChange={(e) => setScene(e.target.value)} data-scene-control="">{SCENES.map((s) => <option key={s.id} value={s.id}>{s.label}</option>)}</select><IconChevronDown className="select-chevron" data-chevron="" /></span>
-            </label>
+            <div className="topbar-scene" data-scene-control=""><span className="topbar-scene-label" aria-hidden="true">Demo backdrop</span>
+              <Select label="Demo backdrop" hideLabel size="sm" value={scene} onValueChange={setScene} options={SCENES.map((s) => ({ value: s.id, label: s.label }))} />
+            </div>
           </div>
           <button ref={menuButton} type="button" className="menu-btn" data-menu-toggle="" aria-expanded={menuOpen} aria-controls="book-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? 'Close' : 'Menu'}</button>
         </header>

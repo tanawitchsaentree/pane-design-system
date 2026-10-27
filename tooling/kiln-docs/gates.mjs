@@ -314,10 +314,13 @@ try {
       const preview = pg.locator('[data-preview]');
       if (!(await preview.count())) { bad.push(`${r}: playground has no [data-preview]`); continue; }
       const before = await preview.evaluate((e) => e.outerHTML);
-      const ctl = pg.locator('[data-controls] input, [data-controls] select').first();
+      const ctl = pg.locator('[data-controls] :is(input, select, [role="slider"], [role="combobox"])').first();
       if (!(await ctl.count())) { bad.push(`${r}: no control`); continue; }
-      const kind = await ctl.evaluate((e) => (e.tagName === 'SELECT' ? 'select' : e.type));
-      if (kind === 'select') { const opts = await ctl.evaluate((e) => [...e.options].map((o) => o.value)); const cur = await ctl.inputValue(); await ctl.selectOption(opts.find((o) => o !== cur)); }
+      const kind = await ctl.evaluate((e) => e.getAttribute('role') ?? (e.tagName === 'SELECT' ? 'select' : e.type));
+      // system components are driven the way a reader drives them: keys on a slider, open and pick on a combobox
+      if (kind === 'slider') { await ctl.focus(); const at = await ctl.getAttribute('aria-valuenow'); await page.keyboard.press(at === (await ctl.getAttribute('aria-valuemax')) ? 'Home' : 'End'); }
+      else if (kind === 'combobox') { await ctl.click(); await page.waitForTimeout(150); const opt = page.locator('[role="option"]:not([aria-selected="true"]):not([data-disabled])').first(); if (await opt.count()) await opt.click(); else await page.keyboard.press('Escape'); }
+      else if (kind === 'select') { const opts = await ctl.evaluate((e) => [...e.options].map((o) => o.value)); const cur = await ctl.inputValue(); await ctl.selectOption(opts.find((o) => o !== cur)); }
       else if (kind === 'range') await ctl.evaluate((e) => { const set = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set; set.call(e, String(Number(e.value) === Number(e.min) ? e.max : e.min)); e.dispatchEvent(new Event('input', { bubbles: true })); });
       else await ctl.fill('kiln');
       await page.waitForTimeout(50);
@@ -327,20 +330,27 @@ try {
     return `${FOUNDATIONS.length} pages`;
   });
 
-  await gate('G-N1', 'no select or slider shows the browser default look, in any theme', async () => {
+  await gate('G-N1', 'every select, slider, checkbox and radio on the docs is one of the system\'s own components, never a browser control', async () => {
     const bad = []; let n = 0;
     for (const theme of C.themes) for (const r of ROUTES) {
       await go(r, { theme });
-      const res = await page.evaluate(() => [...document.querySelectorAll('main select, main input[type="range"], main input[type="checkbox"], main input[type="radio"], nav[data-book-nav] select')].map((e) => {
-        if (getComputedStyle(e).appearance !== 'none') return `${e.tagName.toLowerCase()}${e.type ? `[${e.type}]` : ''} has appearance ${getComputedStyle(e).appearance}`;
-        if (e.tagName === 'SELECT' && !e.parentElement.querySelector('[data-chevron]')) return 'select without its chevron';
-        return null;
-      }));
-      n += res.length;
-      res.forEach((x) => x && bad.push(`${theme} ${r}: ${x}`));
+      const res = await page.evaluate(() => {
+        const visible = (e) => { const b = e.getBoundingClientRect(); const cs = getComputedStyle(e); return b.width > 2 && b.height > 2 && cs.visibility !== 'hidden' && cs.opacity !== '0'; };
+        const out = [];
+        // a visible native <select> always opens the operating system's menu, which cannot be styled
+        for (const e of document.querySelectorAll('select')) if (visible(e)) out.push('native <select> (opens the OS menu)');
+        // sliders, checkboxes and radios count only when a system component renders them
+        for (const e of document.querySelectorAll('input[type="range"], input[type="checkbox"], input[type="radio"], [role="slider"], [role="combobox"], [role="checkbox"], [role="switch"]')) {
+          if (!visible(e) && !e.matches('[role]')) continue;
+          if (!e.closest('[data-component]')) out.push(`${e.getAttribute('role') ?? e.type} not rendered by a system component`);
+        }
+        return { n: document.querySelectorAll('[data-component]').length, out };
+      });
+      n += res.n;
+      res.out.forEach((x) => bad.push(`${theme} ${r}: ${x}`));
     }
-    expect(n > 0, 'NO CONTROLS FOUND');
-    fail(bad, 'controls');
+    expect(n > 0, 'NO SYSTEM CONTROLS FOUND ([data-component])');
+    fail([...new Set(bad)], 'controls');
   });
 
   // ------------------------------------------------------------------ themes

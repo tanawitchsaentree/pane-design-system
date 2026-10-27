@@ -1,8 +1,8 @@
 // Foundation playgrounds (USER-STANDARDS #6, docs-engine G-F1). Each one has real controls that change
 // a live preview and a copy-ready snippet of the current setting. Values come from the token JSON, so a
 // playground never offers a number the system doesn't have.
-import { useEffect, useMemo, useRef, useState, type CSSProperties, type ReactElement, type ReactNode } from 'react';
-import { Badge, Button, Card, Chip, Stack, Tag } from 'pane-react';
+import { useEffect, useMemo, useRef, useState, type ReactElement, type ReactNode } from 'react';
+import { Badge, Button, Card, Chip, Select as PaneSelect, Slider, Stack, Tag } from 'pane-react';
 import * as Icons from '../icons';
 import { CodeBlock, Stage, TOKENS } from './kit';
 
@@ -10,29 +10,20 @@ const byPrefix = (pre: string) => Object.entries(TOKENS).filter(([p]) => p.start
 const num = (v: string) => parseFloat(String(v));
 
 // ---------- shared controls ----------
+// Playground controls are Pane's own Select and Slider: the docs use the system, never browser defaults.
 function Range({ label, min, max, step, value, onChange, unit = '' }: { label: string; min: number; max: number; step: number; value: number; onChange: (v: number) => void; unit?: string }) {
-  return (
-    <label className="pg-control">
-      <span className="pg-label">{label}<span className="pg-value">{value}{unit}</span></span>
-      <input type="range" min={min} max={max} step={step} value={value} style={{ '--pct': `${((value - min) / (max - min)) * 100}%` } as CSSProperties} onChange={(e) => onChange(Number(e.target.value))} />
-    </label>
-  );
+  return <Slider label={label} min={min} max={max} step={step} value={value} onValueChange={onChange} format={(v) => `${v}${unit}`} />;
 }
 function Select<T extends string>({ label, value, options, onChange }: { label: string; value: T; options: Array<[T, string]>; onChange: (v: T) => void }) {
-  return (
-    <label className="pg-control">
-      <span className="pg-label">{label}</span>
-      <span className="select"><select value={value} onChange={(e) => onChange(e.target.value as T)}>{options.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select><Icons.IconChevronDown className="select-chevron" data-chevron="" /></span>
-    </label>
-  );
+  return <PaneSelect label={label} size="sm" value={value} options={options.map(([v, l]) => ({ value: v, label: l }))} onValueChange={(v) => onChange(v as T)} />;
 }
-function Playground({ title, controls, preview, code, note }: { title: string; controls: ReactNode; preview: ReactNode; code: string; note?: ReactNode }) {
+function Playground({ title, controls, preview, code, note, bare }: { title: string; controls: ReactNode; preview: ReactNode; code: string; note?: ReactNode; bare?: boolean }) {
   return (
     <div className="playground" data-playground="">
       <p className="flush pg-title">{title}</p>
       <div className="pg-body">
         <div className="pg-controls" data-controls="">{controls}</div>
-        <div className="pg-preview" data-preview=""><Stage className="pg-stage">{preview}</Stage></div>
+        <div className="pg-preview" data-preview="">{bare ? preview : <Stage className="pg-stage">{preview}</Stage>}</div>
       </div>
       {note && <div className="pg-note">{note}</div>}
       <CodeBlock code={code} />
@@ -83,6 +74,7 @@ export function GlassPlayground({ scene }: { scene: string }) {
   const css = `.my-pane {\n  background: rgba(255, 255, 255, ${tint});\n  backdrop-filter: blur(${blur}px) saturate(${sat}) brightness(${bright});\n  color: ${theme === 'dark' ? 'var(--ds-text-primary) /* white in dark */' : 'var(--ds-text-primary) /* ink in light */'};\n}`;
   return (
     <Playground
+      bare
       title="Glass recipe"
       controls={<>
         <Range label="Blur" min={0} max={96} step={4} value={blur} onChange={setBlur} unit="px" />

@@ -24,3 +24,8 @@ export * from './components/Tag';
 export * from './components/Badge';
 export * from './components/Chip';
 export * from './components/Banner';
+
+// Form controls (D-017): Select, Slider — Radix behaviour, Pane look, never the OS menu.
+
+export * from './components/Select';
+export * from './components/Slider';

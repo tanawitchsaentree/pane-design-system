@@ -1,12 +1,13 @@
 {
-  "generatedAt": "2026-10-27T05:27:13.128Z",
+  "generatedAt": "2026-10-27T05:52:09.534Z",
   "passed": 1,
   "total": 1,
   "results": [
     {
-      "id": "G-SH1",
-      "name": "the docs chrome is plain and opaque: no blur or see-through surface outside demo stages",
-      "ok": true
+      "id": "G-F1",
+      "name": "every foundation page has a playground whose first control changes its preview",
+      "ok": true,
+      "detail": "10 pages"
     }
   ]
 }
