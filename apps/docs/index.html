@@ -4,6 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Pane — design system</title>
+    <script>
+      // Runs before the first paint: theme, scene colour and the scene photo request are all known up
+      // front, so the first frame is already the right theme and colour and nothing flips after load.
+      (function () {
+        var q = new URLSearchParams(location.search);
+        var pref = q.get('theme') || localStorage.getItem('pane-theme') || 'system';
+        var theme = pref === 'system' ? (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark') : pref;
+        var colors = __SCENE_COLORS__;
+        var scene = colors[q.get('scene')] ? q.get('scene') : 'room';
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.backgroundColor = colors[scene];
+        var l = document.createElement('link'); l.rel = 'preload'; l.as = 'image'; l.href = '/scenes/' + scene + '.webp'; l.type = 'image/webp'; l.fetchPriority = 'high';
+        document.head.appendChild(l);
+      })();
+    </script>
   </head>
   <body><div id="root"></div><script type="module" src="/src/main.tsx"></script></body>
 </html>

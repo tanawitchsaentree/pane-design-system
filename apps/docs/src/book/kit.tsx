@@ -38,7 +38,7 @@ export function Link({ to, children }: { to: string; children: ReactNode }) {
 export function Page({ eyebrow, title, lede, children }: { eyebrow: string; title: string; lede: ReactNode; children: ReactNode }) {
   return (
     <article className="book-page">
-      <Card as="header" className="page-head">
+      <Card as="header" className="page-head" data-surface="">
         <p className="flush eyebrow">{eyebrow}</p>
         <h1 id="page-title" tabIndex={-1} className="flush page-title">{title}</h1>
         <div className="lede">{lede}</div>
@@ -51,7 +51,7 @@ export function Page({ eyebrow, title, lede, children }: { eyebrow: string; titl
 export function Section({ id, title, children, wide }: { id: string; title: string; children: ReactNode; wide?: boolean }) {
   return (
     <section id={id} className={`book-section${wide ? ' wide' : ''}`} aria-labelledby={`${id}-h`}>
-      <Card as="div" className="prose">
+      <Card as="div" className="prose" data-surface="">
         <h2 id={`${id}-h`} className="flush"><a className="heading-anchor" href={`#${id}`} aria-hidden="true" tabIndex={-1}>#</a>{title}</h2>
         {children}
       </Card>
@@ -78,7 +78,7 @@ export function CodeBlock({ code, label = 'Code', lines = 14 }: { code: string; 
   const [copied, setCopied] = useState(false);
   const shown = open ? body : body.split('\n').slice(0, lines).join('\n');
   return (
-    <div className="codeblock">
+    <div className="codeblock" data-codeblock="">
       <div className="codeblock-bar">
         <span className="codeblock-label">{label}</span>
         <span className="codeblock-actions">
@@ -86,7 +86,7 @@ export function CodeBlock({ code, label = 'Code', lines = 14 }: { code: string; 
           <button type="button" className="copy-btn" data-copy="" onClick={() => { navigator.clipboard?.writeText(body); setCopied(true); setTimeout(() => setCopied(false), 1600); }}>{copied ? 'Copied' : 'Copy'}</button>
         </span>
       </div>
-      <pre className={open ? 'code' : 'code clipped'} tabIndex={0} aria-label={`${label} snippet`}><code>{shown}</code></pre>
+      <pre className={open ? 'code' : 'code clipped'} data-clipped={open ? undefined : ''} tabIndex={0} aria-label={`${label} snippet`}><code>{shown}</code></pre>
     </div>
   );
 }
@@ -95,8 +95,8 @@ export function CodeBlock({ code, label = 'Code', lines = 14 }: { code: string; 
 export function Example({ title, code, children, plain }: { title: string; code: string; children: ReactNode; plain?: boolean }) {
   const body = code.replace(/^\/\/ @example.*\n/m, '').trim();
   return (
-    <figure className="example">
-      <div className={plain ? 'example-live plain' : 'example-live'}>{children}</div>
+    <figure className="example" data-example="">
+      <div className={plain ? 'example-live plain' : 'example-live'} data-example-live="">{children}</div>
       <figcaption className="example-bar"><span className="example-title">{title}</span></figcaption>
       <CodeBlock code={body} label="TSX" />
     </figure>

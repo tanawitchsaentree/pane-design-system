@@ -380,6 +380,15 @@
     "measure": {
       "$type": "dimension",
       "$value": "{size.measure}"
+    },
+    "reading": {
+      "$type": "dimension",
+      "$value": "{font.size.450}",
+      "$description": "paragraphs people read for more than a line or two"
+    },
+    "leading-reading": {
+      "$type": "number",
+      "$value": "{font.leading.long}"
     }
   },
   "motion": {

@@ -51,5 +51,48 @@
       "Stack"
     ],
     "legacyNames": []
+  },
+  "docs": {
+    "app": "apps/docs",
+    "dist": "apps/docs/dist",
+    "routes": "apps/docs/src/book/routes.json",
+    "meta": "apps/docs/src/book/meta.json",
+    "componentsDir": "packages/react/src/components",
+    "componentsPackage": "packages/react",
+    "changelog": "packages/react/CHANGELOG.md",
+    "themes": [
+      "dark",
+      "light"
+    ],
+    "scenes": [
+      "room",
+      "forest",
+      "night",
+      "city"
+    ],
+    "contrast": {
+      "threshold": 4.5,
+      "exception": "E-001",
+      "exceptionFloor": 3.8,
+      "harness": "/harness.html",
+      "gatingGroups": [
+        "card",
+        "controls",
+        "status",
+        "layout",
+        "environment"
+      ],
+      "infoGroups": [
+        "media",
+        "env-misuse"
+      ]
+    },
+    "tone": {
+      "exclude": [
+        "/reference/decisions"
+      ]
+    },
+    "catalog": "../kiln/docs/CATALOG.md",
+    "benchmark": "../kiln/marketplace/plugins/kiln/skills/docs-engine/benchmarks/carbon-depth.json"
   }
 }

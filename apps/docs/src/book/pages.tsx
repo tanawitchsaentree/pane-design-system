@@ -18,7 +18,7 @@ import SettingsPanelSrc from '../examples/SettingsPanel.tsx?raw';
 import TextOnImage from '../examples/TextOnImage';
 import TextOnImageSrc from '../examples/TextOnImage.tsx?raw';
 import * as Icons from '../icons';
-import { GlassPlayground, ContrastPlayground, TypePlayground, SpacingPlayground, GridPlayground, ShapePlayground, MotionPlayground, IconBrowser, TouchTargetPlayground } from './playgrounds';
+import { ThemePlayground, GlassPlayground, ContrastPlayground, TypePlayground, SpacingPlayground, GridPlayground, ShapePlayground, MotionPlayground, IconBrowser, TouchTargetPlayground } from './playgrounds';
 import { inline, useScene, Callout, Code, CopyButton, ConformanceList, EvidenceTable, Example, Link, Markdown, Page, Section, TOKENS, TokenTable, VerifiedTags, useVerify } from './kit';
 import { COMPONENTS } from './components-data';
 import { ComponentPage, EVIDENCE_GROUPS, HISTORY, STATUS_LABEL } from './ComponentPage';
@@ -263,7 +263,7 @@ function Glass() {
       <Section id="scenes" title="The scenes" wide>
         <p>The four photos every measurement runs on. Switch between them with the scene control in the sidebar; the whole book re-renders on the new backdrop.</p>
         <div className="scene-grid">
-          {SCENES.map((s) => <figure key={s.id} className="scene-thumb" data-theme="dark" style={{ backgroundImage: `url(/scenes/${s.id}.jpg)` }}><figcaption><Tag>{s.label} · {s.brightness}</Tag></figcaption></figure>)}
+          {SCENES.map((s) => <figure key={s.id} className="scene-thumb" data-theme="dark" style={{ backgroundImage: `url(/scenes/${s.id}-sm.jpg)` }}><figcaption><Tag>{s.label} · {s.brightness}</Tag></figcaption></figure>)}
         </div>
       </Section>
     </Page>
@@ -320,6 +320,10 @@ function Themes() {
   const themed = Object.entries(TOKENS).filter(([, t]) => t.themes);
   return (
     <Page eyebrow="Foundations" title="Themes & backdrops" lede={<p>Pane ships two themes. Dark glass dims the scene and sets white text on it. Light glass lifts and whitens the scene and sets ink text on it. Both run on the same components and the same tokens, and both are measured over all four photos.</p>}>
+      <Section id="playground" title="Try a theme on a scene" wide>
+        <p>Pick a theme and a backdrop. The night café is the hard case for light glass and the city is the hard case for dark glass.</p>
+        <ThemePlayground />
+      </Section>
       <Section id="switch" title="Switching themes">
         <p>Set <code>data-theme</code> on any element. The nearest one wins, so a light panel can sit inside a dark page and the other way round. With no attribute anywhere, the page follows the reader’s system setting through <code>prefers-color-scheme</code>.</p>
         <Code label="HTML">{`<html data-theme="light">   <!-- whole page -->\n<aside data-theme="dark">   <!-- one region -->`}</Code>
@@ -721,7 +725,7 @@ function Tokens() {
         <div className="token-filter">
           <label className="field"><span>Search</span><input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="e.g. glass, accent, 40px" /></label>
           <label className="field"><span>Tier</span>
-            <span className="select"><select value={tier} onChange={(e) => setTier(e.target.value)}><option value="">All</option><option value="primitive">Primitive</option><option value="semantic">Semantic</option><option value="component">Component</option></select><Icons.IconChevronDown className="select-chevron" /></span>
+            <span className="select"><select value={tier} onChange={(e) => setTier(e.target.value)}><option value="">All</option><option value="primitive">Primitive</option><option value="semantic">Semantic</option><option value="component">Component</option></select><Icons.IconChevronDown className="select-chevron" data-chevron="" /></span>
           </label>
         </div>
         <TokenTable tier={tier || undefined} query={q} />

@@ -7,7 +7,7 @@ export default function AvatarSizes() {
       <Avatar name="Max Fmz" size="lg" />
       <Avatar name="Visual Flow" size="md" />
       <Avatar name="Ada Lovelace" size="sm" />
-      <Avatar name="Grace Hopper" size="md" src="/scenes/forest.jpg" />
+      <Avatar name="Grace Hopper" size="md" src="/scenes/forest-sm.jpg" />
     </div>
   );
 }

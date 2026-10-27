@@ -1,15 +1,14 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Button, Card, Environment } from 'pane-react';
 import { PAGES, PARTS, navigate, useRoute } from './book/router';
 import { Link, SceneContext, VerifyContext, type Conformance, type Evidence } from './book/kit';
 import { PAGE_COMPONENTS } from './book/pages';
 import { SCENES, sceneById } from './scenes';
 
-function useJson<T>(url: string) {
-  const [data, setData] = useState<T | null>(null);
-  useEffect(() => { fetch(url).then((r) => (r.ok ? r.json() : null)).then(setData).catch(() => setData(null)); }, [url]);
-  return data;
-}
+// Verification results ship inside the bundle (the verify run rebuilds the docs after writing them),
+// so badges and evidence tables render in the same frame as the page instead of popping in later.
+const VERIFY = import.meta.glob('../public/{evidence,conformance}.json', { eager: true, import: 'default' }) as Record<string, unknown>;
+const verifyFile = <T,>(name: string) => (VERIFY[`../public/${name}.json`] as T | undefined) ?? null;
 // A stale or older-format file must read as "unverified", never crash the page or show wrong numbers.
 const validEvidence = (e: Evidence | null) => (e && Array.isArray(e.modes) && e.harness && e.docsPage && Array.isArray(e.summary?.informational) ? e : null);
 const validConformance = (c: Conformance | null) => (c && Array.isArray(c.checks) ? c : null);
@@ -20,24 +19,38 @@ function SceneBackdrop({ scene }: { scene: string }) {
   useEffect(() => { setLayers((l) => (l[l.length - 1] === scene ? l : [l[l.length - 1], scene])); }, [scene]);
   return (
     <div className="env" aria-hidden="true">
-      {layers.map((s, i) => <div key={`${s}-${i}`} className={`env-layer${i === layers.length - 1 && layers.length > 1 ? ' env-in' : ''}`} style={{ backgroundImage: `url(/scenes/${s}.jpg)` }} />)}
+      {layers.map((s, i) => <SceneLayer key={`${s}-${i}`} scene={s} fade={i === layers.length - 1 && layers.length > 1} />)}
     </div>
   );
 }
 
+// The photo fades in once it has decoded, over the scene's average colour painted by index.html on the
+// first frame, so the backdrop never pops in half-loaded.
+function SceneLayer({ scene, fade }: { scene: string; fade: boolean }) {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    const img = new Image();
+    img.src = `/scenes/${scene}.webp`;
+    let live = true;
+    img.decode().catch(() => {}).then(() => live && setReady(true));
+    return () => { live = false; };
+  }, [scene]);
+  return <div className={`env-layer${fade ? ' env-in' : ''}${ready ? ' ready' : ''}`} style={{ backgroundImage: ready ? `url(/scenes/${scene}.webp)` : undefined }} />;
+}
+
 function useOnThisPage(path: string) {
   const [items, setItems] = useState<Array<{ id: string; title: string }>>([]);
-  useEffect(() => {
-    const t = setTimeout(() => setItems([...document.querySelectorAll('main .book-section')].map((s) => ({ id: s.id, title: s.querySelector('h2')?.textContent?.replace(/^#/, '') ?? s.id }))), 0);
-    return () => clearTimeout(t);
+  // layout effect: the list is filled before the browser paints, so it never appears a frame late
+  useLayoutEffect(() => {
+    setItems([...document.querySelectorAll('main .book-section')].map((s) => ({ id: s.id, title: s.querySelector('h2')?.textContent?.replace(/^#/, '') ?? s.id })));
   }, [path]);
   return items;
 }
 
 export function App() {
   const path = useRoute();
-  const evidence = validEvidence(useJson<Evidence>('/evidence.json'));
-  const conformance = validConformance(useJson<Conformance>('/conformance.json'));
+  const evidence = validEvidence(verifyFile<Evidence>('evidence'));
+  const conformance = validConformance(verifyFile<Conformance>('conformance'));
   const [scene, setScene] = useState(sceneById(new URLSearchParams(location.search).get('scene') ?? 'room').id);
   const [q, setQ] = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
@@ -51,7 +64,7 @@ export function App() {
     return () => mq.removeEventListener('change', on);
   }, []);
   const theme = themePref === 'system' ? (systemLight ? 'light' : 'dark') : themePref;
-  useEffect(() => { document.documentElement.dataset.theme = theme; localStorage.setItem('pane-theme', themePref); }, [theme, themePref]);
+  useLayoutEffect(() => { document.documentElement.dataset.theme = theme; localStorage.setItem('pane-theme', themePref); }, [theme, themePref]);
   const menuButton = useRef<HTMLButtonElement>(null);
   const firstRender = useRef(true);
 
@@ -98,7 +111,7 @@ export function App() {
         <header className="topbar">
           <Link to="/"><span className="brand">Pane</span></Link>
           <span className="topbar-title muted">{PAGES[PAGES.findIndex((p) => p.path === path)]?.title}</span>
-          <Button ref={menuButton} size="sm" variant="glass" aria-expanded={menuOpen} aria-controls="book-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? 'Close' : 'Menu'}</Button>
+          <Button ref={menuButton} data-menu-toggle="" size="sm" variant="glass" aria-expanded={menuOpen} aria-controls="book-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? 'Close' : 'Menu'}</Button>
         </header>
         {menuOpen && <div className="drawer-scrim" aria-hidden="true" onClick={() => setMenuOpen(false)} />}
 
@@ -109,9 +122,9 @@ export function App() {
           </Card>
           <Card as="div">
             <p className="flush eyebrow" id="theme-label">Theme</p>
-            <div className="scene-picker" role="group" aria-labelledby="theme-label">
+            <div className="scene-picker" role="group" aria-labelledby="theme-label" data-theme-control="">
               {(['system', 'light', 'dark'] as const).map((t) => (
-                <Button key={t} size="sm" variant={t === themePref ? 'accent' : 'glass'} aria-pressed={t === themePref} onClick={() => setThemePref(t)}>{t[0].toUpperCase() + t.slice(1)}</Button>
+                <Button key={t} size="sm" variant={t === themePref ? 'accent' : 'glass'} aria-pressed={t === themePref} data-theme-value={t} onClick={() => setThemePref(t)}>{t[0].toUpperCase() + t.slice(1)}</Button>
               ))}
             </div>
             <p className="flush eyebrow" id="scene-label">Scene behind the glass</p>
@@ -119,13 +132,13 @@ export function App() {
               {SCENES.map((s) => <Button key={s.id} size="sm" variant={s.id === scene ? 'accent' : 'glass'} aria-pressed={s.id === scene} onClick={() => setScene(s.id)}>{s.label}</Button>)}
             </div>
           </Card>
-          <nav aria-label="Book">
+          <nav aria-label="Book" data-book-nav="">
             <Card as="div" className="nav-card">
               <label className="field"><span className="eyebrow">Find a chapter</span><input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Button, motion, tokens…" /></label>
               <div className="nav-scroll">
               {filtered.map((part) => (
                 <div key={part.title} className="nav-part">
-                  <p className="flush eyebrow">{part.title}</p>
+                  <p className="nav-part-title" data-nav-part="">{part.title}</p>
                   <ul className="toc flush">
                     {part.pages.map((p) => <li key={p.path}><a href={p.path} aria-current={p.path === path ? 'page' : undefined} onClick={(e) => { e.preventDefault(); navigate(p.path); }}>{p.title}</a></li>)}
                   </ul>
@@ -141,8 +154,8 @@ export function App() {
             <Card as="section" aria-labelledby="nf"><h1 id="nf" className="flush page-title">Not in the book</h1><p className="flush muted">No chapter at {path}. <Link to="/">Back to the overview</Link>.</p></Card>
           )}
           <nav className="pager" aria-label="Chapters">
-            {prev ? <Card as="div" className="pager-card"><p className="flush eyebrow">Previous</p><Link to={prev.path}>{prev.title}</Link></Card> : <span />}
-            {next ? <Card as="div" className="pager-card next"><p className="flush eyebrow">Next</p><Link to={next.path}>{next.title}</Link></Card> : <span />}
+            {prev ? <Card as="div" className="pager-card" data-surface=""><p className="flush eyebrow">Previous</p><Link to={prev.path}>{prev.title}</Link></Card> : <span />}
+            {next ? <Card as="div" className="pager-card next" data-surface=""><p className="flush eyebrow">Next</p><Link to={next.path}>{next.title}</Link></Card> : <span />}
           </nav>
         </main>
 

@@ -22,7 +22,7 @@ function Select<T extends string>({ label, value, options, onChange }: { label: 
   return (
     <label className="pg-control">
       <span className="pg-label">{label}</span>
-      <span className="select"><select value={value} onChange={(e) => onChange(e.target.value as T)}>{options.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select><Icons.IconChevronDown className="select-chevron" /></span>
+      <span className="select"><select value={value} onChange={(e) => onChange(e.target.value as T)}>{options.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select><Icons.IconChevronDown className="select-chevron" data-chevron="" /></span>
     </label>
   );
 }
@@ -31,8 +31,8 @@ function Playground({ title, controls, preview, code, note }: { title: string; c
     <div className="playground" data-playground="">
       <p className="flush pg-title">{title}</p>
       <div className="pg-body">
-        <div className="pg-controls">{controls}</div>
-        <div className="pg-preview">{preview}</div>
+        <div className="pg-controls" data-controls="">{controls}</div>
+        <div className="pg-preview" data-preview="">{preview}</div>
       </div>
       {note && <div className="pg-note">{note}</div>}
       <CodeBlock code={code} />
@@ -99,7 +99,7 @@ export function GlassPlayground({ scene }: { scene: string }) {
           </div>
         </div>
       }
-      note={estimate != null && <p className="flush"><Badge tone={estimate >= 4.5 ? 'positive' : estimate >= 3 ? 'warning' : 'critical'}>{`about ${estimate}:1`}</Badge> estimated from the scene image under the card, before blur. The evidence run is the real measurement.</p>}
+      note={<p className="flush"><Badge tone={estimate == null ? 'neutral' : estimate >= 4.5 ? 'positive' : estimate >= 3 ? 'warning' : 'critical'}>{estimate == null ? 'about …:1' : `about ${estimate}:1`}</Badge> estimated from the scene image under the card, before blur. The evidence run is the real measurement.</p>}
       code={css}
     />
   );
@@ -288,6 +288,27 @@ export function TouchTargetPlayground() {
       }
       note={<p className="flush">The outline is {TOKENS['layout.touch'].value} square, centred on each control. Tags are labels and need no hit area.</p>}
       code={`min-block-size: var(--ds-layout-touch);\nmin-inline-size: var(--ds-layout-touch);`}
+    />
+  );
+}
+
+// ---------- Themes ----------
+export function ThemePlayground() {
+  const [theme, setTheme] = useState<'dark' | 'light'>('light');
+  const [scene, setScene] = useState('night');
+  return (
+    <Playground
+      title="One card, any theme, any scene"
+      controls={<>
+        <Select label="Theme" value={theme} options={[['dark', 'Dark'], ['light', 'Light']]} onChange={setTheme} />
+        <Select label="Scene" value={scene} options={[['room', 'Room'], ['forest', 'Forest'], ['night', 'Night café (dark)'], ['city', 'City (bright)']]} onChange={setScene} />
+      </>}
+      preview={
+        <div className="pg-scene" data-theme={theme} style={{ backgroundImage: `url(/scenes/${scene}-sm.jpg)` }}>
+          <Card as="div"><Stack gap="sm"><p className="flush pg-glass-title">Trip to Lauterbrunnen</p><p className="flush">Saturday · 3 people going</p><Stack direction="row" gap="sm"><Button>Join</Button><Button variant="glass">Later</Button></Stack></Stack></Card>
+        </div>
+      }
+      code={`<section data-theme="${theme}">\n  <Card>…</Card>\n</section>`}
     />
   );
 }
