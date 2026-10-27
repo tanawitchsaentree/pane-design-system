@@ -60,6 +60,9 @@
       },
       "05": {
         "$value": "#FFFFFF0D"
+      },
+      "42": {
+        "$value": "#FFFFFF6B"
       }
     },
     "graphite": {
@@ -218,6 +221,9 @@
       },
       "06": {
         "$value": "#1112140F"
+      },
+      "30": {
+        "$value": "#1112144D"
       }
     },
     "paper": {
@@ -261,6 +267,23 @@
       },
       "22": {
         "$value": "#0071E338"
+      },
+      "80": {
+        "$value": "#0071E3CC"
+      }
+    },
+    "sky-a": {
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6",
+            "P1"
+          ],
+          "why": "the bright accent blue at a fixed opacity, the one colour a diagram may use, strong enough to separate a part from the dark ground at 3:1"
+        }
+      },
+      "60": {
+        "$value": "#4DA3FF99"
       }
     }
   },
@@ -463,6 +486,9 @@
         "p": "P3",
         "why": "corners nest: the 40px pane minus its 22px inset padding gives the 18px media corner, minus 16px gives the 24px inner surface, and controls are full pills because they are held"
       }
+    },
+    "sm": {
+      "$value": "4px"
     }
   },
   "font": {

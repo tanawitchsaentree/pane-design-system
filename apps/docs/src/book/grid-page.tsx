@@ -29,9 +29,9 @@ function Anatomy({ bp, labels = true, children }: { bp: BP; labels?: boolean; ch
   const frame: CSSProperties = { inlineSize: bp.sample * scale, '--m': `${bp.margin * scale}px`, '--g': `${bp.gutter * scale}px`, '--c': bp.columns } as CSSProperties;
   return (
     <figure className="gx-figure">
-      <div className="gx-frame" style={frame} role="img" aria-label={`${bp.label} grid: ${bp.columns} columns, ${bp.gutter}px gutters, ${bp.margin}px margins at ${bp.sample}px wide`}>
-        <span className="gx-margin start" /><span className="gx-margin end" />
-        <div className="gx-cols">{Array.from({ length: bp.columns }, (_, i) => <span key={i} className="gx-col" />)}</div>
+      <div className="gx-frame" data-graphic-ground="" style={frame} role="img" aria-label={`${bp.label} grid: ${bp.columns} columns, ${bp.gutter}px gutters, ${bp.margin}px margins at ${bp.sample}px wide`}>
+        <span className="gx-margin start" data-graphic="margin" /><span className="gx-margin end" data-graphic="margin" />
+        <div className="gx-cols">{Array.from({ length: bp.columns }, (_, i) => <span key={i} className="gx-col" data-graphic="column" />)}</div>
         {children && <div className="gx-content">{children}</div>}
         {labels && <>
           {/* 1 over the third column, 2 over the gutter after the sixth, 3 over the end margin */}
@@ -214,7 +214,7 @@ export function GridLayoutPage() {
 
       <Section id="behaviours" title="More things, or bigger things">
         <p>When the screen grows, decide what the reader wants. If they want to see more items, keep the item size and let more columns of items fit (fixed boxes). If they want to see more of each item, keep the count and let each one grow (fluid columns). A feed of photos is the second case; a list of people to follow is the first.</p>
-        <Example title="Column count follows the screen" code={GridBasicSrc} plain><GridBasic /></Example>
+        <Example title="Column count follows the screen" code={GridBasicSrc} plain backdrop="field"><GridBasic /></Example>
       </Section>
 
       <Section id="ui-behaviours" title="How each region scales" wide>

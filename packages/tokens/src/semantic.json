@@ -476,6 +476,18 @@
         "p": "P3",
         "why": "panel, inner and media corners nest by the padding between them, and round is for things that are held"
       }
+    },
+    "mark": {
+      "$value": "{radius.sm}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3",
+            "P6"
+          ],
+          "why": "drawings in diagrams are marks, not objects, so they get a small corner that keeps narrow plates from turning into pills and hiding their width"
+        }
+      }
     }
   },
   "type": {
@@ -866,6 +878,36 @@
       "$extensions": {
         "pane.theme": {
           "light": "{color.ink-a.08}"
+        }
+      }
+    },
+    "column": {
+      "$value": "{color.sky-a.60}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.blue-a.80}"
+        },
+        "kiln.why": {
+          "p": [
+            "P6",
+            "P3"
+          ],
+          "why": "diagram columns in the accent so they stand at least 3:1 off the ground in both themes and read as the place where content goes"
+        }
+      }
+    },
+    "margin": {
+      "$value": "{color.white-a.70}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.78}"
+        },
+        "kiln.why": {
+          "p": [
+            "P6",
+            "P3"
+          ],
+          "why": "margins are hatched in the text colour so they are told apart from columns by pattern as well as by tone"
         }
       }
     }

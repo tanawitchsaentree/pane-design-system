@@ -1,24 +1,13 @@
 {
-  "generatedAt": "2026-10-27T08:11:59.760Z",
-  "passed": 0,
+  "generatedAt": "2026-10-27T08:51:00.401Z",
+  "passed": 1,
   "total": 1,
   "results": [
     {
-      "id": "G-BT1",
-      "name": "every topic the reference systems cover on a page is covered on ours, or declined with a reason",
-      "ok": false,
-      "detail": "9 topics: /foundations/glass: no benchmark topic list yet (docs.benchmarkTopics) | /foundations/color: no benchmark topic list yet (docs.benchmarkTopics) | /foundations/themes: no benchmark topic list yet (docs.benchmarkTopics) | /foundations/typography: no benchmark topic list yet (docs.benchmarkTopics)",
-      "problems": [
-        "/foundations/glass: no benchmark topic list yet (docs.benchmarkTopics)",
-        "/foundations/color: no benchmark topic list yet (docs.benchmarkTopics)",
-        "/foundations/themes: no benchmark topic list yet (docs.benchmarkTopics)",
-        "/foundations/typography: no benchmark topic list yet (docs.benchmarkTopics)",
-        "/foundations/spacing: no benchmark topic list yet (docs.benchmarkTopics)",
-        "/foundations/dimensions: no benchmark topic list yet (docs.benchmarkTopics)",
-        "/foundations/shape: no benchmark topic list yet (docs.benchmarkTopics)",
-        "/foundations/motion: no benchmark topic list yet (docs.benchmarkTopics)",
-        "/foundations/icons: no benchmark topic list yet (docs.benchmarkTopics)"
-      ]
+      "id": "G-NT1",
+      "name": "diagram parts stand at least 3:1 off their ground, in every theme (WCAG 1.4.11)",
+      "ok": true,
+      "detail": "2 diagrams"
     }
   ]
 }

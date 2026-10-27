@@ -107,11 +107,11 @@ export function Stage({ children, plain, className = '', backdrop }: { children:
 }
 
 /** Live example + the exact source file that renders it (imported with ?raw), code visible by default. */
-export function Example({ title, code, children, plain }: { title: string; code: string; children: ReactNode; plain?: boolean }) {
+export function Example({ title, code, children, plain, backdrop }: { title: string; code: string; children: ReactNode; plain?: boolean; backdrop?: 'scene' | 'field' }) {
   const body = code.replace(/^\/\/ @example.*\n/m, '').trim();
   return (
     <figure className="example" data-example="">
-      <Stage plain={plain}>{children}</Stage>
+      <Stage plain={plain} backdrop={backdrop}>{children}</Stage>
       <figcaption className="example-bar"><span className="example-title">{title}</span></figcaption>
       <CodeBlock code={body} label="TSX" />
     </figure>

@@ -10,6 +10,7 @@
 //   foundations  G-F1 G-N1                          themes      G-T1
 //   components   G-K1–G-K8 G-B1 G-L1 demo floor     reference   G-M1 G-IA1      a11y  axe ×2
 //   identity     G-X1 habitual patterns (accent stripe, icon-disc alert) need a derivation that justifies them
+//   diagrams     G-NT1 graphic parts ≥3:1 off their ground (WCAG 1.4.11)
 //   benchmarks   G-BT1 every reference topic for a page covered or declined (benchmarks/topics)
 //   reasons      G-W1 (Why column, component reasons section; data from rationale.mjs)
 //
@@ -603,6 +604,49 @@ try {
       }
     }
     fail([...new Set(bad)], 'habitual patterns');
+  });
+
+  // ------------------------------------------------------------------ diagrams can be seen
+  // WCAG 1.4.11: parts of a graphic that are needed to understand it stand at least 3:1 off their
+  // ground. Diagrams mark their ground ([data-graphic-ground]) and parts ([data-graphic]); the gate
+  // screenshots each diagram and compares the mean colour of every part with the mean of the ground
+  // pixels no part covers.
+  await gate('G-NT1', 'diagram parts stand at least 3:1 off their ground, in every theme (WCAG 1.4.11)', async () => {
+    const { PNG } = await import('pngjs');
+    const lin = (c) => ((c /= 255) <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
+    const lum = ([r, g, b]) => 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+    const bad = []; let grounds = 0;
+    for (const theme of C.themes) for (const r of ROUTES) {
+      await go(r, { theme });
+      const n = await page.locator('[data-graphic-ground]').count();
+      for (let i = 0; i < n; i++) {
+        const g = page.locator('[data-graphic-ground]').nth(i);
+        await g.scrollIntoViewIfNeeded();
+        await page.waitForTimeout(100);
+        const geo = await g.evaluate((el) => { const b = el.getBoundingClientRect(); return { box: { x: b.left, y: b.top, w: b.width, h: b.height }, parts: [...el.querySelectorAll('[data-graphic]')].map((p) => { const q = p.getBoundingClientRect(); return { kind: p.dataset.graphic, x: q.left - b.left, y: q.top - b.top, w: q.width, h: q.height }; }) }; });
+        if (!geo.parts.length || geo.box.w < 4) continue;
+        grounds++;
+        const png = PNG.sync.read(await page.screenshot({ clip: { x: geo.box.x, y: geo.box.y, width: geo.box.w, height: geo.box.h } }));
+        const px = (x, y) => { const k = (Math.floor(y) * png.width + Math.floor(x)) * 4; return [png.data[k], png.data[k + 1], png.data[k + 2]]; };
+        const inside = (x, y) => geo.parts.some((p) => x >= p.x && x < p.x + p.w && y >= p.y && y < p.y + p.h);
+        const mean = (pts) => pts.reduce((a, c) => [a[0] + c[0], a[1] + c[1], a[2] + c[2]], [0, 0, 0]).map((v) => v / Math.max(1, pts.length));
+        const groundPts = [];
+        for (let y = 2; y < png.height - 2; y += 3) for (let x = 2; x < png.width - 2; x += 3) if (!inside(x, y)) groundPts.push(px(x, y));
+        const ground = lum(mean(groundPts));
+        const seen = new Set();
+        for (const p of geo.parts) {
+          const pts = [];
+          for (let y = p.y + 2; y < p.y + p.h - 2; y += 2) for (let x = p.x + 1; x < p.x + p.w - 1; x += 2) if (x >= 0 && y >= 0 && x < png.width && y < png.height) pts.push(px(x, y));
+          if (!pts.length) continue;
+          const l = lum(mean(pts));
+          const ratio = (Math.max(l, ground) + 0.05) / (Math.min(l, ground) + 0.05);
+          if (ratio < 3 && !seen.has(p.kind)) { seen.add(p.kind); bad.push(`${theme} ${r}: ${p.kind} ${ratio.toFixed(2)}:1 against its ground`); }
+        }
+      }
+    }
+    expect(grounds > 0, 'NO DIAGRAMS FOUND ([data-graphic-ground] with [data-graphic] parts)');
+    fail(bad, 'parts');
+    return `${grounds} diagrams`;
   });
 
   // ------------------------------------------------------------------ benchmark topics

@@ -17,13 +17,13 @@ function Range({ label, min, max, step, value, onChange, unit = '' }: { label: s
 function Select<T extends string>({ label, value, options, onChange }: { label: string; value: T; options: Array<[T, string]>; onChange: (v: T) => void }) {
   return <PaneSelect label={label} size="sm" value={value} options={options.map(([v, l]) => ({ value: v, label: l }))} onValueChange={(v) => onChange(v as T)} />;
 }
-function Playground({ title, controls, preview, code, note, bare }: { title: string; controls: ReactNode; preview: ReactNode; code: string; note?: ReactNode; bare?: boolean }) {
+function Playground({ title, controls, preview, code, note, bare, backdrop }: { title: string; controls: ReactNode; preview: ReactNode; code: string; note?: ReactNode; bare?: boolean; backdrop?: 'scene' | 'field' }) {
   return (
     <div className="playground" data-playground="">
       <p className="flush pg-title">{title}</p>
       <div className="pg-body">
         <div className="pg-controls" data-controls="">{controls}</div>
-        <div className="pg-preview" data-preview="">{bare ? preview : <Stage className="pg-stage">{preview}</Stage>}</div>
+        <div className="pg-preview" data-preview="">{bare ? preview : <Stage className="pg-stage" backdrop={backdrop}>{preview}</Stage>}</div>
       </div>
       {note && <div className="pg-note">{note}</div>}
       <CodeBlock code={code} />
@@ -175,6 +175,7 @@ export function GridPlayground() {
   const s = Math.min(span, cols);
   return (
     <Playground
+      backdrop="field"
       title="Columns, gutter and span"
       controls={<>
         <Range label="Columns" min={1} max={12} step={1} value={cols} onChange={setCols} />
