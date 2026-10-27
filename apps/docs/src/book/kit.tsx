@@ -8,7 +8,7 @@ import { navigate } from './router';
 import { SCENES, sceneById } from '../scenes';
 
 export type Why = { p: string | string[]; why: string };
-export type Token = { tier: string; type: string; value: string; ref: string | null; css: string; description: string | null; why?: Why | null; themes?: Record<string, { ref: string; value: string }> };
+export type Token = { tier: string; type: string; value: string; ref: string | null; css: string; description: string | null; why?: Why | null; themes?: Record<string, { ref: string; value: string }>; breakpoints?: Record<string, { ref: string; value: string }> };
 export const TOKENS = tokens as Record<string, Token>;
 const BY_CSS = Object.fromEntries(Object.entries(TOKENS).map(([p, t]) => [t.css, p]));
 

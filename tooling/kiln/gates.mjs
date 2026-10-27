@@ -10,6 +10,7 @@
 //   foundations  G-F1 G-N1                          themes      G-T1
 //   components   G-K1–G-K8 G-B1 G-L1 demo floor     reference   G-M1 G-IA1      a11y  axe ×2
 //   identity     G-X1 habitual patterns (accent stripe, icon-disc alert) need a derivation that justifies them
+//   benchmarks   G-BT1 every reference topic for a page covered or declined (benchmarks/topics)
 //   reasons      G-W1 (Why column, component reasons section; data from rationale.mjs)
 //
 // Usage: node tooling/engine/gates.mjs [--only G-K2,G-K3] [--report]
@@ -602,6 +603,37 @@ try {
       }
     }
     fail([...new Set(bad)], 'habitual patterns');
+  });
+
+  // ------------------------------------------------------------------ benchmark topics
+  // Every topic the reference systems cover on the same page must be covered here, or declined with a
+  // reason. The topic lists live with kiln (docs-engine/benchmarks/topics/<page>.json); the system maps
+  // each topic to one of its own sections in system/benchmark-coverage.json.
+  await gate('G-BT1', 'every topic the reference systems cover on a page is covered on ours, or declined with a reason', async () => {
+    const map = C.benchmarkTopics ?? {};
+    const covFile = path.join(C.root, 'system', 'benchmark-coverage.json');
+    const cov = existsSync(covFile) ? JSON.parse(readFileSync(covFile, 'utf8')) : {};
+    const dir = C.abs(C.topicsDir ?? 'marketplace/plugins/kiln/skills/docs-engine/benchmarks/topics');
+    const bad = []; let n = 0;
+    const routesFor = Object.entries(map);
+    expect(routesFor.length, 'NO PAGES MAPPED to benchmark topics (docs.benchmarkTopics)');
+    for (const [route, name] of routesFor) {
+      const f = path.join(dir, `${name}.json`);
+      if (!existsSync(f)) { bad.push(`${route}: no topic list ${name}.json`); continue; }
+      const topics = JSON.parse(readFileSync(f, 'utf8')).topics;
+      await go(route);
+      for (const t of topics) {
+        n++;
+        const c = cov[route]?.[t.id];
+        if (!c) { bad.push(`${route} ${t.id}: not covered and not declined (${t.topic})`); continue; }
+        if (typeof c === 'object' && c.na) { if (String(c.na).split(/\s+/).length < 10) bad.push(`${route} ${t.id}: declined without a real reason`); continue; }
+        const words = await page.evaluate((id) => { const e = document.getElementById(id.replace(/^#/, '')); return e ? e.innerText.trim().split(/\s+/).length : -1; }, String(c));
+        if (words < 0) bad.push(`${route} ${t.id}: mapped to ${c}, which is not on the page`);
+        else if (words < 25) bad.push(`${route} ${t.id}: ${c} has ${words} words, too thin to cover "${t.topic}"`);
+      }
+    }
+    fail(bad, 'topics');
+    return `${n} topics across ${routesFor.length} pages`;
   });
 
   // ------------------------------------------------------------------ reference

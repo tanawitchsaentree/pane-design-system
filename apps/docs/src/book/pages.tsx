@@ -21,6 +21,7 @@ import * as Icons from '../icons';
 import { ThemePlayground, GlassPlayground, ContrastPlayground, TypePlayground, SpacingPlayground, GridPlayground, ShapePlayground, MotionPlayground, IconBrowser, TouchTargetPlayground } from './playgrounds';
 import { inline, useScene, Stage, PRINCIPLES, CONCEPT_INTRO, Callout, Code, CopyButton, ConformanceList, EvidenceTable, Example, Link, Markdown, Page, Section, TOKENS, TokenTable, VerifiedTags, useVerify } from './kit';
 import { COMPONENTS } from './components-data';
+import { GridLayoutPage } from './grid-page';
 import { ComponentPage, EVIDENCE_GROUPS, HISTORY, STATUS_LABEL } from './ComponentPage';
 import { SCENES } from '../scenes';
 import { PARTS } from './router';
@@ -455,48 +456,6 @@ function Spacing() {
   );
 }
 
-function GridLayout() {
-  const bp = (k: string) => tok(`breakpoint.${k}`);
-  return (
-    <Page eyebrow="Foundations" title="Grid & layout" lede={<p>A 4 → 8 → 12 column grid with gutters and page margins that grow with the screen. Every number below is a token; the media queries that switch them are generated from the breakpoint tokens, so a breakpoint is defined once.</p>}>
-      <Section id="playground" title="Build a grid" wide>
-        <p>Change the column count, the gutter and the highlighted span. Real pages leave columns to the breakpoints and only set spans.</p>
-        <GridPlayground />
-      </Section>
-      <Section id="table" title="Per breakpoint" wide>
-        <div className="table-wrap">
-          <table>
-            <thead><tr><th scope="col">Range</th><th scope="col">Columns</th><th scope="col">Gutter</th><th scope="col">Margin</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">&lt; {bp('md')}</th><td>{tok('columns.4')}</td><td>{tok('space.4')}</td><td>{tok('space.4')}</td></tr>
-              <tr><th scope="row">≥ {bp('md')} (md)</th><td>{tok('columns.8')}</td><td>{tok('space.6')}</td><td>{tok('space.8')}</td></tr>
-              <tr><th scope="row">≥ {bp('lg')} (lg)</th><td>{tok('columns.12')}</td><td>{tok('space.8')}</td><td>{tok('space.12')}</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p className="muted">Read from <code>layout.columns</code>, <code>layout.gutter</code> and <code>layout.margin</code>, whose <code>$extensions["pane.breakpoint"]</code> values the token build turns into <code>@media (min-width: …)</code> blocks.</p>
-      </Section>
-      <Section id="live" title="The grid, live" wide>
-        <p>Resize the window to watch it. There are 12 columns at this width, 8 under 1024px and 4 under 768px.</p>
-        <Example title="Column count follows the screen" code={GridBasicSrc} plain><GridBasic /></Example>
-      </Section>
-      <Section id="containers" title="Containers">
-        <TokenTable prefix="container." />
-      </Section>
-      <Section id="tokens" title="Layout tokens">
-        <TokenTable prefix="layout." />
-        <TokenTable prefix="grid." />
-      </Section>
-      <Section id="use" title="Using it">
-        <ul>
-          <li>A page frame is a <Link to="/components/container">Container</Link> around a <Link to="/components/grid">Grid</Link>, with cards in <code>GridItem</code>s.</li>
-          <li>Outside React the same grid is a few lines of CSS, <code>display: grid; grid-template-columns: repeat(var(--ds-grid-columns), minmax(0, 1fr)); gap: var(--ds-grid-gutter)</code>, and the variables already switch at the breakpoints.</li>
-          <li>In SCSS media queries use the raw values, as in <code>@media (min-width: $ds-raw-breakpoint-md)</code>.</li>
-        </ul>
-      </Section>
-    </Page>
-  );
-}
 
 function Dimensions() {
   return (
@@ -847,7 +806,7 @@ export const PAGE_COMPONENTS: Record<string, () => ReactElement> = {
   '/foundations/themes': Themes,
   '/foundations/typography': Typography,
   '/foundations/spacing': Spacing,
-  '/foundations/grid': GridLayout,
+  '/foundations/grid': GridLayoutPage,
   '/foundations/dimensions': Dimensions,
   '/foundations/shape': Shape,
   '/foundations/motion': Motion,

@@ -108,6 +108,10 @@
         "Tag"
       ],
       "$comment": "components built before references/derivation.md; each leaves this list only by going through a derivation round with a user pick. The list may only shrink."
-    }
+    },
+    "benchmarkTopics": {
+      "/foundations/grid": "grid"
+    },
+    "topicsDir": "../kiln/marketplace/plugins/kiln/skills/docs-engine/benchmarks/topics"
   }
 }

@@ -1,12 +1,17 @@
 {
-  "generatedAt": "2026-10-27T07:30:13.116Z",
-  "passed": 1,
+  "generatedAt": "2026-10-27T08:08:34.117Z",
+  "passed": 0,
   "total": 1,
   "results": [
     {
-      "id": "G-X1",
-      "name": "no habitual pattern (accent stripe, tinted icon disc with bold title and muted body) unless the derivation names and justifies it",
-      "ok": true
+      "id": "G-BT1",
+      "name": "every topic the reference systems cover on a page is covered on ours, or declined with a reason",
+      "ok": false,
+      "detail": "2 topics: /foundations/grid nested: mapped to #nope, which is not on the page | /foundations/grid density: not covered and not declined (Density levels and how gutters and margins change with them)",
+      "problems": [
+        "/foundations/grid nested: mapped to #nope, which is not on the page",
+        "/foundations/grid density: not covered and not declined (Density levels and how gutters and margins change with them)"
+      ]
     }
   ]
 }

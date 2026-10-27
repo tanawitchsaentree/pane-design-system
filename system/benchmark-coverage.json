@@ -1,0 +1,31 @@
+{
+  "/foundations/grid": {
+    "scope": "#scope",
+    "unit": "#unit",
+    "anatomy": "#anatomy",
+    "breakpoints": "#breakpoints",
+    "breakpoint-basis": "#breakpoint-basis",
+    "column-width": "#column-width",
+    "spans": "#spans",
+    "types": "#types",
+    "max-width": "#max-width",
+    "gutters": "#gutters",
+    "margins": "#margins",
+    "padding": "#padding",
+    "what-aligns": "#what-aligns",
+    "nested": "#nested",
+    "behaviours": "#behaviours",
+    "ui-behaviours": "#ui-behaviours",
+    "regions": "#regions",
+    "key-lines": "#key-lines",
+    "density": "#density",
+    "sizing-scale": "#sizing-scale",
+    "aspect-ratios": "#aspect-ratios",
+    "vertical-rhythm": "#vertical-rhythm",
+    "components": "#components",
+    "dodont": "#dodont",
+    "tools": "#tools",
+    "demos": "#demos",
+    "further-reading": "#further-reading"
+  }
+}

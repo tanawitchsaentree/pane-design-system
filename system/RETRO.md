@@ -33,3 +33,11 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **Step that produced it:** the docs shell had no reading, loading or affordance requirements at build time.
 - **What changed in that step:** reading size and measure tokens; theme before paint; bundled data; WebP and small variants.
 - **Check that now catches it:** G-R1, G-PF1, G-PF2, G-A1.
+
+### R-005: foundation pages far thinner than Carbon, Atlassian and Dell (grid)
+- **Date:** 2026-10-27
+- **User said:** "มึงอ่าน grid ของ 3 เจ้าใหญ่ๆ แล้วมึงดูของเราอย่างง่อย … ปัญหามาอีกจนกว่ากูจะเจอไปเรื่อยๆ"
+- **What was wrong:** the Grid page had a playground, a hand-typed breakpoint table and a token list. The three references cover 27 topics on the same page.
+- **Step that produced it:** foundation pages had no depth standard; only component pages did. Nothing listed what a grid page must cover, so the user found gaps page by page.
+- **What changed in that step:** kiln `foundation-depth.md`: every foundation, pattern and guide page starts from a topic list built from at least three reference systems (`benchmarks/topics/<page>.json`, grid done); each topic is covered with live, token-generated material or declined with a reason from the concept (`system/benchmark-coverage.json`). Standard #18.
+- **Check that now catches it:** G-BT1 (27/27 grid topics; gate-proofed by removing one mapping and pointing one at a missing section). The other foundation pages have no topic lists yet and are the next gap.
