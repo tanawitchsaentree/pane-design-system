@@ -527,67 +527,54 @@
     }
   },
   "banner": {
-    "positive-accent": {
-      "$type": "color",
-      "$value": "{status.positive}"
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P1"
+        ],
+        "why": "a banner is a line on the pane, not a box in it: tone marks are glyph colours only, a hairline separates it from the content, and spacing follows the pane"
+      }
     },
-    "warning-accent": {
+    "mark-info": {
       "$type": "color",
-      "$value": "{status.warning}"
+      "$value": "{status.info-mark}"
     },
-    "critical-accent": {
+    "mark-positive": {
       "$type": "color",
-      "$value": "{status.critical}"
+      "$value": "{status.positive-mark}"
     },
-    "info-accent": {
+    "mark-warning": {
       "$type": "color",
-      "$value": "{status.info}"
+      "$value": "{status.warning-mark}"
     },
-    "positive-on-accent": {
+    "mark-critical": {
       "$type": "color",
-      "$value": "{status.on-positive}"
+      "$value": "{status.critical-mark}"
     },
-    "warning-on-accent": {
-      "$type": "color",
-      "$value": "{status.on-warning}"
-    },
-    "critical-on-accent": {
-      "$type": "color",
-      "$value": "{status.on-critical}"
-    },
-    "info-on-accent": {
-      "$type": "color",
-      "$value": "{status.on-info}"
-    },
-    "padding": {
+    "glyph": {
       "$type": "dimension",
-      "$value": "{gap.2xl}"
+      "$value": "{control.icon-md}"
     },
     "gap": {
       "$type": "dimension",
       "$value": "{gap.lg}"
     },
-    "radius": {
+    "padding-block": {
       "$type": "dimension",
-      "$value": "{corner.inner}"
+      "$value": "{gap.lg}"
     },
-    "icon-size": {
-      "$type": "dimension",
-      "$value": "{control.avatar-sm}"
-    },
-    "bar": {
-      "$type": "dimension",
-      "$value": "{width.bar}"
-    },
-    "surface": {
+    "divider": {
       "$type": "color",
-      "$value": "{surface.well}"
+      "$value": "{line.divider}"
     },
-    "$extensions": {
-      "kiln.why": {
-        "p": "P6",
-        "why": "a message inside a pane: a tone bar and icon disc carry the tone, the body sits in a measured well, and the tone is also spoken as text"
-      }
+    "dismiss": {
+      "$type": "dimension",
+      "$value": "{control.sm}"
+    },
+    "hit": {
+      "$type": "dimension",
+      "$value": "{layout.touch}"
     }
   },
   "select": {

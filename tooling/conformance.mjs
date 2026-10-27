@@ -318,9 +318,10 @@ try {
   await check('Banner', 'dismiss is a named button and removes the banner', async () => {
     const d = main().getByRole('button', { name: 'Dismiss' }).first();
     // the banner itself: a static Banner is a <section> labelled by its tone
-    const count = () => main().locator('section[aria-label="Info"]', { hasText: 'Get verified' }).count();
+    const count = () => main().locator('section[aria-label="Info"]', { hasText: 'New sign-in from Zürich' }).count();
     const before = await count();
     await d.click();
+    await page.waitForTimeout(600); // the line closes its height before it is removed
     const after = await count();
     expect(before >= 1 && after === before - 1, `banner count ${before} → ${after}`);
   });

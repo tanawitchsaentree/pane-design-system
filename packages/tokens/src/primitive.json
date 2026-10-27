@@ -109,6 +109,10 @@
           "p": "P5",
           "why": "the one promoted-action colour; 600 carries white text at 4.70:1 and 700 is its hover, darker so the pressed-in feeling matches the lift"
         }
+      },
+      "400": {
+        "$value": "#4DA3FF",
+        "$description": "blue bright enough to read as a small mark on dark glass"
       }
     },
     "shade-a": {
@@ -152,6 +156,10 @@
           "p": "P6",
           "why": "status colour for success; carries white text at 5.02:1 so the meaning is readable as text as well as colour"
         }
+      },
+      "400": {
+        "$value": "#3FCB77",
+        "$description": "green bright enough to read as a small mark on dark glass"
       }
     },
     "amber": {
@@ -164,6 +172,10 @@
           "p": "P6",
           "why": "status colour for warnings; bright enough to be seen on glass and paired with ink text at 9.90:1"
         }
+      },
+      "700": {
+        "$value": "#9A6400",
+        "$description": "amber dark enough to read as a small mark on light glass"
       }
     },
     "red": {
@@ -176,6 +188,10 @@
           "p": "P6",
           "why": "status colour for errors and destructive actions; carries white text at 5.66:1"
         }
+      },
+      "400": {
+        "$value": "#FF6B5E",
+        "$description": "red bright enough to read as a small mark on dark glass"
       }
     },
     "ink-a": {

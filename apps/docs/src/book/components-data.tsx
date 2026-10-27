@@ -483,33 +483,38 @@ export const COMPONENTS: ComponentChapter[] = [
     name: 'Banner',
     slug: 'banner',
     status: 'beta',
-    limitations: ['Banners stack in source order. There is no queue or limit.', 'Dismiss state is not remembered across visits.'],
+    limitations: ['Banners stack in source order. There is no queue, limit or priority sorting.', 'Dismiss state is not remembered across visits.', 'A message that must interrupt every pane at once, such as a lost connection, needs an app-level surface that Pane does not have yet.'],
     youMust: ['Set live only for banners that appear after the page loads.', 'Keep the title to one short sentence and put the detail in the body.'],
-    usage: '<Banner tone="warning" title="Card expires next month">\n  Update it to avoid a pause.\n</Banner>',
-    backdrops: "The tone bar and icon disc keep their colours in both themes. The banner body follows the quiet fill and the theme's text colours.",
-    purpose: 'Tells people something about the page or their task. What happened and what to do. Inline.',
+    usage: '<Card>\n  <Banner tone="warning" title="Card expires next month">\n    Update it to avoid a pause.\n  </Banner>\n  …\n</Card>',
+    backdrops: 'The banner has no surface, so it takes the pane it is written on. Only the glyph changes: brighter tone colours on dark glass, deeper ones on light glass, so a small mark stays visible on both.',
+    purpose: 'Tells people something about the pane it sits on, as a line written on the glass: what happened and what to do.',
     importLine: "import { Banner } from 'pane-react';",
     overview: (
       <>
-        <p>A banner is an inline message on a card. It has a tone bar on the start edge, a tone icon and a one-line title, and it can add detail, an action and a dismiss button. Each tone has its own icon, and screen readers hear the tone name before the title.</p>
-        <p>Banners already on the page when it loads stay silent, since announcing them would interrupt for nothing. Banners that appear because of something the user did should set <code>live</code>, with <code>polite</code> for news and <code>assertive</code> for errors.</p>
+        <p>A banner is a message about the pane it sits on, written as a line on the glass. It has no box, no fill and no coloured stripe. A second surface inside one sheet of glass would be a layer that is not there, and a coloured fill would repaint a pane whose colour belongs to the scene. The line is a glyph, a title, optional detail and optional actions, separated from the rest of the pane by a hairline.</p>
+        <p>Each tone has its own glyph shape (circle, check, triangle, octagon) and its own spoken word, and only the glyph is coloured. When a banner arrives or is dismissed, it opens or closes its own height so the content below slides instead of jumping.</p>
+        <p>Banners already on the page when it loads stay silent, since announcing them would interrupt for nothing. Banners that appear because of something the reader did set <code>live</code>, with <code>polite</code> for news and <code>assertive</code> for errors.</p>
       </>
     ),
-    hero: ex('BannerInPage', 'A banner at the top of a section sets page-level context.'),
+    hero: ex('BannerInPage', 'The message is the first line of the pane it is about, separated by a hairline. There is no box: one sheet of glass stays one layer.'),
     ladder: [
-      ex('BannerTones', 'Four tones, each with its own icon.'),
-      ex('BannerAction', 'A banner can carry an action and a dismiss button.'),
-      ex('BannerLive', 'Use live for banners that appear after an action. Polite maps to a status role and assertive to an alert.'),
+      ex('BannerTones', 'Four tones. Each has its own glyph shape and its own spoken word, and only the glyph carries the tone colour.'),
+      ex('BannerAction', 'Actions sit at the end of the line. Keep them quiet, unless acting on the message is the only thing the pane is for.'),
+      ex('BannerLive', 'Use live for messages that appear after something the reader did. Polite maps to a status role and assertive to an alert.'),
+      ex('BannerStack', 'Several messages stack as lines on the same pane. Dismissing one closes its height so the rest slide up.'),
+      ex('BannerLong', 'Long titles and details wrap, and the actions drop below the text on narrow panes. Right-to-left mirrors the line.'),
+      ex('BannerPage', 'The same line on an opaque reading surface, such as docs or settings, where there is no glass.'),
       ex('QuickStart', 'This is the kind of card a banner sits on.'),
     ],
     whenToUse: ['Lasting context such as a billing problem, a rollout or maintenance.', 'The result of an action, such as saved or failed.'],
     whenNotToUse: [['A one-word status', 'Badge'], ['Something that needs a decision before continuing', 'A dialog (not in Pane yet)']],
-    anatomy: [['Tone bar', '4px solid status colour on the start edge.'], ['Icon disc', 'Status colour with its on-colour glyph.'], ['Title', 'Semibold; prefixed for screen readers with the tone name.'], ['Detail', 'Secondary text.'], ['Action / Dismiss', 'Optional Button; “Dismiss” icon button.']],
-    states: [['Appears', 'Slides down 8px and fades in over 640ms.'], ['Dismissed', 'Removed by the parent (onDismiss).']],
+    anatomy: [['Glyph', '18px outline in the tone colour, a different shape per tone.'], ['Title', 'Semibold, the only heavy text in the line, prefixed for screen readers with the tone word.'], ['Detail', 'Secondary text under the title.'], ['Actions', 'At the end of the line, wrapping below the text on narrow panes.'], ['Dismiss', '32px quiet disc with a 44px press area.'], ['Hairline', 'Separates the message from the rest of the pane.']],
+    states: [['Appears', 'Its row opens from zero height over 640ms, so the content below is pushed gently.'], ['Dismissed', 'Its row closes over 420ms, then onDismiss runs so the parent can remove it.'], ['Reduced motion', 'Appears and leaves at once.']],
     content: ['The title says what happened (“Upload failed”). The detail says why and what to do next (“The file is larger than 25 MB.”).'],
     dodont: [
       { do: 'Tell people what to do next.', dont: 'Show “Error 413.” and stop there.' },
       { do: 'Use live only for banners that appear after an action.', dont: 'Make every banner on page load an alert.' },
+      { do: 'Write the message on the pane it is about.', dont: 'Wrap it in a coloured box with a stripe on its edge.' },
     ],
     a11y: ['A static banner is a section element labelled by its tone.', 'live="polite" → role="status"; live="assertive" → role="alert".', 'Dismiss is a real button named “Dismiss”.'],
     keyboard: [['Tab', 'To the action, then to Dismiss', 'Banner: dismiss is a named button and removes the banner']],

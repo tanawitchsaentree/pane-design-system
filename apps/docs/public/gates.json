@@ -1,17 +1,12 @@
 {
-  "generatedAt": "2026-10-27T07:06:13.496Z",
-  "passed": 0,
+  "generatedAt": "2026-10-27T07:30:13.116Z",
+  "passed": 1,
   "total": 1,
   "results": [
     {
       "id": "G-X1",
       "name": "no habitual pattern (accent stripe, tinted icon disc with bold title and muted body) unless the derivation names and justifies it",
-      "ok": false,
-      "detail": "2 habitual patterns: /components/banner: accent-stripe in Banner | /components/banner: icon-disc-alert in Banner",
-      "problems": [
-        "/components/banner: accent-stripe in Banner",
-        "/components/banner: icon-disc-alert in Banner"
-      ]
+      "ok": true
     }
   ]
 }

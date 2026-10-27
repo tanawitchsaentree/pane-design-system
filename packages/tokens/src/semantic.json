@@ -642,6 +642,66 @@
         "p": "P6",
         "why": "status fills each with the text colour computed to pass on it; every use also says the status in words"
       }
+    },
+    "info-mark": {
+      "$value": "{color.blue.400}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.blue.600}"
+        },
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the info tone as a small glyph colour only: the scene keeps its hue, and the glyph shape and spoken word carry the meaning too"
+        }
+      }
+    },
+    "positive-mark": {
+      "$value": "{color.green.400}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.green.600}"
+        },
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the positive tone as a small glyph colour only: the scene keeps its hue, and the glyph shape and spoken word carry the meaning too"
+        }
+      }
+    },
+    "warning-mark": {
+      "$value": "{color.amber.400}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.amber.700}"
+        },
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the warning tone as a small glyph colour only: the scene keeps its hue, and the glyph shape and spoken word carry the meaning too"
+        }
+      }
+    },
+    "critical-mark": {
+      "$value": "{color.red.400}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.red.600}"
+        },
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the critical tone as a small glyph colour only: the scene keeps its hue, and the glyph shape and spoken word carry the meaning too"
+        }
+      }
     }
   },
   "layout": {
