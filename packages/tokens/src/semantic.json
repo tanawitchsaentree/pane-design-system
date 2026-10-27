@@ -7,6 +7,10 @@
       "$extensions": {
         "pane.theme": {
           "light": "{color.white-a.62}"
+        },
+        "kiln.why": {
+          "p": "P1",
+          "why": "almost clear white (6 percent) so the scene stays visible; legibility comes from the dimming in glass.brightness, not from this tint"
         }
       }
     },
@@ -16,6 +20,10 @@
       "$extensions": {
         "pane.theme": {
           "light": "{color.paper.50}"
+        },
+        "kiln.why": {
+          "p": "P6",
+          "why": "the opaque surface that replaces glass under reduced transparency, forced colours or no backdrop-filter, so content stays readable"
         }
       }
     },
@@ -25,6 +33,10 @@
       "$extensions": {
         "pane.theme": {
           "light": "{color.white-a.45}"
+        },
+        "kiln.why": {
+          "p": "P5",
+          "why": "glass on glass for secondary controls: visible as an object, quieter than the one loud solid"
         }
       }
     },
@@ -33,26 +45,52 @@
       "$extensions": {
         "pane.theme": {
           "light": "{color.ink.900}"
+        },
+        "kiln.why": {
+          "p": "P5",
+          "why": "the loud solid, white in dark and ink in light, the single strongest mark a pane may carry"
         }
       }
     },
     "placeholder-hi": {
       "$value": "{color.foliage.light}",
-      "$description": "decorative image placeholder"
+      "$description": "decorative image placeholder",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P3",
+          "why": "top of the placeholder cover gradient, light catching a surface before the real image arrives"
+        }
+      }
     },
     "placeholder-lo": {
-      "$value": "{color.foliage.dark}"
+      "$value": "{color.foliage.dark}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P3",
+          "why": "bottom of the placeholder cover gradient, so the empty cover still has depth"
+        }
+      }
     },
     "sheen-top": {
       "$value": "{color.white-a.10}",
       "$extensions": {
         "pane.theme": {
           "light": "{color.white-a.70}"
+        },
+        "kiln.why": {
+          "p": "P3",
+          "why": "a faint light at the top of a pane, as on a real sheet of glass lit from above"
         }
       }
     },
     "sheen-bottom": {
-      "$value": "{color.white-a.03}"
+      "$value": "{color.white-a.03}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P3",
+          "why": "the sheen fades out lower down, so it reads as light on an edge, not as a fill"
+        }
+      }
     },
     "well": {
       "$value": "{color.shade-a.18}",
@@ -60,6 +98,10 @@
       "$extensions": {
         "pane.theme": {
           "light": "{color.white-a.45}"
+        },
+        "kiln.why": {
+          "p": "P2",
+          "why": "a slight darkening inside a pane that holds body text, measured to lift banner text from 3.57 to above 4.5 on lamp-lit photos"
         }
       }
     },
@@ -69,6 +111,10 @@
       "$extensions": {
         "pane.theme": {
           "light": "{color.paper.0}"
+        },
+        "kiln.why": {
+          "p": "P7",
+          "why": "the opaque page behind ordinary reading and settings screens, where the scene would only compete with the words"
         }
       }
     },
@@ -78,6 +124,10 @@
       "$extensions": {
         "pane.theme": {
           "light": "{color.paper.50}"
+        },
+        "kiln.why": {
+          "p": "P7",
+          "why": "an opaque panel on the page for sidebars, code headers and lists, one step lighter so it reads as on top"
         }
       }
     },
@@ -87,12 +137,28 @@
       "$extensions": {
         "pane.theme": {
           "light": "{color.paper.100}"
+        },
+        "kiln.why": {
+          "p": "P7",
+          "why": "an opaque well on the page for code and inputs, one step darker so it reads as recessed"
         }
       }
     },
     "knob": {
       "$value": "{color.white}",
-      "$description": "white handle that reads on both themes (slider thumb, switch knob); the ring and shadow separate it from light surfaces"
+      "$description": "white handle that reads on both themes (slider thumb, switch knob); the ring and shadow separate it from light surfaces",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P6",
+          "why": "a white handle that stays visible on both themes; its ring and shadow separate it from light surfaces"
+        }
+      }
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P1",
+        "why": "the materials a pane can be made of; each one below states its own role"
+      }
     }
   },
   "text": {
@@ -123,6 +189,12 @@
     },
     "on-accent": {
       "$value": "{color.white}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P2",
+        "why": "text colours flip with the theme because they contrast with a dimmed or lifted scene; secondary keeps the lowest opacity that still measured as passing"
+      }
     }
   },
   "action": {
@@ -132,6 +204,12 @@
     },
     "accent-hover": {
       "$value": "{color.blue.700}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P5",
+        "why": "the promoted-action fill and its hover; one blue, used at most once per pane"
+      }
     }
   },
   "line": {
@@ -165,6 +243,12 @@
     },
     "rim-lo": {
       "$value": "{color.white-a.06}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "hairlines that give panes and controls an edge: rings for controls, dividers inside panes, and a rim of light brightest at the top left"
+      }
     }
   },
   "focus": {
@@ -183,6 +267,12 @@
         "pane.theme": {
           "light": "{color.white-a.90}"
         }
+      }
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "the focus ring is the text colour with a halo of the opposite colour so it shows on any part of any scene"
       }
     }
   },
@@ -217,6 +307,12 @@
     "brightness-none": {
       "$type": "number",
       "$value": "{brightness.none}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P2",
+        "why": "the measured glass recipe in one place: blur, saturation and the brightness per environment and theme"
+      }
     }
   },
   "elevation": {
@@ -239,6 +335,12 @@
           "light": "{shadow.halo-light}"
         }
       }
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "how high a surface floats: float for panes, lift for controls, halo for text on thin glass"
+      }
     }
   },
   "width": {
@@ -257,6 +359,12 @@
     },
     "bar": {
       "$value": "{size.bar}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "stroke widths that survive zoom and forced colours: hairline edges, a 2px ring and a halo wide enough to separate the ring from any backdrop"
+      }
     }
   },
   "gap": {
@@ -293,6 +401,12 @@
     },
     "none": {
       "$value": "{space.0}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "named gaps from the 4px grid; inset (22px) is the padding inside a pane and is always larger than the gaps between items inside it"
+      }
     }
   },
   "control": {
@@ -335,6 +449,12 @@
     },
     "menu-min": {
       "$value": "{size.menu-min}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "control heights and icon sizes; 44px is the default so every control is a comfortable touch target, 32px only for dense rows"
+      }
     }
   },
   "corner": {
@@ -350,6 +470,12 @@
     },
     "round": {
       "$value": "{radius.pill}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "panel, inner and media corners nest by the padding between them, and round is for things that are held"
+      }
     }
   },
   "type": {
@@ -429,6 +555,12 @@
     "leading-reading": {
       "$type": "number",
       "$value": "{font.leading.long}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P7",
+        "why": "type roles mapped to the scale, so components ask for a role (label, body, title) and never a pixel size"
+      }
     }
   },
   "motion": {
@@ -471,6 +603,12 @@
     "press-scale": {
       "$type": "number",
       "$value": "{scale.press}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P4",
+        "why": "motion roles mapped to durations and distances, so hover, press and entry always feel the same across components"
+      }
     }
   },
   "status": {
@@ -498,6 +636,12 @@
     },
     "on-info": {
       "$value": "{color.white}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "status fills each with the text colour computed to pass on it; every use also says the status in words"
+      }
     }
   },
   "layout": {
@@ -558,6 +702,12 @@
     "sidebar": {
       "$type": "dimension",
       "$value": "{size.sidebar}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "grid columns, gutters, margins and container widths per breakpoint, so pages share one rhythm"
+      }
     }
   },
   "layer": {
@@ -576,6 +726,12 @@
     },
     "toast": {
       "$value": "{z.toast}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "stacking roles mapped to the z order, so overlays and sticky bars always sit above content"
+      }
     }
   },
   "viewport": {
@@ -594,6 +750,12 @@
     },
     "2xl": {
       "$value": "{breakpoint.2xl}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "breakpoints by role, used only for layout changes, never to hide content"
+      }
     }
   }
 }

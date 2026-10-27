@@ -388,3 +388,7 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .rail .toc a { margin-inline: 0; }
 
 .topbar-scene [data-component='Select'] { min-inline-size: 150px; }
+
+.why { display: inline; }
+.why-chip { display: inline-block; margin-inline-end: var(--ds-gap-sm); padding: 0 var(--ds-gap-sm); border-radius: var(--ds-corner-round); font-size: var(--ds-type-micro); font-weight: var(--ds-type-weight-semibold); letter-spacing: var(--ds-type-tracking-caps); text-decoration: none !important; background: var(--ds-surface-sunken); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); }
+.book-section { scroll-margin-block-start: calc(var(--topbar) + var(--ds-gap-2xl)); }

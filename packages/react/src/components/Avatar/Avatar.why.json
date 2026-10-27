@@ -1,0 +1,27 @@
+{
+  "concept": "A person is shown as a round object resting on the pane, lifted by a rim of light like the panes themselves.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "why": "the round frame with a light rim makes the face an object on the pane instead of a hole in it"
+    },
+    "sm": {
+      "p": "P6",
+      "why": "small size sits beside names in lists and posts, where the name already identifies the person"
+    },
+    "md": {
+      "p": "P6",
+      "why": "medium size is the 44px touch size, used when the avatar itself opens a profile"
+    },
+    "lg": {
+      "p": "P3",
+      "why": "large size overlaps the cover by half its height so the person reads as in front of their own scene"
+    },
+    "img": {
+      "p": "P1",
+      "why": "the photo fills the circle and covers it fully, so no frame colour competes with the face"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

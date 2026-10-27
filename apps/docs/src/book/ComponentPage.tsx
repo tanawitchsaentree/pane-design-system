@@ -4,11 +4,38 @@
 // generated CSS API, related with reasons, footer with source.
 import { Card, Environment, Tag } from 'pane-react';
 import meta from './meta.json';
-import { inline, Code, ConformanceList, DoDont, EvidenceTable, Example, Link, Page, Section, TokensUsed, useVerify } from './kit';
+import { inline, WhyText, type Why, Code, ConformanceList, DoDont, EvidenceTable, Example, Link, Page, Section, TokensUsed, useVerify } from './kit';
 import type { ComponentChapter } from './components-data';
 import changelog from '../../../../packages/react/CHANGELOG.md?raw';
 
 // History per component, parsed from the package changelog: "## version (date)" then "- Name: text".
+const WHYS = import.meta.glob('../../../../packages/react/src/components/*/*.why.json', { eager: true, import: 'default' }) as Record<string, { concept: string; parts: Record<string, Why>; states: Record<string, Why>; motion: Record<string, Why> }>;
+const whyOf = (name: string) => WHYS[`../../../../packages/react/src/components/${name}/${name}.why.json`];
+
+function Reasons({ name }: { name: string }) {
+  const w = whyOf(name);
+  if (!w) return <p className="fail" data-reasons="">No reasons recorded for {name}.</p>;
+  const block = (title: string, rows: Record<string, Why>, what: string) => Object.keys(rows).length ? (
+    <>
+      <h3>{title}</h3>
+      <div className="table-wrap">
+        <table>
+          <thead><tr><th scope="col">{what}</th><th scope="col">Why</th></tr></thead>
+          <tbody>{Object.entries(rows).map(([k, v]) => <tr key={k}><th scope="row"><code>{k}</code></th><td><WhyText w={v} /></td></tr>)}</tbody>
+        </table>
+      </div>
+    </>
+  ) : null;
+  return (
+    <>
+      <p data-reasons="">{w.concept}</p>
+      {block('Parts', w.parts, 'Part')}
+      {block('States', w.states, 'State')}
+      {block('Motion', w.motion, 'What moves')}
+    </>
+  );
+}
+
 export const HISTORY: Array<{ version: string; date: string; component: string; text: string }> = changelog.split(/^## /m).slice(1).flatMap((block) => {
   const [, version, date] = block.match(/^(\S+) \((\d{4}-\d{2}-\d{2})\)/) ?? [];
   return [...block.matchAll(/^- (\w+): (.*)$/gm)].map((m) => ({ version, date, component: m[1], text: m[2] }));
@@ -136,6 +163,10 @@ export function ComponentPage({ c }: { c: ComponentChapter }) {
         <ul>{c.whenToUse.map((w) => <li key={w}>{w}</li>)}</ul>
         <h3>Use something else for</h3>
         {twoCol(c.whenNotToUse, 'Situation', 'Use instead')}
+      </Section>
+
+      <Section id="why" title="Why it looks and moves like this">
+        <Reasons name={c.name} />
       </Section>
 
       <Section id="anatomy" title="Anatomy">

@@ -1,0 +1,55 @@
+{
+  "concept": "A stack spaces items inside a pane with gaps from the scale, always smaller than the pane padding around them.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "why": "one flex container; direction, gap and alignment are the only decisions it makes"
+    },
+    "column": {
+      "p": "P7",
+      "why": "vertical by default, the order content is read in"
+    },
+    "row": {
+      "p": "P3",
+      "why": "horizontal for actions and metadata that belong on one line"
+    },
+    "g-xs": {
+      "p": "P3",
+      "why": "the smallest gap for a label and its value, which belong together"
+    },
+    "g-sm": {
+      "p": "P3",
+      "why": "a small gap for icon and text pairs"
+    },
+    "g-md": {
+      "p": "P3",
+      "why": "the default gap between items of one group"
+    },
+    "g-lg": {
+      "p": "P3",
+      "why": "a larger gap between groups inside a pane"
+    },
+    "g-xl": {
+      "p": "P3",
+      "why": "the largest gap inside a pane, still below the pane padding so the edge reads as the boundary"
+    },
+    "a-start": {
+      "p": "P7",
+      "why": "align to the start edge, where reading begins in every supported writing direction"
+    },
+    "a-center": {
+      "p": "P3",
+      "why": "centre items of different heights on one line, such as an avatar and a name"
+    },
+    "a-end": {
+      "p": "P3",
+      "why": "align to the end edge for trailing actions, which come last in reading order"
+    },
+    "a-stretch": {
+      "p": "P3",
+      "why": "stretch items to equal height when they are equal panes"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

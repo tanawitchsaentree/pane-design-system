@@ -1,0 +1,31 @@
+{
+  "concept": "A container gives content an ordinary maximum width and side margins, so panes sit in a page rather than stretching edge to edge.",
+  "parts": {
+    "root": {
+      "p": "P7",
+      "why": "centred with margins that grow at each breakpoint, so content never touches the screen edge"
+    },
+    "s-sm": {
+      "p": "P7",
+      "why": "small width for forms and single-column reading, where lines must stay short"
+    },
+    "s-md": {
+      "p": "P7",
+      "why": "medium width for a feed or a settings column"
+    },
+    "s-lg": {
+      "p": "P7",
+      "why": "large width for two panes side by side"
+    },
+    "s-xl": {
+      "p": "P7",
+      "why": "extra large width for dashboards of several panes"
+    },
+    "s-2xl": {
+      "p": "P7",
+      "why": "widest setting for full app layouts on large screens, still capped so lines stay readable"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

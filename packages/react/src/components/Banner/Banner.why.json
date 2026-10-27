@@ -1,0 +1,77 @@
+{
+  "concept": "A banner is a message placed on a pane: its tone is shown by a bar, an icon and words, and it arrives the way objects settle.",
+  "parts": {
+    "root": {
+      "p": "P2",
+      "why": "the banner body sits in a measured well that keeps body text above 4.5 to 1 over bright photos"
+    },
+    "icon": {
+      "p": "P6",
+      "why": "a tone disc with an icon gives a second, non-colour cue for the kind of message"
+    },
+    "info": {
+      "p": "P6",
+      "why": "information tone maps the bar and disc to the accent pair"
+    },
+    "positive": {
+      "p": "P6",
+      "why": "success tone maps the bar and disc to the green status pair"
+    },
+    "warning": {
+      "p": "P6",
+      "why": "warning tone maps the bar and disc to the amber pair with ink on the disc"
+    },
+    "critical": {
+      "p": "P6",
+      "why": "error tone maps the bar and disc to the red status pair"
+    },
+    "body": {
+      "p": "P7",
+      "why": "title and detail stack as one reading block next to the icon, so the message reads top to bottom"
+    },
+    "title": {
+      "p": "P5",
+      "why": "the title is the only semibold text in the banner so the message is caught in one glance"
+    },
+    "detail": {
+      "p": "P2",
+      "why": "detail text uses the measured secondary colour so it reads below the title in rank"
+    },
+    "action": {
+      "p": "P5",
+      "why": "an optional action sits apart at the end so it never competes with the pane loud action"
+    },
+    "sr": {
+      "p": "P6",
+      "why": "a visually hidden prefix speaks the tone, such as Warning, because the bar colour is not read aloud"
+    },
+    "dismiss": {
+      "p": "P6",
+      "why": "the dismiss control is a quiet disc with a 44px press area around it, named after what it closes"
+    }
+  },
+  "states": {
+    "hover": {
+      "p": "P4",
+      "why": "hovering dismiss brightens its icon to the primary text colour, answering the pointer quietly"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "why": "keyboard focus draws the shared ring with its halo so the focused control is visible on any scene"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "why": "forced colours drop glass and fills, so a real system-colour border is drawn to keep the shape visible"
+    }
+  },
+  "motion": {
+    "color": {
+      "p": "P4",
+      "why": "the dismiss icon colour eases at hover pace so the change reads as a response"
+    },
+    "@banner-in": {
+      "p": "P4",
+      "why": "a new banner drops a few pixels into place and settles, so a message arriving is noticed without a flash"
+    }
+  }
+}

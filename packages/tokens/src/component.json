@@ -83,6 +83,12 @@
     "text-halo": {
       "$type": "shadow",
       "$value": "{elevation.halo}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "the card is the pane itself: glass fill, sheen, rim, float shadow, panel corner and inset padding, each mapped from the material and depth roles so every pane is the same object"
+      }
     }
   },
   "avatar": {
@@ -117,6 +123,12 @@
     "radius": {
       "$type": "dimension",
       "$value": "{corner.round}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "a person shown as a round object with a light rim so the face reads as lifted off the pane, at three sizes from the anchor card"
+      }
     }
   },
   "button": {
@@ -175,6 +187,12 @@
     "shadow": {
       "$type": "shadow",
       "$value": "{elevation.lift}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P5",
+        "why": "button roles: the loud solid, the blue promoted fill and the quiet glass fill, pill shaped and 44px tall so the one main action is unmistakable and easy to hit"
+      }
     }
   },
   "icon-button": {
@@ -209,6 +227,15 @@
     "radius": {
       "$type": "dimension",
       "$value": "{corner.round}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P6",
+          "P5"
+        ],
+        "why": "an icon-only control gets the same 44px target and quiet glass disc as secondary buttons, because it is never the loud action and must still be easy to hit"
+      }
     }
   },
   "tabs": {
@@ -243,6 +270,12 @@
     "radius": {
       "$type": "dimension",
       "$value": "{corner.round}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "tab pills: the selected one is filled blue and also outlined, so selection is shown by shape as well as colour, and each pill is a full touch target"
+      }
     }
   },
   "tag": {
@@ -265,6 +298,12 @@
     "radius": {
       "$type": "dimension",
       "$value": "{corner.round}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P1",
+        "why": "a label drawn as an outline only, so it marks content without adding another fill to a pane that already has its one loud thing"
+      }
     }
   },
   "focus-ring": {
@@ -283,6 +322,12 @@
     "halo-width": {
       "$type": "dimension",
       "$value": "{width.halo}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "one ring for every component: the text colour, 2px, offset, with a halo of the opposite colour so focus shows on any backdrop"
+      }
     }
   },
   "grid": {
@@ -297,6 +342,12 @@
     "margin": {
       "$type": "dimension",
       "$value": "{layout.margin}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "grid columns, gutters and spans read from the layout roles, so panes on a page share one set of edges at every breakpoint"
+      }
     }
   },
   "container": {
@@ -323,6 +374,12 @@
     "max-2xl": {
       "$type": "dimension",
       "$value": "{layout.container-2xl}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P7",
+        "why": "container widths and margins cap how wide content grows, so reading lines and grids stay a comfortable size on large screens"
+      }
     }
   },
   "stack": {
@@ -345,6 +402,12 @@
     "gap-xl": {
       "$type": "dimension",
       "$value": "{gap.section}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "stack gaps come from the named gap scale, so spacing inside a pane always stays smaller than the pane padding around it"
+      }
     }
   },
   "badge": {
@@ -407,6 +470,12 @@
     "dot": {
       "$type": "dimension",
       "$value": "{control.dot}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "status badges pair each status fill with its computed text colour and an optional dot, and always carry the status as words"
+      }
     }
   },
   "chip": {
@@ -449,6 +518,12 @@
     "icon": {
       "$type": "dimension",
       "$value": "{control.icon-sm}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "chips are pressable pills; selected chips flip to the loud solid and gain a check mark, so the state is not shown by colour alone"
+      }
     }
   },
   "banner": {
@@ -507,6 +582,12 @@
     "surface": {
       "$type": "color",
       "$value": "{surface.well}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "a message inside a pane: a tone bar and icon disc carry the tone, the body sits in a measured well, and the tone is also spoken as text"
+      }
     }
   },
   "select": {
@@ -574,6 +655,15 @@
     "gap": {
       "$type": "dimension",
       "$value": "{gap.sm}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P6",
+          "P7"
+        ],
+        "why": "the closed control is a quiet pill on glass; the open list is opaque because options must never be read off a moving scene, with a check for the chosen one"
+      }
     }
   },
   "slider": {
@@ -612,6 +702,15 @@
     "gap": {
       "$type": "dimension",
       "$value": "{gap.xs}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P6",
+          "P4"
+        ],
+        "why": "a thin track with an accent range and a white knob that reads on both themes; the 44px hit area is kept even though the track is only 6px"
+      }
     }
   }
 }

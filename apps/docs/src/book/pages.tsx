@@ -19,7 +19,7 @@ import TextOnImage from '../examples/TextOnImage';
 import TextOnImageSrc from '../examples/TextOnImage.tsx?raw';
 import * as Icons from '../icons';
 import { ThemePlayground, GlassPlayground, ContrastPlayground, TypePlayground, SpacingPlayground, GridPlayground, ShapePlayground, MotionPlayground, IconBrowser, TouchTargetPlayground } from './playgrounds';
-import { inline, useScene, Stage, Callout, Code, CopyButton, ConformanceList, EvidenceTable, Example, Link, Markdown, Page, Section, TOKENS, TokenTable, VerifiedTags, useVerify } from './kit';
+import { inline, useScene, Stage, PRINCIPLES, CONCEPT_INTRO, Callout, Code, CopyButton, ConformanceList, EvidenceTable, Example, Link, Markdown, Page, Section, TOKENS, TokenTable, VerifiedTags, useVerify } from './kit';
 import { COMPONENTS } from './components-data';
 import { ComponentPage, EVIDENCE_GROUPS, HISTORY, STATUS_LABEL } from './ComponentPage';
 import { SCENES } from '../scenes';
@@ -182,18 +182,22 @@ import 'pane-react/styles.css';`}</Code>
 }
 
 function Principles() {
-  const items: Array<[string, string, ReactNode]> = [
-    ['clear', 'Glass stays clear', <p>You should be able to see the room through a pane. Its colours and rough shapes come through the blur. To keep white text readable, Pane dims the scene behind the glass with the <code>brightness()</code> backdrop filter, which leaves hue and detail intact. An earlier version used an 80% graphite tint instead. It read as a grey slab and was dropped.</p>],
-    ['measured', 'Contrast is measured', <p>How readable glass is depends on what sits behind it, so a token value can’t tell you. Pane renders every surface over real photos in a real browser, hides the text and scores its colour against each pixel underneath. A text node scores its worst pixel.</p>],
-    ['text-on-glass', 'Text lives on glass', <p>Pane can only vouch for contrast on surfaces it controls. Body text placed straight on a photo fails the moment it crosses a bright patch, so that pattern sits outside the system.</p>],
-    ['optional', 'Glass is optional', <p>With reduced transparency, forced colours or no <code>backdrop-filter</code> support, every pane turns opaque graphite and stops dimming. Everything must still work in that mode. Information never depends on the glass.</p>],
-    ['soft', 'Motion is soft', <p>Things settle gently. Durations run from 420 to 640ms on a long ease-out, and distances stay small, a 2px lift or an 8 to 16px rise. Reduced motion sets every duration to zero in the tokens.</p>],
-    ['one-loud', 'One loud thing per pane', <p>White and blue are the only solid fills. Each card gets at most one of them and the rest is glass.</p>],
-  ];
   return (
-    <Page eyebrow="Introduction" title="Principles" lede={<p>Six rules decide every trade-off in Pane. When a guideline elsewhere seems arbitrary, it comes from one of these.</p>}>
-      {items.map(([id, title, body], i) => (
-        <Section key={id} id={id} title={`${i + 1}. ${title}`}>{body}</Section>
+    <Page eyebrow="Introduction" title="Principles" lede={<p>{CONCEPT_INTRO}</p>}>
+      <Section id="how" title="How the principles are used">
+        <p>Every token, every part of a component, every state and every movement names one of these principles and says what it does for the reader. The build fails when something has no reason, or when the reason is only about how it looks. The Why column in every token table and the reasons section on every component page come from those records.</p>
+      </Section>
+      {PRINCIPLES.map((p) => (
+        <Section key={p.id} id={p.id.toLowerCase()} title={`${p.id} · ${p.name}`}>
+          <p>{p.claim}</p>
+          <div className="table-wrap">
+            <table>
+              <caption>What follows from {p.id} on each axis</caption>
+              <thead><tr><th scope="col">Axis</th><th scope="col">Therefore</th></tr></thead>
+              <tbody>{p.therefore.map(([axis, text]) => <tr key={axis}><th scope="row">{axis}</th><td>{text}</td></tr>)}</tbody>
+            </table>
+          </div>
+        </Section>
       ))}
     </Page>
   );

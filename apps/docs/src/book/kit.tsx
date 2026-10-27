@@ -7,7 +7,8 @@ import { Button, Card, Environment, Tag } from 'pane-react';
 import { navigate } from './router';
 import { SCENES, sceneById } from '../scenes';
 
-export type Token = { tier: string; type: string; value: string; ref: string | null; css: string; description: string | null; themes?: Record<string, { ref: string; value: string }> };
+export type Why = { p: string | string[]; why: string };
+export type Token = { tier: string; type: string; value: string; ref: string | null; css: string; description: string | null; why?: Why | null; themes?: Record<string, { ref: string; value: string }> };
 export const TOKENS = tokens as Record<string, Token>;
 const BY_CSS = Object.fromEntries(Object.entries(TOKENS).map(([p, t]) => [t.css, p]));
 
@@ -170,7 +171,7 @@ export function TokenTable({ prefix, tier, query = '' }: { prefix?: string; tier
     <div className="table-wrap">
       <table>
         <caption>{rows.length} token{rows.length === 1 ? '' : 's'}. Read from <code>pane-tokens/json</code></caption>
-        <thead><tr><th scope="col">Token</th><th scope="col">Tier</th><th scope="col">Points at</th><th scope="col">Resolved value</th><th scope="col"><span className="visually-hidden">Copy</span></th></tr></thead>
+        <thead><tr><th scope="col">Token</th><th scope="col">Tier</th><th scope="col">Points at</th><th scope="col">Resolved value</th><th scope="col">Why</th><th scope="col"><span className="visually-hidden">Copy</span></th></tr></thead>
         <tbody>
           {rows.map(([p, t]) => (
             <tr key={p}>
@@ -178,6 +179,7 @@ export function TokenTable({ prefix, tier, query = '' }: { prefix?: string; tier
               <td>{t.tier}</td>
               <td>{t.ref ? <code>{t.ref}</code> : '—'}</td>
               <td>{t.type === 'color' && <span className="swatch-dot" style={{ background: `var(${t.css})` }} aria-hidden="true" />}<code>{String(t.value)}</code></td>
+              <td data-why=""><WhyText w={t.why} /></td>
               <td><CopyButton text={`var(${t.css})`} label={`Copy var(${t.css})`} /></td>
             </tr>
           ))}
@@ -185,6 +187,20 @@ export function TokenTable({ prefix, tier, query = '' }: { prefix?: string; tier
       </table>
     </div>
   );
+}
+
+// ---------- reasons (kiln.why → system/CONCEPT.md principles) ----------
+import conceptMd from '../../../../system/CONCEPT.md?raw';
+export const PRINCIPLES: Array<{ id: string; name: string; claim: string; therefore: Array<[string, string]> }> = [...conceptMd.matchAll(/^### (P\d+)\s+(.+)\n([\s\S]*?)(?=^### P\d+|(?![\s\S]))/gm)].map((m) => {
+  const [claim, rest = ''] = m[3].split(/\*\*Therefore\*\*/);
+  const therefore = [...rest.matchAll(/(space|shape|depth|colour|type|motion|interaction): ([^]*?)(?= (?:space|shape|depth|colour|type|motion|interaction): |$)/g)].map((x) => [x[1], x[2].trim()] as [string, string]);
+  return { id: m[1], name: m[2].trim(), claim: claim.trim(), therefore };
+});
+export const CONCEPT_INTRO = conceptMd.split(/^## Principles/m)[0].replace(/^#.*$/m, '').trim();
+const principleName = (id: string) => PRINCIPLES.find((p) => p.id === id)?.name ?? id;
+export function WhyText({ w }: { w?: Why | null }) {
+  if (!w) return <span className="fail">No reason</span>;
+  return <span className="why">{[].concat(w.p as never).map((p: string) => <Link key={p} to={`/principles#${p.toLowerCase()}`} className="why-chip" title={principleName(p)}>{p}</Link>)} {w.why}</span>;
 }
 
 // Every component's CSS module, as text. The "tokens used" list is parsed from what the component

@@ -15,16 +15,18 @@ const TIERS = ['primitive', 'semantic', 'component'];
 const tokens = new Map(); // path -> { tier, type, raw, description }
 const collisions = [];
 
-function walk(node, tier, trail, inheritedType) {
+function walk(node, tier, trail, inheritedType, inheritedWhy) {
   const type = node.$type ?? inheritedType;
+  // kiln.why: the reason for a value, on the token or its nearest group (system/CONCEPT.md principles)
+  const why = node.$extensions?.['kiln.why'] ?? inheritedWhy;
   if ('$value' in node) {
     const key = trail.join('.');
     if (tokens.has(key)) collisions.push(`${key} is defined in both ${tokens.get(key).tier} and ${tier} — paths must be unique across tiers`);
-    tokens.set(trail.join('.'), { tier, type, raw: node.$value, description: node.$description, env: node.$extensions?.['pane.environment'], bp: node.$extensions?.['pane.breakpoint'], theme: node.$extensions?.['pane.theme'] });
+    tokens.set(trail.join('.'), { tier, type, raw: node.$value, description: node.$description, env: node.$extensions?.['pane.environment'], bp: node.$extensions?.['pane.breakpoint'], theme: node.$extensions?.['pane.theme'], why });
     return;
   }
   for (const [k, v] of Object.entries(node)) {
-    if (!k.startsWith('$') && v && typeof v === 'object') walk(v, tier, [...trail, k], type);
+    if (!k.startsWith('$') && v && typeof v === 'object') walk(v, tier, [...trail, k], type, why);
   }
 }
 for (const tier of TIERS) walk(JSON.parse(readFileSync(path.join(ROOT, 'src', `${tier}.json`), 'utf8')), tier, [], undefined);
@@ -186,7 +188,7 @@ const spanCss = `
 ${BPS.map((bp) => `@media (min-width: ${resolve(`breakpoint.${bp}`)}) { [data-pane-span-${bp}] { --pane-span: var(--pane-span-${bp}); } }`).join('\n')}
 `;
 const json = Object.fromEntries(
-  [...tokens].map(([p, t]) => [p, { tier: t.tier, type: t.type, value: format(t.type, resolve(p)), ref: typeof t.raw === 'string' && REF.test(t.raw) ? t.raw.slice(1, -1) : null, css: cssName(p), description: t.description ?? null, ...(t.theme ? { themes: Object.fromEntries(Object.entries(t.theme).map(([th, r]) => [th, { ref: r.slice(1, -1), value: format(t.type, resolve(r.slice(1, -1))) }])) } : {}) }]),
+  [...tokens].map(([p, t]) => [p, { tier: t.tier, type: t.type, value: format(t.type, resolve(p)), ref: typeof t.raw === 'string' && REF.test(t.raw) ? t.raw.slice(1, -1) : null, css: cssName(p), description: t.description ?? null, why: t.why ?? null, ...(t.theme ? { themes: Object.fromEntries(Object.entries(t.theme).map(([th, r]) => [th, { ref: r.slice(1, -1), value: format(t.type, resolve(r.slice(1, -1))) }])) } : {}) }]),
 );
 
 mkdirSync(path.join(ROOT, 'build', 'css'), { recursive: true });

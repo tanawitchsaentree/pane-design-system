@@ -9,8 +9,9 @@
 //   chrome       G-SH1 plain opaque shell; the system's look lives in demo stages only
 //   foundations  G-F1 G-N1                          themes      G-T1
 //   components   G-K1–G-K8 G-B1 G-L1 demo floor     reference   G-M1 G-IA1      a11y  axe ×2
+//   reasons      G-W1 (Why column, component reasons section; data from rationale.mjs)
 //
-// Usage: node tooling/docs/gates.mjs [--only G-K2,G-K3] [--report]
+// Usage: node tooling/engine/gates.mjs [--only G-K2,G-K3] [--report]
 //   --report  also writes system/reports/docs-audit-{date}.md, a ranked punch list
 // Writes <app>/public/gates.json. Exit 1 on any failed gate.
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
@@ -534,6 +535,24 @@ try {
       if (n < m.demoFloor) bad.push(`${pg.title}: ${n} < ${m.demoFloor}`);
     }
     fail(bad, 'components');
+  });
+
+  await gate('G-W1', 'reasons are on the page: token tables have a filled Why column and every component page explains its parts, states and motion', async () => {
+    const bad = []; let cells = 0;
+    for (const r of ROUTES) {
+      await go(r);
+      const res = await page.evaluate(() => ({ cells: document.querySelectorAll('td[data-why]').length, empty: [...document.querySelectorAll('td[data-why]')].filter((td) => td.textContent.trim().split(/\s+/).length < 6 || td.querySelector('.fail')).length }));
+      cells += res.cells;
+      if (res.empty) bad.push(`${r}: ${res.empty} token rows without a reason`);
+    }
+    expect(cells > 0, 'NO WHY COLUMN FOUND (td[data-why]) in any token table');
+    for (const pg of COMPONENTS) {
+      let found = false;
+      for (const r of hasTabs(pg) ? pg.tabs.map((t) => tabRoute(pg.slug, t)) : [pg.path]) { await go(r); if (await page.locator('[data-reasons]:not(.fail)').count()) { found = true; break; } }
+      if (!found) bad.push(`${pg.title}: no reasons section ([data-reasons])`);
+    }
+    fail(bad, 'gaps');
+    return `${cells} token rows with reasons`;
   });
 
   // ------------------------------------------------------------------ reference

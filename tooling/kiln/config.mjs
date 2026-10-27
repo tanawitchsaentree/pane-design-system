@@ -5,7 +5,8 @@ import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
-export const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+// KILN_SYSTEM_ROOT lets selftests point the engine at a fixture system.
+export const ROOT = process.env.KILN_SYSTEM_ROOT ?? path.join(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const DEFAULTS = {
   app: 'apps/docs', dist: 'apps/docs/dist', routes: 'apps/docs/src/book/routes.json', meta: 'apps/docs/src/book/meta.json',
   componentsDir: 'packages/react/src/components', componentsPackage: 'packages/react', changelog: 'packages/react/CHANGELOG.md',

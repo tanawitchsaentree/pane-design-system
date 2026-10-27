@@ -11,7 +11,7 @@
 //   options      every option of every enum prop; kinds (variant/intent/tone/kind/appearance) and
 //                sizes feed component-depth.md G-K3 (one table row per option)
 //   version      the components package's package.json
-// Usage: node tooling/docs/meta.mjs
+// Usage: node tooling/engine/meta.mjs
 import { readFileSync, writeFileSync, readdirSync, mkdtempSync, rmSync } from 'node:fs';
 import { gzipSync } from 'node:zlib';
 import { tmpdir } from 'node:os';

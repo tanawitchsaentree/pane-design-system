@@ -1,0 +1,11 @@
+{
+  "concept": "The grid gives every pane on a page the same column edges, so separate objects still line up as one arrangement.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "why": "column count, gutter and margin come from the layout tokens per breakpoint, so spans divide evenly"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T17:50:40.035Z",
+  "generatedAt": "2026-10-27T05:53:02.576Z",
   "browser": "chromium 156.0.8078.4",
   "threshold": 4.5,
   "modes": [
@@ -21,10 +21,10 @@
           "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
-            "@bymxfmz 8.08",
-            "Switzerland 8.56",
-            "Max Fmz 8.6",
-            "mfz.framer.website 8.69"
+            "@bymxfmz 12.98",
+            "Switzerland 13.59",
+            "mfz.framer.website 13.75",
+            "Joined June 2023 14.06"
           ]
         },
         "controls": {
@@ -35,9 +35,9 @@
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
-            "Message 5.26",
-            "Small 6.42",
-            "Trending 7.13"
+            "Message 11.69",
+            "Small 12.98",
+            "Secondary text on the card. 14.36"
           ]
         },
         "status": {
@@ -49,31 +49,31 @@
             "Beta 4.7",
             "Live 5.02",
             "Failed 5.66",
-            "Draft 5.9",
-            "Videos 6.34"
+            "Expiring 9.9",
+            "Draft 11.7"
           ]
         },
         "layout": {
           "texts": 4,
-          "worst": 13.02,
+          "worst": 14.36,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary 13.02",
-            "Secondary 13.26",
-            "Stack 14.62",
-            "Grid cell 14.68"
+            "Secondary 14.36",
+            "Secondary 14.5",
+            "Grid cell 15.67",
+            "Stack 16.06"
           ]
         },
         "environment": {
           "texts": 3,
-          "worst": 9.7,
+          "worst": 14.5,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 9.7",
-            "glass 10.14",
-            "bright 10.2"
+            "Secondary text 14.5",
+            "bright 15.67",
+            "glass 15.87"
           ]
         },
         "media": {
@@ -89,15 +89,15 @@
         },
         "env-misuse": {
           "texts": 6,
-          "worst": 8.29,
+          "worst": 14.5,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 8.29",
-            "mid 8.71",
-            "glass 8.99",
-            "Secondary text 11.73",
-            "glass 12.81"
+            "Secondary text 14.5",
+            "Secondary text 14.5",
+            "mid 15.67",
+            "dim 15.87",
+            "glass 15.87"
           ]
         }
       },
@@ -109,10 +109,10 @@
           "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
-            "1.7M 7.86",
-            "Say goodbye to flat feeds. Asset 05 is l 7.88",
-            "Likes 8.5",
-            "Followers 8.63"
+            "@bymxfmz 12.98",
+            "Switzerland 13.59",
+            "mfz.framer.website 13.75",
+            "Joined June 2023 14.06"
           ]
         },
         "controls": {
@@ -123,9 +123,9 @@
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
-            "Message 6.47",
-            "Small 9.11",
-            "Secondary text on the card. 11.72"
+            "Message 11.69",
+            "Small 12.98",
+            "Secondary text on the card. 14.36"
           ]
         },
         "status": {
@@ -135,33 +135,33 @@
           "unmeasurable": 0,
           "worstFive": [
             "Beta 4.7",
-            "Ada Lovelace 4.76",
-            "Videos 4.92",
-            "Draft 5",
-            "Live 5.02"
+            "Live 5.02",
+            "Failed 5.66",
+            "Expiring 9.9",
+            "Draft 11.7"
           ]
         },
         "layout": {
           "texts": 4,
-          "worst": 10.18,
+          "worst": 14.36,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary 10.18",
-            "Secondary 10.33",
-            "Grid cell 11.14",
-            "Stack 11.86"
+            "Secondary 14.36",
+            "Secondary 14.5",
+            "Grid cell 15.67",
+            "Stack 16.06"
           ]
         },
         "environment": {
           "texts": 3,
-          "worst": 12.28,
+          "worst": 14.5,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 12.28",
-            "glass 13.23",
-            "bright 13.33"
+            "Secondary text 14.5",
+            "bright 15.67",
+            "glass 15.87"
           ]
         },
         "media": {
@@ -177,15 +177,15 @@
         },
         "env-misuse": {
           "texts": 6,
-          "worst": 9.07,
+          "worst": 14.5,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 9.07",
-            "mid 9.42",
-            "Secondary text 10.02",
-            "glass 10.08",
-            "glass 11.39"
+            "Secondary text 14.5",
+            "Secondary text 14.5",
+            "mid 15.67",
+            "dim 15.87",
+            "glass 15.87"
           ]
         }
       },
@@ -197,10 +197,10 @@
           "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
-            "@bymxfmz 7.97",
-            "Max Fmz 8.37",
-            "Say goodbye to flat feeds. Asset 05 is l 9.75",
-            "UX/UI Designer. Outdoor enthusiast. Coff 10.31"
+            "@bymxfmz 12.98",
+            "Switzerland 13.59",
+            "mfz.framer.website 13.75",
+            "Joined June 2023 14.06"
           ]
         },
         "controls": {
@@ -211,9 +211,9 @@
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
-            "Small 5.22",
-            "Secondary text on the card. 5.77",
-            "Message 8.16"
+            "Message 11.69",
+            "Small 12.98",
+            "Secondary text on the card. 14.36"
           ]
         },
         "status": {
@@ -225,31 +225,31 @@
             "Beta 4.7",
             "Live 5.02",
             "Failed 5.66",
-            "Videos 7.13",
-            "Ada Lovelace 7.81"
+            "Expiring 9.9",
+            "Draft 11.7"
           ]
         },
         "layout": {
           "texts": 4,
-          "worst": 14.46,
+          "worst": 14.36,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary 14.46",
-            "Secondary 14.56",
-            "Grid cell 15.98",
-            "Stack 16"
+            "Secondary 14.36",
+            "Secondary 14.5",
+            "Grid cell 15.67",
+            "Stack 16.06"
           ]
         },
         "environment": {
           "texts": 3,
-          "worst": 12.5,
+          "worst": 14.5,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 12.5",
-            "glass 13.65",
-            "bright 13.88"
+            "Secondary text 14.5",
+            "bright 15.67",
+            "glass 15.87"
           ]
         },
         "media": {
@@ -265,15 +265,15 @@
         },
         "env-misuse": {
           "texts": 6,
-          "worst": 10.66,
+          "worst": 14.5,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 10.66",
-            "glass 11.07",
-            "dim 11.79",
-            "Secondary text 12.41",
-            "glass 14.59"
+            "Secondary text 14.5",
+            "Secondary text 14.5",
+            "mid 15.67",
+            "dim 15.87",
+            "glass 15.87"
           ]
         }
       },
@@ -285,10 +285,10 @@
           "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
-            "1.7M 5.34",
-            "@visualflow · 9h 5.4",
-            "Followers 5.41",
-            "@bymxfmz 5.42"
+            "@bymxfmz 12.98",
+            "Switzerland 13.59",
+            "mfz.framer.website 13.75",
+            "Joined June 2023 14.06"
           ]
         },
         "controls": {
@@ -299,9 +299,9 @@
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
-            "Message 4.86",
-            "Small 5.65",
-            "Secondary text on the card. 6.67"
+            "Message 11.69",
+            "Small 12.98",
+            "Secondary text on the card. 14.36"
           ]
         },
         "status": {
@@ -311,33 +311,33 @@
           "unmeasurable": 0,
           "worstFive": [
             "Beta 4.7",
-            "Draft 4.93",
             "Live 5.02",
-            "Videos 5.32",
-            "Failed 5.66"
+            "Failed 5.66",
+            "Expiring 9.9",
+            "Draft 11.7"
           ]
         },
         "layout": {
           "texts": 4,
-          "worst": 5.66,
+          "worst": 14.36,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary 5.66",
-            "Stack 5.91",
-            "Secondary 8.37",
-            "Grid cell 9.13"
+            "Secondary 14.36",
+            "Secondary 14.5",
+            "Grid cell 15.67",
+            "Stack 16.06"
           ]
         },
         "environment": {
           "texts": 3,
-          "worst": 8.33,
+          "worst": 14.5,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 8.33",
-            "bright 8.74",
-            "glass 8.76"
+            "Secondary text 14.5",
+            "bright 15.67",
+            "glass 15.87"
           ]
         },
         "media": {
@@ -353,15 +353,15 @@
         },
         "env-misuse": {
           "texts": 6,
-          "worst": 7.33,
+          "worst": 14.5,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 7.33",
-            "glass 7.88",
-            "mid 8.04",
-            "Secondary text 8.83",
-            "glass 9.35"
+            "Secondary text 14.5",
+            "Secondary text 14.5",
+            "mid 15.67",
+            "dim 15.87",
+            "glass 15.87"
           ]
         }
       },
@@ -373,10 +373,10 @@
           "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
-            "268 5.97",
-            "839 6.14",
-            "@visualflow · 9h 6.21",
-            "6,707 6.36"
+            "@bymxfmz 9.38",
+            "Switzerland 9.38",
+            "mfz.framer.website 9.38",
+            "Joined June 2023 9.38"
           ]
         },
         "controls": {
@@ -387,9 +387,9 @@
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
-            "Secondary text on the card. 6.38",
-            "Replies 10.63",
-            "Media 11.31"
+            "Secondary text on the card. 9.43",
+            "Message 18.58",
+            "Small 18.58"
           ]
         },
         "status": {
@@ -401,31 +401,31 @@
             "Beta 4.7",
             "Live 5.02",
             "Failed 5.66",
-            "Verified accounts get it first. 7.98",
-            "The file is larger than 25 MB. 8.24"
+            "Verified accounts get it first. 9.43",
+            "The file is larger than 25 MB. 9.43"
           ]
         },
         "layout": {
           "texts": 4,
-          "worst": 5.66,
+          "worst": 9.43,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary 5.66",
-            "Secondary 5.79",
-            "Grid cell 8.88",
-            "Stack 8.99"
+            "Secondary 9.43",
+            "Secondary 9.43",
+            "Grid cell 18.58",
+            "Stack 18.58"
           ]
         },
         "environment": {
           "texts": 3,
-          "worst": 6.98,
+          "worst": 9.43,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 6.98",
-            "bright 11.9",
-            "glass 11.93"
+            "Secondary text 9.43",
+            "bright 18.58",
+            "glass 18.58"
           ]
         },
         "media": {
@@ -441,15 +441,15 @@
         },
         "env-misuse": {
           "texts": 6,
-          "worst": 6.23,
+          "worst": 9.43,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 6.23",
-            "Secondary text 7.38",
-            "glass 10.1",
-            "dim 10.17",
-            "glass 12.9"
+            "Secondary text 9.43",
+            "Secondary text 9.43",
+            "dim 18.58",
+            "glass 18.58",
+            "mid 18.58"
           ]
         }
       },
@@ -461,10 +461,10 @@
           "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
-            "268 5.66",
-            "839 5.77",
-            "6,707 5.8",
-            "1.7M 5.9"
+            "@bymxfmz 9.38",
+            "Switzerland 9.38",
+            "mfz.framer.website 9.38",
+            "Joined June 2023 9.38"
           ]
         },
         "controls": {
@@ -475,9 +475,9 @@
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
-            "Secondary text on the card. 6",
-            "Replies 9.43",
-            "Media 9.73"
+            "Secondary text on the card. 9.43",
+            "Message 18.58",
+            "Small 18.58"
           ]
         },
         "status": {
@@ -489,31 +489,31 @@
             "Beta 4.7",
             "Live 5.02",
             "Failed 5.66",
-            "The file is larger than 25 MB. 7.79",
-            "Verified accounts get it first. 8.12"
+            "Verified accounts get it first. 9.43",
+            "The file is larger than 25 MB. 9.43"
           ]
         },
         "layout": {
           "texts": 4,
-          "worst": 6.39,
+          "worst": 9.43,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary 6.39",
-            "Secondary 6.64",
-            "Stack 10.34",
-            "Grid cell 10.96"
+            "Secondary 9.43",
+            "Secondary 9.43",
+            "Grid cell 18.58",
+            "Stack 18.58"
           ]
         },
         "environment": {
           "texts": 3,
-          "worst": 6.05,
+          "worst": 9.43,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 6.05",
-            "bright 9.78",
-            "glass 9.86"
+            "Secondary text 9.43",
+            "bright 18.58",
+            "glass 18.58"
           ]
         },
         "media": {
@@ -529,15 +529,15 @@
         },
         "env-misuse": {
           "texts": 6,
-          "worst": 6.33,
+          "worst": 9.43,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 6.33",
-            "Secondary text 6.54",
-            "dim 10.33",
-            "glass 10.6",
-            "glass 11.17"
+            "Secondary text 9.43",
+            "Secondary text 9.43",
+            "dim 18.58",
+            "glass 18.58",
+            "mid 18.58"
           ]
         }
       },
@@ -549,10 +549,10 @@
           "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
-            "268 5.44",
-            "839 5.47",
-            "1.7M 5.47",
-            "6,707 5.48"
+            "@bymxfmz 9.38",
+            "Switzerland 9.38",
+            "mfz.framer.website 9.38",
+            "Joined June 2023 9.38"
           ]
         },
         "controls": {
@@ -563,9 +563,9 @@
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
-            "Secondary text on the card. 6.24",
-            "Likes 9.52",
-            "Media 9.58"
+            "Secondary text on the card. 9.43",
+            "Message 18.58",
+            "Small 18.58"
           ]
         },
         "status": {
@@ -577,31 +577,31 @@
             "Beta 4.7",
             "Live 5.02",
             "Failed 5.66",
-            "Verified accounts get it first. 7.55",
-            "The file is larger than 25 MB. 7.6"
+            "Verified accounts get it first. 9.43",
+            "The file is larger than 25 MB. 9.43"
           ]
         },
         "layout": {
           "texts": 4,
-          "worst": 5.3,
+          "worst": 9.43,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary 5.3",
-            "Secondary 5.39",
-            "Grid cell 8.21",
-            "Stack 8.21"
+            "Secondary 9.43",
+            "Secondary 9.43",
+            "Grid cell 18.58",
+            "Stack 18.58"
           ]
         },
         "environment": {
           "texts": 3,
-          "worst": 5.93,
+          "worst": 9.43,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 5.93",
-            "bright 9.41",
-            "glass 9.58"
+            "Secondary text 9.43",
+            "bright 18.58",
+            "glass 18.58"
           ]
         },
         "media": {
@@ -617,15 +617,15 @@
         },
         "env-misuse": {
           "texts": 6,
-          "worst": 5.52,
+          "worst": 9.43,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 5.52",
-            "Secondary text 6.25",
-            "mid 8.31",
-            "glass 8.61",
-            "dim 10.46"
+            "Secondary text 9.43",
+            "Secondary text 9.43",
+            "dim 18.58",
+            "glass 18.58",
+            "mid 18.58"
           ]
         }
       },
@@ -637,10 +637,10 @@
           "unmeasurable": 0,
           "worstFive": [
             "Tweets 4.7",
-            "268 6.25",
-            "839 6.43",
-            "1.7M 6.48",
-            "6,707 6.52"
+            "@bymxfmz 9.38",
+            "Switzerland 9.38",
+            "mfz.framer.website 9.38",
+            "Joined June 2023 9.38"
           ]
         },
         "controls": {
@@ -651,9 +651,9 @@
           "worstFive": [
             "Get verified 4.7",
             "Tweets 4.7",
-            "Secondary text on the card. 8.04",
-            "Likes 13.75",
-            "Trending 13.93"
+            "Secondary text on the card. 9.43",
+            "Message 18.58",
+            "Small 18.58"
           ]
         },
         "status": {
@@ -665,31 +665,31 @@
             "Beta 4.7",
             "Live 5.02",
             "Failed 5.66",
-            "The file is larger than 25 MB. 7.71",
-            "Verified accounts get it first. 7.77"
+            "Verified accounts get it first. 9.43",
+            "The file is larger than 25 MB. 9.43"
           ]
         },
         "layout": {
           "texts": 4,
-          "worst": 7.28,
+          "worst": 9.43,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary 7.28",
-            "Secondary 8.83",
-            "Grid cell 12.58",
-            "Stack 17.05"
+            "Secondary 9.43",
+            "Secondary 9.43",
+            "Grid cell 18.58",
+            "Stack 18.58"
           ]
         },
         "environment": {
           "texts": 3,
-          "worst": 7.54,
+          "worst": 9.43,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 7.54",
-            "bright 13.25",
-            "glass 13.35"
+            "Secondary text 9.43",
+            "bright 18.58",
+            "glass 18.58"
           ]
         },
         "media": {
@@ -705,15 +705,15 @@
         },
         "env-misuse": {
           "texts": 6,
-          "worst": 7.17,
+          "worst": 9.43,
           "failures": 0,
           "unmeasurable": 0,
           "worstFive": [
-            "Secondary text 7.17",
-            "Secondary text 7.91",
-            "glass 12.48",
-            "dim 12.67",
-            "mid 13.92"
+            "Secondary text 9.43",
+            "Secondary text 9.43",
+            "dim 18.58",
+            "glass 18.58",
+            "mid 18.58"
           ]
         }
       }
@@ -2134,58 +2134,58 @@
   "docsPage": {
     "normal": {
       "dark/room": {
-        "textElements": 11943,
-        "failures": 0,
+        "textElements": 11712,
+        "failures": 4,
         "pages": 37,
         "worstFive": []
       },
       "dark/forest": {
-        "textElements": 11943,
-        "failures": 0,
+        "textElements": 11712,
+        "failures": 6,
         "pages": 37,
         "worstFive": []
       },
       "dark/night": {
-        "textElements": 11943,
-        "failures": 0,
+        "textElements": 11712,
+        "failures": 2,
         "pages": 37,
         "worstFive": []
       },
       "dark/city": {
-        "textElements": 11943,
-        "failures": 0,
+        "textElements": 11712,
+        "failures": 7,
         "pages": 37,
         "worstFive": []
       },
       "light/room": {
-        "textElements": 11943,
-        "failures": 0,
+        "textElements": 11712,
+        "failures": 10,
         "pages": 37,
         "worstFive": []
       },
       "light/forest": {
-        "textElements": 11943,
-        "failures": 0,
+        "textElements": 11712,
+        "failures": 10,
         "pages": 37,
         "worstFive": []
       },
       "light/night": {
-        "textElements": 11943,
-        "failures": 0,
+        "textElements": 11712,
+        "failures": 10,
         "pages": 37,
         "worstFive": []
       },
       "light/city": {
-        "textElements": 11943,
-        "failures": 0,
+        "textElements": 11712,
+        "failures": 10,
         "pages": 37,
         "worstFive": []
       }
     },
     "reduced-transparency": {
       "dark/room": {
-        "textElements": 11943,
-        "failures": 0,
+        "textElements": 11712,
+        "failures": 4,
         "pages": 37,
         "worstFive": []
       },
@@ -2208,8 +2208,8 @@
         "worstFive": []
       },
       "light/room": {
-        "textElements": 11943,
-        "failures": 0,
+        "textElements": 11712,
+        "failures": 10,
         "pages": 37,
         "worstFive": []
       },
@@ -2234,8 +2234,8 @@
     },
     "forced-colors": {
       "dark/room": {
-        "textElements": 11943,
-        "failures": 0,
+        "textElements": 11705,
+        "failures": 82,
         "pages": 37,
         "worstFive": []
       },
@@ -2258,8 +2258,8 @@
         "worstFive": []
       },
       "light/room": {
-        "textElements": 11943,
-        "failures": 0,
+        "textElements": 11705,
+        "failures": 81,
         "pages": 37,
         "worstFive": []
       },
@@ -2283,145 +2283,260 @@
       }
     }
   },
-  "failures": [],
+  "failures": [
+    "[normal] docs /foundations/shape dark/room: \"Pane\" 3.77",
+    "[normal] docs /components/container dark/room: \"sm\" 2.33",
+    "[normal] docs /components/banner dark/room: \"Open feed\" 1.02",
+    "[normal] docs /patterns/settings-panel dark/room: \"Save changes\" 1.02",
+    "[normal] docs /foundations/shape dark/forest: \"Pane\" 1.96",
+    "[normal] docs /components/container dark/forest: \"sm\" 1.36",
+    "[normal] docs /components/container dark/forest: \"xl\" 2.47",
+    "[normal] docs /components/container dark/forest: \"md\" 2.48",
+    "[normal] docs /components/banner dark/forest: \"Open feed\" 1.02",
+    "[normal] docs /patterns/settings-panel dark/forest: \"Save changes\" 1.02",
+    "[normal] docs /components/banner dark/night: \"Open feed\" 1.02",
+    "[normal] docs /patterns/settings-panel dark/night: \"Save changes\" 1.02",
+    "[normal] docs /foundations/shape dark/city: \"Pane\" 1.28",
+    "[normal] docs /components/container dark/city: \"sm\" 1.26",
+    "[normal] docs /components/container dark/city: \"md\" 1.43",
+    "[normal] docs /components/container dark/city: \"lg\" 1.49",
+    "[normal] docs /components/container dark/city: \"xl\" 2.95",
+    "[normal] docs /components/banner dark/city: \"Open feed\" 1.02",
+    "[normal] docs /patterns/settings-panel dark/city: \"Save changes\" 1.02",
+    "[normal] docs /components/grid light/room: \"dark\" 1",
+    "[normal] docs /components/grid light/room: \"theme ·\" 1",
+    "[normal] docs /components/grid light/room: \"dark scene\" 1",
+    "[normal] docs /components/grid light/room: \"dark\" 1",
+    "[normal] docs /components/grid light/room: \"theme ·\" 1",
+    "[normal] docs /components/grid light/room: \"bright scene\" 1",
+    "[normal] docs /components/banner light/room: \"Open feed\" 1",
+    "[normal] docs /components/banner light/room: \"Plan: Pro · renews 1 Dec\" 1",
+    "[normal] docs /components/banner light/room: \"Plan: Pro · renews 1 Dec\" 1",
+    "[normal] docs /patterns/settings-panel light/room: \"Save changes\" 1",
+    "[normal] docs /components/grid light/forest: \"dark\" 1",
+    "[normal] docs /components/grid light/forest: \"theme ·\" 1",
+    "[normal] docs /components/grid light/forest: \"dark scene\" 1",
+    "[normal] docs /components/grid light/forest: \"dark\" 1",
+    "[normal] docs /components/grid light/forest: \"theme ·\" 1",
+    "[normal] docs /components/grid light/forest: \"bright scene\" 1",
+    "[normal] docs /components/banner light/forest: \"Open feed\" 1",
+    "[normal] docs /components/banner light/forest: \"Plan: Pro · renews 1 Dec\" 1",
+    "[normal] docs /components/banner light/forest: \"Plan: Pro · renews 1 Dec\" 1",
+    "[normal] docs /patterns/settings-panel light/forest: \"Save changes\" 1",
+    "[normal] docs /components/grid light/night: \"dark\" 1",
+    "[normal] docs /components/grid light/night: \"theme ·\" 1",
+    "[normal] docs /components/grid light/night: \"dark scene\" 1",
+    "[normal] docs /components/grid light/night: \"dark\" 1",
+    "[normal] docs /components/grid light/night: \"theme ·\" 1",
+    "[normal] docs /components/grid light/night: \"bright scene\" 1",
+    "[normal] docs /components/banner light/night: \"Open feed\" 1",
+    "[normal] docs /components/banner light/night: \"Plan: Pro · renews 1 Dec\" 1",
+    "[normal] docs /components/banner light/night: \"Plan: Pro · renews 1 Dec\" 1",
+    "[normal] docs /patterns/settings-panel light/night: \"Save changes\" 1",
+    "[normal] docs /components/grid light/city: \"dark\" 1",
+    "[normal] docs /components/grid light/city: \"theme ·\" 1",
+    "[normal] docs /components/grid light/city: \"dark scene\" 1",
+    "[normal] docs /components/grid light/city: \"dark\" 1",
+    "[normal] docs /components/grid light/city: \"theme ·\" 1",
+    "[normal] docs /components/grid light/city: \"bright scene\" 1",
+    "[normal] docs /components/banner light/city: \"Open feed\" 1",
+    "[normal] docs /components/banner light/city: \"Plan: Pro · renews 1 Dec\" 1",
+    "[normal] docs /components/banner light/city: \"Plan: Pro · renews 1 Dec\" 1",
+    "[normal] docs /patterns/settings-panel light/city: \"Save changes\" 1",
+    "[reduced-transparency] docs /foundations/shape dark/room: \"Pane\" 3.77",
+    "[reduced-transparency] docs /components/container dark/room: \"sm\" 2.33",
+    "[reduced-transparency] docs /components/banner dark/room: \"Open feed\" 1.02",
+    "[reduced-transparency] docs /patterns/settings-panel dark/room: \"Save changes\" 1.02",
+    "[reduced-transparency] docs /components/grid light/room: \"dark\" 1",
+    "[reduced-transparency] docs /components/grid light/room: \"theme ·\" 1",
+    "[reduced-transparency] docs /components/grid light/room: \"dark scene\" 1",
+    "[reduced-transparency] docs /components/grid light/room: \"dark\" 1",
+    "[reduced-transparency] docs /components/grid light/room: \"theme ·\" 1",
+    "[reduced-transparency] docs /components/grid light/room: \"bright scene\" 1",
+    "[reduced-transparency] docs /components/banner light/room: \"Open feed\" 1",
+    "[reduced-transparency] docs /components/banner light/room: \"Plan: Pro · renews 1 Dec\" 1",
+    "[reduced-transparency] docs /components/banner light/room: \"Plan: Pro · renews 1 Dec\" 1",
+    "[reduced-transparency] docs /patterns/settings-panel light/room: \"Save changes\" 1",
+    "[forced-colors] docs / dark/room: \"Whole screens assembled from the compone\" 1",
+    "[forced-colors] docs / dark/room: \"How every claim in this book is measured\" 1",
+    "[forced-colors] docs / dark/room: \"All tokens, the decision log, the except\" 1",
+    "[forced-colors] docs /principles dark/room: \"Pane can only vouch for contrast on surf\" 1",
+    "[forced-colors] docs /foundations/color dark/room: \"color.shade-a.35\" 1",
+    "[forced-colors] docs /foundations/themes dark/room: \"Switching themes\" 1",
+    "[forced-colors] docs /foundations/typography dark/room: \"Copy\" 1",
+    "[forced-colors] docs /foundations/grid dark/room: \"semantic\" 1",
+    "[forced-colors] docs /foundations/dimensions dark/room: \"Token\" 1",
+    "[forced-colors] docs /foundations/dimensions dark/room: \"Tier\" 1",
+    "[forced-colors] docs /foundations/dimensions dark/room: \"Points at\" 1",
+    "[forced-colors] docs /foundations/dimensions dark/room: \"Resolved value\" 1",
+    "[forced-colors] docs /foundations/dimensions dark/room: \"--ds-size-dot\" 1",
+    "[forced-colors] docs /foundations/dimensions dark/room: \"primitive\" 1",
+    "[forced-colors] docs /foundations/dimensions dark/room: \"—\" 1",
+    "[forced-colors] docs /foundations/dimensions dark/room: \"6px\" 1",
+    "[forced-colors] docs /foundations/dimensions dark/room: \"Copy\" 1",
+    "[forced-colors] docs /foundations/shape dark/room: \"corner.media\" 1",
+    "[forced-colors] docs /foundations/shape dark/room: \"Pane\" 1.14",
+    "[forced-colors] docs /foundations/icons dark/room: \"IconReply\" 1",
+    "[forced-colors] docs /components/container dark/room: \"Generated from the TypeScript source by \" 1",
+    "[forced-colors] docs /components/grid dark/room: \"Limitations\" 1",
+    "[forced-colors] docs /components/stack dark/room: \"In use\" 1",
+    "[forced-colors] docs /components/environment dark/room: \"Anatomy\" 1",
+    "[forced-colors] docs /components/environment dark/room: \"Re-measure with glass-sweep whenever the\" 1",
+    "[forced-colors] docs /components/environment dark/room: \"Copy another app’s level. The number bel\" 1",
+    "[forced-colors] docs /components/environment dark/room: \"Measured contrast\" 1",
+    "[forced-colors] docs /components/card dark/room: \"<Card as=\"section\" aria-labelledby=\"titl\" 1",
+    "[forced-colors] docs /components/card dark/room: \"TSX\" 1",
+    "[forced-colors] docs /components/card dark/room: \"Show all 16 lines\" 1",
+    "[forced-colors] docs /components/card dark/room: \"Copy\" 1",
+    "[forced-colors] docs /components/avatar dark/room: \"Situation\" 1",
+    "[forced-colors] docs /components/avatar dark/room: \"Use instead\" 1",
+    "[forced-colors] docs /components/avatar dark/room: \"inline-size, block-size\" 1",
+    "[forced-colors] docs /components/button dark/room: \"--ds-motion-press\" 1",
+    "[forced-colors] docs /components/button dark/room: \"transform, transition-duration\" 1",
+    "[forced-colors] docs /components/button dark/room: \"duration.quick\" 1",
+    "[forced-colors] docs /components/button dark/room: \"200ms\" 1",
+    "[forced-colors] docs /components/icon-button dark/room: \"variant dimension\" 1",
+    "[forced-colors] docs /components/icon-button dark/room: \"s\" 1",
+    "[forced-colors] docs /components/icon-button dark/room: \": variant, size\" 1",
+    "[forced-colors] docs /components/icon-button dark/room: \"+ 3), computed from its TypeScript props\" 1",
+    "[forced-colors] docs /components/icon-button dark/room: \"import { Avatar, Card, IconButton } from\" 1",
+    "[forced-colors] docs /components/icon-button dark/room: \"--ds-motion-lift\" 1",
+    "[forced-colors] docs /components/icon-button dark/room: \"transform\" 1",
+    "[forced-colors] docs /components/icon-button dark/room: \"distance.lift\" 1",
+    "[forced-colors] docs /components/icon-button dark/room: \"2px\" 1",
+    "[forced-colors] docs /components/tabs dark/room: \"Panel\" 1",
+    "[forced-colors] docs /components/tabs dark/room: \".\" 1",
+    "[forced-colors] docs /components/tabs dark/room: \"tabpanel labelled by its tab; animated e\" 1",
+    "[forced-colors] docs /components/tabs dark/room: \"--ds-tabs-on-fg\" 1",
+    "[forced-colors] docs /components/tag dark/room: \"padding-block\" 1",
+    "[forced-colors] docs /components/badge dark/room: \"Variants, states & compositions\" 1",
+    "[forced-colors] docs /components/badge dark/room: \"Do & don’t\" 1",
+    "[forced-colors] docs /components/chip dark/room: \"Makes it an input chip with a remove but\" 1",
+    "[forced-colors] docs /components/banner dark/room: \"<Banner tone=\"warning\" title=\"Card expir\" 1",
+    "[forced-colors] docs /components/banner dark/room: \"import { useState } from 'react';\nimport\" 1",
+    "[forced-colors] docs /patterns/feed-post dark/room: \"Feed post\" 1",
+    "[forced-colors] docs /patterns/settings-panel dark/room: \"Save changes\" 1",
+    "[forced-colors] docs /patterns/settings-panel dark/room: \"Cancel\" 1",
+    "[forced-colors] docs /accessibility dark/room: \"PASS\" 1",
+    "[forced-colors] docs /accessibility dark/room: \"every button with no visible text, on ev\" 1",
+    "[forced-colors] docs /reference/tokens dark/room: \"--ds-breakpoint-sm\" 1",
+    "[forced-colors] docs /reference/tokens dark/room: \"--ds-surface-solid\" 1",
+    "[forced-colors] docs /reference/tokens dark/room: \"semantic\" 1",
+    "[forced-colors] docs /reference/tokens dark/room: \"color.graphite.solid\" 1",
+    "[forced-colors] docs /reference/tokens dark/room: \"#2C2C34\" 1",
+    "[forced-colors] docs /reference/tokens dark/room: \"--ds-control-avatar-sm\" 1",
+    "[forced-colors] docs /reference/tokens dark/room: \"--ds-type-title\" 1",
+    "[forced-colors] docs /reference/tokens dark/room: \"semantic\" 1",
+    "[forced-colors] docs /reference/tokens dark/room: \"font.size.600\" 1",
+    "[forced-colors] docs /reference/tokens dark/room: \"21px\" 1",
+    "[forced-colors] docs /reference/tokens dark/room: \"component\" 1",
+    "[forced-colors] docs /reference/tokens dark/room: \"--ds-button-height-sm\" 1",
+    "[forced-colors] docs /reference/tokens dark/room: \"component\" 1",
+    "[forced-colors] docs /reference/tokens dark/room: \"control.sm\" 1",
+    "[forced-colors] docs /reference/tokens dark/room: \"32px\" 1",
+    "[forced-colors] docs /reference/tokens dark/room: \"Copy\" 1",
+    "[forced-colors] docs /reference/tokens dark/room: \"component\" 1",
+    "[forced-colors] docs /reference/changelog dark/room: \"0.1.0 (2026-10-26)\" 1",
+    "[forced-colors] docs /reference/status dark/room: \"Accessibility matrix\" 1",
+    "[forced-colors] docs /reference/decisions dark/room: \"D-007: ข้อความ error บนกระจกใช้ red.800 \" 1",
+    "[forced-colors] docs / light/room: \"Whole screens assembled from the compone\" 1",
+    "[forced-colors] docs / light/room: \"How every claim in this book is measured\" 1",
+    "[forced-colors] docs / light/room: \"All tokens, the decision log, the except\" 1",
+    "[forced-colors] docs /principles light/room: \"Pane can only vouch for contrast on surf\" 1",
+    "[forced-colors] docs /foundations/color light/room: \"color.shade-a.35\" 1",
+    "[forced-colors] docs /foundations/themes light/room: \"Switching themes\" 1",
+    "[forced-colors] docs /foundations/typography light/room: \"Copy\" 1",
+    "[forced-colors] docs /foundations/grid light/room: \"semantic\" 1",
+    "[forced-colors] docs /foundations/dimensions light/room: \"Token\" 1",
+    "[forced-colors] docs /foundations/dimensions light/room: \"Tier\" 1",
+    "[forced-colors] docs /foundations/dimensions light/room: \"Points at\" 1",
+    "[forced-colors] docs /foundations/dimensions light/room: \"Resolved value\" 1",
+    "[forced-colors] docs /foundations/dimensions light/room: \"--ds-size-dot\" 1",
+    "[forced-colors] docs /foundations/dimensions light/room: \"primitive\" 1",
+    "[forced-colors] docs /foundations/dimensions light/room: \"—\" 1",
+    "[forced-colors] docs /foundations/dimensions light/room: \"6px\" 1",
+    "[forced-colors] docs /foundations/dimensions light/room: \"Copy\" 1",
+    "[forced-colors] docs /foundations/shape light/room: \"corner.media\" 1",
+    "[forced-colors] docs /foundations/icons light/room: \"IconReply\" 1",
+    "[forced-colors] docs /components/container light/room: \"Generated from the TypeScript source by \" 1",
+    "[forced-colors] docs /components/grid light/room: \"Limitations\" 1",
+    "[forced-colors] docs /components/stack light/room: \"In use\" 1",
+    "[forced-colors] docs /components/environment light/room: \"Anatomy\" 1",
+    "[forced-colors] docs /components/environment light/room: \"Re-measure with glass-sweep whenever the\" 1",
+    "[forced-colors] docs /components/environment light/room: \"Copy another app’s level. The number bel\" 1",
+    "[forced-colors] docs /components/environment light/room: \"Measured contrast\" 1",
+    "[forced-colors] docs /components/card light/room: \"<Card as=\"section\" aria-labelledby=\"titl\" 1",
+    "[forced-colors] docs /components/card light/room: \"TSX\" 1",
+    "[forced-colors] docs /components/card light/room: \"Show all 16 lines\" 1",
+    "[forced-colors] docs /components/card light/room: \"Copy\" 1",
+    "[forced-colors] docs /components/avatar light/room: \"Situation\" 1",
+    "[forced-colors] docs /components/avatar light/room: \"Use instead\" 1",
+    "[forced-colors] docs /components/avatar light/room: \"inline-size, block-size\" 1",
+    "[forced-colors] docs /components/button light/room: \"--ds-motion-press\" 1",
+    "[forced-colors] docs /components/button light/room: \"transform, transition-duration\" 1",
+    "[forced-colors] docs /components/button light/room: \"duration.quick\" 1",
+    "[forced-colors] docs /components/button light/room: \"200ms\" 1",
+    "[forced-colors] docs /components/icon-button light/room: \"variant dimension\" 1",
+    "[forced-colors] docs /components/icon-button light/room: \"s\" 1",
+    "[forced-colors] docs /components/icon-button light/room: \": variant, size\" 1",
+    "[forced-colors] docs /components/icon-button light/room: \"+ 3), computed from its TypeScript props\" 1",
+    "[forced-colors] docs /components/icon-button light/room: \"import { Avatar, Card, IconButton } from\" 1",
+    "[forced-colors] docs /components/icon-button light/room: \"--ds-motion-lift\" 1",
+    "[forced-colors] docs /components/icon-button light/room: \"transform\" 1",
+    "[forced-colors] docs /components/icon-button light/room: \"distance.lift\" 1",
+    "[forced-colors] docs /components/icon-button light/room: \"2px\" 1",
+    "[forced-colors] docs /components/tabs light/room: \"Panel\" 1",
+    "[forced-colors] docs /components/tabs light/room: \".\" 1",
+    "[forced-colors] docs /components/tabs light/room: \"tabpanel labelled by its tab; animated e\" 1",
+    "[forced-colors] docs /components/tabs light/room: \"--ds-tabs-on-fg\" 1",
+    "[forced-colors] docs /components/tag light/room: \"padding-block\" 1",
+    "[forced-colors] docs /components/badge light/room: \"Variants, states & compositions\" 1",
+    "[forced-colors] docs /components/badge light/room: \"Do & don’t\" 1",
+    "[forced-colors] docs /components/chip light/room: \"Makes it an input chip with a remove but\" 1",
+    "[forced-colors] docs /components/banner light/room: \"<Banner tone=\"warning\" title=\"Card expir\" 1",
+    "[forced-colors] docs /components/banner light/room: \"import { useState } from 'react';\nimport\" 1",
+    "[forced-colors] docs /patterns/feed-post light/room: \"Feed post\" 1",
+    "[forced-colors] docs /patterns/settings-panel light/room: \"Save changes\" 1",
+    "[forced-colors] docs /patterns/settings-panel light/room: \"Cancel\" 1",
+    "[forced-colors] docs /accessibility light/room: \"PASS\" 1",
+    "[forced-colors] docs /accessibility light/room: \"every button with no visible text, on ev\" 1",
+    "[forced-colors] docs /reference/tokens light/room: \"--ds-breakpoint-sm\" 1",
+    "[forced-colors] docs /reference/tokens light/room: \"--ds-surface-solid\" 1",
+    "[forced-colors] docs /reference/tokens light/room: \"semantic\" 1",
+    "[forced-colors] docs /reference/tokens light/room: \"color.graphite.solid\" 1",
+    "[forced-colors] docs /reference/tokens light/room: \"#2C2C34\" 1",
+    "[forced-colors] docs /reference/tokens light/room: \"--ds-control-avatar-sm\" 1",
+    "[forced-colors] docs /reference/tokens light/room: \"--ds-type-title\" 1",
+    "[forced-colors] docs /reference/tokens light/room: \"semantic\" 1",
+    "[forced-colors] docs /reference/tokens light/room: \"font.size.600\" 1",
+    "[forced-colors] docs /reference/tokens light/room: \"21px\" 1",
+    "[forced-colors] docs /reference/tokens light/room: \"component\" 1",
+    "[forced-colors] docs /reference/tokens light/room: \"--ds-button-height-sm\" 1",
+    "[forced-colors] docs /reference/tokens light/room: \"component\" 1",
+    "[forced-colors] docs /reference/tokens light/room: \"control.sm\" 1",
+    "[forced-colors] docs /reference/tokens light/room: \"32px\" 1",
+    "[forced-colors] docs /reference/tokens light/room: \"Copy\" 1",
+    "[forced-colors] docs /reference/tokens light/room: \"component\" 1",
+    "[forced-colors] docs /reference/changelog light/room: \"0.1.0 (2026-10-26)\" 1",
+    "[forced-colors] docs /reference/status light/room: \"Accessibility matrix\" 1",
+    "[forced-colors] docs /reference/decisions light/room: \"D-007: ข้อความ error บนกระจกใช้ red.800 \" 1"
+  ],
   "excepted": [
-    "[normal] docs / room: \"How every claim in this book is measured\" 4.25",
-    "[normal] docs / room: \"All tokens, the decision log, the except\" 4.26",
-    "[normal] docs /components/grid room: \"Saved\" 4.43",
-    "[normal] docs /components/stack room: \"variant dimension\" 4.39",
-    "[normal] docs /components/button room: \"Message\" 4.36",
-    "[normal] docs /components/icon-button room: \"variant dimension\" 4.36",
-    "[normal] docs /components/icon-button room: \"2\" 4.44",
-    "[normal] docs /components/chip room: \"Tokens\" 4.46",
-    "[normal] docs /foundations/color forest: \"Copy\" 4.48",
-    "[normal] docs /foundations/themes forest: \"Copy\" 4.31",
-    "[normal] docs /foundations/typography forest: \"Copy\" 4.35",
-    "[normal] docs /foundations/spacing forest: \"Copy\" 4.29",
-    "[normal] docs /foundations/grid forest: \"Copy\" 4.42",
-    "[normal] docs /foundations/grid forest: \"Copy\" 4.49",
-    "[normal] docs /foundations/dimensions forest: \"Copy\" 4.49",
-    "[normal] docs /foundations/motion forest: \"Hover the buttons, press one, then switc\" 4.01",
-    "[normal] docs /foundations/motion forest: \"Copy\" 4.18",
-    "[normal] docs /foundations/motion forest: \"Copy\" 4.42",
-    "[normal] docs /components/container forest: \"On this page\" 4.48",
-    "[normal] docs /components/grid forest: \"12\" 4.17",
-    "[normal] docs /components/grid forest: \"11\" 4.28",
-    "[normal] docs /components/grid forest: \"10\" 4.42",
-    "[normal] docs /components/grid forest: \"On this page\" 4.48",
-    "[normal] docs /components/stack forest: \"On this page\" 4.48",
-    "[normal] docs /components/environment forest: \"On this page\" 4.48",
-    "[normal] docs /components/card forest: \"On this page\" 4.48",
-    "[normal] docs /components/avatar forest: \"On this page\" 4.48",
-    "[normal] docs /components/button forest: \"On this page\" 4.48",
-    "[normal] docs /components/icon-button forest: \"On this page\" 4.48",
-    "[normal] docs /components/tabs forest: \"On this page\" 4.48",
-    "[normal] docs /components/tag forest: \"On this page\" 4.48",
-    "[normal] docs /components/badge forest: \"On this page\" 4.48",
-    "[normal] docs /components/chip forest: \"On this page\" 4.48",
-    "[normal] docs /components/banner forest: \"On this page\" 4.48",
-    "[normal] docs /reference/tokens forest: \"Copy\" 3.9",
-    "[normal] docs /reference/tokens forest: \"Copy\" 3.95",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.06",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.08",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.22",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.25",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.29",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.31",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.35",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.36",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.37",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.37",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.37",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.37",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.37",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.37",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.44",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.48",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.48",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.48",
-    "[normal] docs /reference/tokens forest: \"Copy\" 4.49",
-    "[normal] docs / night: \"Glass, colour, type, space, shape, motio\" 4.23",
-    "[normal] docs / night: \"Every component in depth, with demos, us\" 4.3",
-    "[normal] docs / night: \"What Pane is, how to start, the rules be\" 4.49",
-    "[normal] docs /components/button night: \"Share\" 4.34",
-    "[normal] docs /components/chip night: \"Videos\" 4.27",
-    "[normal] docs /patterns/feed-post night: \"@Apple · 8h\" 4.25",
-    "[normal] docs / city: \"What Pane is, how to start, the rules be\" 3.85",
-    "[normal] docs / city: \"Every component in depth, with demos, us\" 3.88",
-    "[normal] docs / city: \"Glass, colour, type, space, shape, motio\" 3.92",
-    "[normal] docs / city: \"Components\" 4.03",
-    "[normal] docs / city: \"Foundations\" 4.18",
-    "[normal] docs / city: \"Introduction\" 4.23",
-    "[normal] docs / city: \"3\" 4.3",
-    "[normal] docs / city: \"chapter\" 4.42",
-    "[normal] docs / city: \"Overview · Getting started · Principles\" 4.47",
-    "[normal] docs /getting-started city: \"0.1.0\" 4.01",
-    "[normal] docs /getting-started city: \"0.1.0\" 4.03",
-    "[normal] docs /getting-started city: \"v\" 4.07",
-    "[normal] docs /getting-started city: \"kB min+gz all together (measured with es\" 4.17",
-    "[normal] docs /getting-started city: \"369\" 4.2",
-    "[normal] docs /getting-started city: \"tokens as CSS custom properties (\" 4.2",
-    "[normal] docs /getting-started city: \"v\" 4.22",
-    "[normal] docs /getting-started city: \"Three new posts since your last visit.\" 4.23",
-    "[normal] docs /getting-started city: \"pane-tokens/css\" 4.25",
-    "[normal] docs /getting-started city: \"18.5\" 4.34",
-    "[normal] docs /getting-started city: \"pane-tokens/json\" 4.37",
-    "[normal] docs /getting-started city: \"components,\" 4.42",
-    "[normal] docs /getting-started city: \"13\" 4.44",
-    "[normal] docs /getting-started city: \"pane-tokens\" 4.46",
-    "[normal] docs /getting-started city: \").\" 4.47",
-    "[normal] docs /foundations/dimensions city: \"Photos\" 3.99",
-    "[normal] docs /foundations/dimensions city: \"Small\" 4.21",
-    "[normal] docs /foundations/motion city: \"Hover me\" 4.08",
-    "[normal] docs /foundations/motion city: \"Hover the buttons, press one, then switc\" 4.18",
-    "[normal] docs /components/grid city: \"8 of 12 columns from lg up; full width b\" 4.42",
-    "[normal] docs /components/grid city: \"Followers\" 4.43",
-    "[normal] docs /components/grid city: \"Saved\" 4.46",
-    "[normal] docs /components/stack city: \"start\" 4.15",
-    "[normal] docs /components/stack city: \"center\" 4.25",
-    "[normal] docs /components/card city: \"· 9h\" 4.08",
-    "[normal] docs /components/card city: \"Asset 05 is live. Designed for modern vi\" 4.11",
-    "[normal] docs /components/card city: \"Followers\" 4.13",
-    "[normal] docs /components/card city: \"Worth reading before the launch.\" 4.21",
-    "[normal] docs /components/card city: \"Saved\" 4.22",
-    "[normal] docs /components/card city: \"Posts\" 4.24",
-    "[normal] docs /components/card city: \"Saturday · 3 people going\" 4.37",
-    "[normal] docs /components/button city: \"Message\" 4.19",
-    "[normal] docs /components/button city: \"Add a title to publish.\" 4.49",
-    "[normal] docs /components/icon-button city: \"@Apple · 8h\" 4.06",
-    "[normal] docs /components/icon-button city: \"1.7M\" 4.29",
-    "[normal] docs /components/icon-button city: \"6,707\" 4.36",
-    "[normal] docs /components/icon-button city: \"The disc sits on the photo, away from th\" 4.43",
-    "[normal] docs /components/icon-button city: \"268\" 4.48",
-    "[normal] docs /components/icon-button city: \"839\" 4.48",
-    "[normal] docs /components/badge city: \"Messages\" 4.11",
-    "[normal] docs /components/chip city: \"Links\" 4.02",
-    "[normal] docs /components/chip city: \"Videos\" 4.04",
-    "[normal] docs /components/chip city: \"To:\" 4.23",
-    "[normal] docs /components/chip city: \"Ada Lovelace\" 4.47",
-    "[normal] docs /patterns/profile-card city: \"@bymxfmz\" 3.9",
-    "[normal] docs /patterns/profile-card city: \"Switzerland\" 4.11",
-    "[normal] docs /patterns/profile-card city: \"Max Fmz\" 4.21",
-    "[normal] docs /patterns/profile-card city: \"UX/UI Designer. Outdoor enthusiast. Coff\" 4.25",
-    "[normal] docs /patterns/profile-card city: \"mfz.framer.website\" 4.37",
-    "[normal] docs /patterns/feed-post city: \"@Apple · 8h\" 3.84",
-    "[normal] docs /patterns/feed-post city: \"The era of spatial computing is here. Di\" 4.28",
-    "[normal] docs /patterns/feed-post city: \"Apple\" 4.33",
-    "[normal] docs /patterns/feed-post city: \"1.7M\" 4.46",
-    "[normal] docs /patterns/settings-panel city: \"Display\" 4.11",
-    "[normal] docs /patterns/settings-panel city: \"Notifications\" 4.15",
-    "[normal] docs /patterns/settings-panel city: \"Cancel\" 4.3",
-    "[normal] docs /patterns/settings-panel city: \"Privacy\" 4.31",
-    "[normal] docs /patterns/settings-panel city: \"Beta\" 4.32",
-    "[normal] docs /patterns/settings-panel city: \"On for verified contacts\" 4.37",
-    "[normal] docs /reference/tokens city: \"Copy\" 4.37",
-    "[normal] docs /reference/tokens city: \"Copy\" 4.44"
+    "[normal] docs /foundations/shape room: \"Pane\" 3.95",
+    "[normal] docs /components/container room: \"xl\" 4.15",
+    "[normal] docs /components/container room: \"md\" 4.37",
+    "[normal] docs /foundations/shape forest: \"Pane\" 4.12",
+    "[normal] docs /foundations/shape night: \"Pane\" 4.42",
+    "[reduced-transparency] docs /foundations/shape room: \"Pane\" 3.95",
+    "[reduced-transparency] docs /components/container room: \"xl\" 4.15",
+    "[reduced-transparency] docs /components/container room: \"md\" 4.37",
+    "[forced-colors] docs /foundations/shape room: \"Pane\" 4.43"
   ],
   "exceptionFloor": 3.8,
   "summary": {
-    "gatingChecks": 144564,
-    "gatingFailures": 0,
-    "excepted": 131,
+    "gatingChecks": 141778,
+    "gatingFailures": 236,
+    "excepted": 9,
     "informational": []
   }
 }
