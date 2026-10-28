@@ -1,105 +1,208 @@
 {
-  "concept": "A select is a quiet pill on the pane that opens an opaque list, because options must be read off a steady surface, never off the moving scene.",
+  "concept": "The closed select is a field, a groove like Input. The open list is an opaque sheet whose rows nest its corner, so each row radius is the sheet radius minus an inset that is the same on every side. The highlighted row is a lens with light on its top edge, and the check leads the chosen row.",
   "parts": {
     "root": {
       "p": "P7",
-      "why": "label above the control, the order people read a form in"
+      "why": "label above the control, the order people read a form in",
+      "axis": "space"
     },
     "label": {
       "p": "P6",
-      "why": "a visible label that is also the accessible name of the control"
+      "why": "a visible label that is also the accessible name of the control",
+      "axis": "type"
     },
     "hidden": {
       "p": "P6",
-      "why": "when the context names the control, the label stays for screen readers and is hidden visually"
+      "why": "when the context names the control, the label stays for screen readers and is hidden visually",
+      "axis": "type"
     },
     "trigger": {
-      "p": "P5",
-      "why": "the closed control is a quiet glass pill so it never competes with the pane loud action"
+      "p": "P1",
+      "axis": "depth",
+      "why": "the closed control is the same groove as Input, a dimmed recess with a lit bottom lip, so a form reads as one family"
     },
     "sm": {
       "p": "P6",
-      "why": "small is 32px for toolbars and top bars"
+      "why": "small is 32px for toolbars and top bars",
+      "axis": "space"
     },
     "md": {
       "p": "P6",
-      "why": "medium is the 44px touch size for forms"
+      "why": "medium is the 44px touch size for forms",
+      "axis": "space"
     },
     "icon": {
       "p": "P6",
-      "why": "the chevron says this opens a list, a cue that does not rely on hover"
+      "why": "the chevron says this opens a list, a cue that does not rely on hover",
+      "axis": "shape"
     },
     "chevron": {
-      "p": "P4",
-      "why": "the chevron turns over when the list is open, showing the state by shape"
+      "p": "P6",
+      "why": "the chevron turns over when the list is open, showing the state by shape",
+      "axis": "shape"
     },
     "menu": {
-      "p": "P6",
-      "why": "the list is opaque with a float shadow so options never sit on the scene and read clearly"
+      "p": "P3",
+      "axis": "shape",
+      "why": "an opaque sheet (D-017) with the same inset on all four sides, so every row sits evenly inside its corner"
     },
     "viewport": {
       "p": "P3",
-      "why": "options stack with a hairline gap, close enough to read as one list"
+      "why": "rows stack with a hairline gap inside the even inset, so the inset reads larger than the gap and the list reads as one",
+      "axis": "space"
     },
     "item": {
-      "p": "P6",
-      "why": "each option is a 32px row with its own highlight, reachable by keys and typeahead"
+      "p": "P3",
+      "axis": "shape",
+      "why": "a row nests the sheet corner, its radius computed as the sheet radius minus the inset, and rows are tall enough that the corner never becomes a pill"
     },
     "check": {
       "p": "P6",
-      "why": "a check marks the chosen option, so the choice is shown by a mark and not by colour alone"
+      "why": "a check marks the chosen option, so the choice is shown by a mark and not by colour alone",
+      "axis": "shape"
+    },
+    "slot": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a fixed space at the start of every row for the check, so the chosen row is marked first and labels stay aligned"
     }
   },
   "states": {
     "hover": {
       "p": "P4",
-      "why": "hover thickens the ring slightly, answering the pointer without moving the control"
+      "axis": "interaction",
+      "why": "hover adds a hairline ring over the groove, answering the pointer without moving anything"
     },
     "disabled": {
       "p": "P6",
-      "why": "disabled cannot open, uses half opacity, and keeps its label readable"
+      "why": "disabled cannot open, uses the shared disabled opacity, and keeps its label readable",
+      "axis": "interaction"
     },
     "focus-visible": {
       "p": "P6",
-      "why": "keyboard focus draws the shared ring with its halo so the focused control is visible on any scene"
+      "why": "keyboard focus draws the shared ring with its halo so the focused control is visible on any scene",
+      "axis": "interaction"
     },
     "data-placeholder": {
       "p": "P2",
-      "why": "an empty control shows its placeholder in the measured secondary colour"
+      "why": "an empty control shows its placeholder in the measured secondary colour",
+      "axis": "colour"
     },
     "data-state=open": {
       "p": "P4",
-      "why": "while open, the chevron turns to show the list belongs to this control"
+      "why": "while open, the chevron turns to show the list belongs to this control",
+      "axis": "motion"
     },
     "data-highlighted": {
-      "p": "P6",
-      "why": "the option under the pointer or keyboard gets the quiet fill so the current row is always visible"
+      "p": "P3",
+      "axis": "depth",
+      "why": "the highlighted row is a lens lit on its top edge, with a glint under the pointer when a pointer is there"
     },
     "data-state=checked": {
       "p": "P5",
-      "why": "the chosen option is semibold as well as checked"
+      "why": "the chosen option is semibold as well as checked",
+      "axis": "type"
     },
     "data-disabled": {
       "p": "P6",
-      "why": "unavailable options stay visible at half opacity so the reader knows they exist"
+      "why": "unavailable options stay visible at half opacity so the reader knows they exist",
+      "axis": "interaction"
     },
     "@media forced-colors: active": {
       "p": "P6",
-      "why": "forced colours draw real borders and a highlight outline so the list and the current row stay visible"
+      "why": "forced colours draw real borders and a highlight outline so the list and the current row stay visible",
+      "axis": "depth"
+    },
+    "data-pane-card=glass": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the trigger drops the card text halo because its groove already gives the label its ground"
     }
   },
   "motion": {
     "box-shadow": {
       "p": "P4",
-      "why": "the ring change eases at hover pace so the pointer response reads as one calm event"
+      "why": "the ring change eases at hover pace so the pointer response reads as one calm event",
+      "axis": "motion"
     },
     "transform": {
       "p": "P4",
-      "why": "the chevron turns over the hover duration so the state change is followed by the eye"
+      "why": "the chevron turns over the hover duration so the state change is followed by the eye",
+      "axis": "motion"
     },
     "@menu-in": {
       "p": "P4",
-      "why": "the list drops a few pixels from the control and settles, so it reads as coming from it"
+      "why": "the list drops a few pixels from the control and settles, so it reads as coming from it",
+      "axis": "motion"
     }
+  },
+  "kind": [
+    "dropdown",
+    "listbox",
+    "menu"
+  ],
+  "default_to_avoid": [
+    {
+      "pattern": "the Radix or Material dropdown: a padded card with pill-shaped rows whose corner does not follow the card's, a check at the far end",
+      "why_not": "the highlighted row's corner bulged against the flyout's (24px corner, 4px inset, 18px rows on 32px), so the two curves fought; the closed trigger measured 2.65:1 in light (R-008)"
+    }
+  ],
+  "references": [
+    {
+      "title": "visionOS HIG · Pop-up buttons",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/pop-up-buttons"
+    },
+    {
+      "title": "visionOS HIG · Menus",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/menus"
+    },
+    {
+      "title": "visionOS HIG · Materials",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/materials"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "shape",
+      "consequence": "corners are continuous and nest, so an inner surface's radius is the outer radius minus the padding between them and a pane inside a pane reads as inside it",
+      "form": "a row's radius is computed as the sheet radius minus the inset, and the inset is the same on all four sides"
+    },
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "a soft shadow below and a rim of light on the top-left edge say where the pane floats",
+      "form": "the highlighted row is a lens with light on its top edge, never a flat grey block"
+    },
+    {
+      "p": "P4",
+      "axis": "interaction",
+      "consequence": "nothing moves on its own; every motion answers something the reader did",
+      "form": "the lens carries a glint under the pointer; keyboard highlight shows the lens without the glint"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the chosen row has a check at its start, read first, and a heavier weight"
+    },
+    {
+      "p": "P1",
+      "axis": "depth",
+      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur), never from an opaque tint",
+      "form": "the closed trigger is the same groove as Input, so a form reads as one family"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/round2/",
+    "options": [
+      "A concentric inset",
+      "B concentric lens",
+      "C full-bleed rows"
+    ],
+    "picked": "B concentric lens",
+    "by": "agent",
+    "reason": "A and B both fix the nesting P3 asks for; B also makes the highlight a lit lens (P3 depth) and leads with the check (P6), as visionOS menus do. C avoids nesting by clipping and adds dividers that a menu of four rows does not need, and its first and last highlight meet the corner unevenly.",
+    "section": "flyout"
   }
 }

@@ -2,6 +2,10 @@
   "concept": "A long text field is the same well as Input, with nested corners because it grows taller.",
   "default_to_avoid": [
     {
+      "pattern": "a textarea as a resizable outlined rectangle with a grey corner grip (the browser default, Bootstrap form-control)",
+      "why_not": "the outline box has no relation to the field groove, and the grip is a desktop habit in a touch-sized system"
+    },
+    {
       "pattern": "Material outlined text field with a floating label; filled blue square checkbox; iOS green switch (Material 3, Bootstrap, iOS Settings)",
       "why_not": "it draws a box on the glass, paints selection in colour the scene should own, moves the label out of its place, and was made for opaque pages rather than a pane floating over a photo"
     }

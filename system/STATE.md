@@ -1,8 +1,8 @@
 # STATE — working memory ของ system นี้
 - **System:** Pane (`pane-tokens`, `pane-react`) — spatial glass จาก anchor A (D-008): กระจกใส + หรี่ฉากหลัง (D-010/D-011) บนรูปถ่ายจริง
-- **Phase ปัจจุบัน:** pilot ขยายเป็นหนังสือ 37 บท + 13 components, ธีม light/dark วัดทั้งคู่ (D-015)
-- **งานล่าสุดที่เสร็จ:** playground ทุกหน้า foundation, copy คลิกเดียว, บท Themes & backdrops, ตาราง 2×2 ทุก component, status/history/limitations/a11y matrix จาก benchmark 10 DS · verify เขียว (2026-10-27)
-- **งานถัดไป:** รอ user เลือกแบบ form (apps/lab/forms, A/B/C) → สร้าง W3 · derivation round ของ Button (ghost/danger/loading) · G-BT1 รายการหัวข้อ 9 หน้า foundation · ดู `NEXT.md`
+- **Phase ปัจจุบัน:** 0.4.0 (ระงับ release) · 26 components ผ่าน derivation ครบ, `pendingDerivation` ว่าง (D-022, D-023)
+- **งานล่าสุดที่เสร็จ (2026-10-28):** derivation รอบ 2 (Button, Switch, Input family, Select) และรอบ 3 (IconButton, Tabs, Chip, Tag, Badge, Avatar, Slider, Card) · gate ใหม่ G-NT2/G-NR1 ผ่าน · verify ย้ายมาใช้ `tooling/kiln/verify.mjs` เต็มทุก gate (เดิมใช้ `--only`) · conformance ย้ายไป `system/conformance/`
+- **งานถัดไป:** ความลึกหน้า usage (G-K6) ของ Select, Slider, Input, Checkbox, Radio · full verify เขียว · repack 0.4.0 · push main แบบไม่มี kiln · deploy Cloudflare · push kiln 2.1.0
 - **Wave ปัจจุบัน:** pilot · **Component ผ่าน QA:** 13/13 (Alpha 1: Environment, Beta 12)
 - **ค้าง/blocked:** — (ดู BACKLOG.md)
 ## Log ย่อ (ใหม่สุดบน ≤15 บรรทัด)

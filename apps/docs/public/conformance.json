@@ -1,13 +1,31 @@
 {
-  "generatedAt": "2026-10-27T14:37:20.075Z",
-  "passed": 72,
-  "total": 74,
+  "generatedAt": "2026-10-28T16:14:38.068Z",
+  "passed": 107,
+  "total": 107,
   "checks": [
+    {
+      "component": "Container",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props"
+    },
+    {
+      "component": "Grid",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props"
+    },
+    {
+      "component": "Stack",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props"
+    },
     {
       "component": "Environment",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "1 props"
+      "detail": "2 props"
     },
     {
       "component": "Card",
@@ -46,24 +64,6 @@
       "detail": "1 props"
     },
     {
-      "component": "Container",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "1 props"
-    },
-    {
-      "component": "Grid",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "4 props"
-    },
-    {
-      "component": "Stack",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "3 props"
-    },
-    {
       "component": "Badge",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
@@ -76,16 +76,112 @@
       "detail": "6 props"
     },
     {
+      "component": "Select",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "11 props"
+    },
+    {
+      "component": "Slider",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "10 props"
+    },
+    {
+      "component": "Input",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "2 props"
+    },
+    {
+      "component": "Textarea",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props"
+    },
+    {
+      "component": "Checkbox",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "10 props"
+    },
+    {
+      "component": "Radio",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "14 props"
+    },
+    {
+      "component": "Switch",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "8 props"
+    },
+    {
+      "component": "FormField",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props"
+    },
+    {
+      "component": "Label",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props"
+    },
+    {
+      "component": "HelperText",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props"
+    },
+    {
+      "component": "Fieldset",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "2 props"
+    },
+    {
+      "component": "InputGroup",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "PinInput",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "11 props"
+    },
+    {
       "component": "Banner",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "6 props"
     },
     {
-      "component": "Environment",
+      "component": "Container",
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos"
+    },
+    {
+      "component": "Grid",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Stack",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
+      "ok": true,
+      "detail": "6 demos"
+    },
+    {
+      "component": "Environment",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
     },
     {
       "component": "Card",
@@ -124,24 +220,6 @@
       "detail": "3 demos"
     },
     {
-      "component": "Container",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Grid",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Stack",
-      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
-      "ok": true,
-      "detail": "6 demos"
-    },
-    {
       "component": "Badge",
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
@@ -152,6 +230,84 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos"
+    },
+    {
+      "component": "Select",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "Slider",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Input",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "Textarea",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Checkbox",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Radio",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Switch",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "FormField",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "Label",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "HelperText",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Fieldset",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "InputGroup",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "PinInput",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
+      "ok": true,
+      "detail": "6 demos"
     },
     {
       "component": "Banner",
@@ -242,7 +398,7 @@
       "component": "IconButton",
       "name": "every button with no visible text, on every page of the book, has an accessible name",
       "ok": true,
-      "detail": "76 pages"
+      "detail": "146 pages"
     },
     {
       "component": "Tabs",
@@ -271,7 +427,7 @@
     },
     {
       "component": "Docs page",
-      "name": "G-D3, no literal backtick in rendered text on any of the 76 pages",
+      "name": "G-D3, no literal backtick in rendered text on any of the 146 pages",
       "ok": true
     },
     {
@@ -324,6 +480,81 @@
       "ok": true
     },
     {
+      "component": "Select",
+      "name": "reachable with Tab",
+      "ok": true
+    },
+    {
+      "component": "Select",
+      "name": "Enter opens the list and Escape closes it",
+      "ok": true
+    },
+    {
+      "component": "Select",
+      "name": "arrow keys and Enter choose a new value",
+      "ok": true
+    },
+    {
+      "component": "Slider",
+      "name": "reachable with Tab",
+      "ok": true
+    },
+    {
+      "component": "Slider",
+      "name": "arrow keys, Home and End change the value",
+      "ok": true
+    },
+    {
+      "component": "Slider",
+      "name": "the press area is at least 44px tall",
+      "ok": true
+    },
+    {
+      "component": "Input",
+      "name": "reachable with Tab and labelled by its FormField",
+      "ok": true
+    },
+    {
+      "component": "Input",
+      "name": "an error marks the field invalid and is read with it",
+      "ok": true
+    },
+    {
+      "component": "Textarea",
+      "name": "labelled by its FormField",
+      "ok": true
+    },
+    {
+      "component": "Checkbox",
+      "name": "Space toggles it and the label is its name",
+      "ok": true
+    },
+    {
+      "component": "Checkbox",
+      "name": "a mixed parent reports aria-checked=\"mixed\"",
+      "ok": true
+    },
+    {
+      "component": "Checkbox",
+      "name": "the target is at least 44px tall",
+      "ok": true
+    },
+    {
+      "component": "Radio",
+      "name": "one tab stop and arrow keys choose",
+      "ok": true
+    },
+    {
+      "component": "Switch",
+      "name": "Space toggles it",
+      "ok": true
+    },
+    {
+      "component": "PinInput",
+      "name": "typing moves on and paste fills every cell",
+      "ok": true
+    },
+    {
       "component": "Banner",
       "name": "dismiss is a named button and removes the banner",
       "ok": true
@@ -339,84 +570,40 @@
       "ok": true
     },
     {
-      "component": "Docs page",
-      "name": "choosing a chapter opens it as a new page at the top, with its heading in view and focused, at 375, 768 and 1280px",
+      "component": "FormField",
+      "name": "the label names the control and the help text describes it",
       "ok": true,
-      "detail": "all three widths"
+      "detail": "\"Email\""
     },
     {
-      "component": "Docs page",
-      "name": "G-S5, a new chapter is fully visible on its first painted frame with motion on",
-      "ok": true
-    },
-    {
-      "component": "Docs page",
-      "name": "on narrow screens Esc closes the menu and returns focus to the Menu button",
-      "ok": true
-    },
-    {
-      "component": "Docs page",
-      "name": "no two cards touch (under 8px) or overlap on any of the 76 pages at 375px and 1280px",
+      "component": "FormField",
+      "name": "an error marks the control invalid and is read before the help",
       "ok": true,
-      "detail": "834 cards across both widths"
+      "detail": "2 fields with errors"
     },
     {
-      "component": "Docs page",
-      "name": "G-F1, every foundation page (9) has a playground whose first control changes its preview",
+      "component": "Label",
+      "name": "a native <label> tied to its control, and a click on it focuses the control",
       "ok": true,
-      "detail": "9 pages"
+      "detail": "3 of 4 labels tied to a control"
     },
     {
-      "component": "Docs page",
-      "name": "G-C1, every code block on all 76 pages has a Copy button you can see",
+      "component": "HelperText",
+      "name": "the error tone says the word Error and carries a glyph, so it is not colour alone",
       "ok": true,
-      "detail": "180 code blocks"
+      "detail": "5 errors of 6"
     },
     {
-      "component": "Docs page",
-      "name": "G-C2, Copy puts the whole snippet on the clipboard, including lines a long block hides",
+      "component": "Fieldset",
+      "name": "a native <fieldset> whose <legend> names the group",
       "ok": true,
-      "detail": "15 lines copied"
+      "detail": "\"Shipping address\""
     },
     {
-      "component": "Docs page",
-      "name": "G-T1, the theme control switches text and glass tokens, and the evidence covers both themes",
+      "component": "InputGroup",
+      "name": "one text input inside, with its adornments outside the input’s value and name",
       "ok": true,
-      "detail": "text #FFFFFF → #111214"
-    },
-    {
-      "component": "Docs page",
-      "name": "G-B1, all 13 component pages show the component in both themes over a dark and a bright scene, and say what changes",
-      "ok": true
-    },
-    {
-      "component": "Docs page",
-      "name": "G-L1, all 13 component pages state a status, their own change history, limitations and the accessibility work left to the app",
-      "ok": true
-    },
-    {
-      "component": "Docs page",
-      "name": "G-M1, the accessibility matrix lists all 13 components and no cell is blank",
-      "ok": true,
-      "detail": "13 rows"
-    },
-    {
-      "component": "Docs page",
-      "name": "G-N1, no form control on any of the 76 pages shows the browser's default look, because selects and sliders are drawn from tokens in both themes",
-      "ok": true,
-      "detail": "138 controls per theme"
-    },
-    {
-      "component": "Docs page",
-      "name": "axe finds no violations on all 76 pages (forced-colors none)",
-      "ok": false,
-      "detail": "/components/avatar/usage role-img-alt×1, /components/tabs/usage aria-valid-attr-value×1"
-    },
-    {
-      "component": "Docs page",
-      "name": "axe finds no violations on all 76 pages (forced-colors active)",
-      "ok": false,
-      "detail": "/components/avatar/usage role-img-alt×1, /components/tabs/usage aria-valid-attr-value×1"
+      "detail": "adornment \"NOK\""
     }
   ]
 }

@@ -1,61 +1,128 @@
 {
-  "concept": "A slider is a thin track with a white knob held by the finger; the knob is large enough to grab and the hit area larger still.",
+  "concept": "A slider is a carved channel with a bead in it, the switch's language stretched out. The channel fills with the one blue up to the value, and the thumb is the same lit bead.",
   "parts": {
     "root": {
       "p": "P7",
-      "why": "label and current value sit above the track, so the reader sees what they are changing before touching it"
+      "axis": "space",
+      "why": "label and value above the channel, the order people read a setting in"
     },
     "head": {
       "p": "P7",
-      "why": "one line with the name at the start and the value at the end, read left to right"
+      "axis": "space",
+      "why": "the label at the start and the value at the end of one line"
     },
     "label": {
       "p": "P6",
-      "why": "the visible label is also the accessible name of the thumb"
+      "axis": "type",
+      "why": "a visible label that is also the accessible name"
     },
     "value": {
       "p": "P2",
-      "why": "the current value in tabular figures and secondary colour, so changing numbers do not jitter"
+      "axis": "colour",
+      "why": "the value in the measured secondary colour, with tabular figures"
     },
     "slider": {
       "p": "P6",
-      "why": "the 44px tall root is the hit area, much larger than the 6px track you see"
+      "axis": "space",
+      "why": "the whole row is a 44px target while the channel is thin"
     },
     "track": {
       "p": "P1",
-      "why": "the track is the quiet fill with a ring, a groove in the pane rather than a coloured bar"
+      "axis": "depth",
+      "why": "a carved channel, shade under its top lip and light on its bottom lip"
     },
     "range": {
-      "p": "P5",
-      "why": "the filled part uses the accent, the only colour on the control"
+      "p": "P1",
+      "axis": "colour",
+      "why": "the filled part spends the one blue, darker at the top where the lip shades it"
     },
     "thumb": {
-      "p": "P6",
-      "why": "a white 20px knob with ring and shadow, visible on both themes and on glass"
+      "p": "P3",
+      "axis": "shape",
+      "why": "the switch bead, lit on its upper left, on a short shadow"
     }
   },
   "states": {
     "data-disabled": {
       "p": "P6",
-      "why": "disabled keeps the slider visible at half opacity and stops dragging"
+      "axis": "interaction",
+      "why": "disabled cannot move and uses the shared disabled opacity"
     },
     "hover": {
       "p": "P4",
-      "why": "the knob grows slightly under the pointer, inviting the grab"
+      "axis": "depth",
+      "why": "hover lifts the bead a little closer by growing it slightly"
     },
     "focus-visible": {
       "p": "P6",
-      "why": "keyboard focus draws the shared ring with its halo so the focused control is visible on any scene"
+      "axis": "interaction",
+      "why": "keyboard focus draws the shared ring with its halo, visible on any scene"
     },
     "@media forced-colors: active": {
       "p": "P6",
-      "why": "forced colours draw the track, range and knob with system colours so the value stays visible"
+      "axis": "depth",
+      "why": "forced colours drop the carve and the bead, so a real system-colour border keeps the shape"
     }
   },
   "motion": {
     "transform": {
       "p": "P4",
-      "why": "the knob grows over the hover duration, a small settle rather than a jump"
+      "axis": "motion",
+      "why": "the bead grows on hover over the hover curve"
     }
+  },
+  "default_to_avoid": [
+    {
+      "pattern": "a thin grey slider rail with a blue fill and a white dot (Material slider, the browser range input)",
+      "why_not": "a hairline rail on glass has no edge to find, and it shares nothing with Pane's other controls"
+    }
+  ],
+  "references": [
+    {
+      "title": "visionOS HIG · Sliders",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/sliders"
+    },
+    {
+      "title": "visionOS HIG · Toggles",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/toggles"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P1",
+      "axis": "depth",
+      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur), never from an opaque tint",
+      "form": "the channel is carved by dimming, shade under its top lip, light on its bottom lip"
+    },
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns almost no colour of its own, only white at opacities, one ink and one blue",
+      "form": "the filled part spends the one blue, darker at the top where the lip shades it"
+    },
+    {
+      "p": "P3",
+      "axis": "shape",
+      "consequence": "controls are full pills because they are held in the hand",
+      "form": "the channel is a full pill and the thumb the switch's round bead"
+    },
+    {
+      "p": "P6",
+      "axis": "space",
+      "consequence": "every target is at least 44px in its smaller dimension or has a 44px hit area",
+      "form": "the channel is thin to look at but the whole row is a 44px target"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/round3/",
+    "section": "slider",
+    "options": [
+      "A carved channel and bead",
+      "B graduated",
+      "C thick lamp"
+    ],
+    "picked": "A carved channel and bead",
+    "by": "agent",
+    "reason": "A is Switch's material, so a settings pane with switches and sliders reads as one family (P1, P3). B adds scale marks that only help stepped values and clutter continuous ones. C's thin handle is hard to grab and breaks the round bead."
   }
 }

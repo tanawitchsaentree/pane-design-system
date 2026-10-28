@@ -1,3 +1,5 @@
+/* A portrait behind a lens (round 3, Avatar A): the pane's rim of light along its top, shade at its foot,
+   and a soft shadow under the large size, so the face sits on the glass as a small object (P3). */
 .root {
   position: relative;
   display: inline-grid;
@@ -11,12 +13,10 @@
   font-weight: var(--ds-type-weight-semibold);
   text-shadow: none;
 }
+/* the lens over the portrait */
+.root::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; box-shadow: var(--ds-avatar-lens); }
 .sm { inline-size: var(--ds-avatar-size-sm); block-size: var(--ds-avatar-size-sm); font-size: var(--ds-type-micro); }
 .md { inline-size: var(--ds-avatar-size-md); block-size: var(--ds-avatar-size-md); font-size: var(--ds-type-label); }
-.lg {
-  inline-size: var(--ds-avatar-size-lg);
-  block-size: var(--ds-avatar-size-lg);
-  font-size: var(--ds-type-headline);
-  box-shadow: 0 0 0 var(--ds-avatar-ring-width) var(--ds-avatar-ring);
-}
+.lg { inline-size: var(--ds-avatar-size-lg); block-size: var(--ds-avatar-size-lg); font-size: var(--ds-type-headline); box-shadow: var(--ds-avatar-cast); }
 .img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+@media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid CanvasText; } .root::after { display: none; } }

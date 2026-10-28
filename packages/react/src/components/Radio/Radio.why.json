@@ -2,6 +2,10 @@
   "concept": "A radio is a round well that holds a dot when chosen, every option visible at once.",
   "default_to_avoid": [
     {
+      "pattern": "a radio button as a blue-filled circle with a white dot (Material radio, the browser default tinted)",
+      "why_not": "a filled blue disc puts colour on selection that the scene should own; a mark in ink or white says it"
+    },
+    {
       "pattern": "Material outlined text field with a floating label; filled blue square checkbox; iOS green switch (Material 3, Bootstrap, iOS Settings)",
       "why_not": "it draws a box on the glass, paints selection in colour the scene should own, moves the label out of its place, and was made for opaque pages rather than a pane floating over a photo"
     }
@@ -81,7 +85,7 @@
     "circle": {
       "p": "P3",
       "axis": "shape",
-      "why": "the radio is a round well, so its shape alone tells it apart from a square checkbox"
+      "why": "a round recess carved like the switch track, shade under the top lip and light on the bottom lip, so its edge measures 3:1 on glass and pages in both themes"
     },
     "description": {
       "p": "P7",
@@ -139,11 +143,6 @@
       "p": "P4",
       "axis": "shape",
       "why": "a press shrinks the control slightly and quickly, because a press is a reply"
-    },
-    "data-pane-card=glass": {
-      "p": "P1",
-      "axis": "depth",
-      "why": "on a glass card the control is a dimmed well with an inner shadow; elsewhere it is the opaque page surface (P7)"
     },
     "disabled": {
       "p": "P6",

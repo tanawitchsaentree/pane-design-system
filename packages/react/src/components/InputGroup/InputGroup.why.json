@@ -2,6 +2,10 @@
   "concept": "An input and its adornments share one well, so a unit or icon is part of the field.",
   "default_to_avoid": [
     {
+      "pattern": "an input group with grey add-on boxes glued to the ends of the field (Bootstrap input-group)",
+      "why_not": "the add-on boxes are extra surfaces on the glass; the adornment belongs inside the one groove"
+    },
+    {
       "pattern": "Material outlined text field with a floating label; filled blue square checkbox; iOS green switch (Material 3, Bootstrap, iOS Settings)",
       "why_not": "it draws a box on the glass, paints selection in colour the scene should own, moves the label out of its place, and was made for opaque pages rather than a pane floating over a photo"
     }

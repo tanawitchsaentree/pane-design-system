@@ -24,7 +24,9 @@ export const BUTTON: Depth = {
       <p>A button starts something on the spot. Following a person, saving a draft, sending a message and opening a player are all buttons, because each one changes state where the reader already is. Moving somewhere else is a link, even when it looks important. The test is what happens after the press. If the address bar changes, it was a link.</p>
       <p>On a pane the button is the part people reach for, so it carries most of the hierarchy. A pane should hold one loud button and as many quiet ones as it needs. That rule, from P5, decides more layouts than any spacing value does. When two actions feel equally important, the pane usually has two jobs and should be split into two panes.</p>
       <p>A button keeps no state of its own. Follow that turns into Following after the press is two buttons in turn, swapped by the app, each with its own label. When the control has to show on or off and keep showing it, such as a filter or a favourite, use a Chip, which carries <code>aria-pressed</code> and a check mark. A Button that changes colour to say it is on leaves screen reader users guessing.</p>
-      <p>Pane has three weights. <code>light</code> is the solid pill that inverts with the theme. <code>accent</code> is the one blue in the system, kept for an action the product promotes. <code>glass</code> is the quiet fill for everything else. There are two heights, 44px for anything a thumb will press and 32px for rows where several actions share a line.</p>
+      <p>Pane has three weights. <code>light</code> is the solid pill that inverts with the theme. <code>accent</code> is the one blue in the system, kept for an action the product promotes. <code>glass</code> is the quiet fill for everything else.</p>
+      <p>Each button is a small pane on the big one. Its fill is a sheet with a white gloss across its top and a shade at its foot, and it carries the pane’s own rim of light, brightest at the top left (P3). Under the pointer a soft glint sits where the pointer is and follows it, the way visionOS lights what you look at, and it is gone when the pointer leaves (P4). The loud kinds rest on a shadow of their own, and under the accent that shadow is blue, its own light falling on the glass.</p>
+      <p>There are two heights, 44px for anything a thumb will press and 32px for rows where several actions share a line.</p>
     </>
   ),
   whenToUse: [
@@ -48,12 +50,12 @@ export const BUTTON: Depth = {
   anatomy: {
     render: <OnPane><Button><IconShare className="btn-icon" />Share profile</Button></OnPane>,
     parts: [
-      { part: 'Container', selector: '[data-component="Button"]', what: 'A full pill (corner.round) because a control is held. Height comes from the size, width from the label plus padding.' },
+      { part: 'Container', selector: '[data-component="Button"]', what: 'A full pill (corner.round) because a control is held, with the pane’s hairline rim brightest at the top left and a white gloss over the top half of the fill. Under a pointer a soft glint sits where the pointer is. Height comes from the size, width from the label plus padding.' },
       { part: 'Leading icon', selector: '[data-component="Button"] svg', what: 'Optional and decorative. 16px, inherits the label colour, sits one gap (8px, gap.md) before the label.' },
       { part: 'Label', selector: '[data-component="Button"]', what: 'Semibold, 15px at md and 14px at sm. Solid fills drop the text halo because they already contrast with their own fill.' },
-      { part: 'Shadow', selector: '[data-component="Button"]', what: 'light and accent cast elevation.lift. Glass casts none, since a quiet object does not rise off the pane.' },
+      { part: 'Shadow', selector: '[data-component="Button"]', what: 'light casts elevation.cast and accent casts elevation.cast-accent, which is blue. Glass casts none, since a quiet object does not rise off the pane.' },
     ],
-    perVariant: 'All three variants share the same parts. Glass has no shadow, and only accent changes its fill on hover.',
+    perVariant: 'All three variants share the rim, gloss and glint. Glass has no shadow and does not lift.',
   },
   sizes: {
     md: { use: 'The default for every action a finger might press, including every action on a phone. 44px tall, which is P6\'s minimum target.', pairs: 'Body text at 15px, Select md and Tabs. Two md buttons sit 8px apart.' },
@@ -126,8 +128,8 @@ export const BUTTON: Depth = {
   behaviours: {
     states: [
       ['Default', 'Pill at rest in its variant fill.', 'Nothing moves on its own (P4).'],
-      ['Hover', 'Rises 2px over 420ms on the soft ease. Accent darkens at the same pace.', 'An object rising to meet the pointer, colour and lift as one event (P4).'],
-      ['Pressed', 'Shrinks to 97% over 200ms.', 'A press is a reply, so it answers faster than an arrival (P4).'],
+      ['Hover', 'Light and accent rise 2px over 420ms and their shadow spreads; every kind shows the glint under the pointer.', 'An object rising to meet the pointer, light and lift as one event (P4).'],
+      ['Pressed', 'Shrinks to 97% over 200ms and its shadow tightens, pushed back toward the pane.', 'A press is a reply, so it answers faster than an arrival (P4).'],
       ['Focus', '2px white ring 2px outside the pill with a dark halo.', 'Visible on any part of any scene (P2, P6).'],
       ['Disabled', 'Native disabled attribute, 50% opacity, no motion, not focusable.', 'Write the reason in text nearby, since nobody can focus it to find out (P6).'],
       ['Forced colours', 'Fills drop and a ButtonText border draws the shape.', 'Structure survives without glass (P6).'],
@@ -150,7 +152,7 @@ export const BUTTON: Depth = {
   },
   deepDive: {
     light: {
-      purpose: <p>The light button is the reason the pane exists. It inverts with the theme so it always carries the strongest contrast on the pane. Over dark glass it is white with ink text. Over light glass it turns ink with white text. It casts the lift shadow, the only shadow inside a pane, which says it sits on top of the glass.</p>,
+      purpose: <p>The light button is the reason the pane exists. It inverts with the theme so it always carries the strongest contrast on the pane. Over dark glass it is white with ink text. Over light glass it turns ink with white text. Its sheet is lit at the top and shaded at the foot, and it rests on a shadow of its own, one of the two kinds allowed a shadow on a pane, which says it sits on top of the glass.</p>,
       context: <Profile><Foot><Button>Follow</Button><Button variant="glass">Message</Button><IconButton aria-label="More options" variant="glass"><IconMore /></IconButton></Foot></Profile>,
       practices: ['Put it first in reading order, on the start side of the row.', 'Use it for the action most readers came to take, even when another action is more profitable.', 'Keep it on panes that have a clear next step. A pane of equal options gets glass buttons only.'],
       pair: {
@@ -161,7 +163,7 @@ export const BUTTON: Depth = {
       },
     },
     accent: {
-      purpose: <p>Accent is the only blue mark the system makes. It exists for one promoted action, such as Get verified or Go live, where the product wants the action to stand out from the ordinary main action. Blue is scarce in Pane. So it reads as deliberate, and used often it stops reading as anything.</p>,
+      purpose: <p>Accent is the only blue mark the system makes. It exists for one promoted action, such as Get verified or Go live, where the product wants the action to stand out from the ordinary main action. Blue is scarce in Pane. So it reads as deliberate, and used often it stops reading as anything. The accent is a sheet of blue running from the accent at its top to a deeper blue at its foot, with a white gloss across the top half, and the shadow it casts is blue, so the pane under it looks lit by it. White text is measured against the lightest part of the fill behind the label.</p>,
       context: <Card as="section" aria-label="Verification" className="demo-card"><div className="component-head"><h3 className="flush">Get the blue check</h3><Tag>New</Tag></div><p className="flush muted">Verified accounts show up first in search and in replies.</p><Foot><Button variant="accent">Get verified</Button><Button variant="glass">Not now</Button></Foot></Card>,
       practices: ['Use at most one accent button on a screen, and not on every screen.', 'Let accent replace light on its pane. Never show the two together.', 'Keep accent away from destructive actions. Blue reads as encouragement.'],
       pair: {
@@ -172,7 +174,7 @@ export const BUTTON: Depth = {
       },
     },
     glass: {
-      purpose: <p>Glass is the working weight. It is a translucent pill with an 8% white fill, enough to read as an object on the pane while the photo still shows through. It casts no shadow and does not change colour on hover, so a row of glass buttons stays calm around the one loud action.</p>,
+      purpose: <p>Glass is the working weight. It is a translucent pill with an 8% white fill and a white gloss across its top, enough to read as an object on the pane while the photo still shows through. It casts no shadow and does not lift on hover; only the glint answers the pointer, so a row of glass buttons stays calm around the one loud action.</p>,
       context: <Card as="article" aria-label="Post" className="demo-card"><p className="flush">Blue hour over Bergen harbour, shot from Fløyen.</p><Foot><Button size="sm" variant="glass"><IconShare className="btn-icon" />Share</Button><Button size="sm" variant="glass">Copy link</Button><Button size="sm" variant="glass">Save</Button></Foot></Card>,
       practices: ['Use glass for Cancel, Not now and every other way out, so leaving never looks like the recommended path.', 'Use glass for every action that is not the main one.', 'A pane with no clear main action uses glass only.', 'Glass still needs a verb label. Quiet is about weight, never about vagueness.'],
       pair: {

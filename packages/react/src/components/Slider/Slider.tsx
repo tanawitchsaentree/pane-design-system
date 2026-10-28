@@ -21,7 +21,7 @@ export interface SliderProps {
   max?: number;
   /** Step between values. Defaults to 1. */
   step?: number;
-  /** Formats the value shown next to the label and spoken by screen readers, e.g. `(v) => \`${v}px\``. */
+  /** Formats the value shown next to the label and spoken by screen readers, for example a function that adds a unit. */
   format?: (value: number) => string;
   /** Native-like disabled behaviour. */
   disabled?: boolean;

@@ -1,65 +1,154 @@
 {
-  "concept": "A button is an object held in the hand of the pane. It is a pill that lifts when approached and gives a little when pressed, with one loud kind per pane.",
+  "concept": "A button is a small pane held on the big one. Its fill is a sheet lit at its top and shaded at its foot, it carries the pane's own rim, a glint sits where the pointer is, and under the accent its shadow is blue. One loud kind per pane.",
   "parts": {
     "root": {
       "p": "P3",
-      "why": "a full pill because it is held, with the label centred and the whole pill as the target"
+      "axis": "depth",
+      "why": "a small pane, a full pill with the pane rim brightest at the top left, held as an object with the whole pill as the target"
     },
     "sm": {
       "p": "P6",
-      "why": "small is 32px for dense rows and toolbars where several actions share a line"
+      "why": "small is 32px for dense rows and toolbars where several actions share a line",
+      "axis": "space"
     },
     "md": {
       "p": "P6",
-      "why": "medium is the default 44px touch size, used for every action that is not in a dense row"
+      "why": "medium is the default 44px touch size, used for every action that is not in a dense row",
+      "axis": "space"
     },
     "light": {
       "p": "P5",
-      "why": "the loud solid, the one main action of a pane, white in dark and ink in light"
+      "axis": "depth",
+      "why": "the loud solid, the one opaque mark on a pane, white in dark and ink in light, lit at its top and shaded at its foot, resting on its own shadow"
     },
     "accent": {
       "p": "P5",
-      "why": "blue for a promoted action such as Get verified, never next to a loud solid of equal weight"
+      "axis": "colour",
+      "why": "the blue sheet for a promoted action, never beside a loud solid; its shadow is blue, its own light falling on the pane"
     },
     "glass": {
       "p": "P5",
-      "why": "the quiet glass fill for every secondary action, visible as an object without shouting"
+      "axis": "depth",
+      "why": "the quiet button is glass with a white gloss and no shadow, so only the loud kind lifts"
+    },
+    "hit": {
+      "p": "P6",
+      "axis": "space",
+      "why": "a press area at least 44px each way, so the small size is still easy to hit"
     }
   },
   "states": {
     "hover": {
       "p": "P4",
-      "why": "hover lifts the button two pixels closer, an object rising to meet the pointer"
+      "axis": "depth",
+      "why": "hover lifts the loud kinds two pixels closer and shows the glint under the pointer on every kind"
     },
     "active": {
       "p": "P4",
-      "why": "a press shrinks the control briefly and faster than hover, because a press is a reply to the reader"
+      "axis": "shape",
+      "why": "a press shrinks the button and tightens its shadow, faster than hover, so it is pushed back toward the pane"
     },
     "disabled": {
       "p": "P6",
-      "why": "disabled uses the native attribute and half opacity, and the reason is written near it"
+      "axis": "interaction",
+      "why": "disabled uses the native attribute and the shared disabled opacity, and the reason is written near it"
     },
     "focus-visible": {
       "p": "P6",
-      "why": "keyboard focus draws the shared ring with its halo so the focused control is visible on any scene"
+      "why": "keyboard focus draws the shared ring with its halo so the focused control is visible on any scene",
+      "axis": "interaction"
     },
     "@media forced-colors: active": {
       "p": "P6",
-      "why": "forced colours drop glass and fills, so a real system-colour border is drawn to keep the shape visible"
+      "axis": "depth",
+      "why": "forced colours drop rim, glint and fills, so a real system-colour border keeps the shape"
     }
   },
   "motion": {
-    "background-color": {
-      "p": "P4",
-      "why": "the accent hover darkens at hover pace so colour and lift read as one event"
-    },
     "transform": {
       "p": "P4",
+      "axis": "motion",
       "why": "lift and press both move by transform over the soft curve so they never shift layout"
     },
     "box-shadow": {
       "p": "P3",
-      "why": "the shadow eases with the lift so the button appears to rise off the pane"
+      "axis": "depth",
+      "why": "the shadow spreads with the lift and tightens on press, so the button rises off the pane and is pushed back"
+    },
+    "opacity": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the glint fades in and out at hover pace, answering the pointer arriving and leaving"
     }
+  },
+  "default_to_avoid": [
+    {
+      "pattern": "a flat brand-coloured rounded button with a grey drop shadow (Bootstrap .btn-primary, Material filled button, most Tailwind kits)",
+      "why_not": "it is a coloured sticker on the glass with no edge, no light and no weight, so on a pane floating in a scene it reads as a web page pasted in front of the world (R-010)"
+    }
+  ],
+  "references": [
+    {
+      "title": "visionOS HIG · Buttons",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/buttons"
+    },
+    {
+      "title": "visionOS HIG · Materials",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/materials"
+    },
+    {
+      "title": "visionOS HIG · Eyes (hover effects)",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/eyes"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "a soft shadow below and a rim of light on the top-left edge say where the pane floats",
+      "form": "a button is a pane at a smaller scale, so it carries the same top-left rim and rests on a shadow of its own"
+    },
+    {
+      "p": "P3",
+      "axis": "colour",
+      "consequence": "the rim and sheen are white at low opacity, like light catching an edge",
+      "form": "the fill is a sheet with a white gloss across its top and a shade at its foot; the rim is white, never a coloured border"
+    },
+    {
+      "p": "P5",
+      "axis": "depth",
+      "consequence": "the solid fill sits on top of the glass and is the only opaque mark on a pane",
+      "form": "loud and accent stay opaque (tinted glass, variant C, was rejected); the quiet button is glass with gloss and no shadow"
+    },
+    {
+      "p": "P5",
+      "axis": "motion",
+      "consequence": "only the loud action lifts with a shadow",
+      "form": "only loud and accent cast a shadow and lift on hover; under the accent that shadow is blue, its own light falling on the pane"
+    },
+    {
+      "p": "P4",
+      "axis": "interaction",
+      "consequence": "nothing moves on its own; every motion answers something the reader did",
+      "form": "a glint sits under the pointer and follows it, the visionOS hover effect, and is gone when the pointer leaves"
+    },
+    {
+      "p": "P4",
+      "axis": "shape",
+      "consequence": "a pressed control shrinks slightly, as something pushed",
+      "form": "a press shrinks the button and tightens its shadow, so it is pushed back toward the pane"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/round2/",
+    "options": [
+      "A lit sheet",
+      "B a small pane of coloured glass",
+      "C tinted glass"
+    ],
+    "picked": "B a small pane of coloured glass",
+    "by": "agent",
+    "reason": "B is the only one that takes P3 at its word: the button carries the pane's own rim and sheen, so it reads as a smaller sheet of the same material instead of a sticker. A has the sheet but no rim and no answer to the pointer (P4 interaction). C breaks P5 (the loud fill must be opaque) and measured white text at 2.6:1 on light glass, against P2.",
+    "section": "button"
   }
 }

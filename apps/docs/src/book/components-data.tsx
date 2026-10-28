@@ -63,6 +63,7 @@ export const COMPONENTS: ComponentChapter[] = [
       ex('EnvironmentLevels', 'The brightness prop has three levels. Each tile shows a level on the kind of scene it suits. Today dim and mid are uncalibrated and resolve to the bright value.', true),
       ex('EnvironmentDefault', 'Leave the Environment out and glass falls back to the bright level, the safest setting.'),
       ex('EnvironmentNested', 'A region over a different backdrop can declare its own level. The nearest Environment wins.', true),
+      ex('EnvironmentSolid', 'Over a live scene such as a 3D view, material="solid" turns every pane opaque and switches the backdrop filter off, so the frame rate does not pay for blur.'),
     ],
     whenToUse: [
       'Once at the root of any screen with glass on it, before the first Card.',
@@ -132,27 +133,27 @@ export const COMPONENTS: ComponentChapter[] = [
     name: 'Avatar',
     slug: 'avatar',
     status: 'beta',
-    limitations: ['Initials are taken from the first two words of the name and do not handle every script.', 'There is no presence or status dot yet.', 'There is no forced-colours rule, so the circle loses its edge in high contrast mode.'],
+    limitations: ['Initials are taken from the first two words of the name and do not handle every script.', 'There is no presence or status dot yet.'],
     youMust: ['Pass the person’s full name, or set decorative when the name is already visible next to it.', 'Use a real photo URL you are allowed to show. The image has no built-in error reporting beyond the initials fallback.'],
     usage: '<Avatar name="Max Fmz" size="md" decorative />',
-    backdrops: 'The rim ring of the large size stays white in both themes. The initials fallback flips with the solid fill, ink on white in dark and white on ink in light.',
+    backdrops: 'The lens is white light and shade at low opacity, so it sits on the portrait the same way in both themes. The initials fallback flips with the solid fill, ink on white in dark and white on ink in light.',
     purpose: 'Shows who a piece of content belongs to, as a round photo or initials.',
     importLine: "import { Avatar } from 'pane-react';",
     overview: (
       <>
-        <p>A round portrait. With <code>src</code> it shows the photo cropped to a circle; without one it shows up to two initials from <code>name</code>. The large size carries the white rim ring from the anchor card so it reads as sitting on top of the cover.</p>
+        <p>A round portrait. With <code>src</code> it shows the photo cropped to a circle; without one it shows up to two initials from <code>name</code>. Every size sits behind a lens, with a rim of light along the top and shade at the foot. The large size also rests on a soft shadow, so it reads as an object sitting on top of the cover.</p>
         <p>An avatar almost always sits next to the person’s name. Mark it <code>decorative</code> there, so assistive technology skips it and announces the name once.</p>
       </>
     ),
     hero: ex('AvatarDecorative', 'Next to a visible name and handle, the avatar is marked decorative.'),
     ladder: [
-      ex('AvatarSizes', 'Three sizes. Use sm (30px) in post headers, md (44px) in lists and lg (84px, with a rim ring) in profile headers.', true),
+      ex('AvatarSizes', 'Three sizes. Use sm (30px) in post headers, md (44px) in lists and lg (84px, on a soft shadow) in profile headers.', true),
       ex('AvatarPhoto', 'The same name gives the accessible label and the initials, so a missing photo still reads correctly.', true),
       ex('AvatarGroup', 'In a stack of participants the group carries everyone’s names and each avatar stays decorative.'),
     ],
     whenToUse: ['Identifying the person or brand behind content.', 'Overlapping a cover image (lg), as in the profile card.'],
     whenNotToUse: [['A generic “user” glyph with no identity', 'An icon'], ['A product image', 'An <img> with real alt text']],
-    anatomy: [['Circle', 'corner.round, clipped.'], ['Photo or initials', 'Initials = first letters of the first two words of name.'], ['Rim ring (lg)', '4px ring in line.rim-hi.']],
+    anatomy: [['Circle', 'corner.round, clipped.'], ['Photo or initials', 'Initials = first letters of the first two words of name.'], ['Lens', 'elevation.portrait, a white hairline with a brighter top edge and shade at the foot.'], ['Shadow (lg)', 'elevation.cast, a soft shadow under the portrait.']],
     content: ['name is the real name or handle, never “avatar” or “profile picture”.'],
     dodont: [
       { do: 'Mark it decorative beside a visible name.', dont: 'Leave it announced next to the name. Readers hear “Max Fmz, Max Fmz”.' },
@@ -166,7 +167,7 @@ export const COMPONENTS: ComponentChapter[] = [
     name: 'Button',
     slug: 'button',
     status: 'beta',
-    limitations: ['There is no loading state built in.', 'Buttons are not links. Navigation needs an anchor element.', 'The sm size is 32px with no 44px press area, below what P6 asks for.', 'Disabled uses a raw 0.5 opacity instead of a token.'],
+    limitations: ['There is no loading state built in.', 'Buttons are not links. Navigation needs an anchor element.', 'Disabled uses a raw 0.5 opacity instead of a token.'],
     youMust: ['Write a label that says what happens, in a verb.', 'Keep one solid button per card. Everything else uses the glass variant.'],
     usage: '<Button>Follow</Button>\n<Button variant="glass">Message</Button>',
     backdrops: 'The solid button inverts with the theme, white with ink text in dark and ink with white text in light, so it stays the loudest thing on the card. Accent blue is the same in both.',
@@ -203,7 +204,7 @@ export const COMPONENTS: ComponentChapter[] = [
     name: 'IconButton',
     slug: 'icon-button',
     status: 'beta',
-    limitations: ['There is no tooltip, so the name is only exposed to assistive tech.', 'Both sizes are below the 44px P6 asks for. md is 36px and sm is 32px, and neither has a larger press area yet.'],
+    limitations: ['There is no tooltip, so the name is only exposed to assistive tech.', 'The press area is 44px each way, wider than the 36px and 32px discs, so two icon buttons placed closer than 44px apart share press space.'],
     youMust: ['Always pass aria-label. The type requires it, and it should name the action.', 'Pick an icon whose meaning is common. If you have to explain it, use a Button with text.'],
     usage: '<IconButton aria-label="Edit profile"><IconPencil /></IconButton>',
     backdrops: "The glass disc follows the theme's quiet fill. Ghost icons take the secondary text colour, white in dark and ink in light.",
@@ -211,21 +212,21 @@ export const COMPONENTS: ComponentChapter[] = [
     importLine: "import { IconButton } from 'pane-react';",
     overview: (
       <>
-        <p>A round, icon-only button. <code>glass</code> is a frosted disc for standalone actions (edit, close); <code>ghost</code> is the bare icon for dense rows (more, share), where a disc on every icon would be noise.</p>
+        <p>A round, icon-only button. <code>glass</code> is a small round pane with Button’s material, a white gloss across the top, the pane’s rim of light at the top left and a glint under the pointer. It suits standalone actions such as edit or close. <code>ghost</code> is the glyph alone with no rim, for dense rows of actions such as more and share, where a disc on every icon would be noise. Both sizes keep a 44px press area.</p>
         <p>The TypeScript type requires <code>aria-label</code>. An icon has no text, so the label is the button’s entire name, and an unnamed icon button will fail to compile.</p>
       </>
     ),
-    hero: ex('IconButtonVariants', 'A frosted disc suits a standalone action like edit. Bare icons suit overflow and share.'),
+    hero: ex('IconButtonVariants', 'A small glass pane suits a standalone action like edit. Bare glyphs suit overflow and share.'),
     ladder: [
-      ex('IconButtonSizes', 'md is a 36px disc. sm is 32px and fits action rows.'),
+      ex('IconButtonSizes', 'md is a 36px disc. sm is 32px and fits action rows. Both have a 44px press area.'),
       ex('IconButtonActionRow', 'In a row of ghost actions each label names the action, and the count where there is one.'),
       ex('IconButtonOnCover', 'On a photo the disc keeps its own 20px blur so the icon stays legible.'),
       ex('FeedPost', 'A full post uses ghost icon buttons for overflow and share.', true),
     ],
     whenToUse: ['Well-known actions like edit, more, share and close.', 'Dense rows where text buttons would crowd the content.'],
     whenNotToUse: [['An action whose icon needs explaining', 'A Button with a text label'], ['The main action of a card', 'A light Button']],
-    anatomy: [['Disc (glass)', 'surface.quiet fill with its own 20px blur.'], ['Icon', '18px, currentColor stroke.'], ['Focus ring', 'Same ring + halo as Button.']],
-    states: [['Hover', 'Rises 2px; ghost brightens to the primary text colour.'], ['Pressed', 'Scales to 0.97.']],
+    anatomy: [['Disc (glass)', 'surface.quiet fill with its own 20px blur and a white gloss across the top half.'], ['Rim (glass)', 'A hairline of light, brightest at the top left.'], ['Glint', 'Light under the pointer, faded in at hover pace.'], ['Icon', '18px, currentColor stroke.'], ['Press area', '44px each way at both sizes.'], ['Focus ring', 'Same ring and halo as Button.']],
+    states: [['Hover', 'The glint shows under the pointer and the disc stays put. Ghost brightens to the primary text colour.'], ['Pressed', 'Scales to 0.97.']],
     content: ['Label the action. “Edit profile” tells people what happens, while “Pencil” only names the drawing.'],
     dodont: [
       { do: 'Use well-known icons only.', dont: 'Invent an icon and rely on a tooltip to explain it.' },
@@ -240,15 +241,15 @@ export const COMPONENTS: ComponentChapter[] = [
     name: 'Tabs',
     slug: 'tabs',
     status: 'beta',
-    limitations: ['Tabs do not scroll when they overflow. Keep the list short enough to fit at 375px.', 'Vertical tabs are not styled yet.', 'Each pill is 32px tall with no 44px press area, below what P6 asks for.', 'Hover has no visual answer yet.'],
+    limitations: ['Tabs do not scroll when they overflow. Keep the list short enough to fit at 375px.', 'Vertical tabs are not styled yet.', 'Hover has no visual answer yet.'],
     youMust: ['Give Tabs.List an aria-label that names the set.', 'Keep each panel’s content related. Tabs are not a way to hide unrelated pages.'],
     usage: '<Tabs.Root defaultValue="a">\n  <Tabs.List aria-label="Sections">\n    <Tabs.Trigger value="a">Tweets</Tabs.Trigger>\n    <Tabs.Trigger value="b">Replies</Tabs.Trigger>\n  </Tabs.List>\n  <Tabs.Content value="a">…</Tabs.Content>\n</Tabs.Root>',
-    backdrops: 'The selected pill is accent blue in both themes. Unselected rings switch from white to ink at low opacity.',
+    backdrops: 'The chosen sheet is accent blue with white text in both themes. The track is a recess in surface.carve, and unselected labels follow the theme’s primary text colour.',
     purpose: 'Switches between two to five views of the same thing.',
     importLine: "import { Tabs } from 'pane-react';",
     overview: (
       <>
-        <p>Pill tabs from the anchor card. The selected tab is a solid blue pill; the others keep only a thin ring and no fill. During tuning a white fill lifted the backdrop under their white text below 4.5:1. Panels enter with an 8px rise and fade over 640ms.</p>
+        <p>One carved track holds the tabs, with shade under its top lip and light on its bottom lip. The chosen tab is the blue accent sheet resting in the track, and it slides to the tab the reader picks. The other tabs are text in the track, with no ring and no fill. Each tab is 32px tall with a 44px press area. Panels enter with an 8px rise and fade over 640ms.</p>
         <p>Radix supplies the behaviour, including the single tab stop, arrow keys, Home and End, automatic activation and the tablist wiring. Pane adds the look and writes no key handling of its own.</p>
       </>
     ),
@@ -259,8 +260,8 @@ export const COMPONENTS: ComponentChapter[] = [
     ],
     whenToUse: ['Two to five views of the same object, like Tweets, Replies and Media.'],
     whenNotToUse: [['Moving between pages', 'Navigation links'], ['Triggering actions', 'Buttons'], ['More than five sections', 'A list. Tabs that wrap stop being tabs']],
-    anatomy: [['List', 'tablist with an aria-label.'], ['Trigger', 'Pill; ring when unselected, blue fill when selected.'], ['Panel', 'tabpanel labelled by its tab; animated entrance.']],
-    states: [['Unselected', 'Ring only, white text with halo.'], ['Selected', 'Blue fill, white text, no halo.'], ['Focus', 'Ring + dark halo.'], ['Forced colours', 'Selected tab gets a Highlight border and an underline. Never colour alone.']],
+    anatomy: [['Track', 'The tablist with an aria-label, a carved recess with a 4px inset.'], ['Sheet', 'The blue accent sheet under the chosen tab, sliding to each new choice.'], ['Trigger', 'Text in the track, 32px tall with a 44px press area.'], ['Panel', 'The tabpanel labelled by its tab, with an animated entrance.']],
+    states: [['Unselected', 'Text only, with no ring and no fill.'], ['Selected', 'On the blue sheet, white text, no halo.'], ['Focus', 'Ring and dark halo.'], ['Forced colours', 'Selected tab gets a Highlight border and an underline. Never colour alone.']],
     content: ['One short word per tab. The list must never wrap.'],
     dodont: [
       { do: 'Keep labels to one word.', dont: 'Use tabs to run actions; they switch views.' },
@@ -282,12 +283,12 @@ export const COMPONENTS: ComponentChapter[] = [
     limitations: ['Tags are static text. There is no click or remove behaviour; use a Chip for that.', 'Small caps rely on CSS, so copied text keeps its original case.'],
     youMust: ['Keep tags short, one to three words.', 'Do not use a tag as the only place a status is stated. Use a Badge for status.'],
     usage: '<Tag>Visual asset 05</Tag>',
-    backdrops: 'The outline uses the primary text colour, so it is white in dark and ink in light. On photos keep tags inside a scrim in either theme.',
-    purpose: 'Labels content with a category, in outlined small caps.',
+    backdrops: 'The label uses the primary text colour, so it is white in dark and ink in light. The etch is shade and light at low opacity in both themes. On photos keep tags inside a scrim in either theme.',
+    purpose: 'Labels content with a category, in small caps etched into the glass.',
     importLine: "import { Tag } from 'pane-react';",
     overview: (
       <>
-        <p>An outlined small-caps label for categorising content. The “VISUAL ASSET 05” pill from ref 2. The text is written in normal case and uppercased by CSS, so screen readers read the words.</p>
+        <p>A small-caps label for categorising content, etched into the glass with shade under its top edge and light along its bottom edge. It sits below the surface where buttons stand on it, and it has no ring, so it is never mistaken for a button. The text is written in normal case and uppercased by CSS, so screen readers read the words.</p>
       </>
     ),
     hero: ex('TagBasic', 'A post with a few category tags.'),
@@ -297,7 +298,7 @@ export const COMPONENTS: ComponentChapter[] = [
     ],
     whenToUse: ['Categories and topics such as Trending, Tech or Asset 05.', 'Metadata on media.'],
     whenNotToUse: [['Status that changes (online, failed)', 'Words in the content, announced in a live region'], ['Filters the user toggles', 'Buttons with aria-pressed']],
-    anatomy: [['Outline', '1px ring in text.primary.'], ['Label', '11px, caps tracking 0.08em, uppercase via CSS.']],
+    anatomy: [['Etch', 'A recess in surface.carve, shade under the top edge and light along the bottom edge.'], ['Label', '11px medium in text.primary, caps tracking 0.08em, uppercase via CSS.'], ['Forced colours', 'The etch drops and a CanvasText hairline draws the shape.']],
     content: ['Two words or fewer.'],
     dodont: [
       { do: 'Use it to label.', dont: 'Make it clickable. It has no button semantics.' },
@@ -417,26 +418,26 @@ export const COMPONENTS: ComponentChapter[] = [
     status: 'beta',
     limitations: ['Badges are not live regions. A changing count is not announced on its own.', 'The dot alone carries no meaning for screen readers.'],
     youMust: ['Put the status in the text, not only in the colour or the dot.', 'Announce changes yourself, for example with a Banner set to live.'],
-    usage: '<Badge tone="positive" dot>Live</Badge>',
-    backdrops: 'Status fills are identical in both themes because their text pairs are computed on the fill itself. The neutral badge follows the glass, with white text in dark and ink text in light.',
+    usage: '<Badge tone="positive">Live</Badge>\n<Badge dot>Draft</Badge>',
+    backdrops: 'A badge has no fill, so the word follows the text colour of the theme, white in dark and ink in light. The glyphs use the status mark colours.',
     purpose: 'Shows a short status. A state, a count, a version. In words, with colour as a second cue.',
     importLine: "import { Badge } from 'pane-react';",
     overview: (
       <>
-        <p>A small pill of text. <code>neutral</code> is a glass ring with white text; <code>info</code>, <code>positive</code>, <code>warning</code> and <code>critical</code> are solid status fills whose text pairs are computed above 4.5:1 (white on green 5.02, ink on amber 9.90, white on red 5.66, white on blue 4.70). A <code>dot</code> adds a shape cue for presence-style statuses.</p>
+        <p>A status written on the glass, with no fill. <code>info</code>, <code>positive</code>, <code>warning</code> and <code>critical</code> each put their own 16px glyph before the word in the tone’s mark colour, a circle with an i, a circle with a check, a triangle and an octagon. The word stays in the text colour. <code>neutral</code> is the word alone, and <code>dot</code> adds a 6px dot in the secondary text colour to a neutral badge.</p>
         <p>The words carry the meaning; colour reinforces it. “Failed” in red is a badge, a red dot alone is not.</p>
       </>
     ),
     hero: ex('BadgeInList', 'Status usually sits at the end of each row in a list.'),
     ladder: [
-      ex('BadgeTones', 'There is a neutral glass badge and four status fills.'),
-      ex('BadgeDot', 'Add a dot for presence statuses. It gives a shape cue on top of the colour.'),
+      ex('BadgeTones', 'Neutral is the word alone. The four status tones each add their own glyph.'),
+      ex('BadgeDot', 'A neutral status with no tone, such as Draft, can carry a dot. The status tones have their glyph instead.'),
       ex('BadgeCount', 'Inside a button, the count becomes part of the accessible name.'),
     ],
     whenToUse: ['States such as Live, Draft or Failed.', 'A count next to a label, like “3 new”.'],
     whenNotToUse: [['Categories', 'Tag. Badges are status, tags are topics'], ['Anything clickable', 'Chip or Button'], ['A message that needs explanation', 'Banner']],
-    anatomy: [['Pill', '22px tall, corner.round.'], ['Dot (optional)', '6px, currentColor; CanvasText in forced colours.'], ['Label', '13px semibold; no halo on solid fills.']],
-    states: [['neutral', 'Glass ring, white text with halo.'], ['info / positive / warning / critical', 'Solid fill; text pair computed ≥4.5:1.']],
+    anatomy: [['Glyph (status tones)', '16px outline in the tone’s mark colour, a different shape per tone.'], ['Dot (neutral, optional)', '6px, in the secondary text colour. CanvasText in forced colours.'], ['Label', '13px semibold in the text colour, at least 22px tall, no fill.']],
+    states: [['neutral', 'The word alone, or a dot and the word.'], ['info / positive / warning / critical', 'Glyph in the mark colour, word in the text colour.']],
     content: ['One or two words. Use the same word for the same state everywhere.'],
     dodont: [
       { do: 'Say the status in words.', dont: 'Use colour alone. “red dot” is not a status.' },
@@ -450,15 +451,15 @@ export const COMPONENTS: ComponentChapter[] = [
     name: 'Chip',
     slug: 'chip',
     status: 'beta',
-    limitations: ['There is no group component that limits selection to one chip.', 'Removed chips are gone. There is no undo built in.', 'Chips are 32px tall with no 44px press area, below what P6 asks for.'],
+    limitations: ['There is no group component that limits selection to one chip.', 'Removed chips are gone. There is no undo built in.'],
     youMust: ['Wrap a set of chips in a group with a label that says what they filter.', 'Move focus to a sensible place after a chip is removed.'],
     usage: '<Chip defaultSelected>Photos</Chip>\n<Chip onRemove={() => {}}>Ada Lovelace</Chip>',
-    backdrops: 'Selected chips invert with the theme the same way solid buttons do. Unselected chips follow the quiet glass fill.',
+    backdrops: 'Unselected chips follow the quiet glass fill. Selected chips are a recess in surface.carve and keep the theme’s text colour, so they never invert the way a solid button does.',
     purpose: 'Lets people filter by toggling a choice, or holds a value they can remove.',
     importLine: "import { Chip } from 'pane-react';",
     overview: (
       <>
-        <p>One component covers two kinds of chip. A <b>filter chip</b> is a toggle built on a native button with <code>aria-pressed</code>. Selected chips turn solid white and show a check mark, so selection has a shape cue as well as colour. An <b>input chip</b> holds a value (a recipient, a tag) and, when <code>onRemove</code> is set, shows a remove button named “Remove {'{label}'}”.</p>
+        <p>One component covers two kinds of chip. A <b>filter chip</b> is a toggle built on a native button with <code>aria-pressed</code>. An unselected chip is a small glass pane with gloss and a rim of light. A selected chip is pressed into the glass, a carved recess with a check mark and semibold text, so many selected chips add no loud marks to a pane. An <b>input chip</b> holds a value (a recipient, a tag) and, when <code>onRemove</code> is set, shows a remove button named “Remove {'{label}'}”.</p>
       </>
     ),
     hero: ex('ChipFilter', 'A group of filter chips, one of them pre-selected.'),
@@ -468,8 +469,8 @@ export const COMPONENTS: ComponentChapter[] = [
     ],
     whenToUse: ['Filtering a list by a few options.', 'Showing values the user added (recipients, keywords).'],
     whenNotToUse: [['A single on/off setting', 'A switch or checkbox'], ['Choosing views', 'Tabs'], ['Static labels', 'Tag or Badge']],
-    anatomy: [['Pill', '32px, glass fill + ring; selected = white fill, ink text.'], ['Check mark', 'Shown when selected (filter).'], ['Remove button', 'Separate button, its own focus stop (input).']],
-    states: [['Unselected', 'Glass fill, ring.'], ['Selected', 'White fill, ink text, check mark, aria-pressed="true".'], ['Pressed', 'Scales to 0.97.'], ['Forced colours', 'Selected border in Highlight.']],
+    anatomy: [['Pane', '32px tall, quiet glass with a white gloss and the rim of light. Selected, it is a carved recess with white semibold text.'], ['Press area', '44px tall on the chip and on its remove button.'], ['Check mark', 'Shown when selected (filter).'], ['Remove button', 'Separate button, its own focus stop (input).']],
+    states: [['Unselected', 'A small glass pane with gloss and the rim of light.'], ['Selected', 'Pressed into a carved recess, semibold, with a check mark and aria-pressed="true".'], ['Pressed', 'Scales to 0.97.'], ['Forced colours', 'Selected border in Highlight.']],
     content: ['Use short nouns like “Photos” and “Videos”, and give the group a label such as “Filter posts”.'],
     dodont: [
       { do: 'Wrap filter chips in role="group" with a label.', dont: 'Leave a row of toggles with no context.' },
@@ -500,7 +501,7 @@ export const COMPONENTS: ComponentChapter[] = [
     ladder: [
       ex('SelectSizes', 'md is 44px and suits touch. sm is 32px for toolbars and dense forms.'),
       ex('SelectPlaceholder', 'A placeholder until the reader chooses, and an option that is shown but cannot be chosen.'),
-      ex('SelectDisabled', 'Disabled uses the native behaviour. Write the reason beside it.'),
+      ex('SelectDisabled', 'Disabled uses the native behaviour. Write the reason beside it.'), ex('SelectInForm', 'Two selects in one pane, each labelled by the setting it changes.')
     ],
     whenToUse: ['One value from four to fifteen options, such as a size or a privacy level.'],
     whenNotToUse: [['Two or three options', 'Radio buttons (planned) or a segmented control'], ['Switching views', 'Tabs'], ['Many options that people search', 'Combobox (planned)']],
@@ -520,24 +521,24 @@ export const COMPONENTS: ComponentChapter[] = [
     limitations: ['One thumb only. A range with two thumbs is planned for wave 8.', 'There are no tick marks or labels along the track.', 'Disabled uses a raw 0.5 opacity instead of a token.'],
     youMust: ['Format the value with its unit so it is spoken with meaning, such as 60%.', 'Offer a text field next to it when people need an exact number.'],
     usage: '<Slider label="Volume" defaultValue={40} format={(v) => `${v}%`} />',
-    backdrops: 'The track is a quiet glass rail with a ring and the filled part is the accent blue in both themes. The knob is white with a shadow, so it reads on dark and light glass alike.',
+    backdrops: 'The track is a carved channel and the filled part is the accent blue in both themes. The thumb is the Switch’s lit white bead with a shadow, so it reads on dark and light glass alike.',
     purpose: 'Lets people set a value along a range by dragging or with the arrow keys, with the current value shown beside the label.',
     importLine: "import { Slider } from 'pane-react';",
     overview: (
       <>
         <p>A slider sets a value where the exact number matters less than the feel, such as volume or a blur amount. The label sits above the track with the current value at the other end, formatted with its unit.</p>
-        <p>Radix supplies the behaviour, including the slider role, arrow keys, Page Up and Down, Home and End, pointer dragging and the spoken value. The press area is 44px tall even though the track is thin.</p>
+        <p>Radix supplies the behaviour, including the slider role, arrow keys, Page Up and Down, Home and End, pointer dragging and the spoken value. Pane draws a 10px carved channel that fills with the blue up to the value, and a 24px thumb that is the Switch’s lit bead. The press area is 44px tall even though the channel is thin.</p>
       </>
     ),
     hero: ex('SliderBasic', 'A volume slider on a player, with its value as a percentage.'),
     ladder: [
       ex('SliderFormat', 'Set min, max and step for the range, and format to show the unit.'),
-      ex('SliderDisabled', 'Disabled keeps the value visible and explains why it cannot change.'),
+      ex('SliderDisabled', 'Disabled keeps the value visible and explains why it cannot change.'), ex('SliderSteps', 'A step of 10 moves the value in tens with the arrow keys.')
     ],
     whenToUse: ['A value along a range where feel matters, such as volume, brightness or a radius.'],
     whenNotToUse: [['An exact number', 'A number field (planned)'], ['A few named levels', 'Select or radio buttons']],
-    anatomy: [['Label and value', 'Above the track, value at the end, formatted.'], ['Track', 'Quiet glass rail with a ring.'], ['Range', 'The filled part in the accent blue.'], ['Thumb', 'White knob with a shadow, on a 44px press area.']],
-    states: [['Rest', 'Thumb at the value.'], ['Dragging', 'The value updates as it moves.'], ['Disabled', 'Half opacity, cannot move.']],
+    anatomy: [['Label and value', 'Above the track, value at the end, formatted.'], ['Track', 'A 10px carved channel, shade under the top lip and light on the bottom lip.'], ['Range', 'The channel filled with the accent blue up to the value, still carved.'], ['Thumb', 'A 24px lit white bead with a shadow, the same as the Switch, on a 44px press area.']],
+    states: [['Rest', 'Thumb at the value.'], ['Hover', 'The bead grows to 108% at hover pace.'], ['Dragging', 'The value updates as it moves.'], ['Disabled', 'Half opacity, cannot move.']],
     content: ['Name the setting, such as Volume, and always show the unit in the value.'],
     dodont: [{ do: 'Show the value with its unit.', dont: 'Leave a bare number with no unit.' }],
     a11y: ['Radix slider role with arrow keys, Page Up, Page Down, Home and End.', 'The formatted value is the spoken value (aria-valuetext).', 'A 44px press area around the thin track.'],
@@ -557,7 +558,8 @@ export const COMPONENTS: ComponentChapter[] = [
     importLine: "import { FormField, Input } from 'pane-react';",
     overview: (<><p>Input is a native text field drawn as a well in the pane, the look picked in D-020. It is a full pill because a control is held, and its legibility comes from dimming the glass behind it. On a reading page, where there is no glass, it turns into the plain sunken surface P7 asks for.</p><p>It reads its id, description and invalid state from the FormField around it, so the label, help and error are wired for screen readers without extra props.</p></>),
     hero: ex('InputBasic', 'A field with its label above and help below, inside a FormField.'),
-    ladder: [ex('InputSizes', 'md is 44px and meets the touch size. sm is 32px for dense toolbars.'), ex('InputError', 'An error on the field that caused it, with the fix in the message.'), ex('InputDisabled', 'Read-only shows a value you cannot change. Disabled says why next to it.')],
+    ladder: [ex('InputSizes', 'md is 44px and meets the touch size. sm is 32px for dense toolbars.'), ex('InputError', 'An error on the field that caused it, with the fix in the message.'), ex('InputDisabled', 'Read-only shows a value you cannot change. Disabled says why next to it.'), ex('InputTypes', 'The type sets the phone keyboard, such as email or phone.')
+    ],
     whenToUse: ['A single line of text, such as a name, an email or a search.'],
     whenNotToUse: [['More than one line', 'Textarea'], ['One of a few known values', 'Select or RadioGroup'], ['A short code', 'PinInput']],
     anatomy: [['Label', 'From the FormField, above the field.'], ['Well', 'Dimmed recess, inner shadow, full pill.'], ['Value or placeholder', 'Body size text.'], ['Help or error', 'Under the field.']],
@@ -581,7 +583,8 @@ export const COMPONENTS: ComponentChapter[] = [
     importLine: "import { FormField, Textarea } from 'pane-react';",
     overview: (<><p>Textarea is Input’s well for text that runs over several lines, such as a bio or a reply. It cannot stay a pill because it grows, so it takes the media corner, which nests inside the pane’s own corner (P3).</p></>),
     hero: ex('TextareaBasic', 'A bio field with its limit in the help text.'),
-    ladder: [ex('TextareaError', 'Too long, with the current count in the error.'), ex('InputDisabled', 'Disabled and read-only behave like Input.')],
+    ladder: [ex('TextareaError', 'Too long, with the current count in the error.'), ex('InputDisabled', 'Disabled and read-only behave like Input.'), ex('TextareaRows', 'Set rows for a taller starting height; it still grows with its text.')
+    ],
     whenToUse: ['Text that may run over one line, such as a bio, a reply or a note.'],
     whenNotToUse: [['One line', 'Input'], ['Formatted text', 'RichTextEditor (planned for wave 10)']],
     anatomy: [['Well', 'Dimmed recess with the media corner.'], ['Text', 'Body size, reading line height.']],
@@ -605,7 +608,7 @@ export const COMPONENTS: ComponentChapter[] = [
     importLine: "import { Checkbox } from 'pane-react';",
     overview: (<><p>A checkbox is a choice that stays as it is until the reader changes it, and that takes effect when a form is saved. The box is a 24px well with soft corners. When checked it holds a check, and when its children are mixed it holds a dash, so each state has a shape (P6). The whole row is the target and is at least 44px tall.</p><p>Behaviour comes from Radix: Space toggles it, and its value is submitted with the form.</p></>),
     hero: ex('CheckboxBasic', 'One choice with a line of explanation.'),
-    ladder: [ex('CheckboxGroup', 'Several related choices in a Fieldset.'), ex('CheckboxMixed', 'A parent shows a dash when some of its children are checked.')],
+    ladder: [ex('CheckboxGroup', 'Several related choices in a Fieldset.'), ex('CheckboxMixed', 'A parent shows a dash when some of its children are checked.'), ex('CheckboxDisabled', 'Disabled, with the reason in its description.')],
     whenToUse: ['A choice that is saved with a form.', 'Several independent choices from a list.'],
     whenNotToUse: [['A setting that applies at once', 'Switch'], ['One answer from a few options', 'RadioGroup'], ['A filter above a list', 'Chip']],
     anatomy: [['Box', '24px well, soft corners.'], ['Check or dash', 'The mark of the state.'], ['Label', 'Toggles the box too.'], ['Description', 'Optional secondary line.']],
@@ -629,7 +632,7 @@ export const COMPONENTS: ComponentChapter[] = [
     importLine: "import { Radio, RadioGroup } from 'pane-react';",
     overview: (<><p>A radio group asks one question and shows every answer, so the reader can compare them before choosing. Each option is a round 24px well, round so it never reads as a checkbox, and the chosen one holds a dot that grows in and settles (P4, P6).</p><p>Behaviour comes from Radix: the group is one tab stop, and the arrow keys move between options and choose as they go.</p></>),
     hero: ex('RadioBasic', 'A question with three answers.'),
-    ladder: [ex('RadioDescriptions', 'Options with a line of detail, and one that cannot be chosen now.'), ex('CheckboxGroup', 'Compare with checkboxes, where several can be on.')],
+    ladder: [ex('RadioDescriptions', 'Options with a line of detail, and one that cannot be chosen now.'), ex('RadioDisabled', 'One option turned off; the rest of the group stays usable.'), ex('CheckboxGroup', 'Compare with checkboxes, where several can be on.')],
     whenToUse: ['One answer from two to six options people should compare.'],
     whenNotToUse: [['Many options', 'Select'], ['Several answers', 'Checkbox'], ['An on or off setting', 'Switch']],
     anatomy: [['Question', 'The group label.'], ['Circle', 'Round 24px well.'], ['Dot', 'The chosen option.'], ['Label', 'Chooses the option too.']],
@@ -653,7 +656,7 @@ export const COMPONENTS: ComponentChapter[] = [
     importLine: "import { Switch } from 'pane-react';",
     overview: (<><p>A switch is a setting that takes effect at once, such as making an account private. Its track is a well when off and the system blue when on, the one place a form spends Pane’s single blue (P1). The knob moves across and a tick appears, so on reads by position and mark as well as colour (P6).</p><p>Behaviour comes from Radix: Space and Enter toggle it.</p></>),
     hero: ex('SwitchBasic', 'A setting with what it does underneath.'),
-    ladder: [ex('SwitchList', 'A list of settings on one pane.'), ex('CheckboxBasic', 'Compare with a checkbox, which waits for Save.')],
+    ladder: [ex('SwitchList', 'A list of settings on one pane.'), ex('SwitchDisabled', 'Disabled, with the reason in its description.'), ex('CheckboxBasic', 'Compare with a checkbox, which waits for Save.')],
     whenToUse: ['A setting that applies the moment it changes.'],
     whenNotToUse: [['A choice saved with a form', 'Checkbox'], ['More than two states', 'RadioGroup or Select']],
     anatomy: [['Label', 'The setting, at the start of the row.'], ['Track', 'Well when off, blue when on.'], ['Knob', 'White, slides across.'], ['Tick', 'Shown when on.']],
@@ -677,7 +680,7 @@ export const COMPONENTS: ComponentChapter[] = [
     importLine: "import { FormField } from 'pane-react';",
     overview: (<><p>FormField is the frame of one field. It renders the label, then the control, then the error and help, and it passes the ids to the control through context, so the control is labelled and described without any wiring in the app.</p><p>Setting error marks the control invalid, shows the octagon glyph and speaks the word Error before the message.</p></>),
     hero: ex('FormFieldBasic', 'Label, control and help.'),
-    ladder: [ex('InputError', 'With an error.'), ex('FieldsetAddress', 'Several FormFields in a Fieldset.')],
+    ladder: [ex('InputError', 'With an error.'), ex('FieldsetAddress', 'Several FormFields in a Fieldset.'), ex('FormFieldDisabled', 'A disabled FormField turns off the control inside it.'), ex('HelperTextError', 'An error replaces the help text and is read with the field.')],
     whenToUse: ['Around every text field and code input.'],
     whenNotToUse: [['A checkbox, radio or switch', 'They carry their own label'], ['A group of fields', 'Fieldset']],
     anatomy: [['Label', 'Above.'], ['Control', 'One.'], ['Error', 'Closest to the control.'], ['Help', 'Last.']],
@@ -723,7 +726,7 @@ export const COMPONENTS: ComponentChapter[] = [
     importLine: "import { HelperText } from 'pane-react';",
     overview: (<><p>HelperText is the line under a control. Help is secondary text. An error keeps the primary text colour so it stays readable, adds the octagon glyph Banner uses for critical, and speaks Error before the message, so the tone is never colour alone (P6).</p></>),
     hero: ex('HelperTextBasic', 'Help, then an error.'),
-    ladder: [ex('InputError', 'On a field, through FormField.'), ex('TextareaError', 'With a count.')],
+    ladder: [ex('InputError', 'On a field, through FormField.'), ex('TextareaError', 'With a count.'), ex('HelperTextError', 'The error tone, under the field it belongs to.')],
     whenToUse: ['Help or an error under one control.'],
     whenNotToUse: [['An error for the whole form', 'Banner'], ['A long explanation', 'Text in the pane']],
     anatomy: [['Glyph', 'Errors only.'], ['Spoken word', 'Error, hidden visually.'], ['Text', 'Label size.']],
@@ -740,7 +743,7 @@ export const COMPONENTS: ComponentChapter[] = [
     limitations: ['It has no collapsed or disabled-group styling yet.'],
     youMust: ['Write a legend that names the group, because it is read before every control in it.'],
     usage: '<Fieldset legend="Shipping address">\n  <FormField label="Street"><Input /></FormField>\n</Fieldset>',
-    backdrops: 'Fieldset paints nothing. Its legend uses the primary text colour.',
+    backdrops: 'Fieldset paints nothing of its own, so it looks the same over every scene. Its legend uses the primary text colour, white on dark glass and ink on light glass, and carries the card halo on glass so it reads over a bright photo. The fields inside change with the theme as their own pages describe.',
     purpose: 'Groups related fields under a legend that is read before each of them.',
     importLine: "import { Fieldset } from 'pane-react';",
     overview: (<><p>Fieldset is a real fieldset and legend with no box of its own. The legend works as a heading for the group, and screen readers read it before each control inside, so Street becomes Shipping address, Street.</p></>),
@@ -789,7 +792,7 @@ export const COMPONENTS: ComponentChapter[] = [
     importLine: "import { FormField, PinInput } from 'pane-react';",
     overview: (<><p>PinInput shows a code as a row of 44px wells, one per character. Typing moves to the next cell, Backspace moves back, and pasting a whole code fills every cell. The first cell offers the code from a text message on phones.</p></>),
     hero: ex('PinInputBasic', 'A six-digit code, with where it was sent.'),
-    ladder: [ex('PinInputError', 'A wrong code.'), ex('InputBasic', 'For long codes, a single Input is easier to paste into.')],
+    ladder: [ex('PinInputError', 'A wrong code.'), ex('InputBasic', 'For long codes, a single Input is easier to paste into.'), ex('PinInputLetters', 'type="alphanumeric" accepts letters and digits and shows the full keyboard.'), ex('PinInputDisabled', 'Locked while the code is checked.'), ex('PinInputShort', 'length sets the number of cells; four for a passcode, six for a sent code.')],
     whenToUse: ['A short code of four to eight characters, such as a verification code.'],
     whenNotToUse: [['A password', 'Input type="password" (PasswordInput is planned)'], ['A long code', 'Input']],
     anatomy: [['Cells', 'One 44px well per character.'], ['Group name', 'From the FormField label.']],

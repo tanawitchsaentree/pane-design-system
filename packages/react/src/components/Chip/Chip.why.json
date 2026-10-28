@@ -1,57 +1,129 @@
 {
-  "concept": "A chip is a small object you press to include or remove something; its state changes shape and fill, never colour alone.",
+  "concept": "A chip is a small glass pane you press. On, it is pressed into the glass, a carved recess with a check, so many chosen chips add no loud marks to the pane.",
   "parts": {
     "root": {
       "p": "P3",
-      "why": "a pill with a ring, the same held shape as buttons at a smaller size"
+      "axis": "depth",
+      "why": "a small glass pane with gloss and the pane rim, something to press"
     },
     "on": {
-      "p": "P6",
-      "why": "selected chips flip to the loud solid and show a check mark, so selection is visible without colour"
+      "p": "P4",
+      "axis": "shape",
+      "why": "chosen is pressed into the glass, a carved recess with a heavier weight"
     },
     "toggle": {
       "p": "P6",
-      "why": "the main press area is a native button with aria-pressed, so the state is announced"
+      "axis": "space",
+      "why": "the chip itself is the button, with a 44px press area"
     },
     "remove": {
       "p": "P6",
-      "why": "removal is a separate named button, so removing is never an accident of toggling"
+      "axis": "space",
+      "why": "remove is its own named button with a 44px press area"
     },
     "removable": {
       "p": "P3",
-      "why": "a removable chip shortens its toggle padding so the remove button sits inside the same pill"
+      "axis": "interaction",
+      "why": "a removable chip is a label with one action at its end, so its body is not pressable"
     },
     "icon": {
       "p": "P6",
-      "why": "the check and cross icons are a second cue next to the label and hidden from screen readers"
+      "axis": "shape",
+      "why": "the check marks a chosen chip and the cross marks remove, shapes as well as colour"
     }
   },
   "states": {
     "focus-visible": {
       "p": "P6",
-      "why": "keyboard focus draws the shared ring with its halo so the focused control is visible on any scene"
+      "axis": "interaction",
+      "why": "keyboard focus draws the shared ring with its halo, visible on any scene"
     },
     "active": {
       "p": "P4",
-      "why": "a press shrinks the control briefly and faster than hover, because a press is a reply to the reader"
+      "axis": "shape",
+      "why": "a press shrinks the chip slightly, faster than hover"
     },
     "@media forced-colors: active": {
       "p": "P6",
-      "why": "forced colours drop glass and fills, so a real system-colour border is drawn to keep the shape visible"
+      "axis": "depth",
+      "why": "forced colours drop the rim and the carve, so a real system-colour border keeps the shape"
     }
   },
   "motion": {
+    "box-shadow": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "pressing in and out changes the carve at hover pace"
+    },
     "background-color": {
       "p": "P4",
-      "why": "selecting eases the fill at hover pace so the change reads as the chip turning over"
-    },
-    "color": {
-      "p": "P4",
-      "why": "the label colour flips with the fill over the same duration so the two move as one"
+      "axis": "motion",
+      "why": "the fill changes at the same pace as the carve"
     },
     "transform": {
       "p": "P4",
-      "why": "the press shrinks at the shorter press duration because it is a direct reply"
+      "axis": "motion",
+      "why": "the press runs at press pace, a reply to the reader"
     }
+  },
+  "default_to_avoid": [
+    {
+      "pattern": "outlined filter chips that fill with the brand colour when chosen (Material filter chips)",
+      "why_not": "every chosen chip becomes a loud filled mark, so a row of filters competes with the pane's one loud action"
+    }
+  ],
+  "references": [
+    {
+      "title": "visionOS HIG · Toggles",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/toggles"
+    },
+    {
+      "title": "visionOS HIG · Buttons",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/buttons"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P5",
+      "axis": "shape",
+      "consequence": "the loud action is a solid pill; everything else is a quiet pill or text",
+      "form": "chips stay quiet pills in both states; chosen is never the loud solid"
+    },
+    {
+      "p": "P4",
+      "axis": "shape",
+      "consequence": "a pressed control shrinks slightly, as something pushed",
+      "form": "chosen is pressed into the glass, a carved recess, as something pushed"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "chosen adds a check and a heavier weight"
+    },
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "a soft shadow below and a rim of light on the top-left edge say where the pane floats",
+      "form": "off is a small pane with the pane rim, so it reads as something to press"
+    },
+    {
+      "p": "P6",
+      "axis": "space",
+      "consequence": "every target is at least 44px in its smaller dimension or has a 44px hit area",
+      "form": "a 32px chip keeps a 44px hit area"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/round3/",
+    "section": "chip",
+    "options": [
+      "A small panes",
+      "B recesses that rise",
+      "C pressed into the glass"
+    ],
+    "picked": "C pressed into the glass",
+    "by": "agent",
+    "reason": "A and B make each chosen chip the loud solid, so three chosen filters put three loud marks on a pane (P5). C keeps chips quiet: off is a small pane to press, on is pressed into a carved recess with a check (P4, P6). The first C, rings, was too faint and was replaced in the lab before the pick."
   }
 }

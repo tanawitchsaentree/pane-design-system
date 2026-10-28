@@ -20,9 +20,11 @@ export interface PinInputProps {
   'aria-label'?: string;
   /** Marks the code as wrong. Inside a FormField, its `error` sets this for you. */
   invalid?: boolean;
+  /** Turns the control off, so it cannot be focused or changed. Inside a FormField, its `disabled` sets this for you. */
   disabled?: boolean;
   /** Name for form submission; the code is submitted as one value. */
   name?: string;
+  /** Extra class on the outer element. */
   className?: string;
 }
 

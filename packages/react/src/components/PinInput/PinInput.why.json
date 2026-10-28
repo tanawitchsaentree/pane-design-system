@@ -2,6 +2,10 @@
   "concept": "A short code is a row of small wells, one per character, each a full touch target.",
   "default_to_avoid": [
     {
+      "pattern": "a PIN input as a row of square outlined boxes with a blue focus border (most OTP kits)",
+      "why_not": "squares break the held-pill shape the other fields use, and a blue border spends the one blue on focus"
+    },
+    {
       "pattern": "Material outlined text field with a floating label; filled blue square checkbox; iOS green switch (Material 3, Bootstrap, iOS Settings)",
       "why_not": "it draws a box on the glass, paints selection in colour the scene should own, moves the label out of its place, and was made for opaque pages rather than a pane floating over a photo"
     }

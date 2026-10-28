@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Round 3 derivation · IconButton, Tabs, Chip, Tag, Badge, Avatar, Slider · Pane</title>
+<link rel="stylesheet" href="../../../packages/tokens/build/css/tokens.css" />
+<style>
+  /* Lab only. Round 3 takes the material round 2 settled (D-022): an action is a small pane (gloss,
+     rim, glint), a place for a value is a carved recess, a highlight is a lens. 0 is what shipped. */
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--ds-type-family); background: var(--ds-surface-page); color: var(--ds-text-primary); -webkit-font-smoothing: antialiased; }
+  header.lab { padding: 28px 40px 8px; max-width: 1560px; margin: 0 auto; }
+  header.lab h1 { margin: 0 0 6px; font-size: 26px; } header.lab p { margin: 0 0 14px; color: var(--ds-text-secondary); max-width: 80ch; line-height: 1.55; }
+  .controls { display: flex; gap: 8px; flex-wrap: wrap; }
+  .controls button { font: inherit; font-size: 14px; padding: 6px 14px; border-radius: 999px; border: 0; background: var(--ds-surface-sunken); color: var(--ds-text-primary); cursor: pointer; }
+  .controls button[aria-pressed="true"] { background: var(--ds-surface-raised); box-shadow: inset 0 0 0 1px var(--ds-line-divider); font-weight: 650; }
+  main { display: flex; flex-direction: column; gap: 56px; padding: 20px 40px 80px; max-width: 1560px; margin: 0 auto; }
+  section > h2 { margin: 0 0 4px; font-size: 22px; } section > p { margin: 0 0 16px; color: var(--ds-text-secondary); max-width: 90ch; line-height: 1.5; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+  figure { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  figcaption b { font-size: 15px; } figcaption p { margin: 3px 0 0; color: var(--ds-text-secondary); font-size: 13px; line-height: 1.5; }
+  .stage { padding: 28px 18px; border-radius: 22px; background: center / cover url(../../docs/public/scenes/room.webp); display: grid; place-items: center; }
+  body[data-scene="forest"] .stage { background-image: url(../../docs/public/scenes/forest.webp); }
+  body[data-scene="city"] .stage { background-image: url(../../docs/public/scenes/city.webp); }
+  .page { padding: 22px 18px; border-radius: 16px; background: var(--ds-surface-page); box-shadow: inset 0 0 0 1px var(--ds-line-divider); display: flex; flex-direction: column; gap: 14px; }
+  .pane { position: relative; isolation: isolate; width: 100%; padding: 20px; border-radius: 32px; display: flex; flex-direction: column; gap: 16px;
+    background: linear-gradient(180deg, var(--ds-card-sheen-top), var(--ds-card-sheen-bottom) 40%), var(--ds-card-bg);
+    -webkit-backdrop-filter: blur(var(--ds-card-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-card-brightness));
+    backdrop-filter: blur(var(--ds-card-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-card-brightness));
+    box-shadow: var(--ds-card-shadow), inset 0 0 0 1px var(--ds-line-rim-mid); color: var(--ds-text-primary); text-shadow: var(--ds-card-text-halo); }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .tag-l { font-size: 11px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--ds-text-secondary); margin: 0; text-shadow: none; }
+  svg.i { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* shared round-2 materials, as the components now use them */
+  .rim::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none; z-index: 1;
+    background: linear-gradient(150deg, var(--ds-line-rim-hi), var(--ds-line-rim-lo) 38%, var(--ds-line-rim-lo) 70%, var(--ds-line-rim-mid));
+    -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+  .carve { background: var(--ds-surface-carve); box-shadow: var(--ds-elevation-carve); }
+  .glassfill { background: linear-gradient(180deg, var(--ds-action-gloss-quiet), transparent 50%), var(--ds-surface-quiet); }
+  .solid { background: linear-gradient(180deg, var(--ds-action-gloss-solid), transparent 46%), var(--ds-surface-light); color: var(--ds-text-on-light); box-shadow: var(--ds-elevation-cast); text-shadow: none; }
+
+  /* ====================== ICON BUTTON ====================== */
+  .ib { position: relative; isolation: isolate; overflow: hidden; display: inline-grid; place-items: center; width: 44px; height: 44px; border: 0; padding: 0; border-radius: 999px; color: var(--ds-text-primary); cursor: pointer; background: transparent; transition: transform 420ms var(--ds-motion-easing); }
+  .ibv0 .ib.g { background: var(--ds-surface-quiet); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); } .ibv0 .ib:hover { transform: translateY(-2px); }
+  .ibvA .ib.g { background: linear-gradient(180deg, var(--ds-action-gloss-quiet), transparent 50%), var(--ds-surface-quiet); }
+  .ibvA .ib.s { background: linear-gradient(180deg, var(--ds-action-gloss-solid), transparent 46%), var(--ds-surface-light); color: var(--ds-text-on-light); box-shadow: var(--ds-elevation-cast); }
+  .ibvA .ib::after { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; opacity: 0; background: radial-gradient(60px circle at 50% 30%, var(--ds-action-glint), transparent 70%); transition: opacity 420ms; }
+  .ibvA .ib:hover::after, .ibvA .ib.hov::after { opacity: 1; }
+  .ibvB .ib::before { content: ''; position: absolute; inset: 4px; border-radius: inherit; background: var(--ds-surface-quiet); box-shadow: var(--ds-elevation-lens); opacity: 0; transform: scale(.8); transition: opacity 420ms, transform 420ms var(--ds-motion-easing); z-index: -1; }
+  .ibvB .ib:hover::before, .ibvB .ib.hov::before { opacity: 1; transform: none; } .ibvB .ib.s { color: var(--ds-text-primary); }
+  .ibvC .ib { width: 56px; height: 36px; } .ibvC .ib.g { background: linear-gradient(180deg, var(--ds-action-gloss-quiet), transparent 50%), var(--ds-surface-quiet); } .ibvC .ib.s { background: var(--ds-surface-light); color: var(--ds-text-on-light); }
+
+  /* ====================== TABS ====================== */
+  .tabs { display: flex; gap: 4px; position: relative; }
+  .tabs button { position: relative; z-index: 1; border: 0; font: 500 14px/1 var(--ds-type-family); min-height: 36px; padding: 0 16px; border-radius: 999px; color: var(--ds-text-primary); background: transparent; cursor: pointer; text-shadow: inherit; }
+  .tbv0 .tabs button { box-shadow: inset 0 0 0 2px var(--ds-line-ring); } .tbv0 .tabs button.on { background: var(--ds-action-accent); color: #fff; box-shadow: none; text-shadow: none; }
+  .tbvA .tabs { padding: 4px; border-radius: 999px; background: var(--ds-surface-carve); box-shadow: var(--ds-elevation-carve); width: max-content; gap: 0; }
+  .tbvA .tabs button.on { background: linear-gradient(180deg, var(--ds-action-gloss), transparent 46%), linear-gradient(180deg, var(--ds-action-accent), var(--ds-action-accent-hover) 55%, var(--ds-action-accent-foot)); color: #fff; box-shadow: var(--ds-elevation-cast-accent-press); text-shadow: none; }
+  .tbvB .tabs { gap: 2px; } .tbvB .tabs button.on { background: var(--ds-surface-quiet); box-shadow: var(--ds-elevation-lens); font-weight: 650; }
+  .tbvB .tabs button:not(.on) { color: var(--ds-text-secondary); }
+  .tbvC .tabs { gap: 18px; border-bottom: 1px solid var(--ds-line-divider); } .tbvC .tabs button { border-radius: 0; padding: 0 2px; min-height: 40px; } .tbvC .tabs button.on { box-shadow: inset 0 -2px 0 var(--ds-text-primary); font-weight: 650; }
+
+  /* ====================== CHIP ====================== */
+  .chip { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 14px; border: 0; border-radius: 999px; font: 500 14px/1 var(--ds-type-family); color: var(--ds-text-primary); cursor: pointer; text-shadow: inherit; }
+  .chip svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+  .chv0 .chip { background: var(--ds-chip-bg); box-shadow: inset 0 0 0 1px var(--ds-chip-ring); } .chv0 .chip.on { background: var(--ds-chip-on-bg); color: var(--ds-chip-on-fg); box-shadow: none; text-shadow: none; }
+  .chvA .chip { background: linear-gradient(180deg, var(--ds-action-gloss-quiet), transparent 50%), var(--ds-surface-quiet); }
+  .chvA .chip.on { background: linear-gradient(180deg, var(--ds-action-gloss-solid), transparent 46%), var(--ds-surface-light); color: var(--ds-text-on-light); box-shadow: var(--ds-elevation-cast); text-shadow: none; }
+  .chvB .chip { background: var(--ds-surface-carve); box-shadow: var(--ds-elevation-carve); } .chvB .chip.on { background: linear-gradient(180deg, var(--ds-action-gloss-solid), transparent 46%), var(--ds-surface-light); color: var(--ds-text-on-light); box-shadow: var(--ds-elevation-cast); text-shadow: none; }
+  .chvC .chip { background: linear-gradient(180deg, var(--ds-action-gloss-quiet), transparent 50%), var(--ds-surface-quiet); }
+  .chvC .chip.on { background: var(--ds-surface-carve); box-shadow: var(--ds-elevation-carve); font-weight: 650; }
+  .chvC .chip.on::before { display: none; }
+
+  /* ====================== TAG ====================== */
+  .tg { display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 999px; font: 600 11px/1.1 var(--ds-type-family); letter-spacing: .06em; text-transform: uppercase; color: var(--ds-text-primary); }
+  .tgv0 .tg { border: 1px solid var(--ds-tag-ring); }
+  .tgvA .tg { border: 1px solid var(--ds-line-edge); }
+  .tgvB .tg { background: var(--ds-surface-carve); box-shadow: inset 0 1px 2px rgba(0,0,0,.45), inset 0 -1px 0 rgba(255,255,255,.28); text-shadow: none; }
+  [data-theme=light] .tgvB .tg { box-shadow: inset 0 1px 2px rgba(17,18,20,.3), inset 0 -1px 0 #fff; }
+  .tgvC .tg { padding: 0; } .tgvC .tg::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: .7; }
+
+  /* ====================== BADGE ====================== */
+  .bd { display: inline-flex; align-items: center; gap: 6px; min-height: 22px; padding: 0 9px; border-radius: 999px; font: 600 12px/1 var(--ds-type-family); white-space: nowrap; }
+  .bd .g { width: 12px; height: 12px; flex: none; }
+  .bdv0 .bd.pos { background: var(--ds-badge-positive-bg); color: var(--ds-badge-positive-fg); } .bdv0 .bd.warn { background: var(--ds-badge-warning-bg); color: var(--ds-badge-warning-fg); } .bdv0 .bd.crit { background: var(--ds-badge-critical-bg); color: var(--ds-badge-critical-fg); } .bdv0 .bd .g { display: none; } .bdv0 .bd { text-shadow: none; }
+  .bdvA .bd { padding: 0; color: var(--ds-text-primary); } .bdvA .bd .g { color: var(--c); }
+  .bdvA .bd.pos { --c: var(--ds-status-positive-mark, #3FCB77); } .bdvA .bd.warn { --c: var(--ds-status-warning-mark, #F5B000); } .bdvA .bd.crit { --c: var(--ds-status-critical-mark, #FF6B5E); }
+  .bdvB .bd { background: var(--ds-surface-carve); box-shadow: inset 0 1px 2px rgba(0,0,0,.45), inset 0 -1px 0 rgba(255,255,255,.28); color: var(--ds-text-primary); text-shadow: none; } .bdvB .bd .g { color: var(--c); }
+  [data-theme=light] .bdvB .bd { box-shadow: inset 0 1px 2px rgba(17,18,20,.3), inset 0 -1px 0 #fff; }
+  .bdvB .bd.pos { --c: var(--ds-status-positive-mark, #3FCB77); } .bdvB .bd.warn { --c: var(--ds-status-warning-mark, #F5B000); } .bdvB .bd.crit { --c: var(--ds-status-critical-mark, #FF6B5E); }
+  .bdvC .bd { position: relative; isolation: isolate; background: linear-gradient(180deg, var(--ds-action-gloss-quiet), transparent 50%), var(--ds-surface-quiet); color: var(--ds-text-primary); } .bdvC .bd .g { color: var(--c); }
+  .bdvC .bd.pos { --c: var(--ds-status-positive-mark, #3FCB77); } .bdvC .bd.warn { --c: var(--ds-status-warning-mark, #F5B000); } .bdvC .bd.crit { --c: var(--ds-status-critical-mark, #FF6B5E); }
+
+  /* ====================== AVATAR ====================== */
+  .av { position: relative; display: inline-grid; place-items: center; overflow: hidden; border-radius: 999px; font: 600 15px/1 var(--ds-type-family); background: var(--ds-surface-quiet); color: var(--ds-text-primary); text-shadow: none; }
+  .av img { width: 100%; height: 100%; object-fit: cover; } .av.md { width: 40px; height: 40px; } .av.lg { width: 72px; height: 72px; font-size: 24px; }
+  .avv0 .av.lg { box-shadow: 0 0 0 3px var(--ds-avatar-ring); }
+  .avvA .av::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; box-shadow: inset 0 0 0 1px rgba(255,255,255,.28), inset 0 1px 0 rgba(255,255,255,.45), inset 0 -8px 14px -10px rgba(0,0,0,.55); }
+  .avvA .av.lg { box-shadow: 0 8px 18px -8px rgba(0,0,0,.55); }
+  .avvB .av { border-radius: 30%; } .avvB .av.lg { box-shadow: 0 0 0 3px var(--ds-avatar-ring); }
+  .avvC .av { padding: 3px; background: var(--ds-surface-carve); box-shadow: var(--ds-elevation-carve); } .avvC .av img { border-radius: 999px; }
+
+  /* ====================== SLIDER ====================== */
+  .sl { position: relative; height: 44px; display: flex; align-items: center; }
+  .sl .tr { position: relative; flex: 1; height: 6px; border-radius: 999px; overflow: hidden; } .sl .rg { position: absolute; inset: 0 40% 0 0; }
+  .sl .th { position: absolute; left: 60%; top: 50%; width: 24px; height: 24px; margin: -12px 0 0 -12px; border-radius: 999px; }
+  .slv0 .tr { background: var(--ds-surface-quiet); box-shadow: inset 0 0 0 1px var(--ds-line-ring); } .slv0 .rg { background: var(--ds-action-accent); } .slv0 .th { background: #fff; box-shadow: 0 0 0 1px var(--ds-line-ring), var(--ds-elevation-lift); }
+  .slvA .tr { height: 10px; background: var(--ds-surface-carve); box-shadow: var(--ds-elevation-carve); } .slvA .rg { background: linear-gradient(180deg, var(--ds-action-accent-hover), var(--ds-action-accent)); box-shadow: var(--ds-elevation-carve-on); }
+  .slvA .th { width: 26px; height: 26px; margin: -13px 0 0 -13px; background: radial-gradient(circle at 36% 28%, #fff 32%, var(--ds-surface-knob-shade)); box-shadow: var(--ds-elevation-bead); }
+  .slvB .tr { height: 10px; background: var(--ds-surface-carve); box-shadow: var(--ds-elevation-carve); overflow: visible; } .slvB .rg { border-radius: 999px; background: linear-gradient(180deg, var(--ds-action-accent-hover), var(--ds-action-accent)); }
+  .slvB .tr::after { content: ''; position: absolute; left: 0; right: 0; top: 16px; height: 6px; background: repeating-linear-gradient(90deg, var(--ds-line-edge) 0 1px, transparent 1px 10%); }
+  .slvB .th { width: 26px; height: 26px; margin: -13px 0 0 -13px; background: radial-gradient(circle at 36% 28%, #fff 32%, var(--ds-surface-knob-shade)); box-shadow: var(--ds-elevation-bead); }
+  .slvC .tr { height: 28px; background: var(--ds-surface-carve); box-shadow: var(--ds-elevation-carve); } .slvC .rg { background: linear-gradient(180deg, var(--ds-action-accent-hover), var(--ds-action-accent)); }
+  .slvC .th { width: 4px; height: 20px; margin: -10px 0 0 -14px; background: #fff; border-radius: 2px; box-shadow: 0 0 6px rgba(0,0,0,.4); }
+</style>
+</head>
+<body data-scene="room">
+<header class="lab">
+  <h1>Round 3 · IconButton, Tabs, Chip, Tag, Badge, Avatar, Slider</h1>
+  <p>The material from round 2 (D-022) applied to the components still awaiting derivation. 0 is what shipped; A, B and C follow each component's derivation in different ways, on glass and on a reading page.</p>
+  <div class="controls">
+    <button data-theme-set="dark" aria-pressed="true">Dark</button><button data-theme-set="light" aria-pressed="false">Light</button>
+    <button data-scene-set="room" aria-pressed="true">Room</button><button data-scene-set="forest" aria-pressed="false">Forest</button><button data-scene-set="city" aria-pressed="false">City</button>
+  </div>
+</header>
+<main id="main"></main>
+<script>
+const I = {
+  share: '<svg class="i" viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5M5 14v5h14v-5"/></svg>',
+  more: '<svg class="i" viewBox="0 0 24 24"><circle cx="6" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="18" cy="12" r="1.2"/></svg>',
+  close: '<svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>',
+  play: '<svg class="i" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>',
+  check: '<svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>',
+  ok: '<svg class="g" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="currentColor"/></svg>',
+  warn: '<svg class="g" viewBox="0 0 12 12"><path d="M6 1 11 10.5H1z" fill="currentColor"/></svg>',
+  crit: '<svg class="g" viewBox="0 0 12 12"><path d="M4 1h4l3 3v4l-3 3H4L1 8V4z" fill="currentColor"/></svg>',
+};
+const PHOTO = '../../docs/public/scenes/forest-sm.jpg';
+const SET = [
+  ['iconbutton', 'IconButton', 'ib', 'Default to avoid: a grey circle behind a glyph (Material icon button, every toolbar).', ['0 · shipped', 'Blurred quiet disc, lifts on hover.'], ['A · a small round pane', 'Button’s material: gloss, rim, glint; the loud kind is the solid with its shadow.'], ['B · glyph with a lens', 'Only the glyph at rest; a lens of glass grows under it on hover.'], ['C · capsule', 'A wider capsule for an easier target.'],
+    () => `<div class="row"><button class="ib g rim" aria-label="Share">${I.share}</button><button class="ib g rim hov" aria-label="More">${I.more}</button><button class="ib s rim" aria-label="Play">${I.play}</button><button class="ib g rim" aria-label="Close">${I.close}</button></div>`],
+  ['tabs', 'Tabs', 'tb', 'Default to avoid: blue filled pills or an underlined tab bar (Material tabs, Bootstrap nav-pills).', ['0 · shipped', 'Ringed pills, the chosen one filled blue.'], ['A · a pane sliding in a recess', 'The tab list is a carved track; the chosen tab is the blue accent sheet (D-009) resting in it.'], ['B · lens row', 'No track; the chosen tab is a lens.'], ['C · underline', 'Text tabs with a bar under the chosen one.'],
+    () => `<div class="tabs"><button class="on">Posts</button><button>Replies</button><button>Media</button></div>`],
+  ['chip', 'Chip', 'ch', 'Default to avoid: outlined pills that fill with the brand colour when on (Material filter chips).', ['0 · shipped', 'Quiet fill with a ring; on is the loud solid.'], ['A · small panes', 'Off is a glass pane with gloss and rim, on is the loud solid with its shadow and a check.'], ['B · recesses that rise', 'Off is carved into the glass, on rises out of it as the solid.'], ['C · pressed into the glass', 'Off is a small glass pane; on is pressed into a carved recess, with a check and a heavier weight.'],
+    () => `<div class="row"><button class="chip on rim">${I.check}Landscape</button><button class="chip rim">Portrait</button><button class="chip rim">Night</button></div>`],
+  ['tag', 'Tag', 'tg', 'Default to avoid: a small coloured pill that looks like a button (GitHub labels, Material assist chip).', ['0 · shipped', 'Uppercase with a faint ring.'], ['A · ringed caps', 'The same with a 3:1 ring.'], ['B · etched', 'Cut into the glass, shade on top and light below, so it never looks pressable.'], ['C · caps with a dot', 'No shape at all, a dot and the word.'],
+    () => `<div class="row"><span class="tg">New</span><span class="tg">Bergen</span><span class="tg">Film</span></div>`],
+  ['badge', 'Badge', 'bd', 'Default to avoid: pastel traffic-light pills (Material badges, every admin template).', ['0 · shipped', 'Tinted fills per status.'], ['A · glyph and word', 'No fill; each status has its own glyph shape in its colour, the word in text colour, like Banner (D-018).'], ['B · etched with a glyph', 'A carved recess holding the glyph and word.'], ['C · glass pill with a glyph', 'A small glass pane holding the glyph and word.'],
+    () => `<div class="row"><span class="bd pos">${I.ok}Live</span><span class="bd warn">${I.warn}Pending</span><span class="bd crit">${I.crit}Failed</span></div>`],
+  ['avatar', 'Avatar', 'av', 'Default to avoid: a flat circle crop with a white ring (every social app).', ['0 · shipped', 'Circle crop; large has a ring.'], ['A · a lens', 'The portrait sits behind a lens: a rim of light at the top, shade at the foot, a soft shadow under the large size.'], ['B · rounded square', 'A soft square crop.'], ['C · set in a recess', 'The portrait sits in a carved well.'],
+    () => `<div class="row"><span class="av lg rimless"><img alt="" src="${PHOTO}"></span><span class="av md"><img alt="" src="${PHOTO}"></span><span class="av md">ML</span></div>`],
+  ['slider', 'Slider', 'sl', 'Default to avoid: a thin grey rail with a blue fill and a white dot (Material slider, the browser range input).', ['0 · shipped', 'Thin quiet rail, blue range, white knob.'], ['A · carved channel and bead', 'The switch’s language: a carved channel filled with blue up to the value, and the same lit bead.'], ['B · graduated', 'A’s channel with scale marks below.'], ['C · thick lamp', 'A wide carved bar filled with blue, a thin handle.'],
+    () => `<div class="sl"><div class="tr"><div class="rg"></div></div><div class="th"></div></div>`],
+];
+const main = document.getElementById('main');
+main.innerHTML = SET.map(([id, name, pre, avoid, a0, aA, aB, aC, body]) => `<section id="${id}"><h2>${name}</h2><p>${avoid}</p><div class="grid4">${[['v0', a0], ['vA', aA], ['vB', aB], ['vC', aC]].map(([v, [t, d]]) => `<figure class="${pre}${v}"><figcaption><b>${t}</b><p>${d}</p></figcaption><div class="stage"><div class="pane"><p class="tag-l">on glass</p>${body()}</div></div><div class="page"><p class="tag-l">on a reading page</p>${body()}</div></figure>`).join('')}</div></section>`).join('');
+for (const b of document.querySelectorAll('[data-theme-set], [data-scene-set]')) b.addEventListener('click', () => {
+  const t = b.dataset.themeSet, s = b.dataset.sceneSet;
+  if (t) document.documentElement.dataset.theme = t; if (s) document.body.dataset.scene = s;
+  for (const o of document.querySelectorAll(t ? '[data-theme-set]' : '[data-scene-set]')) o.setAttribute('aria-pressed', o === b);
+});
+</script>
+</body>
+</html>

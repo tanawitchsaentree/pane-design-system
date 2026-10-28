@@ -1,10 +1,13 @@
+/* A label etched into the glass (round 3, Tag B): shade under its top edge, light along its bottom edge,
+   so it sits below the surface where buttons stand on it, and is never mistaken for one (P3). */
 .root {
   display: inline-flex;
   align-items: center;
   padding-inline: var(--ds-tag-padding-inline);
   padding-block: var(--ds-tag-padding-block);
-  border: var(--ds-card-rim-width) solid var(--ds-tag-ring);
   border-radius: var(--ds-tag-radius);
+  background: var(--ds-tag-bg);
+  box-shadow: var(--ds-tag-etch);
   color: var(--ds-tag-fg);
   font-family: var(--ds-type-family);
   font-size: var(--ds-type-micro);
@@ -12,4 +15,6 @@
   letter-spacing: var(--ds-type-tracking-caps);
   text-transform: uppercase;
   line-height: var(--ds-type-leading-tight);
+  text-shadow: none;
 }
+@media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid CanvasText; } }

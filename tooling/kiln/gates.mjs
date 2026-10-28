@@ -4,7 +4,7 @@
 // finds none of its markers fails with NOTHING FOUND. Component behaviour (keyboard, roles) is the
 // system's own conformance suite; this file owns what every kiln docs site must be.
 //
-//   shell        G-D3 G-S1 G-S2 G-S3 G-S5          copy        G-C1 G-C2
+//   shell        G-P0 G-D3 G-S1 G-S2 G-S3 G-S5          copy        G-C1 G-C2
 //   reading      G-R1 (size, leading, measure)      affordance  G-A1      loading  G-PF1 G-PF2
 //   chrome       G-SH1 plain opaque shell; the system's look lives in demo stages only
 //   foundations  G-F1 G-N1                          themes      G-T1
@@ -13,6 +13,9 @@
 //   diagrams     G-NT1 graphic parts ≥3:1 off their ground (WCAG 1.4.11)
 //   benchmarks   G-BT1 every reference topic for a page covered or declined (benchmarks/topics)
 //   reasons      G-W1 (Why column, component reasons section; data from rationale.mjs)
+//   claims       G-CL1 every hex in the book is a current token value
+//   non-text     G-NT2 form-control edges ≥3:1 in every theme · G-NR1 flyout rows nest the flyout's corner
+//   milestone    G-TODO1 no starter placeholder or seed reason left   reach  G-NAV1 G-SM1   touch  G-TT1
 //
 // Usage: node tooling/engine/gates.mjs [--only G-K2,G-K3] [--report]
 //   --report  also writes system/reports/docs-audit-{date}.md, a ranked punch list
@@ -36,12 +39,16 @@ const SCENE = C.scenes[0];
 const results = [];
 async function gate(id, name, fn) {
   if (ONLY && !ONLY.has(id)) return;
+  const t0 = Date.now();
   try {
     const detail = await fn();
     results.push({ id, name, ok: true, detail: typeof detail === 'string' ? detail : undefined });
   } catch (e) {
     results.push({ id, name, ok: false, detail: String(e.message ?? e).split('\n')[0], problems: e.problems });
   }
+  // progress as each gate finishes; the full table still prints at the end
+  const r = results.at(-1);
+  console.log(`  ${r.ok ? 'pass' : 'FAIL'} ${id} (${Math.round((Date.now() - t0) / 1000)}s)${r.ok ? '' : `: ${r.detail.slice(0, 120)}`}`);
 }
 // Fail with a list: the punch list keeps every item, the console shows the first few.
 function fail(problems, what = 'problems') {
@@ -69,11 +76,27 @@ const go = (route, opts = {}) => page.goto(url(srv.base, route, { theme: THEME, 
 
 try {
   // ------------------------------------------------------------------ shell
+  await gate('G-P0', 'every page renders: a <main>, a heading and no uncaught error', async () => {
+    const bad = [];
+    const errs = [];
+    const onErr = (e) => errs.push(String(e.message ?? e).slice(0, 80));
+    page.on('pageerror', onErr);
+    try {
+      for (const r of ROUTES) {
+        errs.length = 0;
+        await go(r);
+        const ok = await page.evaluate(() => !!document.querySelector('main h1'));
+        if (!ok || errs.length) bad.push(`${r}: ${ok ? '' : 'no main h1 (page crashed?) '}${errs.join(' / ')}`.trim());
+      }
+    } finally { page.off('pageerror', onErr); }
+    fail(bad, 'broken pages');
+    return `${ROUTES.length} pages`;
+  });
   await gate('G-D3', 'no literal backtick in rendered text', async () => {
     const bad = [];
     for (const r of ROUTES) {
       await go(r);
-      const hits = await page.evaluate(() => { const w = document.createTreeWalker(document.querySelector('main'), NodeFilter.SHOW_TEXT); const out = []; for (let n = w.nextNode(); n; n = w.nextNode()) if (n.textContent.includes('`') && !n.parentElement.closest('pre, code')) out.push(n.textContent.trim().slice(0, 40)); return out; });
+      const hits = await page.evaluate(() => { if (!document.querySelector('main')) return ['NO MAIN, see G-P0']; const w = document.createTreeWalker(document.querySelector('main'), NodeFilter.SHOW_TEXT); const out = []; for (let n = w.nextNode(); n; n = w.nextNode()) if (n.textContent.includes('`') && !n.parentElement.closest('pre, code')) out.push(n.textContent.trim().slice(0, 40)); return out; });
       hits.forEach((h) => bad.push(`${r}: ${h}`));
     }
     fail(bad, 'backticks');
@@ -151,9 +174,11 @@ try {
         link.click();
         while (document.getElementById('page-title')?.textContent !== n) await new Promise(requestAnimationFrame);
         await new Promise(requestAnimationFrame);
-        return [...document.querySelectorAll('main *')].filter((e) => { const b = e.getBoundingClientRect(); return b.top < innerHeight && b.bottom > 0 && Number(getComputedStyle(e).opacity) < 1 && !e.closest('[data-example-live], :disabled'); }).length;
+        // an aria-hidden affordance held at opacity 0 until hover (a heading's # link) is not content fading in
+        const els = [...document.querySelectorAll('main *')].filter((e) => { const b = e.getBoundingClientRect(); const o = Number(getComputedStyle(e).opacity); return b.top < innerHeight && b.bottom > 0 && o < 1 && !(o === 0 && e.closest('[aria-hidden="true"]')) && !e.closest('[data-example-live], :disabled'); });
+        return els.length ? `${els.length} elements below full opacity, first <${els[0].tagName.toLowerCase()} class="${els[0].className}">` : 0;
       }, pg.title);
-      if (fading) bad.push(`${pg.title}: ${fading < 0 ? 'no nav link' : `${fading} elements below full opacity`}`);
+      if (fading) bad.push(`${pg.title}: ${fading === -1 ? 'no nav link' : fading}`);
     }
     await free.close();
     fail(bad, 'chapters');
@@ -461,7 +486,8 @@ try {
     for (const pg of COMPONENTS) {
       if (!hasTabs(pg) || !pg.tabs.includes('style')) { bad.push(`${pg.title}: no style tab`); continue; }
       await go(tabRoute(pg.slug, 'style'));
-      const r = await page.evaluate(() => { const cells = [...document.querySelectorAll('[data-spec] [data-value]')]; return { cells: cells.length, untokened: cells.filter((c) => !c.dataset.token).length }; });
+      // a property left at its default (opacity 1, auto, normal, transparent, none) is not a design value, so it needs no token
+      const r = await page.evaluate(() => { const DEF = new Set(['1', 'auto', 'normal', 'none', 'transparent', 'rgba(0, 0, 0, 0)', '0px']); const cells = [...document.querySelectorAll('[data-spec] [data-value]')].filter((c) => !DEF.has(c.dataset.value)); return { cells: cells.length, untokened: cells.filter((c) => !c.dataset.token).length }; });
       if (!r.cells) bad.push(`${pg.title}: no [data-spec] cells`);
       else if (r.untokened / r.cells > 0.1) bad.push(`${pg.title}: ${r.untokened}/${r.cells} spec values without a token`);
     }
@@ -721,6 +747,262 @@ try {
     fail(bad, 'gaps');
   });
 
+  // ------------------------------------------------------------------ starter leftovers, reach, hit areas
+  await gate('G-TODO1', 'no starter placeholder is left on any page: no TODO( and no seed reason', async () => {
+    const bad = [];
+    for (const r of ROUTES) {
+      await go(r);
+      const hits = await page.evaluate(() => {
+        const t = document.querySelector('main')?.innerText ?? '';
+        return [...t.matchAll(/TODO\([^)]*\)[^\n]{0,40}|seed value from the kiln starter/g)].map((m) => m[0].slice(0, 60));
+      });
+      for (const h of new Set(hits)) bad.push(`${r}: ${h}`);
+    }
+    fail(bad, 'placeholders');
+    return `${ROUTES.length} pages clean`;
+  });
+
+  await gate('G-CL1', 'every colour value written in the book is a current token value (no stale hex in prose)', async () => {
+    // a hex typed into prose drifts when the token changes (assay dry run: #B3261E stayed in four pages
+    // after the hazard red was darkened); the book should read values from tokens, and this catches it
+    const tokFile = path.join(C.root, 'packages/tokens/build/json/tokens.json');
+    expect(existsSync(tokFile), 'no built tokens json');
+    const toks = JSON.parse(readFileSync(tokFile, 'utf8'));
+    const known = new Set();
+    for (const t of Object.values(toks)) for (const v of [t.value, ...Object.values(t.themes ?? {}).map((x) => x.value)]) for (const m of String(v).matchAll(/#[0-9a-f]{6}(?:[0-9a-f]{2})?\b/gi)) known.add(m[0].toUpperCase().slice(0, 7));
+    const bad = []; let n = 0;
+    // a history page (a decision log) records values as they were, and an element marked data-not-token
+    // quotes a colour on purpose (another brand's blue, for comparison); both are declared, never silent
+    const history = new Set(C.history ?? []);
+    for (const r of ROUTES.filter((x) => !history.has(x))) {
+      await go(r);
+      const hexes = await page.evaluate(() => {
+        const m = document.querySelector('main')?.cloneNode(true); if (!m) return [];
+        for (const e of m.querySelectorAll('[data-not-token]')) e.remove();
+        document.body.appendChild(m); m.style.cssText = 'position:absolute; inset-inline-start:-99999px';
+        const t = m.innerText; m.remove();
+        return [...t.matchAll(/#[0-9a-f]{6}(?:[0-9a-f]{2})?\b/gi)].map((x) => x[0]);
+      });
+      for (const h of new Set(hexes)) { n++; if (!known.has(h.toUpperCase().slice(0, 7))) bad.push(`${r}: ${h}`); }
+    }
+    fail(bad, 'colour values that are not tokens');
+    return `${n} values checked`;
+  });
+
+  // contrast helpers shared by the boundary gate, evaluated in the page
+  const CONTRAST_JS = `
+    const parse = (c) => { const m = c.match(/rgba?\\(([^)]+)\\)/); if (!m) return null; const p = m[1].split(/[ ,\\/]+/).filter(Boolean).map(Number); return { r: p[0], g: p[1], b: p[2], a: p.length > 3 ? p[3] : 1 }; };
+    const over = (top, under) => ({ r: top.r * top.a + under.r * (1 - top.a), g: top.g * top.a + under.g * (1 - top.a), b: top.b * top.a + under.b * (1 - top.a), a: 1 });
+    const lin = (v) => { v /= 255; return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
+    const lum = (c) => 0.2126 * lin(c.r) + 0.7152 * lin(c.g) + 0.0722 * lin(c.b);
+    const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((m, n) => n - m); return (x + 0.05) / (y + 0.05); };
+    const groundOf = (el) => { const stack = []; for (let e = el; e; e = e.parentElement) { const c = parse(getComputedStyle(e).backgroundColor); if (c && c.a > 0) { stack.push(c); if (c.a >= 1) break; } } let g = { r: 255, g: 255, b: 255, a: 1 }; for (const c of stack.reverse()) g = over(c, g); return g; };
+  `;
+  // Measured edge of a control over glass: the ground is the median of a ring of pixels just outside the
+  // control, the edge is the 85th-percentile contrast of a 2px band just inside its box (a lip along one
+  // side is enough, as WCAG allows), and the floor is its median fill. Real pixels, after blur and dimming.
+  const pixelEdge = async (loc) => {
+    const { PNG } = await import('pngjs');
+    await loc.scrollIntoViewIfNeeded().catch(() => {});
+    const b = await loc.boundingBox(); if (!b) return 0;
+    const pad = 6, x0 = Math.max(0, Math.floor(b.x - pad)), y0 = Math.max(0, Math.floor(b.y - pad));
+    const png = PNG.sync.read(await page.screenshot({ clip: { x: x0, y: y0, width: Math.ceil(b.width + pad * 2), height: Math.ceil(b.height + pad * 2) } }));
+    const lumAt = (x, y) => { const k = (y * png.width + x) * 4; return [0, 1, 2].map((c) => { const v = png.data[k + c] / 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }).reduce((s, v, j) => s + v * [0.2126, 0.7152, 0.0722][j], 0); };
+    const rad = await loc.evaluate((e) => parseFloat(getComputedStyle(e).borderTopLeftRadius) || 0);
+    const bx = b.x - x0, by = b.y - y0, r = Math.min(rad, b.height / 2, b.width / 2);
+    // distance from the control's rounded box: < 0 inside, > 0 outside
+    const sd = (x, y) => { const cx = Math.min(Math.max(x, bx + r), bx + b.width - r), cy = Math.min(Math.max(y, by + r), by + b.height - r); return Math.hypot(x - cx, y - cy) - r; };
+    const ring = [], band = [], inner = [];
+    for (let y = 0; y < png.height; y++) for (let x = 0; x < png.width; x++) {
+      const d = sd(x + 0.5, y + 0.5);
+      if (d > 2 && d < 5) ring.push(lumAt(x, y)); else if (d <= 0 && d > -2.5) band.push(lumAt(x, y)); else if (d < -6) inner.push(lumAt(x, y));
+    }
+    if (!ring.length || !band.length) return 0;
+    const med = (a) => a.sort((p, q) => p - q)[Math.floor(a.length / 2)];
+    const g = med(ring); const cr = (l) => (Math.max(l, g) + 0.05) / (Math.min(l, g) + 0.05);
+    const edge = band.map(cr).sort((p, q) => p - q)[Math.floor(band.length * 0.85)];
+    const fill = inner.length ? cr(med(inner)) : 0;
+    return Math.round(Math.max(edge, fill) * 100) / 100;
+  };
+  await gate('G-NT2', 'every form control shows its boundary at least 3:1 against what it sits on, in every theme (WCAG 1.4.11)', async () => {
+    // assay/Pane dry run, 2026-10-28: a search field in the light theme vanished into a white panel,
+    // because only text was ever measured. A field, select, checkbox, radio, switch or slider must be
+    // findable by its edge or its fill, not only by its placeholder.
+    const bad = []; let n = 0;
+    for (const theme of C.themes) for (const r of ROUTES.filter((x) => x.startsWith(`${C.componentsBase}/`) && x.endsWith('/code'))) {
+      await go(r, { theme });
+      const res = await page.evaluate((js) => {
+        new Function(js + 'window.__nt2 = { parse, over, ratio, groundOf };')();
+        const { parse, over, ratio, groundOf } = window.__nt2;
+        const sel = '[data-example-live] :is(input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]), textarea, [role="combobox"], [role="switch"], [role="checkbox"], [role="radio"])';
+        return [...document.querySelectorAll(sel)].filter((el) => el.getBoundingClientRect().width > 0 && !el.closest('[data-dont], :disabled, [aria-disabled="true"], [data-disabled]') && !el.matches(':disabled')).map((el) => {
+          // the drawn box is the control itself or the nearest ancestor inside its component that draws an edge or a fill
+          const root = el.closest('[data-component]') ?? el;
+          let best = 0;
+          // a switch or checkbox often draws its track or box in an aria-hidden child, so those count too
+          const drawn = [...el.querySelectorAll('[aria-hidden="true"], [aria-hidden="true"] *')].filter((d) => d.getBoundingClientRect().width >= 8);
+          for (const d of drawn) {
+            const cs = getComputedStyle(d); const ground = groundOf(d.parentElement ?? d);
+            const fill = parse(cs.backgroundColor);
+            if (fill && fill.a > 0) best = Math.max(best, ratio(over(fill, ground), ground));
+            const bw = parseFloat(cs.borderTopWidth) || 0; const bc = parse(cs.borderTopColor);
+            if (bw >= 1 && bc && bc.a > 0 && cs.borderTopStyle !== 'none') best = Math.max(best, ratio(over(bc, ground), ground));
+          }
+          for (let e = el; e && root.contains(e); e = e.parentElement) {
+            const cs = getComputedStyle(e);
+            const ground = groundOf(e.parentElement ?? e);
+            const fill = parse(cs.backgroundColor);
+            if (fill && fill.a > 0) best = Math.max(best, ratio(over(fill, ground), ground));
+            const bw = parseFloat(cs.borderTopWidth) || 0; const bc = parse(cs.borderTopColor);
+            if (bw >= 1 && bc && bc.a > 0 && cs.borderTopStyle !== 'none') best = Math.max(best, ratio(over(bc, ground), ground));
+            for (const m of cs.boxShadow.matchAll(/rgba?\([^)]+\)/g)) { const c = parse(m[0]); if (c && c.a > 0) best = Math.max(best, ratio(over(c, ground), ground)); }
+            const ow = parseFloat(cs.outlineWidth) || 0; const oc = parse(cs.outlineColor);
+            if (ow >= 1 && cs.outlineStyle !== 'none' && oc && document.activeElement !== e) best = Math.max(best, ratio(over(oc, ground), ground));
+            if (e === root) break;
+          }
+          // over glass or a photo the ground is pixels, not a colour: no opaque colour is reached before an
+          // ancestor that blurs or paints an image, so this control is measured from the screenshot below
+          let glass = false;
+          for (let e = el.parentElement; e; e = e.parentElement) {
+            const cs = getComputedStyle(e); const c = parse(cs.backgroundColor);
+            if (c && c.a >= 1) break;
+            if ((cs.backdropFilter && cs.backdropFilter !== 'none') || (cs.webkitBackdropFilter && cs.webkitBackdropFilter !== 'none') || cs.backgroundImage.includes('url(')) { glass = true; break; }
+          }
+          // the box that draws the edge: the control, or the nearest ancestor inside its component that paints one
+          let box = el;
+          for (let e = el; e && root.contains(e); e = e.parentElement) {
+            const cs = getComputedStyle(e); const c = parse(cs.backgroundColor);
+            if (cs.boxShadow !== 'none' || (parseFloat(cs.borderTopWidth) || 0) >= 1 || (c && c.a > 0)) { box = e; break; }
+            if (e === root) break;
+          }
+          const i = document.querySelectorAll('[data-nt2]').length; box.setAttribute('data-nt2', String(i));
+          return [root.dataset.component ?? el.tagName, Math.round(best * 100) / 100, glass, i];
+        });
+      }, CONTRAST_JS);
+      for (const [name, computed, glass, i] of res) {
+        n++;
+        let best = computed;
+        if (glass) best = await pixelEdge(page.locator(`[data-nt2="${i}"]`));
+        if (best < 3) bad.push(`${theme} ${r}: ${name} edge ${best}:1${glass ? ' (measured over glass)' : ''}`);
+      }
+    }
+    expect(n > 0, 'NO FORM CONTROLS FOUND on any component Code page');
+    fail([...new Set(bad)], 'controls whose edge is under 3:1');
+    return `${n} controls in ${C.themes.length} themes`;
+  });
+
+  await gate('G-NR1', 'a highlighted row inside a rounded flyout nests its corner: inner radius = outer radius − inset', async () => {
+    // Pane dry run, 2026-10-28: the dropdown's highlighted row had its own pill radius and an uneven
+    // inset, so its curve did not follow the flyout's. Checked on every open listbox and menu.
+    const bad = []; let n = 0; let tried = 0;
+    for (const r of ROUTES.filter((x) => x.startsWith(`${C.componentsBase}/`) && x.endsWith('/code'))) {
+      await go(r);
+      const triggers = await page.locator('[data-example-live] button[role="combobox"], [data-example-live] [aria-haspopup="menu"]').count();
+      for (let i = 0; i < Math.min(triggers, 2); i++) {
+        const t = page.locator('[data-example-live] button[role="combobox"], [data-example-live] [aria-haspopup="menu"]').nth(i);
+        if (!(await t.isVisible()) || (await t.isDisabled())) continue;
+        tried++;
+        await t.focus(); await page.keyboard.press('Enter'); await page.waitForTimeout(150);
+        const res = await page.evaluate(() => {
+          const pop = [...document.querySelectorAll('[role="listbox"], [role="menu"]')].find((x) => x.getBoundingClientRect().width > 0);
+          if (!pop) return null;
+          const R = parseFloat(getComputedStyle(pop).borderTopLeftRadius) || 0;
+          const pb = pop.getBoundingClientRect(); const pcs = getComputedStyle(pop);
+          const item = pop.querySelector('[data-highlighted], [aria-selected="true"], [data-active], [role="option"], [role="menuitem"]');
+          if (!item) return null;
+          const ib = item.getBoundingClientRect(); const r = parseFloat(getComputedStyle(item).borderTopLeftRadius) || 0;
+          const inset = Math.max(0, ib.left - pb.left - (parseFloat(pcs.borderLeftWidth) || 0));
+          return { R, r: Math.min(r, ib.height / 2), h: ib.height, inset, want: Math.max(0, R - inset - (parseFloat(pcs.borderLeftWidth) || 0)) };
+        });
+        await page.keyboard.press('Escape');
+        if (!res) continue;
+        n++;
+        // the row's drawn radius is capped at half its height; a nested radius above that turns every
+        // row into a pill whose round ends cannot follow the flyout's straight sides
+        if (res.R > 0 && res.want >= res.h / 2 - 0.5) bad.push(`${r}: a ${res.R}px flyout with ${Math.round(res.inset)}px inset needs a ${Math.round(res.want)}px row radius, more than half the ${Math.round(res.h)}px row, so rows read as pills (use a smaller flyout radius or a larger inset)`);
+        else if (res.R > 0 && Math.abs(res.r - res.want) > 2) bad.push(`${r}: row radius ${Math.round(res.r)}px in a ${res.R}px flyout with ${Math.round(res.inset)}px inset (nested radius ${Math.round(res.want)}px)`);
+      }
+    }
+    if (!tried) return 'no flyout triggers on any Code page';
+    expect(n > 0, `${tried} flyout triggers found but no listbox or menu opened, so nothing was measured`);
+    fail(bad, 'flyouts whose rows do not nest');
+    return `${n} flyouts`;
+  });
+
+  await gate('G-NAV1', 'every page in routes.json is reachable from the book nav at 375 and 1280px', async () => {
+    const want = JSON.parse(readFileSync(C.abs(C.routes), 'utf8')).parts.flatMap((p) => p.pages.map((pg) => pg.path));
+    const bad = [];
+    for (const w of [375, 1280]) {
+      await page.setViewportSize({ width: w, height: 800 });
+      await go('/');
+      const hrefs = await page.locator('nav[data-book-nav] a').evaluateAll((as) => as.map((a) => new URL(a.href).pathname));
+      for (const p of want) if (!hrefs.some((h) => h === p || h.startsWith(`${p}/`))) bad.push(`${w}px ${p}`);
+    }
+    await page.setViewportSize({ width: 1440, height: 900 });
+    expect(want.length, 'NO ROUTES FOUND');
+    fail(bad, 'pages not in the nav');
+    return `${want.length} pages`;
+  });
+
+  await gate('G-SM1', 'following an in-page link (table of contents, heading anchor) lands with its heading clear of the sticky header', async () => {
+    const bad = [];
+    let n = 0;
+    for (const r of ROUTES.filter((x) => !x.startsWith(`${C.componentsBase}/`) || x.endsWith('/usage'))) {
+      await go(r);
+      const hashes = await page.evaluate(() => [...new Set([...document.querySelectorAll('a[href^="#"]')].map((a) => a.getAttribute('href')).filter((h) => h.length > 1 && document.getElementById(h.slice(1))))].slice(1, 3));
+      for (const h of hashes) {
+        n++;
+        await page.evaluate((id) => { location.hash = id; }, h);
+        await page.waitForTimeout(80);
+        const g = await page.evaluate((id) => {
+          const el = document.getElementById(id.slice(1));
+          const head = el.matches('h1, h2, h3, h4') ? el : el.querySelector('h1, h2, h3, h4') ?? el;
+          const bars = [...document.querySelectorAll('body *')].filter((e) => ['sticky', 'fixed'].includes(getComputedStyle(e).position) && e.getBoundingClientRect().top <= 0 && e.getBoundingClientRect().width > innerWidth / 2);
+          const atEnd = Math.ceil(scrollY + innerHeight) >= document.documentElement.scrollHeight - 2;
+          return { top: head.getBoundingClientRect().top, bar: Math.max(0, ...bars.map((x) => x.getBoundingClientRect().bottom)), atEnd };
+        }, h);
+        if (g.top < g.bar - 1 && !g.atEnd) bad.push(`${r}${h}: heading at ${Math.round(g.top)}px, header ends at ${Math.round(g.bar)}px`);
+      }
+    }
+    expect(n > 0, 'NO IN-PAGE LINKS FOUND (a[href^="#"])');
+    fail(bad, 'headings under the header');
+    return `${n} links followed`;
+  });
+
+  const TOUCH = C.touchTarget ?? 44;
+  await gate('G-TT1', `every control in a live example and in the shell gives a pointer at least ${TOUCH}px each way`, async () => {
+    const bad = [];
+    let n = 0;
+    for (const r of ROUTES) {
+      await go(r);
+      const res = await page.evaluate((min) => {
+        const hit = (el) => {
+          const b = el.getBoundingClientRect();
+          let w = b.width, h = b.height;
+          // a hit area may be drawn by an absolute pseudo-element or a [data-hit] child that extends past the box
+          for (const pseudo of ['::before', '::after']) {
+            const cs = getComputedStyle(el, pseudo);
+            if (cs.content !== 'none' && cs.position === 'absolute') { w = Math.max(w, parseFloat(cs.width) || 0); h = Math.max(h, parseFloat(cs.height) || 0); }
+          }
+          const child = el.querySelector('[data-hit]');
+          if (child) { const c = child.getBoundingClientRect(); w = Math.max(w, c.width); h = Math.max(h, c.height); }
+          // a form field may take its press area from a label marked [data-hit] that surrounds it
+          for (const l of el.labels ?? []) if (l.matches('[data-hit]')) { const c = l.getBoundingClientRect(); w = Math.max(w, c.width); h = Math.max(h, c.height); }
+          return [w, h];
+        };
+        const sel = '[data-example-live] :is(button, a[href], [role="button"], [role="tab"], [role="slider"], [role="checkbox"], [role="radio"], [role="switch"], [role="combobox"], input:not([type="hidden"]), select, textarea), header :is(button, a[href]), nav[data-book-nav] button';
+        // inline text links are exempt (WCAG 2.5.8 exception); a deliberate exception carries data-touch-exempt and an EXCEPTIONS entry
+        const els = [...document.querySelectorAll(sel)].filter((e) => e.getBoundingClientRect().width > 0 && !e.closest('[data-dont], [data-touch-exempt]') && !(e.tagName === 'A' && e.closest('p, li, td')));
+        return els.map((e) => { const [w, h] = hit(e); return w + 0.5 >= min && h + 0.5 >= min ? null : `${(e.getAttribute('aria-label') || e.textContent || e.tagName).trim().slice(0, 20)} ${Math.round(w)}×${Math.round(h)}`; });
+      }, TOUCH);
+      n += res.length;
+      for (const x of new Set(res.filter(Boolean))) bad.push(`${r}: ${x}`);
+    }
+    expect(n > 0, 'NO CONTROLS FOUND');
+    fail(bad, `controls under ${TOUCH}px`);
+    return `${n} controls`;
+  });
+
   // ------------------------------------------------------------------ axe
   for (const mode of ['none', 'active']) {
     await gate(`axe-${mode}`, `axe finds no WCAG 2.2 AA violations on any page (forced-colors ${mode})`, async () => {
@@ -730,7 +1012,12 @@ try {
       try {
         for (const r of ROUTES) {
           await p.goto(url(srv.base, r, { theme: THEME, scene: SCENE }, C), { waitUntil: 'networkidle' });
-          const res = await new AxeBuilder({ page: p }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze();
+          // In forced colours the reader's own palette sets every colour, and axe reads authored colours for
+          // text inside a nested theme region (assay dry run: #F2F2EF reported on a forced white page while the
+          // computed colour was black). Contrast in that mode is measured per pixel by evidence.mjs instead.
+          const builder = new AxeBuilder({ page: p }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']);
+          if (mode === 'active') builder.disableRules(['color-contrast']);
+          const res = await builder.analyze();
           for (const v of res.violations) bad.push(`${r} ${v.id}×${v.nodes.length}`);
         }
       } finally { await c.close(); }
@@ -743,9 +1030,15 @@ try {
 }
 
 const passed = results.filter((r) => r.ok).length;
-for (const r of results) console.log(`${r.ok ? '✓' : '✗'} ${r.id.padEnd(10)} ${r.name}${r.detail ? ` — ${r.detail}` : ''}`);
+// docs.advisory = { "G-XX": "why it cannot pass yet" }: reported as ! and kept out of the exit code, so a
+// gate still being built never forces verify to run a hand-picked --only list (which hid real reds in
+// Pane). The milestone check refuses to close a milestone while any advisory gate is red.
+const ADVISORY = C.advisory ?? {};
+const blocking = results.filter((r) => !r.ok && !(r.id in ADVISORY));
+for (const r of results) console.log(`${r.ok ? '✓' : r.id in ADVISORY ? '!' : '✗'} ${r.id.padEnd(10)} ${r.name}${r.detail ? ` — ${r.detail}` : ''}${!r.ok && r.id in ADVISORY ? ` (advisory: ${ADVISORY[r.id]})` : ''}`);
 const stamp = new Date().toISOString();
-writeFileSync(path.join(C.abs(C.app), 'public', 'gates.json'), JSON.stringify({ generatedAt: stamp, passed, total: results.length, results }, null, 2) + '\n');
+mkdirSync(path.join(C.abs(C.app), 'public'), { recursive: true });
+writeFileSync(path.join(C.abs(C.app), 'public', 'gates.json'), JSON.stringify({ generatedAt: stamp, passed, total: results.length, partial: Boolean(ONLY), advisory: ADVISORY, results }, null, 2) + '\n');
 if (process.argv.includes('--report')) {
   const md = [`# Docs audit ${stamp.slice(0, 10)}`, '', `${passed}/${results.length} gates pass. Failed gates first, every problem listed.`, ''];
   for (const r of [...results].sort((a, b) => Number(a.ok) - Number(b.ok))) {
@@ -757,5 +1050,6 @@ if (process.argv.includes('--report')) {
   mkdirSync(path.join(C.root, 'system', 'reports'), { recursive: true });
   writeFileSync(path.join(C.root, 'system', 'reports', `docs-audit-${stamp.slice(0, 10)}.md`), md.join('\n'));
 }
-console.log(`\n${passed === results.length ? '✓' : '✗'} docs gates: ${passed}/${results.length}`);
-process.exit(passed === results.length ? 0 : 1);
+const adv = results.length - passed - blocking.length;
+console.log(`\n${blocking.length ? '✗' : '✓'} docs gates: ${passed}/${results.length}${adv ? `, ${adv} advisory red` : ''}${ONLY ? ' (--only: a partial run proves nothing about the rest)' : ''}`);
+process.exit(blocking.length ? 1 : 0);

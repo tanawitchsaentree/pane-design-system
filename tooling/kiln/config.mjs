@@ -1,7 +1,8 @@
 // Docs engine config: system/kiln.config.json → "docs", merged over defaults, paths resolved from the
 // repo root. Every docs tool reads names and paths from here and nowhere else, so the engine carries
 // no system's answers (page-contract.md lists what each key means).
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
@@ -42,4 +43,24 @@ export function url(base, route, { theme, scene } = {}, c = docsConfig()) {
   if (theme) q.set(c.themeParam, theme);
   const s = q.toString();
   return `${base}${route}${s ? `${route.includes('?') ? '&' : '?'}${s}` : ''}`;
+}
+
+// Hash of everything a check reads: package and docs sources, system files, tooling. Build output and
+// files the checks themselves write (meta.json, public/, reports/) are left out, so a run can tell
+// whether the source changed under it (verify.mjs) and whether a recorded run still describes the
+// code on disk (milestone.mjs).
+export function sourceHash(root = ROOT) {
+  const h = createHash('sha256');
+  const walk = (d) => {
+    if (!existsSync(d)) return;
+    for (const n of readdirSync(d).sort()) {
+      if (['node_modules', 'dist', 'build', 'public', 'reports', '.turbo'].includes(n) || n === 'meta.json') continue;
+      const f = path.join(d, n);
+      // the handoff notes are written after a run and describe it; they are not read by any check
+      if (/^system\/(STATE|NEXT|REVIEW|RETRO)\.md$/.test(path.relative(root, f))) continue;
+      if (statSync(f).isDirectory()) walk(f); else { h.update(path.relative(root, f)); h.update(readFileSync(f)); }
+    }
+  };
+  for (const d of ['packages', 'apps', 'system', 'tooling']) walk(path.join(root, d));
+  return h.digest('hex').slice(0, 16);
 }

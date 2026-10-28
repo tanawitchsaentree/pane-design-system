@@ -9,20 +9,28 @@ const SIZES = [{ value: 'a4', label: 'A4' }, { value: 'a3', label: 'A3' }, { val
 export const SELECT: Depth = {
   overview: (
     <>
-      <p>A select holds one value from a list that is too long to show all at once, such as a print size, a language or who can message you. Closed, it is a pill that shows the current value, so the setting reads at a glance. Open, the list appears on its own popup with a check beside the chosen option.</p>
+      <p>A select holds one value from a list that is too long to show all at once, such as a print size, a language or who can message you. Closed, it is a pill cut into the glass as a groove, the same as Input, so a form reads as one family and the setting reads at a glance. Open, the list appears on its own sheet with a check at the start of the chosen row.</p>
+      <p>The rows nest the sheet’s corner. Each row’s radius is the sheet’s 24px radius minus the 6px inset, and the inset is the same on all four sides, so the highlighted row’s curve runs parallel to the sheet’s (P3). Rows are 44px tall, which keeps them targets a thumb can hit and keeps the 18px corner well short of a pill. The highlighted row is a lens lit along its top edge; under a pointer it also carries a soft glint where the pointer is.</p>
       <p>The popup is drawn from tokens. It never opens the operating system’s menu, which would look different on every device and could not follow the theme. The list is an opaque raised surface in both themes, because a menu is something people read, and P7 keeps reading surfaces ordinary.</p>
       <p>Radix supplies the behaviour and Pane tests it in a real browser. Enter, Space or the arrow keys open the list. Typing jumps to the first option that starts with those letters. Escape closes it and focus returns to the trigger, so the reader never loses their place.</p>
       <p>The label is required by the type. A select without a name is unusable with a screen reader, so even when the context already names the setting, the label stays in the markup and <code>hideLabel</code> only hides it visually.</p>
+      <p>The open list is at least as wide as the trigger and never narrower than 180px, so a select in a tight column still opens a list wide enough to read. It opens 6px below the trigger and moves above it when the window has no room below. A long list is held to the space the window has and scrolls inside the sheet. Pane draws no scroll arrows at the ends, so a list that needs a lot of scrolling is usually a list that wants a search field.</p>
+      <p>The sheet is drawn in a portal at the end of the page. It takes the theme of the region the select sits in, so a select inside a light region of a dark page opens a light list. On a phone it is the same sheet under the trigger. The system’s wheel or bottom sheet never appears.</p>
+      <p>Give the select a <code>name</code> and its value goes with a native form submit like any other field. It does not read a FormField yet. That means it has no error state, no required mark and no help line of its own, and wrapping it in a FormField would only give it a second label. If a value can be wrong, say so in a short line of text beside the select. A Select error state is not built.</p>
+      <p>The trigger has the combobox role and takes its name from the label, so a screen reader announces the setting and then the current value. While the list is open, everything outside it is hidden from assistive technology. The reader hears each option as they move through it.</p>
     </>
   ),
   whenToUse: [
     'One value from roughly four to fifteen options, such as a size or a language.',
     'A setting whose current value should read at a glance when closed.',
     'Forms and settings panes where space is short and the options are known.',
+    'One value from a list with a sensible default, so most readers never open it.',
+    'Options that are short words or names, where the closed value says everything.',
+    'A setting that sits in a row of other fields and needs to match their 44px height.',
   ],
   whenNot: [
-    { situation: 'Two or three options people should compare', to: '/reference/status', label: 'Radio (planned, wave 3)' },
-    { situation: 'An on or off setting', to: '/reference/status', label: 'Switch (planned, wave 3)' },
+    { situation: 'Two or three options people should compare', to: '/components/radio', label: 'Radio' },
+    { situation: 'An on or off setting', to: '/components/switch', label: 'Switch' },
     { situation: 'Switching between views of the same content', to: '/components/tabs', label: 'Tabs' },
     { situation: 'Many options people search by typing', to: '/reference/status', label: 'Combobox (planned, wave 5)' },
     { situation: 'Several values at once', to: '/components/chip', label: 'Chips, or MultiSelect (planned)' },
@@ -32,14 +40,14 @@ export const SELECT: Depth = {
     render: <OnCard><Select label="Print size" defaultValue="a3" options={SIZES} /></OnCard>,
     parts: [
       { part: 'Label', selector: '[data-component="Select"] span', what: 'The setting’s name, visible by default and always the accessible name.' },
-      { part: 'Trigger', selector: '[role="combobox"]', what: 'A quiet glass pill showing the current value, full width of its column.' },
+      { part: 'Trigger', selector: '[role="combobox"]', what: 'A groove in the glass showing the current value, full width of its column, with shade under the top lip and light along the bottom lip.' },
       { part: 'Chevron', selector: '[role="combobox"] svg', what: '16px. It turns when the list opens.' },
     ],
-    perVariant: 'The open list is a separate popup with a raised surface, a soft shadow and a check on the chosen option.',
+    perVariant: 'The open list is a separate opaque sheet with a soft shadow. Rows nest its corner, the highlighted row is a lit lens and the chosen row starts with a check.',
   },
   sizes: {
     md: { use: '44px tall. The default for forms and settings, and the only size to use on phones.', pairs: 'Button md and body text at 15px.' },
-    sm: { use: '32px tall. Toolbars and dense filter rows on desktop. Below the 44px P6 asks for.', pairs: 'Button sm, Chip and 14px labels.' },
+    sm: { use: '32px tall. Toolbars and dense filter rows on desktop. The pill is drawn below the 44px P6 asks for, but its press area still reaches 44px, so a pointer that lands just outside the pill still opens it. Use md on touch screens anyway, where the drawn size is what people aim at.', pairs: 'Button sm, Chip and 14px labels.' },
   },
   emphasis: {
     text: <p>A select is a quiet control. It shows a value and waits, so it never competes with the pane’s loud Button. Place it with the fields it belongs to and keep the loud action at the foot of the pane, where it applies the settings above it.</p>,
@@ -55,6 +63,7 @@ export const SELECT: Depth = {
       ['In a form or settings pane', 'The default. Label above, full width of its column.'],
       ['In a toolbar', 'sm, with hideLabel when a nearby heading names it.'],
       ['Beside a title', 'A view or sort choice for the pane, such as Sort by.'],
+      ['Beside an Input in a wide form', 'The pills share the 44px height at md, so a row such as country and postcode lines up. Stack them on phones.'],
     ],
     examples: [
       { title: 'Settings pane', render: <Card as="section" aria-label="Messages" className="demo-card"><h3 className="flush">Messages</h3><Select label="Who can message you" defaultValue="following" options={WHO} /></Card> },
@@ -62,7 +71,7 @@ export const SELECT: Depth = {
     ],
   },
   combinations: {
-    good: [['Select + Button', 'Settings above, the action that uses them at the foot.'], ['Several selects in a Stack', 'A short form, one setting per row.'], ['Select sm + heading', 'A sort or view choice next to the title it changes.']],
+    good: [['Select + Button', 'Settings above, the action that uses them at the foot.'], ['Several selects in a Stack', 'A short form, one setting per row.'], ['Select sm + heading', 'A sort or view choice next to the title it changes.'], ['Select + Input on one row', 'The same height at the same size, for paired values on wide screens.'], ['Select + text beside it', 'The only way to say a value is wrong until Select has an error state.']],
     avoid: [
       { title: 'a select for two options', why: 'Both choices are hidden behind a click. Show them side by side.', render: <OnCard><Select label="Notifications" defaultValue="on" options={[{ value: 'on', label: 'On' }, { value: 'off', label: 'Off' }]} /></OnCard> },
       { title: 'a select instead of tabs', why: 'Switching views from a hidden list makes the views hard to find.', render: <OnCard><Select label="Show" defaultValue="posts" options={[{ value: 'posts', label: 'Posts' }, { value: 'media', label: 'Media' }]} /><Tabs.Root defaultValue="a"><Tabs.Content value="a"><p className="flush muted">Posts</p></Tabs.Content></Tabs.Root></OnCard> },
@@ -73,6 +82,9 @@ export const SELECT: Depth = {
       <>
         <p>The label names the setting as a noun phrase, such as Print size or Who can message you. Option labels are short and parallel, in sentence case, and the most common one comes first unless the list has a natural order, such as sizes or months.</p>
         <p>Use a placeholder only when no value is a valid state, and word it as an instruction, such as Choose a size. When an option exists but cannot be picked now, show it disabled and say why in the label, such as A2 (sold out).</p>
+        <p>Pick a default whenever one answer suits most readers, such as the reader’s own language or the size most people order. A default saves a click and shows that the setting is already in force. Leave the select empty with a placeholder only when choosing is the point, such as a delivery country that must never be guessed. Then check it when the form is sent.</p>
+        <p>Order the options by what the reader is looking for. Sizes, dates and times go in their natural order. Long lists of names, such as countries, go in alphabetical order so typing a letter lands where the reader expects. Anything else goes most common first. Pick one rule per list and keep it.</p>
+        <p>The options are one flat list of plain text. Pane’s Select has no group headings, no icons and no second line in a row, and the closed pill shows exactly the text of the chosen row. Write each option the way it should read when the list is shut. If the options fall into clear groups, two selects or a radio group usually serve the reader better.</p>
       </>
     ),
     pair: { do: <OnCard><Select label="Print size" defaultValue="a3" options={SIZES} /></OnCard>, doNote: 'A noun label and short options in their natural order.', dont: <OnCard><Select label="Please select the size of print you want" defaultValue="a3" options={[{ value: 'a3', label: 'Size A3 (medium)' }, { value: 'a4', label: 'A4 small size' }]} /></OnCard>, dontNote: 'A sentence for a label and options in different shapes.' },
@@ -82,18 +94,24 @@ export const SELECT: Depth = {
   },
   behaviours: {
     states: [
-      ['Closed', 'Quiet glass pill with the current value and a chevron.', 'The value reads at a glance (P7).'],
-      ['Hover', 'The ring thickens over 420ms.', 'An answer to the pointer (P4).'],
+      ['Closed', 'A groove with the current value and a chevron.', 'The value reads at a glance (P7).'],
+      ['Hover', 'A hairline ring joins the groove over 420ms.', 'An answer to the pointer (P4).'],
       ['Focus', 'The shared 2px ring with its dark halo.', 'Visible on any scene (P2).'],
-      ['Open', 'The list opens below on a raised surface; the chevron turns.', 'A reading surface stays ordinary (P7).'],
-      ['Chosen option', 'A check mark beside it in the accent.', 'Selection has a shape (P6).'],
+      ['Open', 'The list opens below on an opaque sheet; the chevron turns.', 'A reading surface stays ordinary (P7).'],
+      ['Highlighted row', 'A lens lit along its top edge; a glint follows the pointer.', 'The row nests the sheet corner (P3).'],
+      ['Chosen option', 'A check at the start of the row in the accent, and a heavier weight.', 'Selection has a shape (P6).'],
       ['Disabled', 'Native disabled, half opacity, cannot open.', 'Write the reason nearby (P6).'],
+      ['Placeholder', 'The prompt in the secondary text colour until a value is chosen.', 'The empty state reads as a question (P7).'],
+      ['Disabled option', 'Half opacity, skipped by the arrow keys and cannot be picked.', 'The reason belongs in its label (P6).'],
+      ['High contrast', 'A system colour border on the trigger and the sheet; the highlighted row is outlined in the system highlight.', 'Shape survives when the theme’s colours are replaced (P6).'],
     ],
     interactions: [
       ['Keyboard', 'Tab', 'Moves focus to the trigger.', 'Select: reachable with Tab'],
       ['Keyboard', 'Enter / Space', 'Opens the list.', 'Select: Enter opens the list and Escape closes it'],
       ['Keyboard', '↓ / ↑ then Enter', 'Moves through the options and picks one.', 'Select: arrow keys and Enter choose a new value'],
       ['Keyboard', 'Escape', 'Closes the list and returns focus to the trigger.', 'Select: Enter opens the list and Escape closes it'],
+      ['Keyboard', '↓ / ↑ on the trigger', 'Opens the list from the trigger.', 'Radix Select'],
+      ['Keyboard', 'Home / End', 'Jumps to the first or last option in the open list.', 'Radix Select'],
       ['Keyboard', 'Letters', 'Jumps to the first option starting with them.', 'Radix Select'],
       ['Mouse / touch', 'Click / tap', 'Opens the list; a second click picks.', 'Radix Select'],
     ],
@@ -117,11 +135,13 @@ export const SLIDER: Depth = {
   overview: (
     <>
       <p>A slider sets a value along a range where the feel matters more than the exact number, such as volume, a blur amount or a corner radius. The label sits above the track with the current value at the other end, formatted with its unit.</p>
-      <p>The track is thin, but the press area around it is 44px tall, so a thumb lands on it easily (P6). The filled part is the accent blue and the knob is white with a shadow, so it reads as an object on both dark and light glass.</p>
-      <p>Radix supplies the behaviour. Arrow keys move one step, Page Up and Page Down move a larger step, Home and End jump to the ends, and the formatted value is what a screen reader speaks.</p>
+      <p>The slider is the Switch’s material stretched out. The track is a 10px channel carved into the glass, and it fills with the accent blue up to the value. The thumb is the Switch’s lit bead, a 24px white bead with a shadow, so it reads as an object on both dark and light glass. The channel is thin, but the press area around it is 44px tall, so a finger lands on it easily (P6).</p>
+      <p>Radix supplies the behaviour. Arrow keys move one step, Page Up and Page Down move a larger step, Home and End jump to the ends, and the formatted value is what a screen reader speaks. Shift with an arrow key moves ten steps at once, the same as Page Up and Page Down. In a left-to-right layout Up and Right raise the value and Down and Left lower it.</p>
+      <p>The value changes on every step of a drag, and <code>onValueChange</code> fires each time. An app that saves to a server or redraws something heavy should wait until the reader stops moving before it acts. Pane does not expose a separate callback for the moment the reader lets go.</p>
+      <p>The slider has no <code>name</code> prop, so it does not send its value with a native form. Read the value through <code>onValueChange</code> and keep it in the form’s own state. It is horizontal only. There are no tick marks, no labels at the two ends and no second thumb for a range; those are not built.</p>
     </>
   ),
-  whenToUse: ['Volume, brightness, blur or any value where people adjust by feel.', 'A setting with a live preview, so the reader sees the result while dragging.'],
+  whenToUse: ['Volume, brightness, blur or any value where people adjust by feel.', 'A setting with a live preview, so the reader sees the result while dragging.', 'A value where the reader can see or hear the result as they move it. Without a live result, people drag, guess and drag again.'],
   whenNot: [
     { situation: 'An exact number people type', to: '/reference/status', label: 'NumberInput (planned, wave 8)' },
     { situation: 'A few named levels', to: '/components/select', label: 'Select' },
@@ -132,14 +152,20 @@ export const SLIDER: Depth = {
     render: <OnCard><Slider label="Volume" defaultValue={60} format={(v) => `${v}%`} /></OnCard>,
     parts: [
       { part: 'Label and value', selector: '[data-component="Slider"] > *:first-child', what: 'The setting’s name and the current value with its unit.' },
-      { part: 'Track', selector: '[data-component="Slider"] [class*="track"]', what: 'A quiet glass rail with a ring.' },
-      { part: 'Thumb', selector: '[role="slider"]', what: 'A white knob with a shadow, on a 44px press area.' },
+      { part: 'Channel', selector: '[data-component="Slider"] [class*="track"]', what: 'A 10px channel carved into the glass, with shade under its top lip and light on its bottom lip.' },
+      { part: 'Range', selector: '[data-component="Slider"] [class*="range"]', what: 'The channel filled with the accent blue up to the value, still carved.' },
+      { part: 'Thumb', selector: '[role="slider"]', what: 'The Switch’s lit bead, 24px, white with a shadow, on a 44px press area.' },
     ],
   },
-  sizes: { na: 'Slider has one size. Its track is thin and its press area is 44px tall.' },
+  sizes: { na: 'Slider has one size. Its channel is 10px, its thumb 24px and its press area 44px tall.' },
   emphasis: { na: 'A slider carries no emphasis. It is a setting and sits with the content it changes.' },
   placement: {
-    rows: [['On a player', 'Volume or progress under the title.'], ['In a settings pane', 'A value with a live preview nearby.']],
+    rows: [
+      ['On a player', 'Volume or progress under the title.'],
+      ['In a settings pane', 'A value with a live preview nearby.'],
+      ['Full width of its column', 'A short channel packs many steps into each pixel of travel, and the reader loses the feel the slider is there for.'],
+      ['Clear of scrolling edges', 'On a touch screen a swipe that starts on the slider moves the value and never scrolls the page, so leave room around it in a long settings list.'],
+    ],
     examples: [{ title: 'On a player', render: <Card as="section" aria-label="Player" className="demo-card"><h3 className="flush">Northern Lights</h3><Slider label="Volume" defaultValue={60} format={(v) => `${v}%`} /></Card> }],
   },
   combinations: {
@@ -147,17 +173,19 @@ export const SLIDER: Depth = {
     avoid: [{ title: 'a slider for an exact value', why: 'Hitting 37 by dragging is hard. Offer a number field.', render: <OnCard><Slider label="Quantity" min={1} max={100} defaultValue={37} /></OnCard> }],
   },
   content: {
-    formula: <p>The label names the setting, such as Volume. The value always carries its unit through <code>format</code>, such as 60% or 18px, because a bare number is spoken without meaning.</p>,
+    formula: <><p>The label names the setting, such as Volume. The value always carries its unit through <code>format</code>, such as 60% or 18px, because a bare number is spoken without meaning.</p><p>When the two ends mean something the number does not say, such as Quiet and Loud, put that in text near the slider. The ends are not labelled for you, and a screen reader hears only the formatted value. Several sliders that set related values sit one per row, each with its own label and unit, so the values stack in a column and read down the page.</p></>,
     pair: { do: <OnCard><Slider label="Volume" defaultValue={60} format={(v) => `${v}%`} /></OnCard>, doNote: 'The unit is shown and spoken.', dont: <OnCard><Slider label="Volume" defaultValue={60} /></OnCard>, dontNote: 'A bare 60. Sixty what?' },
     overflow: { text: 'A long label wraps above the track and the value stays at the end of the row.', render: <div data-overflow-demo="" className="overflow-probe"><OnCard><Slider label="Background blur behind the player" defaultValue={40} format={(v) => `${v}px`} /></OnCard></div> },
     rtl: { text: 'In right-to-left languages the track fills from the right and the arrow keys follow the reading direction.', render: <div dir="rtl" lang="ar"><OnCard><Slider label="مستوى الصوت" defaultValue={60} format={(v) => `${v}%`} /></OnCard></div> },
     expansion: { text: 'A German label wraps above the track without moving the value.', render: <OnCard><Slider label="Lautstärke" defaultValue={60} format={(v) => `${v} %`} /></OnCard> },
   },
   behaviours: {
-    states: [['Rest', 'Thumb at the value.', 'Nothing moves on its own (P4).'], ['Dragging', 'The value and range follow the pointer.', 'A direct answer (P4).'], ['Focus', 'The shared ring on the thumb.', 'Visible on any scene (P2).'], ['Disabled', 'Half opacity, cannot move.', 'Write the reason nearby (P6).']],
+    states: [['Rest', 'Thumb at the value.', 'Nothing moves on its own (P4).'], ['Hover', 'The bead grows to 108% at hover pace.', 'An answer to the pointer (P4).'], ['Dragging', 'The value and range follow the pointer.', 'A direct answer (P4).'], ['Focus', 'The shared ring on the thumb.', 'Visible on any scene (P2).'], ['Disabled', 'Half opacity, cannot move.', 'Write the reason nearby (P6).']],
     interactions: [
       ['Keyboard', 'Tab', 'Moves focus to the thumb.', 'Slider: reachable with Tab'],
       ['Keyboard', '→ / ←', 'Moves one step.', 'Slider: arrow keys, Home and End change the value'],
+      ['Keyboard', '↑ / ↓', 'Raises or lowers by one step, the same as → and ←.', 'Radix Slider'],
+      ['Keyboard', 'Shift + arrow / Page Up / Page Down', 'Moves ten steps.', 'Radix Slider'],
       ['Keyboard', 'Home / End', 'Jumps to the minimum or maximum.', 'Slider: arrow keys, Home and End change the value'],
       ['Mouse / touch', 'Drag', 'Moves the thumb; a tap on the track jumps to that point.', 'Slider: the press area is at least 44px tall'],
     ],

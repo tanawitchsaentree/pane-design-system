@@ -1,4 +1,8 @@
+/* A small pane on the big one (round 2, R-010): a sheet lit at its top and shaded at its foot, the
+   pane's own rim, a glint under the pointer, and a shadow that is blue under the accent. */
 .root {
+  position: relative;
+  isolation: isolate;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -11,23 +15,68 @@
   cursor: pointer;
   /* soft motion: long, settling ease; press is shorter so it still feels like a response */
   transition:
-    background-color var(--ds-motion-hover) var(--ds-motion-easing),
     transform var(--ds-motion-hover) var(--ds-motion-easing),
     box-shadow var(--ds-motion-hover) var(--ds-motion-easing);
 }
-.root:hover:not(:disabled) { transform: translateY(calc(var(--ds-motion-lift) * -1)); }
-.root:active:not(:disabled) { transform: scale(var(--ds-motion-press-scale)); transition-duration: var(--ds-motion-press); }
+/* the pane's rim, brightest at the top left */
+.root::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  padding: var(--ds-width-hairline);
+  pointer-events: none;
+  background: linear-gradient(150deg, var(--ds-button-rim-hi), var(--ds-button-rim-lo) 38%, var(--ds-button-rim-lo) 70%, var(--ds-button-rim-mid));
+  /* mask keeps only the padding ring; the keyword is the mask alpha source, not a design colour */
+  -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+/* the glint: light where the pointer is, gone when it leaves */
+.root::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(calc(var(--ds-button-height-md) * 2) circle at var(--pane-gx, 50%) var(--pane-gy, 0%), var(--ds-button-glint), transparent 70%);
+  transition: opacity var(--ds-motion-hover) var(--ds-motion-easing);
+}
+.root:hover:not(:disabled)::after { opacity: 1; }
+/* the press area: at least 44px each way around the small size too (P6) */
+.hit { position: absolute; inset-inline-start: 50%; inset-block-start: 50%; inline-size: max(100%, var(--ds-button-hit)); block-size: max(100%, var(--ds-button-hit)); transform: translate(-50%, -50%); }
+:global([dir='rtl']) .hit { transform: translate(50%, -50%); }
 .sm { min-block-size: var(--ds-button-height-sm); padding-inline: var(--ds-button-padding-sm); font-size: var(--ds-type-label); }
 .md { min-block-size: var(--ds-button-height-md); padding-inline: var(--ds-button-padding-md); font-size: var(--ds-type-body); }
 .light, .accent { text-shadow: none; }
-.light { background: var(--ds-button-light-bg); color: var(--ds-button-light-fg); box-shadow: var(--ds-button-shadow); }
-.accent { background: var(--ds-button-accent-bg); color: var(--ds-button-accent-fg); box-shadow: var(--ds-button-shadow); }
-.accent:hover:not(:disabled) { background: var(--ds-button-accent-bg-hover); }
-.glass { background: var(--ds-button-glass-bg); color: var(--ds-button-glass-fg); }
+.light {
+  background: linear-gradient(180deg, var(--ds-button-gloss-solid), transparent 46%), linear-gradient(180deg, var(--ds-button-light-top), var(--ds-button-light-bg) 40%), var(--ds-button-light-bg);
+  color: var(--ds-button-light-fg);
+  box-shadow: inset 0 calc(var(--ds-width-hairline) * -1) 0 var(--ds-button-light-foot), var(--ds-button-cast);
+}
+.light::after { background: radial-gradient(calc(var(--ds-button-height-md) * 2) circle at var(--pane-gx, 50%) var(--pane-gy, 0%), var(--ds-button-glint-solid), transparent 70%); }
+.accent {
+  background: linear-gradient(180deg, var(--ds-button-gloss), transparent 46%), linear-gradient(180deg, var(--ds-button-accent-bg), var(--ds-button-accent-mid) 55%, var(--ds-button-accent-foot));
+  color: var(--ds-button-accent-fg);
+  box-shadow: var(--ds-button-accent-cast);
+}
+.glass {
+  background: linear-gradient(180deg, var(--ds-button-gloss-quiet), transparent 50%), var(--ds-button-glass-bg);
+  color: var(--ds-button-glass-fg);
+}
+/* only the loud kinds lift with a shadow (P5); every kind shows the glint */
+.light:hover:not(:disabled), .accent:hover:not(:disabled) { transform: translateY(calc(var(--ds-motion-lift) * -1)); }
+.accent:hover:not(:disabled) { box-shadow: var(--ds-button-accent-cast-hover); }
+.root:active:not(:disabled) { transform: scale(var(--ds-motion-press-scale)); transition-duration: var(--ds-motion-press); }
+.light:active:not(:disabled) { box-shadow: inset 0 calc(var(--ds-width-hairline) * -1) 0 var(--ds-button-light-foot), var(--ds-button-cast-press); }
+.accent:active:not(:disabled) { box-shadow: var(--ds-button-accent-cast-press); }
 .root:focus-visible {
   outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
   outline-offset: var(--ds-focus-ring-width);
   box-shadow: 0 0 0 calc(var(--ds-focus-ring-width) * 2 + var(--ds-focus-ring-halo-width)) var(--ds-focus-ring-halo);
 }
-.root:disabled { cursor: not-allowed; opacity: 0.5; }
-@media (forced-colors: active) { .root { border: var(--ds-focus-ring-width) solid ButtonText; } }
+.root:disabled { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
+@media (forced-colors: active) { .root { border: var(--ds-focus-ring-width) solid ButtonText; } .root::before, .root::after { display: none; } }

@@ -16,9 +16,11 @@ export interface SwitchProps {
   defaultChecked?: boolean;
   /** Called with the new state. A switch applies at once, so save here. */
   onCheckedChange?: (checked: boolean) => void;
+  /** Turns the control off, so it cannot be focused or changed. Inside a FormField, its `disabled` sets this for you. */
   disabled?: boolean;
   /** Name for form submission. */
   name?: string;
+  /** Extra class on the outer element. */
   className?: string;
 }
 

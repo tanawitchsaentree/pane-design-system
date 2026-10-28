@@ -38,7 +38,7 @@ main a.tab-link:hover { color: var(--ds-text-primary); }
 .redlines { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: var(--ds-gap-2xl); margin-block: var(--ds-gap-xl); }
 .redline { margin: 0; display: flex; flex-direction: column; gap: var(--ds-gap-md); }
 .redline-host { position: relative; display: inline-flex; padding-block: var(--ds-gap-2xl); padding-inline: var(--ds-gap-2xl) var(--ds-gap-section); }
-.rl { position: absolute; font-size: var(--ds-type-caption, var(--ds-type-label)); font-family: var(--ds-type-mono, ui-monospace, monospace); color: var(--ds-text-primary); }
+.rl { position: absolute; font-size: var(--ds-type-caption, var(--ds-type-label)); font-family: ui-monospace, 'SF Mono', Menlo, monospace; color: var(--ds-text-primary); }
 .rl-h { inset-inline-end: 0; inset-block-start: 50%; transform: translateY(-50%); padding-inline-start: var(--ds-gap-sm); border-inline-start: var(--ds-width-hairline) solid currentColor; }
 .rl-p { inset-inline-start: var(--ds-gap-2xl); inset-block-start: 0; }
 /* loading placeholders for the patterns (surface.placeholder tokens), the size of the text they stand for */

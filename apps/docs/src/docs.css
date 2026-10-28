@@ -475,3 +475,14 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 
 /* a demo wider than its column scrolls inside the column instead of spilling its text onto the scene */
 .demo-scroll { max-inline-size: 100%; overflow-x: auto; display: flex; }
+.pg-focus { text-shadow: none; display: inline-flex; align-items: center; min-block-size: var(--ds-control-md); padding-inline: var(--ds-gap-2xl); border-radius: var(--ds-corner-round); background: var(--ds-surface-light); color: var(--ds-text-on-light); }
+.pg-focus.on { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); box-shadow: 0 0 0 calc(var(--ds-focus-ring-width) * 2 + var(--ds-focus-ring-width)) var(--ds-focus-ring-halo); }
+
+/* Press areas for the shell's small controls (G-TT1, P6): each keeps its drawn size and gains an invisible
+   area at least 44px each way, centred on it. */
+.seg-btn, .copy-btn, .tab-link, .brand-link, .menu-btn, .pager-link { position: relative; }
+.seg-btn::after, .copy-btn::after, .tab-link::after, .brand-link::after, .menu-btn::after, .pager-link::after {
+  content: ''; position: absolute; inset-inline-start: 50%; inset-block-start: 50%;
+  inline-size: max(100%, var(--ds-layout-touch)); block-size: max(100%, var(--ds-layout-touch)); transform: translate(-50%, -50%);
+}
+[dir='rtl'] :is(.seg-btn, .copy-btn, .tab-link, .brand-link, .menu-btn, .pager-link)::after { transform: translate(50%, -50%); }

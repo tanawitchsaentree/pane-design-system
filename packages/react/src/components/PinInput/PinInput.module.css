@@ -3,12 +3,12 @@
 .cell {
   inline-size: var(--ds-input-height-md); block-size: var(--ds-input-height-md); margin: 0; border: 0; padding: 0;
   border-radius: var(--ds-corner-media); text-align: center;
-  background: var(--ds-input-bg-page); color: var(--ds-input-fg); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring-page);
+  background: var(--ds-input-bg); color: var(--ds-input-fg); box-shadow: var(--ds-input-groove);
   font-family: var(--ds-type-family); font-size: var(--ds-type-title); font-variant-numeric: tabular-nums;
   transition: box-shadow var(--ds-motion-hover) var(--ds-motion-easing);
 }
-:global([data-pane-card='glass']) .cell { background: var(--ds-input-bg); box-shadow: var(--ds-input-inset), inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring); text-shadow: none; }
-.cell[aria-invalid='true'], :global([data-pane-card='glass']) .cell[aria-invalid='true'] { box-shadow: inset 0 0 0 var(--ds-width-ring) var(--ds-input-ring-invalid); }
+:global([data-pane-card='glass']) .cell { text-shadow: none; }
+.cell[aria-invalid='true'] { box-shadow: var(--ds-input-groove), inset 0 0 0 var(--ds-width-ring) var(--ds-input-ring-invalid); }
 .cell:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
 .cell:disabled { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
 @media (forced-colors: active) { .cell { border: var(--ds-width-hairline) solid FieldText; } }

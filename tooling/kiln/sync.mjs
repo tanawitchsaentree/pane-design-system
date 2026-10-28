@@ -8,7 +8,7 @@
 //
 // Usage (from kiln):   node tooling/engine/sync.mjs <path-to-system-repo>
 // Usage (in a system): node tooling/kiln/sync.mjs --check
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, copyFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, copyFileSync, statSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { execSync } from 'node:child_process';
 import path from 'node:path';
@@ -38,6 +38,22 @@ let commit = 'unknown';
 try { commit = execSync('git rev-parse --short HEAD', { cwd: HERE, encoding: 'utf8' }).trim() + (execSync('git status --porcelain .', { cwd: HERE, encoding: 'utf8' }).trim() ? '+dirty' : ''); } catch {}
 const files = {};
 for (const n of engineFiles(HERE)) { copyFileSync(path.join(HERE, n), path.join(dest, n)); files[n] = sha(path.join(dest, n)); }
+// Reference data the gates measure against travels with the engine, so a system never points at a
+// path inside someone else's checkout: the Carbon depth benchmark, the topic lists and the catalog.
+const KIT = path.join(HERE, '..', '..');
+const DATA = [
+  [path.join(KIT, 'marketplace/plugins/kiln/skills/docs-engine/benchmarks'), ''],
+  [path.join(KIT, 'docs/CATALOG.md'), 'CATALOG.md'],
+];
+const copyData = (src, rel) => {
+  if (!existsSync(src)) return;
+  if (statSync(src).isDirectory()) { for (const n of readdirSync(src)) copyData(path.join(src, n), path.join(rel, n)); return; }
+  const to = path.join(dest, 'data', rel);
+  mkdirSync(path.dirname(to), { recursive: true });
+  copyFileSync(src, to);
+  files[path.join('data', rel)] = sha(to);
+};
+for (const [src, rel] of DATA) copyData(src, rel);
 writeFileSync(path.join(dest, 'ENGINE.json'), JSON.stringify({ kiln: commit, syncedAt: new Date().toISOString(), files }, null, 2) + '\n');
 writeFileSync(path.join(dest, 'README.md'), `# kiln docs engine (read-only copy)\n\nInstalled by kiln \`tooling/engine/sync.mjs\` from kiln ${commit}. Do not edit these files here: change them in kiln and sync again. \`node tooling/kiln/sync.mjs --check\` fails on any local edit.\n`);
-console.log(`✓ synced ${Object.keys(files).length} engine files to ${path.relative(process.cwd(), dest)} (kiln ${commit})`);
+console.log(`✓ synced ${Object.keys(files).length} engine and data files to ${path.relative(process.cwd(), dest)} (kiln ${commit})`);

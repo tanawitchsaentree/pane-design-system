@@ -2,6 +2,10 @@
   "concept": "A group of fields is a real fieldset whose legend names every control in it, with no box of its own.",
   "default_to_avoid": [
     {
+      "pattern": "a bordered fieldset box with its legend cut into the top rule (the browser default, Bootstrap fieldset)",
+      "why_not": "the box draws a second surface inside the pane and the legend sits on the rule, where it measured 1:1 against the line through it"
+    },
+    {
       "pattern": "Material outlined text field with a floating label; filled blue square checkbox; iOS green switch (Material 3, Bootstrap, iOS Settings)",
       "why_not": "it draws a box on the glass, paints selection in colour the scene should own, moves the label out of its place, and was made for opaque pages rather than a pane floating over a photo"
     }

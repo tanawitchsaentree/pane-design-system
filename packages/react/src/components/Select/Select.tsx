@@ -1,4 +1,4 @@
-import { forwardRef, useId, useLayoutEffect, useRef, useState } from 'react';
+import { forwardRef, useId, useLayoutEffect, useRef, useState, type PointerEvent } from 'react';
 import * as RS from '@radix-ui/react-select';
 import { cx } from '../../cx';
 import styles from './Select.module.css';
@@ -19,7 +19,7 @@ export interface SelectOption {
 export type SelectSize = 'sm' | 'md';
 
 export interface SelectProps {
-  /** Visible label, also the control's accessible name. Required: a select without a name is unusable with a screen reader. */
+  /** Visible label, also the control's accessible name. It is required, because a select without a name is unusable with a screen reader. */
   label: string;
   /** Keep the label for assistive tech but do not show it, when the context already names the control. */
   hideLabel?: boolean;
@@ -35,7 +35,7 @@ export interface SelectProps {
   placeholder?: string;
   /** `md` is 44px tall for touch; `sm` is 32px for toolbars and dense forms. */
   size?: SelectSize;
-  /** Native disabled behaviour: not focusable, cannot open. */
+  /** Native disabled behaviour. The select cannot take focus or open. */
   disabled?: boolean;
   /** Name for form submission. */
   name?: string;
@@ -43,6 +43,11 @@ export interface SelectProps {
   className?: string;
 }
 
+// the highlighted row's glint sits under the pointer; keyboard highlight shows the lens without it
+const glint = (e: PointerEvent<HTMLDivElement>) => {
+  const r = e.currentTarget.getBoundingClientRect();
+  e.currentTarget.style.setProperty('--pane-gx', `${e.clientX - r.left}px`);
+};
 const Chevron = () => <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.chevron}><path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 const Check = () => <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 
@@ -68,9 +73,9 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
           <RS.Content className={styles.menu} position="popper" sideOffset={6} data-theme={theme}>
             <RS.Viewport className={styles.viewport}>
               {options.map((o) => (
-                <RS.Item key={o.value} value={o.value} disabled={o.disabled} className={styles.item}>
+                <RS.Item key={o.value} value={o.value} disabled={o.disabled} className={styles.item} onPointerMove={glint}>
+                  <span className={styles.slot}><RS.ItemIndicator className={styles.check}><Check /></RS.ItemIndicator></span>
                   <RS.ItemText>{o.label}</RS.ItemText>
-                  <RS.ItemIndicator className={styles.check}><Check /></RS.ItemIndicator>
                 </RS.Item>
               ))}
             </RS.Viewport>

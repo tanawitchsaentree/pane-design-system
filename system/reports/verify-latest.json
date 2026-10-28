@@ -1,0 +1,207 @@
+{
+  "kind": "full",
+  "startedAt": "2026-10-28T15:02:49.445Z",
+  "finishedAt": "2026-10-28T16:51:43.212Z",
+  "sourceHash": "00aff3fac1913806",
+  "sourceChanged": false,
+  "ok": true,
+  "steps": [
+    {
+      "id": "tokens",
+      "status": "pass",
+      "seconds": 0,
+      "reds": [],
+      "tail": [
+        "> pane-tokens@0.4.0 build /Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/tokens",
+        "> node build.mjs",
+        "✓ 585 tokens → css, json, js+d.ts, scss; themes: dark, light; breakpoints: md, lg; (187 primitive, 165 semantic, 233 component), 1 glass surface(s) with fallback, environments: dim, mid, bright"
+      ]
+    },
+    {
+      "id": "engine",
+      "status": "pass",
+      "seconds": 0,
+      "reds": [],
+      "tail": [
+        "✓ engine check: 30 files match kiln ab58bf2"
+      ]
+    },
+    {
+      "id": "lint",
+      "status": "pass",
+      "seconds": 0,
+      "reds": [],
+      "tail": [
+        "⚠ packages/react/src/components/Switch/Switch.module.css:15  background-only visual indicator (selector: .track[data-state='checked']) — ไม่มี border จริง จะหายไปใน forced-colors mode",
+        "    .track[data-state='checked'] { background: linear-gradient(180deg, var(--ds-switch-on-top), var(--ds-switch-on-bg)); box-shadow: var(--ds-switch-on-carve); }",
+        "⚠ packages/react/src/components/Switch/Switch.module.css:31  background-only visual indicator (selector: .track[data-state='checked']) — ไม่มี border จริง จะหายไปใน forced-colors mode",
+        "    @media (forced-colors: active) { .track { border: var(--ds-width-hairline) solid ButtonText; } .track[data-state='checked'] { background: Highlight; } .knob { background: ButtonText; } }",
+        "⚠ 9 warning(s) — background-only indicator เสี่ยงหายใน forced-colors mode (ไม่ fail build, ตรวจสอบด้วยตา)",
+        "✓ clean (80 files scanned)"
+      ]
+    },
+    {
+      "id": "barrel",
+      "status": "pass",
+      "seconds": 0,
+      "reds": [],
+      "tail": [
+        "✓ packages/react/src/index.ts is up to date"
+      ]
+    },
+    {
+      "id": "token-contract",
+      "status": "pass",
+      "seconds": 0,
+      "reds": [],
+      "tail": [
+        "✓ token contract: 310 names read across 216 files, 0 missing"
+      ]
+    },
+    {
+      "id": "rationale",
+      "status": "pass",
+      "seconds": 0,
+      "reds": [],
+      "tail": [
+        "✓ rationale: 7 principles · 585 tokens (0 problems) · 25 components (0 problems) · concept 0 problems · derivation 0 problems"
+      ]
+    },
+    {
+      "id": "meta",
+      "status": "pass",
+      "seconds": 5,
+      "reds": [],
+      "tail": [
+        "Slider       dims 1 (disabled) → floor 4 · 11.2 kB gz",
+        "Stack        dims 3 (direction, gap, align) → floor 6 · 0.5 kB gz",
+        "Switch       dims 1 (disabled) → floor 4 · 5.9 kB gz",
+        "Tabs         dims 0 (—) → floor 3 · 10.6 kB gz",
+        "Tag          dims 0 (—) → floor 3 · 0.5 kB gz",
+        "Textarea     dims 1 (invalid) → floor 4 · 1.1 kB gz"
+      ]
+    },
+    {
+      "id": "build",
+      "status": "pass",
+      "seconds": 3,
+      "reds": [],
+      "tail": [
+        "dist/assets/index-D6CPhOny.js    1,234.10 kB │ gzip: 244.35 kB",
+        "(!) Some chunks are larger than 500 kB after minification. Consider:",
+        "- Using dynamic import() to code-split the application",
+        "- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks",
+        "- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.",
+        "✓ built in 1.14s"
+      ]
+    },
+    {
+      "id": "typecheck",
+      "status": "pass",
+      "seconds": 4,
+      "reds": [],
+      "tail": [
+        "> pane-react@0.4.0 typecheck /Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/react",
+        "> tsc --noEmit -p ."
+      ]
+    },
+    {
+      "id": "smoke-import",
+      "status": "pass",
+      "seconds": 9,
+      "reds": [],
+      "tail": [
+        "  ✓ smokeImport.renderProbes configured  — Button, Tag, Card, Badge, Container, Stack",
+        "  ✓ components render server-side  — Button + Tag + Card + Badge + Container + Stack render with real markup",
+        "  ✓ consumer tsc passes on pane-react/all.css + pane-react/styles.css + pane-tokens/css + named imports  — clean",
+        "  ✓ pane-react installs alone, without pane-tokens  — only pane-react",
+        "  ✓ pane-react/all.css carries tokens and styles, pane-react/tokens resolves, a component renders  — 94 kB all.css, 585 tokens",
+        "✓ 22/22 smoke checks passed — both packages install and work under their published names."
+      ]
+    },
+    {
+      "id": "spec-capture",
+      "status": "pass",
+      "seconds": 39,
+      "reds": [],
+      "tail": [
+        "✓ HelperText   4 targets",
+        "✓ Fieldset     2 targets",
+        "✓ InputGroup   2 targets",
+        "✓ PinInput     2 targets",
+        "✓ Banner       8 targets",
+        "✓ spec-capture: 126 targets on 26 style tabs → apps/docs/public/specs.json"
+      ]
+    },
+    {
+      "id": "evidence",
+      "status": "pass",
+      "seconds": 4004,
+      "reds": [],
+      "tail": [
+        "forced-colors         dark/city      harness card 0/17 · controls 0/3 · status 0/9 · layout 0/4 · environment 0/3 | docs 0/0 over 0 pages",
+        "forced-colors         light/room     harness card 0/17 · controls 0/3 · status 0/9 · layout 0/4 · environment 0/3 | docs 0/33957 over 146 pages",
+        "forced-colors         light/forest   harness card 0/17 · controls 0/3 · status 0/9 · layout 0/4 · environment 0/3 | docs 0/0 over 0 pages",
+        "forced-colors         light/night    harness card 0/17 · controls 0/3 · status 0/9 · layout 0/4 · environment 0/3 | docs 0/0 over 0 pages",
+        "forced-colors         light/city     harness card 0/17 · controls 0/3 · status 0/9 · layout 0/4 · environment 0/3 | docs 0/0 over 0 pages",
+        "✓ evidence: 408871/408898 text checks pass, 27 excepted under E-001 (≥3.8:1) (2 themes × 4 scenes × 3 modes, chromium 156.0.8078.4)"
+      ]
+    },
+    {
+      "id": "conformance",
+      "status": "pass",
+      "seconds": 244,
+      "reds": [],
+      "tail": [
+        "✓ FormField: an error marks the control invalid and is read before the help — 2 fields with errors",
+        "✓ Label: a native <label> tied to its control, and a click on it focuses the control — 3 of 4 labels tied to a control",
+        "✓ HelperText: the error tone says the word Error and carries a glyph, so it is not colour alone — 5 errors of 6",
+        "✓ Fieldset: a native <fieldset> whose <legend> names the group — \"Shipping address\"",
+        "✓ InputGroup: one text input inside, with its adornments outside the input’s value and name — adornment \"NOK\"",
+        "✓ conformance: 107/107"
+      ]
+    },
+    {
+      "id": "rebuild",
+      "status": "pass",
+      "seconds": 2,
+      "reds": [],
+      "tail": [
+        "dist/assets/index-DiyUaQ_n.js    1,232.83 kB │ gzip: 244.25 kB",
+        "(!) Some chunks are larger than 500 kB after minification. Consider:",
+        "- Using dynamic import() to code-split the application",
+        "- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks",
+        "- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.",
+        "✓ built in 1.21s"
+      ]
+    },
+    {
+      "id": "gates",
+      "status": "pass",
+      "seconds": 2131,
+      "reds": [],
+      "tail": [
+        "✓ G-NAV1     every page in routes.json is reachable from the book nav at 375 and 1280px — 68 pages",
+        "✓ G-SM1      following an in-page link (table of contents, heading anchor) lands with its heading clear of the sticky header — 134 links followed",
+        "✓ G-TT1      every control in a live example and in the shell gives a pointer at least 44px each way — 2161 controls",
+        "✓ axe-none   axe finds no WCAG 2.2 AA violations on any page (forced-colors none)",
+        "✓ axe-active axe finds no WCAG 2.2 AA violations on any page (forced-colors active)",
+        "✓ docs gates: 42/42"
+      ]
+    },
+    {
+      "id": "tone",
+      "status": "pass",
+      "seconds": 92,
+      "reds": [],
+      "tail": [
+        "✓ /reference/tokens                        15838 words",
+        "✓ /reference/changelog                     894 words",
+        "✓ /reference/status                        352 words",
+        "✓ /reference/exceptions                    37 words",
+        "✓ /reference/credits                       121 words",
+        "✓ tone gate: 145/145 pages pass human-tone lint"
+      ]
+    }
+  ]
+}

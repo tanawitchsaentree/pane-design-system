@@ -1,11 +1,76 @@
 {
-  "concept": "A tag labels content with an outline only, marking without adding another fill to a pane that already has its one loud thing.",
+  "concept": "A tag labels a thing and does nothing when pressed, so it is etched into the glass instead of standing on it, with shade on its top edge and light on its bottom edge.",
   "parts": {
     "root": {
-      "p": "P5",
-      "why": "small caps in an outline pill, the lightest possible label, readable as text first"
+      "p": "P3",
+      "axis": "interaction",
+      "why": "etched into the glass with shade on top and light below, uppercase micro type, so it is never mistaken for a button"
     }
   },
-  "states": {},
-  "motion": {}
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "forced colours drop the etch, so a real system-colour border keeps the shape"
+    }
+  },
+  "motion": {},
+  "default_to_avoid": [
+    {
+      "pattern": "a small coloured or outlined pill tag that looks like a button (GitHub labels, Material assist chip)",
+      "why_not": "a raised or ringed pill reads as pressable, and a reader taps a tag that does nothing"
+    }
+  ],
+  "references": [
+    {
+      "title": "visionOS HIG · Materials",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/materials"
+    },
+    {
+      "title": "visionOS HIG · Typography",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/typography"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "interaction",
+      "consequence": "the whole pane is never a hidden button; actions sit on it as separate objects",
+      "form": "a tag is not an object you press, so it is cut into the surface instead of placed on it"
+    },
+    {
+      "p": "P1",
+      "axis": "depth",
+      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur), never from an opaque tint",
+      "form": "the etch is a dimmed patch with shade on top and light below, no opaque fill"
+    },
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns almost no colour of its own, only white at opacities, one ink and one blue",
+      "form": "tags carry no colour of their own, only the text colour"
+    },
+    {
+      "p": "P3",
+      "axis": "shape",
+      "consequence": "controls are full pills because they are held in the hand",
+      "form": "the etch is a pill, the system shape, but small and flat"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/round3/",
+    "section": "tag",
+    "options": [
+      "A ringed caps",
+      "B etched",
+      "C caps with a dot"
+    ],
+    "picked": "B etched",
+    "by": "agent",
+    "reason": "B is the only one that cannot be mistaken for a button: it sits below the surface (P3 interaction) while buttons stand on it. A is a ringed pill like the shipped one and like a quiet button. C has no shape, so a row of tags reads as loose words."
+  },
+  "kind": [
+    "label",
+    "pill"
+  ]
 }

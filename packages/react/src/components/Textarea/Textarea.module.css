@@ -2,15 +2,15 @@
 .root {
   inline-size: 100%; min-inline-size: 0; margin: 0; border: 0; resize: vertical;
   padding: var(--ds-gap-md) var(--ds-input-padding); border-radius: var(--ds-input-radius-multiline);
-  background: var(--ds-input-bg-page); color: var(--ds-input-fg);
-  box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring-page);
+  background: var(--ds-input-bg); color: var(--ds-input-fg);
+  box-shadow: var(--ds-input-groove);
   font-family: var(--ds-type-family); font-size: var(--ds-type-body); line-height: var(--ds-type-leading-body);
   transition: box-shadow var(--ds-motion-hover) var(--ds-motion-easing);
 }
-:global([data-pane-card='glass']) .root { background: var(--ds-input-bg); box-shadow: var(--ds-input-inset), inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring); text-shadow: none; }
+:global([data-pane-card='glass']) .root { text-shadow: none; }
 .root::placeholder { color: var(--ds-input-placeholder); opacity: 1; }
-.root:hover:not(:disabled) { box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring-hover); }
-.root[aria-invalid='true'], :global([data-pane-card='glass']) .root[aria-invalid='true'] { box-shadow: inset 0 0 0 var(--ds-width-ring) var(--ds-input-ring-invalid); }
+.root:hover:not(:disabled) { box-shadow: var(--ds-input-groove), inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring-hover); }
+.root[aria-invalid='true'] { box-shadow: var(--ds-input-groove), inset 0 0 0 var(--ds-width-ring) var(--ds-input-ring-invalid); }
 .root:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
 .root:disabled { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
 @media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid FieldText; } }

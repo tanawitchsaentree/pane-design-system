@@ -159,6 +159,27 @@
         "p": "P1",
         "why": "the materials a pane can be made of; each one below states its own role"
       }
+    },
+    "carve": {
+      "$value": "{color.shade-a.35}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.08}"
+        },
+        "kiln.why": {
+          "p": "P1",
+          "why": "the floor of a recess or groove, a dimmed patch of the surface in dark and a faint ink tint in light"
+        }
+      }
+    },
+    "knob-shade": {
+      "$value": "{color.paper.100}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P3",
+          "why": "the far side of the switch bead, a step below white so the bead reads as round"
+        }
+      }
     }
   },
   "text": {
@@ -207,8 +228,55 @@
     },
     "$extensions": {
       "kiln.why": {
-        "p": "P5",
-        "why": "the promoted-action fill and its hover; one blue, used at most once per pane"
+        "p": [
+          "P5",
+          "P3"
+        ],
+        "why": "the promoted-action fill as a sheet, light at its top and shaded at its foot, plus the white gloss and pointer glint every button carries; one blue, used at most once per pane"
+      }
+    },
+    "accent-foot": {
+      "$value": "{color.blue.800}"
+    },
+    "gloss": {
+      "$value": "{color.white-a.26}"
+    },
+    "gloss-quiet": {
+      "$value": "{color.white-a.12}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.45}"
+        }
+      }
+    },
+    "gloss-solid": {
+      "$value": "{color.white-a.03}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.16}"
+        }
+      }
+    },
+    "foot-solid": {
+      "$value": "{color.ink-a.08}"
+    },
+    "glint": {
+      "$value": "{color.white-a.20}"
+    },
+    "glint-solid": {
+      "$value": "{color.ink-a.06}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.16}"
+        }
+      }
+    },
+    "solid-top": {
+      "$value": "{color.white}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink.700}"
+        }
       }
     }
   },
@@ -248,6 +316,18 @@
       "kiln.why": {
         "p": "P3",
         "why": "hairlines that give panes and controls an edge, as rings for controls, dividers inside panes and a rim of light brightest at the top left"
+      }
+    },
+    "edge": {
+      "$value": "{color.white-a.55}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.56}"
+        },
+        "kiln.why": {
+          "p": "P2",
+          "why": "the edge of a control that has no groove, such as a read-only field, at the opacity that measured 3:1 on glass and pages in both themes"
+        }
       }
     }
   },
@@ -351,6 +431,132 @@
         "kiln.why": {
           "p": "P1",
           "why": "a field is a well pressed into the glass, so a faint inner shadow at its top edge says it sits below the surface without painting a fill"
+        }
+      }
+    },
+    "cast": {
+      "$value": "{shadow.cast}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.cast-light}"
+        },
+        "kiln.why": {
+          "p": "P3",
+          "why": "a solid control is an object on the pane, so it rests with a contact shadow and a soft one below"
+        }
+      }
+    },
+    "cast-press": {
+      "$value": "{shadow.cast-press}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P4",
+          "why": "a press pushes the control back toward the pane, so its shadow tightens"
+        }
+      }
+    },
+    "cast-accent": {
+      "$value": "{shadow.cast-accent}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P3",
+          "why": "the accent sheet is coloured glass, so the light under it is blue instead of grey"
+        }
+      }
+    },
+    "cast-accent-hover": {
+      "$value": "{shadow.cast-accent-hover}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P4",
+          "why": "hover lifts the accent closer, so its blue shadow spreads and softens"
+        }
+      }
+    },
+    "cast-accent-press": {
+      "$value": "{shadow.cast-accent-press}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P4",
+          "why": "a press pushes the accent back toward the pane, so its blue shadow tightens"
+        }
+      }
+    },
+    "bead": {
+      "$value": "{shadow.bead}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P3",
+          "why": "the knob is a bead in a recess, so it casts a short shadow into the well"
+        }
+      }
+    },
+    "carve": {
+      "$value": "{shadow.carve}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.carve-light}"
+        },
+        "kiln.why": {
+          "p": "P1",
+          "why": "a recess is made by dimming, shade under the top lip and light on the bottom one, never by an opaque box; the edge measures 3:1 in both themes"
+        }
+      }
+    },
+    "carve-on": {
+      "$value": "{shadow.carve-on}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.carve-on-light}"
+        },
+        "kiln.why": {
+          "p": "P1",
+          "why": "the recess keeps its shade when it fills with the one blue, so it still reads as cut into the glass"
+        }
+      }
+    },
+    "groove": {
+      "$value": "{shadow.groove}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.groove-light}"
+        },
+        "kiln.why": {
+          "p": "P1",
+          "why": "a field is a groove in the glass, read from its two lips; the lit bottom lip is its 3:1 edge on any surface"
+        }
+      }
+    },
+    "lens": {
+      "$value": "{shadow.lens}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.lens-light}"
+        },
+        "kiln.why": {
+          "p": "P3",
+          "why": "the highlighted row is a small lens inside the menu, lit on its top edge like the pane"
+        }
+      }
+    },
+    "etch": {
+      "$value": "{shadow.etch}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.etch-light}"
+        },
+        "kiln.why": {
+          "p": "P3",
+          "why": "a label is cut into the surface instead of standing on it, so it never reads as something to press"
+        }
+      }
+    },
+    "portrait": {
+      "$value": "{shadow.portrait}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P3",
+          "why": "a portrait carries the pane rim of light and a shade at its foot, so it sits on the glass as a small object"
         }
       }
     }

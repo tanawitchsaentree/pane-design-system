@@ -10,7 +10,7 @@ const Byline = ({ size = 'sm' as 'sm' | 'md' | 'lg', name = 'Mara Lind' }) => (
 export const AVATAR: Depth = {
   overview: (
     <>
-      <p>An avatar shows who something belongs to, such as the author of a post, a person in a list or the owner of a profile. It is a circle holding a photo, or the initials of the name when there is no photo or it fails to load.</p>
+      <p>An avatar shows who something belongs to, such as the author of a post, a person in a list or the owner of a profile. It is a circle holding a photo, or the initials of the name when there is no photo or it fails to load. The portrait sits behind a lens, with a rim of light along its top and shade at its foot, so the face reads as a small object on the glass.</p>
       <p>The name does the real work. When the name is written next to the avatar, the avatar is decorative and hidden from screen readers, so nobody hears the name twice. When the avatar stands alone, it becomes an image named after the person. The <code>decorative</code> prop switches between the two.</p>
       <p>Avatars are not buttons. If tapping one opens a profile, wrap it with the name in a link, so the target is the whole byline and has a text name.</p>
     </>
@@ -27,14 +27,15 @@ export const AVATAR: Depth = {
     parts: [
       { part: 'Circle', selector: '[data-component="Avatar"]', what: 'A full circle that clips the photo or holds the initials.' },
       { part: 'Initials', selector: '[data-component="Avatar"] span', what: 'First letters of the first two words of the name, hidden from screen readers.' },
-      { part: 'Rim ring', selector: '[data-component="Avatar"]', what: 'Only at lg, a 4px ring in the rim light, so a portrait reads as an object on the pane (P3).' },
+      { part: 'Lens', selector: '[data-component="Avatar"]', what: 'Laid over the portrait at every size. A 1px hairline of white at 28%, a brighter line of white at 45% along the top and shade gathering at the foot (P3).' },
+      { part: 'Shadow', selector: '[data-component="Avatar"]', what: 'Only at lg, a soft shadow under the portrait, so it rests on the pane as an object.' },
     ],
-    perVariant: 'sm and md have no ring. lg adds the rim ring.',
+    perVariant: 'Every size has the lens. lg adds the soft shadow underneath.',
   },
   sizes: {
     sm: { use: '30px. Post and comment headers, where the name sits beside it.', pairs: 'A 15px semibold name.' },
     md: { use: '44px. Rows in a list of people.', pairs: 'A name and a secondary line.' },
-    lg: { use: '84px with a rim ring. The portrait at the top of a profile.', pairs: 'A title-size name and a Follow Button.' },
+    lg: { use: '84px on a soft shadow. The portrait at the top of a profile.', pairs: 'A title-size name and a Follow Button.' },
   },
   emphasis: { na: 'Avatars carry identity, never emphasis. Hierarchy comes from the size the layout calls for.' },
   placement: {
@@ -56,7 +57,7 @@ export const AVATAR: Depth = {
     expansion: { text: 'Longer names wrap next to the avatar without moving it.', render: <OnCard><Byline name="Mara Lind-Østergaard" /></OnCard> },
   },
   behaviours: {
-    states: [['Photo', 'The image fills the circle.', 'Identity first.'], ['No photo', 'Initials on the quiet fill.', 'Still says who it is.'], ['Forced colours', 'No rule of its own yet. Initials keep their text and a photo shows as it is, but the circle loses its edge.', 'A gap against P6, listed under Limitations.']],
+    states: [['Photo', 'The image fills the circle.', 'Identity first.'], ['No photo', 'Ink initials on the white solid.', 'Still says who it is.'], ['Forced colours', 'The lens is dropped and a CanvasText hairline draws the circle.', 'Structure survives (P6).']],
     interactions: [['Screen reader', 'Read', 'Skipped when decorative, otherwise read as an image named after the person.', 'Avatar: non-decorative avatars are role="img" named after the person'], ['Keyboard', 'Tab', 'Skips it. An avatar is not focusable.', 'Avatar.tsx renders a span']],
     loading: <p>Show the initials while the photo loads. They take the same space, so nothing moves when the photo arrives.</p>,
     focus: <p>An avatar never takes focus. Make the link around it focusable instead.</p>,

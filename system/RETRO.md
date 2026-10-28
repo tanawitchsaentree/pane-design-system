@@ -49,3 +49,35 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **Step that produced it:** diagrams were styled with the system's glass materials instead of being designed as diagrams, and only the stages I had just touched were moved to the field.
 - **What changed in that step:** diagrams use distinct encodings drawn from tokens (accent columns, hatched margins, empty gutters, plain ground, corner.mark plates); every layout demo and playground on the page uses the field.
 - **Check that now catches it:** G-NT1 measures each marked diagram part against its ground at 3:1 (WCAG 1.4.11) in both themes; it failed the margins at 2.15 and 1.40 before the fix.
+
+### R-007: the switch is the iOS switch
+- **Date:** 2026-10-28
+- **User said:** "พอเอามาใช้ toggle แม่งธรรมดามาก ไม่ผ่าน concept funnel หรอวะ"
+- **What was wrong:** a round white knob in a pill track, the iOS default. It went through the forms family round, but that round named the text-field default (Material outlined field) and never the switch's own.
+- **Step that produced it:** the family derivation (D-020) was copied into every member's why.json. A member inherited a derivation that never looked at its own default, so the habit for that member passed.
+- **What changed in that step:** every member of a family names its own default to avoid; rationale fails a why.json whose `default_to_avoid` does not mention the component it belongs to (all eleven form members now do). Switch went through its own round (D-022): a carved recess with a lit bead, picked from three in `apps/lab/round2/`.
+- **Check that now catches it:** rationale's own-default rule; G-NT2 for the track's edge.
+
+### R-008: the dropdown highlight does not sit in its flyout
+- **Date:** 2026-10-28
+- **User said:** "เห็นความไม่สมมาตรของ hover กับกรอบ flyout มั้ย"
+- **What was wrong:** the highlighted row's corners and inset do not follow the flyout's corner; the gap is uneven and the curves do not nest.
+- **Step that produced it:** Select is one of the ten components built before derivation existed (pendingDerivation); its flyout was never designed, and nothing measures nested corners.
+- **What changed in that step:** Select went through its round (D-022). The row radius is computed in CSS as the sheet radius minus the inset, so it cannot drift; rows are 44px so the corner is never a pill.
+- **Check that now catches it:** G-NR1 measures every open listbox and menu: row radius = sheet radius − inset, and fails rows whose radius is more than half their height. It failed the shipped flyout and the first redraw (36px rows) before passing.
+
+### R-009: the search field disappears on white
+- **Date:** 2026-10-28
+- **User said:** "พอสีขาว search bar แม่งกลืนไปกับ bg แทบจะมองไม่เห็น"
+- **What was wrong:** in the light theme the field's well and ring are below 3:1 against a white panel, so the field's edge is not visible (WCAG 1.4.11).
+- **Step that produced it:** contrast was measured for text only. The boundary of a control is non-text contrast and no gate measured it; the light theme was tuned by eye on photo scenes, not on a white app panel.
+- **What changed in that step:** the fields are a groove with a lit bottom lip and a ring (D-022), and the boundary is measured.
+- **Check that now catches it:** G-NT2, every form control's edge at 3:1 in both themes. Over glass it reads real pixels (the ring just outside against the band just inside), because a colour walk cannot see a dimmed photo; its first version fell through to white and misread dark-glass fields. 188 controls pass.
+
+### R-010: the blue button has no idea in it
+- **Date:** 2026-10-28
+- **User said:** "ปุ่มสีฟ้าๆก็โคตรเหี้ย แม่งไม่มีศิลป์เห้ยอะไรเลย หลัดกๆแค่ ปุ่ม rounded จบ พอใจแล้ว? ใช่ไหม?"
+- **What was wrong:** the accent button is a flat blue pill, the default of every UI kit. Button was built in wave 1 before derivation and was never redone.
+- **Step that produced it:** pendingDerivation was allowed to ship. The list was reported on every run but nothing stopped a release with ten underived components, and 0.3.0 and 0.4.0 were packed anyway.
+- **What changed in that step:** a release is refused while pendingDerivation is not empty (kiln milestone and release-pack). Button went through its round (D-022): a small pane with rim, gloss, pointer glint and a blue cast shadow.
+- **Check that now catches it:** release-pack refuses to pack while pendingDerivation is not empty (Avatar, Badge, Card, Chip, IconButton, Slider, Tabs, Tag remain).

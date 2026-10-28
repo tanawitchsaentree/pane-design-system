@@ -1,3 +1,3 @@
 # kiln docs engine (read-only copy)
 
-Installed by kiln `tooling/engine/sync.mjs` from kiln b14b46e. Do not edit these files here: change them in kiln and sync again. `node tooling/kiln/sync.mjs --check` fails on any local edit.
+Installed by kiln `tooling/engine/sync.mjs` from kiln ab58bf2. Do not edit these files here: change them in kiln and sync again. `node tooling/kiln/sync.mjs --check` fails on any local edit.

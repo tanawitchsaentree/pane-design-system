@@ -17,21 +17,33 @@
 //               Components still awaiting their round are listed in rationale.pendingDerivation and
 //               reported on every run until they are redone; they are not hidden.
 //
+//   seed mode   while system/kiln.config.json tokens.allowSeed is true (a fresh kiln starter), reasons
+//               naming principle "SEED" and an unwritten concept are reported as pending, not failed, so
+//               the build can be proven before Phase 1. Once allowSeed is false a SEED reason is a
+//               failure, and tooling/kiln/milestone.mjs refuses to close M1 while allowSeed is true.
+//   agent picks with autonomy.picks = "agent" (picks decided once at intake), variants.by may be
+//               "agent", with variants.reason and a row for the component in system/REVIEW.md.
+//
 // A reason fails if it is shorter than 8 words or argues from appearance ("looks clean", "modern",
 // "สวย", "rounded is friendlier" without saying what it is for).
 // Usage: node tooling/kiln/rationale.mjs [--json]
 import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import path from 'node:path';
-import { docsConfig } from './config.mjs';
+import { docsConfig, ROOT } from './config.mjs';
 
 const C = docsConfig();
+const SYS = (() => { try { return JSON.parse(readFileSync(path.join(ROOT, 'system', 'kiln.config.json'), 'utf8')); } catch { return {}; } })();
+const SEED_MODE = SYS.tokens?.allowSeed === true;
+const AGENT_PICKS = SYS.autonomy?.picks === 'agent';
+const REVIEW = existsSync(path.join(ROOT, 'system', 'REVIEW.md')) ? readFileSync(path.join(ROOT, 'system', 'REVIEW.md'), 'utf8') : '';
+let seeds = 0;
 const R = { concept: 'system/CONCEPT.md', tokens: 'packages/tokens/src', components: C.componentsDir, ...(C.rationale ?? {}) };
 const AXES = ['space', 'shape', 'depth', 'colour', 'type', 'motion', 'interaction'];
 const TASTE = /\b(looks?|feels?) (nice|good|clean|modern|better|cool|premium|sleek|elegant|beautiful|pretty|friendly|right|fresh)\b|\baesthetic(ally)?\b|\bvisual(ly)? appeal|\btrend(y|ing)?\b|\bjust (nicer|prettier)\b|สวย|ดูดี|ทันสมัย|น่ารัก|เท่ห?์?/i;
 const problems = [];
 const pending = new Set(R.pendingDerivation ?? []);
 const notices = [];
-const add = (area, msg) => problems.push({ area, msg });
+const add = (area, msg) => (SEED_MODE && area === 'concept' ? notices.push(`concept: ${msg}`) : problems.push({ area, msg }));
 
 // ---------------------------------------------------------------- concept
 const conceptFile = C.abs(R.concept);
@@ -57,6 +69,11 @@ const checkReason = (where, w, needAxis = false) => {
   const area = where.split(' ')[0];
   if (!w || typeof w !== 'object') return add(area, `${where}: no reason`);
   const ps = [].concat(w.p ?? []);
+  if (ps.includes('SEED')) {
+    seeds++;
+    if (!SEED_MODE) add(area, `${where}: still the starter's SEED reason; give it this system's own principle and reason`);
+    return;
+  }
   if (!ps.length) add(area, `${where}: names no principle`);
   for (const p of ps) if (!principles.has(p)) add(area, `${where}: principle ${p} is not in ${R.concept}`);
   const words = String(w.why ?? '').trim().split(/\s+/).filter(Boolean).length;
@@ -114,6 +131,10 @@ if (existsSync(compDir)) for (const name of readdirSync(compDir).filter((n) => s
     else {
       const avoid = why.default_to_avoid ?? [];
       if (!avoid.length) add('derivation', `${name}: name the generic default it avoids (default_to_avoid) and where that default comes from`);
+      // a family round copied into every member named one member's default (Pane's switch inherited the
+      // text field's), so each member's own default must be named: by its name, or a word in `kind`
+      const words = [name.replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase(), ...[].concat(why.kind ?? []).map((k) => String(k).toLowerCase())];
+      if (avoid.length && !avoid.some((a) => words.some((w) => String(a.pattern ?? '').toLowerCase().includes(w)))) add('derivation', `${name}: default_to_avoid never names this component's own default (mention "${words[0]}", or list what it is called elsewhere in "kind")`);
       for (const a of avoid) if (String(a.why_not ?? '').split(/\s+/).length < 8) add('derivation', `${name}: default_to_avoid "${a.pattern}" needs why_not`);
       if (!(why.references ?? []).some((r) => r.url || r.source)) add('derivation', `${name}: cite at least one lineage reference (references[].url or source)`);
       const steps = why.derivation ?? [];
@@ -126,7 +147,12 @@ if (existsSync(compDir)) for (const name of readdirSync(compDir).filter((n) => s
       }
       const v = why.variants ?? {};
       if (!(v.options?.length >= 3)) add('derivation', `${name}: render ≥3 variants derived differently (variants.options)`);
-      if (v.by !== 'user' || !v.picked) add('derivation', `${name}: the user picks the variant (variants.picked, variants.by = "user")`);
+      if (!v.picked) add('derivation', `${name}: name the picked variant (variants.picked)`);
+      if (v.by === 'agent') {
+        if (!AGENT_PICKS) add('derivation', `${name}: variants.by is "agent" but autonomy.picks is not "agent"; the user picks`);
+        if (String(v.reason ?? '').split(/\s+/).length < 12) add('derivation', `${name}: an agent pick needs variants.reason (why this one beats the others, from the principles)`);
+        if (!new RegExp(`\\b${name}\\b`).test(REVIEW)) add('derivation', `${name}: an agent pick needs its row in system/REVIEW.md so the user can review it`);
+      } else if (v.by !== 'user') add('derivation', `${name}: say who picked (variants.by = "user", or "agent" when autonomy.picks is "agent")`);
       if (v.lab && !existsSync(C.abs(v.lab))) add('derivation', `${name}: variants.lab ${v.lab} does not exist`);
     }
   }
@@ -143,6 +169,7 @@ if (process.argv.includes('--json')) console.log(JSON.stringify({ principles: [.
 else {
   for (const p of problems.slice(0, 60)) console.log(`✗ ${p.area.padEnd(10)} ${p.msg}`);
   for (const n of notices) console.log(`⚠ pending    ${n}`);
+  if (seeds) console.log(`⚠ seed       ${seeds} starter SEED reasons left${SEED_MODE ? ' (allowed while tokens.allowSeed is true; M1 needs none)' : ''}`);
   if (problems.length > 60) console.log(`  … ${problems.length - 60} more`);
   console.log(`${problems.length ? '✗' : '✓'} rationale: ${principles.size} principles · ${tokenCount} tokens (${by('tokens')} problems) · ${compCount} components (${by('components')} problems) · concept ${by('concept')} problems · derivation ${by('derivation')} problems${pending.size ? ` · ${pending.size} awaiting a derivation round` : ''}`);
 }
