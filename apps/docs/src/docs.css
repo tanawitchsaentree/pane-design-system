@@ -325,6 +325,11 @@ body { background: var(--ds-surface-page); color: var(--ds-text-primary); }
 .topbar { grid-column: 1 / -1; position: sticky; inset-block-start: 0; z-index: var(--ds-layer-sticky); display: flex; align-items: center; gap: var(--ds-gap-2xl); padding-inline: var(--ds-gap-2xl); block-size: var(--topbar); background: var(--ds-surface-page); border-block-end: var(--ds-width-hairline) solid var(--ds-line-divider); }
 .brand-link { display: flex; align-items: baseline; gap: var(--ds-gap-md); color: var(--ds-text-primary); text-decoration: none; }
 .brand { font-size: var(--ds-type-title); font-weight: var(--ds-type-weight-semibold); letter-spacing: var(--ds-type-tracking-display); }
+/* the logo mark sits on the text's centre line, so the row aligns by centre rather than baseline */
+.brand-link:has(.brand-mark) { align-items: center; }
+.brand-mark { inline-size: var(--ds-space-7); block-size: var(--ds-space-7); flex: none; }
+/* the mark is drawn in light greys for a dark page; on the light page it is darkened so it does not vanish */
+[data-theme='light'] .brand-mark { filter: brightness(0.3); }
 .brand-sub { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
 .topbar-title { display: none; }
 .topbar-tools { margin-inline-start: auto; display: flex; align-items: center; gap: var(--ds-gap-2xl); }
