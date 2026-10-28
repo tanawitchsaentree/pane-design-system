@@ -89,7 +89,7 @@ export function App() {
         <a className="skip" href="#main">Skip to content</a>
 
         <header className="topbar">
-          <Link to="/" className="brand-link"><span className="brand">Pane</span><span className="brand-sub">design system</span></Link>
+          <Link to="/" className="brand-link"><img className="brand-mark" src="/favicon.png" alt="" width="28" height="28" /><span className="brand">Pane</span><span className="brand-sub">design system</span></Link>
           <span className="topbar-title">{here?.title}</span>
           <div className="topbar-tools">
             <div className="seg" role="group" aria-label="Theme" data-theme-control="">
