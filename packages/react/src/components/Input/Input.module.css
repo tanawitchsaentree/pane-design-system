@@ -1,24 +1,23 @@
-/* A well in the pane (D-020): dimmed recess, inner shadow at the top edge, full pill. Reading pages
-   (no glass card around it) get the sunken page surface instead, per P7. */
+/* A groove cut into the glass (D-020, round 2, R-009): the floor is the surface dimmed, shade under the
+   top lip, light along the bottom lip; the edge measures 3:1 on glass and on pages in both themes. */
 .root {
   inline-size: 100%; min-inline-size: 0; margin: 0; border: 0;
   padding-inline: var(--ds-input-padding); border-radius: var(--ds-input-radius);
-  background: var(--ds-input-bg-page); color: var(--ds-input-fg);
-  box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring-page);
+  background: var(--ds-input-bg); color: var(--ds-input-fg);
+  box-shadow: var(--ds-input-groove);
   font-family: var(--ds-type-family); font-size: var(--ds-type-body); line-height: var(--ds-type-leading-tight);
   transition: box-shadow var(--ds-motion-hover) var(--ds-motion-easing);
 }
-:global([data-pane-card='glass']) .root { background: var(--ds-input-bg); box-shadow: var(--ds-input-inset), inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring); text-shadow: none; }
+:global([data-pane-card='glass']) .root { text-shadow: none; }
 .md { min-block-size: var(--ds-input-height-md); }
 .sm { min-block-size: var(--ds-input-height-sm); font-size: var(--ds-type-label); }
 .root::placeholder { color: var(--ds-input-placeholder); opacity: 1; }
-.root:hover:not(:disabled) { box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring-hover); }
-:global([data-pane-card='glass']) .root:hover:not(:disabled) { box-shadow: var(--ds-input-inset), inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring-hover); }
-.root[aria-invalid='true'], :global([data-pane-card='glass']) .root[aria-invalid='true'] { box-shadow: inset 0 0 0 var(--ds-width-ring) var(--ds-input-ring-invalid); }
+.root:hover:not(:disabled) { box-shadow: var(--ds-input-groove), inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring-hover); }
+.root[aria-invalid='true'] { box-shadow: var(--ds-input-groove), inset 0 0 0 var(--ds-width-ring) var(--ds-input-ring-invalid); }
 .root:focus-visible {
   outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
   outline-offset: var(--ds-focus-ring-width);
 }
 .root:disabled { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
-.root:read-only:not(:disabled) { background: transparent; box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring-page); }
+.root:read-only:not(:disabled) { background: transparent; box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring-readonly); }
 @media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid FieldText; } .root[aria-invalid='true'] { border-width: var(--ds-width-ring); } }

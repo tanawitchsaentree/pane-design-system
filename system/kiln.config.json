@@ -95,18 +95,7 @@
     "catalog": "../kiln/docs/CATALOG.md",
     "benchmark": "../kiln/marketplace/plugins/kiln/skills/docs-engine/benchmarks/carbon-depth.json",
     "rationale": {
-      "pendingDerivation": [
-        "Avatar",
-        "Badge",
-        "Button",
-        "Card",
-        "Chip",
-        "IconButton",
-        "Select",
-        "Slider",
-        "Tabs",
-        "Tag"
-      ],
+      "pendingDerivation": [],
       "$comment": "components built before references/derivation.md; each leaves this list only by going through a derivation round with a user pick. The list may only shrink."
     },
     "benchmarkTopics": {
@@ -123,6 +112,13 @@
       "/foundations/content": "content",
       "/foundations/accessibility": "accessibility"
     },
-    "topicsDir": "../kiln/marketplace/plugins/kiln/skills/docs-engine/benchmarks/topics"
+    "topicsDir": "../kiln/marketplace/plugins/kiln/skills/docs-engine/benchmarks/topics",
+    "history": [
+      "/reference/decisions"
+    ]
+  },
+  "autonomy": {
+    "picks": "agent",
+    "$comment": "2026-10-28: questions were asked once; the agent picks each derivation, logs it in system/REVIEW.md, the user reviews at the milestone"
   }
 }

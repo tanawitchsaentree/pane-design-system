@@ -1,27 +1,92 @@
 {
-  "concept": "A person is shown as a round object resting on the pane, lifted by a rim of light like the panes themselves.",
+  "concept": "An avatar is a portrait behind a lens. A rim of light runs along its top and shade gathers at its foot, and the large size rests on a soft shadow, so the face sits on the glass like a small object.",
   "parts": {
     "root": {
       "p": "P3",
-      "why": "the round frame with a light rim makes the face an object on the pane instead of a hole in it"
+      "axis": "shape",
+      "why": "a round portrait, the shape of something held"
     },
     "sm": {
       "p": "P6",
-      "why": "small size sits beside names in lists and posts, where the name already identifies the person"
+      "axis": "space",
+      "why": "30px for dense rows of people, such as a list of replies"
     },
     "md": {
       "p": "P6",
-      "why": "medium size is the 44px touch size, used when the avatar itself opens a profile"
+      "axis": "space",
+      "why": "44px for lists and headers, where the face has to be recognised"
     },
     "lg": {
       "p": "P3",
-      "why": "large size overlaps the cover by half its height so the person reads as in front of their own scene"
+      "axis": "depth",
+      "why": "84px on a profile, resting on a soft shadow"
     },
     "img": {
-      "p": "P1",
-      "why": "the photo fills the circle and covers it fully, so no frame colour competes with the face"
+      "p": "P3",
+      "axis": "shape",
+      "why": "the photo covers the circle edge to edge"
     }
   },
-  "states": {},
-  "motion": {}
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "forced colours drop the lens, so a real system-colour border keeps the shape"
+    }
+  },
+  "motion": {},
+  "default_to_avoid": [
+    {
+      "pattern": "a flat circle avatar crop with a white ring (every social app)",
+      "why_not": "the flat crop is a hole punched in the glass and the white ring is a sticker edge; neither says the portrait sits on the pane"
+    }
+  ],
+  "references": [
+    {
+      "title": "visionOS HIG · Materials",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/materials"
+    },
+    {
+      "title": "visionOS HIG · Images",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/images"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "a soft shadow below and a rim of light on the top-left edge say where the pane floats",
+      "form": "the portrait carries a rim of light at its top and the large size rests on a soft shadow"
+    },
+    {
+      "p": "P3",
+      "axis": "colour",
+      "consequence": "the rim and sheen are white at low opacity, like light catching an edge",
+      "form": "the rim is white at low opacity, never a solid white ring"
+    },
+    {
+      "p": "P1",
+      "axis": "depth",
+      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur), never from an opaque tint",
+      "form": "shade at the foot of the lens comes from dimming, not from a dark border"
+    },
+    {
+      "p": "P3",
+      "axis": "shape",
+      "consequence": "controls are full pills because they are held in the hand",
+      "form": "the portrait stays round, the shape of something held"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/round3/",
+    "section": "avatar",
+    "options": [
+      "A a lens",
+      "B rounded square",
+      "C set in a recess"
+    ],
+    "picked": "A a lens",
+    "by": "agent",
+    "reason": "A gives the portrait the pane's own light (P3 depth and colour) without adding a ring. B is a different shape language from the rest of Pane. C puts the face in a hole, which reads as a placeholder slot more than a person."
+  }
 }

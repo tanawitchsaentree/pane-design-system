@@ -8,7 +8,7 @@ export interface TagProps extends HTMLAttributes<HTMLSpanElement> {
   children?: React.ReactNode;
 }
 
-/** Outlined small-caps label — for categorising content (asset 05, trending), not for status. */
+/** An uppercase label etched into the glass, for categorising content (a place, a format, New), not for status. */
 export const Tag = forwardRef<HTMLSpanElement, TagProps>(function Tag({ className, ...rest }, ref) {
   return <span ref={ref} data-component="Tag" className={cx(styles.root, className)} {...rest} />;
 });

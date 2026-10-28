@@ -1,4 +1,9 @@
+/* A small round pane (round 3): Button's material at the size of a glyph, with gloss, the pane rim and a
+   glint under the pointer. Quiet, so it does not lift (P5); a press shrinks it (P4); the press area is
+   44px each way at both sizes (P6). */
 .root {
+  position: relative;
+  isolation: isolate;
   display: inline-grid;
   place-items: center;
   flex: none;
@@ -6,27 +11,56 @@
   border: 0;
   border-radius: var(--ds-icon-button-radius);
   cursor: pointer;
-  transition:
-    background-color var(--ds-motion-hover) var(--ds-motion-easing),
-    color var(--ds-motion-hover) var(--ds-motion-easing),
-    transform var(--ds-motion-hover) var(--ds-motion-easing);
+  transition: transform var(--ds-motion-hover) var(--ds-motion-easing), color var(--ds-motion-hover) var(--ds-motion-easing);
 }
-.root:hover { transform: translateY(calc(var(--ds-motion-lift) * -1)); }
-.ghost:hover { color: var(--ds-icon-button-fg); }
+/* the pane rim, brightest at the top left */
+.root::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  padding: var(--ds-width-hairline);
+  pointer-events: none;
+  background: linear-gradient(150deg, var(--ds-icon-button-rim-hi), var(--ds-icon-button-rim-lo) 38%, var(--ds-icon-button-rim-lo) 70%, var(--ds-icon-button-rim-mid));
+  /* mask keeps only the padding ring; the keyword is the mask alpha source, not a design colour */
+  -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+/* the glint, where the pointer is */
+.root::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(var(--ds-icon-button-hit) circle at var(--pane-gx, 50%) var(--pane-gy, 30%), var(--ds-icon-button-glint), transparent 70%);
+  transition: opacity var(--ds-motion-hover) var(--ds-motion-easing);
+}
+.root:hover::after { opacity: 1; }
 .root:active { transform: scale(var(--ds-motion-press-scale)); transition-duration: var(--ds-motion-press); }
+.hit { position: absolute; inset-inline-start: 50%; inset-block-start: 50%; inline-size: max(100%, var(--ds-icon-button-hit)); block-size: max(100%, var(--ds-icon-button-hit)); transform: translate(-50%, -50%); }
+:global([dir='rtl']) .hit { transform: translate(50%, -50%); }
 .md { inline-size: var(--ds-icon-button-size); block-size: var(--ds-icon-button-size); }
 .sm { inline-size: var(--ds-icon-button-size-sm); block-size: var(--ds-icon-button-size-sm); }
 .root > svg { inline-size: var(--ds-icon-button-icon); block-size: var(--ds-icon-button-icon); }
 .glass {
-  background: var(--ds-icon-button-glass-bg);
+  background: linear-gradient(180deg, var(--ds-icon-button-gloss), transparent 50%), var(--ds-icon-button-glass-bg);
   color: var(--ds-icon-button-fg);
   -webkit-backdrop-filter: blur(var(--ds-icon-button-blur));
   backdrop-filter: blur(var(--ds-icon-button-blur));
 }
+/* ghost: the glyph alone at rest, no rim; the glint still answers the pointer */
 .ghost { background: transparent; color: var(--ds-icon-button-ghost-fg); }
+.ghost::before { display: none; }
+.ghost:hover { color: var(--ds-icon-button-fg); }
 .root:focus-visible {
   outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
   outline-offset: var(--ds-focus-ring-width);
   box-shadow: 0 0 0 calc(var(--ds-focus-ring-width) * 2 + var(--ds-focus-ring-halo-width)) var(--ds-focus-ring-halo);
 }
-@media (forced-colors: active) { .root { border: var(--ds-focus-ring-width) solid ButtonText; } }
+.root:disabled { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
+@media (forced-colors: active) { .root { border: var(--ds-focus-ring-width) solid ButtonText; } .root::before, .root::after { display: none; } }

@@ -20,3 +20,11 @@
 - **ขอบเขต (สำคัญที่สุด):** เฉพาะตัวอักษรบน glass Card เหนือรูปพื้นหลังที่ระบบไม่ได้คุม และเฉพาะที่ ≥3.8:1 ห้ามอ้างกับปุ่มพื้นทึบ (light/accent), แท็บที่เลือก, focus ring, หรือ node ใดที่ต่ำกว่า 3.8:1 (นับเป็น fail ตามเดิม)
 - **ทางออกถ้าจะปิด:** (1) brightness 0.38 (ผ่านครบ แต่ทึบขึ้น) หรือ (2) Environment ที่ sample รูปพื้นหลังจริงตามตำแหน่งการ์ด แล้วหรี่เฉพาะการ์ดที่ทับจุดสว่าง (BACKLOG)
 - **วันที่ / ผู้อนุมัติ:** 2026-10-26 / agent ตามคำสั่ง user ให้กระจกบางลง รอ user ยืนยัน
+
+### E-002: Input `sm` สูง 32px ต่ำกว่า press area 44px ของ P6 OPEN
+- **ที่ไหน:** `Input` size `sm` (`packages/react/src/components/Input/Input.module.css` `.sm`, token `input.height-sm` = 32px) มี `data-touch-exempt` บน element เมื่อ size เป็น `sm`
+- **ค่าที่วัดได้ / เกณฑ์:** 32px vs 44px ของ P6 (G-TT1); ผ่าน WCAG 2.2 2.5.8 Target Size (Minimum) ที่ 24px
+- **เหตุผลที่ยอมรับ:** `<input>` วาด pseudo-element ไม่ได้ จึงขยาย press area แบบ Button, Select, Chip และ Tabs ไม่ได้ ถ้าจะให้ตัว element สูง 44px แต่เห็นร่องสูง 32px ต้องใช้ border ใสรอบช่อง ซึ่งทำให้ช่องไม่ตรงแนวกับ control อื่นและวง focus ไม่ตรงร่อง ขนาด sm มีไว้สำหรับแถบเครื่องมือบน desktop ที่ใช้เมาส์
+- **ขอบเขต (สำคัญที่สุด):** เฉพาะ Input `sm` เท่านั้น ห้ามอ้างกับ Input `md`, Textarea, PinInput หรือ control อื่น ทุกตัวนั้นต้องได้ 44px; บนจอสัมผัสให้ใช้ `md` (หนังสือเขียนไว้ในหน้า Input)
+- **ทางออกถ้าจะปิด:** ให้ FormField หรือ InputGroup ห่อ Input sm ด้วย label `[data-hit]` สูง 44px ที่ส่งการคลิกเข้า input หรือเลิกใช้ `sm`
+- **วันที่ / ผู้อนุมัติ:** 2026-10-28 / agent รอ user ยืนยันตอน milestone review

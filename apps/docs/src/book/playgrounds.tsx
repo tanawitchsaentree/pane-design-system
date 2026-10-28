@@ -305,3 +305,33 @@ export function ThemePlayground() {
     />
   );
 }
+
+// ---------- Content ----------
+export function LabelPlayground() {
+  const LABELS: Array<[string, string]> = [['verb', 'Follow'], ['verb-noun', 'Save changes'], ['sentence', 'Click here to save all of your changes']];
+  const [which, setWhich] = useState('verb-noun');
+  const text = LABELS.find(([k]) => k === which)?.[1] ?? '';
+  return (
+    <Playground
+      title="A button label"
+      controls={<Select label="Label" value={which} options={LABELS.map(([k, t]) => [k, t.length > 20 ? `${t.slice(0, 20)}…` : t])} onChange={setWhich} />}
+      preview={<Card as="div" className="demo-card"><Stack direction="row" gap="sm"><Button>{text}</Button></Stack><p className="flush muted">{text.split(/\s+/).length} words</p></Card>}
+      note={<p className="flush">A verb, or a verb and a noun, fits one pill and says what happens. A sentence describes the gesture and wraps.</p>}
+      code={`<Button>${text}</Button>`}
+    />
+  );
+}
+
+// ---------- Accessibility ----------
+export function FocusPlayground() {
+  const [ring, setRing] = useState<'on' | 'off'>('on');
+  return (
+    <Playground
+      title="Keyboard focus you can see"
+      controls={<Select label="Focus ring" value={ring} options={[['on', 'Drawn'], ['off', 'Removed']]} onChange={setRing} />}
+      preview={<Card as="div" className="demo-card"><Stack direction="row" gap="sm"><span className={ring === 'on' ? 'pg-focus on' : 'pg-focus'}>Focused button</span></Stack><p className="flush muted">{ring === 'on' ? 'A keyboard user can see where they are.' : 'A keyboard user is lost (fails WCAG 2.4.7).'}</p></Card>}
+      note={<p className="flush">The ring comes from the focus-ring tokens, a white ring with a dark halo, so it shows on every scene.</p>}
+      code={ring === 'on' ? ':focus-visible {\n  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);\n}' : '/* never: */\n:focus-visible { outline: none; }'}
+    />
+  );
+}

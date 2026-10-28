@@ -2,6 +2,10 @@
   "concept": "A field is its label, the control, then help and error, tied together for assistive tech.",
   "default_to_avoid": [
     {
+      "pattern": "a form field wrapper that stacks label, control and helper with fixed margins and a red asterisk for required (Bootstrap form-group, Material form field)",
+      "why_not": "the asterisk speaks only in colour and a symbol, and fixed margins ignore the pane padding that P3 sets"
+    },
+    {
       "pattern": "Material outlined text field with a floating label; filled blue square checkbox; iOS green switch (Material 3, Bootstrap, iOS Settings)",
       "why_not": "it draws a box on the glass, paints selection in colour the scene should own, moves the label out of its place, and was made for opaque pages rather than a pane floating over a photo"
     }

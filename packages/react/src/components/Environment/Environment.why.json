@@ -1,0 +1,19 @@
+{
+  "identity": false,
+  "identity_reason": "an environment draws nothing; it tells the glass inside it how bright the scene can get, or turns the glass solid, so there is no form to derive",
+  "concept": "An environment says how bright the scene behind its panes can get, so every pane inside picks the glass that measured legible over that scene, and an app whose backdrop changes every frame can ask for solid panes instead.",
+  "parts": {},
+  "states": {
+    "data-environment": {
+      "p": "P2",
+      "axis": "depth",
+      "why": "dim, mid and bright choose the glass tint and brightness that measured legible over scenes up to that brightness"
+    },
+    "data-material=solid": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "solid replaces glass with the opaque fallback and turns blur off, for live backdrops that would be blurred again every frame (D-021)"
+    }
+  },
+  "motion": {}
+}

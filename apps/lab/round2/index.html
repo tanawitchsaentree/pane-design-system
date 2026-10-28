@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Round 2 derivation · Button, Switch, Select flyout, Input · Pane</title>
+<link rel="stylesheet" href="../../../packages/tokens/build/css/tokens.css" />
+<style>
+  /* Lab only (R-007 to R-010). Each block: 0 is what shipped, A/B/C follow the derivation in the
+     component's why.json in different ways. Raw values are allowed here; the winner becomes tokens. */
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--ds-type-family); background: var(--ds-surface-page); color: var(--ds-text-primary); -webkit-font-smoothing: antialiased; }
+  header.lab { padding: 28px 40px 8px; max-width: 1560px; margin: 0 auto; }
+  header.lab h1 { margin: 0 0 6px; font-size: 26px; }
+  header.lab p { margin: 0 0 14px; color: var(--ds-text-secondary); max-width: 80ch; line-height: 1.55; }
+  .controls { display: flex; gap: 8px; flex-wrap: wrap; }
+  .controls button { font: inherit; font-size: 14px; padding: 6px 14px; border-radius: 999px; border: 0; background: var(--ds-surface-sunken); color: var(--ds-text-primary); cursor: pointer; }
+  .controls button[aria-pressed="true"] { background: var(--ds-surface-raised); box-shadow: inset 0 0 0 1px var(--ds-line-divider); font-weight: 650; }
+  main { display: flex; flex-direction: column; gap: 56px; padding: 20px 40px 80px; max-width: 1560px; margin: 0 auto; }
+  section > h2 { margin: 0 0 4px; font-size: 22px; } section > p { margin: 0 0 16px; color: var(--ds-text-secondary); max-width: 90ch; line-height: 1.5; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+  @media (max-width: 1200px) { .grid4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  figure { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  figcaption b { font-size: 15px; } figcaption p { margin: 3px 0 0; color: var(--ds-text-secondary); font-size: 13px; line-height: 1.5; }
+  .stage { padding: 28px 18px; border-radius: 22px; background: center / cover url(../../docs/public/scenes/forest.webp); display: grid; place-items: center; }
+  body[data-scene="city"] .stage { background-image: url(../../docs/public/scenes/city.webp); }
+  body[data-scene="night"] .stage { background-image: url(../../docs/public/scenes/night.webp); }
+  body[data-scene="room"] .stage { background-image: url(../../docs/public/scenes/room.webp); }
+  .page { padding: 22px 18px; border-radius: 16px; background: var(--ds-surface-page); box-shadow: inset 0 0 0 1px var(--ds-line-divider); display: flex; flex-direction: column; gap: 14px; }
+  .pane { position: relative; isolation: isolate; width: 100%; padding: 20px; border-radius: 32px; display: flex; flex-direction: column; gap: 14px;
+    background: linear-gradient(180deg, var(--ds-card-sheen-top), var(--ds-card-sheen-bottom) 40%), var(--ds-card-bg);
+    -webkit-backdrop-filter: blur(var(--ds-card-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-card-brightness));
+    backdrop-filter: blur(var(--ds-card-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-card-brightness));
+    box-shadow: var(--ds-card-shadow), inset 0 0 0 1px var(--ds-line-rim-mid); color: var(--ds-text-primary); text-shadow: var(--ds-card-text-halo); }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .tag { font-size: 11px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--ds-text-secondary); margin: 0; text-shadow: none; }
+  .meas { font: 12px/1.4 ui-monospace, monospace; color: var(--ds-text-secondary); min-height: 1.4em; text-shadow: none; }
+
+  /* ====================== BUTTON ====================== */
+  .b { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 22px; border: 0; border-radius: 999px; font: 600 16px/1.1 var(--ds-type-family); cursor: pointer; text-shadow: none;
+    transition: transform 420ms var(--ds-motion-easing), box-shadow 420ms var(--ds-motion-easing), background-color 420ms var(--ds-motion-easing); }
+  .b:active { transform: scale(.97); transition-duration: 200ms; }
+  .b.light { background: var(--ds-button-light-bg); color: var(--ds-button-light-fg); }
+  .b.accent { background: var(--ds-button-accent-bg); color: #fff; }
+  .b.glass { background: var(--ds-button-glass-bg); color: var(--ds-text-primary); }
+  .page .b.glass { background: var(--ds-surface-sunken); }
+
+  /* 0 · shipped: a flat pill with a grey drop shadow */
+  .bv0 .b.light, .bv0 .b.accent { box-shadow: var(--ds-button-shadow); }
+  .bv0 .b:hover { transform: translateY(-2px); }
+
+  /* A · lit sheet: the fill is a sheet with light on its top edge and a shade at its foot; the accent casts blue light on the pane */
+  .bvA .b.accent { background: linear-gradient(180deg, #0A78EA, #0067D4 55%, #0058B6); box-shadow: inset 0 1px 0 rgba(255,255,255,.4), inset 0 -1px 0 rgba(0,0,0,.22), 0 1px 2px rgba(0,30,80,.35), 0 10px 22px -8px rgba(0,113,227,.7); }
+  .bvA .b.light { background: linear-gradient(180deg, #fff, #ECEEF2); box-shadow: inset 0 -1px 0 rgba(17,18,20,.14), 0 1px 2px rgba(0,0,0,.25), 0 10px 22px -10px rgba(0,0,0,.5); }
+  [data-theme=light] .bvA .b.light { background: linear-gradient(180deg, #2A2C31, #111214); box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 1px 2px rgba(0,0,0,.3), 0 10px 22px -10px rgba(0,0,0,.45); }
+  .bvA .b.glass { box-shadow: inset 0 1px 0 rgba(255,255,255,.26), inset 0 0 0 1px rgba(255,255,255,.07); }
+  .bvA .b:hover { transform: translateY(-2px); }
+  .bvA .b.accent:hover { box-shadow: inset 0 1px 0 rgba(255,255,255,.4), inset 0 -1px 0 rgba(0,0,0,.22), 0 2px 4px rgba(0,30,80,.3), 0 16px 30px -10px rgba(0,113,227,.85); }
+
+  /* B · a small pane of coloured glass: A's sheet, plus the pane's own top-left rim of light, and a highlight
+     that follows the pointer the way visionOS lights what you look at; a press pushes it back toward the pane */
+  .bvB .b.accent { background: linear-gradient(180deg, rgba(255,255,255,.26), rgba(255,255,255,0) 46%), linear-gradient(180deg, #0870E0, #005FC8 55%, #004FA8); box-shadow: inset 0 -1px 0 rgba(0,0,0,.25), 0 1px 2px rgba(0,30,80,.4), 0 12px 26px -8px rgba(0,113,227,.8); }
+  .bvB .b.light { background: linear-gradient(180deg, #fff, #fff 40%, #E6E9EF); box-shadow: inset 0 -1px 0 rgba(17,18,20,.14), 0 1px 2px rgba(0,0,0,.25), 0 10px 22px -10px rgba(0,0,0,.5); }
+  [data-theme=light] .bvB .b.light { background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,0) 46%), linear-gradient(180deg, #24262B, #111214); box-shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 22px -10px rgba(0,0,0,.45); }
+  .bvB .b.glass { background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,0) 50%), var(--ds-button-glass-bg); box-shadow: 0 6px 14px -8px rgba(0,0,0,.35); }
+  .page .bvB .b.glass, .bvB .page .b.glass { background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,0) 50%), var(--ds-surface-sunken); }
+  .bvB .b::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none; z-index: 1;
+    background: linear-gradient(150deg, rgba(255,255,255,.75), rgba(255,255,255,.08) 38%, rgba(255,255,255,.04) 70%, rgba(255,255,255,.32));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+  .bvB .b.light::before { background: linear-gradient(150deg, rgba(255,255,255,1), rgba(17,18,20,.04) 40%, rgba(17,18,20,.10)); }
+  .bvB .b::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1; opacity: 0;
+    background: radial-gradient(90px circle at var(--gx, 50%) var(--gy, 0%), rgba(255,255,255,.2), transparent 70%);
+    transition: opacity 420ms var(--ds-motion-easing); }
+  .bvB .b.light::after { background: radial-gradient(90px circle at var(--gx, 50%) var(--gy, 0%), rgba(17,18,20,.07), transparent 70%); }
+  [data-theme=light] .bvB .b.light::after { background: radial-gradient(90px circle at var(--gx, 50%) var(--gy, 0%), rgba(255,255,255,.16), transparent 70%); }
+  .bvB .b:hover::after, .bvB .b.hov::after { opacity: 1; }
+  .bvB .b:hover, .bvB .b.hov { transform: translateY(-2px); }
+  .bvB .b.accent:hover, .bvB .b.accent.hov { box-shadow: inset 0 -1px 0 rgba(0,0,0,.2), 0 2px 4px rgba(0,30,80,.3), 0 16px 30px -10px rgba(0,113,227,.85); }
+  .bvB .b:active { transform: scale(.97); }
+  .bvB .b.accent:active { box-shadow: inset 0 -1px 0 rgba(0,0,0,.2), 0 1px 2px rgba(0,30,80,.35), 0 4px 10px -6px rgba(0,113,227,.6); }
+
+  /* C · tinted glass: the accent is a blue-tinted sheet the scene still shows through */
+  .bvC .b.accent { background: rgba(0,113,227,.58); -webkit-backdrop-filter: blur(20px) saturate(1.8); backdrop-filter: blur(20px) saturate(1.8); box-shadow: inset 0 0 0 1px rgba(160,205,255,.55), inset 0 1px 0 rgba(255,255,255,.5); }
+  .bvC .b.light { background: rgba(255,255,255,.86); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); box-shadow: inset 0 0 0 1px rgba(255,255,255,.9); }
+  [data-theme=light] .bvC .b.light { background: rgba(17,18,20,.86); color: #fff; }
+  .bvC .b.glass { -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); box-shadow: inset 0 0 0 1px rgba(255,255,255,.22); }
+  .bvC .b:hover { filter: brightness(1.12); }
+
+  /* ====================== SWITCH ====================== */
+  .sw-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; font-size: 15px; }
+  .sw { position: relative; flex: none; border: 0; padding: 0; cursor: pointer; width: 52px; height: 32px; border-radius: 999px; transition: background 420ms var(--ds-motion-easing), box-shadow 420ms var(--ds-motion-easing); }
+  .sw .k { position: absolute; top: 4px; left: 4px; width: 24px; height: 24px; border-radius: 999px; background: #fff; transition: transform 420ms var(--ds-motion-easing), width 200ms var(--ds-motion-easing), left 200ms var(--ds-motion-easing); }
+  .sw[aria-checked=true] .k { transform: translateX(20px); }
+  .sw .m { position: absolute; left: 12px; top: 0; bottom: 0; margin: auto; width: 2px; height: 12px; border-radius: 1px; background: #fff; opacity: 0; transition: opacity 420ms; }
+  .sw[aria-checked=true] .m { opacity: 1; }
+
+  /* 0 · shipped */
+  .sv0 .sw { background: var(--ds-switch-bg); box-shadow: var(--ds-switch-inset), inset 0 0 0 1px var(--ds-switch-ring); }
+  .sv0 .page .sw { background: var(--ds-switch-bg-page); box-shadow: inset 0 0 0 1px var(--ds-switch-ring); }
+  .sv0 .sw[aria-checked=true] { background: var(--ds-switch-on-bg); box-shadow: none; }
+  .sv0 .sw .k { box-shadow: var(--ds-switch-knob-shadow); }
+
+  /* A · carved well and a lit bead: the track is cut into the glass (shade under its top lip, light on its bottom lip),
+     the knob is a bead with a highlight where the light comes from; on, the recess fills with the one blue;
+     a press squashes the bead toward where it is going */
+  .svA .sw { background: rgba(0,0,0,.32); box-shadow: inset 0 2px 4px rgba(0,0,0,.55), inset 0 -1px 0 rgba(255,255,255,.34), inset 0 0 0 1px rgba(255,255,255,.12); }
+  .svA .sw[aria-checked=true] { background: linear-gradient(180deg, #005BBF, #0A7BF0); box-shadow: inset 0 2px 4px rgba(0,20,60,.55), inset 0 -1px 0 rgba(170,210,255,.5); }
+  .svA .sw .k { width: 26px; height: 26px; top: 3px; left: 3px; background: radial-gradient(circle at 36% 28%, #fff 0 32%, #E2E5EC 100%); box-shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 12px -4px rgba(0,0,0,.5); }
+  .svA .sw[aria-checked=true] .k { transform: translateX(20px); }
+  .svA .sw:active .k { width: 32px; } .svA .sw[aria-checked=true]:active .k { left: -3px; }
+  [data-theme=light] .svA .sw { background: rgba(17,18,20,.10); box-shadow: inset 0 2px 3px rgba(17,18,20,.32), inset 0 -1px 0 rgba(255,255,255,.95), inset 0 0 0 1px rgba(17,18,20,.42); }
+  [data-theme=light] .svA .sw[aria-checked=true] { background: linear-gradient(180deg, #005BBF, #0A7BF0); box-shadow: inset 0 2px 3px rgba(0,20,60,.45), inset 0 0 0 1px rgba(0,60,140,.5); }
+  .svA .page .sw { background: rgba(0,0,0,.40); }
+  [data-theme=light] .svA .page .sw { background: rgba(17,18,20,.10); }
+  [data-theme=light] .svA .page .sw[aria-checked=true], .svA .page .sw[aria-checked=true] { background: linear-gradient(180deg, #005BBF, #0A7BF0); }
+
+  /* B · lamp: A's well, and on is a lamp lit inside the recess, glowing a little onto the pane */
+  .svB .sw { background: rgba(0,0,0,.32); box-shadow: inset 0 2px 4px rgba(0,0,0,.55), inset 0 -1px 0 rgba(255,255,255,.34), inset 0 0 0 1px rgba(255,255,255,.12); }
+  .svB .sw[aria-checked=true] { background: radial-gradient(60px 30px at 35% 50%, #3D9BFF, #0068D6 70%); box-shadow: inset 0 2px 4px rgba(0,20,60,.45), inset 0 0 0 1px rgba(120,185,255,.7), 0 0 18px -2px rgba(0,113,227,.85); }
+  .svB .sw .k { width: 26px; height: 26px; top: 3px; left: 3px; background: radial-gradient(circle at 36% 28%, #fff 0 32%, #E2E5EC 100%); box-shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 12px -4px rgba(0,0,0,.5); }
+  .svB .sw[aria-checked=true] .k { transform: translateX(20px); box-shadow: -3px 0 8px rgba(0,113,227,.55), 0 1px 2px rgba(0,0,0,.4); }
+  .svB .sw .m { width: 6px; height: 6px; border-radius: 50%; left: 11px; background: #fff; box-shadow: 0 0 6px #fff; }
+  [data-theme=light] .svB .sw { background: rgba(17,18,20,.10); box-shadow: inset 0 2px 3px rgba(17,18,20,.32), inset 0 -1px 0 rgba(255,255,255,.95), inset 0 0 0 1px rgba(17,18,20,.42); }
+  .svB .page .sw { background: rgba(0,0,0,.40); }
+  [data-theme=light] .svB .page .sw { background: rgba(17,18,20,.10); }
+
+  /* C · capsule in a slot: a held capsule (pill, P3) instead of a disc, carrying the mark inside it */
+  .svC .sw { width: 60px; height: 32px; background: rgba(0,0,0,.32); box-shadow: inset 0 2px 4px rgba(0,0,0,.55), inset 0 -1px 0 rgba(255,255,255,.34), inset 0 0 0 1px rgba(255,255,255,.12); }
+  .svC .sw[aria-checked=true] { background: linear-gradient(180deg, #005BBF, #0A7BF0); }
+  .svC .sw .k { width: 34px; height: 24px; background: linear-gradient(180deg, #fff, #E6E8EE); box-shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 12px -4px rgba(0,0,0,.5), inset 0 -1px 0 rgba(0,0,0,.08); }
+  .svC .sw[aria-checked=true] .k { transform: translateX(18px); }
+  .svC .sw .k::after { content: ''; position: absolute; inset: 0; margin: auto; width: 10px; height: 2px; border-radius: 1px; background: rgba(17,18,20,.35); transition: background 420ms, width 420ms; }
+  .svC .sw[aria-checked=true] .k::after { background: #0071E3; width: 12px; height: 4px; }
+  .svC .sw .m { display: none; }
+  [data-theme=light] .svC .sw { background: rgba(17,18,20,.10); box-shadow: inset 0 2px 3px rgba(17,18,20,.32), inset 0 -1px 0 rgba(255,255,255,.95), inset 0 0 0 1px rgba(17,18,20,.42); }
+  [data-theme=light] .svC .sw[aria-checked=true] { background: linear-gradient(180deg, #005BBF, #0A7BF0); }
+  .svC .page .sw { background: rgba(0,0,0,.40); }
+  [data-theme=light] .svC .page .sw { background: rgba(17,18,20,.10); }
+
+  /* ====================== SELECT FLYOUT ====================== */
+  .menu { width: 100%; background: var(--ds-select-menu-bg); color: var(--ds-text-primary); text-shadow: none; box-shadow: var(--ds-select-menu-shadow), inset 0 0 0 1px var(--ds-select-menu-ring); font-size: 15px; }
+  .menu .it { display: flex; align-items: center; gap: 10px; position: relative; }
+  .menu .it svg { width: 16px; height: 16px; flex: none; }
+  .menu .it.sel { font-weight: 600; }
+  .menu .it .ck { visibility: hidden; color: var(--ds-select-item-check); } .menu .it.sel .ck { visibility: visible; }
+  [data-theme=light] .menu .it .ck { color: #0062C4; }
+  /* 0 · shipped: 24px corner, 4px inset, 18px row corner on 32px rows (pills that do not follow the corner) */
+  .fv0 .menu { border-radius: 24px; padding: 4px; } .fv0 .menu .it { min-height: 32px; padding: 0 12px 0 14px; border-radius: 18px; justify-content: space-between; }
+  .fv0 .menu .it.hi { background: var(--ds-select-item-hover); } .fv0 .menu .it .ck { order: 2; }
+  /* A · concentric inset: 20px corner, 6px inset on every side, rows 40px with a 14px corner (20 − 6) */
+  .fvA .menu { border-radius: 20px; padding: 6px; } .fvA .menu .it { min-height: 40px; padding: 0 12px 0 14px; border-radius: 14px; justify-content: space-between; }
+  .fvA .menu .it.hi { background: rgba(255,255,255,.10); } [data-theme=light] .fvA .menu .it.hi { background: rgba(17,18,20,.07); } .fvA .menu .it .ck { order: 2; }
+  /* B · concentric lens: as A, and the highlighted row is a lens of glass (rim on its top edge, a soft glow under
+     the pointer); the check leads the row, so the selected value is the first thing read, as in visionOS menus */
+  .fvB .menu { border-radius: 22px; padding: 6px; } .fvB .menu .it { min-height: 40px; padding: 0 14px 0 10px; border-radius: 16px; }
+  .fvB .menu .it.hi { background: radial-gradient(120px 60px at var(--gx, 40%) 50%, rgba(255,255,255,.13), rgba(255,255,255,.07)); box-shadow: inset 0 1px 0 rgba(255,255,255,.16), inset 0 0 0 1px rgba(255,255,255,.05); }
+  [data-theme=light] .fvB .menu .it.hi { background: radial-gradient(120px 60px at var(--gx, 40%) 50%, rgba(17,18,20,.09), rgba(17,18,20,.05)); box-shadow: inset 0 0 0 1px rgba(17,18,20,.05); }
+  /* C · full-bleed rows: no inset, the corner clips the first and last row, hairlines between rows */
+  .fvC .menu { border-radius: 20px; padding: 0; overflow: hidden; } .fvC .menu .it { min-height: 44px; padding: 0 16px; justify-content: space-between; box-shadow: 0 1px 0 var(--ds-line-divider); }
+  .fvC .menu .it:last-child { box-shadow: none; } .fvC .menu .it.hi { background: rgba(255,255,255,.08); } [data-theme=light] .fvC .menu .it.hi { background: rgba(17,18,20,.06); } .fvC .menu .it .ck { order: 2; }
+
+  /* ====================== INPUT (search field, text field, closed select) ====================== */
+  .fld { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 44px; padding: 0 14px; border-radius: 999px; font-size: 15px; color: var(--ds-text-primary); text-shadow: none; }
+  .fld svg { width: 18px; height: 18px; flex: none; opacity: .8; } .fld .ph { color: var(--ds-input-placeholder); flex: 1; } .fld .val { flex: 1; }
+  .lbl { font-size: 14px; font-weight: 600; margin-bottom: -6px; }
+  /* 0 · shipped */
+  .iv0 .pane .fld { background: var(--ds-input-bg); box-shadow: var(--ds-input-inset), inset 0 0 0 1px var(--ds-input-ring); }
+  .iv0 .page .fld { background: var(--ds-input-bg-page); box-shadow: inset 0 0 0 1px var(--ds-input-ring-page); }
+  /* A · deeper well with a ring: shade under the top lip and a full ring at 3:1 */
+  .ivA .pane .fld { background: rgba(0,0,0,.30); box-shadow: inset 0 2px 3px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.42); }
+  .ivA .page .fld { background: #1F1F25; box-shadow: inset 0 2px 3px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.40); }
+  [data-theme=light] .ivA .pane .fld { background: rgba(17,18,20,.05); box-shadow: inset 0 2px 3px rgba(17,18,20,.16), inset 0 0 0 1px rgba(17,18,20,.50); }
+  [data-theme=light] .ivA .page .fld { background: #F4F4F7; box-shadow: inset 0 2px 3px rgba(17,18,20,.14), inset 0 0 0 1px rgba(17,18,20,.50); }
+  /* B · carved lip: the recess is read from its two lips, shade under the top one and light on the bottom one,
+     as a groove cut in glass catches light; the bottom lip carries the 3:1 edge */
+  .ivB .pane .fld { background: rgba(0,0,0,.30); box-shadow: inset 0 2px 4px rgba(0,0,0,.55), inset 0 -1.5px 0 rgba(255,255,255,.62), inset 0 0 0 1px rgba(255,255,255,.10); }
+  .ivB .page .fld { background: #1A1A20; box-shadow: inset 0 2px 4px rgba(0,0,0,.6), inset 0 -1.5px 0 rgba(255,255,255,.55), inset 0 0 0 1px rgba(255,255,255,.10); }
+  [data-theme=light] .ivB .pane .fld { background: rgba(17,18,20,.07); box-shadow: inset 0 2px 4px rgba(17,18,20,.30), inset 0 -1.5px 0 #fff, inset 0 0 0 1px rgba(17,18,20,.46); }
+  [data-theme=light] .ivB .page .fld { background: #EEEEF2; box-shadow: inset 0 2px 4px rgba(17,18,20,.26), inset 0 -1.5px 0 #fff, inset 0 0 0 1px rgba(17,18,20,.46); }
+  /* C · a ring and nothing else: transparent field with a 3:1 hairline (the ordinary outlined field) */
+  .ivC .fld { background: transparent; box-shadow: inset 0 0 0 1px rgba(255,255,255,.55); }
+  [data-theme=light] .ivC .fld { box-shadow: inset 0 0 0 1px rgba(17,18,20,.55); }
+</style>
+</head>
+<body data-scene="forest">
+<header class="lab">
+  <h1>Round 2 · Button, Switch, Select flyout, Input</h1>
+  <p>Each block shows what shipped (0) and three derivations (A, B, C) with the same content, on glass over a scene and on a reading page. The line under each cell is the measured edge or text contrast.</p>
+  <div class="controls" id="ctl">
+    <button data-theme-set="dark" aria-pressed="true">Dark</button><button data-theme-set="light" aria-pressed="false">Light</button>
+    <button data-scene-set="forest" aria-pressed="true">Forest</button><button data-scene-set="city" aria-pressed="false">City</button><button data-scene-set="night" aria-pressed="false">Night</button><button data-scene-set="room" aria-pressed="false">Room</button>
+  </div>
+</header>
+<main>
+  <section id="button"><h2>Button</h2><p>R-010: the accent was a flat blue pill. Default to avoid: the Bootstrap/Material filled rounded button with a grey drop shadow.</p><div class="grid4" data-tpl="button"></div></section>
+  <section id="switch"><h2>Switch</h2><p>R-007: a thin well with a white disc, the iOS toggle with Pane's colours. Default to avoid: the iOS/Material toggle.</p><div class="grid4" data-tpl="switch"></div></section>
+  <section id="flyout"><h2>Select flyout</h2><p>R-008: the highlighted row's corner did not follow the flyout's. Default to avoid: the Radix/Material dropdown with pill rows on a padded card.</p><div class="grid4" data-tpl="flyout"></div></section>
+  <section id="input"><h2>Input and closed Select</h2><p>R-009: in the light theme the search field vanished into a white surface. Default to avoid: the borderless grey filled field (Material filled, iOS search bar).</p><div class="grid4" data-tpl="input"></div></section>
+</main>
+<script>
+const CAP = {
+  button: { v0: ['0 · shipped', 'Flat pill, grey drop shadow, a 2px lift on hover.'], vA: ['A · lit sheet', 'Light on the top edge, shade at the foot, the accent casts blue light on the pane.'], vB: ['B · a small pane of coloured glass', 'A’s sheet with the pane’s own top-left rim, a highlight that follows the pointer, a press that pushes it back.'], vC: ['C · tinted glass', 'The accent is blue-tinted glass the scene shows through.'] },
+  switch: { v0: ['0 · shipped', 'Thin well, white disc, blue when on.'], vA: ['A · carved well, lit bead', 'Track cut into the glass, a bead with its own highlight; on fills the recess with blue; a press squashes the bead.'], vB: ['B · lamp', 'A’s well; on is a lamp lit inside the recess that glows onto the pane.'], vC: ['C · capsule in a slot', 'A held capsule instead of a disc, carrying the on mark inside it.'] },
+  flyout: { v0: ['0 · shipped', '24px corner, 4px inset, 18px row corner on 32px rows.'], vA: ['A · concentric inset', '20px corner, 6px inset on every side, rows 40px with a 14px corner.'], vB: ['B · concentric lens', '22px corner, 6px inset, 16px row corner; the highlighted row is a lens of glass and the check leads.'], vC: ['C · full-bleed rows', 'No inset; the corner clips the first and last rows; hairlines between rows.'] },
+  input: { v0: ['0 · shipped', 'Dimmed well with a faint ring.'], vA: ['A · deeper well, ringed', 'Shade under the top lip and a ring at 3:1 all round.'], vB: ['B · carved lip', 'Shade under the top lip, light on the bottom lip, a fainter ring; read as a groove in glass.'], vC: ['C · ring only', 'A transparent field with a 3:1 hairline.'] },
+};
+const ICON = { search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>', chev: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>', check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>' };
+const BODY = {
+  button: (s) => `<p class="tag">${s}</p><div class="row"><button class="b accent">Get verified</button><button class="b glass">Not now</button></div><div class="row"><button class="b light">Follow</button><button class="b glass">Message</button></div><div class="meas"></div>`,
+  switch: (s) => `<p class="tag">${s}</p><div class="sw-row">Wi-Fi<button class="sw" role="switch" aria-checked="true"><span class="m"></span><span class="k"></span></button></div><div class="sw-row">Low Power Mode<button class="sw" role="switch" aria-checked="false"><span class="m"></span><span class="k"></span></button></div><div class="meas"></div>`,
+  flyout: (s) => `<p class="tag">${s}</p><div class="menu" role="listbox">${['Everyone', 'People you follow', 'Contacts only', 'Nobody'].map((t, i) => `<div class="it${i === 1 ? ' hi' : ''}${i === 2 ? ' sel' : ''}" role="option"><span class="ck">${ICON.check}</span><span>${t}</span></div>`).join('')}</div><div class="meas"></div>`,
+  input: (s) => `<p class="tag">${s}</p><div class="fld">${ICON.search}<span class="ph">Search places</span></div><span class="lbl">Who can message you</span><div class="fld"><span class="val">People you follow</span>${ICON.chev}</div><div class="meas"></div>`,
+};
+const pre = { button: 'bv', switch: 'sv', flyout: 'fv', input: 'iv' };
+for (const host of document.querySelectorAll('[data-tpl]')) {
+  const k = host.dataset.tpl;
+  host.innerHTML = ['v0', 'vA', 'vB', 'vC'].map((v) => `<figure class="${pre[k]}${v.slice(1)}"><figcaption><b>${CAP[k][v][0]}</b><p>${CAP[k][v][1]}</p></figcaption><div class="stage"><div class="pane">${BODY[k]('on glass')}</div></div><div class="page">${BODY[k]('on a reading page')}</div></figure>`).join('');
+}
+document.addEventListener('click', (e) => { const s = e.target.closest('.sw'); if (s) s.setAttribute('aria-checked', s.getAttribute('aria-checked') !== 'true'); });
+// gaze highlight: the light follows the pointer (visionOS lights what you look at)
+document.addEventListener('pointermove', (e) => { const b = e.target.closest('.b, .it'); if (!b) return; const r = b.getBoundingClientRect(); b.style.setProperty('--gx', `${e.clientX - r.left}px`); b.style.setProperty('--gy', `${e.clientY - r.top}px`); });
+for (const b of document.querySelectorAll('[data-theme-set], [data-scene-set]')) b.addEventListener('click', () => {
+  const t = b.dataset.themeSet, s = b.dataset.sceneSet;
+  if (t) document.documentElement.dataset.theme = t; if (s) document.body.dataset.scene = s;
+  for (const o of document.querySelectorAll(t ? '[data-theme-set]' : '[data-scene-set]')) o.setAttribute('aria-pressed', o === b);
+  measure();
+});
+// measured contrast: worst text over its fill (buttons), best edge over the surface behind (controls)
+const parse = (c) => { const m = c.match(/rgba?\(([^)]+)\)/); if (!m) return null; const [r, g, b, a = 1] = m[1].split(/[ ,/]+/).filter(Boolean).map(Number); return { r, g, b, a }; };
+const lum = ({ r, g, b }) => [r, g, b].map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }).reduce((s, v, i) => s + v * [0.2126, 0.7152, 0.0722][i], 0);
+const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
+const over = (c, g) => ({ r: c.r * c.a + g.r * (1 - c.a), g: c.g * c.a + g.g * (1 - c.a), b: c.b * c.a + g.b * (1 - c.a), a: 1 });
+function measure() {
+  requestAnimationFrame(() => {
+    for (const fig of document.querySelectorAll('figure')) for (const box of fig.querySelectorAll('.pane, .page')) {
+      const glass = box.classList.contains('pane'); const dark = document.documentElement.dataset.theme !== 'light';
+      // the glass ground is the scene dimmed to brightness 0.42 (dark) or lifted to 1.12 under 62% white (light): use mid grey scene values
+      const ground = glass ? (dark ? { r: 42, g: 46, b: 44, a: 1 } : { r: 236, g: 238, b: 236, a: 1 }) : parse(getComputedStyle(box).backgroundColor);
+      const out = [];
+      for (const el of box.querySelectorAll('.sw, .fld')) {
+        const cs = getComputedStyle(el); let best = 0; const fill = parse(cs.backgroundColor); if (fill && fill.a) best = ratio(over(fill, ground), ground);
+        for (const m of cs.boxShadow.matchAll(/rgba?\([^)]+\)/g)) { const c = parse(m[0]); if (c && c.a) best = Math.max(best, ratio(over(c, ground), ground)); }
+        out.push(best.toFixed(1));
+      }
+      const m = box.querySelector('.meas'); if (m) m.textContent = out.length ? `edge ${out.join(' · ')} :1 (needs 3)` : '';
+    }
+  });
+}
+measure();
+</script>
+</body>
+</html>

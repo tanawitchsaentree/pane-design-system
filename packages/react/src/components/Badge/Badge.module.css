@@ -1,22 +1,21 @@
+/* A status written on the glass (round 3, Badge A, Banner's language from D-018): no fill; each tone has
+   its own glyph shape in its mark colour, and the word is in the text colour (P1, P6). */
 .root {
   display: inline-flex;
   align-items: center;
   gap: var(--ds-gap-sm);
   min-block-size: var(--ds-badge-height);
-  padding-inline: var(--ds-badge-padding-inline);
-  border-radius: var(--ds-badge-radius);
+  color: var(--ds-badge-fg);
   font-family: var(--ds-type-family);
   font-size: var(--ds-type-caption);
   font-weight: var(--ds-type-weight-semibold);
   line-height: var(--ds-type-leading-tight);
   white-space: nowrap;
-  text-shadow: none;
 }
-.dot { inline-size: var(--ds-badge-dot); block-size: var(--ds-badge-dot); border-radius: var(--ds-badge-radius); background: currentColor; }
-.neutral { background: var(--ds-badge-neutral-bg); color: var(--ds-badge-neutral-fg); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-badge-neutral-ring); text-shadow: var(--ds-card-text-halo); }
-.info { background: var(--ds-badge-info-bg); color: var(--ds-badge-info-fg); }
-.positive { background: var(--ds-badge-positive-bg); color: var(--ds-badge-positive-fg); }
-.warning { background: var(--ds-badge-warning-bg); color: var(--ds-badge-warning-fg); }
-.critical { background: var(--ds-badge-critical-bg); color: var(--ds-badge-critical-fg); }
-@media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid CanvasText; } }
-@media (forced-colors: active) { .dot { forced-color-adjust: none; background: CanvasText; } }
+.glyph { inline-size: var(--ds-badge-glyph); block-size: var(--ds-badge-glyph); flex: none; fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.dot { inline-size: var(--ds-badge-dot); block-size: var(--ds-badge-dot); border-radius: var(--ds-badge-radius); background: var(--ds-badge-neutral-mark); }
+.info .glyph { color: var(--ds-badge-info-mark); }
+.positive .glyph { color: var(--ds-badge-positive-mark); }
+.warning .glyph { color: var(--ds-badge-warning-mark); }
+.critical .glyph { color: var(--ds-badge-critical-mark); }
+@media (forced-colors: active) { .glyph { stroke: CanvasText; } .dot { forced-color-adjust: none; background: CanvasText; } }

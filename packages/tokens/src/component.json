@@ -104,14 +104,6 @@
       "$type": "dimension",
       "$value": "{control.avatar-lg}"
     },
-    "ring": {
-      "$type": "color",
-      "$value": "{line.rim-hi}"
-    },
-    "ring-width": {
-      "$type": "dimension",
-      "$value": "{width.avatar-ring}"
-    },
     "fallback-bg": {
       "$type": "color",
       "$value": "{surface.light}"
@@ -127,8 +119,16 @@
     "$extensions": {
       "kiln.why": {
         "p": "P3",
-        "why": "a person shown as a round object with a light rim so the face reads as lifted off the pane, at three sizes from the anchor card"
+        "why": "a portrait behind a lens with the pane rim and a soft shadow under the large size; initials on the loud solid when there is no photo"
       }
+    },
+    "lens": {
+      "$type": "shadow",
+      "$value": "{elevation.portrait}"
+    },
+    "cast": {
+      "$type": "shadow",
+      "$value": "{elevation.cast}"
     }
   },
   "button": {
@@ -190,9 +190,84 @@
     },
     "$extensions": {
       "kiln.why": {
-        "p": "P5",
-        "why": "three button roles, the loud solid, the blue promoted fill and the quiet glass fill, all full pills so the one main action is unmistakable; md is 44px for touch and sm is 32px for dense rows"
+        "p": [
+          "P3",
+          "P5"
+        ],
+        "why": "a button is a small pane, a sheet lit at its top and shaded at its foot, with the pane rim, a glint under the pointer and a shadow that is blue under the accent; loud, accent and quiet roles, all full pills"
       }
+    },
+    "accent-mid": {
+      "$type": "color",
+      "$value": "{action.accent-hover}"
+    },
+    "accent-foot": {
+      "$type": "color",
+      "$value": "{action.accent-foot}"
+    },
+    "gloss": {
+      "$type": "color",
+      "$value": "{action.gloss}"
+    },
+    "gloss-quiet": {
+      "$type": "color",
+      "$value": "{action.gloss-quiet}"
+    },
+    "gloss-solid": {
+      "$type": "color",
+      "$value": "{action.gloss-solid}"
+    },
+    "light-top": {
+      "$type": "color",
+      "$value": "{action.solid-top}"
+    },
+    "light-foot": {
+      "$type": "color",
+      "$value": "{action.foot-solid}"
+    },
+    "glint": {
+      "$type": "color",
+      "$value": "{action.glint}"
+    },
+    "glint-solid": {
+      "$type": "color",
+      "$value": "{action.glint-solid}"
+    },
+    "rim-hi": {
+      "$type": "color",
+      "$value": "{line.rim-hi}"
+    },
+    "rim-mid": {
+      "$type": "color",
+      "$value": "{line.rim-mid}"
+    },
+    "rim-lo": {
+      "$type": "color",
+      "$value": "{line.rim-lo}"
+    },
+    "cast": {
+      "$type": "shadow",
+      "$value": "{elevation.cast}"
+    },
+    "cast-press": {
+      "$type": "shadow",
+      "$value": "{elevation.cast-press}"
+    },
+    "accent-cast": {
+      "$type": "shadow",
+      "$value": "{elevation.cast-accent}"
+    },
+    "accent-cast-hover": {
+      "$type": "shadow",
+      "$value": "{elevation.cast-accent-hover}"
+    },
+    "accent-cast-press": {
+      "$type": "shadow",
+      "$value": "{elevation.cast-accent-press}"
+    },
+    "hit": {
+      "$type": "dimension",
+      "$value": "{layout.touch}"
     }
   },
   "icon-button": {
@@ -231,11 +306,35 @@
     "$extensions": {
       "kiln.why": {
         "p": [
-          "P6",
-          "P5"
+          "P3",
+          "P6"
         ],
-        "why": "an icon-only control gets the same 44px target and quiet glass disc as secondary buttons, because it is never the loud action and must still be easy to hit"
+        "why": "a small round pane with Button material (gloss, rim, pointer glint) and a 44px hit area around the small size"
       }
+    },
+    "hit": {
+      "$type": "dimension",
+      "$value": "{layout.touch}"
+    },
+    "gloss": {
+      "$type": "color",
+      "$value": "{action.gloss-quiet}"
+    },
+    "glint": {
+      "$type": "color",
+      "$value": "{action.glint}"
+    },
+    "rim-hi": {
+      "$type": "color",
+      "$value": "{line.rim-hi}"
+    },
+    "rim-mid": {
+      "$type": "color",
+      "$value": "{line.rim-mid}"
+    },
+    "rim-lo": {
+      "$type": "color",
+      "$value": "{line.rim-lo}"
     }
   },
   "tabs": {
@@ -255,10 +354,6 @@
       "$type": "color",
       "$value": "{text.primary}"
     },
-    "ring": {
-      "$type": "color",
-      "$value": "{line.ring}"
-    },
     "on-bg": {
       "$type": "color",
       "$value": "{action.accent}"
@@ -273,17 +368,52 @@
     },
     "$extensions": {
       "kiln.why": {
-        "p": "P6",
-        "why": "tab pills change from a ring to a solid blue fill when selected, so selection is shown by shape as well as colour; they are 32px tall, below the 44px touch size"
+        "p": [
+          "P1",
+          "P3"
+        ],
+        "why": "a carved track holding the choices, the chosen tab the blue accent sheet resting in it (D-009 keeps the blue), with a 44px hit area on each tab"
       }
+    },
+    "hit": {
+      "$type": "dimension",
+      "$value": "{layout.touch}"
+    },
+    "track-bg": {
+      "$type": "color",
+      "$value": "{surface.carve}"
+    },
+    "carve": {
+      "$type": "shadow",
+      "$value": "{elevation.carve}"
+    },
+    "inset": {
+      "$type": "dimension",
+      "$value": "{gap.xs}"
+    },
+    "on-mid": {
+      "$type": "color",
+      "$value": "{action.accent-hover}"
+    },
+    "on-foot": {
+      "$type": "color",
+      "$value": "{action.accent-foot}"
+    },
+    "gloss": {
+      "$type": "color",
+      "$value": "{action.gloss}"
+    },
+    "on-cast": {
+      "$type": "shadow",
+      "$value": "{elevation.cast-accent-press}"
+    },
+    "off-fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
     }
   },
   "tag": {
     "fg": {
-      "$type": "color",
-      "$value": "{text.primary}"
-    },
-    "ring": {
       "$type": "color",
       "$value": "{text.primary}"
     },
@@ -301,9 +431,17 @@
     },
     "$extensions": {
       "kiln.why": {
-        "p": "P1",
-        "why": "a label drawn as an outline only; a pane already has its one loud thing, and a tag adds a mark but never a second fill"
+        "p": "P3",
+        "why": "a label etched into the glass, so it cannot be mistaken for a button; uppercase micro type in the text colour"
       }
+    },
+    "bg": {
+      "$type": "color",
+      "$value": "{surface.carve}"
+    },
+    "etch": {
+      "$type": "shadow",
+      "$value": "{elevation.etch}"
     }
   },
   "focus-ring": {
@@ -411,50 +549,6 @@
     }
   },
   "badge": {
-    "positive-bg": {
-      "$type": "color",
-      "$value": "{status.positive}"
-    },
-    "warning-bg": {
-      "$type": "color",
-      "$value": "{status.warning}"
-    },
-    "critical-bg": {
-      "$type": "color",
-      "$value": "{status.critical}"
-    },
-    "info-bg": {
-      "$type": "color",
-      "$value": "{status.info}"
-    },
-    "positive-fg": {
-      "$type": "color",
-      "$value": "{status.on-positive}"
-    },
-    "warning-fg": {
-      "$type": "color",
-      "$value": "{status.on-warning}"
-    },
-    "critical-fg": {
-      "$type": "color",
-      "$value": "{status.on-critical}"
-    },
-    "info-fg": {
-      "$type": "color",
-      "$value": "{status.on-info}"
-    },
-    "neutral-bg": {
-      "$type": "color",
-      "$value": "{surface.quiet}"
-    },
-    "neutral-fg": {
-      "$type": "color",
-      "$value": "{text.primary}"
-    },
-    "neutral-ring": {
-      "$type": "color",
-      "$value": "{line.ring}"
-    },
     "height": {
       "$type": "dimension",
       "$value": "{control.badge}"
@@ -473,9 +567,40 @@
     },
     "$extensions": {
       "kiln.why": {
-        "p": "P6",
-        "why": "status badges pair each status fill with its computed text colour and an optional dot, and always carry the status as words"
+        "p": [
+          "P1",
+          "P6"
+        ],
+        "why": "a status written on the glass, a glyph shape per tone in its mark colour and the word in the text colour, with no fill"
       }
+    },
+    "fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "neutral-mark": {
+      "$type": "color",
+      "$value": "{text.secondary}"
+    },
+    "info-mark": {
+      "$type": "color",
+      "$value": "{status.info-mark}"
+    },
+    "positive-mark": {
+      "$type": "color",
+      "$value": "{status.positive-mark}"
+    },
+    "warning-mark": {
+      "$type": "color",
+      "$value": "{status.warning-mark}"
+    },
+    "critical-mark": {
+      "$type": "color",
+      "$value": "{status.critical-mark}"
+    },
+    "glyph": {
+      "$type": "dimension",
+      "$value": "{control.icon-sm}"
     }
   },
   "chip": {
@@ -487,17 +612,13 @@
       "$type": "color",
       "$value": "{text.primary}"
     },
-    "ring": {
-      "$type": "color",
-      "$value": "{line.ring}"
-    },
     "on-bg": {
       "$type": "color",
-      "$value": "{surface.light}"
+      "$value": "{surface.carve}"
     },
     "on-fg": {
       "$type": "color",
-      "$value": "{text.on-light}"
+      "$value": "{text.primary}"
     },
     "height": {
       "$type": "dimension",
@@ -521,9 +642,36 @@
     },
     "$extensions": {
       "kiln.why": {
-        "p": "P6",
-        "why": "chips are pressable pills; selected chips flip to the loud solid and gain a check mark, so the state is not shown by colour alone"
+        "p": [
+          "P5",
+          "P4"
+        ],
+        "why": "a small glass pane to press; chosen is pressed into a carved recess with a check, so chosen chips add no loud marks"
       }
+    },
+    "hit": {
+      "$type": "dimension",
+      "$value": "{layout.touch}"
+    },
+    "gloss": {
+      "$type": "color",
+      "$value": "{action.gloss-quiet}"
+    },
+    "carve": {
+      "$type": "shadow",
+      "$value": "{elevation.carve}"
+    },
+    "rim-hi": {
+      "$type": "color",
+      "$value": "{line.rim-hi}"
+    },
+    "rim-mid": {
+      "$type": "color",
+      "$value": "{line.rim-mid}"
+    },
+    "rim-lo": {
+      "$type": "color",
+      "$value": "{line.rim-lo}"
     }
   },
   "banner": {
@@ -580,7 +728,7 @@
   "select": {
     "trigger-bg": {
       "$type": "color",
-      "$value": "{surface.quiet}"
+      "$value": "{surface.carve}"
     },
     "trigger-fg": {
       "$type": "color",
@@ -635,10 +783,6 @@
       "$type": "color",
       "$value": "{action.accent}"
     },
-    "item-radius": {
-      "$type": "dimension",
-      "$value": "{corner.media}"
-    },
     "gap": {
       "$type": "dimension",
       "$value": "{gap.sm}"
@@ -651,20 +795,40 @@
         ],
         "why": "the closed control is a quiet pill on glass; the open list is opaque because options must never be read off a moving scene, with a check for the chosen one"
       }
+    },
+    "groove": {
+      "$type": "shadow",
+      "$value": "{elevation.groove}"
+    },
+    "menu-inset": {
+      "$type": "dimension",
+      "$value": "{gap.sm}"
+    },
+    "item-height": {
+      "$type": "dimension",
+      "$value": "{control.lg}"
+    },
+    "item-lens": {
+      "$type": "shadow",
+      "$value": "{elevation.lens}"
+    },
+    "item-glint": {
+      "$type": "color",
+      "$value": "{action.glint}"
+    },
+    "hit": {
+      "$type": "dimension",
+      "$value": "{layout.touch}"
     }
   },
   "slider": {
     "track": {
       "$type": "dimension",
-      "$value": "{control.track}"
+      "$value": "{control.mark}"
     },
     "track-bg": {
       "$type": "color",
-      "$value": "{surface.quiet}"
-    },
-    "track-ring": {
-      "$type": "color",
-      "$value": "{line.ring}"
+      "$value": "{surface.carve}"
     },
     "range-bg": {
       "$type": "color",
@@ -672,7 +836,7 @@
     },
     "thumb": {
       "$type": "dimension",
-      "$value": "{control.thumb}"
+      "$value": "{control.check}"
     },
     "thumb-bg": {
       "$type": "color",
@@ -680,7 +844,7 @@
     },
     "thumb-shadow": {
       "$type": "shadow",
-      "$value": "{elevation.lift}"
+      "$value": "{elevation.bead}"
     },
     "hit": {
       "$type": "dimension",
@@ -693,21 +857,37 @@
     "$extensions": {
       "kiln.why": {
         "p": [
-          "P6",
-          "P4"
+          "P1",
+          "P3"
         ],
-        "why": "a thin track with an accent range and a white knob that reads on both themes; the 44px hit area is kept even though the track is only 6px"
+        "why": "a carved channel filled with the one blue to the value and the switch bead as the thumb, on a 44px target row"
       }
+    },
+    "carve": {
+      "$type": "shadow",
+      "$value": "{elevation.carve}"
+    },
+    "range-top": {
+      "$type": "color",
+      "$value": "{action.accent-hover}"
+    },
+    "range-carve": {
+      "$type": "shadow",
+      "$value": "{elevation.carve-on}"
+    },
+    "thumb-shade": {
+      "$type": "color",
+      "$value": "{surface.knob-shade}"
     }
   },
   "input": {
     "bg": {
       "$type": "color",
-      "$value": "{surface.well}"
+      "$value": "{surface.carve}"
     },
     "bg-page": {
       "$type": "color",
-      "$value": "{surface.sunken}"
+      "$value": "{surface.carve}"
     },
     "fg": {
       "$type": "color",
@@ -765,6 +945,14 @@
         ],
         "why": "a field is a dimmed well in the glass, a full pill because it is held, with the sunken page surface on reading pages"
       }
+    },
+    "groove": {
+      "$type": "shadow",
+      "$value": "{elevation.groove}"
+    },
+    "ring-readonly": {
+      "$type": "color",
+      "$value": "{line.edge}"
     }
   },
   "check": {
@@ -778,11 +966,11 @@
     },
     "bg": {
       "$type": "color",
-      "$value": "{surface.well}"
+      "$value": "{surface.carve}"
     },
     "bg-page": {
       "$type": "color",
-      "$value": "{surface.sunken}"
+      "$value": "{surface.carve}"
     },
     "ring": {
       "$type": "color",
@@ -810,8 +998,12 @@
           "P6",
           "P1"
         ],
-        "why": "checkbox and radio are small wells with a 44px hit area; checked shows a check and chosen shows a dot, never colour alone"
+        "why": "checkbox and radio are small recesses carved into the surface like the switch track, with a 44px hit area; checked shows a check and chosen shows a dot, never colour alone"
       }
+    },
+    "carve": {
+      "$type": "shadow",
+      "$value": "{elevation.carve}"
     }
   },
   "switch": {
@@ -837,11 +1029,11 @@
     },
     "bg": {
       "$type": "color",
-      "$value": "{surface.well}"
+      "$value": "{surface.carve}"
     },
     "bg-page": {
       "$type": "color",
-      "$value": "{surface.sunken}"
+      "$value": "{surface.carve}"
     },
     "ring": {
       "$type": "color",
@@ -865,7 +1057,7 @@
     },
     "knob-shadow": {
       "$type": "shadow",
-      "$value": "{elevation.lift}"
+      "$value": "{elevation.bead}"
     },
     "$extensions": {
       "kiln.why": {
@@ -875,6 +1067,22 @@
         ],
         "why": "the switch track is a well that turns the system blue when on, the one place a form uses its own colour, and a tick and the knob position say on"
       }
+    },
+    "carve": {
+      "$type": "shadow",
+      "$value": "{elevation.carve}"
+    },
+    "on-carve": {
+      "$type": "shadow",
+      "$value": "{elevation.carve-on}"
+    },
+    "on-top": {
+      "$type": "color",
+      "$value": "{action.accent-hover}"
+    },
+    "knob-shade": {
+      "$type": "color",
+      "$value": "{surface.knob-shade}"
     }
   },
   "field": {

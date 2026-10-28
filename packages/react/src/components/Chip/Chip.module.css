@@ -1,18 +1,38 @@
+/* A small glass pane you press (round 3, Chip C): gloss and the pane rim when off; chosen is pressed into
+   the glass, a carved recess with a check and a heavier weight, so chosen chips add no loud marks to a
+   pane (P5). Each button inside keeps a 44px press area (P6). */
 .root {
+  position: relative;
+  isolation: isolate;
   display: inline-flex;
   align-items: center;
   min-block-size: var(--ds-chip-height);
   border-radius: var(--ds-chip-radius);
-  background: var(--ds-chip-bg);
-  box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-chip-ring);
+  background: linear-gradient(180deg, var(--ds-chip-gloss), transparent 50%), var(--ds-chip-bg);
   color: var(--ds-chip-fg);
   font-family: var(--ds-type-family);
   font-size: var(--ds-type-label);
   font-weight: var(--ds-type-weight-medium);
-  transition: background-color var(--ds-motion-hover) var(--ds-motion-easing), color var(--ds-motion-hover) var(--ds-motion-easing);
+  transition: box-shadow var(--ds-motion-hover) var(--ds-motion-easing), background-color var(--ds-motion-hover) var(--ds-motion-easing);
 }
-.on { background: var(--ds-chip-on-bg); color: var(--ds-chip-on-fg); box-shadow: none; text-shadow: none; }
+/* the pane rim, brightest at the top left */
+.root::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: var(--ds-width-hairline);
+  pointer-events: none;
+  background: linear-gradient(150deg, var(--ds-chip-rim-hi), var(--ds-chip-rim-lo) 38%, var(--ds-chip-rim-lo) 70%, var(--ds-chip-rim-mid));
+  /* mask keeps only the padding ring; the keyword is the mask alpha source, not a design colour */
+  -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+.on { background: var(--ds-chip-on-bg); color: var(--ds-chip-on-fg); box-shadow: var(--ds-chip-carve); font-weight: var(--ds-type-weight-semibold); }
+.on::before { display: none; }
 .toggle, .remove {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: var(--ds-chip-gap);
@@ -24,7 +44,10 @@
   color: inherit;
   font: inherit;
   cursor: pointer;
+  transition: transform var(--ds-motion-press) var(--ds-motion-easing);
 }
+/* the press area, 44px tall around the 32px chip */
+.toggle::after, .remove::after { content: ''; position: absolute; inset-inline: 0; inset-block-start: 50%; block-size: var(--ds-chip-hit); min-inline-size: var(--ds-chip-hit); transform: translateY(-50%); }
 .removable .toggle { padding-inline-end: var(--ds-gap-xs); cursor: default; }
 .remove { padding-inline: var(--ds-gap-md); }
 .icon { inline-size: var(--ds-chip-icon); block-size: var(--ds-chip-icon); flex: none; }
@@ -33,8 +56,9 @@
   outline-offset: var(--ds-focus-ring-width);
   box-shadow: 0 0 0 calc(var(--ds-focus-ring-width) * 2 + var(--ds-focus-ring-halo-width)) var(--ds-focus-ring-halo);
 }
-.toggle:active, .remove:active { transform: scale(var(--ds-motion-press-scale)); transition: transform var(--ds-motion-press) var(--ds-motion-easing); }
+.toggle:active, .remove:active { transform: scale(var(--ds-motion-press-scale)); }
 @media (forced-colors: active) {
   .root { border: var(--ds-width-hairline) solid ButtonText; }
-  .on { border-color: Highlight; }
+  .root::before { display: none; }
+  .on { border: var(--ds-focus-ring-width) solid Highlight; }
 }

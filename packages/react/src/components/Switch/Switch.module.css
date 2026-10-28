@@ -1,5 +1,6 @@
-/* A well track; on turns it the system blue (the one blue a form uses, P1) and shows a tick, and the knob's
-   position says on as well (P6). The knob travels over the hover duration and settles (P4). */
+/* A recess carved into the glass with a bead in it (round 2, R-007): shade under the top lip, light on
+   the bottom lip; on fills the recess with the one blue (P1) and shows a mark, and the bead's place says
+   on as well (P6). The bead rolls over the hover duration and a press squashes it toward its travel (P4). */
 .root { display: flex; align-items: center; justify-content: space-between; gap: var(--ds-gap-lg); min-block-size: var(--ds-switch-hit); font-family: var(--ds-type-family); }
 .text { display: flex; flex-direction: column; }
 .label { font-size: var(--ds-type-body); color: var(--ds-text-primary); cursor: pointer; }
@@ -7,20 +8,22 @@
 .track {
   position: relative; flex: none; padding: 0; border: 0; cursor: pointer;
   inline-size: var(--ds-switch-width); block-size: var(--ds-switch-height); border-radius: var(--ds-corner-round);
-  background: var(--ds-switch-bg-page); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-switch-ring);
-  transition: background-color var(--ds-motion-hover) var(--ds-motion-easing);
+  background: var(--ds-switch-bg); box-shadow: var(--ds-switch-carve);
+  transition: background-color var(--ds-motion-hover) var(--ds-motion-easing), box-shadow var(--ds-motion-hover) var(--ds-motion-easing);
 }
 .track::after { content: ''; position: absolute; inset: calc((var(--ds-switch-height) - var(--ds-switch-hit)) / 2) 0; }
-:global([data-pane-card='glass']) .track { background: var(--ds-switch-bg); box-shadow: var(--ds-switch-inset), inset 0 0 0 var(--ds-width-hairline) var(--ds-switch-ring); }
-.track[data-state='checked'], :global([data-pane-card='glass']) .track[data-state='checked'] { background: var(--ds-switch-on-bg); box-shadow: none; }
+.track[data-state='checked'] { background: linear-gradient(180deg, var(--ds-switch-on-top), var(--ds-switch-on-bg)); box-shadow: var(--ds-switch-on-carve); }
 .track:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
 .track:disabled { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
 .knob {
   position: absolute; inset-block-start: var(--ds-switch-inset-gap); inset-inline-start: var(--ds-switch-inset-gap);
   inline-size: var(--ds-switch-knob); block-size: var(--ds-switch-knob); border-radius: var(--ds-corner-round);
-  background: var(--ds-switch-knob-bg); box-shadow: var(--ds-switch-knob-shadow);
-  transition: transform var(--ds-motion-hover) var(--ds-motion-easing);
+  background: radial-gradient(circle at 36% 28%, var(--ds-switch-knob-bg) 32%, var(--ds-switch-knob-shade)); box-shadow: var(--ds-switch-knob-shadow);
+  transition: transform var(--ds-motion-hover) var(--ds-motion-easing), inline-size var(--ds-motion-press) var(--ds-motion-easing), inset-inline-start var(--ds-motion-press) var(--ds-motion-easing);
 }
+/* a press squashes the bead along the track, toward where it is going */
+.track:active:not(:disabled) .knob { inline-size: calc(var(--ds-switch-knob) + var(--ds-switch-inset-gap) * 2); }
+.track:active:not(:disabled) .knob[data-state='checked'] { inset-inline-start: calc(var(--ds-switch-inset-gap) * -1); }
 .knob[data-state='checked'] { transform: translateX(calc(var(--ds-switch-width) - var(--ds-switch-knob) - var(--ds-switch-inset-gap) * 2)); }
 :global([dir='rtl']) .knob[data-state='checked'] { transform: translateX(calc((var(--ds-switch-width) - var(--ds-switch-knob) - var(--ds-switch-inset-gap) * 2) * -1)); }
 .tick { position: absolute; inset-block: 0; inset-inline-start: calc(var(--ds-switch-inset-gap) * 3); margin-block: auto; inline-size: var(--ds-width-ring); block-size: var(--ds-control-icon-sm); border-radius: var(--ds-corner-round); background: var(--ds-switch-tick); opacity: 0; transition: opacity var(--ds-motion-hover) var(--ds-motion-easing); }

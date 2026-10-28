@@ -29,12 +29,15 @@ function OrderForm() {
 export const INPUT: Depth = {
   overview: (
     <>
-      <p>An input takes one line of text: a name, an email, a search, a price. In Pane it is a well pressed into the glass. Legibility comes from dimming the scene behind it, never from an opaque box (P1), and it is a full pill because a control is held (P3). On a reading page, where there is no glass, the well becomes the plain sunken page surface, as P7 asks for settings and forms.</p>
+      <p>An input takes one line of text, such as a name, an email, a search or a price. In Pane it is a groove cut into the glass. Its floor is the surface dimmed, never an opaque box (P1); shade sits under its top lip and light runs along its bottom lip, the way a groove in glass catches light (P3). That lit lip is also the field’s edge, and it measures at least 3:1 against what is around it on glass and on plain pages, in both themes, so a search field never disappears into a white panel. It is a full pill because a control is held (P3).</p>
       <p>The label always sits above the field and stays there. A floating label that moves into the field when empty, the habit D-020 rejects, makes the reader guess whether the field is filled, and its shrunken text is hard to read on a busy photo.</p>
       <p>Input reads its id, its description and its invalid state from the FormField around it, so the label, help and error are wired for screen readers without the app passing ids. Used alone it needs an aria-label.</p>
+      <p>Put the field in a FormField and the rest is wired for you. Its <code>required</code> prop sets the native required attribute and makes the label say (required) in words. Its <code>error</code> prop marks the input invalid, draws the 2px critical ring and puts the message under the field with a glyph. A screen reader hears the error before the help, starting with the word Error. The reader learns what is wrong before the hint.</p>
+      <p>The field is 44px tall at md, with 12px of space inside each end and 15px text. At sm it is 32px with 14px text. It fills the width of its column. When the expected value is short, such as a postcode or a card’s expiry date, make the column narrower so the field’s length hints at the answer. A four-digit field stretched across a page invites a guess at what goes there.</p>
+      <p>Pane draws no reveal button for a password and no clear button of its own. A password is a native input with <code>type="password"</code>. Anything inside the well, such as a unit or an icon, comes from InputGroup.</p>
     </>
   ),
-  whenToUse: ['A single line of free text, such as a name, an email or a title.', 'A number people type exactly, with inputMode set for the phone keyboard.', 'A search field, inside an InputGroup with a search icon.'],
+  whenToUse: ['A single line of free text, such as a name, an email or a title.', 'A number people type exactly, with inputMode set for the phone keyboard.', 'A search field, inside an InputGroup with a search icon.', 'A number that is really a code, such as a postcode or a card number, with inputMode numeric and no spinner.', 'Details the reader may want to copy, such as an account ID, set read-only.'],
   whenNot: [
     { situation: 'More than one line of text', to: '/components/textarea', label: 'Textarea' },
     { situation: 'One of a few known values', to: '/components/radio', label: 'RadioGroup' },
@@ -42,32 +45,33 @@ export const INPUT: Depth = {
     { situation: 'A short code', to: '/components/pin-input', label: 'PinInput' },
     { situation: 'A value along a range', to: '/components/slider', label: 'Slider' },
   ],
-  variants: { na: 'Input has no variant prop. The well on glass and the sunken surface on a page are the same Input in two places, chosen by where it sits.' },
+  variants: { na: 'Input has no variant prop. The same groove is used on glass and on plain pages, and its edge is measured in both.' },
   anatomy: {
     render: <P><FormField label="Display name" help="Shown on your profile."><Input defaultValue="Mara Lind" /></FormField></P>,
     parts: [
       { part: 'Label', selector: '[data-component="Label"]', what: 'From the FormField, above the field, semibold. It is the accessible name.' },
-      { part: 'Well', selector: '[data-component="Input"]', what: 'A dimmed recess with a faint inner shadow at the top edge and a hairline ring, full pill.' },
+      { part: 'Well', selector: '[data-component="Input"]', what: 'A full-pill groove with a dimmed floor, shade under the top lip, a lit bottom lip and a ring, with the edge at 3:1 or more.' },
       { part: 'Help', selector: '[data-component="HelperText"]', what: 'Secondary text under the field, tied to it with aria-describedby.' },
     ],
   },
   sizes: {
     md: { use: '44px tall. The default and the only size for phones and forms.', pairs: 'Button md, Select md and 15px body text.' },
-    sm: { use: '32px tall. Dense desktop toolbars and inline filters. Below the 44px P6 asks for.', pairs: 'Button sm, Select sm and Chip.' },
+    sm: { use: '32px tall. Dense desktop toolbars and inline filters used with a pointer. It is the one control below the 44px press area P6 asks for, an open exception (E-002), so use md on touch screens.', pairs: 'Button sm, Select sm and Chip.' },
   },
   emphasis: NO_EMPHASIS,
   placement: {
-    rows: [['In a form on a settings page', 'The default. One field per row, label above, full width of the column.'], ['On a glass card', 'Short forms only, such as a reply or a sign-in, two or three fields.'], ['In a toolbar', 'sm, inside an InputGroup with a search icon.']],
+    rows: [['In a form on a settings page', 'The default. One field per row, label above, full width of the column.'], ['On a glass card', 'Short forms only, such as a reply or a sign-in, two or three fields.'], ['In a toolbar', 'sm, inside an InputGroup with a search icon.'], ['Label above, start edges aligned', 'One field per row, its start edge in line with the fields above and below, so the eye runs straight down the form.'], ['Two fields on one row', 'Only on wide screens, and only when they are one value in two parts, such as a card’s expiry and its code.'], ['In a dense table or toolbar', 'sm with a pointer only. Never on a phone form.']],
     examples: [
       { title: 'A short form on glass', render: <OrderForm /> },
       { title: 'A reply', render: <P><FormField label="Reply to Mara"><Input placeholder="Write a reply" /></FormField><Row><Button size="sm">Send</Button></Row></P> },
     ],
   },
   combinations: {
-    good: [['FormField + Input', 'Every text field.'], ['InputGroup + Input', 'A unit, icon or clear button inside the well.'], ['Fieldset + FormFields', 'Fields that belong together, such as an address.']],
+    good: [['FormField + Input', 'Every text field.'], ['InputGroup + Input', 'A unit, icon or clear button inside the well.'], ['Fieldset + FormFields', 'Fields that belong together, such as an address.'], ['Input + Button', 'The field and the action that uses it, such as a search and its Go.']],
     avoid: [
       { title: 'a placeholder as the only label', why: 'The name disappears as soon as someone types, and screen readers may not read it.', render: <P><Input aria-label="Email" placeholder="Email" /></P> },
       { title: 'two fields on one row on a phone', why: 'Each gets too narrow to read its value. Stack them.', render: <P><Stack direction="row" gap="sm"><Input aria-label="First name" defaultValue="Mara" /><Input aria-label="Last name" defaultValue="Lind" /></Stack></P> },
+      { title: 'the small size on a phone form', why: 'At 32px the field is below the 44px press area, the open exception E-002. A thumb aimed at it can easily miss. Use md.', render: <P><FormField label="Email"><Input size="sm" type="email" defaultValue="mara@example.com" /></FormField></P> },
     ],
   },
   content: {
@@ -75,6 +79,9 @@ export const INPUT: Depth = {
       <>
         <p>The label is a noun or short phrase in sentence case, such as Email or Display name. Put instructions and examples in the help text, because placeholder text disappears as soon as the reader types and is too faint to rely on. Say Optional in the help when most fields are required, and mark the few required ones when most are optional.</p>
         <p>An error says how to fix the value, such as Enter an email address with an @. Show it when the reader leaves the field or submits, never while they are still typing their first character.</p>
+        <p>Once a field has shown an error, check it again as the reader types, so the message goes away the moment the value is right. After a failed submit, show every error at once and move focus to the first.</p>
+        <p>Set <code>autoComplete</code> on every field that asks for something the browser already knows, such as name, email, tel, postal-code or one-time-code. On a phone that turns a long form into a few taps.</p>
+        <p>Email addresses, web addresses and phone numbers read left to right in every language. In a right-to-left form, set <code>dir="ltr"</code> on those fields so the value does not jump about as the reader types.</p>
       </>
     ),
     pair: { do: <P><FormField label="Email" help="For example, mara@example.com."><Input type="email" /></FormField></P>, doNote: 'A label above and the example in the help.', dont: <P><FormField label="Email"><Input type="email" placeholder="e.g. mara@example.com (required, no spaces)" /></FormField></P>, dontNote: 'Instructions in the placeholder vanish as soon as someone types.' },
@@ -84,13 +91,13 @@ export const INPUT: Depth = {
   },
   behaviours: {
     states: [
-      ['Rest', 'A dimmed well with a hairline ring.', 'A recess in the glass, not a box on it (P1).'],
-      ['Hover', 'The ring strengthens over 420ms.', 'An answer to the pointer that moves nothing (P4).'],
+      ['Rest', 'A groove with a lit bottom lip.', 'A recess in the glass that reads as part of the pane (P1).'],
+      ['Hover', 'A hairline ring joins the groove over 420ms.', 'An answer to the pointer that moves nothing (P4).'],
       ['Focus', 'The shared 2px ring and halo outside the well.', 'Visible on any part of any scene (P2).'],
-      ['Invalid', 'A 2px ring in the critical mark colour, and the error under the field.', 'Never colour alone: the glyph and the word Error carry it (P6).'],
-      ['Read-only', 'The well empties to a hairline, the value stays readable and selectable.', 'A value to read, not a broken control.'],
+      ['Invalid', 'A 2px ring in the critical mark colour, and the error under the field.', 'The glyph and the word Error carry it as well as the colour (P6).'],
+      ['Read-only', 'The well empties to a hairline, the value stays readable and selectable.', 'The value is there to read and copy.'],
       ['Disabled', 'Faded to the disabled opacity.', 'Write the reason in the help (P6).'],
-      ['On a page', 'The sunken page surface instead of the well.', 'Reading surfaces stay ordinary (P7).'],
+      ['On a page', 'The same groove, measured against the page.', 'One field everywhere, findable on white (P2).'],
     ],
     interactions: [
       ['Keyboard', 'Tab', 'Moves focus into the field.', 'Input: reachable with Tab and labelled by its FormField'],
@@ -138,6 +145,8 @@ export const CHECKBOX: Depth = {
       <p>A checkbox turns one choice on or off, and the choice takes effect when the form is saved. Several checkboxes in a list are independent, so any number can be on. The box is a 24px well with soft corners, square enough to read differently from a round radio.</p>
       <p>Checked holds a check and mixed holds a dash, so each of the three states has its own shape (P6). The label is a real label, so clicking the words toggles the box, and the row is at least 44px tall, so the whole line is the target.</p>
       <p>Use a Switch instead when the change takes effect at once. A checkbox promises nothing happens until Save.</p>
+      <p>Pane does not link a parent to its children. The app counts the children and passes <code>checked="indeterminate"</code> to the parent when some are on. A click on a mixed box reports true, and the app then checks every child. Each child stays a checkbox of its own.</p>
+      <p>Give the box a <code>name</code> and a <code>value</code> and it goes with a native form submit, sending on by default when it is checked. The <code>required</code> prop marks it required for the form and for assistive tech. There is no error state yet. If a box must be checked before the reader can go on, such as accepting terms, say so in its description and say near the submit button why it cannot go on yet.</p>
     </>
   ),
   whenToUse: ['A choice saved with a form, such as accepting terms.', 'Several independent choices from a list, such as which emails to receive.', 'A parent that checks or clears a set of children.'],
@@ -148,12 +157,12 @@ export const CHECKBOX: Depth = {
   ],
   variants: { na: 'Checkbox has no variant prop. Its three states are covered under Behaviours.' },
   anatomy: { render: <CheckRow />, parts: [{ part: 'Box', selector: '[data-component="Checkbox"] button', what: 'A 24px well with soft corners, inside a 44px target.' }, { part: 'Label', selector: '[data-component="Checkbox"] label', what: 'The choice, which also toggles the box.' }, { part: 'Description', selector: '[data-component="Checkbox"] label + span', what: 'Optional secondary line.' }], perVariant: 'Checked adds a check inside the box; mixed swaps it for a dash.' },
-  sizes: { na: 'Checkbox has one size: a 24px box in a 44px row.' },
+  sizes: { na: 'Checkbox has one size, a 24px box in a 44px row.' },
   emphasis: NO_EMPHASIS,
   placement: { rows: [['In a form', 'Under the fields, before the submit action.'], ['In a Fieldset', 'A list of related choices under a legend.']], examples: [{ title: 'A list in a Fieldset', render: <P><Fieldset legend="Email me about"><Checkbox label="New followers" defaultChecked /><Checkbox label="Replies" /></Fieldset></P> }] },
-  combinations: { good: [['Fieldset + Checkboxes', 'Related choices under one name.'], ['Checkbox + Button', 'A choice saved with the form.']], avoid: [{ title: 'a checkbox that applies at once', why: 'The reader expects to press Save. Use a Switch.', render: <P><Checkbox label="Dark theme" /></P> }] },
+  combinations: { good: [['Fieldset + Checkboxes', 'Related choices under one name.'], ['Checkbox + Button', 'A choice saved with the form.']], avoid: [{ title: 'a checkbox that applies at once', why: 'The reader expects to press Save. Use a Switch.', render: <P><Checkbox label="Dark theme" /></P> }, { title: 'a list of choices running across one row', why: 'Boxes and labels drift apart, so it is not clear which label belongs to which box, and long labels push the rest off a phone screen.', render: <P><Row><Checkbox label="New followers" defaultChecked /><Checkbox label="Replies" /><Checkbox label="Mentions" /></Row></P> }] },
   content: {
-    formula: <p>Write the label as the choice, in sentence case and without ending punctuation, such as Show my email on my profile. Keep it positive, so checking turns something on, and avoid negatives such as Do not show my email.</p>,
+    formula: <><p>Write the label as the choice, in sentence case and without ending punctuation, such as Show my email on my profile. Keep it positive, so checking turns something on, and avoid negatives such as Do not show my email.</p><p>Never check a box for the reader when it gives something away, such as marketing emails or sharing data. A default is a decision made on their behalf. Pre-check only choices the reader would almost always want and can see clearly, such as keeping a copy of a receipt.</p><p>Stack checkboxes one per row. Past seven or eight choices, split them under two legends. A screen reader reads the description after the label and its state, so put the consequence of the choice in the description and keep the label to the choice itself.</p></>,
     pair: { do: <P><Checkbox label="Show my email" /></P>, doNote: 'Checking turns it on.', dont: <P><Checkbox label="Do not hide my email" /></P>, dontNote: 'A double negative the reader has to untangle.' },
     overflow: { text: 'A long label wraps beside the box, and the box stays at the top of the first line.', render: <div data-overflow-demo="" className="overflow-probe"><P><Checkbox label="Email me when someone I follow posts a new album or print" /></P></div> },
     rtl: { text: 'In right-to-left languages the box sits to the right of its label.', render: <div dir="rtl" lang="ar"><P><Checkbox label="إظهار بريدي الإلكتروني" defaultChecked /></P></div> },
@@ -183,18 +192,21 @@ export const RADIO: Depth = {
     <>
       <p>A radio group asks one question and shows every answer at once, so the reader can compare them before choosing. Only one can be chosen. Each option is a round 24px well, round so it never reads as a checkbox, and the chosen one holds a 10px dot that grows in and settles (P6, P4).</p>
       <p>The group is one tab stop. Arrow keys move between options and choose as they go, which is how radio groups work everywhere. Radix supplies that behaviour and Pane tests it.</p>
+      <p>Every arrow key moves and chooses. In a left-to-right layout Up and Left go back and Down and Right go forward, and the last option wraps round to the first. Disabled options are skipped. Space chooses the focused option when it is not chosen yet. A screen reader hears the question, then the option and whether it is chosen.</p>
+      <p>Set a default when one answer is safe for most readers, such as the current setting or the most common choice. With no default the group starts empty, and Tab lands on the first option. Once an answer is chosen the group cannot go back to empty. If having no answer is valid, add it as an option of its own, such as No preference.</p>
+      <p>The options always stack, one per row. Pane’s RadioGroup has no row layout, which keeps each circle beside its own label and the whole group readable on a phone. The <code>help</code> prop puts a line under the question, and the group reads it with the question. The <code>required</code> prop marks the answer as required. Disabled on the group turns off every option, and disabled on one option leaves the rest usable. There is no error state yet. If an answer is missing after submit, say so in the help line.</p>
     </>
   ),
-  whenToUse: ['One answer from two to six options the reader should compare.', 'A setting with a few named levels, such as who can message you.'],
+  whenToUse: ['One answer from two to six options the reader should compare.', 'A setting with a few named levels, such as who can message you.', 'A choice that changes what else the form asks, such as delivery or collection, shown before the fields it controls.'],
   whenNot: [{ situation: 'Many options', to: '/components/select', label: 'Select' }, { situation: 'Several answers at once', to: '/components/checkbox', label: 'Checkbox' }, { situation: 'On or off', to: '/components/switch', label: 'Switch' }],
   variants: { na: 'Radio has no variant prop.' },
   anatomy: { render: <Who />, parts: [{ part: 'Question', selector: '[data-component="RadioGroup"] > span', what: 'The group label, read before the options.' }, { part: 'Circle', selector: '[data-component="Radio"] button', what: 'A round 24px well in a 44px row.' }, { part: 'Label', selector: '[data-component="Radio"] label', what: 'The option, which also chooses it.' }] },
-  sizes: { na: 'Radio has one size: a 24px circle in a 44px row.' },
+  sizes: { na: 'Radio has one size, a 24px circle in a 44px row.' },
   emphasis: NO_EMPHASIS,
-  placement: { rows: [['In a form', 'One question per group.'], ['In settings', 'A level for one setting.']], examples: [{ title: 'A privacy setting', render: <Who /> }] },
-  combinations: { good: [['RadioGroup + Button', 'An answer saved with the form.']], avoid: [{ title: 'two options that mean on and off', why: 'That is a Switch.', render: <P><RadioGroup label="Notifications" defaultValue="on"><Radio value="on" label="On" /><Radio value="off" label="Off" /></RadioGroup></P> }] },
+  placement: { rows: [['In a form', 'One question per group.'], ['In settings', 'A level for one setting.'], ['Above the fields it controls', 'The answer changes what comes next, so the reader meets it first.']], examples: [{ title: 'A privacy setting', render: <Who /> }] },
+  combinations: { good: [['RadioGroup + Button', 'An answer saved with the form.'], ['RadioGroup + Fieldset', 'One question among several in a longer form, under the section’s legend.'], ['RadioGroup with no default + required', 'A question with no safe default. The reader has to answer, and the required prop says so.']], avoid: [{ title: 'seven options or more', why: 'The answers stop being easy to compare at a glance, and the group pushes the rest of the form down. Use a Select.', render: <P><RadioGroup label="Print size" defaultValue="a3">{['A6', 'A5', 'A4', 'A3', 'A2', 'A1', 'A0'].map((s) => <Radio key={s} value={s.toLowerCase()} label={s} />)}</RadioGroup></P> },{ title: 'two options that mean on and off', why: 'That is a Switch.', render: <P><RadioGroup label="Notifications" defaultValue="on"><Radio value="on" label="On" /><Radio value="off" label="Off" /></RadioGroup></P> }] },
   content: {
-    formula: <p>Ask the question in the group label, such as Who can message you. Keep options short, parallel and mutually exclusive, and order them in a natural sequence, such as most open to most closed.</p>,
+    formula: <><p>Ask the question in the group label, such as Who can message you. Keep options short, parallel and mutually exclusive, and order them in a natural sequence, such as most open to most closed.</p><p>A yes or no question puts Yes first. Write each option so it answers the question on its own, so the reader never needs the option above it to make sense of it.</p></>,
     pair: { do: <Who />, doNote: 'A question and parallel answers in order.', dont: <P><RadioGroup label="Messages" defaultValue="a"><Radio value="a" label="Everyone can" /><Radio value="b" label="Only followers" /><Radio value="c" label="Turn off" /></RadioGroup></P>, dontNote: 'A label that is not a question and answers in three shapes.' },
     overflow: { text: 'Long options wrap beside their circle.', render: <div data-overflow-demo="" className="overflow-probe"><P><RadioGroup label="Paper" defaultValue="a"><Radio value="a" label="Cotton rag with a deckled edge and a 10 mm border" /></RadioGroup></P></div> },
     rtl: { text: 'Circles sit to the right of their labels in right-to-left languages.', render: <div dir="rtl" lang="ar"><P><RadioGroup label="من يمكنه مراسلتك" defaultValue="a"><Radio value="a" label="الجميع" /><Radio value="b" label="لا أحد" /></RadioGroup></P></div> },
@@ -215,15 +227,15 @@ export const RADIO: Depth = {
 export const SWITCH: Depth = {
   overview: (
     <>
-      <p>A switch turns a setting on or off the moment it changes, such as making an account private. Nothing waits for a Save button. The track is a well when off and turns the system blue when on, the one place a form spends Pane’s single blue (P1). The knob slides across and a tick appears, so on reads by position and by mark as well as colour (P6).</p>
+      <p>A switch turns a setting on or off the moment it changes, such as making an account private. Nothing waits for a Save button. The track is a recess carved into the glass, shaded under its top lip and lit along its bottom lip (P1). On fills the recess with the system blue, darker at the top where the lip shades it, the one place a form spends Pane’s single blue. The knob is a bead lit on its upper left. It rolls across and a mark appears, so on reads by position and by mark as well as colour (P6), and a press squashes the bead toward where it is going (P4).</p>
       <p>The label sits at the start of the row and the switch at the end, so a list of settings reads like a list.</p>
     </>
   ),
   whenToUse: ['A setting that applies at once, such as notifications or a private account.', 'A list of independent settings on a settings pane.'],
   whenNot: [{ situation: 'A choice saved with a form', to: '/components/checkbox', label: 'Checkbox' }, { situation: 'More than two states', to: '/components/radio', label: 'RadioGroup' }],
   variants: { na: 'Switch has no variant prop.' },
-  anatomy: { render: <P><Switch label="Private account" description="Only followers see your posts." defaultChecked /></P>, parts: [{ part: 'Label', selector: '[data-component="Switch"] label', what: 'The setting, at the start of the row.' }, { part: 'Track', selector: '[data-component="Switch"] button', what: 'A well when off, the system blue when on.' }, { part: 'Knob', selector: '[data-component="Switch"] button > span:last-child', what: 'White with a lift shadow, slides across.' }] },
-  sizes: { na: 'Switch has one size: a 52 by 32px track in a 44px row.' },
+  anatomy: { render: <P><Switch label="Private account" description="Only followers see your posts." defaultChecked /></P>, parts: [{ part: 'Label', selector: '[data-component="Switch"] label', what: 'The setting, at the start of the row.' }, { part: 'Track', selector: '[data-component="Switch"] button', what: 'A carved recess when off, filled with the system blue when on.' }, { part: 'Knob', selector: '[data-component="Switch"] button > span:last-child', what: 'A white bead lit on its upper left, on a short shadow; it rolls across.' }] },
+  sizes: { na: 'Switch has one size, a 52 by 32px track in a 44px row.' },
   emphasis: NO_EMPHASIS,
   placement: { rows: [['A settings pane', 'One setting per row, label first.'], ['A sheet of quick settings', 'Short labels.']], examples: [{ title: 'Settings', render: <P><Switch label="Push notifications" defaultChecked /><Switch label="Weekly summary" /></P> }] },
   combinations: { good: [['Switches in a list', 'Independent settings.']], avoid: [{ title: 'a switch with a Save button', why: 'A switch applies at once; a Save button makes the reader unsure whether it did.', render: <P><Switch label="Private account" /><Row><Button>Save</Button></Row></P> }] },
@@ -235,7 +247,7 @@ export const SWITCH: Depth = {
     expansion: { text: 'German labels wrap without moving the switch.', render: <P><Switch label="Privates Konto" defaultChecked /></P> },
   },
   behaviours: {
-    states: [['Off', 'Well track, knob at the start.', 'A recess (P1).'], ['On', 'Blue track, knob at the end, tick.', 'Colour, position and mark agree (P6).'], ['Change', 'The knob slides over 420ms and settles.', 'Movement answers the press (P4).'], ['Focus', 'The shared ring and halo.', 'Visible on any scene (P2).'], ['Disabled', 'Faded.', 'Say why (P6).']],
+    states: [['Off', 'Carved recess, bead at the start.', 'A recess (P1).'], ['On', 'Blue track, knob at the end, tick.', 'Colour, position and mark agree (P6).'], ['Press', 'The bead squashes toward its travel.', 'A press is a reply (P4).'], ['Change', 'The bead rolls over 420ms and settles.', 'Movement answers the press (P4).'], ['Focus', 'The shared ring and halo.', 'Visible on any scene (P2).'], ['Disabled', 'Faded.', 'Say why (P6).']],
     interactions: [['Keyboard', 'Tab', 'Moves focus to the switch.', 'Switch: Space toggles it'], ['Keyboard', 'Space / Enter', 'Toggles it.', 'Switch: Space toggles it'], ['Mouse / touch', 'Click / tap', 'The track or the label toggles it.', 'Native label']],
     loading: <p>If saving the change takes time, keep the new state and undo it with a Banner if saving fails.</p>,
     focus: <p>Focus stays on the switch when it toggles.</p>,
@@ -260,7 +272,7 @@ const small = (d: Partial<Depth> & Pick<Depth, 'overview' | 'whenToUse' | 'whenN
 });
 
 export const FORM_FIELD: Depth = small({
-  overview: <><p>FormField is the frame of one field: the label above, the control, then the error and the help. It hands the control its id, its description ids and its invalid state through context, so every Input, Textarea and PinInput inside is labelled and described for screen readers without any ids in the app.</p><p>The error comes before the help, closest to the control, because it is the thing the reader needs first.</p></>,
+  overview: <><p>FormField is the frame of one field. It holds the label above, the control, then the error and the help. It hands the control its id, its description ids and its invalid state through context, so every Input, Textarea and PinInput inside is labelled and described for screen readers without any ids in the app.</p><p>The error comes before the help, closest to the control, because it is the thing the reader needs first.</p></>,
   whenToUse: ['Around every Input, Textarea and PinInput.'],
   whenNot: [{ situation: 'A checkbox, radio or switch', to: '/components/checkbox', label: 'They carry their own label' }, { situation: 'A group of fields', to: '/components/fieldset', label: 'Fieldset' }],
   anatomy: { render: <OrderForm />, parts: [{ part: 'Label', selector: '[data-component="Label"]', what: 'The field’s name.' }, { part: 'Control', selector: '[data-component="Input"]', what: 'One control.' }, { part: 'Error', selector: '[data-component="HelperText"]', what: 'Closest to the control.' }] },
@@ -270,7 +282,7 @@ export const FORM_FIELD: Depth = small({
 });
 
 export const LABEL: Depth = small({
-  overview: <><p>Label is a field’s name: semibold, in the primary text colour, the same size as the control text below it. It looks like a label and never like a link, as P7 asks. FormField renders it for you; use it on its own only where FormField cannot place it.</p><p>Required is written as the word required in secondary text, never only as a colour or an asterisk.</p></>,
+  overview: <><p>Label is a field’s name. It is semibold, in the primary text colour, and the same size as the control text below it. It looks like a label and never like a link, as P7 asks. FormField renders it for you; use it on its own only where FormField cannot place it.</p><p>Required is written as the word required in secondary text, never only as a colour or an asterisk.</p></>,
   whenToUse: ['A field outside a FormField, with htmlFor pointing at the control.'],
   whenNot: [{ situation: 'A field in a FormField', to: '/components/form-field', label: 'FormField renders it' }, { situation: 'A group heading', to: '/components/fieldset', label: 'Fieldset legend' }],
   anatomy: { render: <P><Label htmlFor="lbl-a" required>Display name</Label><Input id="lbl-a" defaultValue="Mara Lind" /></P>, parts: [{ part: 'Text', selector: '[data-component="Label"]', what: 'Semibold, label size.' }, { part: 'Required', selector: '[data-component="Label"] span', what: 'The word required, secondary.' }] },
@@ -284,6 +296,14 @@ export const HELPER_TEXT: Depth = small({
   whenNot: [{ situation: 'An error for the whole form', to: '/components/banner', label: 'Banner' }],
   anatomy: { render: <P><HelperText tone="error">Keep it under 40 characters.</HelperText></P>, parts: [{ part: 'Glyph', selector: '[data-component="HelperText"] svg', what: 'Errors only, the critical octagon.' }, { part: 'Text', selector: '[data-component="HelperText"] span:last-child', what: 'Label size.' }] },
   content: { formula: <p>Help explains or shows an example. An error says how to fix the value and never blames the reader.</p>, pair: { do: <P><HelperText tone="error">Use at least 8 characters.</HelperText></P>, doNote: 'How to fix it.', dont: <P><HelperText tone="error">You entered a bad password.</HelperText></P>, dontNote: 'Blames, and does not help.' }, overflow: { text: 'Long help wraps.', render: <div data-overflow-demo="" className="overflow-probe"><P><HelperText>Shown on your profile, your posts and every print you sell.</HelperText></P></div> }, rtl: { text: 'The glyph sits at the right in right-to-left languages.', render: <div dir="rtl" lang="ar"><P><HelperText tone="error">أقل من 40 حرفًا.</HelperText></P></div> }, expansion: { text: 'German help wraps.', render: <P><HelperText>Wird in deinem Profil angezeigt.</HelperText></P> } },
+  variants: {
+    help: { purpose: 'Secondary text that explains the field or gives an example, such as a format.', pairing: 'Under any control, and under an error when both are needed.' },
+    error: { purpose: 'What is wrong with the value and how to fix it, with the octagon glyph and the spoken word Error.', pairing: 'Directly under the control, above any help, and only after the reader has left the field or submitted.' },
+  },
+  deepDive: {
+    help: { purpose: <p>Help is read before typing, so it says what the field expects in the reader’s terms, such as the format of a date or what a code looks like. It uses the secondary text colour, which measured legible on glass in both themes.</p>, context: <P><FormField label="Display name" help="Shown on your profile and in replies."><Input defaultValue="Mara Lind" /></FormField></P>, practices: ['Keep it to one sentence.', 'Put examples here, never only in the placeholder.'], pair: { do: <P><HelperText>Use the name people know you by.</HelperText></P>, doNote: 'Says what to write.', dont: <P><HelperText>Required field. Max 40.</HelperText></P>, dontNote: 'Notes in shorthand.' } },
+    error: { purpose: <p>An error is read after a mistake, so it says how to fix the value in one sentence. It keeps the primary text colour, adds the octagon glyph Banner uses for critical, and speaks the word Error first, so the tone never rests on colour.</p>, context: <P><FormField label="Email" error="Enter an email address with an @."><Input defaultValue="mara.lind" /></FormField></P>, practices: ['Say how to fix it, never only that it is wrong.', 'Show it after the reader leaves the field, never while typing.'], pair: { do: <P><HelperText tone="error">Enter an email address with an @.</HelperText></P>, doNote: 'How to fix it.', dont: <P><HelperText tone="error">Invalid input.</HelperText></P>, dontNote: 'Says nothing the reader can act on.' } },
+  },
   related: [['/components/form-field', 'FormField', 'Renders it.'], ['/components/banner', 'Banner', 'Whole-form errors.']],
 });
 

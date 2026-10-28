@@ -1,4 +1,4 @@
-import { createContext, forwardRef, useContext, useId, type ReactNode } from 'react';
+import { createContext, forwardRef, useContext, useId, useRef, type ReactNode } from 'react';
 import * as RR from '@radix-ui/react-radio-group';
 import { cx } from '../../cx';
 import styles from './Radio.module.css';
@@ -18,24 +18,35 @@ export interface RadioGroupProps {
   onValueChange?: (value: string) => void;
   /** Name for form submission. */
   name?: string;
+  /** Turns the control off, so it cannot be focused or changed. Inside a FormField, its `disabled` sets this for you. */
   disabled?: boolean;
+  /** Marks the answer as required for form submission and for assistive tech. */
   required?: boolean;
   /** The Radio options. */
   children: ReactNode;
+  /** Extra class on the outer element. */
   className?: string;
 }
 
-const GroupContext = createContext(false);
+// Radix checks an option when focus reaches it while an arrow key is still held. A key that is pressed
+// and released at once (a scripted press, some switch devices and screen readers) moved focus without
+// choosing, so the group remembers the last arrow press and chooses whatever option it focuses next.
+const ARROWS = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
+const GroupContext = createContext<{ arrowAt: { current: number }; choose: (v: string) => void } | null>(null);
 
 /** One answer from a short list, every option visible at once. */
 export function RadioGroup({ label, help, className, children, ...rest }: RadioGroupProps) {
   const id = useId();
+  const arrowAt = useRef(0);
+  const root = useRef<HTMLDivElement>(null);
+  // choosing goes through Radix's own click path, so controlled and uncontrolled groups both update
+  const choose = (v: string) => root.current?.querySelector<HTMLButtonElement>(`[role="radio"][value="${CSS.escape(v)}"][aria-checked="false"]`)?.click();
   return (
     <div data-component="RadioGroup" className={cx(styles.group, className)}>
       <span id={`${id}-l`} className={styles.legend}>{label}</span>
       {help != null && <span id={`${id}-h`} className={styles.help}>{help}</span>}
-      <GroupContext.Provider value={true}>
-        <RR.Root aria-labelledby={`${id}-l`} aria-describedby={help != null ? `${id}-h` : undefined} className={styles.options} {...rest}>{children}</RR.Root>
+      <GroupContext.Provider value={{ arrowAt, choose }}>
+        <RR.Root ref={root} onKeyDown={(e) => { if (ARROWS.includes(e.key)) arrowAt.current = Date.now(); }} aria-labelledby={`${id}-l`} aria-describedby={help != null ? `${id}-h` : undefined} className={styles.options} {...rest}>{children}</RR.Root>
       </GroupContext.Provider>
     </div>
   );
@@ -48,16 +59,18 @@ export interface RadioProps {
   label: ReactNode;
   /** Optional secondary line. */
   description?: ReactNode;
+  /** Turns this one option off; the rest of the group stays usable. */
   disabled?: boolean;
 }
 
 /** One option inside a RadioGroup: a round well that holds a dot when chosen. */
 export const Radio = forwardRef<HTMLButtonElement, RadioProps>(function Radio({ value, label, description, disabled }, ref) {
   const id = useId();
-  if (!useContext(GroupContext)) throw new Error('Radio must be inside a RadioGroup');
+  const group = useContext(GroupContext);
+  if (!group) throw new Error('Radio must be inside a RadioGroup');
   return (
     <div data-component="Radio" className={styles.root}>
-      <RR.Item ref={ref} id={id} value={value} disabled={disabled} className={styles.circle} aria-describedby={description != null ? `${id}-d` : undefined}>
+      <RR.Item ref={ref} id={id} value={value} disabled={disabled} onFocus={() => { if (Date.now() - group.arrowAt.current < 500) group.choose(value); }} className={styles.circle} aria-describedby={description != null ? `${id}-d` : undefined}>
         <RR.Indicator className={styles.dot} />
       </RR.Item>
       <span className={styles.text}>

@@ -28,21 +28,21 @@ export const ICON_BUTTON: Depth = {
     { situation: 'A filter that stays on', to: '/components/chip', label: 'Chip' },
   ],
   variants: {
-    glass: { purpose: 'A round glass disc around the icon. For a single tool that has to read as an object, such as Edit on a cover.', pairing: 'Alone or beside a Button. Never in a long row.' },
-    ghost: { purpose: 'The icon alone, no disc. For rows of actions where discs would crowd each other.', pairing: 'In rows of two to five ghost buttons.' },
+    glass: { purpose: 'A small round pane around the icon, with Button’s white gloss and a rim of light at the top left. For a single tool that has to read as an object, such as Edit on a cover.', pairing: 'Alone or beside a Button. Never in a long row.' },
+    ghost: { purpose: 'The icon alone, with no pane and no rim. For rows of actions where discs would crowd each other.', pairing: 'In rows of two to five ghost buttons.' },
   },
   anatomy: {
     render: <OnCard><IconButton aria-label="Share" variant="glass" size="md"><IconShare /></IconButton></OnCard>,
     parts: [
-      { part: 'Disc', selector: '[data-component="IconButton"]', what: 'Only on glass, a quiet full circle with its own blur.' },
+      { part: 'Disc', selector: '[data-component="IconButton"]', what: 'Only on glass. A round pane in the quiet fill with a 20px blur, a white gloss across its top half and a hairline rim of light brightest at the top left, as on every pane. Under the pointer a soft glint appears and fades when the pointer leaves. Its aria-label is required, because it is the button’s whole accessible name.' },
       { part: 'Icon', selector: '[data-component="IconButton"] svg', what: '18px outline in the current colour.' },
-      { part: 'Name', selector: '[data-component="IconButton"]', what: 'aria-label, required. It is the button’s whole accessible name.' },
+      { part: 'Press area', selector: '[data-component="IconButton"] [data-hit]', what: 'At least 44px each way at both sizes, wider than the disc.' },
     ],
-    perVariant: 'ghost drops the disc and brightens the icon on hover instead.',
+    perVariant: 'ghost drops the disc and the rim. The glint still answers the pointer and the icon brightens to the primary text colour.',
   },
   sizes: {
-    md: { use: '36px. A single tool on a cover or beside a title.', pairs: 'Button md beside it. Below the 44px P6 asks for, see Limitations.' },
-    sm: { use: '32px. Rows of actions under a post.', pairs: 'Body text and other sm controls. Below the 44px P6 asks for, see Limitations.' },
+    md: { use: '36px disc. A single tool on a cover or beside a title.', pairs: 'Button md beside it. The press area is 44px.' },
+    sm: { use: '32px disc. Rows of actions under a post.', pairs: 'Body text and other sm controls. The press area is still 44px.' },
   },
   emphasis: {
     text: <p>Icon buttons are always secondary. They sit beside the pane’s one loud Button or in a row of equal actions, and none of them leads. If one action matters more than the others, give it a text label as a Button.</p>,
@@ -73,10 +73,10 @@ export const ICON_BUTTON: Depth = {
   },
   behaviours: {
     states: [
-      ['Hover', 'Rises 2px; ghost brightens to the primary text colour.', 'An answer to the pointer (P4).'],
+      ['Hover', 'A glint shows under the pointer and the disc stays where it is. Ghost brightens to the primary text colour.', 'A quiet control answers the pointer without lifting (P4, P5).'],
       ['Pressed', 'Shrinks to 97% over 200ms.', 'A press is a reply (P4).'],
       ['Focus', 'The shared 2px ring with its dark halo.', 'Visible on any scene (P2).'],
-      ['Forced colours', 'A ButtonText border draws the shape.', 'Structure survives (P6).'],
+      ['Forced colours', 'Rim and glint are dropped and a ButtonText border draws the shape.', 'Structure survives (P6).'],
     ],
     interactions: [
       ['Keyboard', 'Tab', 'Moves focus to it.', 'IconButton: reachable with Tab'],
@@ -87,8 +87,8 @@ export const ICON_BUTTON: Depth = {
     focus: <p>When an icon button opens a menu or sheet, focus returns to it when that closes.</p>,
   },
   deepDive: {
-    glass: { purpose: <p>The glass disc gives a single icon a body, so it reads as an object on a busy photo. It is the right choice when the icon stands alone.</p>, context: <Card as="div" className="demo-card"><div style={{ position: 'relative' }}><CardCover /><div style={{ position: 'absolute', insetBlockStart: 8, insetInlineEnd: 8 }}><IconButton aria-label="Edit cover" variant="glass"><IconPencil /></IconButton></div></div><b>Lysefjord</b></Card>, practices: ['Use glass for one tool on its own.', 'Keep it md unless it sits in a dense row.'], pair: { do: <OnCard><IconButton aria-label="More options" variant="glass"><IconMore /></IconButton></OnCard>, doNote: 'One glass tool.', dont: <Card as="div" className="demo-card"><Actions variant="glass" /></Card>, dontNote: 'A row of discs. Use ghost.' } },
-    ghost: { purpose: <p>Ghost is the icon alone. It suits rows of actions, where discs would crowd each other and outweigh the content above them.</p>, context: <Card as="article" aria-label="Post" className="demo-card"><p className="flush">Blue hour over Bergen harbour.</p><Actions /></Card>, practices: ['Use ghost for rows of two to five actions.', 'Keep the icons the same weight and size.'], pair: { do: <Card as="div" className="demo-card"><Actions /></Card>, doNote: 'A calm row of ghost actions.', dont: <OnCard><IconButton aria-label="Share" variant="ghost" size="sm"><IconShare /></IconButton></OnCard>, dontNote: 'A lone ghost icon floats with no body. Use glass.' } },
+    glass: { purpose: <p>The glass disc gives a single icon a body. It is Button’s material at the size of a glyph, with the same gloss and rim, so it reads as an object on a busy photo and as kin to the buttons beside it. It is the right choice when the icon stands alone.</p>, context: <Card as="div" className="demo-card"><div style={{ position: 'relative' }}><CardCover /><div style={{ position: 'absolute', insetBlockStart: 8, insetInlineEnd: 8 }}><IconButton aria-label="Edit cover" variant="glass"><IconPencil /></IconButton></div></div><b>Lysefjord</b></Card>, practices: ['Use glass for one tool on its own.', 'Keep it md unless it sits in a dense row.'], pair: { do: <OnCard><IconButton aria-label="More options" variant="glass"><IconMore /></IconButton></OnCard>, doNote: 'One glass tool.', dont: <Card as="div" className="demo-card"><Actions variant="glass" /></Card>, dontNote: 'A row of discs. Use ghost.' } },
+    ghost: { purpose: <p>Ghost is the icon alone, with no disc and no rim. It suits rows of actions, where discs would crowd each other and outweigh the content above them.</p>, context: <Card as="article" aria-label="Post" className="demo-card"><p className="flush">Blue hour over Bergen harbour.</p><Actions /></Card>, practices: ['Use ghost for rows of two to five actions.', 'Keep the icons the same weight and size.'], pair: { do: <Card as="div" className="demo-card"><Actions /></Card>, doNote: 'A calm row of ghost actions.', dont: <OnCard><IconButton aria-label="Share" variant="ghost" size="sm"><IconShare /></IconButton></OnCard>, dontNote: 'A lone ghost icon floats with no body. Use glass.' } },
   },
   modifiers: { na: 'IconButton has no optional slots. The icon is its child and the name is its required aria-label.' },
   related: [['/components/button', 'Button', 'When the action needs a word.'], ['/foundations/icons', 'Iconography', 'The icon set and its sizes.']],

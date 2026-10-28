@@ -1,57 +1,136 @@
 {
-  "concept": "An icon button is a small held disc for a single familiar action, with the same touch size and response as a button.",
+  "concept": "An icon button is a small round pane with Button's material at the size of a glyph. It has the gloss, the rim and a glint under the pointer, and only the loud kind rests on a shadow.",
   "parts": {
     "root": {
-      "p": "P6",
-      "why": "a round target with an accessible name required by its type, because the icon alone is not read"
+      "p": "P3",
+      "axis": "depth",
+      "why": "a small round pane with the pane rim brightest at the top left"
     },
-    "ghost": {
-      "p": "P5",
-      "why": "ghost has no fill for actions in a row of content, the quietest possible mark"
+    "hit": {
+      "p": "P6",
+      "axis": "space",
+      "why": "a press area at least 44px each way around both sizes of disc"
     },
     "md": {
       "p": "P6",
-      "why": "medium is the 44px touch size, the default for any action a thumb will press"
+      "axis": "space",
+      "why": "36px, the default disc in toolbars and headers"
     },
     "sm": {
       "p": "P6",
-      "why": "small is 32px for dense post rows, kept only where space is tight"
+      "axis": "space",
+      "why": "32px for dense action rows, with the 44px press area kept"
     },
     "glass": {
+      "p": "P3",
+      "axis": "colour",
+      "why": "glass with a white gloss across the top, blurred so the glyph reads over any photo"
+    },
+    "ghost": {
       "p": "P5",
-      "why": "the quiet glass disc for a standalone secondary action, such as edit on a profile"
+      "axis": "shape",
+      "why": "the glyph alone for dense rows, so quiet actions stay text-like"
     }
   },
   "states": {
     "hover": {
       "p": "P4",
-      "why": "hover lifts the disc and brightens a ghost icon, answering the pointer"
+      "axis": "interaction",
+      "why": "the glint shows under the pointer; a quiet control does not lift"
     },
     "active": {
       "p": "P4",
-      "why": "a press shrinks the control briefly and faster than hover, because a press is a reply to the reader"
+      "axis": "shape",
+      "why": "a press shrinks the disc slightly, faster than hover"
     },
     "focus-visible": {
       "p": "P6",
-      "why": "keyboard focus draws the shared ring with its halo so the focused control is visible on any scene"
+      "axis": "interaction",
+      "why": "keyboard focus draws the shared ring with its halo, visible on any scene"
+    },
+    "disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "disabled uses the native attribute and the shared disabled opacity"
     },
     "@media forced-colors: active": {
       "p": "P6",
-      "why": "forced colours drop glass and fills, so a real system-colour border is drawn to keep the shape visible"
+      "axis": "depth",
+      "why": "forced colours drop rim, glint and fill, so a real system-colour border keeps the shape"
     }
   },
   "motion": {
-    "background-color": {
+    "transform": {
       "p": "P4",
-      "why": "the disc fill eases at hover pace with the lift"
+      "axis": "motion",
+      "why": "the press runs at press pace, a reply to the reader"
     },
     "color": {
       "p": "P4",
-      "why": "a ghost icon brightens over the same duration so colour and lift are one event"
+      "axis": "motion",
+      "why": "the ghost glyph brightens at hover pace when the pointer arrives"
     },
-    "transform": {
+    "opacity": {
       "p": "P4",
-      "why": "lift and press use transform over the soft curve so nothing around shifts"
+      "axis": "motion",
+      "why": "the glint fades in and out at hover pace"
     }
+  },
+  "default_to_avoid": [
+    {
+      "pattern": "a grey circle behind a glyph that tints on hover (Material icon button, every toolbar)",
+      "why_not": "it is a flat disc with no edge and no light, so beside Pane's buttons it reads as a different, cheaper object"
+    }
+  ],
+  "kind": [
+    "icon button"
+  ],
+  "references": [
+    {
+      "title": "visionOS HIG · Buttons",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/buttons"
+    },
+    {
+      "title": "visionOS HIG · Ornaments",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/ornaments"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "a soft shadow below and a rim of light on the top-left edge say where the pane floats",
+      "form": "the disc carries the pane rim, brightest at the top left, and the loud kind rests on its own shadow"
+    },
+    {
+      "p": "P3",
+      "axis": "colour",
+      "consequence": "the rim and sheen are white at low opacity, like light catching an edge",
+      "form": "a white gloss across the top half of the disc"
+    },
+    {
+      "p": "P4",
+      "axis": "interaction",
+      "consequence": "nothing moves on its own; every motion answers something the reader did",
+      "form": "a glint sits under the pointer and is gone when it leaves"
+    },
+    {
+      "p": "P6",
+      "axis": "space",
+      "consequence": "every target is at least 44px in its smaller dimension or has a 44px hit area",
+      "form": "the small size keeps a 44px hit area around a 32px disc"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/round3/",
+    "section": "iconbutton",
+    "options": [
+      "A a small round pane",
+      "B glyph with a lens",
+      "C capsule"
+    ],
+    "picked": "A a small round pane",
+    "by": "agent",
+    "reason": "A is Button B at the size of a glyph, so a row of icon buttons and buttons reads as one family of objects (P3). B shows only a glyph at rest, so the target is invisible until hovered, which fails a reader who cannot hover. C widens the target but breaks the round shape a single glyph asks for."
   }
 }

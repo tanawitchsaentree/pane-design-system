@@ -3,43 +3,106 @@
   "parts": {
     "root": {
       "p": "P2",
-      "why": "the root sets the measured text colour and halo every text node on the pane inherits"
+      "why": "the root sets the measured text colour and halo every text node on the pane inherits",
+      "axis": "type"
     },
     "glass": {
       "p": "P1",
-      "why": "the glass variant blurs, saturates and dims the scene rather than painting over it, with a rim and float shadow"
+      "why": "the glass variant blurs, saturates and dims the scene rather than painting over it, with a rim and float shadow",
+      "axis": "depth"
     },
     "cover": {
       "p": "P3",
-      "why": "a cover reaches the pane edges so the picture reads as part of the sheet itself"
+      "why": "a cover reaches the pane edges so the picture reads as part of the sheet itself",
+      "axis": "shape"
     },
     "inset": {
       "p": "P3",
-      "why": "a nested section inside a pane separated by a hairline, adding no second blur because one sheet is one layer"
+      "why": "a nested section inside a pane separated by a hairline, adding no second blur because one sheet is one layer",
+      "axis": "shape"
     }
   },
   "states": {
     "hover": {
       "p": "P4",
-      "why": "hovering a pane slowly shifts its rim as if the light moved, never a flash or a jump"
+      "why": "hovering a pane slowly shifts its rim as if the light moved, never a flash or a jump",
+      "axis": "depth"
     },
     "@media forced-colors: active": {
       "p": "P6",
-      "why": "forced colours drop glass and fills, so a real system-colour border is drawn to keep the shape visible"
+      "why": "forced colours drop glass and fills, so a real system-colour border is drawn to keep the shape visible",
+      "axis": "depth"
     }
   },
   "motion": {
     "backdrop-filter": {
       "p": "P1",
-      "why": "when the environment changes, the dimming crossfades slowly so the world changes and the pane stays put"
+      "why": "when the environment changes, the dimming crossfades slowly so the world changes and the pane stays put",
+      "axis": "motion"
     },
     "-webkit-backdrop-filter": {
       "p": "P1",
-      "why": "the same crossfade for Safari, which still needs the prefixed property"
+      "why": "the same crossfade for Safari, which still needs the prefixed property",
+      "axis": "motion"
     },
     "background-position": {
       "p": "P4",
-      "why": "the rim light drifts over the long enter duration, reading as light moving across glass"
+      "why": "the rim light drifts over the long enter duration, reading as light moving across glass",
+      "axis": "motion"
     }
+  },
+  "default_to_avoid": [
+    {
+      "pattern": "a white card with a grey border and a drop shadow (Bootstrap card, Material card)",
+      "why_not": "an opaque card covers the scene that P1 says belongs to the experience, and a grey border is a page habit on a floating sheet"
+    }
+  ],
+  "references": [
+    {
+      "title": "visionOS HIG · Windows",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/windows"
+    },
+    {
+      "title": "visionOS HIG · Materials",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/materials"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P1",
+      "axis": "depth",
+      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur), never from an opaque tint",
+      "form": "the card is clear glass that dims and blurs the scene behind it"
+    },
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "a soft shadow below and a rim of light on the top-left edge say where the pane floats",
+      "form": "a rim of light brightest at the top left and a soft float shadow below"
+    },
+    {
+      "p": "P3",
+      "axis": "shape",
+      "consequence": "corners are continuous and nest, so an inner surface's radius is the outer radius minus the padding between them and a pane inside a pane reads as inside it",
+      "form": "a 40px corner on the pane, and media and inner surfaces nest it"
+    },
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns almost no colour of its own, only white at opacities, one ink and one blue",
+      "form": "no tint of its own; the scene colours it"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/anchor/",
+    "options": [
+      "A Spatial",
+      "B Milk frost",
+      "C Smoked",
+      "D Layered depth"
+    ],
+    "picked": "A Spatial",
+    "by": "user",
+    "note": "2026-10-26: the user picked A in the anchor round (D-008); the card is the anchor itself"
   }
 }

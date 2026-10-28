@@ -39,10 +39,10 @@ export const EXTRAS: Record<string, () => ReactElement> = {
         <p>Type in Pane has to read over a moving photograph. That gives three rules. White on dark glass and ink on light glass, because the text must contrast with the dimmed scene. Few sizes, one per role, so hierarchy is clear at a glance. And on reading surfaces such as these docs, 16px at 1.6 line height and about 70 characters a line (P7).</p>
       </Section>
       <Section id="typeface" title="Typeface">
-        <p>Pane uses the system font: San Francisco on Apple devices, then Inter, then the platform’s own sans serif. The system font matches Pane’s visionOS lineage, needs no download and renders crisply at small sizes on glass.</p>
+        <p>Pane uses the system font. That is San Francisco on Apple devices, then Inter, then the platform’s own sans serif. The system font matches Pane’s visionOS lineage, needs no download and renders crisply at small sizes on glass.</p>
       </Section>
       <Section id="custom-fonts" title="Custom fonts">
-        <p>A brand font can replace the family token, <code>font.family-sans</code>, in one place. Check it on glass before shipping: thin strokes and small x-heights lose contrast over a photo first, so measure the new font with the glass sweep the way the system font was measured.</p>
+        <p>A brand font can replace the family token, <code>font.family-sans</code>, in one place. Check it on glass before shipping. Thin strokes and small x-heights lose contrast over a photo first, so measure the new font with the glass sweep the way the system font was measured.</p>
       </Section>
       <Section id="styles" title="Text styles by role">
         <p>Each size has a role. Micro at 11px is for eyebrows and tags, caption at 13px for badges, label at 14px for controls and help, body at 15px for interface text, reading at 16px for long text, emphasis at 17px, title at 21px, headline at 28px and display at 44px. Components use the role, never the size, so changing a role changes every place it is used.</p>
@@ -76,7 +76,7 @@ export const EXTRAS: Record<string, () => ReactElement> = {
         <p>Some things look off even when the numbers are equal, so a few components align by eye. An error glyph is centred on the first line of its message rather than the whole block, and a checkbox or radio is centred on its label’s first line when the label wraps. Screens built from the components inherit these, so they need no nudging of their own.</p>
       </Section>
       <Section id="safe-areas" title="Safe areas">
-        <p>Content keeps the page margin from every edge: 16px on phones, then wider at larger breakpoints. On phones with a notch or a home indicator, add the environment’s safe-area insets to the margin, so nothing sits under the system’s own controls.</p>
+        <p>Content keeps the page margin from every edge, 16px on phones and wider at larger breakpoints. On phones with a notch or a home indicator, add the environment’s safe-area insets to the margin, so nothing sits under the system’s own controls.</p>
       </Section>
     </>
   ),
@@ -107,7 +107,7 @@ export const EXTRAS: Record<string, () => ReactElement> = {
         <p>An icon has to be understood without its label, so Pane uses only icons whose meaning is familiar, such as share, reply or more. Everything else gets a word. Icons are outline strokes in the text colour, so they sit on glass as quietly as text does.</p>
       </Section>
       <Section id="targets" title="Touch targets">
-        <p>An icon is drawn at 16 or 18px, but the control around it is larger. IconButton draws a 36px disc at md, and Banner’s dismiss has a 44px press area. The 32px and 36px IconButtons are below the 44px P6 asks for, which their page lists under Limitations.</p>
+        <p>An icon is drawn at 16 or 18px, but the control around it is larger. IconButton draws a 36px disc at md and a 32px disc at sm, and both sizes keep a 44px press area, as Banner’s dismiss does (P6).</p>
       </Section>
       <Section id="colour" title="Icon colour">
         <p>Icons take the colour of the text beside them through currentColor, white in dark and ink in light. The only coloured icons are status glyphs, and each tone has its own shape as well as its colour.</p>
@@ -142,7 +142,7 @@ export const EXTRAS: Record<string, () => ReactElement> = {
   '/foundations/shape': () => (
     <>
       <Section id="radius-scale" title="The radius scale">
-        <p>There are six radii: 4px for marks in diagrams, 7px for a checkbox, 18px for media, 24px for inner surfaces, 40px for a pane, and the full pill for controls. Each is a semantic corner token, such as <code>corner.panel</code>, so components never pick a number.</p>
+        <p>There are six radii. Marks in diagrams take 4px, a checkbox 7px, media 18px, inner surfaces 24px and a pane 40px, and controls take the full pill. Each is a semantic corner token, such as <code>corner.panel</code>, so components never pick a number.</p>
       </Section>
       <Section id="radius-usage" title="Which radius where">
         <p>Corners nest. A surface inside a pane takes the pane’s 40px corner minus the padding between them, which gives 18px for media and 24px for inner surfaces, so the inner shape reads as inside the outer one (P3). Controls are full pills because they are held.</p>
@@ -160,7 +160,7 @@ export const EXTRAS: Record<string, () => ReactElement> = {
         <p>Hover lifts a control 2px closer, and a press shrinks it a little, quicker than the lift. Panes do not lift, because a whole pane is never a hidden button (P3).</p>
       </Section>
       <Section id="z-index" title="Stacking order">
-        <p>Five layers decide what sits above what: base 0, raised 10, sticky 100, overlay 1000 and toast 1100. Components use the layer tokens, so a Select list, on the overlay layer, opens above a sticky header.</p>
+        <p>Five layers decide what sits above what. Base is 0, raised is 10, sticky is 100, overlay is 1000 and toast is 1100. Components use the layer tokens, so a Select list, on the overlay layer, opens above a sticky header.</p>
       </Section>
       <Section id="contrast" title="Contrast on raised surfaces">
         <p>Every surface that holds text is measured, including raised panels and the open list of a Select, in both themes. Opaque pairs are computed and glass pairs are measured on photos (P2).</p>
@@ -176,7 +176,7 @@ export const EXTRAS: Record<string, () => ReactElement> = {
         <p>Keep content inside the page margin and the device’s safe-area insets, so nothing sits under a notch, a home indicator or a system bar. Touch targets near the screen edge need the full 44px.</p>
       </Section>
       <Section id="density" title="Density">
-        <p>Pane has one density, tuned for touch. The small sizes of Button, Select and Input at 32px make dense rows possible on desktop, but they fall below the 44px touch size, so keep them off phones.</p>
+        <p>Pane has one density, tuned for touch. The small sizes of Button, Select and Input at 32px make dense rows possible on desktop. Button and Select keep a 44px press area around them. The small Input has none, so keep it off phones.</p>
       </Section>
     </>
   ),
@@ -206,7 +206,7 @@ export const EXTRAS: Record<string, () => ReactElement> = {
         <p>Write plain words that translate well. Address the reader as you, avoid idioms and gendered words for people, and describe actions rather than gestures, so Select instead of Click, because not everyone uses a mouse.</p>
       </Section>
       <Section id="capitalisation" title="Capitalisation">
-        <p>Everything is in sentence case: titles, buttons, tabs, labels and menu items. Only proper nouns and product names keep their capitals. Small caps on tags and eyebrows are done in CSS, so the text stays in normal case.</p>
+        <p>Titles, buttons, tabs, labels and menu items are all in sentence case. Only proper nouns and product names keep their capitals. Small caps on tags and eyebrows are done in CSS, so the text stays in normal case.</p>
       </Section>
       <Section id="consistency" title="The same word for the same thing">
         <p>Pick one word for each thing and use it everywhere. If it is an album on the profile, it is an album in the menu, the dialog and the error. A second word makes readers wonder if it is a second thing.</p>

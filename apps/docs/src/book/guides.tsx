@@ -1,6 +1,7 @@
 // Getting started guides (designing, developing, contributing, migrating) and the Content and
 // Accessibility foundations (docs-engine component-depth.md, G-IA1). Facts here point at the files and
 // gates that enforce them, so a reader can check every claim.
+import { FocusPlayground, LabelPlayground } from './playgrounds';
 import { Banner, Button, Card } from 'pane-react';
 import { Code, Link, Page, Section, Stage } from './kit';
 import { PairView } from '../depth/UsageTab';
@@ -28,7 +29,7 @@ export function Designing() {
           <li>Every line of text sits on a Card, never straight on the photo.</li>
           <li>Each pane has at most one light or accent Button.</li>
           <li>Status is written in words, with colour as the second cue.</li>
-          <li>Touch targets are at least 44px. Today the 32px and 36px sizes of Button, IconButton, Chip and Tabs fall short, so avoid them on phones.</li>
+          <li>Touch targets are at least 44px. Button, IconButton, Chip, Tabs and Select draw smaller than that at 32px or 36px and keep a 44px press area around them. The small Input has no press area of its own, so avoid it on phones.</li>
           <li>The screen works in both themes and over both a dark and a bright scene. The Themes page shows how.</li>
         </ul>
       </Section>
@@ -118,6 +119,7 @@ export function Migrating() {
 export function ContentFoundation() {
   return (
     <Page eyebrow="Foundations" title="Content" lede={<p>How Pane writes, with plain words, labels that say what happens, and messages that tell people what to do next.</p>}>
+      <Section id="labels-playground" title="Try a label"><LabelPlayground /></Section>
       <Section id="voice" title="Voice">
         <p>Pane talks like a helpful colleague. Short sentences, common words, and the reader addressed as you. It never jokes in an error and never blames the reader. Every page of this book is checked by the human-tone lint, which rejects dashes used as pauses, label colons in prose and stacked contrasts.</p>
       </Section>
@@ -141,6 +143,7 @@ export function ContentFoundation() {
 export function AccessibilityFoundation() {
   return (
     <Page eyebrow="Foundations" title="Accessibility" lede={<p>What Pane guarantees for people using a keyboard, a screen reader, high contrast or reduced motion, and what is still missing.</p>}>
+      <Section id="focus-playground" title="Try the focus ring"><FocusPlayground /></Section>
       <Section id="principle" title="The principle">
         <p>P6 says glass is a mood, never the carrier of meaning. Everything works without the glass and without sight of it. That decides five rules, each tied to a check that runs on every build.</p>
       </Section>
@@ -151,7 +154,7 @@ export function AccessibilityFoundation() {
         <p>Every control can be reached and used from the keyboard, and keyboard focus draws a 2px ring with a dark halo that is visible on any part of any scene. The keyboard behaviour of Tabs, Select and Slider comes from Radix and is tested in Chromium on every run.</p>
       </Section>
       <Section id="targets" title="Touch targets">
-        <p>P6 asks for at least 44px in the smaller dimension or a 44px press area. Slider and Banner’s dismiss meet it. The 32px and 36px sizes of Button, IconButton, Chip and Tabs do not yet, which each component page states under Limitations.</p>
+        <p>P6 asks for at least 44px in the smaller dimension or a 44px press area. Slider and Banner’s dismiss meet it, and so do the 32px and 36px sizes of Button, IconButton, Chip, Tabs and Select, each with a 44px press area around the control. The small Input is 32px with no press area of its own.</p>
       </Section>
       <Section id="modes" title="High contrast, reduced transparency and reduced motion">
         <p>With reduced transparency the glass turns opaque and stops dimming. In forced colours, fills give way to system colours and borders keep each shape visible. Under reduced motion every duration token is zero. Avatar has no forced-colours rule yet.</p>

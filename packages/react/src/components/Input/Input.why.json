@@ -1,9 +1,9 @@
 {
-  "concept": "A text field is a well pressed into the pane, dimmed, not filled, held as a pill, and plain on reading pages.",
+  "concept": "A field is a groove cut into the glass and read by its two lips, with shade under the top one and light along the bottom one. It is a full pill because it is held.",
   "default_to_avoid": [
     {
-      "pattern": "Material outlined text field with a floating label; filled blue square checkbox; iOS green switch (Material 3, Bootstrap, iOS Settings)",
-      "why_not": "it draws a box on the glass, paints selection in colour the scene should own, moves the label out of its place, and was made for opaque pages rather than a pane floating over a photo"
+      "pattern": "the borderless grey filled text field or search bar (Material filled text field, iOS search bar, a pale well with a faint ring)",
+      "why_not": "on a white surface the grey fill disappears; the shipped well measured 1.3:1 in the light theme and the search field vanished on a white page (R-009)"
     }
   ],
   "references": [
@@ -12,8 +12,12 @@
       "url": "https://developer.apple.com/design/human-interface-guidelines/text-fields"
     },
     {
-      "title": "visionOS HIG · Toggles",
-      "url": "https://developer.apple.com/design/human-interface-guidelines/toggles"
+      "title": "visionOS HIG · Search fields",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/search-fields"
+    },
+    {
+      "title": "visionOS HIG · Materials",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/materials"
     }
   ],
   "derivation": [
@@ -21,61 +25,39 @@
       "p": "P1",
       "axis": "depth",
       "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur), never from an opaque tint",
-      "form": "a field on glass reads by dimming what is behind it, never by an opaque white or grey box"
+      "form": "the field is a groove whose floor is the surface dimmed and whose edge is shade under the top lip"
     },
     {
-      "p": "P1",
+      "p": "P3",
       "axis": "colour",
-      "consequence": "the scene supplies the hue; the system owns almost no colour of its own, only white at opacities, one ink and one blue",
-      "form": "selection is white or ink with a mark, and the one blue is used at most on the switch track"
+      "consequence": "the rim and sheen are white at low opacity, like light catching an edge",
+      "form": "the bottom lip catches light, a white line that carries the 3:1 edge on dark glass"
+    },
+    {
+      "p": "P2",
+      "axis": "colour",
+      "consequence": "opaque pairs are computed, glass pairs are measured",
+      "form": "the edge is measured on every surface in both themes (G-NT2), and the light theme adds an ink ring because white light on white measures nothing"
     },
     {
       "p": "P3",
       "axis": "shape",
       "consequence": "controls are full pills because they are held in the hand",
-      "form": "single-line fields and the switch are full pills; the textarea keeps nested corners because it grows"
-    },
-    {
-      "p": "P6",
-      "axis": "shape",
-      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
-      "form": "a checked box shows a check, a chosen radio a dot, an on switch a tick or moved knob, and an invalid field an octagon glyph with the word Error"
-    },
-    {
-      "p": "P6",
-      "axis": "space",
-      "consequence": "every target is at least 44px in its smaller dimension or has a 44px hit area",
-      "form": "the label and control share one hit area of at least 44px so a 22 to 26px box is still easy to hit"
-    },
-    {
-      "p": "P2",
-      "axis": "interaction",
-      "consequence": "focus rings carry their own dark halo so they are visible on any part of any scene",
-      "form": "a focused field shows a 2px white ring or baseline with its own dark halo over any photo"
-    },
-    {
-      "p": "P7",
-      "axis": "shape",
-      "consequence": "reading layouts use plain rectangles and hairlines, no floating panes",
-      "form": "on a settings page the same controls lose their glass treatment and become plain sunken or hairline surfaces"
-    },
-    {
-      "p": "P4",
-      "axis": "motion",
-      "consequence": "long ease-out curves (420 to 640ms) for arriving and hovering, a shorter one (200ms) for pressing because a press is a reply",
-      "form": "the check, dot and knob arrive over 420 to 520ms and settle, while a press answers in 200ms"
+      "form": "single-line fields stay full pills; the textarea keeps nested corners because it grows"
     }
   ],
   "variants": {
-    "lab": "apps/lab/forms/",
+    "lab": "apps/lab/round2/",
     "options": [
-      "A well in the pane",
-      "B written on the pane",
-      "C held objects"
+      "A deeper well, ringed",
+      "B carved lip",
+      "C ring only"
     ],
-    "picked": "A well in the pane",
-    "by": "user",
-    "note": "2026-10-27: user picked A for the whole W3 family (D-020)"
+    "picked": "B carved lip",
+    "by": "agent",
+    "supersedes": "A well in the pane (forms round, 2026-10-27)",
+    "reason": "B is D-020's well made legible: the lit bottom lip is the light catching an edge that P3 asks for, and the edge measured 3.0 to 3.1:1 in the lab, raised to a wider margin in the tokens. A passes too but is a ring around a box, closer to the default. C is the outlined field every kit ships and drops the well (D-020).",
+    "section": "input"
   },
   "parts": {
     "md": {
@@ -132,5 +114,9 @@
       "axis": "motion",
       "why": "the ring eases at hover pace so the change reads as an answer, never a flicker"
     }
-  }
+  },
+  "kind": [
+    "text field",
+    "search field"
+  ]
 }

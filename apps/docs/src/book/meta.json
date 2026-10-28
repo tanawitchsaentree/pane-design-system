@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-27T15:37:56.574Z",
-  "version": "0.3.0",
+  "generatedAt": "2026-10-28T15:02:50.195Z",
+  "version": "0.4.0",
   "components": {
     "Avatar": {
       "source": "packages/react/src/components/Avatar/Avatar.tsx",
@@ -37,7 +37,7 @@
               "type": "\"sm\" | \"md\" | \"lg\"",
               "required": false,
               "default": "md",
-              "description": "`sm` 30px for post headers, `md` 44px for lists, `lg` 84px with a rim ring for profile headers.",
+              "description": "`sm` 30px for post headers, `md` 44px for lists, `lg` 84px on a soft shadow for profile headers.",
               "enum": true,
               "options": [
                 "sm",
@@ -64,8 +64,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 611,
-        "cssMin": 738,
-        "gzip": 690
+        "cssMin": 929,
+        "gzip": 787
       }
     },
     "Badge": {
@@ -89,7 +89,7 @@
               "type": "\"neutral\" | \"info\" | \"positive\" | \"warning\" | \"critical\"",
               "required": false,
               "default": "neutral",
-              "description": "`neutral` is a glass ring. `info`, `positive`, `warning` and `critical` are solid status fills, each at least 4.5:1 with its text.",
+              "description": "`neutral` is a word alone. `info`, `positive`, `warning` and `critical` add their own glyph shape (circle, check, triangle, octagon) in the tone colour, so colour is never the only cue.",
               "enum": true,
               "options": [
                 "neutral",
@@ -104,7 +104,7 @@
               "type": "boolean",
               "required": false,
               "default": "false",
-              "description": "Show a leading dot, a shape cue on top of the colour.",
+              "description": "Neutral only. A leading dot in the secondary text colour, for a status with no tone such as Draft.",
               "enum": false,
               "options": null
             },
@@ -113,7 +113,7 @@
               "type": "ReactNode",
               "required": false,
               "default": null,
-              "description": "The status in words, e.g. \"Live\", \"3 new\", \"Failed\".",
+              "description": "The status in words, such as \"Live\", \"3 new\" or \"Failed\".",
               "enum": false,
               "options": null
             }
@@ -126,9 +126,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 456,
-        "cssMin": 1143,
-        "gzip": 730
+        "jsMin": 1014,
+        "cssMin": 891,
+        "gzip": 912
       }
     },
     "Banner": {
@@ -245,7 +245,7 @@
               "type": "\"light\" | \"accent\" | \"glass\"",
               "required": false,
               "default": "light",
-              "description": "`light` = solid white pill, the one main action on a card. `accent` = blue. `glass` = quiet fill.",
+              "description": "`light` = the loud solid (white in dark, ink in light), the one main action on a pane. `accent` = the blue sheet for a promoted action. `glass` = the quiet glass fill.",
               "enum": true,
               "options": [
                 "light",
@@ -275,9 +275,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 384,
-        "cssMin": 1637,
-        "gzip": 824
+        "jsMin": 726,
+        "cssMin": 3506,
+        "gzip": 1454
       }
     },
     "Card": {
@@ -407,7 +407,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Turns the control off, so it cannot be focused or changed. Inside a FormField, its `disabled` sets this for you.",
               "enum": false,
               "options": null
             },
@@ -416,7 +416,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Marks the answer as required for form submission and for assistive tech.",
               "enum": false,
               "options": null
             },
@@ -443,7 +443,7 @@
               "type": "string",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Extra class on the outer element.",
               "enum": false,
               "options": null
             }
@@ -457,8 +457,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 17248,
-        "cssMin": 1934,
-        "gzip": 7009
+        "cssMin": 1746,
+        "gzip": 6969
       }
     },
     "Chip": {
@@ -531,8 +531,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 1199,
-        "cssMin": 1494,
-        "gzip": 1167
+        "cssMin": 2220,
+        "gzip": 1392
       }
     },
     "Container": {
@@ -598,19 +598,32 @@
                 "mid",
                 "bright"
               ]
+            },
+            {
+              "name": "material",
+              "type": "\"glass\" | \"solid\"",
+              "required": false,
+              "default": "glass",
+              "description": "`glass` (default) blurs and dims the scene behind every pane. `solid` swaps every pane inside for the\nopaque surface and turns the backdrop filter off (D-021), for a live backdrop such as a 3D scene or\nvideo, where re-blurring each frame costs the frame rate. Text contrast is the same measured fallback\nused for reduced transparency.",
+              "enum": true,
+              "options": [
+                "glass",
+                "solid"
+              ]
             }
           ]
         }
       ],
       "variantDimensions": [
-        "brightness"
+        "brightness",
+        "material"
       ],
-      "variantCount": 1,
-      "demoFloor": 4,
+      "variantCount": 2,
+      "demoFloor": 5,
       "bundle": {
-        "jsMin": 202,
+        "jsMin": 264,
         "cssMin": 0,
-        "gzip": 165
+        "gzip": 201
       }
     },
     "Fieldset": {
@@ -862,7 +875,7 @@
               "type": "\"glass\" | \"ghost\"",
               "required": false,
               "default": "glass",
-              "description": "`glass` = round frosted disc. `ghost` = icon only, for dense rows (actions, overflow).",
+              "description": "`glass` = a small round pane with gloss and rim. `ghost` = the glyph alone, for dense rows (actions, overflow).",
               "enum": true,
               "options": [
                 "glass",
@@ -874,7 +887,7 @@
               "type": "\"sm\" | \"md\"",
               "required": false,
               "default": "md",
-              "description": "`md` = 36px disc; `sm` = 32px for action rows.",
+              "description": "`md` = 36px disc; `sm` = 32px for action rows. Both keep a 44px press area.",
               "enum": true,
               "options": [
                 "sm",
@@ -891,9 +904,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 381,
-        "cssMin": 1338,
-        "gzip": 722
+        "jsMin": 723,
+        "cssMin": 2439,
+        "gzip": 1244
       }
     },
     "Input": {
@@ -938,8 +951,8 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 653,
-        "cssMin": 2667,
+        "jsMin": 692,
+        "cssMin": 2362,
         "gzip": 1194
       }
     },
@@ -986,8 +999,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 442,
-        "cssMin": 1160,
-        "gzip": 744
+        "cssMin": 1017,
+        "gzip": 728
       }
     },
     "Label": {
@@ -1107,7 +1120,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Turns the control off, so it cannot be focused or changed. Inside a FormField, its `disabled` sets this for you.",
               "enum": false,
               "options": null
             },
@@ -1125,7 +1138,7 @@
               "type": "string",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Extra class on the outer element.",
               "enum": false,
               "options": null
             }
@@ -1141,8 +1154,8 @@
       "demoFloor": 6,
       "bundle": {
         "jsMin": 1913,
-        "cssMin": 2139,
-        "gzip": 1783
+        "cssMin": 1951,
+        "gzip": 1760
       }
     },
     "Radio": {
@@ -1212,7 +1225,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Turns the control off, so it cannot be focused or changed. Inside a FormField, its `disabled` sets this for you.",
               "enum": false,
               "options": null
             },
@@ -1221,7 +1234,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Marks the answer as required for form submission and for assistive tech.",
               "enum": false,
               "options": null
             },
@@ -1239,7 +1252,7 @@
               "type": "string",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Extra class on the outer element.",
               "enum": false,
               "options": null
             }
@@ -1280,7 +1293,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Turns this one option off; the rest of the group stays usable.",
               "enum": false,
               "options": null
             }
@@ -1293,9 +1306,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 32723,
-        "cssMin": 1940,
-        "gzip": 11930
+        "jsMin": 33060,
+        "cssMin": 1752,
+        "gzip": 12015
       }
     },
     "Select": {
@@ -1314,7 +1327,7 @@
               "type": "string",
               "required": true,
               "default": null,
-              "description": "Visible label, also the control's accessible name. Required: a select without a name is unusable with a screen reader.",
+              "description": "Visible label, also the control's accessible name. It is required, because a select without a name is unusable with a screen reader.",
               "enum": false,
               "options": null
             },
@@ -1389,7 +1402,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": "Native disabled behaviour: not focusable, cannot open.",
+              "description": "Native disabled behaviour. The select cannot take focus or open.",
               "enum": false,
               "options": null
             },
@@ -1421,9 +1434,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 91386,
-        "cssMin": 3094,
-        "gzip": 33017
+        "jsMin": 91577,
+        "cssMin": 3633,
+        "gzip": 33248
       }
     },
     "Slider": {
@@ -1502,7 +1515,7 @@
               "type": "((value: number) => string)",
               "required": false,
               "default": null,
-              "description": "Formats the value shown next to the label and spoken by screen readers, e.g. `(v) => \\`${v}px\\``.",
+              "description": "Formats the value shown next to the label and spoken by screen readers, for example a function that adds a unit.",
               "enum": false,
               "options": null
             },
@@ -1534,8 +1547,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 29757,
-        "cssMin": 1510,
-        "gzip": 11351
+        "cssMin": 1792,
+        "gzip": 11455
       }
     },
     "Stack": {
@@ -1661,7 +1674,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Turns the control off, so it cannot be focused or changed. Inside a FormField, its `disabled` sets this for you.",
               "enum": false,
               "options": null
             },
@@ -1679,7 +1692,7 @@
               "type": "string",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Extra class on the outer element.",
               "enum": false,
               "options": null
             }
@@ -1693,8 +1706,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 13993,
-        "cssMin": 2406,
-        "gzip": 6014
+        "cssMin": 2694,
+        "gzip": 6081
       }
     },
     "Tabs": {
@@ -1723,9 +1736,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 28305,
-        "cssMin": 1535,
-        "gzip": 10349
+        "jsMin": 29016,
+        "cssMin": 2504,
+        "gzip": 10883
       }
     },
     "Tag": {
@@ -1753,8 +1766,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 268,
-        "cssMin": 460,
-        "gzip": 441
+        "cssMin": 560,
+        "gzip": 497
       }
     },
     "Textarea": {
@@ -1784,8 +1797,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 647,
-        "cssMin": 2258,
-        "gzip": 1136
+        "cssMin": 2093,
+        "gzip": 1115
       }
     }
   }

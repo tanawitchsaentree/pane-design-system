@@ -307,7 +307,7 @@ function ColorPage() {
         <ul>
           <li><b>Text follows the theme.</b> Dark glass carries white text and light glass carries ink. Secondary text is the same colour at a lower opacity, held at the lowest value that still passed on the bright photos.</li>
           <li><b>Two solid fills only.</b> The loud solid (<code>surface.light</code>, white in dark and ink in light) for the main action, and blue (<code>action.accent</code>) for promoted ones. Never both for equal actions. <Link to="/foundations/themes">Themes & backdrops</Link> shows both.</li>
-          <li><b>Blue is #0071E3, not Twitter blue.</b> #1D9BF0 measured about 2.9:1 under white text on its own fill.</li>
+          <li><b>Blue is #0071E3, a deeper blue than Twitter’s.</b> Twitter’s <span data-not-token>#1D9BF0</span> measured about 2.9:1 under white text on its own fill.</li>
           <li><b>Opaque pairs are computed, glass pairs are measured.</b> White on blue is 4.70:1 by formula; anything on glass is only what the evidence run reads from pixels.</li>
         </ul>
       </Section>
@@ -756,7 +756,7 @@ function StatusPage() {
       <Section id="matrix" title="Accessibility matrix" wide>
         <p>Each row is one component. Keyboard and behaviour come from the conformance run. Contrast comes from the evidence run, split by theme. Screen reader passes are done by hand and none have been recorded yet.</p>
         <div className="table-wrap">
-          <table className="matrix">
+          <table className="matrix" data-a11y-matrix>
             <thead><tr><th scope="col">Component</th><th scope="col">Status</th><th scope="col">Behaviour and keyboard</th><th scope="col">Contrast, dark</th><th scope="col">Contrast, light</th><th scope="col">Reduced transparency</th><th scope="col">Forced colours</th><th scope="col">Screen reader</th></tr></thead>
             <tbody>
               {COMPONENTS.map((c) => {

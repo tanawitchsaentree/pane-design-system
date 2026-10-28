@@ -1,40 +1,102 @@
 {
-  "concept": "A badge states a status in words on a small fill, so meaning never depends on colour or on the glass behind it.",
+  "concept": "A badge is a status written on the glass as a glyph and a word. Each tone has its own glyph shape in its mark colour, the word is in the text colour, and there is no fill, the same language as Banner (D-018).",
   "parts": {
     "root": {
       "p": "P6",
-      "why": "a compact pill that carries the status as text, readable without seeing its colour"
+      "axis": "colour",
+      "why": "the status in words in the text colour, never colour alone"
+    },
+    "glyph": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "each tone has its own glyph shape, circle, check, triangle or octagon"
     },
     "dot": {
       "p": "P6",
-      "why": "an optional dot repeats the status for scanning lists; it is decoration, the words carry the meaning"
-    },
-    "neutral": {
-      "p": "P1",
-      "why": "the neutral badge uses the quiet glass fill so it does not add a loud mark to the pane"
+      "axis": "shape",
+      "why": "a neutral status can carry a dot in the secondary colour"
     },
     "info": {
-      "p": "P6",
-      "why": "information uses the accent fill with its computed white text pair"
+      "p": "P1",
+      "axis": "colour",
+      "why": "info spends its colour only on the glyph"
     },
     "positive": {
-      "p": "P6",
-      "why": "success uses the green status fill with white text measured at 5.02 to 1"
+      "p": "P1",
+      "axis": "colour",
+      "why": "positive spends its colour only on the glyph"
     },
     "warning": {
-      "p": "P6",
-      "why": "warning uses amber with ink text, because white on amber would fail contrast"
+      "p": "P1",
+      "axis": "colour",
+      "why": "warning spends its colour only on the glyph"
     },
     "critical": {
-      "p": "P6",
-      "why": "errors use the red status fill with white text measured at 5.66 to 1"
+      "p": "P1",
+      "axis": "colour",
+      "why": "critical spends its colour only on the glyph"
     }
   },
   "states": {
     "@media forced-colors: active": {
       "p": "P6",
-      "why": "forced colours drop glass and fills, so a real system-colour border is drawn to keep the shape visible"
+      "axis": "depth",
+      "why": "forced colours drop the tone colours, so a real system-colour border keeps the shape"
     }
   },
-  "motion": {}
+  "motion": {},
+  "default_to_avoid": [
+    {
+      "pattern": "pastel traffic-light pill badges with coloured text (Material badges, every admin template)",
+      "why_not": "tinted fills spend three colours where P1 allows one, and the colour carries the status more than the word does"
+    }
+  ],
+  "references": [
+    {
+      "title": "visionOS HIG · Status bars",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/status-bars"
+    },
+    {
+      "title": "visionOS HIG · Color",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/color"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns almost no colour of its own, only white at opacities, one ink and one blue",
+      "form": "no tinted fill; the tone colour appears only on a small glyph"
+    },
+    {
+      "p": "P6",
+      "axis": "colour",
+      "consequence": "status is spoken in text as well as shown in colour",
+      "form": "the status is a word, and each tone has its own glyph shape (circle, check, triangle, octagon)"
+    },
+    {
+      "p": "P3",
+      "axis": "interaction",
+      "consequence": "the whole pane is never a hidden button; actions sit on it as separate objects",
+      "form": "a badge is a label, not an object to press, so it has no pill to press"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the glyph shape differs per tone, so tone survives without colour"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/round3/",
+    "section": "badge",
+    "options": [
+      "A glyph and word",
+      "B etched with a glyph",
+      "C glass pill with a glyph"
+    ],
+    "picked": "A glyph and word",
+    "by": "agent",
+    "reason": "A is Banner's language (D-018) at the size of a word: the glyph carries the colour and the shape, the word carries the meaning (P1, P6). B and C put the glyph in a container, which turns a status into a small object and, in C, into something that looks pressable."
+  }
 }

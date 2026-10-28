@@ -17,12 +17,15 @@ export interface CheckboxProps {
   defaultChecked?: boolean;
   /** Called with the new state. */
   onCheckedChange?: (checked: boolean | 'indeterminate') => void;
+  /** Turns the control off, so it cannot be focused or changed. Inside a FormField, its `disabled` sets this for you. */
   disabled?: boolean;
+  /** Marks the answer as required for form submission and for assistive tech. */
   required?: boolean;
   /** Name for form submission. */
   name?: string;
   /** Value submitted when checked. Defaults to "on". */
   value?: string;
+  /** Extra class on the outer element. */
   className?: string;
 }
 
