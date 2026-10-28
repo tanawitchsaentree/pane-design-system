@@ -1,0 +1,171 @@
+{
+  "concept": "A radio is a round well that holds a dot when chosen, every option visible at once.",
+  "default_to_avoid": [
+    {
+      "pattern": "Material outlined text field with a floating label; filled blue square checkbox; iOS green switch (Material 3, Bootstrap, iOS Settings)",
+      "why_not": "it draws a box on the glass, paints selection in colour the scene should own, moves the label out of its place, and was made for opaque pages rather than a pane floating over a photo"
+    }
+  ],
+  "references": [
+    {
+      "title": "visionOS HIG · Text fields",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/text-fields"
+    },
+    {
+      "title": "visionOS HIG · Toggles",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/toggles"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P1",
+      "axis": "depth",
+      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur), never from an opaque tint",
+      "form": "a field on glass reads by dimming what is behind it, never by an opaque white or grey box"
+    },
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns almost no colour of its own, only white at opacities, one ink and one blue",
+      "form": "selection is white or ink with a mark, and the one blue is used at most on the switch track"
+    },
+    {
+      "p": "P3",
+      "axis": "shape",
+      "consequence": "controls are full pills because they are held in the hand",
+      "form": "single-line fields and the switch are full pills; the textarea keeps nested corners because it grows"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "a checked box shows a check, a chosen radio a dot, an on switch a tick or moved knob, and an invalid field an octagon glyph with the word Error"
+    },
+    {
+      "p": "P6",
+      "axis": "space",
+      "consequence": "every target is at least 44px in its smaller dimension or has a 44px hit area",
+      "form": "the label and control share one hit area of at least 44px so a 22 to 26px box is still easy to hit"
+    },
+    {
+      "p": "P2",
+      "axis": "interaction",
+      "consequence": "focus rings carry their own dark halo so they are visible on any part of any scene",
+      "form": "a focused field shows a 2px white ring or baseline with its own dark halo over any photo"
+    },
+    {
+      "p": "P7",
+      "axis": "shape",
+      "consequence": "reading layouts use plain rectangles and hairlines, no floating panes",
+      "form": "on a settings page the same controls lose their glass treatment and become plain sunken or hairline surfaces"
+    },
+    {
+      "p": "P4",
+      "axis": "motion",
+      "consequence": "long ease-out curves (420 to 640ms) for arriving and hovering, a shorter one (200ms) for pressing because a press is a reply",
+      "form": "the check, dot and knob arrive over 420 to 520ms and settle, while a press answers in 200ms"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/forms/",
+    "options": [
+      "A well in the pane",
+      "B written on the pane",
+      "C held objects"
+    ],
+    "picked": "A well in the pane",
+    "by": "user",
+    "note": "2026-10-27: user picked A for the whole W3 family (D-020)"
+  },
+  "parts": {
+    "circle": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "the radio is a round well, so its shape alone tells it apart from a square checkbox"
+    },
+    "description": {
+      "p": "P7",
+      "axis": "type",
+      "why": "the description is secondary text under the label, read after the control name"
+    },
+    "dot": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the chosen radio holds a 10px dot, a shape that says selected without colour"
+    },
+    "group": {
+      "p": "P7",
+      "axis": "space",
+      "why": "the group stacks its question, help and options at the field gap"
+    },
+    "help": {
+      "p": "P7",
+      "axis": "type",
+      "why": "help reads as secondary text under the control, quieter than the label above it"
+    },
+    "label": {
+      "p": "P7",
+      "axis": "interaction",
+      "why": "the label looks like a label and also toggles the control, so the target is the whole line"
+    },
+    "legend": {
+      "p": "P7",
+      "axis": "type",
+      "why": "the legend names the group as a heading would, in the label weight, before every control in it"
+    },
+    "options": {
+      "p": "P7",
+      "axis": "space",
+      "why": "options stack in a column so every choice is visible at once"
+    },
+    "root": {
+      "p": "P7",
+      "axis": "space",
+      "why": "the component owns the spacing between its own parts, so children never carry margins and rows line up"
+    },
+    "text": {
+      "p": "P7",
+      "axis": "space",
+      "why": "the label and description stack beside the control and share its 44px row"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the well becomes a system-colour border, so the field keeps its edge without glass"
+    },
+    "active": {
+      "p": "P4",
+      "axis": "shape",
+      "why": "a press shrinks the control slightly and quickly, because a press is a reply"
+    },
+    "data-pane-card=glass": {
+      "p": "P1",
+      "axis": "depth",
+      "why": "on a glass card the control is a dimmed well with an inner shadow; elsewhere it is the opaque page surface (P7)"
+    },
+    "disabled": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "disabled fades to the disabled opacity token and the reason is written beside it"
+    },
+    "focus-visible": {
+      "p": "P2",
+      "axis": "interaction",
+      "why": "keyboard focus draws the shared 2px ring with its halo, visible on any part of any scene"
+    }
+  },
+  "motion": {
+    "@dot-in": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the radio dot grows in and settles, an arrival that answers the press"
+    },
+    "transform": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "press and travel move by transform over the soft curve, so nothing shifts the layout"
+    }
+  }
+}

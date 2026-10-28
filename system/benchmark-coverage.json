@@ -1,0 +1,160 @@
+{
+ "/foundations/grid": {
+  "scope": "#scope",
+  "unit": "#unit",
+  "anatomy": "#anatomy",
+  "breakpoints": "#breakpoints",
+  "breakpoint-basis": "#breakpoint-basis",
+  "column-width": "#column-width",
+  "spans": "#spans",
+  "types": "#types",
+  "max-width": "#max-width",
+  "gutters": "#gutters",
+  "margins": "#margins",
+  "padding": "#padding",
+  "what-aligns": "#what-aligns",
+  "nested": "#nested",
+  "behaviours": "#behaviours",
+  "ui-behaviours": "#ui-behaviours",
+  "regions": "#regions",
+  "key-lines": "#key-lines",
+  "density": "#density",
+  "sizing-scale": "#sizing-scale",
+  "aspect-ratios": "#aspect-ratios",
+  "vertical-rhythm": "#vertical-rhythm",
+  "components": "#components",
+  "dodont": "#dodont",
+  "tools": "#tools",
+  "demos": "#demos",
+  "further-reading": "#further-reading"
+ },
+ "/foundations/color": {
+  "anatomy": "#palette",
+  "layering": "#layering",
+  "roles": "#roles",
+  "tokens": "#tokens",
+  "states": "#states",
+  "themes": "#themes",
+  "high-contrast": "#high-contrast",
+  "accessibility": "#rules",
+  "specs": "#specs",
+  "on-materials": "#on-glass",
+  "management": {
+   "na": "Pane is a web system and every colour is specified in sRGB hex, so there is no colour-space choice to make or document."
+  },
+  "platforms": {
+   "na": "Pane targets the web only, so there are no per-platform colour differences such as tvOS or watchOS to describe."
+  }
+ },
+ "/foundations/typography": {
+  "principles": "#principles",
+  "typeface": "#typeface",
+  "custom-fonts": "#custom-fonts",
+  "scale": "#scale",
+  "weights": "#weights",
+  "styles": "#styles",
+  "user-size": "#user-size",
+  "tracking": "#weights",
+  "color": "#type-colour",
+  "legibility": "#legibility",
+  "platforms": {
+   "na": "Pane targets the web only, so there are no per-platform text styles such as watchOS sizes to list."
+  }
+ },
+ "/foundations/spacing": {
+  "base-unit": "#base-unit",
+  "scale": "#scale",
+  "tokens": "#gaps",
+  "applying": "#gaps",
+  "stacking": "#stacking",
+  "relationships": "#relationships",
+  "hierarchy": "#hierarchy",
+  "white-space": "#white-space",
+  "optical": "#optical",
+  "safe-areas": "#safe-areas"
+ },
+ "/foundations/motion": {
+  "principles": "#principles",
+  "duration": "#tokens",
+  "easing": "#tokens",
+  "properties": "#properties",
+  "feedback": "#feedback",
+  "choreography": "#choreography",
+  "accessibility": "#reduced",
+  "evaluation": "#checklist",
+  "platforms": {
+   "na": "Pane targets the web only; the visionOS ideas it borrows, such as rising into place, are already its principles P3 and P4."
+  }
+ },
+ "/foundations/icons": {
+  "principles": "#principles",
+  "sizing": "#sizes",
+  "targets": "#targets",
+  "color": "#colour",
+  "alignment": "#alignment",
+  "style": "#style",
+  "standard": "#standard",
+  "contribution": "#contribution"
+ },
+ "/foundations/themes": {
+  "basics": "#switch",
+  "default": "#default",
+  "customising": "#customising",
+  "tokens": "#changes",
+  "dark-colors": "#changes",
+  "images": "#bright-dark",
+  "text": "#solids",
+  "respect-setting": "#respect-setting",
+  "applied": "#matrix"
+ },
+ "/foundations/shape": {
+  "radius-scale": "#radius-scale",
+  "radius-usage": "#radius-usage",
+  "focus-radius": "#focus-radius",
+  "elevation-types": "#elevation",
+  "pairings": "#pairings",
+  "dark": "#dark",
+  "interaction": "#interaction",
+  "z-index": "#z-index",
+  "materials": "#rim",
+  "contrast": "#contrast"
+ },
+ "/foundations/dimensions": {
+  "hierarchy": "#hierarchy",
+  "size-classes": "#breakpoints",
+  "safe-areas": "#safe-areas",
+  "density": "#density",
+  "controls": "#controls",
+  "stacking": "#layers"
+ },
+ "/foundations/glass": {
+  "what": "#recipe",
+  "thickness": "#environments",
+  "legibility": "#how-chosen",
+  "spatial": "#spatial",
+  "surfaces": "#surfaces",
+  "fallbacks": "#fallbacks"
+ },
+ "/foundations/content": {
+  "audience": "#audience",
+  "voice": "#voice",
+  "tone": "#tone",
+  "clarity": "#clarity",
+  "inclusive": "#inclusive",
+  "labels": "#labels",
+  "capitalisation": "#capitalisation",
+  "consistency": "#consistency",
+  "multistep": "#multistep",
+  "accessibility": "#writing-accessibility"
+ },
+ "/foundations/accessibility": {
+  "vision": "#vision",
+  "hearing": "#hearing",
+  "mobility": "#mobility",
+  "cognitive": "#cognitive",
+  "speech": "#speech",
+  "standards": "#standards",
+  "principles": "#principle",
+  "tools": "#verified"
+ }
+}

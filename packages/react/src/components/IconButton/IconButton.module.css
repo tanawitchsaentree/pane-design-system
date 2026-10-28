@@ -1,0 +1,32 @@
+.root {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  padding: 0;
+  border: 0;
+  border-radius: var(--ds-icon-button-radius);
+  cursor: pointer;
+  transition:
+    background-color var(--ds-motion-hover) var(--ds-motion-easing),
+    color var(--ds-motion-hover) var(--ds-motion-easing),
+    transform var(--ds-motion-hover) var(--ds-motion-easing);
+}
+.root:hover { transform: translateY(calc(var(--ds-motion-lift) * -1)); }
+.ghost:hover { color: var(--ds-icon-button-fg); }
+.root:active { transform: scale(var(--ds-motion-press-scale)); transition-duration: var(--ds-motion-press); }
+.md { inline-size: var(--ds-icon-button-size); block-size: var(--ds-icon-button-size); }
+.sm { inline-size: var(--ds-icon-button-size-sm); block-size: var(--ds-icon-button-size-sm); }
+.root > svg { inline-size: var(--ds-icon-button-icon); block-size: var(--ds-icon-button-icon); }
+.glass {
+  background: var(--ds-icon-button-glass-bg);
+  color: var(--ds-icon-button-fg);
+  -webkit-backdrop-filter: blur(var(--ds-icon-button-blur));
+  backdrop-filter: blur(var(--ds-icon-button-blur));
+}
+.ghost { background: transparent; color: var(--ds-icon-button-ghost-fg); }
+.root:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-width);
+  box-shadow: 0 0 0 calc(var(--ds-focus-ring-width) * 2 + var(--ds-focus-ring-halo-width)) var(--ds-focus-ring-halo);
+}
+@media (forced-colors: active) { .root { border: var(--ds-focus-ring-width) solid ButtonText; } }

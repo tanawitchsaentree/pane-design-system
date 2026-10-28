@@ -1,0 +1,61 @@
+{
+  "concept": "A slider is a thin track with a white knob held by the finger; the knob is large enough to grab and the hit area larger still.",
+  "parts": {
+    "root": {
+      "p": "P7",
+      "why": "label and current value sit above the track, so the reader sees what they are changing before touching it"
+    },
+    "head": {
+      "p": "P7",
+      "why": "one line with the name at the start and the value at the end, read left to right"
+    },
+    "label": {
+      "p": "P6",
+      "why": "the visible label is also the accessible name of the thumb"
+    },
+    "value": {
+      "p": "P2",
+      "why": "the current value in tabular figures and secondary colour, so changing numbers do not jitter"
+    },
+    "slider": {
+      "p": "P6",
+      "why": "the 44px tall root is the hit area, much larger than the 6px track you see"
+    },
+    "track": {
+      "p": "P1",
+      "why": "the track is the quiet fill with a ring, a groove in the pane rather than a coloured bar"
+    },
+    "range": {
+      "p": "P5",
+      "why": "the filled part uses the accent, the only colour on the control"
+    },
+    "thumb": {
+      "p": "P6",
+      "why": "a white 20px knob with ring and shadow, visible on both themes and on glass"
+    }
+  },
+  "states": {
+    "data-disabled": {
+      "p": "P6",
+      "why": "disabled keeps the slider visible at half opacity and stops dragging"
+    },
+    "hover": {
+      "p": "P4",
+      "why": "the knob grows slightly under the pointer, inviting the grab"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "why": "keyboard focus draws the shared ring with its halo so the focused control is visible on any scene"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "why": "forced colours draw the track, range and knob with system colours so the value stays visible"
+    }
+  },
+  "motion": {
+    "transform": {
+      "p": "P4",
+      "why": "the knob grows over the hover duration, a small settle rather than a jump"
+    }
+  }
+}

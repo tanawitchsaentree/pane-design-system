@@ -1,0 +1,67 @@
+.root {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-card-gap);
+  color: var(--ds-card-fg);
+  /* white text on thin glass carries a soft halo; solid-fill controls reset it */
+  text-shadow: var(--ds-card-text-halo);
+  font-family: var(--ds-type-family);
+  font-size: var(--ds-type-body);
+  line-height: var(--ds-type-leading-body);
+}
+
+/* A floating pane: environment-tinted glass, specular rim, soft shadow, no hard border (D-008/D-009). */
+.glass {
+  padding: 0 var(--ds-card-padding) var(--ds-card-padding);
+  padding-block-start: var(--ds-card-padding);
+  border-radius: var(--ds-card-radius);
+  /* clear tint + a soft top sheen; the scene behind is dimmed (brightness), not greyed (D-010) */
+  background: linear-gradient(180deg, var(--ds-card-sheen-top), var(--ds-card-sheen-bottom) 40%), var(--ds-card-bg);
+  -webkit-backdrop-filter: blur(var(--ds-card-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-card-brightness));
+  backdrop-filter: blur(var(--ds-card-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-card-brightness));
+  box-shadow: var(--ds-card-shadow);
+  overflow: hidden;
+  transition:
+    backdrop-filter var(--ds-motion-scene) var(--ds-motion-easing-inout),
+    -webkit-backdrop-filter var(--ds-motion-scene) var(--ds-motion-easing-inout);
+}
+.glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: var(--ds-card-rim-width);
+  pointer-events: none;
+  background: linear-gradient(150deg, var(--ds-card-rim-hi), var(--ds-card-rim-lo) 38%, var(--ds-card-rim-lo) 70%, var(--ds-card-rim-mid));
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+  transition: background-position var(--ds-motion-enter) var(--ds-motion-easing);
+  /* mask keeps only the padding ring; the keyword is the mask's alpha source, not a design colour */
+  -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+/* the specular rim drifts as if the light moved — slow, never a flash */
+.glass:hover::before { background-position: 60% 60%; }
+/* the cover is the first child: pull it to the edges instead of padding it */
+.glass:has(> .cover:first-child) { padding-block-start: 0; }
+
+.inset {
+  padding-block-start: var(--ds-card-padding);
+  border-block-start: var(--ds-card-rim-width) solid var(--ds-card-divider);
+}
+
+.cover {
+  block-size: calc(var(--ds-card-padding) * 5);
+  margin-inline: calc(var(--ds-card-padding) * -1);
+  background-size: cover;
+  background-position: center;
+  background-image: radial-gradient(ellipse at 70% 0%, var(--ds-card-cover-hi), var(--ds-card-cover-lo) 70%);
+}
+
+@media (forced-colors: active) {
+  .glass { border: var(--ds-card-rim-width) solid CanvasText; }
+  .glass::before { display: none; }
+}

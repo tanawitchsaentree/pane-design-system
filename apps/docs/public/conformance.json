@@ -1,0 +1,422 @@
+{
+  "generatedAt": "2026-10-27T14:37:20.075Z",
+  "passed": 72,
+  "total": 74,
+  "checks": [
+    {
+      "component": "Environment",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props"
+    },
+    {
+      "component": "Card",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "Avatar",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props"
+    },
+    {
+      "component": "Button",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "2 props"
+    },
+    {
+      "component": "IconButton",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "Tabs",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "no props of its own (pass-through only)"
+    },
+    {
+      "component": "Tag",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props"
+    },
+    {
+      "component": "Container",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props"
+    },
+    {
+      "component": "Grid",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props"
+    },
+    {
+      "component": "Stack",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "Badge",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "Chip",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props"
+    },
+    {
+      "component": "Banner",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props"
+    },
+    {
+      "component": "Environment",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Card",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "Avatar",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Button",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "IconButton",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "Tabs",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Tag",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Container",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Grid",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Stack",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
+      "ok": true,
+      "detail": "6 demos"
+    },
+    {
+      "component": "Badge",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Chip",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Banner",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "8 demos"
+    },
+    {
+      "component": "Environment",
+      "name": "each brightness wires its own backdrop dimming into the card (probe values)",
+      "ok": true,
+      "detail": "dim→0.9 mid→0.6 bright→0.3"
+    },
+    {
+      "component": "Environment",
+      "name": "reduced transparency turns every environment opaque, no dimming (D-005)",
+      "ok": true,
+      "detail": "rgb(44, 44, 52)|blur(0px) saturate(1.8) brightness(1)"
+    },
+    {
+      "component": "Environment",
+      "name": "no declaration falls back to bright (the safe end)",
+      "ok": true
+    },
+    {
+      "component": "Environment",
+      "name": "reduced motion zeroes every motion duration at the token level",
+      "ok": true
+    },
+    {
+      "component": "Card",
+      "name": "glass card blurs, saturates and dims what is behind it",
+      "ok": true,
+      "detail": "blur(64px) saturate(1.8) brightness(0.42)"
+    },
+    {
+      "component": "Card",
+      "name": "inset variant adds no second glass layer",
+      "ok": true
+    },
+    {
+      "component": "Avatar",
+      "name": "non-decorative avatars are role=\"img\" named after the person",
+      "ok": true
+    },
+    {
+      "component": "Avatar",
+      "name": "decorative avatar beside a visible name is hidden from assistive tech",
+      "ok": true
+    },
+    {
+      "component": "Button",
+      "name": "native <button type=\"button\">",
+      "ok": true
+    },
+    {
+      "component": "Button",
+      "name": "reachable with Tab",
+      "ok": true
+    },
+    {
+      "component": "Button",
+      "name": "Enter and Space activate it",
+      "ok": true
+    },
+    {
+      "component": "Button",
+      "name": "keyboard focus draws a 2px white ring with a dark halo",
+      "ok": true
+    },
+    {
+      "component": "Button",
+      "name": "disabled is the native attribute",
+      "ok": true
+    },
+    {
+      "component": "Button",
+      "name": "hover motion uses the soft tokens (420ms, cubic-bezier(0.22, 1, 0.36, 1))",
+      "ok": true,
+      "detail": "0.42s cubic-bezier(0.22, 1, 0.36, 1)"
+    },
+    {
+      "component": "IconButton",
+      "name": "reachable with Tab",
+      "ok": true
+    },
+    {
+      "component": "IconButton",
+      "name": "every button with no visible text, on every page of the book, has an accessible name",
+      "ok": true,
+      "detail": "76 pages"
+    },
+    {
+      "component": "Tabs",
+      "name": "one tab stop, so Tab lands on the selected tab and the next Tab leaves the list",
+      "ok": true
+    },
+    {
+      "component": "Tabs",
+      "name": "arrow keys move focus and selection, and Home and End jump to the ends",
+      "ok": true
+    },
+    {
+      "component": "Tabs",
+      "name": "each tab controls a tabpanel that exists",
+      "ok": true
+    },
+    {
+      "component": "Tabs",
+      "name": "the selected tab keeps an underline in forced colours",
+      "ok": true
+    },
+    {
+      "component": "Tag",
+      "name": "plain text with no role, small caps via CSS (source text stays readable)",
+      "ok": true
+    },
+    {
+      "component": "Docs page",
+      "name": "G-D3, no literal backtick in rendered text on any of the 76 pages",
+      "ok": true
+    },
+    {
+      "component": "Grid",
+      "name": "columns follow the breakpoint tokens, with 4 at 375px, 8 at 800px and 12 at 1280px",
+      "ok": true,
+      "detail": "4 → 8 → 12"
+    },
+    {
+      "component": "Grid",
+      "name": "GridItem spans switch per breakpoint (full → md 4/8 → lg 4/12)",
+      "ok": true,
+      "detail": "100% → 48% → 31%"
+    },
+    {
+      "component": "Container",
+      "name": "xl caps at 1200px and the margin grows 16 → 32 → 48px",
+      "ok": true,
+      "detail": "16px → 32px → 48px"
+    },
+    {
+      "component": "Stack",
+      "name": "gap comes from the token scale (md = 16px, xl = 32px)",
+      "ok": true,
+      "detail": "4px · 8px · 16px · 24px · 32px"
+    },
+    {
+      "component": "Badge",
+      "name": "status is in the text, with no role (read in place)",
+      "ok": true
+    },
+    {
+      "component": "Chip",
+      "name": "reachable with Tab",
+      "ok": true
+    },
+    {
+      "component": "Chip",
+      "name": "Space and Enter toggle aria-pressed",
+      "ok": true
+    },
+    {
+      "component": "Chip",
+      "name": "a check mark marks the selected chip as well as its colour",
+      "ok": true
+    },
+    {
+      "component": "Chip",
+      "name": "an input chip’s remove button is named after the chip and removes it",
+      "ok": true
+    },
+    {
+      "component": "Banner",
+      "name": "dismiss is a named button and removes the banner",
+      "ok": true
+    },
+    {
+      "component": "Banner",
+      "name": "live=\"polite\" appears as role=\"status\", live=\"assertive\" as role=\"alert\"",
+      "ok": true
+    },
+    {
+      "component": "Banner",
+      "name": "the tone is spoken as prefix text",
+      "ok": true
+    },
+    {
+      "component": "Docs page",
+      "name": "choosing a chapter opens it as a new page at the top, with its heading in view and focused, at 375, 768 and 1280px",
+      "ok": true,
+      "detail": "all three widths"
+    },
+    {
+      "component": "Docs page",
+      "name": "G-S5, a new chapter is fully visible on its first painted frame with motion on",
+      "ok": true
+    },
+    {
+      "component": "Docs page",
+      "name": "on narrow screens Esc closes the menu and returns focus to the Menu button",
+      "ok": true
+    },
+    {
+      "component": "Docs page",
+      "name": "no two cards touch (under 8px) or overlap on any of the 76 pages at 375px and 1280px",
+      "ok": true,
+      "detail": "834 cards across both widths"
+    },
+    {
+      "component": "Docs page",
+      "name": "G-F1, every foundation page (9) has a playground whose first control changes its preview",
+      "ok": true,
+      "detail": "9 pages"
+    },
+    {
+      "component": "Docs page",
+      "name": "G-C1, every code block on all 76 pages has a Copy button you can see",
+      "ok": true,
+      "detail": "180 code blocks"
+    },
+    {
+      "component": "Docs page",
+      "name": "G-C2, Copy puts the whole snippet on the clipboard, including lines a long block hides",
+      "ok": true,
+      "detail": "15 lines copied"
+    },
+    {
+      "component": "Docs page",
+      "name": "G-T1, the theme control switches text and glass tokens, and the evidence covers both themes",
+      "ok": true,
+      "detail": "text #FFFFFF → #111214"
+    },
+    {
+      "component": "Docs page",
+      "name": "G-B1, all 13 component pages show the component in both themes over a dark and a bright scene, and say what changes",
+      "ok": true
+    },
+    {
+      "component": "Docs page",
+      "name": "G-L1, all 13 component pages state a status, their own change history, limitations and the accessibility work left to the app",
+      "ok": true
+    },
+    {
+      "component": "Docs page",
+      "name": "G-M1, the accessibility matrix lists all 13 components and no cell is blank",
+      "ok": true,
+      "detail": "13 rows"
+    },
+    {
+      "component": "Docs page",
+      "name": "G-N1, no form control on any of the 76 pages shows the browser's default look, because selects and sliders are drawn from tokens in both themes",
+      "ok": true,
+      "detail": "138 controls per theme"
+    },
+    {
+      "component": "Docs page",
+      "name": "axe finds no violations on all 76 pages (forced-colors none)",
+      "ok": false,
+      "detail": "/components/avatar/usage role-img-alt×1, /components/tabs/usage aria-valid-attr-value×1"
+    },
+    {
+      "component": "Docs page",
+      "name": "axe finds no violations on all 76 pages (forced-colors active)",
+      "ok": false,
+      "detail": "/components/avatar/usage role-img-alt×1, /components/tabs/usage aria-valid-attr-value×1"
+    }
+  ]
+}

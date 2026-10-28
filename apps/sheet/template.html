@@ -1,0 +1,119 @@
+<!doctype html><html lang="th"><head><meta charset="utf-8"><title>System Sheet</title>
+<style>
+:root{--paper:#E9E6DE;--card:#F6F4EF;--ink:#2B2A27;--sub:#6E6A61;--acc:#8B5A3C}
+*{box-sizing:border-box;margin:0}
+body{width:1240px;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,sans-serif;padding:56px 70px}
+h1{font:700 54px/1.1 Georgia,serif}
+.tag{font:italic 22px Georgia,serif;color:var(--acc);margin:8px 0 4px}
+.meta{color:var(--sub);font-size:14px}
+hr{border:0;border-top:1px solid #c8c4b9;margin:26px 0}
+h2{display:flex;gap:12px;align-items:center;font:700 17px system-ui;margin:30px 0 14px;letter-spacing:.5px}
+h2 i{width:32px;height:32px;border-radius:50%;background:var(--acc);color:var(--card);font-style:normal;display:inline-flex;align-items:center;justify-content:center;font-size:14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
+.sw{display:flex;gap:12px;flex-wrap:wrap}
+.sw div{width:72px;text-align:center;font-size:12px;color:var(--sub)}
+.sw i{display:block;height:64px;border-radius:12px;border:1px solid #d5d1c6;margin-bottom:6px}
+table{border-collapse:collapse;font-size:14px}
+td{padding:5px 22px 5px 0;border-bottom:1px solid #dcd8cd}
+td:last-child{color:var(--acc)}
+.spc{display:flex;align-items:center;gap:10px;margin-bottom:6px;font-size:12px}
+.spc b{display:inline-block;background:var(--acc);height:14px;border-radius:3px}
+.spec{margin-bottom:8px}
+.shape{display:flex;gap:16px;align-items:flex-end;margin-bottom:10px}
+.box{background:var(--card)}
+footer{display:flex;justify-content:space-between;color:var(--sub);font-size:13px;margin-top:34px}
+</style></head><body>
+<!-- AGENT: เติมข้อมูลจริงจาก system/DECISIONS.md + packages/tokens/build เท่านั้น -->
+<h1>Dial</h1>
+<div class="tag">Braun-derived · calm, restrained, accent-scarce</div>
+<div class="meta">D-001 – D-026 locked · web-first · 2026-08-11 · <b style="color:var(--acc)">AA · 1 exception</b> (see system/EXCEPTIONS.md — E-001 OPEN) · <b style="color:var(--acc)">Dial complete on Kiln DS v1</b></div>
+<hr>
+<div class="grid">
+<section><h2><i>01</i>COLOR</h2><div class="sw">
+<div><i style="background:#f2efeb"></i>neutral.50</div>
+<div><i style="background:#ebe7e2"></i>neutral.100</div>
+<div><i style="background:#bbb7b0"></i>neutral.300</div>
+<div><i style="background:#7e7a74"></i>neutral.500</div>
+<div><i style="background:#494641"></i>neutral.700</div>
+<div><i style="background:#282623"></i>neutral.900</div>
+<div><i style="background:#ffefe9"></i>brand.50</div>
+<div><i style="background:#f5a387"></i>brand.300</div>
+<div><i style="background:#e8622d;border:none"></i>brand.500</div>
+<div><i style="background:#9c3200;border:none"></i>brand.700 (action.primary — accent, D-001/D-014)</div>
+</div></section>
+<section><h2><i>03</i>SPACING — base 8px</h2>
+<div class="spc"><span style="width:110px">space.100</span><b style="width:8px"></b><span>8px</span></div>
+<div class="spc"><span style="width:110px">space.300</span><b style="width:24px"></b><span>24px</span></div>
+<div class="spc"><span style="width:110px">space.500</span><b style="width:40px"></b><span>40px</span></div>
+<div class="spc"><span style="width:110px">space.700</span><b style="width:64px"></b><span>64px</span></div>
+<div class="spc"><span style="width:110px">space.900</span><b style="width:96px"></b><span>96px</span></div>
+</section>
+<section><h2><i>02</i>TYPE — ratio 1.2 (Minor Third, flat)</h2>
+<div class="spec" style="font-size:11px">xs 11px — dense label</div>
+<div class="spec" style="font-size:16px">md 16px (base) — body text</div>
+<div class="spec" style="font-size:23px">xl 23px — section head</div>
+<div class="spec" style="font-size:40px;font-weight:600">4xl 40px — hero</div>
+</section>
+<section><h2><i>04</i>SHAPE &amp; ELEVATION</h2>
+<div class="shape">
+<div class="box" style="width:64px;height:64px;border-radius:8px;border:1px solid #d5d1c6"></div>
+<div class="box" style="width:64px;height:64px;border-radius:16px;border:1px solid #d5d1c6"></div>
+<div class="box" style="width:64px;height:64px;border-radius:32px;border:1px solid #d5d1c6"></div>
+<div class="box" style="width:120px;height:64px;border-radius:999px;border:1px solid #d5d1c6"></div>
+</div>
+<div style="font-size:12px;color:var(--sub)">radius sm8/md12/lg16/xl24/2xl32/full · border.hairline สร้างขอบแทนเงา (D-008) · shadow.elevation สงวนไว้เฉพาะ modal/popover/toast</div>
+</section>
+<section><h2><i>05</i>COMPONENTS (ผ่าน QA แล้ว)</h2>
+<div style="font-size:13px;margin-bottom:8px"><b>Wave 1 — Layout+Primitives</b> · 10/10 PASS</div>
+<div style="display:flex;gap:14px;align-items:center;margin-bottom:10px">
+  <div style="width:56px;height:32px;background:var(--card);border:1px solid #d5d1c6;border-radius:8px"></div>
+  <div style="display:flex;gap:6px">
+    <div style="width:22px;height:22px;background:var(--card);border:1px solid #d5d1c6;border-radius:6px"></div>
+    <div style="width:22px;height:22px;background:var(--card);border:1px solid #d5d1c6;border-radius:6px"></div>
+    <div style="width:22px;height:22px;background:var(--card);border:1px solid #d5d1c6;border-radius:6px"></div>
+  </div>
+  <div style="width:1px;height:32px;background:#d5d1c6"></div>
+  <div style="width:60px;height:60px;background:var(--card);border:1px solid #d5d1c6;border-radius:8px;aspect-ratio:1/1"></div>
+</div>
+<div style="font-size:12px;color:var(--sub);margin-bottom:14px">Box · Flex · Stack · Grid · Container · Center · Spacer · Divider · AspectRatio · VisuallyHidden</div>
+<div style="font-size:13px;margin-bottom:8px"><b>Wave 2 — Atoms-Core</b> · 12/12 PASS</div>
+<div style="display:flex;gap:12px;align-items:center;margin-bottom:10px;flex-wrap:wrap">
+  <button style="height:48px;padding-inline:20px;background:#9c3200;color:#fff;border:none;border-radius:12px;font:600 15px system-ui">Button</button>
+  <button style="height:48px;padding-inline:20px;background:transparent;color:var(--ink);border:1px solid #7e7a74;border-radius:12px;font:600 15px system-ui">Outline</button>
+  <span style="display:inline-flex;align-items:center;padding-inline:10px;height:24px;background:#9c3200;color:#fff;border-radius:99px;font-size:11px;font-weight:600">Badge</span>
+  <div style="width:40px;height:40px;border-radius:50%;background:var(--card);border:1px solid #d5d1c6;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:600">JD</div>
+  <kbd style="border:1px solid #d5d1c6;border-radius:6px;padding:3px 8px;font:12px ui-monospace,monospace;background:var(--card)">⌘K</kbd>
+</div>
+<div style="font-size:12px;color:var(--sub);margin-bottom:14px">Text · Heading · Icon · Button · IconButton · Link · Badge · Avatar · Spinner · Skeleton · Kbd · Image</div>
+<div style="font-size:13px;margin-bottom:8px"><b>Wave 3 — Forms-Core</b> · 11/11 PASS</div>
+<div style="display:flex;gap:14px;align-items:center;margin-bottom:10px;flex-wrap:wrap">
+  <div style="height:40px;min-inline-size:180px;display:inline-flex;align-items:center;padding-inline:14px;background:#ebe7e2;border:1px solid #7e7a74;border-radius:10px;font-size:13px;color:var(--sub)">Input text</div>
+  <div style="width:20px;height:20px;background:#494641;border-radius:5px;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:12px">✓</div>
+  <div style="width:20px;height:20px;border:1px solid #7e7a74;border-radius:50%"></div>
+  <div style="width:48px;height:24px;background:#494641;border-radius:99px;position:relative"><div style="position:absolute;inset-inline-end:2px;top:2px;width:20px;height:20px;background:#fff;border-radius:50%"></div></div>
+</div>
+<div style="font-size:12px;color:var(--sub);margin-bottom:14px">Label · HelperText · Input · Textarea · Checkbox · Radio · Switch · Fieldset · InputGroup · FormField · PinInput</div>
+<div style="font-size:13px;margin-bottom:8px"><b>Wave 4 — Web Overlays</b> · 6/6 PASS (first-pass, 0 fix rounds)</div>
+<div style="display:flex;gap:14px;align-items:flex-end;margin-bottom:10px;flex-wrap:wrap">
+  <div style="width:150px;padding:14px;background:var(--card);border-radius:12px;box-shadow:0 8px 20px -4px rgba(43,42,39,.18)">
+    <div style="font-size:13px;font-weight:600;margin-bottom:4px">Dialog title</div>
+    <div style="font-size:11px;color:var(--sub)">Panel with elevation</div>
+  </div>
+  <div style="padding:8px 12px;background:var(--card);border-radius:8px;box-shadow:0 4px 12px -2px rgba(43,42,39,.15);font-size:12px">Popover</div>
+  <div style="padding:6px 10px;background:#282623;color:#f2efeb;border-radius:6px;font-size:11px">Tooltip</div>
+  <div style="padding:10px 14px;background:var(--card);border-radius:10px;box-shadow:0 6px 16px -3px rgba(43,42,39,.16);font-size:12px;display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#4b6b45"></span>Toast</div>
+</div>
+<div style="font-size:12px;color:var(--sub)">Popover · Tooltip · Dialog · Drawer · Toast · Snackbar</div>
+</section>
+<section><h2><i>06</i>TOKENS</h2><table>
+<tr><td>color.action.primary.default</td><td>brand.700 (#9C3200)</td></tr>
+<tr><td>color.border.interactive</td><td>neutral.500 (D-014)</td></tr>
+<tr><td>space.300 → inset.md</td><td>24px</td></tr>
+<tr><td>size.control.md</td><td>48px</td></tr>
+<tr><td>text.body.md</td><td>16px / 1.5</td></tr>
+<tr><td>border.hairline</td><td>1px neutral.200-300</td></tr>
+<tr><td>radius.md</td><td>12px</td></tr>
+</table></section>
+</div>
+<footer><span>Generated by ds-agent-kit (kiln DS v1) · system/sheets/sheet-2026-08-11.png</span><span>Dial complete · 42/103 catalog shipped · docs live on Fumadocs</span></footer>
+</body></html>

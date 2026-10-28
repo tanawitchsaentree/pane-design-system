@@ -1,0 +1,40 @@
+{
+  "name": "pane-design-system",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Pane — glass on a Dessau curtain-wall frame. Built with the kiln engine.",
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "build": "turbo run build",
+    "lint": "node tooling/no-hardcode-lint.mjs",
+    "lint:selftest": "node tooling/no-hardcode-lint.selftest.mjs",
+    "gate:selftest": "node tooling/hooks.selftest.mjs && node tooling/no-hardcode-lint.selftest.mjs && node tooling/contrast-check.selftest.mjs && node tooling/generate-barrel.selftest.mjs && node tooling/pack-verify.selftest.mjs && node tooling/story-title-check.selftest.mjs && node tooling/doc-count-check.selftest.mjs",
+    "story:check": "node tooling/story-title-check.mjs",
+    "doc:check": "node tooling/doc-count-check.mjs",
+    "smoke:import": "node tooling/smoke-import.mjs",
+    "tokens:build": "pnpm --filter pane-tokens build",
+    "docs:dev": "pnpm --filter pane-docs dev",
+    "docs:build": "pnpm --filter pane-react build && pnpm --filter pane-docs build",
+    "glass:evidence": "node tooling/glass-evidence.mjs",
+    "conformance": "node tooling/conformance.mjs",
+    "typecheck": "pnpm --filter pane-react typecheck && pnpm --filter pane-docs exec tsc --noEmit -p .",
+    "verify": "pnpm run tokens:build && pnpm run lint && node tooling/generate-barrel.mjs --check && pnpm run typecheck && node tooling/kiln/sync.mjs --check && node tooling/kiln/rationale.mjs && node tooling/kiln/meta.mjs && pnpm run docs:build && node tooling/smoke-import.mjs && nice -n 19 node tooling/kiln/spec-capture.mjs && nice -n 19 node tooling/kiln/evidence.mjs && nice -n 19 node tooling/conformance.mjs --no-build && pnpm run docs:build && nice -n 19 node tooling/kiln/gates.mjs --only G-D3,G-S1,G-S2,G-S3,G-S5,G-SH1,G-R1,G-A1,G-PF1,G-PF2,G-C1,G-C2,G-F1,G-N1,G-T1,G-W1,axe-none,axe-active && nice -n 19 node tooling/kiln/tone-gate.mjs",
+    "react:build": "pnpm --filter pane-react build",
+    "release:pack": "node tooling/release-pack.mjs",
+    "tone": "node tooling/tone-gate.mjs",
+    "verify:quick": "pnpm run tokens:build && pnpm run lint && pnpm run typecheck && node tooling/kiln/rationale.mjs && pnpm run docs:build && nice -n 19 node tooling/conformance.mjs --no-build",
+    "docs:audit": "nice -n 19 node tooling/kiln/gates.mjs --report",
+    "spec": "nice -n 19 node tooling/kiln/spec-capture.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@playwright/test": "^1.62.1",
+    "@types/react": "^19.0.0",
+    "esbuild": "^0.28.2",
+    "playwright": "^1.62.1",
+    "pngjs": "^7.0.0",
+    "react-docgen-typescript": "^2.4.0",
+    "turbo": "^2.0.0",
+    "typescript": "^5.6.0"
+  }
+}

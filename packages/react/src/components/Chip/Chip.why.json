@@ -1,0 +1,57 @@
+{
+  "concept": "A chip is a small object you press to include or remove something; its state changes shape and fill, never colour alone.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "why": "a pill with a ring, the same held shape as buttons at a smaller size"
+    },
+    "on": {
+      "p": "P6",
+      "why": "selected chips flip to the loud solid and show a check mark, so selection is visible without colour"
+    },
+    "toggle": {
+      "p": "P6",
+      "why": "the main press area is a native button with aria-pressed, so the state is announced"
+    },
+    "remove": {
+      "p": "P6",
+      "why": "removal is a separate named button, so removing is never an accident of toggling"
+    },
+    "removable": {
+      "p": "P3",
+      "why": "a removable chip shortens its toggle padding so the remove button sits inside the same pill"
+    },
+    "icon": {
+      "p": "P6",
+      "why": "the check and cross icons are a second cue next to the label and hidden from screen readers"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "why": "keyboard focus draws the shared ring with its halo so the focused control is visible on any scene"
+    },
+    "active": {
+      "p": "P4",
+      "why": "a press shrinks the control briefly and faster than hover, because a press is a reply to the reader"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "why": "forced colours drop glass and fills, so a real system-colour border is drawn to keep the shape visible"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "why": "selecting eases the fill at hover pace so the change reads as the chip turning over"
+    },
+    "color": {
+      "p": "P4",
+      "why": "the label colour flips with the fill over the same duration so the two move as one"
+    },
+    "transform": {
+      "p": "P4",
+      "why": "the press shrinks at the shorter press duration because it is a direct reply"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "concept": "An icon button is a small held disc for a single familiar action, with the same touch size and response as a button.",
+  "parts": {
+    "root": {
+      "p": "P6",
+      "why": "a round target with an accessible name required by its type, because the icon alone is not read"
+    },
+    "ghost": {
+      "p": "P5",
+      "why": "ghost has no fill for actions in a row of content, the quietest possible mark"
+    },
+    "md": {
+      "p": "P6",
+      "why": "medium is the 44px touch size, the default for any action a thumb will press"
+    },
+    "sm": {
+      "p": "P6",
+      "why": "small is 32px for dense post rows, kept only where space is tight"
+    },
+    "glass": {
+      "p": "P5",
+      "why": "the quiet glass disc for a standalone secondary action, such as edit on a profile"
+    }
+  },
+  "states": {
+    "hover": {
+      "p": "P4",
+      "why": "hover lifts the disc and brightens a ghost icon, answering the pointer"
+    },
+    "active": {
+      "p": "P4",
+      "why": "a press shrinks the control briefly and faster than hover, because a press is a reply to the reader"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "why": "keyboard focus draws the shared ring with its halo so the focused control is visible on any scene"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "why": "forced colours drop glass and fills, so a real system-colour border is drawn to keep the shape visible"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "why": "the disc fill eases at hover pace with the lift"
+    },
+    "color": {
+      "p": "P4",
+      "why": "a ghost icon brightens over the same duration so colour and lift are one event"
+    },
+    "transform": {
+      "p": "P4",
+      "why": "lift and press use transform over the soft curve so nothing around shifts"
+    }
+  }
+}

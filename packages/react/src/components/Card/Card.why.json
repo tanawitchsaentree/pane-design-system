@@ -1,0 +1,45 @@
+{
+  "concept": "The card is the pane itself. It is a clear sheet of glass that dims the scene behind it, with an edge of light and a soft shadow below.",
+  "parts": {
+    "root": {
+      "p": "P2",
+      "why": "the root sets the measured text colour and halo every text node on the pane inherits"
+    },
+    "glass": {
+      "p": "P1",
+      "why": "the glass variant blurs, saturates and dims the scene rather than painting over it, with a rim and float shadow"
+    },
+    "cover": {
+      "p": "P3",
+      "why": "a cover reaches the pane edges so the picture reads as part of the sheet itself"
+    },
+    "inset": {
+      "p": "P3",
+      "why": "a nested section inside a pane separated by a hairline, adding no second blur because one sheet is one layer"
+    }
+  },
+  "states": {
+    "hover": {
+      "p": "P4",
+      "why": "hovering a pane slowly shifts its rim as if the light moved, never a flash or a jump"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "why": "forced colours drop glass and fills, so a real system-colour border is drawn to keep the shape visible"
+    }
+  },
+  "motion": {
+    "backdrop-filter": {
+      "p": "P1",
+      "why": "when the environment changes, the dimming crossfades slowly so the world changes and the pane stays put"
+    },
+    "-webkit-backdrop-filter": {
+      "p": "P1",
+      "why": "the same crossfade for Safari, which still needs the prefixed property"
+    },
+    "background-position": {
+      "p": "P4",
+      "why": "the rim light drifts over the long enter duration, reading as light moving across glass"
+    }
+  }
+}

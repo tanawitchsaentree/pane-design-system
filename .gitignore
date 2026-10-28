@@ -1,0 +1,23 @@
+node_modules/
+packages/*/build/
+packages/*/dist/
+# examples/ builds too — `packages/*/dist/` does not cover it, so demo-app's build output
+# showed up as untracked and was one `git add -A` away from being committed.
+examples/*/dist/
+.turbo/
+*.log
+apps/storybook/storybook-static/
+packages/conformance/test-results/
+packages/conformance/playwright-report/
+*.tsbuildinfo
+
+# nested independent repo (own .git + remote) — not tracked by this repo
+marketplace/
+
+# build output / OS / stray browser cache (added during engine split)
+.next/
+apps/*/out/
+.DS_Store
+${local_app_data}*
+apps/docs/dist/
+release/

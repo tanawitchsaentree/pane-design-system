@@ -1,0 +1,468 @@
+{
+  "$comment": "The book's table of contents — read by the docs app and by tooling (evidence + conformance visit every page).",
+  "parts": [
+    {
+      "title": "Introduction",
+      "pages": [
+        {
+          "path": "/",
+          "title": "Overview"
+        },
+        {
+          "path": "/principles",
+          "title": "Principles"
+        }
+      ]
+    },
+    {
+      "title": "Getting started",
+      "pages": [
+        {
+          "path": "/getting-started",
+          "title": "Getting started"
+        },
+        {
+          "path": "/getting-started/designing",
+          "title": "Designing"
+        },
+        {
+          "path": "/getting-started/developing",
+          "title": "Developing"
+        },
+        {
+          "path": "/getting-started/contributing",
+          "title": "Contributing"
+        },
+        {
+          "path": "/getting-started/migrating",
+          "title": "Migrating"
+        }
+      ]
+    },
+    {
+      "title": "Foundations",
+      "pages": [
+        {
+          "path": "/foundations/glass",
+          "title": "Glass & environment"
+        },
+        {
+          "path": "/foundations/color",
+          "title": "Colour"
+        },
+        {
+          "path": "/foundations/themes",
+          "title": "Themes & backdrops"
+        },
+        {
+          "path": "/foundations/typography",
+          "title": "Typography"
+        },
+        {
+          "path": "/foundations/spacing",
+          "title": "Spacing"
+        },
+        {
+          "path": "/foundations/grid",
+          "title": "Grid & layout"
+        },
+        {
+          "path": "/foundations/dimensions",
+          "title": "Dimensions"
+        },
+        {
+          "path": "/foundations/shape",
+          "title": "Shape & elevation"
+        },
+        {
+          "path": "/foundations/motion",
+          "title": "Motion"
+        },
+        {
+          "path": "/foundations/icons",
+          "title": "Iconography"
+        },
+        {
+          "path": "/foundations/content",
+          "title": "Content"
+        },
+        {
+          "path": "/foundations/accessibility",
+          "title": "Accessibility"
+        }
+      ]
+    },
+    {
+      "title": "Components",
+      "pages": [
+        {
+          "path": "/components/container",
+          "title": "Container",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/grid",
+          "title": "Grid",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/stack",
+          "title": "Stack",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/environment",
+          "title": "Environment",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/card",
+          "title": "Card",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/avatar",
+          "title": "Avatar",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/button",
+          "title": "Button",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/icon-button",
+          "title": "IconButton",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/tabs",
+          "title": "Tabs",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/tag",
+          "title": "Tag",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/badge",
+          "title": "Badge",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/chip",
+          "title": "Chip",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/select",
+          "title": "Select",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/slider",
+          "title": "Slider",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/input",
+          "title": "Input",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/textarea",
+          "title": "Textarea",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/checkbox",
+          "title": "Checkbox",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/radio",
+          "title": "Radio",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/switch",
+          "title": "Switch",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/form-field",
+          "title": "FormField",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/label",
+          "title": "Label",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/helper-text",
+          "title": "HelperText",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/fieldset",
+          "title": "Fieldset",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/input-group",
+          "title": "InputGroup",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/pin-input",
+          "title": "PinInput",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/banner",
+          "title": "Banner",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Patterns",
+      "pages": [
+        {
+          "path": "/patterns/common-actions",
+          "title": "Common actions"
+        },
+        {
+          "path": "/patterns/dialogs",
+          "title": "Dialogs"
+        },
+        {
+          "path": "/patterns/disabled-states",
+          "title": "Disabled states"
+        },
+        {
+          "path": "/patterns/empty-states",
+          "title": "Empty states"
+        },
+        {
+          "path": "/patterns/filtering",
+          "title": "Filtering"
+        },
+        {
+          "path": "/patterns/forms",
+          "title": "Forms"
+        },
+        {
+          "path": "/patterns/loading",
+          "title": "Loading"
+        },
+        {
+          "path": "/patterns/notifications",
+          "title": "Notifications"
+        },
+        {
+          "path": "/patterns/overflow-content",
+          "title": "Overflow content"
+        },
+        {
+          "path": "/patterns/read-only-states",
+          "title": "Read-only states"
+        },
+        {
+          "path": "/patterns/search",
+          "title": "Search"
+        },
+        {
+          "path": "/patterns/status-indicators",
+          "title": "Status indicators"
+        },
+        {
+          "path": "/patterns/profile-card",
+          "title": "Profile card"
+        },
+        {
+          "path": "/patterns/feed-post",
+          "title": "Feed post"
+        },
+        {
+          "path": "/patterns/settings-panel",
+          "title": "Settings panel"
+        },
+        {
+          "path": "/patterns/text-on-images",
+          "title": "Text on images"
+        }
+      ]
+    },
+    {
+      "title": "Accessibility",
+      "pages": [
+        {
+          "path": "/accessibility",
+          "title": "How Pane is verified"
+        }
+      ]
+    },
+    {
+      "title": "Reference",
+      "pages": [
+        {
+          "path": "/reference/tokens",
+          "title": "Tokens"
+        },
+        {
+          "path": "/reference/changelog",
+          "title": "Change history"
+        },
+        {
+          "path": "/reference/status",
+          "title": "Status & accessibility matrix"
+        },
+        {
+          "path": "/reference/decisions",
+          "title": "Decisions"
+        },
+        {
+          "path": "/reference/exceptions",
+          "title": "Exceptions"
+        },
+        {
+          "path": "/reference/credits",
+          "title": "Credits"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+/* A round 24px well; the chosen one holds a 10px dot that arrives and settles (P6 shape, P4 motion). */
+.group { display: flex; flex-direction: column; gap: var(--ds-field-gap); font-family: var(--ds-type-family); }
+.legend { font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); color: var(--ds-field-label-fg); }
+.help { font-size: var(--ds-type-label); color: var(--ds-field-help-fg); }
+.options { display: flex; flex-direction: column; }
+.root { display: flex; align-items: flex-start; gap: var(--ds-gap-md); min-block-size: var(--ds-check-hit); }
+.circle {
+  position: relative; flex: none; display: grid; place-items: center; padding: 0; border: 0; cursor: pointer;
+  inline-size: var(--ds-check-size); block-size: var(--ds-check-size); margin-block: calc((var(--ds-check-hit) - var(--ds-check-size)) / 2);
+  border-radius: var(--ds-corner-round); background: var(--ds-check-bg-page);
+  box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-check-ring);
+  transition: transform var(--ds-motion-press) var(--ds-motion-easing);
+}
+.circle::after { content: ''; position: absolute; inset: calc((var(--ds-check-size) - var(--ds-check-hit)) / 2); }
+:global([data-pane-card='glass']) .circle { background: var(--ds-check-bg); box-shadow: var(--ds-check-inset), inset 0 0 0 var(--ds-width-hairline) var(--ds-check-ring); }
+.circle:active:not(:disabled) { transform: scale(var(--ds-motion-press-scale)); }
+.circle:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.circle:disabled { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
+.dot { display: block; inline-size: var(--ds-check-dot); block-size: var(--ds-check-dot); border-radius: var(--ds-corner-round); background: var(--ds-check-mark); animation: dot-in var(--ds-motion-hover) var(--ds-motion-easing); }
+@keyframes dot-in { from { transform: scale(0); } }
+.text { display: flex; flex-direction: column; justify-content: center; min-block-size: var(--ds-check-hit); }
+.label { font-size: var(--ds-type-body); color: var(--ds-text-primary); cursor: pointer; }
+.description { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+@media (forced-colors: active) { .circle { border: var(--ds-width-hairline) solid ButtonText; } .dot { background: ButtonText; } }

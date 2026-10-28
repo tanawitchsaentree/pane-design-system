@@ -1,0 +1,40 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--ds-chip-height);
+  border-radius: var(--ds-chip-radius);
+  background: var(--ds-chip-bg);
+  box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-chip-ring);
+  color: var(--ds-chip-fg);
+  font-family: var(--ds-type-family);
+  font-size: var(--ds-type-label);
+  font-weight: var(--ds-type-weight-medium);
+  transition: background-color var(--ds-motion-hover) var(--ds-motion-easing), color var(--ds-motion-hover) var(--ds-motion-easing);
+}
+.on { background: var(--ds-chip-on-bg); color: var(--ds-chip-on-fg); box-shadow: none; text-shadow: none; }
+.toggle, .remove {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-chip-gap);
+  min-block-size: var(--ds-chip-height);
+  padding-inline: var(--ds-chip-padding-inline);
+  border: 0;
+  border-radius: var(--ds-chip-radius);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.removable .toggle { padding-inline-end: var(--ds-gap-xs); cursor: default; }
+.remove { padding-inline: var(--ds-gap-md); }
+.icon { inline-size: var(--ds-chip-icon); block-size: var(--ds-chip-icon); flex: none; }
+.toggle:focus-visible, .remove:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-width);
+  box-shadow: 0 0 0 calc(var(--ds-focus-ring-width) * 2 + var(--ds-focus-ring-halo-width)) var(--ds-focus-ring-halo);
+}
+.toggle:active, .remove:active { transform: scale(var(--ds-motion-press-scale)); transition: transform var(--ds-motion-press) var(--ds-motion-easing); }
+@media (forced-colors: active) {
+  .root { border: var(--ds-width-hairline) solid ButtonText; }
+  .on { border-color: Highlight; }
+}

@@ -1,0 +1,180 @@
+{
+  "concept": "A banner is a line written on the pane. One sheet of glass stays one layer, and only a small glyph carries the tone colour.",
+  "default_to_avoid": [
+    {
+      "pattern": "start-edge accent stripe, tinted icon disc, bold title over muted body, a box inside the pane (Carbon inline notification, Material banner, every admin template)",
+      "why_not": "it treats a floating pane as a page and the message as a form error, adds a second surface inside one sheet of glass, and paints the tone in colour the scene should own"
+    }
+  ],
+  "references": [
+    {
+      "title": "visionOS HIG · Ornaments",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/ornaments"
+    },
+    {
+      "title": "visionOS HIG · Alerts",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/alerts"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "a soft shadow below and a rim of light on the top-left edge say where the pane floats",
+      "form": "a message that needs attention is its own object with its own shadow and rim, placed relative to the pane it is about"
+    },
+    {
+      "p": "P3",
+      "axis": "motion",
+      "consequence": "panes enter by rising a short distance and settling, as an object placed in space would",
+      "form": "the message arrives by rising a few pixels and settling instead of fading in place"
+    },
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns almost no colour of its own",
+      "form": "no tinted fill or stripe; the tone colour appears only on a small glyph"
+    },
+    {
+      "p": "P6",
+      "axis": "colour",
+      "consequence": "status is spoken in text as well as shown in colour",
+      "form": "each tone has its own glyph shape and the tone is spoken as a word before the message"
+    },
+    {
+      "p": "P5",
+      "axis": "space",
+      "consequence": "the loud action sits apart from secondary ones, never between them",
+      "form": "a message action sits at the far end of the message, never inline with the pane own actions"
+    },
+    {
+      "p": "P4",
+      "axis": "space",
+      "consequence": "movement distances are small (a 2px lift, an 8 to 16px rise) so the layout never appears to move",
+      "form": "a banner that arrives or leaves opens and closes its own height smoothly, so the content below slides instead of jumping"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/banner/",
+    "options": [
+      "A ornament",
+      "B stacked sheet",
+      "C line on the pane"
+    ],
+    "picked": "C line on the pane",
+    "by": "user",
+    "note": "2026-10-27: user picked C and asked for the whole family (tones, detail, action, dismiss, stacking, motion, overflow, page surfaces)"
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the banner has no surface of its own, because a second fill inside one sheet of glass would be a second layer that is not there"
+    },
+    "leaving": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "a dismissed banner closes its own height before it is removed, so the content below slides up instead of jumping"
+    },
+    "line": {
+      "p": "P4",
+      "axis": "space",
+      "why": "the line clips its content while its row opens or closes, so the pane grows smoothly and nothing overlaps"
+    },
+    "glyph": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "each tone has its own glyph shape (circle, check, triangle, octagon), and the shape alone tells the tones apart for anyone who cannot see the colour"
+    },
+    "info": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "information marks its glyph in the bright accent and leaves the rest of the line to the scene"
+    },
+    "positive": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "success marks only its glyph in green; the pane keeps the colour of its scene"
+    },
+    "warning": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "warnings mark only the glyph in amber, darker in the light theme so the glyph stays visible on lifted glass"
+    },
+    "critical": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "errors mark only the glyph in red, never a fill, so an error does not repaint the pane"
+    },
+    "text": {
+      "p": "P7",
+      "axis": "type",
+      "why": "title and detail form one reading block that wraps before the actions, read top to bottom"
+    },
+    "title": {
+      "p": "P5",
+      "axis": "type",
+      "why": "the title is the only semibold text in the line, which makes the message the first thing the eye catches with no coloured box around it"
+    },
+    "detail": {
+      "p": "P2",
+      "axis": "type",
+      "why": "detail uses the measured secondary text colour so it reads as subordinate to the title"
+    },
+    "sr": {
+      "p": "P6",
+      "axis": "type",
+      "why": "a hidden word (Warning, Error…) is spoken before the title, because neither the glyph colour nor its shape is read aloud"
+    },
+    "end": {
+      "p": "P5",
+      "axis": "space",
+      "why": "actions and dismiss sit apart at the end of the line, never between the words, and wrap below on narrow panes"
+    },
+    "dismiss": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "dismiss is a quiet 32px disc with a 44px press area, named after what it does"
+    }
+  },
+  "states": {
+    "hover": {
+      "p": "P4",
+      "axis": "interaction",
+      "why": "hovering dismiss gives it a quiet disc and the primary text colour, answering the pointer without moving anything"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "keyboard focus on dismiss draws the shared ring with its halo, visible on any scene"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "forced colours draw the hairline and the glyph in the system text colour so the line and its tone shape stay visible"
+    }
+  },
+  "motion": {
+    "color": {
+      "p": "P4",
+      "axis": "colour",
+      "why": "the dismiss icon colour eases at hover pace with its disc so both read as one response"
+    },
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the dismiss disc fades in at hover pace instead of switching on"
+    },
+    "@banner-open": {
+      "p": "P4",
+      "axis": "space",
+      "why": "a new banner opens its row from zero height over the enter duration, so content below is pushed gently rather than jumping"
+    },
+    "@banner-close": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "closing reverses the opening at the shorter hover pace, because leaving is a reply to the dismiss press"
+    }
+  },
+  "allowed_patterns": {}
+}

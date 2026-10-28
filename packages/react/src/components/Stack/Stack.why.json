@@ -1,0 +1,69 @@
+{
+  "identity": false,
+  "identity_reason": "a stack has no shape of its own; it only spaces items with gaps from the scale, so there is no form to derive",
+  "concept": "A stack spaces items inside a pane with gaps from the scale, always smaller than the pane padding around them.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "why": "one flex container; direction, gap and alignment are the only decisions it makes",
+      "axis": "space"
+    },
+    "column": {
+      "p": "P7",
+      "why": "vertical by default, the order content is read in",
+      "axis": "space"
+    },
+    "row": {
+      "p": "P3",
+      "why": "horizontal for actions and metadata that belong on one line",
+      "axis": "space"
+    },
+    "g-xs": {
+      "p": "P3",
+      "why": "the smallest gap for a label and its value, which belong together",
+      "axis": "space"
+    },
+    "g-sm": {
+      "p": "P3",
+      "why": "a small gap for icon and text pairs",
+      "axis": "space"
+    },
+    "g-md": {
+      "p": "P3",
+      "why": "the default gap between items of one group",
+      "axis": "space"
+    },
+    "g-lg": {
+      "p": "P3",
+      "why": "a larger gap between groups inside a pane",
+      "axis": "space"
+    },
+    "g-xl": {
+      "p": "P3",
+      "why": "the largest gap inside a pane, still below the pane padding so the edge reads as the boundary",
+      "axis": "space"
+    },
+    "a-start": {
+      "p": "P7",
+      "why": "align to the start edge, where reading begins in every supported writing direction",
+      "axis": "space"
+    },
+    "a-center": {
+      "p": "P3",
+      "why": "centre items of different heights on one line, such as an avatar and a name",
+      "axis": "space"
+    },
+    "a-end": {
+      "p": "P3",
+      "why": "align to the end edge for trailing actions, which come last in reading order",
+      "axis": "space"
+    },
+    "a-stretch": {
+      "p": "P3",
+      "why": "stretch items to equal height when they are equal panes",
+      "axis": "space"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

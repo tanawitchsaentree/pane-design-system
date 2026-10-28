@@ -1,0 +1,128 @@
+{
+  "$comment": "Per-system names the engine's gates read.",
+  "storyCategories": {
+    "Foundations": [
+      "Colors",
+      "Typography",
+      "Spacing",
+      "Motion"
+    ],
+    "Pilot": [
+      "Container",
+      "Grid",
+      "Stack",
+      "Environment",
+      "Card",
+      "Avatar",
+      "Button",
+      "IconButton",
+      "Tabs",
+      "Tag",
+      "Badge",
+      "Chip",
+      "Banner"
+    ]
+  },
+  "smokeImport": {
+    "expectedExports": [
+      "Button",
+      "Card",
+      "CardCover",
+      "Environment",
+      "Avatar",
+      "IconButton",
+      "Tabs",
+      "Tag",
+      "Grid",
+      "GridItem",
+      "Container",
+      "Stack",
+      "Badge",
+      "Chip",
+      "Banner"
+    ],
+    "minExports": 15,
+    "renderProbes": [
+      "Button",
+      "Tag",
+      "Card",
+      "Badge",
+      "Container",
+      "Stack"
+    ],
+    "legacyNames": []
+  },
+  "docs": {
+    "app": "apps/docs",
+    "dist": "apps/docs/dist",
+    "routes": "apps/docs/src/book/routes.json",
+    "meta": "apps/docs/src/book/meta.json",
+    "componentsDir": "packages/react/src/components",
+    "componentsPackage": "packages/react",
+    "changelog": "packages/react/CHANGELOG.md",
+    "themes": [
+      "dark",
+      "light"
+    ],
+    "scenes": [
+      "room",
+      "forest",
+      "night",
+      "city"
+    ],
+    "contrast": {
+      "threshold": 4.5,
+      "exception": "E-001",
+      "exceptionFloor": 3.8,
+      "harness": "/harness.html",
+      "gatingGroups": [
+        "card",
+        "controls",
+        "status",
+        "layout",
+        "environment"
+      ],
+      "infoGroups": [
+        "media",
+        "env-misuse"
+      ]
+    },
+    "tone": {
+      "exclude": [
+        "/reference/decisions"
+      ]
+    },
+    "catalog": "../kiln/docs/CATALOG.md",
+    "benchmark": "../kiln/marketplace/plugins/kiln/skills/docs-engine/benchmarks/carbon-depth.json",
+    "rationale": {
+      "pendingDerivation": [
+        "Avatar",
+        "Badge",
+        "Button",
+        "Card",
+        "Chip",
+        "IconButton",
+        "Select",
+        "Slider",
+        "Tabs",
+        "Tag"
+      ],
+      "$comment": "components built before references/derivation.md; each leaves this list only by going through a derivation round with a user pick. The list may only shrink."
+    },
+    "benchmarkTopics": {
+      "/foundations/grid": "grid",
+      "/foundations/color": "color",
+      "/foundations/typography": "typography",
+      "/foundations/spacing": "spacing",
+      "/foundations/motion": "motion",
+      "/foundations/icons": "icons",
+      "/foundations/themes": "themes",
+      "/foundations/shape": "shape",
+      "/foundations/dimensions": "dimensions",
+      "/foundations/glass": "glass",
+      "/foundations/content": "content",
+      "/foundations/accessibility": "accessibility"
+    },
+    "topicsDir": "../kiln/marketplace/plugins/kiln/skills/docs-engine/benchmarks/topics"
+  }
+}

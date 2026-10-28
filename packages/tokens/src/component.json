@@ -1,0 +1,915 @@
+{
+  "card": {
+    "bg": {
+      "$type": "color",
+      "$value": "{surface.glass}"
+    },
+    "fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "fg-muted": {
+      "$type": "color",
+      "$value": "{text.secondary}"
+    },
+    "blur": {
+      "$type": "dimension",
+      "$value": "{glass.blur}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.panel}"
+    },
+    "padding": {
+      "$type": "dimension",
+      "$value": "{gap.inset}"
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "{gap.xl}"
+    },
+    "shadow": {
+      "$type": "shadow",
+      "$value": "{elevation.float}"
+    },
+    "rim-hi": {
+      "$type": "color",
+      "$value": "{line.rim-hi}"
+    },
+    "rim-mid": {
+      "$type": "color",
+      "$value": "{line.rim-mid}"
+    },
+    "rim-lo": {
+      "$type": "color",
+      "$value": "{line.rim-lo}"
+    },
+    "divider": {
+      "$type": "color",
+      "$value": "{line.divider}"
+    },
+    "rim-width": {
+      "$type": "dimension",
+      "$value": "{width.hairline}"
+    },
+    "inner-radius": {
+      "$type": "dimension",
+      "$value": "{corner.inner}"
+    },
+    "media-radius": {
+      "$type": "dimension",
+      "$value": "{corner.media}"
+    },
+    "cover-hi": {
+      "$type": "color",
+      "$value": "{surface.placeholder-hi}"
+    },
+    "cover-lo": {
+      "$type": "color",
+      "$value": "{surface.placeholder-lo}"
+    },
+    "brightness": {
+      "$type": "number",
+      "$value": "{glass.brightness}"
+    },
+    "sheen-top": {
+      "$type": "color",
+      "$value": "{surface.sheen-top}"
+    },
+    "sheen-bottom": {
+      "$type": "color",
+      "$value": "{surface.sheen-bottom}"
+    },
+    "text-halo": {
+      "$type": "shadow",
+      "$value": "{elevation.halo}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "the card is the pane itself, so its glass fill, sheen, rim, float shadow, panel corner and inset padding all map from the material and depth roles and every pane is the same object"
+      }
+    }
+  },
+  "avatar": {
+    "size-sm": {
+      "$type": "dimension",
+      "$value": "{control.avatar-sm}"
+    },
+    "size-md": {
+      "$type": "dimension",
+      "$value": "{control.avatar-md}"
+    },
+    "size-lg": {
+      "$type": "dimension",
+      "$value": "{control.avatar-lg}"
+    },
+    "ring": {
+      "$type": "color",
+      "$value": "{line.rim-hi}"
+    },
+    "ring-width": {
+      "$type": "dimension",
+      "$value": "{width.avatar-ring}"
+    },
+    "fallback-bg": {
+      "$type": "color",
+      "$value": "{surface.light}"
+    },
+    "fallback-fg": {
+      "$type": "color",
+      "$value": "{text.on-light}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.round}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "a person shown as a round object with a light rim so the face reads as lifted off the pane, at three sizes from the anchor card"
+      }
+    }
+  },
+  "button": {
+    "light-bg": {
+      "$type": "color",
+      "$value": "{surface.light}"
+    },
+    "light-fg": {
+      "$type": "color",
+      "$value": "{text.on-light}"
+    },
+    "accent-bg": {
+      "$type": "color",
+      "$value": "{action.accent}"
+    },
+    "accent-bg-hover": {
+      "$type": "color",
+      "$value": "{action.accent-hover}"
+    },
+    "accent-fg": {
+      "$type": "color",
+      "$value": "{text.on-accent}"
+    },
+    "glass-bg": {
+      "$type": "color",
+      "$value": "{surface.quiet}"
+    },
+    "glass-fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "height-sm": {
+      "$type": "dimension",
+      "$value": "{control.sm}"
+    },
+    "height-md": {
+      "$type": "dimension",
+      "$value": "{control.lg}"
+    },
+    "padding-sm": {
+      "$type": "dimension",
+      "$value": "{gap.xl}"
+    },
+    "padding-md": {
+      "$type": "dimension",
+      "$value": "{gap.inset}"
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "{gap.md}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.round}"
+    },
+    "shadow": {
+      "$type": "shadow",
+      "$value": "{elevation.lift}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P5",
+        "why": "three button roles, the loud solid, the blue promoted fill and the quiet glass fill, all full pills so the one main action is unmistakable; md is 44px for touch and sm is 32px for dense rows"
+      }
+    }
+  },
+  "icon-button": {
+    "size": {
+      "$type": "dimension",
+      "$value": "{control.md}"
+    },
+    "size-sm": {
+      "$type": "dimension",
+      "$value": "{control.sm}"
+    },
+    "icon": {
+      "$type": "dimension",
+      "$value": "{control.icon-md}"
+    },
+    "glass-bg": {
+      "$type": "color",
+      "$value": "{surface.quiet}"
+    },
+    "fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "ghost-fg": {
+      "$type": "color",
+      "$value": "{text.secondary}"
+    },
+    "blur": {
+      "$type": "dimension",
+      "$value": "{glass.blur-small}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.round}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P6",
+          "P5"
+        ],
+        "why": "an icon-only control gets the same 44px target and quiet glass disc as secondary buttons, because it is never the loud action and must still be easy to hit"
+      }
+    }
+  },
+  "tabs": {
+    "gap": {
+      "$type": "dimension",
+      "$value": "{gap.sm}"
+    },
+    "height": {
+      "$type": "dimension",
+      "$value": "{control.sm}"
+    },
+    "padding": {
+      "$type": "dimension",
+      "$value": "{gap.lg}"
+    },
+    "fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "ring": {
+      "$type": "color",
+      "$value": "{line.ring}"
+    },
+    "on-bg": {
+      "$type": "color",
+      "$value": "{action.accent}"
+    },
+    "on-fg": {
+      "$type": "color",
+      "$value": "{text.on-accent}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.round}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "tab pills change from a ring to a solid blue fill when selected, so selection is shown by shape as well as colour; they are 32px tall, below the 44px touch size"
+      }
+    }
+  },
+  "tag": {
+    "fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "ring": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "padding-inline": {
+      "$type": "dimension",
+      "$value": "{gap.md}"
+    },
+    "padding-block": {
+      "$type": "dimension",
+      "$value": "{gap.xs}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.round}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P1",
+        "why": "a label drawn as an outline only; a pane already has its one loud thing, and a tag adds a mark but never a second fill"
+      }
+    }
+  },
+  "focus-ring": {
+    "color": {
+      "$type": "color",
+      "$value": "{focus.ring}"
+    },
+    "halo": {
+      "$type": "color",
+      "$value": "{focus.halo}"
+    },
+    "width": {
+      "$type": "dimension",
+      "$value": "{width.ring}"
+    },
+    "halo-width": {
+      "$type": "dimension",
+      "$value": "{width.halo}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "one ring for every component, 2px in the text colour and offset from the edge, with a halo of the opposite colour so focus shows on any backdrop"
+      }
+    }
+  },
+  "grid": {
+    "columns": {
+      "$type": "number",
+      "$value": "{layout.columns}"
+    },
+    "gutter": {
+      "$type": "dimension",
+      "$value": "{layout.gutter}"
+    },
+    "margin": {
+      "$type": "dimension",
+      "$value": "{layout.margin}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "grid columns, gutters and spans read from the layout roles, so panes on a page share one set of edges at every breakpoint"
+      }
+    }
+  },
+  "container": {
+    "margin": {
+      "$type": "dimension",
+      "$value": "{layout.margin}"
+    },
+    "max-sm": {
+      "$type": "dimension",
+      "$value": "{layout.container-sm}"
+    },
+    "max-md": {
+      "$type": "dimension",
+      "$value": "{layout.container-md}"
+    },
+    "max-lg": {
+      "$type": "dimension",
+      "$value": "{layout.container-lg}"
+    },
+    "max-xl": {
+      "$type": "dimension",
+      "$value": "{layout.container-xl}"
+    },
+    "max-2xl": {
+      "$type": "dimension",
+      "$value": "{layout.container-2xl}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P7",
+        "why": "container widths and margins cap how wide content grows, so reading lines and grids stay a comfortable size on large screens"
+      }
+    }
+  },
+  "stack": {
+    "gap-xs": {
+      "$type": "dimension",
+      "$value": "{gap.xs}"
+    },
+    "gap-sm": {
+      "$type": "dimension",
+      "$value": "{gap.md}"
+    },
+    "gap-md": {
+      "$type": "dimension",
+      "$value": "{gap.2xl}"
+    },
+    "gap-lg": {
+      "$type": "dimension",
+      "$value": "{gap.3xl}"
+    },
+    "gap-xl": {
+      "$type": "dimension",
+      "$value": "{gap.section}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "stack gaps come from the named gap scale, so spacing inside a pane always stays smaller than the pane padding around it"
+      }
+    }
+  },
+  "badge": {
+    "positive-bg": {
+      "$type": "color",
+      "$value": "{status.positive}"
+    },
+    "warning-bg": {
+      "$type": "color",
+      "$value": "{status.warning}"
+    },
+    "critical-bg": {
+      "$type": "color",
+      "$value": "{status.critical}"
+    },
+    "info-bg": {
+      "$type": "color",
+      "$value": "{status.info}"
+    },
+    "positive-fg": {
+      "$type": "color",
+      "$value": "{status.on-positive}"
+    },
+    "warning-fg": {
+      "$type": "color",
+      "$value": "{status.on-warning}"
+    },
+    "critical-fg": {
+      "$type": "color",
+      "$value": "{status.on-critical}"
+    },
+    "info-fg": {
+      "$type": "color",
+      "$value": "{status.on-info}"
+    },
+    "neutral-bg": {
+      "$type": "color",
+      "$value": "{surface.quiet}"
+    },
+    "neutral-fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "neutral-ring": {
+      "$type": "color",
+      "$value": "{line.ring}"
+    },
+    "height": {
+      "$type": "dimension",
+      "$value": "{control.badge}"
+    },
+    "padding-inline": {
+      "$type": "dimension",
+      "$value": "{gap.md}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.round}"
+    },
+    "dot": {
+      "$type": "dimension",
+      "$value": "{control.dot}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "status badges pair each status fill with its computed text colour and an optional dot, and always carry the status as words"
+      }
+    }
+  },
+  "chip": {
+    "bg": {
+      "$type": "color",
+      "$value": "{surface.quiet}"
+    },
+    "fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "ring": {
+      "$type": "color",
+      "$value": "{line.ring}"
+    },
+    "on-bg": {
+      "$type": "color",
+      "$value": "{surface.light}"
+    },
+    "on-fg": {
+      "$type": "color",
+      "$value": "{text.on-light}"
+    },
+    "height": {
+      "$type": "dimension",
+      "$value": "{control.sm}"
+    },
+    "padding-inline": {
+      "$type": "dimension",
+      "$value": "{gap.lg}"
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "{gap.sm}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.round}"
+    },
+    "icon": {
+      "$type": "dimension",
+      "$value": "{control.icon-sm}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "chips are pressable pills; selected chips flip to the loud solid and gain a check mark, so the state is not shown by colour alone"
+      }
+    }
+  },
+  "banner": {
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P1"
+        ],
+        "why": "a banner is a line written on the pane, so tone marks are glyph colours only, a hairline separates it from the content, and its spacing follows the pane"
+      }
+    },
+    "mark-info": {
+      "$type": "color",
+      "$value": "{status.info-mark}"
+    },
+    "mark-positive": {
+      "$type": "color",
+      "$value": "{status.positive-mark}"
+    },
+    "mark-warning": {
+      "$type": "color",
+      "$value": "{status.warning-mark}"
+    },
+    "mark-critical": {
+      "$type": "color",
+      "$value": "{status.critical-mark}"
+    },
+    "glyph": {
+      "$type": "dimension",
+      "$value": "{control.icon-md}"
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "{gap.lg}"
+    },
+    "padding-block": {
+      "$type": "dimension",
+      "$value": "{gap.lg}"
+    },
+    "divider": {
+      "$type": "color",
+      "$value": "{line.divider}"
+    },
+    "dismiss": {
+      "$type": "dimension",
+      "$value": "{control.sm}"
+    },
+    "hit": {
+      "$type": "dimension",
+      "$value": "{layout.touch}"
+    }
+  },
+  "select": {
+    "trigger-bg": {
+      "$type": "color",
+      "$value": "{surface.quiet}"
+    },
+    "trigger-fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "trigger-ring": {
+      "$type": "color",
+      "$value": "{line.ring}"
+    },
+    "height-sm": {
+      "$type": "dimension",
+      "$value": "{control.sm}"
+    },
+    "height-md": {
+      "$type": "dimension",
+      "$value": "{control.lg}"
+    },
+    "padding": {
+      "$type": "dimension",
+      "$value": "{gap.lg}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.round}"
+    },
+    "menu-bg": {
+      "$type": "color",
+      "$value": "{surface.raised}",
+      "$description": "opaque: a list over glass must not let the scene read through the options"
+    },
+    "menu-ring": {
+      "$type": "color",
+      "$value": "{line.divider}"
+    },
+    "menu-radius": {
+      "$type": "dimension",
+      "$value": "{corner.inner}"
+    },
+    "menu-shadow": {
+      "$type": "shadow",
+      "$value": "{elevation.float}"
+    },
+    "menu-min": {
+      "$type": "dimension",
+      "$value": "{control.menu-min}"
+    },
+    "item-hover": {
+      "$type": "color",
+      "$value": "{surface.quiet}"
+    },
+    "item-check": {
+      "$type": "color",
+      "$value": "{action.accent}"
+    },
+    "item-radius": {
+      "$type": "dimension",
+      "$value": "{corner.media}"
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "{gap.sm}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P6",
+          "P7"
+        ],
+        "why": "the closed control is a quiet pill on glass; the open list is opaque because options must never be read off a moving scene, with a check for the chosen one"
+      }
+    }
+  },
+  "slider": {
+    "track": {
+      "$type": "dimension",
+      "$value": "{control.track}"
+    },
+    "track-bg": {
+      "$type": "color",
+      "$value": "{surface.quiet}"
+    },
+    "track-ring": {
+      "$type": "color",
+      "$value": "{line.ring}"
+    },
+    "range-bg": {
+      "$type": "color",
+      "$value": "{action.accent}"
+    },
+    "thumb": {
+      "$type": "dimension",
+      "$value": "{control.thumb}"
+    },
+    "thumb-bg": {
+      "$type": "color",
+      "$value": "{surface.knob}"
+    },
+    "thumb-shadow": {
+      "$type": "shadow",
+      "$value": "{elevation.lift}"
+    },
+    "hit": {
+      "$type": "dimension",
+      "$value": "{layout.touch}"
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "{gap.xs}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P6",
+          "P4"
+        ],
+        "why": "a thin track with an accent range and a white knob that reads on both themes; the 44px hit area is kept even though the track is only 6px"
+      }
+    }
+  },
+  "input": {
+    "bg": {
+      "$type": "color",
+      "$value": "{surface.well}"
+    },
+    "bg-page": {
+      "$type": "color",
+      "$value": "{surface.sunken}"
+    },
+    "fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "placeholder": {
+      "$type": "color",
+      "$value": "{text.secondary}"
+    },
+    "ring": {
+      "$type": "color",
+      "$value": "{line.rim-lo}"
+    },
+    "ring-page": {
+      "$type": "color",
+      "$value": "{line.divider}"
+    },
+    "ring-hover": {
+      "$type": "color",
+      "$value": "{line.ring}"
+    },
+    "ring-invalid": {
+      "$type": "color",
+      "$value": "{status.critical-mark}"
+    },
+    "inset": {
+      "$type": "shadow",
+      "$value": "{elevation.well}"
+    },
+    "height-md": {
+      "$type": "dimension",
+      "$value": "{control.lg}"
+    },
+    "height-sm": {
+      "$type": "dimension",
+      "$value": "{control.sm}"
+    },
+    "padding": {
+      "$type": "dimension",
+      "$value": "{gap.lg}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.round}"
+    },
+    "radius-multiline": {
+      "$type": "dimension",
+      "$value": "{corner.media}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1",
+          "P3"
+        ],
+        "why": "a field is a dimmed well in the glass, a full pill because it is held, with the sunken page surface on reading pages"
+      }
+    }
+  },
+  "check": {
+    "size": {
+      "$type": "dimension",
+      "$value": "{control.check}"
+    },
+    "hit": {
+      "$type": "dimension",
+      "$value": "{layout.touch}"
+    },
+    "bg": {
+      "$type": "color",
+      "$value": "{surface.well}"
+    },
+    "bg-page": {
+      "$type": "color",
+      "$value": "{surface.sunken}"
+    },
+    "ring": {
+      "$type": "color",
+      "$value": "{line.ring}"
+    },
+    "mark": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "dot": {
+      "$type": "dimension",
+      "$value": "{control.mark}"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{corner.check}"
+    },
+    "inset": {
+      "$type": "shadow",
+      "$value": "{elevation.well}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P6",
+          "P1"
+        ],
+        "why": "checkbox and radio are small wells with a 44px hit area; checked shows a check and chosen shows a dot, never colour alone"
+      }
+    }
+  },
+  "switch": {
+    "width": {
+      "$type": "dimension",
+      "$value": "{control.switch}"
+    },
+    "height": {
+      "$type": "dimension",
+      "$value": "{control.sm}"
+    },
+    "knob": {
+      "$type": "dimension",
+      "$value": "{control.check}"
+    },
+    "hit": {
+      "$type": "dimension",
+      "$value": "{layout.touch}"
+    },
+    "inset-gap": {
+      "$type": "dimension",
+      "$value": "{gap.xs}"
+    },
+    "bg": {
+      "$type": "color",
+      "$value": "{surface.well}"
+    },
+    "bg-page": {
+      "$type": "color",
+      "$value": "{surface.sunken}"
+    },
+    "ring": {
+      "$type": "color",
+      "$value": "{line.ring}"
+    },
+    "on-bg": {
+      "$type": "color",
+      "$value": "{action.accent}"
+    },
+    "knob-bg": {
+      "$type": "color",
+      "$value": "{surface.knob}"
+    },
+    "tick": {
+      "$type": "color",
+      "$value": "{text.on-accent}"
+    },
+    "inset": {
+      "$type": "shadow",
+      "$value": "{elevation.well}"
+    },
+    "knob-shadow": {
+      "$type": "shadow",
+      "$value": "{elevation.lift}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1",
+          "P6"
+        ],
+        "why": "the switch track is a well that turns the system blue when on, the one place a form uses its own colour, and a tick and the knob position say on"
+      }
+    }
+  },
+  "field": {
+    "gap": {
+      "$type": "dimension",
+      "$value": "{gap.sm}"
+    },
+    "label-fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "help-fg": {
+      "$type": "color",
+      "$value": "{text.secondary}"
+    },
+    "error-fg": {
+      "$type": "color",
+      "$value": "{text.primary}"
+    },
+    "error-mark": {
+      "$type": "color",
+      "$value": "{status.critical-mark}"
+    },
+    "group-gap": {
+      "$type": "dimension",
+      "$value": "{gap.md}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P7",
+          "P6"
+        ],
+        "why": "labels sit above their field and look like labels, help reads as secondary, and an error carries a glyph and a spoken word as well as colour"
+      }
+    }
+  }
+}

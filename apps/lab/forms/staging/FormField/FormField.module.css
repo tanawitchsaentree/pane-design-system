@@ -1,0 +1,2 @@
+/* Label, control, then help and error, spaced by the field gap; the error sits closest to the control. */
+.root { display: flex; flex-direction: column; gap: var(--ds-field-gap); min-inline-size: 0; font-family: var(--ds-type-family); }

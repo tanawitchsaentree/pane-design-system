@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pane — design system</title>
+    <script>
+      // Runs before the first paint: the theme is known up front so nothing flips after load, and the
+      // demo backdrop photo is requested at once so demo stages are ready when they scroll into view.
+      (function () {
+        var q = new URLSearchParams(location.search);
+        var pref = q.get('theme') || localStorage.getItem('pane-theme') || 'system';
+        var theme = pref === 'system' ? (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark') : pref;
+        var colors = __SCENE_COLORS__;
+        var scene = colors[q.get('scene')] ? q.get('scene') : 'room'; // field has no photo to preload
+        document.documentElement.dataset.theme = theme;
+        var l = document.createElement('link'); l.rel = 'preload'; l.as = 'image'; l.href = '/scenes/' + scene + '.webp'; l.type = 'image/webp'; l.fetchPriority = 'high';
+        document.head.appendChild(l);
+      })();
+    </script>
+  </head>
+  <body><div id="root"></div><script type="module" src="/src/main.tsx"></script></body>
+</html>

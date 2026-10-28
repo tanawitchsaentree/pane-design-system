@@ -1,0 +1,22 @@
+.root {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  overflow: hidden;
+  border-radius: var(--ds-avatar-radius);
+  background: var(--ds-avatar-fallback-bg);
+  color: var(--ds-avatar-fallback-fg);
+  font-family: var(--ds-type-family);
+  font-weight: var(--ds-type-weight-semibold);
+  text-shadow: none;
+}
+.sm { inline-size: var(--ds-avatar-size-sm); block-size: var(--ds-avatar-size-sm); font-size: var(--ds-type-micro); }
+.md { inline-size: var(--ds-avatar-size-md); block-size: var(--ds-avatar-size-md); font-size: var(--ds-type-label); }
+.lg {
+  inline-size: var(--ds-avatar-size-lg);
+  block-size: var(--ds-avatar-size-lg);
+  font-size: var(--ds-type-headline);
+  box-shadow: 0 0 0 var(--ds-avatar-ring-width) var(--ds-avatar-ring);
+}
+.img { inline-size: 100%; block-size: 100%; object-fit: cover; }

@@ -1,0 +1,975 @@
+{
+  "surface": {
+    "$type": "color",
+    "glass": {
+      "$value": "{color.white-a.06}",
+      "$description": "near-clear tint. the darkening that keeps white text readable comes from glass.brightness, not from grey (D-010)",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.62}"
+        },
+        "kiln.why": {
+          "p": "P1",
+          "why": "almost clear white (6 percent) so the scene stays visible; legibility comes from the dimming in glass.brightness and this tint only gives the sheet a surface"
+        }
+      }
+    },
+    "solid": {
+      "$value": "{color.graphite.solid}",
+      "$description": "D-005 opaque fallback for every glass surface",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.paper.50}"
+        },
+        "kiln.why": {
+          "p": "P6",
+          "why": "the opaque surface that replaces glass under reduced transparency, forced colours or no backdrop-filter, so content stays readable"
+        }
+      }
+    },
+    "quiet": {
+      "$value": "{color.white-a.08}",
+      "$description": "glass-on-glass fill (glass buttons, icon discs). .14 measured 4.25:1 under white text in the mid environment",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.45}"
+        },
+        "kiln.why": {
+          "p": "P5",
+          "why": "glass on glass for secondary controls, visible as an object and quieter than the one loud solid"
+        }
+      }
+    },
+    "light": {
+      "$value": "{color.white}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink.900}"
+        },
+        "kiln.why": {
+          "p": "P5",
+          "why": "the loud solid, white in dark and ink in light, the single strongest mark a pane may carry"
+        }
+      }
+    },
+    "placeholder-hi": {
+      "$value": "{color.foliage.light}",
+      "$description": "decorative image placeholder",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P3",
+          "why": "top of the placeholder cover gradient, light catching a surface before the real image arrives"
+        }
+      }
+    },
+    "placeholder-lo": {
+      "$value": "{color.foliage.dark}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P3",
+          "why": "bottom of the placeholder cover gradient, so the empty cover still has depth"
+        }
+      }
+    },
+    "sheen-top": {
+      "$value": "{color.white-a.10}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.70}"
+        },
+        "kiln.why": {
+          "p": "P3",
+          "why": "a faint light at the top of a pane, as on a real sheet of glass lit from above"
+        }
+      }
+    },
+    "sheen-bottom": {
+      "$value": "{color.white-a.03}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P3",
+          "why": "the sheen fades out lower down, so it reads as light catching the top edge"
+        }
+      }
+    },
+    "well": {
+      "$value": "{color.shade-a.18}",
+      "$description": "an inset that holds body text inside a glass card (banners). Darkens in dark so secondary text keeps its contrast over lamp-lit photos; the quiet white fill measured 3.57:1 there",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.45}"
+        },
+        "kiln.why": {
+          "p": "P2",
+          "why": "a slight darkening inside a pane that holds body text, measured to lift banner text from 3.57 to above 4.5 on lamp-lit photos"
+        }
+      }
+    },
+    "page": {
+      "$value": "{color.graphite.950}",
+      "$description": "opaque page behind ordinary, non-glass UI (docs, settings, admin). Glass belongs over scenes, not over this",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.paper.0}"
+        },
+        "kiln.why": {
+          "p": "P7",
+          "why": "the opaque page behind ordinary reading and settings screens, where the scene would only compete with the words"
+        }
+      }
+    },
+    "raised": {
+      "$value": "{color.graphite.900}",
+      "$description": "opaque panel on surface.page (sidebars, code headers, callouts)",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.paper.50}"
+        },
+        "kiln.why": {
+          "p": "P7",
+          "why": "an opaque panel on the page for sidebars, code headers and lists, one step lighter so it reads as on top"
+        }
+      }
+    },
+    "sunken": {
+      "$value": "{color.graphite.850}",
+      "$description": "opaque well on surface.page (code, inputs)",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.paper.100}"
+        },
+        "kiln.why": {
+          "p": "P7",
+          "why": "an opaque well on the page for code and inputs, one step darker so it reads as recessed"
+        }
+      }
+    },
+    "knob": {
+      "$value": "{color.white}",
+      "$description": "white handle that reads on both themes (slider thumb, switch knob); the ring and shadow separate it from light surfaces",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P6",
+          "why": "a white handle that stays visible on both themes; its ring and shadow separate it from light surfaces"
+        }
+      }
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P1",
+        "why": "the materials a pane can be made of; each one below states its own role"
+      }
+    }
+  },
+  "text": {
+    "$type": "color",
+    "primary": {
+      "$value": "{color.white}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink.900}"
+        }
+      }
+    },
+    "secondary": {
+      "$value": "{color.white-a.92}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.78}"
+        }
+      }
+    },
+    "on-light": {
+      "$value": "{color.ink.900}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white}"
+        }
+      }
+    },
+    "on-accent": {
+      "$value": "{color.white}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P2",
+        "why": "text colours flip with the theme because they contrast with a dimmed or lifted scene; secondary keeps the lowest opacity that still measured as passing"
+      }
+    }
+  },
+  "action": {
+    "$type": "color",
+    "accent": {
+      "$value": "{color.blue.600}"
+    },
+    "accent-hover": {
+      "$value": "{color.blue.700}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P5",
+        "why": "the promoted-action fill and its hover; one blue, used at most once per pane"
+      }
+    }
+  },
+  "line": {
+    "$type": "color",
+    "ring": {
+      "$value": "{color.white-a.30}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.25}"
+        }
+      }
+    },
+    "divider": {
+      "$value": "{color.white-a.16}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.14}"
+        }
+      }
+    },
+    "rim-hi": {
+      "$value": "{color.white-a.55}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.90}"
+        }
+      }
+    },
+    "rim-mid": {
+      "$value": "{color.white-a.28}"
+    },
+    "rim-lo": {
+      "$value": "{color.white-a.06}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "hairlines that give panes and controls an edge, as rings for controls, dividers inside panes and a rim of light brightest at the top left"
+      }
+    }
+  },
+  "focus": {
+    "$type": "color",
+    "ring": {
+      "$value": "{color.white}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink.900}"
+        }
+      }
+    },
+    "halo": {
+      "$value": "{color.shade-a.55}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.90}"
+        }
+      }
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "the focus ring is the text colour with a halo of the opposite colour so it shows on any part of any scene"
+      }
+    }
+  },
+  "glass": {
+    "blur": {
+      "$type": "dimension",
+      "$value": "{blur.lg}"
+    },
+    "blur-small": {
+      "$type": "dimension",
+      "$value": "{blur.md}"
+    },
+    "saturate": {
+      "$type": "number",
+      "$value": "{saturate.glass}"
+    },
+    "brightness": {
+      "$type": "number",
+      "$value": "{brightness.bright}",
+      "$description": "D-010: backdrop dimming per environment. keeps the scene's colour and detail instead of washing it grey",
+      "$extensions": {
+        "pane.environment": {
+          "dim": "{brightness.dim}",
+          "mid": "{brightness.mid}",
+          "bright": "{brightness.bright}"
+        },
+        "pane.theme": {
+          "light": "{brightness.light}"
+        }
+      }
+    },
+    "brightness-none": {
+      "$type": "number",
+      "$value": "{brightness.none}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P2",
+        "why": "the measured glass recipe in one place, with blur, saturation and the brightness per environment and theme"
+      }
+    }
+  },
+  "elevation": {
+    "$type": "shadow",
+    "float": {
+      "$value": "{shadow.float}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.float-light}"
+        }
+      }
+    },
+    "lift": {
+      "$value": "{shadow.lift}"
+    },
+    "halo": {
+      "$value": "{shadow.halo}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.halo-light}"
+        }
+      }
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "how high a surface floats, with float for panes, lift for controls and halo for text on thin glass"
+      }
+    },
+    "well": {
+      "$value": "{shadow.well}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.well-light}"
+        },
+        "kiln.why": {
+          "p": "P1",
+          "why": "a field is a well pressed into the glass, so a faint inner shadow at its top edge says it sits below the surface without painting a fill"
+        }
+      }
+    }
+  },
+  "width": {
+    "$type": "dimension",
+    "hairline": {
+      "$value": "{size.hairline}"
+    },
+    "ring": {
+      "$value": "{size.ring}"
+    },
+    "halo": {
+      "$value": "{size.halo}"
+    },
+    "avatar-ring": {
+      "$value": "{size.avatar-ring}"
+    },
+    "bar": {
+      "$value": "{size.bar}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "stroke widths that survive zoom and forced colours, for hairline edges, a 2px ring and a halo wide enough to separate the ring from any backdrop"
+      }
+    }
+  },
+  "gap": {
+    "$type": "dimension",
+    "xs": {
+      "$value": "{space.1}"
+    },
+    "sm": {
+      "$value": "{space.1-5}"
+    },
+    "md": {
+      "$value": "{space.2}"
+    },
+    "lg": {
+      "$value": "{space.3}"
+    },
+    "xl": {
+      "$value": "{space.3-5}"
+    },
+    "2xl": {
+      "$value": "{space.4}"
+    },
+    "inset": {
+      "$value": "{space.5-5}"
+    },
+    "section": {
+      "$value": "{space.8}"
+    },
+    "page": {
+      "$value": "{space.12}"
+    },
+    "3xl": {
+      "$value": "{space.6}"
+    },
+    "none": {
+      "$value": "{space.0}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "named gaps from the 4px grid; inset (22px) is the padding inside a pane and is always larger than the gaps between items inside it"
+      }
+    }
+  },
+  "control": {
+    "$type": "dimension",
+    "sm": {
+      "$value": "{size.control-sm}"
+    },
+    "md": {
+      "$value": "{size.control-md}"
+    },
+    "lg": {
+      "$value": "{size.control-lg}"
+    },
+    "icon-sm": {
+      "$value": "{size.icon-sm}"
+    },
+    "icon-md": {
+      "$value": "{size.icon-md}"
+    },
+    "avatar-sm": {
+      "$value": "{size.avatar-sm}"
+    },
+    "avatar-md": {
+      "$value": "{size.avatar-md}"
+    },
+    "avatar-lg": {
+      "$value": "{size.avatar-lg}"
+    },
+    "badge": {
+      "$value": "{size.badge}"
+    },
+    "dot": {
+      "$value": "{size.dot}"
+    },
+    "thumb": {
+      "$value": "{size.thumb}"
+    },
+    "track": {
+      "$value": "{size.track}"
+    },
+    "menu-min": {
+      "$value": "{size.menu-min}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "control heights and icon sizes; 44px is the default so every control is a comfortable touch target, 32px only for dense rows"
+      }
+    },
+    "check": {
+      "$value": "{size.check}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P6",
+          "why": "checkbox, radio and switch knob are 24px marks inside a 44px hit area, large enough to read and to hit"
+        }
+      }
+    },
+    "switch": {
+      "$value": "{size.switch}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P6",
+          "why": "the switch track is 52px wide so the knob travels far enough that on and off read by position as well as colour"
+        }
+      }
+    },
+    "mark": {
+      "$value": "{size.mark}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P6",
+          "why": "the chosen radio shows a 10px dot, a shape that says selected without relying on colour"
+        }
+      }
+    }
+  },
+  "corner": {
+    "$type": "dimension",
+    "panel": {
+      "$value": "{radius.xl}"
+    },
+    "inner": {
+      "$value": "{radius.lg}"
+    },
+    "media": {
+      "$value": "{radius.md}"
+    },
+    "round": {
+      "$value": "{radius.pill}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "panel, inner and media corners nest by the padding between them, and round is for things that are held"
+      }
+    },
+    "mark": {
+      "$value": "{radius.sm}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3",
+            "P6"
+          ],
+          "why": "drawings in diagrams are marks on a plan, so they get a small corner that keeps narrow plates from turning into pills and hiding their width"
+        }
+      }
+    },
+    "check": {
+      "$value": "{radius.check}",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P3",
+          "why": "a checkbox is a held control with soft corners, yet stays square enough to read differently from a round radio"
+        }
+      }
+    }
+  },
+  "type": {
+    "family": {
+      "$type": "fontFamily",
+      "$value": "{font.family.sans}"
+    },
+    "micro": {
+      "$type": "dimension",
+      "$value": "{font.size.100}"
+    },
+    "caption": {
+      "$type": "dimension",
+      "$value": "{font.size.200}"
+    },
+    "label": {
+      "$type": "dimension",
+      "$value": "{font.size.300}"
+    },
+    "body": {
+      "$type": "dimension",
+      "$value": "{font.size.400}"
+    },
+    "emphasis": {
+      "$type": "dimension",
+      "$value": "{font.size.500}"
+    },
+    "title": {
+      "$type": "dimension",
+      "$value": "{font.size.600}"
+    },
+    "headline": {
+      "$type": "dimension",
+      "$value": "{font.size.700}"
+    },
+    "display": {
+      "$type": "dimension",
+      "$value": "{font.size.800}"
+    },
+    "weight-regular": {
+      "$type": "fontWeight",
+      "$value": "{font.weight.regular}"
+    },
+    "weight-medium": {
+      "$type": "fontWeight",
+      "$value": "{font.weight.medium}"
+    },
+    "weight-semibold": {
+      "$type": "fontWeight",
+      "$value": "{font.weight.semibold}"
+    },
+    "leading-tight": {
+      "$type": "number",
+      "$value": "{font.leading.tight}"
+    },
+    "leading-body": {
+      "$type": "number",
+      "$value": "{font.leading.body}"
+    },
+    "tracking-caps": {
+      "$type": "dimension",
+      "$value": "{font.tracking.caps}"
+    },
+    "tracking-display": {
+      "$type": "dimension",
+      "$value": "{font.tracking.display}"
+    },
+    "measure": {
+      "$type": "dimension",
+      "$value": "{size.measure}"
+    },
+    "reading": {
+      "$type": "dimension",
+      "$value": "{font.size.450}",
+      "$description": "paragraphs people read for more than a line or two"
+    },
+    "leading-reading": {
+      "$type": "number",
+      "$value": "{font.leading.long}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P7",
+        "why": "type roles mapped to the scale, so components ask for a role (label, body, title) and never a pixel size"
+      }
+    }
+  },
+  "motion": {
+    "hover": {
+      "$type": "duration",
+      "$value": "{duration.gentle}"
+    },
+    "press": {
+      "$type": "duration",
+      "$value": "{duration.quick}"
+    },
+    "enter": {
+      "$type": "duration",
+      "$value": "{duration.slow}"
+    },
+    "scene": {
+      "$type": "duration",
+      "$value": "{duration.slow}"
+    },
+    "stagger": {
+      "$type": "duration",
+      "$value": "{duration.stagger}"
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "$value": "{easing.soft}"
+    },
+    "easing-inout": {
+      "$type": "cubicBezier",
+      "$value": "{easing.inout}"
+    },
+    "rise": {
+      "$type": "dimension",
+      "$value": "{distance.rise}"
+    },
+    "lift": {
+      "$type": "dimension",
+      "$value": "{distance.lift}"
+    },
+    "press-scale": {
+      "$type": "number",
+      "$value": "{scale.press}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P4",
+        "why": "motion roles mapped to durations and distances, so hover, press and entry always feel the same across components"
+      }
+    }
+  },
+  "status": {
+    "$type": "color",
+    "positive": {
+      "$value": "{color.green.600}"
+    },
+    "on-positive": {
+      "$value": "{color.white}"
+    },
+    "warning": {
+      "$value": "{color.amber.400}"
+    },
+    "on-warning": {
+      "$value": "{color.ink.900}"
+    },
+    "critical": {
+      "$value": "{color.red.600}"
+    },
+    "on-critical": {
+      "$value": "{color.white}"
+    },
+    "info": {
+      "$value": "{color.blue.600}"
+    },
+    "on-info": {
+      "$value": "{color.white}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "status fills each with the text colour computed to pass on it; every use also says the status in words"
+      }
+    },
+    "info-mark": {
+      "$value": "{color.blue.400}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.blue.600}"
+        },
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the info tone as a small glyph colour only, so the scene keeps its hue while the glyph shape and spoken word carry the meaning too"
+        }
+      }
+    },
+    "positive-mark": {
+      "$value": "{color.green.400}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.green.600}"
+        },
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the positive tone as a small glyph colour only, so the scene keeps its hue while the glyph shape and spoken word carry the meaning too"
+        }
+      }
+    },
+    "warning-mark": {
+      "$value": "{color.amber.400}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.amber.700}"
+        },
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the warning tone as a small glyph colour only, so the scene keeps its hue while the glyph shape and spoken word carry the meaning too"
+        }
+      }
+    },
+    "critical-mark": {
+      "$value": "{color.red.400}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.red.600}"
+        },
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the critical tone as a small glyph colour only, so the scene keeps its hue while the glyph shape and spoken word carry the meaning too"
+        }
+      }
+    }
+  },
+  "layout": {
+    "columns": {
+      "$type": "number",
+      "$value": "{columns.4}",
+      "$extensions": {
+        "pane.breakpoint": {
+          "md": "{columns.8}",
+          "lg": "{columns.12}"
+        }
+      }
+    },
+    "gutter": {
+      "$type": "dimension",
+      "$value": "{space.4}",
+      "$extensions": {
+        "pane.breakpoint": {
+          "md": "{space.6}",
+          "lg": "{space.8}"
+        }
+      }
+    },
+    "margin": {
+      "$type": "dimension",
+      "$value": "{space.4}",
+      "$extensions": {
+        "pane.breakpoint": {
+          "md": "{space.8}",
+          "lg": "{space.12}"
+        }
+      }
+    },
+    "container-sm": {
+      "$type": "dimension",
+      "$value": "{container.sm}"
+    },
+    "container-md": {
+      "$type": "dimension",
+      "$value": "{container.md}"
+    },
+    "container-lg": {
+      "$type": "dimension",
+      "$value": "{container.lg}"
+    },
+    "container-xl": {
+      "$type": "dimension",
+      "$value": "{container.xl}"
+    },
+    "container-2xl": {
+      "$type": "dimension",
+      "$value": "{container.2xl}"
+    },
+    "touch": {
+      "$type": "dimension",
+      "$value": "{size.touch}"
+    },
+    "sidebar": {
+      "$type": "dimension",
+      "$value": "{size.sidebar}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "grid columns, gutters, margins and container widths per breakpoint, so pages share one rhythm"
+      }
+    }
+  },
+  "layer": {
+    "$type": "number",
+    "base": {
+      "$value": "{z.base}"
+    },
+    "raised": {
+      "$value": "{z.raised}"
+    },
+    "sticky": {
+      "$value": "{z.sticky}"
+    },
+    "overlay": {
+      "$value": "{z.overlay}"
+    },
+    "toast": {
+      "$value": "{z.toast}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "stacking roles mapped to the z order, so overlays and sticky bars always sit above content"
+      }
+    }
+  },
+  "viewport": {
+    "$type": "dimension",
+    "sm": {
+      "$value": "{breakpoint.sm}"
+    },
+    "md": {
+      "$value": "{breakpoint.md}"
+    },
+    "lg": {
+      "$value": "{breakpoint.lg}"
+    },
+    "xl": {
+      "$value": "{breakpoint.xl}"
+    },
+    "2xl": {
+      "$value": "{breakpoint.2xl}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "breakpoints by role, used only for layout changes, never to hide content"
+      }
+    }
+  },
+  "field": {
+    "$type": "color",
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1",
+          "P3"
+        ],
+        "why": "a neutral backdrop for diagrams and layout demos, where no scene is shown, with a faint gradient for the glass to blur and fine construction lines that show the grid the panes sit on"
+      }
+    },
+    "base": {
+      "$value": "{color.graphite.950}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.paper.50}"
+        }
+      }
+    },
+    "glow": {
+      "$value": "{color.blue-a.22}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.blue-a.10}"
+        }
+      }
+    },
+    "glow-soft": {
+      "$value": "{color.white-a.06}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.70}"
+        }
+      }
+    },
+    "line": {
+      "$value": "{color.white-a.05}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.06}"
+        }
+      }
+    },
+    "line-major": {
+      "$value": "{color.white-a.08}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.08}"
+        }
+      }
+    },
+    "column": {
+      "$value": "{color.sky-a.60}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.blue.600}"
+        },
+        "kiln.why": {
+          "p": [
+            "P6",
+            "P3"
+          ],
+          "why": "diagram columns in the accent so they stand at least 3:1 off the ground in both themes, read as the place where content goes, and carry white column numbers at 4.5:1 (solid in light, where 80% blue measured 3.51)"
+        }
+      }
+    },
+    "margin": {
+      "$value": "{color.white-a.70}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.78}"
+        },
+        "kiln.why": {
+          "p": [
+            "P6",
+            "P3"
+          ],
+          "why": "margins are hatched in the text colour so they are told apart from columns by pattern as well as by tone"
+        }
+      }
+    }
+  },
+  "opacity": {
+    "$type": "number",
+    "disabled": {
+      "$value": "{alpha.half}"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "a disabled control fades to half, and its reason is written beside it because a faded control cannot be focused to ask"
+      }
+    }
+  }
+}

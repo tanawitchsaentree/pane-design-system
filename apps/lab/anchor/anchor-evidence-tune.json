@@ -1,0 +1,327 @@
+{
+  "generatedAt": "2026-10-26T09:03:27.471Z",
+  "browser": "chromium 156.0.8078.4",
+  "threshold": 4.5,
+  "scenes": {
+    "room": {
+      "A0": {
+        "texts": 22,
+        "worst": 2.66,
+        "below45": 11,
+        "below3": 2,
+        "unmeasurable": 0,
+        "worstFive": [
+          "UX/UI Designer. Outdoor enthusiast. Coff 2.66",
+          "Say goodbye to flat feeds. Asset 05 is l 2.78",
+          "Tweets 3",
+          "1.7M 3.03",
+          "268 3.3"
+        ]
+      },
+      "A1": {
+        "texts": 22,
+        "worst": 4.7,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Tweets 4.7",
+          "@bymxfmz 4.83",
+          "Switzerland 5.31",
+          "mfz.framer.website 5.38",
+          "Joined June 2023 5.46"
+        ]
+      },
+      "A2": {
+        "texts": 22,
+        "worst": 4.7,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Tweets 4.7",
+          "@visualflow · 9h 7.26",
+          "@bymxfmz 7.45",
+          "Switzerland 7.46",
+          "mfz.framer.website 7.46"
+        ]
+      },
+      "A0-media": {
+        "texts": 3,
+        "worst": 6.74,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Visual asset 05 6.74",
+          "Designed for modern visual projects 7.71",
+          "07 9.56"
+        ]
+      },
+      "A1-media": {
+        "texts": 3,
+        "worst": 6.74,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Visual asset 05 6.74",
+          "Designed for modern visual projects 7.73",
+          "07 9.56"
+        ]
+      },
+      "A2-media": {
+        "texts": 3,
+        "worst": 6.74,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Visual asset 05 6.74",
+          "Designed for modern visual projects 7.73",
+          "07 9.56"
+        ]
+      }
+    },
+    "blobs": {
+      "A0": {
+        "texts": 22,
+        "worst": 1.38,
+        "below45": 21,
+        "below3": 20,
+        "unmeasurable": 0,
+        "worstFive": [
+          "mfz.framer.website 1.38",
+          "Joined June 2023 1.38",
+          "Followers 1.38",
+          "@visualflow · 9h 1.38",
+          "@bymxfmz 1.39"
+        ]
+      },
+      "A1": {
+        "texts": 22,
+        "worst": 4.7,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Tweets 4.7",
+          "Switzerland 6.7",
+          "mfz.framer.website 6.7",
+          "Joined June 2023 6.7",
+          "Following 6.8"
+        ]
+      },
+      "A2": {
+        "texts": 22,
+        "worst": 4.7,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Tweets 4.7",
+          "839 7",
+          "6,707 7",
+          "268 7.01",
+          "1.7M 7.02"
+        ]
+      },
+      "A0-media": {
+        "texts": 3,
+        "worst": 6.74,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Visual asset 05 6.74",
+          "Designed for modern visual projects 7.71",
+          "07 9.56"
+        ]
+      },
+      "A1-media": {
+        "texts": 3,
+        "worst": 6.74,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Visual asset 05 6.74",
+          "Designed for modern visual projects 7.73",
+          "07 9.56"
+        ]
+      },
+      "A2-media": {
+        "texts": 3,
+        "worst": 6.74,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Visual asset 05 6.74",
+          "Designed for modern visual projects 7.73",
+          "07 9.56"
+        ]
+      }
+    },
+    "night": {
+      "A0": {
+        "texts": 22,
+        "worst": 2.74,
+        "below45": 8,
+        "below3": 4,
+        "unmeasurable": 0,
+        "worstFive": [
+          "@bymxfmz 2.74",
+          "mfz.framer.website 2.79",
+          "Joined June 2023 2.82",
+          "Followers 2.86",
+          "Tweets 3"
+        ]
+      },
+      "A1": {
+        "texts": 22,
+        "worst": 4.7,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Tweets 4.7",
+          "1.7M 6.13",
+          "6,707 6.37",
+          "839 7.8",
+          "268 8.67"
+        ]
+      },
+      "A2": {
+        "texts": 22,
+        "worst": 4.7,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Tweets 4.7",
+          "@bymxfmz 9.15",
+          "mfz.framer.website 9.15",
+          "Switzerland 9.24",
+          "Joined June 2023 9.24"
+        ]
+      },
+      "A0-media": {
+        "texts": 3,
+        "worst": 6.74,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Visual asset 05 6.74",
+          "Designed for modern visual projects 7.71",
+          "07 9.56"
+        ]
+      },
+      "A1-media": {
+        "texts": 3,
+        "worst": 6.74,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Visual asset 05 6.74",
+          "Designed for modern visual projects 7.73",
+          "07 9.56"
+        ]
+      },
+      "A2-media": {
+        "texts": 3,
+        "worst": 6.74,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Visual asset 05 6.74",
+          "Designed for modern visual projects 7.73",
+          "07 9.56"
+        ]
+      }
+    },
+    "daylight": {
+      "A0": {
+        "texts": 22,
+        "worst": 1.3,
+        "below45": 21,
+        "below3": 20,
+        "unmeasurable": 0,
+        "worstFive": [
+          "@bymxfmz 1.3",
+          "Switzerland 1.3",
+          "mfz.framer.website 1.3",
+          "Joined June 2023 1.3",
+          "Following 1.31"
+        ]
+      },
+      "A1": {
+        "texts": 22,
+        "worst": 4.7,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Tweets 4.7",
+          "@bymxfmz 6.34",
+          "Switzerland 6.34",
+          "mfz.framer.website 6.35",
+          "Joined June 2023 6.36"
+        ]
+      },
+      "A2": {
+        "texts": 22,
+        "worst": 4.7,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Tweets 4.7",
+          "@bymxfmz 6.34",
+          "Switzerland 6.34",
+          "mfz.framer.website 6.36",
+          "Joined June 2023 6.36"
+        ]
+      },
+      "A0-media": {
+        "texts": 3,
+        "worst": 6.74,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Visual asset 05 6.74",
+          "Designed for modern visual projects 7.71",
+          "07 9.56"
+        ]
+      },
+      "A1-media": {
+        "texts": 3,
+        "worst": 6.74,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Visual asset 05 6.74",
+          "Designed for modern visual projects 7.73",
+          "07 9.56"
+        ]
+      },
+      "A2-media": {
+        "texts": 3,
+        "worst": 6.74,
+        "below45": 0,
+        "below3": 0,
+        "unmeasurable": 0,
+        "worstFive": [
+          "Visual asset 05 6.74",
+          "Designed for modern visual projects 7.73",
+          "07 9.56"
+        ]
+      }
+    }
+  }
+}

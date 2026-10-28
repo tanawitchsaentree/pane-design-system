@@ -1,0 +1,2123 @@
+{
+  "generatedAt": "2026-10-27T15:38:52.539Z",
+  "browser": "chromium 156.0.8078.4",
+  "threshold": 4.5,
+  "modes": [
+    "normal",
+    "reduced-transparency",
+    "forced-colors"
+  ],
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "scenes": [
+    "room",
+    "forest",
+    "night",
+    "city"
+  ],
+  "harness": {
+    "normal": {
+      "dark/room": {
+        "card": {
+          "texts": 22,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Tweets 4.7",
+            "@bymxfmz 12.98",
+            "Switzerland 13.59",
+            "mfz.framer.website 13.75",
+            "Joined June 2023 14.06"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Get verified 4.7",
+            "Tweets 4.7",
+            "Message 11.69",
+            "Small 12.98",
+            "Secondary text on the card. 14.36"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Beta 4.7",
+            "Live 5.02",
+            "Failed 5.66",
+            "Expiring 9.9",
+            "Draft 11.7"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 14.36,
+          "failures": 0,
+          "worstFive": [
+            "Secondary 14.36",
+            "Secondary 14.5",
+            "Grid cell 15.67",
+            "Stack 16.06"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 14.5,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 14.5",
+            "bright 15.67",
+            "glass 15.87"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 8.36,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 14.5,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 14.5",
+            "Secondary text 14.5",
+            "mid 15.67",
+            "dim 15.87",
+            "glass 15.87"
+          ]
+        }
+      },
+      "dark/forest": {
+        "card": {
+          "texts": 22,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Tweets 4.7",
+            "@bymxfmz 12.98",
+            "Switzerland 13.59",
+            "mfz.framer.website 13.75",
+            "Joined June 2023 14.06"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Get verified 4.7",
+            "Tweets 4.7",
+            "Message 11.69",
+            "Small 12.98",
+            "Secondary text on the card. 14.36"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Beta 4.7",
+            "Live 5.02",
+            "Failed 5.66",
+            "Expiring 9.9",
+            "Draft 11.7"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 14.36,
+          "failures": 0,
+          "worstFive": [
+            "Secondary 14.36",
+            "Secondary 14.5",
+            "Grid cell 15.67",
+            "Stack 16.06"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 14.5,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 14.5",
+            "bright 15.67",
+            "glass 15.87"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 8.36,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 14.5,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 14.5",
+            "Secondary text 14.5",
+            "mid 15.67",
+            "dim 15.87",
+            "glass 15.87"
+          ]
+        }
+      },
+      "dark/night": {
+        "card": {
+          "texts": 22,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Tweets 4.7",
+            "@bymxfmz 12.98",
+            "Switzerland 13.59",
+            "mfz.framer.website 13.75",
+            "Joined June 2023 14.06"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Get verified 4.7",
+            "Tweets 4.7",
+            "Message 11.69",
+            "Small 12.98",
+            "Secondary text on the card. 14.36"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Beta 4.7",
+            "Live 5.02",
+            "Failed 5.66",
+            "Expiring 9.9",
+            "Draft 11.7"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 14.36,
+          "failures": 0,
+          "worstFive": [
+            "Secondary 14.36",
+            "Secondary 14.5",
+            "Grid cell 15.67",
+            "Stack 16.06"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 14.5,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 14.5",
+            "bright 15.67",
+            "glass 15.87"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 8.36,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 14.5,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 14.5",
+            "Secondary text 14.5",
+            "mid 15.67",
+            "dim 15.87",
+            "glass 15.87"
+          ]
+        }
+      },
+      "dark/city": {
+        "card": {
+          "texts": 22,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Tweets 4.7",
+            "@bymxfmz 12.98",
+            "Switzerland 13.59",
+            "mfz.framer.website 13.75",
+            "Joined June 2023 14.06"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Get verified 4.7",
+            "Tweets 4.7",
+            "Message 11.69",
+            "Small 12.98",
+            "Secondary text on the card. 14.36"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Beta 4.7",
+            "Live 5.02",
+            "Failed 5.66",
+            "Expiring 9.9",
+            "Draft 11.7"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 14.36,
+          "failures": 0,
+          "worstFive": [
+            "Secondary 14.36",
+            "Secondary 14.5",
+            "Grid cell 15.67",
+            "Stack 16.06"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 14.5,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 14.5",
+            "bright 15.67",
+            "glass 15.87"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 8.36,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 14.5,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 14.5",
+            "Secondary text 14.5",
+            "mid 15.67",
+            "dim 15.87",
+            "glass 15.87"
+          ]
+        }
+      },
+      "light/room": {
+        "card": {
+          "texts": 22,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Tweets 4.7",
+            "@bymxfmz 9.38",
+            "Switzerland 9.38",
+            "mfz.framer.website 9.38",
+            "Joined June 2023 9.38"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Get verified 4.7",
+            "Tweets 4.7",
+            "Secondary text on the card. 9.43",
+            "Message 18.58",
+            "Small 18.58"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Beta 4.7",
+            "Live 5.02",
+            "Failed 5.66",
+            "Verified accounts get it first. 9.43",
+            "The file is larger than 25 MB. 9.43"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 9.43,
+          "failures": 0,
+          "worstFive": [
+            "Secondary 9.43",
+            "Secondary 9.43",
+            "Grid cell 18.58",
+            "Stack 18.58"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 9.43,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 9.43",
+            "bright 18.58",
+            "glass 18.58"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 8.36,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 9.43,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 9.43",
+            "Secondary text 9.43",
+            "dim 18.58",
+            "glass 18.58",
+            "mid 18.58"
+          ]
+        }
+      },
+      "light/forest": {
+        "card": {
+          "texts": 22,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Tweets 4.7",
+            "@bymxfmz 9.38",
+            "Switzerland 9.38",
+            "mfz.framer.website 9.38",
+            "Joined June 2023 9.38"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Get verified 4.7",
+            "Tweets 4.7",
+            "Secondary text on the card. 9.43",
+            "Message 18.58",
+            "Small 18.58"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Beta 4.7",
+            "Live 5.02",
+            "Failed 5.66",
+            "Verified accounts get it first. 9.43",
+            "The file is larger than 25 MB. 9.43"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 9.43,
+          "failures": 0,
+          "worstFive": [
+            "Secondary 9.43",
+            "Secondary 9.43",
+            "Grid cell 18.58",
+            "Stack 18.58"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 9.43,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 9.43",
+            "bright 18.58",
+            "glass 18.58"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 8.36,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 9.43,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 9.43",
+            "Secondary text 9.43",
+            "dim 18.58",
+            "glass 18.58",
+            "mid 18.58"
+          ]
+        }
+      },
+      "light/night": {
+        "card": {
+          "texts": 22,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Tweets 4.7",
+            "@bymxfmz 9.38",
+            "Switzerland 9.38",
+            "mfz.framer.website 9.38",
+            "Joined June 2023 9.38"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Get verified 4.7",
+            "Tweets 4.7",
+            "Secondary text on the card. 9.43",
+            "Message 18.58",
+            "Small 18.58"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Beta 4.7",
+            "Live 5.02",
+            "Failed 5.66",
+            "Verified accounts get it first. 9.43",
+            "The file is larger than 25 MB. 9.43"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 9.43,
+          "failures": 0,
+          "worstFive": [
+            "Secondary 9.43",
+            "Secondary 9.43",
+            "Grid cell 18.58",
+            "Stack 18.58"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 9.43,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 9.43",
+            "bright 18.58",
+            "glass 18.58"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 8.36,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 9.43,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 9.43",
+            "Secondary text 9.43",
+            "dim 18.58",
+            "glass 18.58",
+            "mid 18.58"
+          ]
+        }
+      },
+      "light/city": {
+        "card": {
+          "texts": 22,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Tweets 4.7",
+            "@bymxfmz 9.38",
+            "Switzerland 9.38",
+            "mfz.framer.website 9.38",
+            "Joined June 2023 9.38"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Get verified 4.7",
+            "Tweets 4.7",
+            "Secondary text on the card. 9.43",
+            "Message 18.58",
+            "Small 18.58"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Beta 4.7",
+            "Live 5.02",
+            "Failed 5.66",
+            "Verified accounts get it first. 9.43",
+            "The file is larger than 25 MB. 9.43"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 9.43,
+          "failures": 0,
+          "worstFive": [
+            "Secondary 9.43",
+            "Secondary 9.43",
+            "Grid cell 18.58",
+            "Stack 18.58"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 9.43,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 9.43",
+            "bright 18.58",
+            "glass 18.58"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 8.36,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 9.43,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 9.43",
+            "Secondary text 9.43",
+            "dim 18.58",
+            "glass 18.58",
+            "mid 18.58"
+          ]
+        }
+      }
+    },
+    "reduced-transparency": {
+      "dark/room": {
+        "card": {
+          "texts": 22,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Tweets 4.7",
+            "@bymxfmz 10.13",
+            "Switzerland 10.41",
+            "mfz.framer.website 10.56",
+            "Joined June 2023 10.71"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Get verified 4.7",
+            "Tweets 4.7",
+            "Message 8.66",
+            "Small 9.8",
+            "Secondary text on the card. 11.03"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Beta 4.7",
+            "Live 5.02",
+            "Failed 5.66",
+            "Draft 8.93",
+            "Videos 9.07"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 11.04,
+          "failures": 0,
+          "worstFive": [
+            "Secondary 11.04",
+            "Secondary 11.18",
+            "Grid cell 11.97",
+            "Stack 11.99"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 11.18,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 11.18",
+            "bright 11.79",
+            "glass 11.97"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 8.36,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 11.18,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 11.18",
+            "Secondary text 11.18",
+            "mid 11.79",
+            "dim 11.97",
+            "glass 11.97"
+          ]
+        }
+      },
+      "dark/forest": {
+        "card": {
+          "texts": 22,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Tweets 4.7",
+            "@bymxfmz 10.13",
+            "Switzerland 10.41",
+            "mfz.framer.website 10.56",
+            "Joined June 2023 10.71"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Get verified 4.7",
+            "Tweets 4.7",
+            "Message 8.66",
+            "Small 9.8",
+            "Secondary text on the card. 11.03"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Beta 4.7",
+            "Live 5.02",
+            "Failed 5.66",
+            "Draft 8.93",
+            "Videos 9.07"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 11.04,
+          "failures": 0,
+          "worstFive": [
+            "Secondary 11.04",
+            "Secondary 11.18",
+            "Grid cell 11.97",
+            "Stack 11.99"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 11.18,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 11.18",
+            "bright 11.79",
+            "glass 11.97"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 8.36,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 11.18,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 11.18",
+            "Secondary text 11.18",
+            "mid 11.79",
+            "dim 11.97",
+            "glass 11.97"
+          ]
+        }
+      },
+      "dark/night": {
+        "card": {
+          "texts": 22,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Tweets 4.7",
+            "@bymxfmz 10.13",
+            "Switzerland 10.41",
+            "mfz.framer.website 10.56",
+            "Joined June 2023 10.71"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Get verified 4.7",
+            "Tweets 4.7",
+            "Message 8.66",
+            "Small 9.8",
+            "Secondary text on the card. 11.03"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Beta 4.7",
+            "Live 5.02",
+            "Failed 5.66",
+            "Draft 8.93",
+            "Videos 9.07"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 11.04,
+          "failures": 0,
+          "worstFive": [
+            "Secondary 11.04",
+            "Secondary 11.18",
+            "Grid cell 11.97",
+            "Stack 11.99"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 11.18,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 11.18",
+            "bright 11.79",
+            "glass 11.97"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 8.36,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 11.18,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 11.18",
+            "Secondary text 11.18",
+            "mid 11.79",
+            "dim 11.97",
+            "glass 11.97"
+          ]
+        }
+      },
+      "dark/city": {
+        "card": {
+          "texts": 22,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Tweets 4.7",
+            "@bymxfmz 10.13",
+            "Switzerland 10.41",
+            "mfz.framer.website 10.56",
+            "Joined June 2023 10.71"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Get verified 4.7",
+            "Tweets 4.7",
+            "Message 8.66",
+            "Small 9.8",
+            "Secondary text on the card. 11.03"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Beta 4.7",
+            "Live 5.02",
+            "Failed 5.66",
+            "Draft 8.93",
+            "Videos 9.07"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 11.04,
+          "failures": 0,
+          "worstFive": [
+            "Secondary 11.04",
+            "Secondary 11.18",
+            "Grid cell 11.97",
+            "Stack 11.99"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 11.18,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 11.18",
+            "bright 11.79",
+            "glass 11.97"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 8.36,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 11.18,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 11.18",
+            "Secondary text 11.18",
+            "mid 11.79",
+            "dim 11.97",
+            "glass 11.97"
+          ]
+        }
+      },
+      "light/room": {
+        "card": {
+          "texts": 22,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Tweets 4.7",
+            "Following 8.82",
+            "Followers 8.82",
+            "@visualflow · 9h 8.82",
+            "268 8.82"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Get verified 4.7",
+            "Tweets 4.7",
+            "Secondary text on the card. 8.82",
+            "Visual asset 05 16.77",
+            "Trending 16.77"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Beta 4.7",
+            "Live 5.02",
+            "Failed 5.66",
+            "Verified accounts get it first. 8.82",
+            "The file is larger than 25 MB. 8.82"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 8.82,
+          "failures": 0,
+          "worstFive": [
+            "Secondary 8.82",
+            "Secondary 8.82",
+            "Grid cell 16.77",
+            "Stack 16.77"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 8.82,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 8.82",
+            "bright 16.77",
+            "glass 16.77"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 8.36,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 8.82,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 8.82",
+            "Secondary text 8.82",
+            "dim 16.77",
+            "glass 16.77",
+            "mid 16.77"
+          ]
+        }
+      },
+      "light/forest": {
+        "card": {
+          "texts": 22,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Tweets 4.7",
+            "Following 8.82",
+            "Followers 8.82",
+            "@visualflow · 9h 8.82",
+            "268 8.82"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Get verified 4.7",
+            "Tweets 4.7",
+            "Secondary text on the card. 8.82",
+            "Visual asset 05 16.77",
+            "Trending 16.77"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Beta 4.7",
+            "Live 5.02",
+            "Failed 5.66",
+            "Verified accounts get it first. 8.82",
+            "The file is larger than 25 MB. 8.82"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 8.82,
+          "failures": 0,
+          "worstFive": [
+            "Secondary 8.82",
+            "Secondary 8.82",
+            "Grid cell 16.77",
+            "Stack 16.77"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 8.82,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 8.82",
+            "bright 16.77",
+            "glass 16.77"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 8.36,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 8.82,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 8.82",
+            "Secondary text 8.82",
+            "dim 16.77",
+            "glass 16.77",
+            "mid 16.77"
+          ]
+        }
+      },
+      "light/night": {
+        "card": {
+          "texts": 22,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Tweets 4.7",
+            "Following 8.82",
+            "Followers 8.82",
+            "@visualflow · 9h 8.82",
+            "268 8.82"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Get verified 4.7",
+            "Tweets 4.7",
+            "Secondary text on the card. 8.82",
+            "Visual asset 05 16.77",
+            "Trending 16.77"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Beta 4.7",
+            "Live 5.02",
+            "Failed 5.66",
+            "Verified accounts get it first. 8.82",
+            "The file is larger than 25 MB. 8.82"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 8.82,
+          "failures": 0,
+          "worstFive": [
+            "Secondary 8.82",
+            "Secondary 8.82",
+            "Grid cell 16.77",
+            "Stack 16.77"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 8.82,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 8.82",
+            "bright 16.77",
+            "glass 16.77"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 8.36,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 8.82,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 8.82",
+            "Secondary text 8.82",
+            "dim 16.77",
+            "glass 16.77",
+            "mid 16.77"
+          ]
+        }
+      },
+      "light/city": {
+        "card": {
+          "texts": 22,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Tweets 4.7",
+            "Following 8.82",
+            "Followers 8.82",
+            "@visualflow · 9h 8.82",
+            "268 8.82"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Get verified 4.7",
+            "Tweets 4.7",
+            "Secondary text on the card. 8.82",
+            "Visual asset 05 16.77",
+            "Trending 16.77"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 4.7,
+          "failures": 0,
+          "worstFive": [
+            "Beta 4.7",
+            "Live 5.02",
+            "Failed 5.66",
+            "Verified accounts get it first. 8.82",
+            "The file is larger than 25 MB. 8.82"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 8.82,
+          "failures": 0,
+          "worstFive": [
+            "Secondary 8.82",
+            "Secondary 8.82",
+            "Grid cell 16.77",
+            "Stack 16.77"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 8.82,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 8.82",
+            "bright 16.77",
+            "glass 16.77"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 8.36,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 8.36",
+            "07 11.07",
+            "Designed for modern visual projects 11.96"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 8.82,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 8.82",
+            "Secondary text 8.82",
+            "dim 16.77",
+            "glass 16.77",
+            "mid 16.77"
+          ]
+        }
+      }
+    },
+    "forced-colors": {
+      "dark/room": {
+        "card": {
+          "texts": 22,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Max Fmz 21",
+            "@bymxfmz 21",
+            "UX/UI Designer. Outdoor enthusiast. Coff 21",
+            "Switzerland 21",
+            "mfz.framer.website 21"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Follow 21",
+            "Get verified 21",
+            "Message 21",
+            "Small 21",
+            "Visual asset 05 21"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Draft 21",
+            "Beta 21",
+            "Live 21",
+            "Expiring 21",
+            "Failed 21"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Grid cell 21",
+            "Secondary 21",
+            "Stack 21",
+            "Secondary 21"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "bright 21",
+            "glass 21",
+            "Secondary text 21"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 21",
+            "07 21",
+            "Designed for modern visual projects 21"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "dim 21",
+            "glass 21",
+            "Secondary text 21",
+            "mid 21",
+            "glass 21"
+          ]
+        }
+      },
+      "dark/forest": {
+        "card": {
+          "texts": 22,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Max Fmz 21",
+            "@bymxfmz 21",
+            "UX/UI Designer. Outdoor enthusiast. Coff 21",
+            "Switzerland 21",
+            "mfz.framer.website 21"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Follow 21",
+            "Get verified 21",
+            "Message 21",
+            "Small 21",
+            "Visual asset 05 21"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Draft 21",
+            "Beta 21",
+            "Live 21",
+            "Expiring 21",
+            "Failed 21"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Grid cell 21",
+            "Secondary 21",
+            "Stack 21",
+            "Secondary 21"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "bright 21",
+            "glass 21",
+            "Secondary text 21"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 21",
+            "07 21",
+            "Designed for modern visual projects 21"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "dim 21",
+            "glass 21",
+            "Secondary text 21",
+            "mid 21",
+            "glass 21"
+          ]
+        }
+      },
+      "dark/night": {
+        "card": {
+          "texts": 22,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Max Fmz 21",
+            "@bymxfmz 21",
+            "UX/UI Designer. Outdoor enthusiast. Coff 21",
+            "Switzerland 21",
+            "mfz.framer.website 21"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Follow 21",
+            "Get verified 21",
+            "Message 21",
+            "Small 21",
+            "Visual asset 05 21"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Draft 21",
+            "Beta 21",
+            "Live 21",
+            "Expiring 21",
+            "Failed 21"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Grid cell 21",
+            "Secondary 21",
+            "Stack 21",
+            "Secondary 21"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "bright 21",
+            "glass 21",
+            "Secondary text 21"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 21",
+            "07 21",
+            "Designed for modern visual projects 21"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "dim 21",
+            "glass 21",
+            "Secondary text 21",
+            "mid 21",
+            "glass 21"
+          ]
+        }
+      },
+      "dark/city": {
+        "card": {
+          "texts": 22,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Max Fmz 21",
+            "@bymxfmz 21",
+            "UX/UI Designer. Outdoor enthusiast. Coff 21",
+            "Switzerland 21",
+            "mfz.framer.website 21"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Follow 21",
+            "Get verified 21",
+            "Message 21",
+            "Small 21",
+            "Visual asset 05 21"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Draft 21",
+            "Beta 21",
+            "Live 21",
+            "Expiring 21",
+            "Failed 21"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Grid cell 21",
+            "Secondary 21",
+            "Stack 21",
+            "Secondary 21"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "bright 21",
+            "glass 21",
+            "Secondary text 21"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 21",
+            "07 21",
+            "Designed for modern visual projects 21"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "dim 21",
+            "glass 21",
+            "Secondary text 21",
+            "mid 21",
+            "glass 21"
+          ]
+        }
+      },
+      "light/room": {
+        "card": {
+          "texts": 22,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Max Fmz 21",
+            "@bymxfmz 21",
+            "UX/UI Designer. Outdoor enthusiast. Coff 21",
+            "Switzerland 21",
+            "mfz.framer.website 21"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Follow 21",
+            "Get verified 21",
+            "Message 21",
+            "Small 21",
+            "Visual asset 05 21"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Draft 21",
+            "Beta 21",
+            "Live 21",
+            "Expiring 21",
+            "Failed 21"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Grid cell 21",
+            "Secondary 21",
+            "Stack 21",
+            "Secondary 21"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "bright 21",
+            "glass 21",
+            "Secondary text 21"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 21",
+            "07 21",
+            "Designed for modern visual projects 21"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "dim 21",
+            "glass 21",
+            "Secondary text 21",
+            "mid 21",
+            "glass 21"
+          ]
+        }
+      },
+      "light/forest": {
+        "card": {
+          "texts": 22,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Max Fmz 21",
+            "@bymxfmz 21",
+            "UX/UI Designer. Outdoor enthusiast. Coff 21",
+            "Switzerland 21",
+            "mfz.framer.website 21"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Follow 21",
+            "Get verified 21",
+            "Message 21",
+            "Small 21",
+            "Visual asset 05 21"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Draft 21",
+            "Beta 21",
+            "Live 21",
+            "Expiring 21",
+            "Failed 21"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Grid cell 21",
+            "Secondary 21",
+            "Stack 21",
+            "Secondary 21"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "bright 21",
+            "glass 21",
+            "Secondary text 21"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 21",
+            "07 21",
+            "Designed for modern visual projects 21"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "dim 21",
+            "glass 21",
+            "Secondary text 21",
+            "mid 21",
+            "glass 21"
+          ]
+        }
+      },
+      "light/night": {
+        "card": {
+          "texts": 22,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Max Fmz 21",
+            "@bymxfmz 21",
+            "UX/UI Designer. Outdoor enthusiast. Coff 21",
+            "Switzerland 21",
+            "mfz.framer.website 21"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Follow 21",
+            "Get verified 21",
+            "Message 21",
+            "Small 21",
+            "Visual asset 05 21"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Draft 21",
+            "Beta 21",
+            "Live 21",
+            "Expiring 21",
+            "Failed 21"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Grid cell 21",
+            "Secondary 21",
+            "Stack 21",
+            "Secondary 21"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "bright 21",
+            "glass 21",
+            "Secondary text 21"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 21",
+            "07 21",
+            "Designed for modern visual projects 21"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "dim 21",
+            "glass 21",
+            "Secondary text 21",
+            "mid 21",
+            "glass 21"
+          ]
+        }
+      },
+      "light/city": {
+        "card": {
+          "texts": 22,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Max Fmz 21",
+            "@bymxfmz 21",
+            "UX/UI Designer. Outdoor enthusiast. Coff 21",
+            "Switzerland 21",
+            "mfz.framer.website 21"
+          ]
+        },
+        "controls": {
+          "texts": 11,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Follow 21",
+            "Get verified 21",
+            "Message 21",
+            "Small 21",
+            "Visual asset 05 21"
+          ]
+        },
+        "status": {
+          "texts": 12,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Draft 21",
+            "Beta 21",
+            "Live 21",
+            "Expiring 21",
+            "Failed 21"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Grid cell 21",
+            "Secondary 21",
+            "Stack 21",
+            "Secondary 21"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "bright 21",
+            "glass 21",
+            "Secondary text 21"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "Visual asset 05 21",
+            "07 21",
+            "Designed for modern visual projects 21"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 21,
+          "failures": 0,
+          "worstFive": [
+            "dim 21",
+            "glass 21",
+            "Secondary text 21",
+            "mid 21",
+            "glass 21"
+          ]
+        }
+      }
+    }
+  },
+  "docsPage": {
+    "normal": {
+      "dark/room": {
+        "textElements": 34779,
+        "failures": 0,
+        "pages": 146
+      },
+      "dark/forest": {
+        "textElements": 34779,
+        "failures": 0,
+        "pages": 146
+      },
+      "dark/night": {
+        "textElements": 34779,
+        "failures": 0,
+        "pages": 146
+      },
+      "dark/city": {
+        "textElements": 34779,
+        "failures": 0,
+        "pages": 146
+      },
+      "light/room": {
+        "textElements": 34779,
+        "failures": 1,
+        "pages": 146
+      },
+      "light/forest": {
+        "textElements": 34779,
+        "failures": 1,
+        "pages": 146
+      },
+      "light/night": {
+        "textElements": 34779,
+        "failures": 0,
+        "pages": 146
+      },
+      "light/city": {
+        "textElements": 34779,
+        "failures": 1,
+        "pages": 146
+      }
+    },
+    "reduced-transparency": {
+      "dark/room": {
+        "textElements": 34779,
+        "failures": 0,
+        "pages": 146
+      },
+      "dark/forest": {
+        "textElements": 0,
+        "failures": 0,
+        "pages": 0
+      },
+      "dark/night": {
+        "textElements": 0,
+        "failures": 0,
+        "pages": 0
+      },
+      "dark/city": {
+        "textElements": 0,
+        "failures": 0,
+        "pages": 0
+      },
+      "light/room": {
+        "textElements": 34779,
+        "failures": 1,
+        "pages": 146
+      },
+      "light/forest": {
+        "textElements": 0,
+        "failures": 0,
+        "pages": 0
+      },
+      "light/night": {
+        "textElements": 0,
+        "failures": 0,
+        "pages": 0
+      },
+      "light/city": {
+        "textElements": 0,
+        "failures": 0,
+        "pages": 0
+      }
+    },
+    "forced-colors": {
+      "dark/room": {
+        "textElements": 34794,
+        "failures": 0,
+        "pages": 146
+      },
+      "dark/forest": {
+        "textElements": 0,
+        "failures": 0,
+        "pages": 0
+      },
+      "dark/night": {
+        "textElements": 0,
+        "failures": 0,
+        "pages": 0
+      },
+      "dark/city": {
+        "textElements": 0,
+        "failures": 0,
+        "pages": 0
+      },
+      "light/room": {
+        "textElements": 34794,
+        "failures": 0,
+        "pages": 146
+      },
+      "light/forest": {
+        "textElements": 0,
+        "failures": 0,
+        "pages": 0
+      },
+      "light/night": {
+        "textElements": 0,
+        "failures": 0,
+        "pages": 0
+      },
+      "light/city": {
+        "textElements": 0,
+        "failures": 0,
+        "pages": 0
+      }
+    }
+  },
+  "failures": [
+    "[normal] docs /components/tabs/usage light/room: \"About\" 2.99",
+    "[normal] docs /components/tabs/usage light/forest: \"About\" 1.16",
+    "[normal] docs /components/tabs/usage light/city: \"About\" 3.51",
+    "[reduced-transparency] docs /components/tabs/usage light/room: \"About\" 2.99"
+  ],
+  "excepted": [
+    "[normal] docs /foundations/grid dark/room: \"span\" 4.47",
+    "[normal] docs /foundations/grid dark/forest: \"span\" 4.47",
+    "[normal] docs /foundations/grid dark/night: \"span\" 4.47",
+    "[normal] docs /foundations/grid dark/city: \"span\" 4.47",
+    "[normal] docs /components/tabs/usage light/night: \"About\" 3.93",
+    "[reduced-transparency] docs /foundations/grid dark/room: \"span\" 4.47",
+    "[reduced-transparency] docs /foundations/shape light/room: \"Pane\" 4.07"
+  ],
+  "exception": "E-001",
+  "exceptionFloor": 3.8,
+  "summary": {
+    "gatingChecks": 418626,
+    "gatingFailures": 4,
+    "excepted": 7,
+    "informational": []
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "concept": "A button is an object held in the hand of the pane. It is a pill that lifts when approached and gives a little when pressed, with one loud kind per pane.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "why": "a full pill because it is held, with the label centred and the whole pill as the target"
+    },
+    "sm": {
+      "p": "P6",
+      "why": "small is 32px for dense rows and toolbars where several actions share a line"
+    },
+    "md": {
+      "p": "P6",
+      "why": "medium is the default 44px touch size, used for every action that is not in a dense row"
+    },
+    "light": {
+      "p": "P5",
+      "why": "the loud solid, the one main action of a pane, white in dark and ink in light"
+    },
+    "accent": {
+      "p": "P5",
+      "why": "blue for a promoted action such as Get verified, never next to a loud solid of equal weight"
+    },
+    "glass": {
+      "p": "P5",
+      "why": "the quiet glass fill for every secondary action, visible as an object without shouting"
+    }
+  },
+  "states": {
+    "hover": {
+      "p": "P4",
+      "why": "hover lifts the button two pixels closer, an object rising to meet the pointer"
+    },
+    "active": {
+      "p": "P4",
+      "why": "a press shrinks the control briefly and faster than hover, because a press is a reply to the reader"
+    },
+    "disabled": {
+      "p": "P6",
+      "why": "disabled uses the native attribute and half opacity, and the reason is written near it"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "why": "keyboard focus draws the shared ring with its halo so the focused control is visible on any scene"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "why": "forced colours drop glass and fills, so a real system-colour border is drawn to keep the shape visible"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "why": "the accent hover darkens at hover pace so colour and lift read as one event"
+    },
+    "transform": {
+      "p": "P4",
+      "why": "lift and press both move by transform over the soft curve so they never shift layout"
+    },
+    "box-shadow": {
+      "p": "P3",
+      "why": "the shadow eases with the lift so the button appears to rise off the pane"
+    }
+  }
+}

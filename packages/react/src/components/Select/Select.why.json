@@ -1,0 +1,105 @@
+{
+  "concept": "A select is a quiet pill on the pane that opens an opaque list, because options must be read off a steady surface, never off the moving scene.",
+  "parts": {
+    "root": {
+      "p": "P7",
+      "why": "label above the control, the order people read a form in"
+    },
+    "label": {
+      "p": "P6",
+      "why": "a visible label that is also the accessible name of the control"
+    },
+    "hidden": {
+      "p": "P6",
+      "why": "when the context names the control, the label stays for screen readers and is hidden visually"
+    },
+    "trigger": {
+      "p": "P5",
+      "why": "the closed control is a quiet glass pill so it never competes with the pane loud action"
+    },
+    "sm": {
+      "p": "P6",
+      "why": "small is 32px for toolbars and top bars"
+    },
+    "md": {
+      "p": "P6",
+      "why": "medium is the 44px touch size for forms"
+    },
+    "icon": {
+      "p": "P6",
+      "why": "the chevron says this opens a list, a cue that does not rely on hover"
+    },
+    "chevron": {
+      "p": "P4",
+      "why": "the chevron turns over when the list is open, showing the state by shape"
+    },
+    "menu": {
+      "p": "P6",
+      "why": "the list is opaque with a float shadow so options never sit on the scene and read clearly"
+    },
+    "viewport": {
+      "p": "P3",
+      "why": "options stack with a hairline gap, close enough to read as one list"
+    },
+    "item": {
+      "p": "P6",
+      "why": "each option is a 32px row with its own highlight, reachable by keys and typeahead"
+    },
+    "check": {
+      "p": "P6",
+      "why": "a check marks the chosen option, so the choice is shown by a mark and not by colour alone"
+    }
+  },
+  "states": {
+    "hover": {
+      "p": "P4",
+      "why": "hover thickens the ring slightly, answering the pointer without moving the control"
+    },
+    "disabled": {
+      "p": "P6",
+      "why": "disabled cannot open, uses half opacity, and keeps its label readable"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "why": "keyboard focus draws the shared ring with its halo so the focused control is visible on any scene"
+    },
+    "data-placeholder": {
+      "p": "P2",
+      "why": "an empty control shows its placeholder in the measured secondary colour"
+    },
+    "data-state=open": {
+      "p": "P4",
+      "why": "while open, the chevron turns to show the list belongs to this control"
+    },
+    "data-highlighted": {
+      "p": "P6",
+      "why": "the option under the pointer or keyboard gets the quiet fill so the current row is always visible"
+    },
+    "data-state=checked": {
+      "p": "P5",
+      "why": "the chosen option is semibold as well as checked"
+    },
+    "data-disabled": {
+      "p": "P6",
+      "why": "unavailable options stay visible at half opacity so the reader knows they exist"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "why": "forced colours draw real borders and a highlight outline so the list and the current row stay visible"
+    }
+  },
+  "motion": {
+    "box-shadow": {
+      "p": "P4",
+      "why": "the ring change eases at hover pace so the pointer response reads as one calm event"
+    },
+    "transform": {
+      "p": "P4",
+      "why": "the chevron turns over the hover duration so the state change is followed by the eye"
+    },
+    "@menu-in": {
+      "p": "P4",
+      "why": "the list drops a few pixels from the control and settles, so it reads as coming from it"
+    }
+  }
+}

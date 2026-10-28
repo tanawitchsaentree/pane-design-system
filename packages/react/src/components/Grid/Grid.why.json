@@ -1,0 +1,14 @@
+{
+  "identity": false,
+  "identity_reason": "the grid has no shape of its own; it only places panes on shared column edges, so there is nothing to derive beyond spacing",
+  "concept": "The grid gives every pane on a page the same column edges, so separate objects still line up as one arrangement.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "why": "column count, gutter and margin come from the layout tokens per breakpoint, so spans divide evenly",
+      "axis": "space"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

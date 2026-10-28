@@ -1,0 +1,40 @@
+{
+  "concept": "A badge states a status in words on a small fill, so meaning never depends on colour or on the glass behind it.",
+  "parts": {
+    "root": {
+      "p": "P6",
+      "why": "a compact pill that carries the status as text, readable without seeing its colour"
+    },
+    "dot": {
+      "p": "P6",
+      "why": "an optional dot repeats the status for scanning lists; it is decoration, the words carry the meaning"
+    },
+    "neutral": {
+      "p": "P1",
+      "why": "the neutral badge uses the quiet glass fill so it does not add a loud mark to the pane"
+    },
+    "info": {
+      "p": "P6",
+      "why": "information uses the accent fill with its computed white text pair"
+    },
+    "positive": {
+      "p": "P6",
+      "why": "success uses the green status fill with white text measured at 5.02 to 1"
+    },
+    "warning": {
+      "p": "P6",
+      "why": "warning uses amber with ink text, because white on amber would fail contrast"
+    },
+    "critical": {
+      "p": "P6",
+      "why": "errors use the red status fill with white text measured at 5.66 to 1"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "why": "forced colours drop glass and fills, so a real system-colour border is drawn to keep the shape visible"
+    }
+  },
+  "motion": {}
+}

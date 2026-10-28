@@ -1,0 +1,20 @@
+{
+  "$schema": "https://turborepo.dev/schema.json",
+  "//": "Root `pnpm run build` has always been `turbo run build`, and docs/BLUEPRINT.md lists this file in the repo tree — but it did not exist, so the documented root build failed with 'Could not find turbo.json' every time it was run. The per-package builds were always fine, which is why nobody noticed: real work went through `pnpm --filter dial-react build` and `pnpm run tokens:build`.",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "build/**"]
+    },
+    "typecheck": {
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "dependsOn": ["^build"]
+    },
+    "build-storybook": {
+      "dependsOn": ["^build"],
+      "outputs": ["storybook-static/**"]
+    }
+  }
+}

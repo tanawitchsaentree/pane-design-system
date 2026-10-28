@@ -1,0 +1,73 @@
+/* A line on the pane (derivation C): no surface of its own. The root is a one-row grid whose row grows
+   from 0 to its content height, so arriving and leaving slide the content below instead of jumping. */
+.root {
+  display: grid;
+  grid-template-rows: 1fr;
+  border-block-end: var(--ds-width-hairline) solid var(--ds-banner-divider);
+  font-family: var(--ds-type-family);
+  font-size: var(--ds-type-body);
+  line-height: var(--ds-type-leading-body);
+  color: var(--ds-text-primary);
+  animation: banner-open var(--ds-motion-enter) var(--ds-motion-easing);
+}
+/* the hairline separates the message from content after it; the last line of a pane needs none */
+.root:last-child { border-block-end-color: transparent; }
+.leaving { animation: banner-close var(--ds-motion-hover) var(--ds-motion-easing) forwards; }
+@keyframes banner-open { from { grid-template-rows: 0fr; opacity: 0; } }
+@keyframes banner-close { to { grid-template-rows: 0fr; opacity: 0; border-block-end-color: transparent; } }
+
+.line {
+  min-block-size: 0;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  column-gap: var(--ds-banner-gap);
+  row-gap: var(--ds-gap-sm);
+  padding-block: var(--ds-banner-padding-block);
+}
+.glyph {
+  flex: none;
+  inline-size: var(--ds-banner-glyph);
+  block-size: var(--ds-banner-glyph);
+  margin-block-start: calc((1lh - var(--ds-banner-glyph)) / 2);
+  fill: none;
+  stroke: var(--mark);
+  stroke-width: var(--ds-width-ring);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.info { --mark: var(--ds-banner-mark-info); }
+.positive { --mark: var(--ds-banner-mark-positive); }
+.warning { --mark: var(--ds-banner-mark-warning); }
+.critical { --mark: var(--ds-banner-mark-critical); }
+
+.text { flex: 1 1 16em; min-inline-size: 0; display: flex; flex-direction: column; gap: var(--ds-gap-xs); }
+.title { margin: 0; font-weight: var(--ds-type-weight-semibold); overflow-wrap: anywhere; }
+.detail { color: var(--ds-text-secondary); overflow-wrap: anywhere; }
+.sr { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+.end { display: flex; align-items: center; gap: var(--ds-gap-sm); margin-inline-start: auto; }
+.dismiss {
+  position: relative;
+  display: grid;
+  place-items: center;
+  inline-size: var(--ds-banner-dismiss);
+  block-size: var(--ds-banner-dismiss);
+  padding: 0;
+  border: 0;
+  border-radius: var(--ds-corner-round);
+  background: transparent;
+  color: var(--ds-text-secondary);
+  cursor: pointer;
+  transition: color var(--ds-motion-hover) var(--ds-motion-easing), background-color var(--ds-motion-hover) var(--ds-motion-easing);
+}
+.dismiss::after { content: ''; position: absolute; inset: calc((var(--ds-banner-dismiss) - var(--ds-banner-hit)) / 2); }
+.dismiss svg { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; }
+.dismiss:hover { color: var(--ds-text-primary); background: var(--ds-surface-quiet); }
+.dismiss:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+
+@media (forced-colors: active) {
+  .root { border-block-end-color: CanvasText; }
+  .glyph { stroke: CanvasText; }
+}

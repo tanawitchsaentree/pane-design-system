@@ -1,0 +1,57 @@
+{
+  "concept": "Tabs are pills on the pane; the selected one is filled and the content below rises into place as the choice settles.",
+  "parts": {
+    "list": {
+      "p": "P3",
+      "why": "pills sit in one row with a small gap, a set of objects of the same kind"
+    },
+    "trigger": {
+      "p": "P6",
+      "why": "each tab is a full-height pill with a ring, a touch target that shows its edge"
+    },
+    "content": {
+      "p": "P3",
+      "why": "the panel below belongs to the selected tab and is focusable for keyboard users"
+    }
+  },
+  "states": {
+    "active": {
+      "p": "P4",
+      "why": "a press shrinks the control briefly and faster than hover, because a press is a reply to the reader"
+    },
+    "data-state=active": {
+      "p": "P6",
+      "why": "the selected tab is filled blue and loses its ring, a change of shape as well as colour"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "why": "keyboard focus draws the shared ring with its halo so the focused control is visible on any scene"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "why": "forced colours draw borders and underline the selected tab so selection survives without colour"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "why": "the selected fill eases in at hover pace"
+    },
+    "color": {
+      "p": "P4",
+      "why": "the label colour changes with the fill over the same duration"
+    },
+    "box-shadow": {
+      "p": "P4",
+      "why": "the ring fades out as the fill arrives so the two read as one change"
+    },
+    "transform": {
+      "p": "P4",
+      "why": "the press shrink uses transform so the row does not shift"
+    },
+    "@tab-in": {
+      "p": "P4",
+      "why": "the new panel rises half the entry distance and settles, the content arriving rather than appearing"
+    }
+  }
+}
