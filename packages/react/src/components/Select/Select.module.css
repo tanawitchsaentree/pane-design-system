@@ -20,7 +20,7 @@
 .trigger:hover:not(:disabled) { box-shadow: var(--ds-select-groove), inset 0 0 0 var(--ds-width-hairline) var(--ds-select-trigger-ring); }
 :global([data-pane-card='glass']) .trigger { text-shadow: none; }
 .trigger:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
-.trigger:disabled { cursor: not-allowed; opacity: 0.5; }
+.trigger:disabled { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
 .trigger[data-placeholder] { color: var(--ds-text-secondary); }
 .icon { display: inline-flex; flex: none; }
 .chevron { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); transition: transform var(--ds-motion-hover) var(--ds-motion-easing); }
@@ -47,7 +47,7 @@
 .item[data-highlighted] { background: var(--ds-select-item-hover); box-shadow: var(--ds-select-item-lens); }
 .item[data-highlighted]:hover { background: radial-gradient(calc(var(--ds-select-item-height) * 3) var(--ds-select-item-height) at var(--pane-gx, 40%) 50%, var(--ds-select-item-glint), transparent), var(--ds-select-item-hover); }
 .item[data-state='checked'] { font-weight: var(--ds-type-weight-semibold); }
-.item[data-disabled] { opacity: 0.5; cursor: not-allowed; }
+.item[data-disabled] { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
 .slot { display: inline-flex; flex: none; inline-size: var(--ds-control-icon-sm); }
 .check { display: inline-flex; color: var(--ds-select-item-check); }
 .check svg { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); }
