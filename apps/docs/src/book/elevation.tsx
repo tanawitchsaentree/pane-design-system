@@ -6,8 +6,7 @@ import { Stage } from './kit';
 export function ElevationDemo() {
   return (
     <div className="elev-grid" data-elevation-demo="">
-      {/* levels are defined over a real scene, the thing glass is for; on the plain studio a pane steps only 1.09:1 off the ground (2026-10-29) */}
-      <Stage backdrop="scene">
+      <Stage>
         <Card as="div" className="demo-card" data-level-sample="1">
           <p className="eyebrow flush">Level 1 · a pane</p>
           <div className="elev-tiles">

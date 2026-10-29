@@ -157,6 +157,10 @@
         "$value": "#26282D",
         "$description": "the lit top of the ink solid in the light theme (R-010)"
       },
+      "950": {
+        "$value": "#050506",
+        "$description": "the studio's ground in dark: deep enough that a level-1 pane steps at least 1.15:1 off it (G-EL1; #111214 gave 1.09, #0A0A0C 1.13)"
+      },
       "900": {
         "$value": "#111214"
       },
