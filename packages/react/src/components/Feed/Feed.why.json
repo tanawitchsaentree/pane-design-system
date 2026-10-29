@@ -1,0 +1,45 @@
+{
+  "identity": false,
+  "identity_reason": "it holds articles the product draws, usually Cards, so only the stream and its keys are its own",
+  "concept": "A stream of articles that loads more near the end, with Page Down and Page Up between articles and an end said in words.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the feed and its end line stack at the section rhythm"
+    },
+    "feed": {
+      "p": "P3",
+      "axis": "space",
+      "why": "articles stack at the section rhythm with no pane of their own"
+    },
+    "article": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "each article takes focus with the ring around its card"
+    },
+    "end": {
+      "p": "P6",
+      "axis": "space",
+      "why": "the end line keeps a 44px height so the page does not jump as it changes"
+    },
+    "status": {
+      "p": "P6",
+      "axis": "type",
+      "why": "loading and the end are said in words in the secondary tone"
+    },
+    "more": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "Load more is an underlined button with a 44px press area for anyone who does not scroll"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring shows when the part is reached by keyboard"
+    }
+  },
+  "motion": {}
+}

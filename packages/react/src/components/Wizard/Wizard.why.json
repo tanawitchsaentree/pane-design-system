@@ -1,0 +1,45 @@
+{
+  "identity": false,
+  "identity_reason": "it is Stepper, the step panels and Buttons, so only the heading that takes focus and the order of actions are its own",
+  "concept": "A task in steps: Stepper on top, one panel at a time under a heading that takes focus, Back and Next with the loud one last.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the Stepper, the panel and the actions stack at the section rhythm"
+    },
+    "panel": {
+      "p": "P3",
+      "axis": "space",
+      "why": "each panel stacks its fields at the field rhythm and stays in the page when hidden"
+    },
+    "title": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the step heading takes focus when the step changes so the reader hears where they are"
+    },
+    "count": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the step count sits above the heading in the secondary tone"
+    },
+    "actions": {
+      "p": "P5",
+      "axis": "space",
+      "why": "the actions sit at the end with the loud button last"
+    },
+    "cancel": {
+      "p": "P5",
+      "axis": "space",
+      "why": "Cancel sits apart at the start so it is never pressed for Back"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring shows when the part is reached by keyboard"
+    }
+  },
+  "motion": {}
+}

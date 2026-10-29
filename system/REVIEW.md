@@ -94,3 +94,17 @@ Lab: `apps/lab/round5/index.html` (the user's OpenGlass-style reference beside P
 | DescriptionList (wave 7) | **A tones and space** | A tells term from detail by tone and size (P2). B adds borders on every cell. C puts label colons in front of every value. |
 | List (wave 7) | **A inset pane, hairlines from the text** | A is one pane with quiet hairlines (P3). B draws a box per row. C adds a grey that owns nothing. |
 | Table (wave 7) | **A pane with an opaque header** | A keeps the data the loudest thing (P3, P2). B brings hue. C draws a grid around every value. |
+| Editable (wave 8) | **A text button with a pencil** | A edits where the text is (P4) and is all keyboard (P6). B adds a control per value. C makes every value look like a form. |
+| Dropzone (wave 8) | **A carved groove that lifts** | A is a recess like every field (P3) and says over by shape (P6). B brings a dash and a hue. C gives a drag nowhere to land. |
+| ColorPicker (wave 8) | **A named swatches with hex** | A names every colour (P6) and keeps the picker without hue (P1). B hides names behind a square. C looks different on every platform. |
+| Calendar (wave 9) | **A round days, loud solid** | A keeps the one solid for the choice (P5) and every state by shape (P6). B brings a hue and a grid of lines. C hides the shape of the month. |
+| TreeView (wave 9) | **A indent and chevron** | A says nesting by indent and state by shape (P3, P6). B adds ink. C stacks panes in panes. |
+| Carousel (wave 9) | **A snap row, controls under** | A moves only when the reader moves it (P4) and keeps the photo clear. B moves by itself. C hides how many slides there are. |
+| BarChart (wave 9) | **A thin bars, data palette** | A follows the dataviz mark specs with hue only on marks (D-031). B adds ink. C cannot tell series apart. |
+| LineChart (wave 9) | **A thin lines, end labels** | A follows the mark specs and labels ends (dataviz). B invents values. C is the first chart mistake. |
+| Heatmap (wave 9) | **A one hue, faint to full** | A is sequential, one hue light to dark (dataviz). B has no visible order. C is a table, which the table view already is. |
+| Form (wave 10) | **A error summary at the top** | A puts every error in one place that takes focus (P6). B is easy to miss. C disappears before it is read. |
+| CommandPalette (wave 10) | **A level-3 pane near the top** | A keeps the page in view behind the scrim (P3). B hides it. C cannot be opened from anywhere. |
+| CoachMark (wave 10) | **A anchored card, no scrim** | A points without blocking (P3). B covers the page. C teaches out of context. |
+| KanbanBoard (wave 10) | **A panes, keys and drag** | A moves by keyboard as well as pointer (P6). B leaves keys out. C loses the board. |
+| RichTextEditor (wave 10) | **A few tools over the groove** | A keeps the system type (P2) and the field family (P3). B lets text leave the system. C asks readers to learn syntax. |

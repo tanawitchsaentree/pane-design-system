@@ -1,0 +1,35 @@
+{
+  "identity": false,
+  "identity_reason": "it is the LineChart line without axes, in the muted tone with the first data slot for its last point",
+  "concept": "A small line with no axes for a Stat or a table cell, its trend said in words as an image.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the line fills the width it is given with a small minimum"
+    },
+    "svg": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the drawing may reach past its box so the end dot is never clipped"
+    },
+    "line": {
+      "p": "P2",
+      "axis": "colour",
+      "why": "the line is drawn in the de-emphasis tone so it supports the number beside it"
+    },
+    "last": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the current point is a dot in the first data slot with a surface ring"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the edges and marks so every part stays findable"
+    }
+  },
+  "motion": {}
+}

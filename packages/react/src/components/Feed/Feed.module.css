@@ -1,0 +1,10 @@
+/* Articles stacked at the section rhythm, each focusable with the ring round it, and an end line in
+   words; the feed brings no pane of its own, the articles bring their Cards. */
+.root { display: flex; flex-direction: column; gap: var(--ds-feed-gap); min-inline-size: 0; font-family: var(--ds-type-family); }
+.feed { display: flex; flex-direction: column; gap: var(--ds-feed-gap); }
+.article { border-radius: var(--ds-corner-panel); outline: 0; }
+.article:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.end { display: flex; justify-content: center; min-block-size: var(--ds-layout-touch); }
+.status { display: inline-flex; align-items: center; gap: var(--ds-gap-sm); font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.more { position: relative; min-block-size: var(--ds-layout-touch); padding-inline: var(--ds-gap-lg); border: 0; border-radius: var(--ds-corner-round); background: transparent; color: var(--ds-text-primary); font: inherit; font-size: var(--ds-type-label); text-decoration: underline; text-underline-offset: var(--ds-gap-xs); cursor: pointer; }
+.more:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }

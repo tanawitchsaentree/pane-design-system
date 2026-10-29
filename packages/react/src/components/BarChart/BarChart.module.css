@@ -1,0 +1,6 @@
+/* Bars carry the data palette and dim the others while one category is read, so the one in focus reads
+   by contrast and position, not by a new colour (dataviz: the hovered mark responds). */
+.bar { transition: opacity var(--ds-motion-hover) var(--ds-motion-easing); }
+.bar[data-dim] { opacity: var(--ds-viz-dim); }
+.live { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (forced-colors: active) { .bar { forced-color-adjust: none; } }

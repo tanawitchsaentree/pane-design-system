@@ -1,0 +1,9 @@
+/* Two Listbox recesses and the move buttons between them; on a narrow pane they stack and the arrows turn
+   to point down and up (container query, no media query). */
+.root { container-type: inline-size; font-family: var(--ds-type-family); }
+.grid { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: var(--ds-transfer-list-gap); }
+.list { min-inline-size: 0; align-self: stretch; }
+.moves { display: flex; flex-direction: column; gap: var(--ds-gap-md); }
+.glyph { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+:global([dir='rtl']) .glyph { transform: scaleX(-1); }
+@container (inline-size < 34em) { .grid { grid-template-columns: minmax(0, 1fr); } .moves { flex-direction: row; justify-content: center; } .fwd { transform: rotate(90deg); } .back { transform: rotate(90deg); } }

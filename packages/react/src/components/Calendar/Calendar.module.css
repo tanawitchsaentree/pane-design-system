@@ -1,0 +1,24 @@
+/* A month on the pane: round 44px days, today ringed, the chosen day the loud solid, a range a band of
+   chosen glass between two solid ends (P5 one solid per choice, P6 every state by shape). */
+.root { display: inline-flex; flex-direction: column; gap: var(--ds-calendar-gap); max-inline-size: 100%; font-family: var(--ds-type-family); }
+.head { display: flex; align-items: center; justify-content: space-between; gap: var(--ds-calendar-gap); }
+.title { margin: 0; font-size: var(--ds-type-body); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-primary); text-align: center; }
+.chev { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+:global([dir='rtl']) .chev { transform: scaleX(-1); }
+.grid { border-collapse: collapse; border-spacing: 0; }
+.wd { block-size: var(--ds-calendar-head); padding: 0; font-size: var(--ds-type-caption); font-weight: var(--ds-type-weight-medium); color: var(--ds-text-secondary); text-align: center; }
+.cell { padding: 0; text-align: center; }
+/* a range: chosen glass runs under the days between the ends, and starts or stops at an end's centre */
+.mid { background: var(--ds-calendar-band); }
+.start { background: linear-gradient(90deg, transparent 50%, var(--ds-calendar-band) 50%); }
+.end { background: linear-gradient(90deg, var(--ds-calendar-band) 50%, transparent 50%); }
+:global([dir='rtl']) .start { background: linear-gradient(-90deg, transparent 50%, var(--ds-calendar-band) 50%); }
+:global([dir='rtl']) .end { background: linear-gradient(-90deg, var(--ds-calendar-band) 50%, transparent 50%); }
+.day { display: inline-grid; place-items: center; inline-size: var(--ds-calendar-day); block-size: var(--ds-calendar-day); padding: 0; border: 0; border-radius: var(--ds-corner-round); background: transparent; color: var(--ds-text-primary); font: inherit; font-size: var(--ds-type-label); font-variant-numeric: tabular-nums; cursor: pointer; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
+.day:hover:not([aria-disabled]) { background: var(--ds-calendar-hover); }
+.day:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: calc(var(--ds-focus-ring-width) * -1); }
+.out { color: var(--ds-text-secondary); }
+.today { box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-calendar-today-ring); font-weight: var(--ds-type-weight-semibold); }
+.chosen, .chosen:hover:not([aria-disabled]) { background: linear-gradient(180deg, var(--ds-calendar-chosen-top), var(--ds-calendar-chosen-foot)); color: var(--ds-calendar-chosen-fg); font-weight: var(--ds-type-weight-semibold); }
+.off { color: var(--ds-text-secondary); text-decoration: line-through; cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
+@media (forced-colors: active) { .chosen { background: Highlight; color: HighlightText; } .mid, .start, .end { background: Canvas; outline: var(--ds-width-hairline) solid Highlight; } .today { border: var(--ds-width-hairline) solid CanvasText; } }

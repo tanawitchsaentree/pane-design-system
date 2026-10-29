@@ -1,0 +1,37 @@
+/* What every chart shares: marks carry the data palette, every word wears a text tone (dataviz: text
+   never wears the series colour), grid and axes are recessive hairlines, the tooltip is a level-4 sheet. */
+.frame { display: flex; flex-direction: column; gap: var(--ds-viz-gap); margin: 0; min-inline-size: 0; font-family: var(--ds-type-family); }
+.head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--ds-viz-gap); }
+.titles { display: flex; flex-direction: column; gap: var(--ds-gap-xs); min-inline-size: 0; }
+.title { font-size: var(--ds-type-body); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-primary); }
+.description { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.toggle { position: relative; flex: none; min-block-size: var(--ds-viz-toggle); padding-inline: var(--ds-gap-md); border: 0; border-radius: var(--ds-corner-round); background: transparent; color: var(--ds-text-secondary); font: inherit; font-size: var(--ds-type-label); text-decoration: underline; text-underline-offset: var(--ds-gap-xs); cursor: pointer; }
+.toggle::after { content: ''; position: absolute; inset-inline: 0; inset-block-start: 50%; block-size: var(--ds-layout-touch); transform: translateY(-50%); }
+.toggle:hover { color: var(--ds-text-primary); }
+.toggle:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.legend { display: flex; flex-wrap: wrap; gap: var(--ds-gap-xs) var(--ds-gap-lg); margin: 0; padding: 0; list-style: none; font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.key { display: inline-flex; align-items: center; gap: var(--ds-gap-sm); }
+.swatch { background: var(--pane-series); inline-size: var(--ds-viz-key); block-size: var(--ds-viz-key); border-radius: var(--ds-viz-key-radius); }
+.lineKey { block-size: var(--ds-viz-line); border-radius: var(--ds-corner-round); }
+.plot { position: relative; inline-size: 100%; outline: 0; }
+.plot:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); border-radius: var(--ds-corner-inner); }
+.svg { display: block; overflow: visible; }
+.grid { stroke: var(--ds-viz-grid); stroke-width: var(--ds-width-hairline); shape-rendering: crispEdges; }
+.base { stroke: var(--ds-viz-axis); stroke-width: var(--ds-width-hairline); shape-rendering: crispEdges; }
+.tick { fill: var(--ds-text-secondary); font-size: var(--ds-type-micro); font-variant-numeric: tabular-nums; }
+.cross { stroke: var(--ds-viz-axis); stroke-width: var(--ds-width-hairline); }
+.label { fill: var(--ds-text-primary); font-size: var(--ds-type-micro); font-weight: var(--ds-type-weight-medium); }
+.tableWrap { overflow: auto; border-radius: var(--ds-corner-inner); }
+.tableWrap:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.table { inline-size: 100%; border-collapse: collapse; font-size: var(--ds-type-label); color: var(--ds-text-primary); }
+.table th, .table td { padding: var(--ds-gap-sm) var(--ds-gap-md); border-block-end: var(--ds-width-hairline) solid var(--ds-viz-grid); text-align: start; }
+.table thead th { color: var(--ds-text-secondary); font-weight: var(--ds-type-weight-medium); }
+.num { text-align: end; font-variant-numeric: tabular-nums; }
+.table .num { text-align: end; }
+.tip { position: absolute; z-index: 2; display: flex; flex-direction: column; gap: var(--ds-gap-xs); padding: var(--ds-gap-md) var(--ds-gap-lg); border-radius: var(--ds-corner-inner); background: var(--ds-viz-tip-bg); box-shadow: var(--ds-viz-tip-shadow); pointer-events: none; white-space: nowrap; transform: translateY(-50%); }
+.tipTitle { font-size: var(--ds-type-micro); color: var(--ds-text-secondary); }
+.tipRow { display: flex; align-items: center; gap: var(--ds-gap-sm); font-size: var(--ds-type-label); }
+.tipKey { background: var(--pane-series); inline-size: var(--ds-viz-key); block-size: var(--ds-viz-line); border-radius: var(--ds-corner-round); }
+.tipValue { color: var(--ds-text-primary); font-weight: var(--ds-type-weight-semibold); font-variant-numeric: tabular-nums; }
+.tipName { color: var(--ds-text-secondary); }
+@media (forced-colors: active) { .swatch, .tipKey { forced-color-adjust: none; } .grid, .base, .cross { stroke: GrayText; } }

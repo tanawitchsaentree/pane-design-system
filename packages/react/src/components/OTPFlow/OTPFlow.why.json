@@ -1,0 +1,49 @@
+{
+  "identity": false,
+  "identity_reason": "it is a pattern built from PinInput, Spinner and Button, so its look comes from those and only its words are new",
+  "concept": "The one-time-code step: where the code went, PinInput, the check, the error in words and a resend button that counts down.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the parts stack from the lead line to the resend row with an even gap"
+    },
+    "lead": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the lead line is secondary at body size and says where the code went"
+    },
+    "to": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the masked address is primary and medium weight and never breaks across lines"
+    },
+    "status": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "the status line says in words what happened and is announced politely"
+    },
+    "wrong": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a wrong code turns the sentence primary so the error is read before anything else"
+    },
+    "glyph": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a wrong code adds the critical diamond beside the sentence so it reads by shape"
+    },
+    "resend": {
+      "p": "P5",
+      "axis": "space",
+      "why": "the resend button sits apart under the status with its countdown beside it"
+    },
+    "wait": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the countdown is secondary in tabular figures so it does not jitter each second"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

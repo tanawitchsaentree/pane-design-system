@@ -1671,6 +1671,10 @@
           "why": "the faint point of a breath or a fade-in, still visible as a recess on bright scenes"
         }
       }
+    },
+    "wash": {
+      "$value": "{alpha.wash}",
+      "$type": "number"
     }
   },
   "level": {
@@ -2308,6 +2312,79 @@
             "P6"
           ],
           "why": "the grabber is wide enough to find with a thumb, with a 44px press area around it"
+        }
+      }
+    }
+  },
+  "data": {
+    "$type": "color",
+    "$extensions": {
+      "kiln.why": {
+        "p": "P1",
+        "why": "the categorical order for charts, dark steps by default and light steps in the light theme, both validated against the glass surfaces"
+      }
+    },
+    "series-1": {
+      "$value": "{color.data.dark-1}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.data.light-1}"
+        }
+      }
+    },
+    "series-2": {
+      "$value": "{color.data.dark-2}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.data.light-2}"
+        }
+      }
+    },
+    "series-3": {
+      "$value": "{color.data.dark-3}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.data.light-3}"
+        }
+      }
+    },
+    "series-4": {
+      "$value": "{color.data.dark-4}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.data.light-4}"
+        }
+      }
+    },
+    "series-5": {
+      "$value": "{color.data.dark-5}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.data.light-5}"
+        }
+      }
+    },
+    "series-6": {
+      "$value": "{color.data.dark-6}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.data.light-6}"
+        }
+      }
+    },
+    "series-7": {
+      "$value": "{color.data.dark-7}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.data.light-7}"
+        }
+      }
+    },
+    "series-8": {
+      "$value": "{color.data.dark-8}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.data.light-8}"
         }
       }
     }

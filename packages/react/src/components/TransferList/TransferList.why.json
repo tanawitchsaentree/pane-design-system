@@ -1,0 +1,44 @@
+{
+  "identity": false,
+  "identity_reason": "it is two Listbox recesses and two glass Buttons, so its look comes entirely from those parts",
+  "concept": "Two Listboxes side by side with move buttons that say how many they will move, stacking on a narrow pane.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the wrapper measures its own width so the lists can stack when narrow"
+    },
+    "grid": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the two lists and the buttons sit in three columns with an even gap"
+    },
+    "list": {
+      "p": "P3",
+      "axis": "space",
+      "why": "each list takes an equal share of the width and the full height of the row"
+    },
+    "moves": {
+      "p": "P5",
+      "axis": "space",
+      "why": "the move buttons stack between the lists, apart from both"
+    },
+    "glyph": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "each button carries an arrow that points the way it moves the items"
+    },
+    "fwd": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the add arrow turns to point down when the lists stack"
+    },
+    "back": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the remove arrow turns with the layout so it still points the right way"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

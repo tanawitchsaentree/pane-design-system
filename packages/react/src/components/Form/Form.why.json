@@ -1,0 +1,107 @@
+{
+  "concept": "One column of fields at the field rhythm, the buttons together at the end, and an error summary that takes focus.",
+  "default_to_avoid": [
+    {
+      "pattern": "a form that shows errors only as red text under each field after submit",
+      "kind": "form, form layout, error summary",
+      "why_not": "red text under fields far down the page is easy to miss and says nothing to a screen reader; Pane adds a summary at the top"
+    }
+  ],
+  "references": [
+    {
+      "title": "GOV.UK · Error summary",
+      "url": "https://design-system.service.gov.uk/components/error-summary/"
+    },
+    {
+      "title": "WAI · Form validation",
+      "url": "https://www.w3.org/WAI/tutorials/forms/notifications/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P6",
+      "axis": "colour",
+      "consequence": "status is spoken in text as well as shown in colour",
+      "form": "errors are said in words with the critical mark beside them, never only in red"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "the summary takes focus on a failed submit and each line links to its field"
+    },
+    {
+      "p": "P3",
+      "axis": "space",
+      "consequence": "padding inside a pane is larger than the gap between items in it, so the edge reads as the object's boundary",
+      "form": "fields sit in one column at the field rhythm with the buttons together at the end"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave10/",
+    "section": "form",
+    "options": [
+      "A error summary at the top",
+      "B inline errors only",
+      "C a toast that lists errors"
+    ],
+    "picked": "A error summary at the top",
+    "by": "agent",
+    "reason": "A puts every error in one place that takes focus (P6). B is easy to miss. C disappears before it is read."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the form is one column on a reading measure"
+    },
+    "fields": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the fields stack at the field rhythm so the eye moves down one column"
+    },
+    "actions": {
+      "p": "P5",
+      "axis": "space",
+      "why": "the buttons sit together after the last field"
+    },
+    "summary": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "the summary is a level-2 pane ringed in the critical mark"
+    },
+    "title": {
+      "p": "P6",
+      "axis": "type",
+      "why": "the summary says There is a problem in semibold beside the critical glyph"
+    },
+    "glyph": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the critical octagon is the same glyph Banner uses"
+    },
+    "list": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the errors are indented to line up with the title text"
+    },
+    "link": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "each error is an underlined link that moves focus to its field"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the edges and marks so every part stays findable"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring shows when the part is reached by keyboard"
+    }
+  },
+  "motion": {}
+}

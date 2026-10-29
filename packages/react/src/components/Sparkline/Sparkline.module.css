@@ -1,0 +1,7 @@
+/* The trend in the de-emphasis tone and the current point in the first data slot (dataviz stat-tile
+   contract: sparkline in the de-emphasis hue, current period in the accent). */
+.root { display: inline-block; inline-size: 100%; min-inline-size: var(--ds-viz-spark-min); vertical-align: middle; }
+.svg { display: block; overflow: visible; }
+.line { fill: none; stroke: var(--ds-viz-muted); stroke-width: var(--ds-viz-line); stroke-linecap: round; stroke-linejoin: round; }
+.last { fill: var(--ds-viz-series-1); stroke: var(--ds-viz-ring); stroke-width: var(--ds-viz-line); }
+@media (forced-colors: active) { .line { stroke: CanvasText; } .last { fill: Highlight; } }

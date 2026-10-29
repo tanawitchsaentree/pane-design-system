@@ -1,0 +1,16 @@
+/* Groups as inset level-2 panes with hairlines from the text, the control at the row's end, dropping
+   under the words when the pane is narrow (container query on the group). */
+.root { display: flex; flex-direction: column; gap: var(--ds-settings-layout-gap); max-inline-size: var(--ds-settings-layout-measure); font-family: var(--ds-type-family); }
+.title { margin: 0; font-size: var(--ds-type-headline); font-weight: var(--ds-type-weight-semibold); letter-spacing: var(--ds-type-tracking-display); color: var(--ds-text-primary); }
+.group { display: flex; flex-direction: column; gap: var(--ds-gap-md); container-type: inline-size; }
+.groupHead { display: flex; flex-direction: column; gap: var(--ds-gap-xs); padding-inline: var(--ds-gap-lg); }
+.groupTitle { margin: 0; font-size: var(--ds-type-body); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-primary); }
+.groupDescription { margin: 0; font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.rows { display: flex; flex-direction: column; padding: var(--ds-gap-xs); border-radius: var(--ds-corner-media); background: var(--ds-settings-layout-bg); box-shadow: var(--ds-settings-layout-edge); }
+.row { position: relative; display: flex; align-items: center; justify-content: space-between; gap: var(--ds-gap-lg); min-block-size: var(--ds-layout-touch); padding: var(--ds-gap-md) var(--ds-gap-lg); }
+.row:not(:last-child)::after { content: ''; position: absolute; inset-block-end: 0; inset-inline: var(--ds-gap-lg) 0; block-size: var(--ds-width-hairline); background: var(--ds-settings-layout-divider); }
+.text { display: flex; flex-direction: column; gap: var(--ds-gap-xs); min-inline-size: 0; }
+.label { font-size: var(--ds-type-body); color: var(--ds-text-primary); overflow-wrap: anywhere; }
+.description { font-size: var(--ds-type-label); line-height: var(--ds-type-leading-body); color: var(--ds-text-secondary); }
+.control { flex: none; }
+@container (inline-size < 30em) { .row { flex-direction: column; align-items: stretch; } .control { align-self: flex-start; } }

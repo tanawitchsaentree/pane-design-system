@@ -45,4 +45,16 @@ export const BARREL_MANIFEST = [
     header: `Wave 7 data display (0.7.0): the carved channel, level-2 panes and hairline rows.`,
     components: ['Progress', 'Meter', 'Stat', 'EmptyState', 'Timeline', 'DescriptionList', 'List', 'Table'],
   },
+  {
+    header: `Wave 8 inputs (0.7.0): Input's groove, Slider's channel and named swatches.`,
+    components: ['PasswordInput', 'SearchInput', 'NumberInput', 'RangeSlider', 'Editable', 'FileUpload', 'Dropzone', 'ColorPicker', 'OTPFlow'],
+  },
+  {
+    header: `Wave 9 complex data (0.7.0): round days, the chosen pane, Table's grid and the data palette (D-031).`,
+    components: ['Calendar', 'DatePicker', 'TimePicker', 'TreeView', 'Carousel', 'VirtualList', 'TransferList', 'DataGrid', 'BarChart', 'LineChart', 'Sparkline', 'Heatmap'],
+  },
+  {
+    header: `Wave 10 patterns (0.7.0): compositions of the waves before, with the error summary, palette and board.`,
+    components: ['Form', 'Wizard', 'AuthForm', 'CommandPalette', 'NotificationCenter', 'CoachMark', 'KanbanBoard', 'Feed', 'AppShell', 'SettingsLayout', 'RichTextEditor'],
+  },
 ];

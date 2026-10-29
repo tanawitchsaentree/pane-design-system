@@ -1,0 +1,69 @@
+{
+  "identity": false,
+  "identity_reason": "it is the List inset pane with a control at the end of each row, so its look comes from List and the controls",
+  "concept": "A settings page of groups as inset panes, each row a name, a sentence and its control, dropping the control under the words when narrow.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the heading and the groups stack at the section rhythm on a readable measure"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the page heading is the headline size with display tracking at the top"
+    },
+    "group": {
+      "p": "P3",
+      "axis": "space",
+      "why": "each group measures its own width so its rows can stack"
+    },
+    "groupHead": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the group heading sits over the pane, inset to the text column"
+    },
+    "groupTitle": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the group heading is semibold at body size"
+    },
+    "groupDescription": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the line under a group heading is secondary at label size"
+    },
+    "rows": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the rows sit on one inset level-2 pane"
+    },
+    "row": {
+      "p": "P6",
+      "axis": "space",
+      "why": "each row is at least 44px tall with a hairline from the text column"
+    },
+    "text": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the name and its sentence stack and take the free width"
+    },
+    "label": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the setting name is primary at body size"
+    },
+    "description": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the sentence is secondary at label size and says what the setting changes"
+    },
+    "control": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the control keeps its own width at the row end"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

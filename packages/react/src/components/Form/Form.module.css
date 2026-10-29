@@ -1,0 +1,13 @@
+/* One column of fields at the field rhythm, the buttons together at the end, and an error summary at the
+   top: a level-2 pane with the critical ring, its words in the text tones and its links underlined. */
+.root { display: flex; flex-direction: column; gap: var(--ds-form-gap); max-inline-size: var(--ds-form-measure); font-family: var(--ds-type-family); }
+.fields { display: flex; flex-direction: column; gap: var(--ds-form-gap); }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ds-gap-md); padding-block-start: var(--ds-gap-md); }
+.summary { display: flex; flex-direction: column; gap: var(--ds-gap-sm); padding: var(--ds-form-summary-padding); border-radius: var(--ds-corner-media); background: var(--ds-form-summary-bg); box-shadow: inset 0 0 0 var(--ds-width-ring) var(--ds-form-critical); outline: 0; }
+.summary:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.title { display: flex; align-items: center; gap: var(--ds-gap-sm); margin: 0; font-size: var(--ds-type-body); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-primary); }
+.glyph { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); flex: none; fill: none; stroke: var(--ds-form-critical); stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.list { display: flex; flex-direction: column; gap: var(--ds-gap-xs); margin: 0; padding-inline-start: calc(var(--ds-control-icon-md) + var(--ds-gap-sm)); list-style: none; }
+.link { display: inline-block; padding-block: var(--ds-gap-xs); color: var(--ds-text-primary); font-size: var(--ds-type-label); text-decoration: underline; text-underline-offset: var(--ds-gap-xs); }
+.link:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-width-ring); border-radius: var(--ds-corner-mark); }
+@media (forced-colors: active) { .summary { border: var(--ds-width-ring) solid CanvasText; } .glyph { stroke: CanvasText; } }

@@ -1,0 +1,35 @@
+{
+  "identity": false,
+  "identity_reason": "it is the List inset pane and its hairline rows, so only the windowing that draws rows in view is new",
+  "concept": "A long list in one pane that draws only the rows in view, each row saying where it sits in the whole list.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the list is one scrolling level-2 pane with its own edge"
+    },
+    "list": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the inner list is as tall as all its rows so the scrollbar is truthful"
+    },
+    "row": {
+      "p": "P3",
+      "axis": "space",
+      "why": "each row sits at its own offset with a hairline under it"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the edges and marks so every part stays findable"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the pane shows the focus ring so it can be scrolled by keyboard"
+    }
+  },
+  "motion": {}
+}

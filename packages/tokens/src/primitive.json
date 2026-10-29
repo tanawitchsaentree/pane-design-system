@@ -674,6 +674,79 @@
         "$value": "#8C7BD6",
         "$description": "dusk mesh: d"
       }
+    },
+    "data": {
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P1",
+          "why": "data colours belong to the content a chart shows, like a scene or a photo; the interface around the chart still owns no hue (D-031)"
+        }
+      },
+      "light-1": {
+        "$value": "#2A78D6",
+        "$description": "data slot 1, blue, stepped for the light surface; order is the CVD-safety mechanism (validated adjacent pairs)"
+      },
+      "dark-1": {
+        "$value": "#3987E5",
+        "$description": "data slot 1, blue, stepped for the dark surface; same hue as light-1"
+      },
+      "light-2": {
+        "$value": "#EB6834",
+        "$description": "data slot 2, orange, stepped for the light surface; order is the CVD-safety mechanism (validated adjacent pairs)"
+      },
+      "dark-2": {
+        "$value": "#D95926",
+        "$description": "data slot 2, orange, stepped for the dark surface; same hue as light-2"
+      },
+      "light-3": {
+        "$value": "#1BAF7A",
+        "$description": "data slot 3, aqua, stepped for the light surface; order is the CVD-safety mechanism (validated adjacent pairs)"
+      },
+      "dark-3": {
+        "$value": "#199E70",
+        "$description": "data slot 3, aqua, stepped for the dark surface; same hue as light-3"
+      },
+      "light-4": {
+        "$value": "#EDA100",
+        "$description": "data slot 4, yellow, stepped for the light surface; order is the CVD-safety mechanism (validated adjacent pairs)"
+      },
+      "dark-4": {
+        "$value": "#C98500",
+        "$description": "data slot 4, yellow, stepped for the dark surface; same hue as light-4"
+      },
+      "light-5": {
+        "$value": "#E87BA4",
+        "$description": "data slot 5, magenta, stepped for the light surface; order is the CVD-safety mechanism (validated adjacent pairs)"
+      },
+      "dark-5": {
+        "$value": "#D55181",
+        "$description": "data slot 5, magenta, stepped for the dark surface; same hue as light-5"
+      },
+      "light-6": {
+        "$value": "#008300",
+        "$description": "data slot 6, green, stepped for the light surface; order is the CVD-safety mechanism (validated adjacent pairs)"
+      },
+      "dark-6": {
+        "$value": "#008300",
+        "$description": "data slot 6, green, stepped for the dark surface; same hue as light-6"
+      },
+      "light-7": {
+        "$value": "#6250D6",
+        "$description": "data slot 7, violet, stepped for the light surface; order is the CVD-safety mechanism (validated adjacent pairs)"
+      },
+      "dark-7": {
+        "$value": "#9085E9",
+        "$description": "data slot 7, violet, stepped for the dark surface; same hue as light-7"
+      },
+      "light-8": {
+        "$value": "#E34948",
+        "$description": "data slot 8, red, stepped for the light surface; order is the CVD-safety mechanism (validated adjacent pairs)"
+      },
+      "dark-8": {
+        "$value": "#E66767",
+        "$description": "data slot 8, red, stepped for the dark surface; same hue as light-8"
+      }
     }
   },
   "blur": {
@@ -1493,6 +1566,10 @@
     "dim": {
       "$value": 0.55,
       "$description": "how far a skeleton fades at the bottom of its breath"
+    },
+    "wash": {
+      "$value": 0.1,
+      "$description": "the wash under a single line series, a tint that never reads as a solid block"
     }
   },
   "ratio": {

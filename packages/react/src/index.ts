@@ -114,3 +114,44 @@ export * from './components/Timeline';
 export * from './components/DescriptionList';
 export * from './components/List';
 export * from './components/Table';
+
+// Wave 8 inputs (0.7.0): Input's groove, Slider's channel and named swatches.
+
+export * from './components/PasswordInput';
+export * from './components/SearchInput';
+export * from './components/NumberInput';
+export * from './components/RangeSlider';
+export * from './components/Editable';
+export * from './components/FileUpload';
+export * from './components/Dropzone';
+export * from './components/ColorPicker';
+export * from './components/OTPFlow';
+
+// Wave 9 complex data (0.7.0): round days, the chosen pane, Table's grid and the data palette (D-031).
+
+export * from './components/Calendar';
+export * from './components/DatePicker';
+export * from './components/TimePicker';
+export * from './components/TreeView';
+export * from './components/Carousel';
+export * from './components/VirtualList';
+export * from './components/TransferList';
+export * from './components/DataGrid';
+export * from './components/BarChart';
+export * from './components/LineChart';
+export * from './components/Sparkline';
+export * from './components/Heatmap';
+
+// Wave 10 patterns (0.7.0): compositions of the waves before, with the error summary, palette and board.
+
+export * from './components/Form';
+export * from './components/Wizard';
+export * from './components/AuthForm';
+export * from './components/CommandPalette';
+export * from './components/NotificationCenter';
+export * from './components/CoachMark';
+export * from './components/KanbanBoard';
+export * from './components/Feed';
+export * from './components/AppShell';
+export * from './components/SettingsLayout';
+export * from './components/RichTextEditor';
