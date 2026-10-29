@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T15:06:31.728Z",
+  "generatedAt": "2026-10-29T15:51:45.407Z",
   "version": "0.6.0",
   "components": {
     "Accordion": {
@@ -3689,8 +3689,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 26049,
-        "cssMin": 1493,
-        "gzip": 9730
+        "cssMin": 1531,
+        "gzip": 9734
       }
     },
     "Select": {
@@ -4025,8 +4025,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 1072,
-        "cssMin": 1960,
-        "gzip": 1259
+        "cssMin": 1977,
+        "gzip": 1257
       }
     },
     "Skeleton": {
@@ -4658,8 +4658,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 1181,
-        "cssMin": 1366,
-        "gzip": 1255
+        "cssMin": 1170,
+        "gzip": 1198
       }
     },
     "Tabs": {

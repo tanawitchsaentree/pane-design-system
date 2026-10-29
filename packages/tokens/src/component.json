@@ -2295,7 +2295,15 @@
     },
     "ring": {
       "$value": "{elevation.control-ring}",
-      "$type": "shadow"
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a ring round each card, because a card that is a radio button needs a 3:1 edge"
+        }
+      }
     }
   },
   "rating": {
@@ -2614,16 +2622,15 @@
         }
       }
     },
-    "toc-lit": {
-      "$value": "{action.loud-top}",
-      "$type": "color",
+    "ring": {
+      "$value": "{elevation.control-ring}",
+      "$type": "shadow",
       "$extensions": {
         "kiln.why": {
           "p": [
-            "P5",
             "P6"
           ],
-          "why": "the section in view has a lit line beside it, a mark in the loud solid"
+          "why": "a ring round the track, because its segments are radio buttons and need a 3:1 edge"
         }
       }
     }

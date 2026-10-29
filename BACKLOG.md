@@ -59,3 +59,8 @@ Not a priority list — order of discovery.
 
 - 2026-10-27 · `--ds-type-mono` is read by `apps/docs/src/depth/depth.css` (redline labels) but no token declares it; the `ui-monospace` fallback is what renders. Found by kiln's new token-contract check. Add a `type.mono` token with a reason, or drop the var.
 - 2026-10-27 · kiln's new gates (G-TT1 44px hit areas, G-SM1 anchor scroll-margin, G-NAV1, G-TODO1) have not run on Pane yet. Sync the engine and expect G-TT1 red on IconButton md (36px) and Tabs pills (32px), both already listed above.
+
+## Queued after wave 10 (user, 2026-10-29: "ทำตามแผนไป ไม่แทรก")
+- **Docs nav as collapsible sections (MUI-style ref)**: the sidebar will be too long once waves 6–10 land. Top-level groups that fold, one open at a time by default, the current page's group open: Getting started (Overview, Installation, Usage, MCP, llms.txt, Templates, Accessibility, Supported components, Supported platforms, Versions), Foundations, Components (by family, as CATEGORIES), Component API, Customization (tokens, theming, mesh), How-to guides, Integrations, Migration. NEW badge for recent pages. Must keep G-S1–S4 (drawer on narrow screens) and focus behaviour.
+- **Component API chapter**: one page per component that is only the generated API (props, types, defaults, CSS custom properties, data attributes, keyboard), linked from each component's Code tab; built from meta.json so it can't drift.
+- **MCP + llms.txt for consumers**: a `pane-mcp` server (list components, get props/usage/do-don't, search tokens, mesh presets via the existing `pane-mesh` logic) and a generated `llms.txt` / `llms-full.txt` from the book, with a Getting started page for each. Local stdio only; no publishing (Phase 8 stays with the user).

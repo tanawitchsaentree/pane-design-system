@@ -848,7 +848,7 @@ try {
     // assay/Pane dry run, 2026-10-28: a search field in the light theme vanished into a white panel,
     // because only text was ever measured. A field, select, checkbox, radio, switch or slider must be
     // findable by its edge or its fill, not only by its placeholder.
-    const bad = []; let n = 0;
+    const bad = []; let n = 0; const seen = new Map();
     for (const theme of C.themes) for (const r of ROUTES.filter((x) => x.startsWith(`${C.componentsBase}/`) && x.endsWith('/code'))) {
       await go(r, { theme });
       const res = await page.evaluate((js) => {
@@ -905,14 +905,17 @@ try {
             if (cs.boxShadow !== 'none' || (parseFloat(cs.borderTopWidth) || 0) >= 1 || (c && c.a > 0)) { box = e; break; }
             if (e === root) break;
           }
-          const i = document.querySelectorAll('[data-nt2]').length; box.setAttribute('data-nt2', String(i));
+          // several controls can share one drawn box (Pane's SegmentedControl, 2026-10-29: every segment is drawn
+          // by its track); a box keeps the first index it was given, or the earlier locator finds nothing
+          const i = box.dataset.nt2 ?? String(document.querySelectorAll('[data-nt2]').length); box.setAttribute('data-nt2', i);
           return [root.dataset.component ?? el.tagName, Math.round(best * 100) / 100, glass, i];
         });
       }, CONTRAST_JS);
       for (const [name, computed, glass, i] of res) {
         n++;
         let best = computed;
-        if (glass) best = await pixelEdge(page.locator(`[data-nt2="${i}"]`));
+        if (glass) best = seen.get(`${theme}|${r}|${i}`) ?? await pixelEdge(page.locator(`[data-nt2="${i}"]`));
+        seen.set(`${theme}|${r}|${i}`, best);
         if (best < 3) bad.push(`${theme} ${r}: ${name} edge ${best}:1${glass ? ' (measured over glass)' : ''}`);
       }
     }

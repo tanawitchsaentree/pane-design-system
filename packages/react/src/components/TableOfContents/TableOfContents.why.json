@@ -1,5 +1,5 @@
 {
-  "concept": "The sections of a long page as links, the one in view semibold with a lit line beside it.",
+  "concept": "The sections of a long page as links, the one in view raised as the chosen pane and set semibold, the same mark as Sidebar.",
   "default_to_avoid": [
     {
       "pattern": "a list of grey links with a blue active link (docs table of contents)",
@@ -36,14 +36,10 @@
   "variants": {
     "lab": "apps/lab/wave6/",
     "section": "tableofcontents",
-    "options": [
-      "A lit line and weight",
-      "B blue active link",
-      "C numbered list"
-    ],
-    "picked": "A lit line and weight",
+    "options": "['A lit line and weight', 'B blue active link', 'C numbered list', 'D chosen pane and weight']",
+    "picked": "D chosen pane and weight",
     "by": "agent",
-    "reason": "A marks by shape and weight. B brings blue. C adds numbers the sections do not have."
+    "reason": "D marks by shape and weight with the same chosen pane as Sidebar. A is the habitual accent stripe (G-X1). B brings blue. C adds numbers the sections do not have."
   },
   "parts": {
     "root": {
@@ -59,7 +55,7 @@
     "list": {
       "p": "P3",
       "axis": "space",
-      "why": "the links on a quiet line, the same in every theme and on every scene"
+      "why": "the links in a plain column with no rail, the same in every theme and every scene"
     },
     "link": {
       "p": "P2",
@@ -81,7 +77,7 @@
     "aria-current=location": {
       "p": "P6",
       "axis": "shape",
-      "why": "the section in view is semibold with a lit line"
+      "why": "the section in view is raised as Sidebar’s chosen pane and set semibold, a shape and a weight"
     },
     "focus-visible": {
       "p": "P6",
@@ -91,7 +87,7 @@
     "@media forced-colors: active": {
       "p": "P6",
       "axis": "colour",
-      "why": "forced colours draw the lit line in the highlight"
+      "why": "forced colours outline the section in view in the highlight colour"
     }
   },
   "motion": {}

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-29T15:16:59.239Z",
-  "passed": 213,
-  "total": 213,
+  "generatedAt": "2026-10-29T16:27:41.558Z",
+  "passed": 248,
+  "total": 248,
   "checks": [
     {
       "component": "Container",
@@ -290,6 +290,66 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "8 props"
+    },
+    {
+      "component": "SegmentedControl",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props"
+    },
+    {
+      "component": "Navbar",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props"
+    },
+    {
+      "component": "NavigationMenu",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "Sidebar",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props"
+    },
+    {
+      "component": "BottomNav",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props"
+    },
+    {
+      "component": "Breadcrumb",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "Pagination",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props"
+    },
+    {
+      "component": "Stepper",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "5 props"
+    },
+    {
+      "component": "Accordion",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "5 props"
+    },
+    {
+      "component": "TableOfContents",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props"
     },
     {
       "component": "Slider",
@@ -658,6 +718,66 @@
       "detail": "3 demos"
     },
     {
+      "component": "SegmentedControl",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Navbar",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "NavigationMenu",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Sidebar",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "BottomNav",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Breadcrumb",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Pagination",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Stepper",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Accordion",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "TableOfContents",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
       "component": "Slider",
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
@@ -818,7 +938,7 @@
       "component": "IconButton",
       "name": "every button with no visible text, on every page of the book, has an accessible name",
       "ok": true,
-      "detail": "286 pages"
+      "detail": "326 pages"
     },
     {
       "component": "Tabs",
@@ -847,7 +967,7 @@
     },
     {
       "component": "Docs page",
-      "name": "G-D3, no literal backtick in rendered text on any of the 286 pages",
+      "name": "G-D3, no literal backtick in rendered text on any of the 326 pages",
       "ok": true
     },
     {
@@ -1203,6 +1323,81 @@
     {
       "component": "TagInput",
       "name": "Enter and a comma add, duplicates are ignored, Backspace removes",
+      "ok": true
+    },
+    {
+      "component": "SegmentedControl",
+      "name": "one tab stop",
+      "ok": true
+    },
+    {
+      "component": "SegmentedControl",
+      "name": "arrow keys move",
+      "ok": true
+    },
+    {
+      "component": "SegmentedControl",
+      "name": "Space chooses",
+      "ok": true
+    },
+    {
+      "component": "BottomNav",
+      "name": "links in a nav with the current page marked",
+      "ok": true
+    },
+    {
+      "component": "Navbar",
+      "name": "links in a nav with the current page marked",
+      "ok": true
+    },
+    {
+      "component": "Sidebar",
+      "name": "links in a nav, groups named by their titles",
+      "ok": true
+    },
+    {
+      "component": "Breadcrumb",
+      "name": "links in a nav, the current page announced and not a link",
+      "ok": true
+    },
+    {
+      "component": "Pagination",
+      "name": "buttons in a nav",
+      "ok": true
+    },
+    {
+      "component": "Pagination",
+      "name": "Next goes on",
+      "ok": true
+    },
+    {
+      "component": "Stepper",
+      "name": "aria-current=\"step\" on one step, the rest say done or not started",
+      "ok": true
+    },
+    {
+      "component": "Accordion",
+      "name": "each heading is a button",
+      "ok": true
+    },
+    {
+      "component": "Accordion",
+      "name": "Enter opens a section",
+      "ok": true
+    },
+    {
+      "component": "NavigationMenu",
+      "name": "Enter opens a panel",
+      "ok": true
+    },
+    {
+      "component": "NavigationMenu",
+      "name": "Esc closes and focus returns",
+      "ok": true
+    },
+    {
+      "component": "TableOfContents",
+      "name": "a link moves focus to its heading",
       "ok": true
     }
   ]

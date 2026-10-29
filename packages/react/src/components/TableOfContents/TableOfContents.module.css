@@ -1,13 +1,12 @@
-/* A column of section links beside a long page; the section in view is semibold with a lit line on its
-   start side (P6: a mark and a weight, never only a colour). */
+/* A column of section links beside a long page; the section in view is raised as Sidebar's chosen pane
+   and set semibold (P6: a shape and a weight, never only a colour), so the navigation family marks
+   "you are here" one way. */
 .root { display: flex; flex-direction: column; gap: var(--ds-gap-md); font-family: var(--ds-type-family); }
 .title { margin: 0; font-size: var(--ds-type-micro); font-weight: var(--ds-type-weight-semibold); letter-spacing: var(--ds-type-tracking-caps); text-transform: uppercase; color: var(--ds-text-secondary); }
-.list { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; box-shadow: inset var(--ds-width-ring) 0 0 var(--ds-line-divider); }
-.link { position: relative; display: flex; align-items: center; min-block-size: var(--ds-control-sm); padding-inline-start: var(--ds-gap-xl); color: var(--ds-text-secondary); font-size: var(--ds-type-label); text-decoration: none; }
-.sub { padding-inline-start: calc(var(--ds-gap-xl) * 2); }
+.list { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.link { position: relative; display: flex; align-items: center; min-block-size: var(--ds-control-sm); padding-inline: var(--ds-gap-lg); border-radius: var(--ds-corner-mark); color: var(--ds-text-secondary); font-size: var(--ds-type-label); text-decoration: none; }
+.sub { padding-inline-start: calc(var(--ds-gap-lg) + var(--ds-gap-xl)); }
 .link:hover { color: var(--ds-text-primary); }
-.link[aria-current='location'] { color: var(--ds-text-primary); font-weight: var(--ds-type-weight-semibold); }
-.link[aria-current='location']::before { content: ''; position: absolute; inset-inline-start: 0; inset-block: var(--ds-gap-xs); inline-size: var(--ds-width-ring); border-radius: var(--ds-corner-round); background: var(--ds-nav-toc-lit); }
+.link[aria-current='location'] { background: linear-gradient(180deg, var(--ds-nav-on-top), var(--ds-nav-on-foot)); box-shadow: var(--ds-nav-on-cast); color: var(--ds-text-primary); font-weight: var(--ds-type-weight-semibold); }
 .link:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); border-radius: var(--ds-corner-mark); }
-:global([dir='rtl']) .list { box-shadow: inset calc(var(--ds-width-ring) * -1) 0 0 var(--ds-line-divider); }
-@media (forced-colors: active) { .link[aria-current='location']::before { background: Highlight; } }
+@media (forced-colors: active) { .link[aria-current='location'] { outline: var(--ds-width-ring) solid Highlight; } }

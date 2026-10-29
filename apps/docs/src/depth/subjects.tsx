@@ -1,8 +1,14 @@
 // How to render each component for the Style tab and the header's live demo, given the enum props
 // a reader picks. Only the content is fixed here; which options exist comes from meta.json.
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
+import { Accordion, BottomNav, Breadcrumb, Navbar, NavigationMenu, Pagination, SegmentedControl, Sidebar, Stepper, TableOfContents } from 'pane-react';
 import { ActionSheet, AspectRatio, Autocomplete, Combobox, ContextMenu, Listbox, Menu, MultiSelect, RadioCards, Rating, TagInput, Avatar, Badge, Box, Dialog, Drawer, FAB, Popover, PullToRefresh, Sheet, Snackbar, Toast, Tooltip, Heading, Icon, Image, Kbd, Link, Skeleton, Spinner, Text, Center, Divider, Flex, Mesh, Spacer, VisuallyHidden, Banner, Button, Card, Checkbox, Chip, Container, Environment, Fieldset, FormField, Grid, GridItem, HelperText, IconButton, Input, InputGroup, Label, PinInput, Radio, RadioGroup, Select, Slider, Stack, Switch, Tabs, Tag, Textarea } from 'pane-react';
-import { IconPencil, IconPin, IconShare } from '../icons';
+import { IconHome, IconInbox, IconPencil, IconPin, IconSearch, IconShare } from '../icons';
+
+function PagesSubject() {
+  const [page, setPage] = useState(4);
+  return <Pagination page={page} total={12} onPageChange={setPage} />;
+}
 
 type P = Record<string, string>;
 // bare: the subject is itself a surface (Card, Environment, layout) and must not sit on a second pane
@@ -68,6 +74,16 @@ export const SUBJECTS: Record<string, Subject> = {
   RadioCards: { bare: true, render: (p) => <div className="demo-wide"><RadioCards label="Delivery" defaultValue="s" options={[{ value: 's', title: 'Standard', description: 'Free' }, { value: 'e', title: 'Express', description: '90 NOK' }]} {...p} /></div>, code: (p) => `<RadioCards label="Delivery" options={…}${attrs(p)} />` },
   Rating: { render: () => <Rating label="Rate this print" defaultValue={4} />, code: () => '<Rating label="Rate this print" defaultValue={4} />' },
   TagInput: { bare: true, render: () => <div className="demo-wide"><TagInput label="Tags" defaultValue={['fjords']} /></div>, code: () => '<TagInput label="Tags" />' },
+  SegmentedControl: { render: (p) => <SegmentedControl label="View" defaultValue="grid" options={[{ value: 'grid', label: 'Grid' }, { value: 'list', label: 'List' }, { value: 'map', label: 'Map' }]} {...p} />, code: (p) => `<SegmentedControl label="View" options={…}${attrs(p)} />` },
+  BottomNav: { bare: true, render: () => <div className="demo-phone"><BottomNav position="contained" current="#home" onNavigate={(_, e) => e.preventDefault()} items={[{ href: '#home', label: 'Home', icon: <IconHome /> }, { href: '#search', label: 'Search', icon: <IconSearch /> }, { href: '#inbox', label: 'Inbox', icon: <IconInbox /> }]} /></div>, code: () => '<BottomNav current="/home" items={…} />' },
+  Navbar: { bare: true, render: () => <div className="demo-wide"><Navbar sticky={false} brand={<Text weight="semibold">North Light</Text>} links={[{ href: '#prints', label: 'Prints' }, { href: '#journal', label: 'Journal' }]} current="#prints" /></div>, code: () => '<Navbar brand={…} links={…} current="/prints" />' },
+  Sidebar: { bare: true, render: () => <Sidebar current="#photos" sections={[{ items: [{ href: '#inbox', label: 'Inbox', icon: <IconInbox /> }, { href: '#photos', label: 'Photos', icon: <IconHome /> }] }]} />, code: () => '<Sidebar current="/photos" sections={…} />' },
+  Breadcrumb: { render: () => <Breadcrumb items={[{ href: '#home', label: 'Home' }, { href: '#albums', label: 'Albums' }, { href: '#lofoten', label: 'Lofoten' }]} />, code: () => '<Breadcrumb items={…} />' },
+  Pagination: { render: () => <PagesSubject />, code: () => '<Pagination page={page} total={12} onPageChange={setPage} />' },
+  Stepper: { render: (p) => <Stepper label="Checkout" current={1} steps={[{ label: 'Cart' }, { label: 'Delivery' }, { label: 'Payment' }]} {...p} />, code: (p) => `<Stepper label="Checkout" current={1} steps={…}${attrs(p)} />` },
+  Accordion: { bare: true, render: (p) => <div className="demo-wide"><Accordion defaultValue="ship" items={[{ value: 'ship', title: 'How long does delivery take?', content: <Text tone="secondary">Three working days.</Text> }, { value: 'paper', title: 'Which paper do you print on?', content: <Text tone="secondary">A cotton rag.</Text> }]} {...p} /></div>, code: (p) => `<Accordion items={…}${attrs(p)} />` },
+  NavigationMenu: { render: () => <NavigationMenu items={[{ label: 'Shop', links: [{ href: '#prints', label: 'Prints', description: 'Framed photographs' }] }, { label: 'About', href: '#about' }]} />, code: () => '<NavigationMenu items={…} />' },
+  TableOfContents: { render: () => <TableOfContents track={false} items={[{ id: 'st-a', label: 'Winter light' }, { id: 'st-b', label: 'What to pack' }]} />, code: () => '<TableOfContents items={…} />' },
   Mesh: { bare: true, render: (p) => <Mesh {...p} className="mesh-demo-tile" />, code: (p) => `<Mesh${attrs(p)} />` },
   Tabs: { render: () => <Tabs.Root defaultValue="a"><Tabs.List aria-label="Demo sections"><Tabs.Trigger value="a">Posts</Tabs.Trigger><Tabs.Trigger value="b">Media</Tabs.Trigger></Tabs.List><Tabs.Content value="a">Posts</Tabs.Content><Tabs.Content value="b">Media</Tabs.Content></Tabs.Root>, code: () => '<Tabs.Root defaultValue="a">\n  <Tabs.List aria-label="Demo sections">\n    <Tabs.Trigger value="a">Posts</Tabs.Trigger>\n    <Tabs.Trigger value="b">Media</Tabs.Trigger>\n  </Tabs.List>\n</Tabs.Root>' },
   Select: { disabled: true, render: (p, d) => <Select label="Plan" options={[{ value: 'free', label: 'Free' }, { value: 'pro', label: 'Pro' }]} defaultValue="pro" {...p} disabled={d} />, code: (p) => `<Select label="Plan" defaultValue="pro"${attrs(p)}\n  options={[{ value: 'free', label: 'Free' }, { value: 'pro', label: 'Pro' }]} />` },

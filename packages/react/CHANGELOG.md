@@ -27,6 +27,16 @@ Every entry names the component it touches, so each component page in the book c
 - RadioCards: new. One choice as level-2 cards, chosen glass with a check.
 - Rating: new. Stars in the loud solid and outlines; `readOnly` reads as “4 out of 5”.
 - TagInput: new. Free-form tags as chips; Enter or a comma adds, Backspace removes.
+- SegmentedControl: new. Two to five views of the same content on a short glass track; one tab stop, arrows move.
+- BottomNav: new. The dock of three to five places at the foot of a phone screen, the current one raised.
+- Navbar: new. The header with the brand, the main sections and one or two actions; sticky by default.
+- Sidebar: new. Grouped destinations in a column, with counts and an optional header and footer.
+- Breadcrumb: new. The path to the page, the current step announced and never a link.
+- Pagination: new. Previous, the pages around the current one and Next, with an ellipsis for the gaps.
+- Stepper: new. Done, current and upcoming steps of one task, horizontal or vertical.
+- Accordion: new. Sections opened by their headings, one at a time or several.
+- NavigationMenu: new. Site sections in a row, some opening a panel of links; Esc returns focus.
+- TableOfContents: new. The sections of a long page, tracking the one in view.
 - Dialog: new. A level-3 pane over a scrim (D-025) on Radix Dialog; `actions`, `size`, `Dialog.Close`, `preview` for documentation.
 - Sheet: new. A level-3 pane from the bottom, start or end; a grabber drags a bottom sheet closed.
 - Drawer: new. A Sheet from the start or end edge.
