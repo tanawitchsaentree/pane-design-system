@@ -565,3 +565,9 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .elev-dialog { position: absolute; inset-inline: 10%; inset-block-start: 14%; }
 .elev-actions { display: flex; gap: var(--ds-gap-md); }
 .elev-popover { position: absolute; inset-inline-end: var(--ds-gap-xl); inset-block-start: var(--ds-gap-xl); padding: var(--ds-gap-md); }
+/* Glow section: the same pane in both themes; a weekday tracker whose current day is a glowing mark */
+.glow-pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: var(--ds-gap-2xl); }
+.glow-pair > div { display: flex; flex-direction: column; gap: var(--ds-gap-2xl); }
+.day-track { display: flex; align-items: center; gap: var(--ds-gap-xl); font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-medium); color: var(--ds-text-secondary); }
+.day-track .day-now { display: inline-flex; align-items: center; gap: var(--ds-gap-sm); color: var(--ds-text-primary); }
+.day-dot { inline-size: var(--ds-control-mark); block-size: var(--ds-control-mark); border-radius: var(--ds-corner-round); background: var(--ds-action-loud-top); box-shadow: var(--ds-glow-mark); }

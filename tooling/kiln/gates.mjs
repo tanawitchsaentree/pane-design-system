@@ -16,6 +16,7 @@
 //   claims       G-CL1 every hex in the book is a current token value
 //   non-text     G-NT2 form-control edges ≥3:1 in every theme · G-NR1 flyout rows nest the flyout's corner
 //   inset        G-IN1 text inside a control ≥8px (and ≥ half the end radius) from the control's edge
+//   glow         G-GL1 only [data-glow] parts emit light in dark, visibly and within reach; text never; nothing in light
 //   rhythm       G-RH1 a stage and a tab bar ≥24px from neighbouring blocks (own code/caption/heading ≥8, intro ≥16)
 //   address      G-ST1 no default written into the URL; stale or unknown values fall back and are dropped
 //   stack        G-EL1 stacked glass levels a measured step apart, a scrim under an overlay
@@ -954,6 +955,77 @@ try {
     expect(routesSeen > 0, 'NO ELEVATION DEMO FOUND ([data-level-sample])');
     fail(bad, 'levels too close');
     return `${n} levels and scrims in ${C.themes.length} themes`;
+  });
+
+  await gate('G-GL1', 'glow is declared and measured: in dark only [data-glow] parts give off light, each visibly (near ring vs ground) and within reach; text never glows; in light nothing glows', async () => {
+    // Pane, 2026-10-29: the user asked for white parts to glow in dark, "but not every white". The
+    // system names what glows (data-glow="strong|soft|mark") and this gate holds the rest to reflect.
+    // strong must stand clearly above soft; reach caps how far any glow may fog the pane
+    const NEED = { strong: 1.25, soft: 1.15, mark: 1.15 } /* ratio of the ring just outside, glow on vs glow off */, REACH = C.glowReach ?? 32, DARK = C.glowTheme ?? 'dark';
+    const { PNG } = await import('pngjs');
+    const lin = (v) => { v /= 255; return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
+    const med = (a) => a.sort((x, y) => x - y)[Math.floor(a.length / 2)] ?? 0;
+    const bad = []; let n = 0; const seen = {};
+    const pages = ROUTES.filter((x) => x.startsWith(`${C.componentsBase}/`) && x.endsWith('/code'));
+    for (const theme of C.themes) for (const r of pages) {
+      await go(r, { theme });
+      // undeclared light: a light outer shadow with blur, or a light blurred text-shadow, on anything in a stage
+      const stray = await page.evaluate((dark) => {
+        const out = [];
+        const light = (c) => { const m = c.match(/rgba?\(([^)]+)\)/); if (!m) return 0; const [r, g, b, a = 1] = m[1].split(/[ ,/]+/).filter(Boolean).map(Number); return (r + g + b) / 765 > 0.8 ? a : 0; };
+        const layers = (v) => v === 'none' ? [] : v.split(/,(?![^(]*\))/).map((l) => l.trim());
+        const blur = (l) => { const nums = l.replace(/rgba?\([^)]*\)/, '').match(/-?[\d.]+px/g) ?? []; return { b: parseFloat(nums[2] ?? '0'), sp: parseFloat(nums[3] ?? '0'), inset: /inset/.test(l), a: light(l) }; };
+        for (const el of document.querySelectorAll('[data-example-live] *')) {
+          const cs = getComputedStyle(el); const box = el.getBoundingClientRect(); if (!box.width || !box.height) continue;
+          const glows = layers(cs.boxShadow).map(blur).filter((x) => !x.inset && x.a >= 0.15 && x.b >= 6);
+          const who = el.closest('[data-component]')?.getAttribute('data-component') ?? el.tagName.toLowerCase();
+          if (glows.length && !dark) out.push(`${who} gives off light; nothing glows in this theme`);
+          else if (glows.length && !el.closest('[data-glow]')) out.push(`${who} glows but is not declared (data-glow)`);
+          if (el.matches('[data-glow]')) { const reach = Math.max(0, ...glows.map((x) => x.b + x.sp)); if (reach > 0) out.push(`reach:${reach}`); }
+          const ts = layers(cs.textShadow).map(blur).filter((x) => x.a >= 0.15 && x.b >= 2);
+          if (dark && ts.length && [...el.childNodes].some((c) => c.nodeType === 3 && c.textContent.trim())) out.push(`text "${el.textContent.trim().slice(0, 16)}" glows; text never glows`);
+        }
+        return [...new Set(out)];
+      }, theme === DARK);
+      for (const s of stray) {
+        if (s.startsWith('reach:')) { if (+s.slice(6) > REACH) bad.push(`${theme} ${r}: a glow reaches ${s.slice(6)}px (max ${REACH})`); continue; }
+        bad.push(`${theme} ${r}: ${s}`);
+      }
+      // declared glow, measured from pixels: the ring just outside against the ground further out
+      const els = await page.locator('[data-example-live] [data-glow]').all();
+      for (const el of els.slice(0, 6)) {
+        const info = await el.evaluate((e) => ({ kind: e.dataset.glow, off: /unchecked|off|inactive/.test(e.dataset.state ?? '') || e.matches(':disabled, [data-disabled]'), r: parseFloat(getComputedStyle(e).borderTopLeftRadius) || 0 }));
+        if (info.off || !(info.kind in NEED)) continue;
+        // in light the pixels around a part are its card and neighbours, so the computed shadow decides:
+        // the stray scan above already fails any light blurred shadow there
+        if (theme !== DARK) { n++; continue; }
+        await el.scrollIntoViewIfNeeded().catch(() => {});
+        const b = await el.boundingBox(); if (!b || b.width < 2) continue;
+        const pad = 40, x0 = Math.max(0, b.x - pad), y0 = Math.max(0, b.y - pad);
+        // the glow's own light: the same crop with and without the part's shadow, so neighbours cancel out
+        const clip = { x: x0, y: y0, width: b.width + pad * 2, height: b.height + pad * 2 };
+        const on = PNG.sync.read(await page.screenshot({ clip }));
+        const prev = await el.evaluate((e) => { const p = e.style.boxShadow; e.style.transition = 'none'; e.style.boxShadow = 'none'; return p; });
+        const off = PNG.sync.read(await page.screenshot({ clip }));
+        await el.evaluate((e, p) => { e.style.boxShadow = p; e.style.transition = ''; }, prev);
+        const bx = b.x - x0, by = b.y - y0, rr = Math.min(info.r, b.height / 2, b.width / 2);
+        const sd = (x, y) => { const cx = Math.min(Math.max(x, bx + rr), bx + b.width - rr), cy = Math.min(Math.max(y, by + rr), by + b.height - rr); return Math.hypot(x - cx, y - cy) - rr; };
+        const lum = (png, k) => 0.2126 * lin(png.data[k]) + 0.7152 * lin(png.data[k + 1]) + 0.0722 * lin(png.data[k + 2]);
+        const nearOn = [], nearOff = [], farOn = [], farOff = [];
+        for (let y = 0; y < on.height; y++) for (let x = 0; x < on.width; x++) {
+          const d = sd(x + 0.5, y + 0.5), k = (y * on.width + x) * 4;
+          if (d > 2 && d < 6) { nearOn.push(lum(on, k)); nearOff.push(lum(off, k)); } else if (d > 32 && d < 38) { farOn.push(lum(on, k)); farOff.push(lum(off, k)); }
+        }
+        const ratio = (med(nearOn) + 0.05) / (med(nearOff) + 0.05), spill = (med(farOn) + 0.05) / (med(farOff) + 0.05); n++;
+        if (spill > 1.03) bad.push(`${theme} ${r}: a ${info.kind} glow still lightens the pane ${spill.toFixed(2)}:1 at 32px; it should be gone by then`);
+        (seen[info.kind] ??= []).push(ratio);
+        if (theme === DARK && ratio < NEED[info.kind]) bad.push(`${theme} ${r}: a ${info.kind} glow lifts its surround only ${ratio.toFixed(2)}:1 (needs ${NEED[info.kind]})`);
+      }
+    }
+    expect(n > 0, 'NO [data-glow] part measured on any Code page');
+    fail(bad, 'glow problems');
+    const span = Object.entries(seen).map(([k, v]) => `${k} ${Math.min(...v).toFixed(2)}–${Math.max(...v).toFixed(2)}:1`).join(', ');
+    return `${n} glowing parts in ${C.themes.length} themes (${span})`;
   });
 
   await gate('G-NR1', 'a highlighted row inside a rounded flyout nests its corner: inner radius = outer radius − inset', async () => {

@@ -25,7 +25,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(functio
     onPointerMove?.(e);
   };
   return (
-    <button ref={ref} type={type} data-component="IconButton" className={cx(styles.root, styles[variant], styles[size], className)} onPointerMove={glint} {...rest}>
+    <button ref={ref} type={type} data-component="IconButton" data-glow={variant === 'loud' ? 'strong' : undefined} className={cx(styles.root, styles[variant], styles[size], className)} onPointerMove={glint} {...rest}>
       {children}
       <span data-hit className={styles.hit} aria-hidden="true" />
     </button>

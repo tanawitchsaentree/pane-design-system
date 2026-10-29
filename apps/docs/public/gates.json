@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-10-29T05:56:31.162Z",
+  "generatedAt": "2026-10-29T06:33:49.576Z",
   "passed": 1,
   "total": 1,
   "partial": true,
   "advisory": {},
   "results": [
     {
-      "id": "G-TT1",
-      "name": "every control in a live example and in the shell gives a pointer at least 44px each way",
+      "id": "G-EL1",
+      "name": "stacked glass reads as levels: each level differs from what is under it by a measured step, and a scrim dims the scene under an overlay",
       "ok": true,
-      "detail": "157 controls",
-      "order": 43
+      "detail": "14 levels and scrims in 2 themes",
+      "order": 36
     }
   ]
 }

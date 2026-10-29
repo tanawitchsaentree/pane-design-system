@@ -33,7 +33,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch
         <label htmlFor={id} className={styles.label}>{label}</label>
         {description != null && <span id={`${id}-d`} className={styles.description}>{description}</span>}
       </span>
-      <RS.Root ref={ref} id={id} className={styles.track} aria-describedby={description != null ? `${id}-d` : undefined} {...rest}>
+      <RS.Root ref={ref} id={id} className={styles.track} data-glow="soft" aria-describedby={description != null ? `${id}-d` : undefined} {...rest}>
         <span className={styles.tick} aria-hidden="true" />
         <RS.Thumb className={styles.knob} />
       </RS.Root>

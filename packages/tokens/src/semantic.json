@@ -1581,5 +1581,61 @@
         "why": "each level floats a step higher on a longer shadow; every slab has an edge all round; the loud solid blooms; a track is a well"
       }
     }
+  },
+  "glow": {
+    "$type": "shadow",
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1",
+          "P5"
+        ],
+        "why": "in dark, a few white parts give off light instead of reflecting it: what is on, what is now, and the one promoted action. Everything else reflects. In light nothing glows."
+      }
+    },
+    "strong": {
+      "$value": "{shadow.bloom}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.bloom-light}"
+        },
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "the promoted action shines with its own light, the strongest glow on a pane and the only strong one"
+        }
+      }
+    },
+    "soft": {
+      "$value": "{shadow.glow-soft}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.glow-soft-light}"
+        },
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P5"
+          ],
+          "why": "a lit value or a powered part (a slider's filled channel, a switch that is on) gives off a soft light"
+        }
+      }
+    },
+    "mark": {
+      "$value": "{shadow.glow-mark}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.glow-mark-light}"
+        },
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P5"
+          ],
+          "why": "a small mark that says now (the current step, where a value stops) glows a little wider than its size"
+        }
+      }
+    }
   }
 }

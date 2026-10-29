@@ -49,7 +49,7 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider(
         <span id={`${id}-label`} className={styles.fillLabel}>{label}</span>
         <output className={styles.fillValue}>{format(current)}</output>
       </span>
-      <RSl.Thumb className={styles.fillThumb} aria-label={label} aria-valuetext={format(current)} />
+      <RSl.Thumb className={styles.fillThumb} data-glow="mark" aria-label={label} aria-valuetext={format(current)} />
     </RSl.Root>
   );
   return (
@@ -59,7 +59,7 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider(
         <output className={styles.value} aria-hidden="true">{format(current)}</output>
       </div>
       <RSl.Root ref={ref} className={styles.slider} value={[current]} onValueChange={change} min={min} max={max} step={step} disabled={disabled}>
-        <RSl.Track className={styles.track}><RSl.Range className={styles.range} /></RSl.Track>
+        <RSl.Track className={styles.track}><RSl.Range className={styles.range} data-glow="soft" /></RSl.Track>
         <RSl.Thumb className={styles.thumb} aria-labelledby={`${id}-label`} aria-valuetext={format(current)} />
       </RSl.Root>
     </div>

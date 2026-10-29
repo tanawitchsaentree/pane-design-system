@@ -7,8 +7,9 @@
 .value { color: var(--ds-text-secondary); font-variant-numeric: tabular-nums; }
 .slider { position: relative; display: flex; align-items: center; block-size: var(--ds-slider-hit); margin-block: calc((var(--ds-slider-thumb) - var(--ds-slider-hit)) / 2); touch-action: none; user-select: none; cursor: pointer; }
 .slider[data-disabled] { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
-.track { position: relative; flex: 1; block-size: var(--ds-slider-track); border-radius: var(--ds-corner-round); background: var(--ds-slider-track-bg); box-shadow: var(--ds-slider-carve); overflow: hidden; }
-.range { position: absolute; block-size: 100%; background: linear-gradient(180deg, var(--ds-slider-range-top), var(--ds-slider-range-bg)); box-shadow: var(--ds-slider-range-carve); }
+.track { position: relative; flex: 1; block-size: var(--ds-slider-track); border-radius: var(--ds-corner-round); background: var(--ds-slider-track-bg); box-shadow: var(--ds-slider-carve); }
+/* the filled channel is a lit value: in dark it gives off a soft light (glow.soft), so the channel is not clipped */
+.range { position: absolute; block-size: 100%; border-radius: inherit; background: linear-gradient(180deg, var(--ds-slider-range-top), var(--ds-slider-range-bg)); box-shadow: var(--ds-slider-range-carve), var(--ds-slider-range-glow); }
 .thumb {
   display: block; inline-size: var(--ds-slider-thumb-width); block-size: var(--ds-slider-thumb); border-radius: var(--ds-corner-round);
   background: radial-gradient(circle at 50% 22%, var(--ds-slider-thumb-bg) 32%, var(--ds-slider-thumb-shade)); box-shadow: var(--ds-slider-thumb-shadow);
@@ -50,6 +51,7 @@
   display: block; inline-size: var(--ds-slider-fill-marker-width); block-size: var(--ds-slider-fill-marker-height);
   border-radius: var(--ds-corner-round); background: var(--ds-slider-fill-marker);
   transform: translateX(calc(var(--ds-slider-fill-marker-inset) * -1)); outline: 0;
+  box-shadow: var(--ds-slider-fill-marker-glow);
 }
 [dir='rtl'] .fillThumb { transform: translateX(var(--ds-slider-fill-marker-inset)); }
 @media (forced-colors: active) { .fill { border: var(--ds-width-hairline) solid ButtonText; } .fillRange { background: Highlight; } .fillThumb { background: ButtonText; } }

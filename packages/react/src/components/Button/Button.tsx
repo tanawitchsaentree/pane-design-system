@@ -24,7 +24,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     onPointerMove?.(e);
   };
   return (
-    <button ref={ref} type={type} data-component="Button" className={cx(styles.root, styles[variant], styles[size], className)} onPointerMove={glint} {...rest}>
+    <button ref={ref} type={type} data-component="Button" data-glow={variant === 'accent' ? 'strong' : undefined} className={cx(styles.root, styles[variant], styles[size], className)} onPointerMove={glint} {...rest}>
       {children}
       <span data-hit className={styles.hit} aria-hidden="true" />
     </button>

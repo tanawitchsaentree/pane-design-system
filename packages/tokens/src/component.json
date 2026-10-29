@@ -1148,6 +1148,30 @@
           "why": "the marker sits just inside the end of the fill so it never touches the curve"
         }
       }
+    },
+    "range-glow": {
+      "$value": "{glow.soft}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P5"
+          ],
+          "why": "the filled channel is a lit value, so in dark it gives off a soft light; in light it does not"
+        }
+      }
+    },
+    "fill-marker-glow": {
+      "$value": "{glow.mark}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P5"
+          ],
+          "why": "the marker says where the value is now, so in dark it glows a little; in light it does not"
+        }
+      }
     }
   },
   "input": {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T05:57:47.446Z",
+  "generatedAt": "2026-10-29T06:20:33.084Z",
   "browser": "chromium 156.0.8078.4",
   "threshold": 4.5,
   "modes": [
@@ -1924,51 +1924,51 @@
   "docsPage": {
     "normal": {
       "dark/room": {
-        "textElements": 1056,
+        "textElements": 4774,
         "failures": 0,
-        "pages": 4
+        "pages": 17
       },
       "dark/forest": {
-        "textElements": 1056,
+        "textElements": 4774,
         "failures": 0,
-        "pages": 4
+        "pages": 17
       },
       "dark/night": {
-        "textElements": 1056,
+        "textElements": 4774,
         "failures": 0,
-        "pages": 4
+        "pages": 17
       },
       "dark/city": {
-        "textElements": 1056,
+        "textElements": 4774,
         "failures": 0,
-        "pages": 4
+        "pages": 17
       },
       "light/room": {
-        "textElements": 1056,
+        "textElements": 4774,
         "failures": 0,
-        "pages": 4
+        "pages": 17
       },
       "light/forest": {
-        "textElements": 1056,
+        "textElements": 4774,
         "failures": 0,
-        "pages": 4
+        "pages": 17
       },
       "light/night": {
-        "textElements": 1056,
+        "textElements": 4774,
         "failures": 0,
-        "pages": 4
+        "pages": 17
       },
       "light/city": {
-        "textElements": 1056,
+        "textElements": 4774,
         "failures": 0,
-        "pages": 4
+        "pages": 17
       }
     },
     "reduced-transparency": {
       "dark/room": {
-        "textElements": 1056,
+        "textElements": 4774,
         "failures": 0,
-        "pages": 4
+        "pages": 17
       },
       "dark/forest": {
         "textElements": 0,
@@ -1986,9 +1986,9 @@
         "pages": 0
       },
       "light/room": {
-        "textElements": 1056,
+        "textElements": 4774,
         "failures": 0,
-        "pages": 4
+        "pages": 17
       },
       "light/forest": {
         "textElements": 0,
@@ -2008,9 +2008,9 @@
     },
     "forced-colors": {
       "dark/room": {
-        "textElements": 1051,
+        "textElements": 4763,
         "failures": 0,
-        "pages": 4
+        "pages": 17
       },
       "dark/forest": {
         "textElements": 0,
@@ -2028,9 +2028,9 @@
         "pages": 0
       },
       "light/room": {
-        "textElements": 1051,
+        "textElements": 4763,
         "failures": 0,
-        "pages": 4
+        "pages": 17
       },
       "light/forest": {
         "textElements": 0,
@@ -2054,7 +2054,7 @@
   "exception": "E-001",
   "exceptionFloor": 3.8,
   "summary": {
-    "gatingChecks": 13526,
+    "gatingChecks": 58130,
     "gatingFailures": 0,
     "excepted": 0,
     "informational": []

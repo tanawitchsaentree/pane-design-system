@@ -1,5 +1,5 @@
 import { useState, type ReactElement, type ReactNode } from 'react';
-import { Card, Environment, Select, Tag } from 'pane-react';
+import { Button, Card, Environment, Select, Slider, Stack, Switch, Tag } from 'pane-react';
 import decisionsMd from '../../../../system/DECISIONS.md?raw';
 import exceptionsMd from '../../../../system/EXCEPTIONS.md?raw';
 import creditsMd from '../../public/scenes/CREDITS.md?raw';
@@ -519,6 +519,39 @@ function Shape() {
       <Section id="elevation" title="Elevation">
         <TokenTable prefix="elevation." />
         <p>There are only two shadows. <b>float</b> lifts a pane off the scene; <b>lift</b> sits under solid buttons. Glass never stacks shadows on shadows.</p>
+      </Section>
+      <Section id="glow" title="Glow: what gives off light">
+        <p>Everything in Pane reflects the one light from above. In the dark theme a few white parts also give off light of their own. Being white is not the test. What the part says is: it is the promoted action, it is on, it is an amount, or it marks now. Text never glows, because a glow blurs the letter. In the light theme nothing glows, and the same parts read by their solid ink.</p>
+        <div className="table-wrap"><table>
+          <thead><tr><th scope="col">Glow</th><th scope="col">Means</th><th scope="col">Where</th><th scope="col">Visible step (measured)</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><code>glow.strong</code></th><td>The promoted action, at most one per pane</td><td>Button accent, IconButton loud</td><td>at least 1.25:1</td></tr>
+            <tr><th scope="row"><code>glow.soft</code></th><td>On, or a lit amount</td><td>Switch when on, a Slider’s filled channel, a meter fill</td><td>at least 1.15:1</td></tr>
+            <tr><th scope="row"><code>glow.mark</code></th><td>Now</td><td>Where a fill slider’s value stops, the current step or day</td><td>at least 1.15:1</td></tr>
+            <tr><th scope="row">none</th><td>It reflects</td><td>Text, icons, rims, chosen glass, beads and knobs, avatars, status colours, disabled parts</td><td>no light at all</td></tr>
+          </tbody>
+        </table></div>
+        <p>Every glow is centred on its part with no offset, because it is emitted rather than cast, and it is white at an opacity, never a hue. It has to be visible and it has to stop. G-GL1 screenshots each glowing part twice, with its glow on and off. The ring 2 to 6px outside must be the step above lighter with the glow on, and by 32px out the two shots must match within 1.03:1, so the light never fogs the pane. The same gate fails any part that glows without declaring <code>data-glow</code>, any text with a light halo in dark, and anything that gives off light in the light theme.</p>
+        <div className="glow-pair">
+          {(['dark', 'light'] as const).map((th) => (
+            <div key={th}>
+              <p className="eyebrow flush">{th} theme</p>
+              <div data-theme={th}><Stage>
+                <Card as="div" className="demo-card">
+                  <Stack gap="lg">
+                    <h3 className="flush">Good evening</h3>
+                    <div className="day-track" role="img" aria-label="Today is Thursday, day 4 of 7">{['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((d, i) => i === 3 ? <span key={i} className="day-now"><span className="day-dot" data-glow="mark" />{d}</span> : <span key={i}>{d}</span>)}</div>
+                    <Slider variant="fill" label="Brightness" defaultValue={60} format={(v) => `${v}%`} />
+                    <Slider label="Volume" defaultValue={40} format={(v) => `${v}%`} />
+                    <Switch label="Night shift" defaultChecked />
+                    <Stack direction="row" gap="md"><Button variant="accent">Go live</Button><Button variant="glass">Later</Button></Stack>
+                  </Stack>
+                </Card>
+              </Stage></div>
+            </div>
+          ))}
+        </div>
+        <TokenTable prefix="glow." />
       </Section>
       <Section id="rim" title="The rim instead of a border">
         <p>A 1px gradient ring is drawn with a mask. One light falls from above, so it is brightest along the top edge, almost invisible down the sides and a little stronger again at the foot, and it drifts on hover. In forced-colours mode it is replaced by a real CanvasText border so the pane edge never disappears.</p>

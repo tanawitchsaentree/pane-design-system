@@ -1026,7 +1026,7 @@
       "$value": "0 4px 10px -4px #1112144D"
     },
     "on-glow": {
-      "$value": "inset 0 1px 2px #00000040, 0 0 14px -2px #FFFFFF59",
+      "$value": "inset 0 1px 2px #00000040, 0 0 6px #FFFFFF59, 0 0 18px #FFFFFF40",
       "$description": "a switch that is on is lit, and its light spills a little onto the pane"
     },
     "on-glow-light": {
@@ -1067,11 +1067,27 @@
       "$value": "inset 0 0 0 1px #11121414, inset 0 -10px 18px -12px #1112140F"
     },
     "bloom": {
-      "$value": "0 0 0 1px #FFFFFF80, 0 10px 32px -6px #FFFFFF59, 0 4px 12px #00000080",
+      "$value": "0 0 0 1px #FFFFFF80, 0 0 10px #FFFFFF59, 0 8px 30px -4px #FFFFFF59, 0 4px 12px #00000066",
       "$description": "the loud solid blooms with its own light"
     },
     "bloom-light": {
       "$value": "inset 0 1px 0 #FFFFFF38, 0 10px 22px -8px #1112148C"
+    },
+    "glow-soft": {
+      "$value": "0 0 6px #FFFFFF59, 0 0 18px #FFFFFF40",
+      "$description": "emitted light around a lit value or a powered part in dark: centred, no offset, back to the ground within ~3× its blur"
+    },
+    "glow-soft-light": {
+      "$value": "0 0 0 0 #FFFFFF00",
+      "$description": "light theme: nothing emits; the same part reads by its solid ink"
+    },
+    "glow-mark": {
+      "$value": "0 0 3px #FFFFFF80, 0 0 10px 1px #FFFFFF59",
+      "$description": "emitted light around a small mark that says now (a current-step dot, a value marker); relatively wider because the mark is small"
+    },
+    "glow-mark-light": {
+      "$value": "0 0 0 0 #FFFFFF00",
+      "$description": "light theme: no glow"
     }
   },
   "duration": {
