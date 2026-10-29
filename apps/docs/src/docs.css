@@ -210,7 +210,7 @@ main a:not([class]) { text-decoration: underline; text-underline-offset: 3px; te
 .book-section h2 { position: relative; }
 .heading-anchor { position: absolute; inset-inline-end: 100%; padding-inline-end: var(--ds-gap-md); margin: 0; }
 .purpose { font-size: var(--ds-type-emphasis); margin: 0 0 var(--ds-gap-lg); max-inline-size: var(--ds-type-measure); }
-.ladder-step { display: flex; flex-direction: column; gap: var(--ds-gap-md); padding-block-start: var(--ds-gap-lg); border-block-start: var(--ds-width-hairline) solid var(--ds-line-divider); }
+.ladder-step { display: flex; flex-direction: column; gap: var(--ds-gap-2xl); padding-block-start: var(--ds-gap-lg); border-block-start: var(--ds-width-hairline) solid var(--ds-line-divider); }
 .ladder-step h3 { margin: 0; }
 .ladder-step p { margin: 0; max-inline-size: var(--ds-type-measure); }
 .copy-btn { font: inherit; font-size: var(--ds-type-caption); color: var(--ds-text-primary); background: var(--ds-surface-quiet); border: 0; border-radius: var(--ds-corner-round); padding: var(--ds-gap-xs) var(--ds-gap-lg); cursor: pointer; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }

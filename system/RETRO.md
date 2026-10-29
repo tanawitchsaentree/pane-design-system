@@ -103,3 +103,11 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **Step that produced it:** depth was defined for one pane on a scene. Nothing defined what a pane inside a pane, an overlay or a popover look like, and nothing measured the difference.
 - **What changed in that step:** four levels with their own body and shadow, a scrim under an overlay, and a nested Card that becomes level 2 by itself (D-025).
 - **Check that now catches it:** G-EL1 reads pixels just inside and just outside every level and fails a step under 1.15:1, and a scrim that leaves the scene above 60%. It failed the light theme's level 2 at 1.03 before the tint was deepened.
+
+### R-017: the steps of a page ran into each other
+- **Date:** 2026-10-29
+- **User said:** (screenshot of the Container live demo) "spacing ระหว่างส่วนต่างๆ บนล่างชิดกันเกิน"
+- **What was wrong:** the live demo put its intro, its controls, the stage, the code and the tab bar 8px apart, so five steps read as one lump. Elsewhere tables, lists and intros sat 8–14px from stages, and every folded section had no rhythm at all: a details element does not lay its content out as flex, so the 12px prose gap never applied and margins collapsed.
+- **Step that produced it:** spacing was chosen per container (one gap for everything inside it) without a rule for how far a separate step stands from text, and nothing checked the folded sections after folding was added.
+- **What changed in that step:** the live demo steps stand 24px apart and its stage and code stay 12px apart as one unit; a demo, table or code block stands 24px from running text; folded sections lay out through an inner prose wrapper.
+- **Check that now catches it:** G-RH1 measures the block above and below every stage and every tab bar on every component page: 24px for a separate step, 16px for an intro paragraph, 8px for the stage's own heading, caption or code. It failed 282 gaps before the fix and passes now.

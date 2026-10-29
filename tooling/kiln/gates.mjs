@@ -16,6 +16,7 @@
 //   claims       G-CL1 every hex in the book is a current token value
 //   non-text     G-NT2 form-control edges ≥3:1 in every theme · G-NR1 flyout rows nest the flyout's corner
 //   inset        G-IN1 text inside a control ≥8px (and ≥ half the end radius) from the control's edge
+//   rhythm       G-RH1 a stage and a tab bar ≥24px from neighbouring blocks (own code/caption/heading ≥8, intro ≥16)
 //   address      G-ST1 no default written into the URL; stale or unknown values fall back and are dropped
 //   stack        G-EL1 stacked glass levels a measured step apart, a scrim under an overlay
 //   milestone    G-TODO1 no starter placeholder or seed reason left   reach  G-NAV1 G-SM1   touch  G-TT1
@@ -1064,6 +1065,51 @@ try {
     await p2.close();
     fail(bad, 'address problems');
     return 'clean address, stale values dropped';
+  });
+
+  await gate('G-RH1', 'separate steps stand apart: a demo stage and a tab bar sit at least 24px from the blocks around them; a stage\'s own code, caption or heading may sit 8px off and its intro 16px', async () => {
+    // Pane, 2026-10-29: the live demo stacked its intro, its controls, the stage, the code and the
+    // page's tab bar 8px apart, so five different things read as one lump. The user saw it at once.
+    const bad = []; let n = 0;
+    for (const r of ROUTES.filter((x) => x.startsWith(`${C.componentsBase}/`)).slice(0, 400)) {
+      await go(r);
+      const res = await page.evaluate(() => {
+        const main = document.querySelector('main'); if (!main) return { out: [], n: 0 };
+        const vis = (el) => { const b = el.getBoundingClientRect(); return b.width > 0 && b.height > 0 && getComputedStyle(el).visibility !== 'hidden'; };
+        const blocks = [...main.querySelectorAll('p, h1, h2, h3, h4, nav, table, pre, ul, ol, [data-selector], [data-example-live], [data-controls], label')].filter(vis);
+        // a block nested in another listed block is measured through its outermost listed ancestor
+        const outer = blocks.filter((el) => !blocks.some((o) => o !== el && o.contains(el)));
+        const isCode = (el) => el.matches('pre') || !!el.querySelector('pre');
+        const name = (el) => el.matches('[data-example-live]') ? 'stage' : el.matches('nav') ? 'tab bar' : isCode(el) ? 'code' : el.tagName.toLowerCase();
+        const out = []; let n = 0;
+        for (const el of outer.filter((x) => x.matches('[data-example-live], nav[aria-label]'))) {
+          const b = el.getBoundingClientRect();
+          const near = (dir) => outer.filter((o) => o !== el && !o.contains(el) && !el.contains(o)).map((o) => ({ o, ob: o.getBoundingClientRect() }))
+            .filter(({ ob }) => ob.right > b.left + 4 && ob.left < b.right - 4 && (dir < 0 ? ob.bottom <= b.top + 1 : ob.top >= b.bottom - 1))
+            .sort((x, y) => (dir < 0 ? y.ob.bottom - x.ob.bottom : x.ob.top - y.ob.top))[0];
+          for (const dir of [-1, 1]) {
+            const m = near(dir); if (!m) continue;
+            const gap = dir < 0 ? b.top - m.ob.bottom : m.ob.top - b.bottom;
+            if (gap > 200) continue;
+            n++;
+            const fig = el.closest('figure');
+            // the stage's own code below it, or anything in its own figure (caption, legend) belongs to it
+            const own = el.matches('[data-example-live]') && ((dir > 0 && isCode(m.o)) || (fig && fig.contains(m.o)) || m.o.matches('figcaption'));
+            // a heading leads into what follows it (8px), a paragraph that introduces a stage stays close
+            // to it (16px), anything else is a separate step (24px)
+            const lead = dir < 0 && el.matches('[data-example-live]') && /^h[1-6]$/i.test(m.o.tagName);
+            const intro = dir < 0 && el.matches('[data-example-live]') && m.o.matches('p');
+            const want = own || lead ? 8 : intro ? 16 : 24;
+            if (gap < want - 0.5) out.push(`${name(m.o)} ${Math.round(gap)}px ${dir < 0 ? 'above' : 'below'} the ${name(el)} (needs ${want})`);
+          }
+        }
+        return { out: [...new Set(out)], n };
+      });
+      n += res.n; for (const o of res.out) bad.push(`${r}: ${o}`);
+    }
+    expect(n > 0, 'no stage or tab bar found on any component page, so nothing was measured');
+    fail(bad, 'steps that crowd each other');
+    return `${n} gaps`;
   });
 
   await gate('G-NAV1', 'every page in routes.json is reachable from the book nav at 375 and 1280px', async () => {

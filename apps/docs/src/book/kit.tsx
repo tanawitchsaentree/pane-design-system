@@ -55,9 +55,10 @@ export function Section({ id, title, children, wide, fold }: { id: string; title
   // when a link points at it
   if (fold) return (
     <section id={id} className={`book-section folded${wide ? ' wide' : ''}`} aria-labelledby={`${id}-h`}>
-      <details className="prose fold">
+      <details className="fold">
         <summary><h2 id={`${id}-h`} className="flush">{title}</h2></summary>
-        {children}
+        {/* a details element does not lay its content out as flex, so the rhythm lives on this wrapper */}
+        <div className="prose">{children}</div>
       </details>
     </section>
   );

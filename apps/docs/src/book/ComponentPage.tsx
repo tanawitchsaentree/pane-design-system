@@ -99,8 +99,11 @@ function LiveDemo({ c, m }: { c: ComponentChapter; m: Meta }) {
           : <Select label="Variant" size="sm" value="default" onValueChange={() => {}} options={[{ value: 'default', label: `${c.name} has one variant` }]} />}</div>
         {dims.slice(1).map(([k, opts]) => <div key={k} data-selector={k}><Select label={k[0].toUpperCase() + k.slice(1)} size="sm" value={picked[k]} onValueChange={(v) => setPicked({ ...picked, [k]: v })} options={opts.map((o) => ({ value: o, label: o }))} /></div>)}
       </div>
+      {/* the stage and its code are one unit, held tighter than the steps above them */}
+      <div className="live-demo-result">
       <div data-theme={theme} className="live-demo-stage"><Stage>{!subject ? <c.hero.Render /> : subject.bare ? subject.render(picked) : <OnPane>{subject.render(picked)}</OnPane>}</Stage></div>
       {subject && <CodeBlock code={subject.code(picked)} label="TSX" />}
+      </div>
     </div>
   );
 }
