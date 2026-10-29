@@ -277,6 +277,36 @@ export const COMPONENTS: ComponentChapter[] = [
     related: [['/components/button', 'Button', 'When the user is running an action.'], ['/patterns/settings-panel', 'Settings panel', 'Tabs over grouped settings.']],
   },
   {
+    name: 'Mesh',
+    slug: 'mesh',
+    status: 'alpha',
+    limitations: ['Four pools only, in fixed places unless you set the --mesh-*-at and --mesh-*-size variables.', 'It is still. Animating it is left to the product, and against P4 by default.', 'The pane-mesh script reads PNG only.'],
+    youMust: ['Put text on glass over the mesh, never on the pools.', 'Give a mesh a label only when it carries meaning.', 'Keep one mesh per card.'],
+    usage: '<Mesh preset="aurora" />',
+    backdrops: 'A mesh is the same in both themes, like a photo. Glass over it dims it in dark and lifts it in light; the glow is part of the mesh, not the dark-theme white glow.',
+    purpose: 'Fills a cover, an icon or a scene with colour pooled in four places and melted together.',
+    importLine: "import { Mesh } from 'pane-react';",
+    overview: (
+      <>
+        <p>A mesh gradient for content: four soft pools of colour on a pale ground, blurred into each other. Four measured presets, or your own colours through <code>colors</code> or the <code>--ds-mesh-*</code> variables, which <code>npx pane-mesh</code> writes from a brand image.</p>
+      </>
+    ),
+    hero: ex('MeshCover', 'A mesh as an album cover, with the title on the glass under it.'),
+    ladder: [
+      ex('MeshPresets', 'The four presets side by side.'),
+      ex('MeshBrand', 'Your own colours, turned 40 degrees, with an ambient glow under the icon.'),
+      ex('MeshScene', 'A mesh as the scene of a screen, with glass over it.', true),
+    ],
+    whenToUse: ['Covers and thumbnails without a photo.', 'Icons and illustrations in a brand’s colours.', 'A scene behind glass.'],
+    whenNotToUse: [['The fill of a control', 'Button, Switch or Tabs, which own no hue'], ['A photo exists', 'CardCover with src']],
+    anatomy: [['Ground', 'The pale base, clipped to the corner.'], ['Pools', 'Four radial pools blurred 40px into each other.'], ['Glow', 'With glow, the same colours blurred under the mesh.']],
+    content: ['Label it only when it means something.'],
+    dodont: [{ do: 'Use it as a cover or an icon.', dont: 'Use it as a button fill.' }, { do: 'Put text on glass over it.', dont: 'Put text on the pools.' }],
+    a11y: ['A plain div. Decorative unless label is set, then role="img" with that name.', 'Forced colours drop the pools.'],
+    inherits: 'HTMLAttributes<HTMLDivElement>',
+    related: [['/foundations/color', 'Colour · Gradients', 'How the mesh is made.'], ['/components/card', 'Card', 'Where a mesh usually sits.']],
+  },
+  {
     name: 'Tag',
     slug: 'tag',
     status: 'beta',

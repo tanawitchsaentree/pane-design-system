@@ -14,7 +14,8 @@ export default async function (t) {
       await go(r);
       // a name can also come from a <label for> or aria-labelledby (Radix checkboxes, radios and switches are buttons named that way)
       const u = await page.locator('button').evaluateAll((bs) => bs.filter((b) => {
-        if (b.innerText.trim() || (b.getAttribute('aria-label') || '').trim()) return false;
+        // textContent, not innerText: a button inside a closed fold renders no innerText but keeps its name
+        if (b.textContent.trim() || (b.getAttribute('aria-label') || '').trim()) return false;
         if ([...(b.labels ?? [])].some((l) => l.textContent.trim())) return false;
         const by = (b.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean);
         return !by.some((id) => document.getElementById(id)?.textContent.trim());

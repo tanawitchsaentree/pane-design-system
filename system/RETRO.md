@@ -135,3 +135,11 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **Step that produced it:** the URL change (R-015) changed a contract the checks depend on, and nothing verified that the checks' own parameters still reached the app.
 - **What changed in that step:** kiln.config sends ?backdrop= and lists studio and aurora; the pair row wraps when a demo needs more than half the column.
 - **Check that now catches it:** G-ST1 opens the book with each configured scene and fails if the app drops it (it failed on ?scene=room before the fix); G-S6 fails anything in main that spills out of the page column (it named the pair cell, 48px).
+
+### R-021: the streak floated above round controls, and the gallery was a wall
+- **Date:** 2026-10-29
+- **User said:** (an IconButton) "มีปัญหานะอันนี้" and, of the gallery, "แน่นไปหน่อยวะ สองแถว … เปิด full modal มาแล้วแสดงเป็น grid 4-5 items แล้วก็ component ไม่จำเป็นต้องใหญ่แน่นขนาดนั้น"
+- **What was wrong:** the streak was a straight 1px line across the middle 56% of the top edge. On a disc, and at the round ends of a short pill, the top edge is an arc, so the line hung in the air above it. The gallery showed every component full size, two to a row, inline on the Overview.
+- **Step that produced it:** the round-5 streak was drawn for wide pills and copied to the disc; the gallery was laid out for the cell, not for scanning.
+- **What changed in that step:** the streak is the shape's own top border faded toward the sides, so it follows any curve (IconButton, Button, Chip). The gallery is a full-screen dialog, five to a row on a wide screen, each demo at about two thirds of its size.
+- **Check that now catches it:** none measures a highlight's fit to a curve yet; checked by eye at 3× on IconButton, Button and Chip.

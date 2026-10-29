@@ -24,11 +24,14 @@
   content: '';
   position: absolute;
   z-index: 1;
-  inset-block-start: 0;
-  inset-inline: 22%;
-  block-size: var(--ds-width-hairline);
+  inset: 0;
+  border-radius: inherit;
+  border-block-start: var(--ds-width-hairline) solid var(--ds-button-streak);
   pointer-events: none;
-  background: linear-gradient(90deg, transparent, var(--ds-button-streak), transparent);
+  /* the pill's own top border, faded toward the sides, so the streak follows the curve at a short
+     pill's ends instead of floating above them (R-021) */
+  -webkit-mask-image: linear-gradient(90deg, transparent 22%, black 50%, transparent 78%);
+  mask-image: linear-gradient(90deg, transparent 22%, black 50%, transparent 78%);
 }
 /* the glint: light where the pointer is, gone when it leaves */
 .root::after {

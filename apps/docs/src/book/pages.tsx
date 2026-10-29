@@ -1,4 +1,4 @@
-import { useState, type ReactElement, type ReactNode } from 'react';
+import { useRef, useState, type ReactElement, type ReactNode } from 'react';
 import { Button, Card, Environment, Select, Slider, Stack, Switch, Tag } from 'pane-react';
 import decisionsMd from '../../../../system/DECISIONS.md?raw';
 import exceptionsMd from '../../../../system/EXCEPTIONS.md?raw';
@@ -48,6 +48,35 @@ const OPEN_EXCEPTIONS = (exceptionsMd.match(/^### E-\d{3}:.*— OPEN\s*$/gm) ?? 
 
 // ================================ Introduction ================================
 
+/** The component gallery: a full-screen dialog (native <dialog>, so focus, Esc and the backdrop are the
+ *  browser's) with every component scaled down on its own studio plate, four or five to a row. */
+function Gallery() {
+  const ref = useRef<HTMLDialogElement>(null);
+  return (
+    <>
+      <Button variant="glass" onClick={() => ref.current?.showModal()}>Open the gallery · {COMPONENTS.length} components</Button>
+      <dialog ref={ref} className="gallery-modal" aria-labelledby="gallery-h" onClick={(e) => { if (e.target === e.currentTarget) ref.current?.close(); }}>
+        <div className="gallery-modal-head">
+          <h2 id="gallery-h" className="flush">Every component</h2>
+          <Button variant="glass" size="sm" onClick={() => ref.current?.close()}>Close</Button>
+        </div>
+        <div className="gallery">
+          {COMPONENTS.map((c, i) => (
+            <div key={c.slug} className="gallery-cell" data-example-live="" data-surface="">
+              <div className="gallery-head">
+                <span className="gallery-no" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                <Link to={`/components/${c.slug}`} className="gallery-name" onClick={() => ref.current?.close()}>{c.name}</Link>
+                <code className="gallery-tag">{`<${c.name} />`}</code>
+              </div>
+              <Environment brightness="bright" className="gallery-demo"><div className="gallery-scale"><c.hero.Render /></div></Environment>
+            </div>
+          ))}
+        </div>
+      </dialog>
+    </>
+  );
+}
+
 function Overview() {
   return (
     <Page
@@ -78,21 +107,9 @@ function Overview() {
         <Stage className="hero-card"><ProfileCard idPrefix="hero" /></Stage>
       </section>
 
-      <Section id="gallery" title="Every component" wide>
-        <p>Each component on its own studio plate, in its main use. Open one for its variants, states, code and evidence.</p>
-        <div className="gallery">
-          {COMPONENTS.map((c, i) => (
-            <div key={c.slug} className="gallery-cell" data-example-live="" data-surface="">
-              <div className="gallery-head">
-                <span className="gallery-no" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-                <Link to={`/components/${c.slug}`} className="gallery-name">{c.name}</Link>
-                <p className="gallery-purpose">{c.purpose}</p>
-                <code className="gallery-tag">{`<${c.name} />`}</code>
-              </div>
-              <Environment brightness="bright" className="gallery-demo"><c.hero.Render /></Environment>
-            </div>
-          ))}
-        </div>
+      <Section id="gallery" title="Every component">
+        <p>Every component on its own studio plate, small, in its main use. The gallery opens over the page, five to a row on a wide screen.</p>
+        <Gallery />
       </Section>
 
       <Section id="chapters" title="The book" wide>

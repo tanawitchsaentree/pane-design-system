@@ -54,3 +54,4 @@ Lab: `apps/lab/round5/index.html` (the user's OpenGlass-style reference beside P
 | Slider thumb | **a capsule** | As in the reference; a wider thing to grab. |
 | Levels | **1 pane · 2 surface in a pane · 3 overlay on a scrim · 4 popover**, each ≥1.15:1 from what is under it | The user asked for stacked glass that reads as levels, with a formula and a check by eye. Light level 2 had to go to a 12% ink tint to pass. |
 | Slider `fill` (D-026) | **variant of Slider, label and value inside, thin lit marker** | The user's reference; same behaviour and API as Slider, so a variant rather than a new component. |
+| Mesh (D-029, D-030) | **A, pools melted** (apps/lab/mesh/) | Four pools placed where the light is and blurred into each other; B (no blur) reads as spotlights, C (conic) swirls around one centre. Presets aurora, ember, tide, dusk; a product's own colours through `colors`. |

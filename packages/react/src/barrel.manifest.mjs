@@ -21,4 +21,8 @@ export const BARREL_MANIFEST = [
     header: `W3 forms (D-020): the well in the pane. Field parts first, because the controls read FormField's context.`,
     components: ['Label', 'HelperText', 'FormField', 'Fieldset', 'Input', 'Textarea', 'InputGroup', 'PinInput', 'Checkbox', 'Radio', 'Switch'],
   },
+  {
+    header: `Media (D-029): Mesh — a mesh gradient for scenes, covers and icons, never a control's fill.`,
+    components: ['Mesh'],
+  },
 ];

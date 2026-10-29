@@ -43,3 +43,7 @@ export * from './components/PinInput';
 export * from './components/Checkbox';
 export * from './components/Radio';
 export * from './components/Switch';
+
+// Media (D-029): Mesh — a mesh gradient for scenes, covers and icons, never a control's fill.
+
+export * from './components/Mesh';

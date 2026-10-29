@@ -1,51 +1,60 @@
 {
-  "generatedAt": "2026-10-29T08:05:24.228Z",
-  "passed": 6,
-  "total": 6,
+  "generatedAt": "2026-10-29T09:14:03.531Z",
+  "passed": 8,
+  "total": 8,
   "partial": true,
   "advisory": {},
   "results": [
     {
-      "id": "G-P0",
-      "name": "every page renders: a <main>, a heading and no uncaught error",
+      "id": "G-K1",
+      "name": "every component has its tab routes and a shared header with status, last updated and a live demo with theme and variant selectors",
       "ok": true,
-      "detail": "5 pages",
-      "order": 0
+      "order": 16
     },
     {
-      "id": "G-S3",
-      "name": "no two surfaces touch (<8px) or overlap, every page, 375 and 1280px",
+      "id": "G-K2",
+      "name": "every Usage section U1–U14 is present, or says why it does not apply",
       "ok": true,
-      "order": 4
+      "order": 17
     },
     {
-      "id": "G-W1",
-      "name": "reasons are on the page: token tables have a filled Why column and every component page explains its parts, states and motion",
+      "id": "G-K3",
+      "name": "the variants and sizes tables have one row per option the props declare",
       "ok": true,
-      "detail": "1 token rows with reasons",
-      "order": 27
+      "order": 18
     },
     {
-      "id": "G-NT1",
-      "name": "diagram parts stand at least 3:1 off their ground, in every theme (WCAG 1.4.11)",
+      "id": "G-K4",
+      "name": "every variant option has a deep dive with a live in-context example and a live do/don't",
       "ok": true,
-      "skipped": true,
-      "detail": "skipped: nothing it checks is in the limited routes",
-      "order": 29
+      "order": 19
     },
     {
-      "id": "G-CL1",
-      "name": "every colour value written in the book is a current token value (no stale hex in prose)",
+      "id": "G-K5",
+      "name": "the Style tab is generated: every spec cell names its token and value",
       "ok": true,
-      "detail": "26 values checked",
-      "order": 34
+      "order": 20
+    },
+    {
+      "id": "G-S6",
+      "name": "nothing in the page column spills out of it: no element crosses into the rail or the margin beside main (folds open)",
+      "ok": true,
+      "detail": "4 pages",
+      "order": 39
     },
     {
       "id": "G-RH1",
       "name": "separate steps stand apart: a demo stage and a tab bar sit at least 24px from the blocks around them; a stage's own code, caption or heading may sit 8px off and its intro 16px",
       "ok": true,
-      "detail": "63 gaps",
+      "detail": "84 gaps",
       "order": 43
+    },
+    {
+      "id": "G-TT1",
+      "name": "every control in a live example and in the shell gives a pointer at least 44px each way",
+      "ok": true,
+      "detail": "48 controls",
+      "order": 46
     }
   ]
 }

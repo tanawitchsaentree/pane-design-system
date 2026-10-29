@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-29T05:55:44.400Z",
-  "version": "0.5.0",
+  "generatedAt": "2026-10-29T08:41:38.526Z",
+  "version": "0.6.0",
   "components": {
     "Avatar": {
       "source": "packages/react/src/components/Avatar/Avatar.tsx",
@@ -275,9 +275,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 726,
+        "jsMin": 767,
         "cssMin": 3327,
-        "gzip": 1413
+        "gzip": 1437
       }
     },
     "Card": {
@@ -920,9 +920,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 732,
+        "jsMin": 771,
         "cssMin": 2549,
-        "gzip": 1279
+        "gzip": 1303
       }
     },
     "Input": {
@@ -1046,6 +1046,94 @@
         "jsMin": 393,
         "cssMin": 218,
         "gzip": 394
+      }
+    },
+    "Mesh": {
+      "source": "packages/react/src/components/Mesh/Mesh.tsx",
+      "kinds": {
+        "preset": [
+          "aurora",
+          "ember",
+          "tide",
+          "dusk"
+        ]
+      },
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Mesh",
+          "props": [
+            {
+              "name": "preset",
+              "type": "\"aurora\" | \"ember\" | \"tide\" | \"dusk\"",
+              "required": false,
+              "default": "aurora",
+              "description": "A measured colour set. `aurora` (default) is peach and coral over violet; `ember` warm; `tide` cool; `dusk` evening.",
+              "enum": true,
+              "options": [
+                "aurora",
+                "ember",
+                "tide",
+                "dusk"
+              ]
+            },
+            {
+              "name": "colors",
+              "type": "[string, string, string, string]",
+              "required": false,
+              "default": null,
+              "description": "Your own four pools, top left, top right, low and bottom left, as any CSS colour. Overrides the preset.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "base",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The ground under the pools. Overrides the preset's.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "rotate",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "Turns the pools around the centre, in degrees, to move where the light seems to come from.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "glow",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Lights what is under the mesh in its own colours: an ambient shadow, for a mesh object such as an icon.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Names the mesh for assistive technology when it carries meaning (an illustration). Leave it out when it is decoration.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "preset"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 784,
+        "cssMin": 1809,
+        "gzip": 1024
       }
     },
     "PinInput": {
@@ -1580,9 +1668,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 30350,
-        "cssMin": 3481,
-        "gzip": 11883
+        "jsMin": 30388,
+        "cssMin": 3985,
+        "gzip": 11957
       }
     },
     "Stack": {
@@ -1739,9 +1827,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 13993,
+        "jsMin": 14012,
         "cssMin": 2694,
-        "gzip": 6080
+        "gzip": 6092
       }
     },
     "Tabs": {

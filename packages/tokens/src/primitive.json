@@ -605,6 +605,75 @@
         "$value": "#B9A3F5",
         "$description": "aurora mesh: lilac pool, bottom left"
       }
+    },
+    "mesh-ember": {
+      "$type": "color",
+      "base": {
+        "$value": "#F3E6DF",
+        "$description": "ember mesh: base"
+      },
+      "a": {
+        "$value": "#F5B04C",
+        "$description": "ember mesh: a"
+      },
+      "b": {
+        "$value": "#EE6F7A",
+        "$description": "ember mesh: b"
+      },
+      "c": {
+        "$value": "#6B2E63",
+        "$description": "ember mesh: c"
+      },
+      "d": {
+        "$value": "#D9849C",
+        "$description": "ember mesh: d"
+      }
+    },
+    "mesh-tide": {
+      "$type": "color",
+      "base": {
+        "$value": "#E3EEF2",
+        "$description": "tide mesh: base"
+      },
+      "a": {
+        "$value": "#7FE0D1",
+        "$description": "tide mesh: a"
+      },
+      "b": {
+        "$value": "#7FBCF5",
+        "$description": "tide mesh: b"
+      },
+      "c": {
+        "$value": "#2B3A9E",
+        "$description": "tide mesh: c"
+      },
+      "d": {
+        "$value": "#9CC8E8",
+        "$description": "tide mesh: d"
+      }
+    },
+    "mesh-dusk": {
+      "$type": "color",
+      "base": {
+        "$value": "#E8E4F0",
+        "$description": "dusk mesh: base"
+      },
+      "a": {
+        "$value": "#C9A9F2",
+        "$description": "dusk mesh: a"
+      },
+      "b": {
+        "$value": "#F09AB3",
+        "$description": "dusk mesh: b"
+      },
+      "c": {
+        "$value": "#1E2A5C",
+        "$description": "dusk mesh: c"
+      },
+      "d": {
+        "$value": "#8C7BD6",
+        "$description": "dusk mesh: d"
+      }
     }
   },
   "blur": {
@@ -1328,6 +1397,10 @@
         "p": "P6",
         "why": "one fixed half opacity, so every disabled control fades by the same amount and reads as the same state everywhere"
       }
+    },
+    "ambient": {
+      "$value": 0.55,
+      "$description": "how strongly a mesh object lights what is under it"
     }
   }
 }

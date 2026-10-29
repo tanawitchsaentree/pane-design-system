@@ -507,7 +507,7 @@ try {
       if (!hasTabs(pg) || !pg.tabs.includes('style')) { bad.push(`${pg.title}: no style tab`); continue; }
       await go(tabRoute(pg.slug, 'style'));
       // a property left at its default (opacity 1, auto, normal, transparent, none) is not a design value, so it needs no token
-      const r = await page.evaluate(() => { const DEF = new Set(['1', 'auto', 'normal', 'none', 'transparent', 'rgba(0, 0, 0, 0)', '0px']); const cells = [...document.querySelectorAll('[data-spec] [data-value]')].filter((c) => !DEF.has(c.dataset.value)); return { cells: cells.length, untokened: cells.filter((c) => !c.dataset.token).length }; });
+      const r = await page.evaluate(() => { const DEF = new Set(['1', 'auto', 'normal', 'none', 'transparent', 'rgba(0, 0, 0, 0)', '0px', 'ease', '0s']); const cells = [...document.querySelectorAll('[data-spec] [data-value]')].filter((c) => !DEF.has(c.dataset.value)); return { cells: cells.length, untokened: cells.filter((c) => !c.dataset.token).length }; });
       if (!r.cells) bad.push(`${pg.title}: no [data-spec] cells`);
       else if (r.untokened / r.cells > 0.1) bad.push(`${pg.title}: ${r.untokened}/${r.cells} spec values without a token`);
     }
@@ -1061,7 +1061,7 @@ try {
         if (moved > 1) bad.push(`${r}: ${lo.name} or its pane changes size by ${Math.round(moved)}px between its lowest and highest value`);
       }
     }
-    if (!n) throw new Error('NO slider on any component page');
+    if (!n) throw new Error('NO SLIDER on any component page');
     fail([...new Set(bad)], 'sliders');
     return `${n} sliders`;
   });
@@ -1176,7 +1176,7 @@ try {
       n += res.count;
       for (const o of res.out) bad.push(`${r}: ${o}`);
     }
-    expect(n > 0, 'no text inside any control on a Code page, so nothing was measured');
+    expect(n > 0, 'NO TEXT IN A CONTROL on any Code page, so nothing was measured');
     fail(bad, 'texts that crowd their control\'s edge');
     return `${n} lines of text in controls`;
   });

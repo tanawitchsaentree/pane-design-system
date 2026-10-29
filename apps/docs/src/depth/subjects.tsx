@@ -1,7 +1,7 @@
 // How to render each component for the Style tab and the header's live demo, given the enum props
 // a reader picks. Only the content is fixed here; which options exist comes from meta.json.
 import type { ReactNode } from 'react';
-import { Avatar, Badge, Banner, Button, Card, Checkbox, Chip, Container, Environment, Fieldset, FormField, Grid, GridItem, HelperText, IconButton, Input, InputGroup, Label, PinInput, Radio, RadioGroup, Select, Slider, Stack, Switch, Tabs, Tag, Textarea } from 'pane-react';
+import { Avatar, Badge, Mesh, Banner, Button, Card, Checkbox, Chip, Container, Environment, Fieldset, FormField, Grid, GridItem, HelperText, IconButton, Input, InputGroup, Label, PinInput, Radio, RadioGroup, Select, Slider, Stack, Switch, Tabs, Tag, Textarea } from 'pane-react';
 import { IconShare } from '../icons';
 
 type P = Record<string, string>;
@@ -34,6 +34,7 @@ export const SUBJECTS: Record<string, Subject> = {
   Avatar: { render: (p) => <Avatar name="Mara Lind" {...p} />, code: (p) => `<Avatar name="Mara Lind"${attrs(p)} />` },
   Chip: { render: () => <Chip defaultSelected>Photos</Chip>, code: () => '<Chip defaultSelected>Photos</Chip>' },
   Tag: { render: () => <Tag>Landscape</Tag>, code: () => '<Tag>Landscape</Tag>' },
+  Mesh: { bare: true, render: (p) => <Mesh {...p} className="mesh-demo-tile" />, code: (p) => `<Mesh${attrs(p)} />` },
   Tabs: { render: () => <Tabs.Root defaultValue="a"><Tabs.List aria-label="Demo sections"><Tabs.Trigger value="a">Posts</Tabs.Trigger><Tabs.Trigger value="b">Media</Tabs.Trigger></Tabs.List><Tabs.Content value="a">Posts</Tabs.Content><Tabs.Content value="b">Media</Tabs.Content></Tabs.Root>, code: () => '<Tabs.Root defaultValue="a">\n  <Tabs.List aria-label="Demo sections">\n    <Tabs.Trigger value="a">Posts</Tabs.Trigger>\n    <Tabs.Trigger value="b">Media</Tabs.Trigger>\n  </Tabs.List>\n</Tabs.Root>' },
   Select: { disabled: true, render: (p, d) => <Select label="Plan" options={[{ value: 'free', label: 'Free' }, { value: 'pro', label: 'Pro' }]} defaultValue="pro" {...p} disabled={d} />, code: (p) => `<Select label="Plan" defaultValue="pro"${attrs(p)}\n  options={[{ value: 'free', label: 'Free' }, { value: 'pro', label: 'Pro' }]} />` },
   Slider: { disabled: true, render: (p, d) => <Slider label="Volume" defaultValue={40} format={(v) => `${v}%`} {...p} disabled={d} />, code: (p) => `<Slider label="Volume" defaultValue={40}${attrs(p)} />` },

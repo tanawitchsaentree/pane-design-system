@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T08:02:25.409Z",
+  "generatedAt": "2026-10-29T09:09:08.901Z",
   "browser": "chromium 156.0.8078.4",
   "threshold": 4.5,
   "modes": [
@@ -2874,71 +2874,71 @@
   "docsPage": {
     "normal": {
       "dark/studio": {
-        "textElements": 588,
+        "textElements": 977,
         "failures": 0,
-        "pages": 2
+        "pages": 4
       },
       "dark/aurora": {
-        "textElements": 588,
+        "textElements": 983,
         "failures": 0,
-        "pages": 2
+        "pages": 4
       },
       "dark/room": {
-        "textElements": 585,
+        "textElements": 983,
         "failures": 0,
-        "pages": 2
+        "pages": 4
       },
       "dark/forest": {
-        "textElements": 585,
+        "textElements": 983,
         "failures": 0,
-        "pages": 2
+        "pages": 4
       },
       "dark/night": {
-        "textElements": 585,
+        "textElements": 983,
         "failures": 0,
-        "pages": 2
+        "pages": 4
       },
       "dark/city": {
-        "textElements": 585,
+        "textElements": 983,
         "failures": 0,
-        "pages": 2
+        "pages": 4
       },
       "light/studio": {
-        "textElements": 588,
+        "textElements": 977,
         "failures": 0,
-        "pages": 2
+        "pages": 4
       },
       "light/aurora": {
-        "textElements": 588,
+        "textElements": 983,
         "failures": 0,
-        "pages": 2
+        "pages": 4
       },
       "light/room": {
-        "textElements": 585,
+        "textElements": 983,
         "failures": 0,
-        "pages": 2
+        "pages": 4
       },
       "light/forest": {
-        "textElements": 585,
+        "textElements": 983,
         "failures": 0,
-        "pages": 2
+        "pages": 4
       },
       "light/night": {
-        "textElements": 585,
+        "textElements": 983,
         "failures": 0,
-        "pages": 2
+        "pages": 4
       },
       "light/city": {
-        "textElements": 585,
+        "textElements": 983,
         "failures": 0,
-        "pages": 2
+        "pages": 4
       }
     },
     "reduced-transparency": {
       "dark/studio": {
-        "textElements": 588,
+        "textElements": 977,
         "failures": 0,
-        "pages": 2
+        "pages": 4
       },
       "dark/aurora": {
         "textElements": 0,
@@ -2966,9 +2966,9 @@
         "pages": 0
       },
       "light/studio": {
-        "textElements": 588,
+        "textElements": 977,
         "failures": 0,
-        "pages": 2
+        "pages": 4
       },
       "light/aurora": {
         "textElements": 0,
@@ -2998,9 +2998,9 @@
     },
     "forced-colors": {
       "dark/studio": {
-        "textElements": 588,
+        "textElements": 979,
         "failures": 0,
-        "pages": 2
+        "pages": 4
       },
       "dark/aurora": {
         "textElements": 0,
@@ -3028,9 +3028,9 @@
         "pages": 0
       },
       "light/studio": {
-        "textElements": 588,
+        "textElements": 979,
         "failures": 0,
-        "pages": 2
+        "pages": 4
       },
       "light/aurora": {
         "textElements": 0,
@@ -3064,7 +3064,7 @@
   "exception": "E-001",
   "exceptionFloor": 3.8,
   "summary": {
-    "gatingChecks": 10680,
+    "gatingChecks": 16992,
     "gatingFailures": 0,
     "excepted": 0,
     "informational": []

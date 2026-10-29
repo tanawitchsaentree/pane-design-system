@@ -1718,6 +1718,204 @@
       }
     }
   },
+  "mesh-ember": {
+    "$type": "color",
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1"
+        ],
+        "why": "a warm preset for products whose world is firelight, food or evening: amber and rose over a plum low point"
+      }
+    },
+    "base": {
+      "$value": "{color.mesh-ember.base}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the ember preset's ground, placed where the ember light falls"
+        }
+      }
+    },
+    "a": {
+      "$value": "{color.mesh-ember.a}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the ember preset's pool a, placed where the ember light falls"
+        }
+      }
+    },
+    "b": {
+      "$value": "{color.mesh-ember.b}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the ember preset's pool b, placed where the ember light falls"
+        }
+      }
+    },
+    "c": {
+      "$value": "{color.mesh-ember.c}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the ember preset's pool c, placed where the ember light falls"
+        }
+      }
+    },
+    "d": {
+      "$value": "{color.mesh-ember.d}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the ember preset's pool d, placed where the ember light falls"
+        }
+      }
+    }
+  },
+  "mesh-tide": {
+    "$type": "color",
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1"
+        ],
+        "why": "a cool preset for products whose world is water, air or health: aqua and sky over an indigo low point"
+      }
+    },
+    "base": {
+      "$value": "{color.mesh-tide.base}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the tide preset's ground, placed where the tide light falls"
+        }
+      }
+    },
+    "a": {
+      "$value": "{color.mesh-tide.a}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the tide preset's pool a, placed where the tide light falls"
+        }
+      }
+    },
+    "b": {
+      "$value": "{color.mesh-tide.b}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the tide preset's pool b, placed where the tide light falls"
+        }
+      }
+    },
+    "c": {
+      "$value": "{color.mesh-tide.c}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the tide preset's pool c, placed where the tide light falls"
+        }
+      }
+    },
+    "d": {
+      "$value": "{color.mesh-tide.d}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the tide preset's pool d, placed where the tide light falls"
+        }
+      }
+    }
+  },
+  "mesh-dusk": {
+    "$type": "color",
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1"
+        ],
+        "why": "an evening preset for media and night scenes: lilac and rose over a deep navy low point"
+      }
+    },
+    "base": {
+      "$value": "{color.mesh-dusk.base}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the dusk preset's ground, placed where the dusk light falls"
+        }
+      }
+    },
+    "a": {
+      "$value": "{color.mesh-dusk.a}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the dusk preset's pool a, placed where the dusk light falls"
+        }
+      }
+    },
+    "b": {
+      "$value": "{color.mesh-dusk.b}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the dusk preset's pool b, placed where the dusk light falls"
+        }
+      }
+    },
+    "c": {
+      "$value": "{color.mesh-dusk.c}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the dusk preset's pool c, placed where the dusk light falls"
+        }
+      }
+    },
+    "d": {
+      "$value": "{color.mesh-dusk.d}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the dusk preset's pool d, placed where the dusk light falls"
+        }
+      }
+    }
+  },
   "mesh-blur": {
     "$value": "{blur.mesh}",
     "$type": "dimension",
@@ -1727,6 +1925,18 @@
           "P1"
         ],
         "why": "the pools of a mesh are blurred until they flow, which is what makes it a mesh and not a set of radial gradients"
+      }
+    }
+  },
+  "mesh-glow-opacity": {
+    "$value": "{alpha.ambient}",
+    "$type": "number",
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3"
+        ],
+        "why": "a mesh object's ambient light is strong enough to tint the pane under it and faint enough that it never reads as a second object"
       }
     }
   }

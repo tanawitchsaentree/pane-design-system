@@ -2,6 +2,17 @@
 
 Every entry names the component it touches, so each component page in the book can show its own history. The conformance run fails if a component has no entry.
 
+## 0.6.0 (2026-10-29)
+
+- Mesh: new (D-029). A mesh gradient for covers, icons, illustrations and scenes, never a control's fill. Presets `aurora`, `ember`, `tide`, `dusk`; your own colours through `colors` and `base`, or the `--ds-mesh-*` variables; `rotate` turns the light; `glow` adds an ambient shadow in the mesh's colours; `label` names it as an image.
+- Mesh: `npx pane-mesh --from brand.png` (or `--colors`) writes the `--ds-mesh-*` variables from a brand image and warns when a mesh would look flat. PNG only.
+- Glow in dark (D-027): `glow.strong`, `glow.soft`, `glow.mark`. Button `accent` and IconButton `loud` glow strong, Switch on and the Slider's filled channel soft, the fill slider's marker as a mark. Nothing glows in light, and text never glows.
+- Slider: new `variant="fill"`, a 56px bar held whole with its label and value inside (D-026). Both variants keep a width of their own (at least 240px) and never resize with their value text. The fill bar is a groove with the field's edge, so a full bar still shows where it ends in light.
+- InputGroup: text at the end keeps the field's full inset; only a lone round button sits close to the curve.
+- Select: disabled uses the `opacity.disabled` token.
+- Field edges: a 1px edge all round carries the 3:1 instead of a thick white bottom lip.
+- Tokens: `size.control-xl`, `size.slider-min`, `slider.fill-*`, `slider.min-width`, `slider.range-glow`, `glow.*`, `mesh.*`, `mesh-ember.*`, `mesh-tide.*`, `mesh-dusk.*`, `mesh-blur`, `mesh-glow-opacity`, `studio.*`, `color.ink.950`.
+
 ## 0.5.0 (2026-10-29)
 
 - Thick smoked glass (D-025). A pane is a slab: a smoked body, a faint edge all round, shade at its foot, a short streak where light catches its top edge, and a long soft shadow. The loud solid is a warm off-white with a bloom.
