@@ -1,0 +1,86 @@
+{
+  "concept": "Facts about one thing as term and detail pairs in a real dl, stacked or in two columns that stack again when narrow.",
+  "default_to_avoid": [
+    {
+      "pattern": "a description list drawn as a table with bold labels and borders on every cell",
+      "kind": "description list, key value list, properties, details",
+      "why_not": "a bordered grid shouts its structure and a table is the wrong element for pairs; Pane uses tones and space and a dl"
+    }
+  ],
+  "references": [
+    {
+      "title": "HTML · The dl element",
+      "url": "https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element"
+    },
+    {
+      "title": "GOV.UK · Summary list",
+      "url": "https://design-system.service.gov.uk/components/summary-list/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P2",
+      "axis": "type",
+      "consequence": "secondary text keeps the lowest opacity that still measured as passing; text halos count only where WCAG allows them",
+      "form": "terms take the label size in the secondary tone and details the body size in the primary tone"
+    },
+    {
+      "p": "P3",
+      "axis": "space",
+      "consequence": "padding inside a pane is larger than the gap between items in it, so the edge reads as the object's boundary",
+      "form": "pairs are separated by space, and hairlines only appear when a long list asks for them"
+    },
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "it adds no pane of its own and sits on the card or the sheet it describes"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave7/",
+    "section": "descriptionlist",
+    "options": [
+      "A tones and space",
+      "B bordered table",
+      "C bold labels with colons"
+    ],
+    "picked": "A tones and space",
+    "by": "agent",
+    "reason": "A tells term from detail by tone and size (P2). B adds borders on every cell. C puts label colons in front of every value."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the pairs stack with an even gap and the list measures its own width for the layout"
+    },
+    "pair": {
+      "p": "P3",
+      "axis": "space",
+      "why": "each term and its detail are grouped so they move together when the layout changes"
+    },
+    "term": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the term is secondary at label size so the detail is what the eye reads"
+    },
+    "detail": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the detail is primary at body size and wraps anywhere so long values never spill"
+    },
+    "inline": {
+      "p": "P3",
+      "axis": "space",
+      "why": "inline layout puts terms in their own column and stacks again in a narrow pane"
+    },
+    "dividers": {
+      "p": "P3",
+      "axis": "space",
+      "why": "dividers draw a hairline between pairs for long lists such as an order summary"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

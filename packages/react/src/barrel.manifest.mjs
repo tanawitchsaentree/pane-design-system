@@ -41,4 +41,8 @@ export const BARREL_MANIFEST = [
     header: `Wave 6 navigation (0.7.0): the tab track, glass bars and the chosen pane.`,
     components: ['SegmentedControl', 'BottomNav', 'Navbar', 'Sidebar', 'Breadcrumb', 'Pagination', 'Stepper', 'Accordion', 'NavigationMenu', 'TableOfContents'],
   },
+  {
+    header: `Wave 7 data display (0.7.0): the carved channel, level-2 panes and hairline rows.`,
+    components: ['Progress', 'Meter', 'Stat', 'EmptyState', 'Timeline', 'DescriptionList', 'List', 'Table'],
+  },
 ];

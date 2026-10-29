@@ -85,4 +85,12 @@ Lab: `apps/lab/round5/index.html` (the user's OpenGlass-style reference beside P
 | Stepper (wave 6) | **A, marks on a groove** | Every state by shape (P6); the current step glows as a mark. |
 | Accordion (wave 6) | **A, grooves between headings** | The page stays a page; grey bars box it. |
 | NavigationMenu (wave 6) | **A, disclosure panels on press** | Works on touch and keyboard; hover mega menus do not. |
-| TableOfContents (wave 6) | **A, a lit line and weight** | Marks the section in view by shape and weight, not blue. |
+| TableOfContents (wave 6) | **D chosen pane and weight** | D marks by shape and weight with the same chosen pane as Sidebar. A is the habitual accent stripe (G-X1). B brings blue. C adds numbers the sections do not have. |
+| Progress (wave 7) | **A carved channel, loud fill** | A shares the slider channel (P3) and has no hue (P1). B brings a hue and busy motion. C hides the amount in a small circle. |
+| Meter (wave 7) | **A loud fill, status glyph and word** | A keeps the fill without hue and puts the news in a glyph and a word (P1, P6). B rests on hue alone. C quantises a reading that is continuous. |
+| Stat (wave 7) | **A large number, arrow and mark** | A says the change by shape and words (P6) with colour only on the arrow (P1). B rests on a hue and adds a pane. C belongs to Charts in wave 9. |
+| EmptyState (wave 7) | **A glyph in a well, title, way out** | A is a recess like Skeleton (P3) and leaves the action as the loud thing. B brings colour. C gives the eye nowhere to land. |
+| Timeline (wave 7) | **A dots on a hairline rail** | A carries every state by shape (P6) without hue (P1). B brings hues. C stacks panes inside panes. |
+| DescriptionList (wave 7) | **A tones and space** | A tells term from detail by tone and size (P2). B adds borders on every cell. C puts label colons in front of every value. |
+| List (wave 7) | **A inset pane, hairlines from the text** | A is one pane with quiet hairlines (P3). B draws a box per row. C adds a grey that owns nothing. |
+| Table (wave 7) | **A pane with an opaque header** | A keeps the data the loudest thing (P3, P2). B brings hue. C draws a grid around every value. |

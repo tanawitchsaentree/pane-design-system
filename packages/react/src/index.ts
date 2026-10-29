@@ -103,3 +103,14 @@ export * from './components/Stepper';
 export * from './components/Accordion';
 export * from './components/NavigationMenu';
 export * from './components/TableOfContents';
+
+// Wave 7 data display (0.7.0): the carved channel, level-2 panes and hairline rows.
+
+export * from './components/Progress';
+export * from './components/Meter';
+export * from './components/Stat';
+export * from './components/EmptyState';
+export * from './components/Timeline';
+export * from './components/DescriptionList';
+export * from './components/List';
+export * from './components/Table';

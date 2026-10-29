@@ -1,0 +1,138 @@
+{
+  "concept": "Rows of things of one kind; an inset list is a level-2 pane with hairlines that start where the text starts.",
+  "default_to_avoid": [
+    {
+      "pattern": "a List with a border around every row and a grey zebra stripe",
+      "kind": "list, list group, settings list, rows",
+      "why_not": "borders and stripes on every row draw more lines than content; Pane uses one pane with hairlines from the text column"
+    }
+  ],
+  "references": [
+    {
+      "title": "Apple HIG · Lists and tables",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/lists-and-tables"
+    },
+    {
+      "title": "Material · Lists",
+      "url": "https://m3.material.io/components/lists/overview"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the inset list is one level-2 pane and its rows add no second blur or pane"
+    },
+    {
+      "p": "P3",
+      "axis": "space",
+      "consequence": "padding inside a pane is larger than the gap between items in it, so the edge reads as the object's boundary",
+      "form": "hairlines start at the text column, so the leading column reads as one band down the list"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "a row that leads somewhere is pressed as a whole and keeps a 44px height"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave7/",
+    "section": "list",
+    "options": [
+      "A inset pane, hairlines from the text",
+      "B bordered rows",
+      "C zebra stripes"
+    ],
+    "picked": "A inset pane, hairlines from the text",
+    "by": "agent",
+    "reason": "A is one pane with quiet hairlines (P3). B draws a box per row. C adds a grey that owns nothing."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the rows stack as a real list so their count is announced and read"
+    },
+    "inset": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the inset list is a level-2 pane with its own edge, like a group of settings"
+    },
+    "plain": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the plain list sits straight on the pane it is in, inside a card"
+    },
+    "item": {
+      "p": "P3",
+      "axis": "space",
+      "why": "each item holds its row and draws the hairline under it when inset"
+    },
+    "row": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "each row keeps at least a 44px height with the leading, text and trailing parts in a line"
+    },
+    "press": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a pressable row lights under the pointer like a menu row and shows the focus ring inside"
+    },
+    "leading": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the leading part holds an avatar or an icon at a fixed size so text lines up"
+    },
+    "text": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the title and the second line stack and take the free width of the row"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the title is the body size in the primary tone and wraps instead of spilling"
+    },
+    "description": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the second line is secondary at label size, a date or a count"
+    },
+    "trailing": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the trailing part holds a value or a control at the end in the secondary tone"
+    },
+    "chevron": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a chevron says the row opens a page of its own and flips in RTL"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "in forced colours the system draws the edges and the fill so the parts stay findable"
+    },
+    "hover": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a pressable row takes the quiet surface under the pointer to show what will be pressed"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring is drawn inside the row so it is not clipped by the pane"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the hover surface fades in on the hover ease instead of flashing"
+    }
+  }
+}

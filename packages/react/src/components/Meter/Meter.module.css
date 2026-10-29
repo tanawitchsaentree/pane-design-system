@@ -1,0 +1,13 @@
+/* Progress's carved channel holding a level; a high reading adds a status glyph and a word (P1, P6). */
+.root { display: flex; flex-direction: column; gap: var(--ds-meter-gap); min-inline-size: min(100%, var(--ds-meter-min)); font-family: var(--ds-type-family); }
+.head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--ds-meter-gap); }
+.label { font-size: var(--ds-type-label); color: var(--ds-text-primary); }
+.value { display: inline-flex; align-items: center; gap: var(--ds-meter-gap); font-size: var(--ds-type-label); color: var(--ds-text-secondary); font-variant-numeric: tabular-nums; }
+.status { display: inline-flex; align-items: center; gap: var(--ds-gap-xs); color: var(--ds-text-primary); font-weight: var(--ds-type-weight-medium); }
+.glyph { inline-size: var(--ds-meter-glyph); block-size: var(--ds-meter-glyph); flex: none; }
+.warning .glyph { fill: var(--ds-meter-warning-mark); }
+.critical .glyph { fill: var(--ds-meter-critical-mark); }
+.track { position: relative; overflow: hidden; block-size: var(--ds-meter-track); border-radius: var(--ds-corner-round); background: var(--ds-meter-bg); box-shadow: var(--ds-meter-carve); }
+.fill { position: absolute; inset-block: 0; inset-inline-start: 0; border-radius: inherit; background: linear-gradient(180deg, var(--ds-meter-fill-top), var(--ds-meter-fill-foot)); transition: inline-size var(--ds-motion-enter) var(--ds-motion-easing); }
+@media (forced-colors: active) { .track { border: var(--ds-width-hairline) solid CanvasText; } .fill { background: Highlight; } .glyph { fill: CanvasText; } }
+

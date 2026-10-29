@@ -1,0 +1,21 @@
+/* Rows of one kind. Inset is a level-2 pane with hairlines that start where the text starts, so the
+   leading column reads as one band; a pressable row lights under the pointer like a menu row (R-013). */
+.root { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; font-family: var(--ds-type-family); }
+.inset { padding: var(--ds-list-inset); border-radius: var(--ds-corner-media); background: var(--ds-list-bg); box-shadow: var(--ds-list-edge); }
+.item { position: relative; }
+.inset .item:not(:last-child)::after { content: ''; position: absolute; inset-block-end: 0; inset-inline: var(--ds-list-padding) 0; block-size: var(--ds-width-hairline); background: var(--ds-list-divider); pointer-events: none; }
+.row { display: flex; align-items: center; gap: var(--ds-list-gap); box-sizing: border-box; inline-size: 100%; min-block-size: var(--ds-list-row); padding: var(--ds-list-padding-block) var(--ds-list-padding); border: 0; border-radius: var(--ds-list-radius); background: transparent; color: var(--ds-text-primary); font: inherit; text-align: start; text-decoration: none; }
+.plain .row { padding-inline: 0; }
+.press { cursor: pointer; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
+.plain .press { padding-inline: var(--ds-list-padding); }
+.press:hover { background: var(--ds-list-highlight); }
+.press:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: calc(var(--ds-focus-ring-width) * -1); }
+.leading { display: inline-grid; place-items: center; flex: none; }
+.leading svg { inline-size: var(--ds-list-icon); block-size: var(--ds-list-icon); }
+.text { display: flex; flex-direction: column; gap: var(--ds-gap-xs); flex: 1; min-inline-size: 0; }
+.title { font-size: var(--ds-type-body); line-height: var(--ds-type-leading-tight); overflow-wrap: anywhere; }
+.description { font-size: var(--ds-type-label); color: var(--ds-text-secondary); overflow-wrap: anywhere; }
+.trailing { display: inline-flex; align-items: center; gap: var(--ds-gap-sm); flex: none; font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.chevron { inline-size: var(--ds-list-chevron); block-size: var(--ds-list-chevron); flex: none; fill: none; stroke: var(--ds-text-secondary); stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+:global([dir='rtl']) .chevron { transform: scaleX(-1); }
+@media (forced-colors: active) { .inset { border: var(--ds-width-hairline) solid CanvasText; } .press:hover { outline: var(--ds-width-hairline) solid Highlight; } }

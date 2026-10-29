@@ -2696,5 +2696,376 @@
         }
       }
     }
+  },
+  "progress": {
+    "gap": {
+      "$value": "{gap.sm}",
+      "$type": "dimension"
+    },
+    "min": {
+      "$value": "{control.slider-min}",
+      "$type": "dimension"
+    },
+    "track": {
+      "$value": "{control.dot}",
+      "$type": "dimension"
+    },
+    "track-sm": {
+      "$value": "{width.bar}",
+      "$type": "dimension"
+    },
+    "bg": {
+      "$value": "{surface.carve}",
+      "$type": "color"
+    },
+    "carve": {
+      "$value": "{elevation.track}",
+      "$type": "shadow"
+    },
+    "fill-top": {
+      "$value": "{action.loud-top}",
+      "$type": "color"
+    },
+    "fill-foot": {
+      "$value": "{action.loud-foot}",
+      "$type": "color"
+    },
+    "glow": {
+      "$value": "{glow.soft}",
+      "$type": "shadow"
+    },
+    "travel": {
+      "$value": "{motion.breathe}",
+      "$type": "duration"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1",
+          "P3"
+        ],
+        "why": "a task is the slider channel carved into the pane with the loud solid filling it, so progress has no hue"
+      }
+    }
+  },
+  "meter": {
+    "gap": {
+      "$value": "{gap.sm}",
+      "$type": "dimension"
+    },
+    "min": {
+      "$value": "{control.slider-min}",
+      "$type": "dimension"
+    },
+    "track": {
+      "$value": "{control.dot}",
+      "$type": "dimension"
+    },
+    "bg": {
+      "$value": "{surface.carve}",
+      "$type": "color"
+    },
+    "carve": {
+      "$value": "{elevation.track}",
+      "$type": "shadow"
+    },
+    "fill-top": {
+      "$value": "{action.loud-top}",
+      "$type": "color"
+    },
+    "fill-foot": {
+      "$value": "{action.loud-foot}",
+      "$type": "color"
+    },
+    "glyph": {
+      "$value": "{control.icon-sm}",
+      "$type": "dimension"
+    },
+    "warning-mark": {
+      "$value": "{status.warning-mark}",
+      "$type": "color"
+    },
+    "critical-mark": {
+      "$value": "{status.critical-mark}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1",
+          "P6"
+        ],
+        "why": "a reading uses the Progress channel and a status glyph and word, so a high level never rests on a hue"
+      }
+    }
+  },
+  "stat": {
+    "gap": {
+      "$value": "{gap.xs}",
+      "$type": "dimension"
+    },
+    "value": {
+      "$value": "{type.headline}",
+      "$type": "dimension"
+    },
+    "glyph": {
+      "$value": "{control.icon-sm}",
+      "$type": "dimension"
+    },
+    "positive-mark": {
+      "$value": "{status.positive-mark}",
+      "$type": "color"
+    },
+    "negative-mark": {
+      "$value": "{status.critical-mark}",
+      "$type": "color"
+    },
+    "neutral-mark": {
+      "$value": "{text.secondary}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P2",
+          "P6"
+        ],
+        "why": "one number said large with its change shown by an arrow and words, colour only on the arrow"
+      }
+    }
+  },
+  "empty-state": {
+    "gap": {
+      "$value": "{gap.md}",
+      "$type": "dimension"
+    },
+    "padding": {
+      "$value": "{gap.inset}",
+      "$type": "dimension"
+    },
+    "padding-sm": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "well": {
+      "$value": "{control.xl}",
+      "$type": "dimension"
+    },
+    "well-bg": {
+      "$value": "{surface.carve}",
+      "$type": "color"
+    },
+    "well-carve": {
+      "$value": "{elevation.well}",
+      "$type": "shadow"
+    },
+    "icon": {
+      "$value": "{control.check}",
+      "$type": "dimension"
+    },
+    "title": {
+      "$value": "{type.title}",
+      "$type": "dimension"
+    },
+    "measure": {
+      "$value": "{type.measure}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P4"
+        ],
+        "why": "a glyph in a carved well with a title and the way out, quiet so the action is the loud thing"
+      }
+    }
+  },
+  "timeline": {
+    "dot": {
+      "$value": "{control.mark}",
+      "$type": "dimension"
+    },
+    "dot-offset": {
+      "$value": "{gap.xs}",
+      "$type": "dimension"
+    },
+    "gap": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "step": {
+      "$value": "{gap.xl}",
+      "$type": "dimension"
+    },
+    "rail": {
+      "$value": "{width.hairline}",
+      "$type": "dimension"
+    },
+    "rail-color": {
+      "$value": "{line.divider}",
+      "$type": "color"
+    },
+    "done": {
+      "$value": "{action.loud-top}",
+      "$type": "color"
+    },
+    "current-ring": {
+      "$value": "{line.ring}",
+      "$type": "color"
+    },
+    "upcoming": {
+      "$value": "{text.secondary}",
+      "$type": "color"
+    },
+    "glow": {
+      "$value": "{glow.mark}",
+      "$type": "shadow"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P6",
+          "P1"
+        ],
+        "why": "events on a hairline rail whose dots say past, now and next by shape, without hue"
+      }
+    }
+  },
+  "dlist": {
+    "gap": {
+      "$value": "{gap.md}",
+      "$type": "dimension"
+    },
+    "term": {
+      "$value": "{control.menu-min}",
+      "$type": "dimension"
+    },
+    "divider": {
+      "$value": "{line.divider}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P2"
+        ],
+        "why": "term and detail told apart by tone and size with space between pairs instead of borders"
+      }
+    }
+  },
+  "list": {
+    "inset": {
+      "$value": "{gap.xs}",
+      "$type": "dimension"
+    },
+    "padding": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "padding-block": {
+      "$value": "{gap.md}",
+      "$type": "dimension"
+    },
+    "gap": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "row": {
+      "$value": "{control.lg}",
+      "$type": "dimension"
+    },
+    "radius": {
+      "$value": "{corner.inner}",
+      "$type": "dimension"
+    },
+    "bg": {
+      "$value": "{level.2}",
+      "$type": "color"
+    },
+    "edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow"
+    },
+    "divider": {
+      "$value": "{line.divider}",
+      "$type": "color"
+    },
+    "highlight": {
+      "$value": "{surface.quiet}",
+      "$type": "color"
+    },
+    "icon": {
+      "$value": "{control.icon-md}",
+      "$type": "dimension"
+    },
+    "chevron": {
+      "$value": "{control.icon-sm}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P2"
+        ],
+        "why": "rows on one level-2 pane with hairlines from the text column, pressable rows lit like menu rows"
+      }
+    }
+  },
+  "table": {
+    "cell-inline": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "cell-block": {
+      "$value": "{gap.md}",
+      "$type": "dimension"
+    },
+    "cell-block-compact": {
+      "$value": "{gap.xs}",
+      "$type": "dimension"
+    },
+    "row": {
+      "$value": "{control.lg}",
+      "$type": "dimension"
+    },
+    "hit": {
+      "$value": "{layout.touch}",
+      "$type": "dimension"
+    },
+    "head-bg": {
+      "$value": "{surface.raised}",
+      "$type": "color"
+    },
+    "bg": {
+      "$value": "{level.2}",
+      "$type": "color"
+    },
+    "edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow"
+    },
+    "divider": {
+      "$value": "{line.divider}",
+      "$type": "color"
+    },
+    "highlight": {
+      "$value": "{surface.quiet}",
+      "$type": "color"
+    },
+    "glyph": {
+      "$value": "{control.icon-sm}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P2"
+        ],
+        "why": "data on a level-2 pane with an opaque sheet-tone header and hairlines between rows, numbers at the end"
+      }
+    }
   }
 }

@@ -1,0 +1,11 @@
+/* A glyph pressed into a small well, the same carve as a field, then the title and the way out, centred on
+   the pane it fills (P4: quiet; it waits, it does not shout). */
+.root { display: flex; flex-direction: column; align-items: center; gap: var(--ds-empty-state-gap); padding: var(--ds-empty-state-padding); text-align: center; font-family: var(--ds-type-family); }
+.sm { padding: var(--ds-empty-state-padding-sm); }
+.well { display: inline-grid; place-items: center; inline-size: var(--ds-empty-state-well); block-size: var(--ds-empty-state-well); border-radius: var(--ds-corner-round); background: var(--ds-empty-state-well-bg); box-shadow: var(--ds-empty-state-well-carve); color: var(--ds-text-secondary); }
+.well svg { inline-size: var(--ds-empty-state-icon); block-size: var(--ds-empty-state-icon); }
+.title { margin: 0; font-size: var(--ds-empty-state-title); font-weight: var(--ds-type-weight-semibold); line-height: var(--ds-type-leading-tight); color: var(--ds-text-primary); }
+.sm .title { font-size: var(--ds-type-body); }
+.description { margin: 0; max-inline-size: var(--ds-empty-state-measure); font-size: var(--ds-type-body); line-height: var(--ds-type-leading-body); color: var(--ds-text-secondary); }
+.actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--ds-gap-md); margin-block-start: var(--ds-empty-state-gap); }
+@media (forced-colors: active) { .well { border: var(--ds-width-hairline) solid CanvasText; } }
