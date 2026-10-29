@@ -41,13 +41,13 @@
     {
       "p": "P1",
       "axis": "depth",
-      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur), never from an opaque tint",
+      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur) inside a smoked body thick enough that a pane reads as a slab of glass, with the scene softened behind it",
       "form": "the etch is a dimmed patch with shade on top and light below, no opaque fill"
     },
     {
       "p": "P1",
       "axis": "colour",
-      "consequence": "the scene supplies the hue; the system owns almost no colour of its own, only white at opacities, one ink and one blue",
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
       "form": "tags carry no colour of their own, only the text colour"
     },
     {

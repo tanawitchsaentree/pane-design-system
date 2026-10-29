@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T15:03:51.273Z",
+  "generatedAt": "2026-10-28T17:44:43.577Z",
   "browser": "chromium 156.0.8078.4",
   "threshold": 4.5,
   "modes": [
@@ -34,10 +34,10 @@
         },
         "controls": {
           "texts": 3,
-          "worst": 14.26,
+          "worst": 14.36,
           "failures": 0,
           "worstFive": [
-            "Secondary text on the card. 14.26",
+            "Secondary text on the card. 14.36",
             "Visual asset 05 18.4",
             "Trending 18.4"
           ]
@@ -113,10 +113,10 @@
         },
         "controls": {
           "texts": 3,
-          "worst": 14.26,
+          "worst": 14.36,
           "failures": 0,
           "worstFive": [
-            "Secondary text on the card. 14.26",
+            "Secondary text on the card. 14.36",
             "Visual asset 05 18.4",
             "Trending 18.4"
           ]
@@ -192,10 +192,10 @@
         },
         "controls": {
           "texts": 3,
-          "worst": 14.26,
+          "worst": 14.36,
           "failures": 0,
           "worstFive": [
-            "Secondary text on the card. 14.26",
+            "Secondary text on the card. 14.36",
             "Visual asset 05 18.4",
             "Trending 18.4"
           ]
@@ -271,10 +271,10 @@
         },
         "controls": {
           "texts": 3,
-          "worst": 14.26,
+          "worst": 14.36,
           "failures": 0,
           "worstFive": [
-            "Secondary text on the card. 14.26",
+            "Secondary text on the card. 14.36",
             "Visual asset 05 18.4",
             "Trending 18.4"
           ]
@@ -350,10 +350,10 @@
         },
         "controls": {
           "texts": 3,
-          "worst": 9.22,
+          "worst": 9,
           "failures": 0,
           "worstFive": [
-            "Secondary text on the card. 9.22",
+            "Secondary text on the card. 9",
             "Visual asset 05 15.88",
             "Trending 15.88"
           ]
@@ -429,10 +429,10 @@
         },
         "controls": {
           "texts": 3,
-          "worst": 9.22,
+          "worst": 9,
           "failures": 0,
           "worstFive": [
-            "Secondary text on the card. 9.22",
+            "Secondary text on the card. 9",
             "Visual asset 05 15.88",
             "Trending 15.88"
           ]
@@ -508,10 +508,10 @@
         },
         "controls": {
           "texts": 3,
-          "worst": 9.22,
+          "worst": 9,
           "failures": 0,
           "worstFive": [
-            "Secondary text on the card. 9.22",
+            "Secondary text on the card. 9",
             "Visual asset 05 15.88",
             "Trending 15.88"
           ]
@@ -587,10 +587,10 @@
         },
         "controls": {
           "texts": 3,
-          "worst": 9.22,
+          "worst": 9,
           "failures": 0,
           "worstFive": [
-            "Secondary text on the card. 9.22",
+            "Secondary text on the card. 9",
             "Visual asset 05 15.88",
             "Trending 15.88"
           ]
@@ -984,10 +984,10 @@
         },
         "controls": {
           "texts": 3,
-          "worst": 8.6,
+          "worst": 8.39,
           "failures": 0,
           "worstFive": [
-            "Secondary text on the card. 8.6",
+            "Secondary text on the card. 8.39",
             "Visual asset 05 14.23",
             "Trending 14.23"
           ]
@@ -1063,10 +1063,10 @@
         },
         "controls": {
           "texts": 3,
-          "worst": 8.6,
+          "worst": 8.39,
           "failures": 0,
           "worstFive": [
-            "Secondary text on the card. 8.6",
+            "Secondary text on the card. 8.39",
             "Visual asset 05 14.23",
             "Trending 14.23"
           ]
@@ -1142,10 +1142,10 @@
         },
         "controls": {
           "texts": 3,
-          "worst": 8.6,
+          "worst": 8.39,
           "failures": 0,
           "worstFive": [
-            "Secondary text on the card. 8.6",
+            "Secondary text on the card. 8.39",
             "Visual asset 05 14.23",
             "Trending 14.23"
           ]
@@ -1221,10 +1221,10 @@
         },
         "controls": {
           "texts": 3,
-          "worst": 8.6,
+          "worst": 8.39,
           "failures": 0,
           "worstFive": [
-            "Secondary text on the card. 8.6",
+            "Secondary text on the card. 8.39",
             "Visual asset 05 14.23",
             "Trending 14.23"
           ]
@@ -1924,49 +1924,49 @@
   "docsPage": {
     "normal": {
       "dark/room": {
-        "textElements": 34012,
+        "textElements": 34421,
         "failures": 0,
         "pages": 146
       },
       "dark/forest": {
-        "textElements": 34012,
+        "textElements": 34421,
         "failures": 0,
         "pages": 146
       },
       "dark/night": {
-        "textElements": 34012,
+        "textElements": 34421,
         "failures": 0,
         "pages": 146
       },
       "dark/city": {
-        "textElements": 34012,
+        "textElements": 34421,
         "failures": 0,
         "pages": 146
       },
       "light/room": {
-        "textElements": 34012,
-        "failures": 0,
+        "textElements": 34421,
+        "failures": 2,
         "pages": 146
       },
       "light/forest": {
-        "textElements": 34012,
-        "failures": 0,
+        "textElements": 34421,
+        "failures": 2,
         "pages": 146
       },
       "light/night": {
-        "textElements": 34012,
-        "failures": 0,
+        "textElements": 34421,
+        "failures": 2,
         "pages": 146
       },
       "light/city": {
-        "textElements": 34012,
-        "failures": 0,
+        "textElements": 34421,
+        "failures": 2,
         "pages": 146
       }
     },
     "reduced-transparency": {
       "dark/room": {
-        "textElements": 34012,
+        "textElements": 34421,
         "failures": 0,
         "pages": 146
       },
@@ -1986,8 +1986,8 @@
         "pages": 0
       },
       "light/room": {
-        "textElements": 34012,
-        "failures": 0,
+        "textElements": 34421,
+        "failures": 2,
         "pages": 146
       },
       "light/forest": {
@@ -2008,7 +2008,7 @@
     },
     "forced-colors": {
       "dark/room": {
-        "textElements": 33957,
+        "textElements": 34423,
         "failures": 0,
         "pages": 146
       },
@@ -2028,7 +2028,7 @@
         "pages": 0
       },
       "light/room": {
-        "textElements": 33957,
+        "textElements": 34423,
         "failures": 0,
         "pages": 146
       },
@@ -2049,42 +2049,28 @@
       }
     }
   },
-  "failures": [],
+  "failures": [
+    "[normal] docs /foundations/color light/room: \"AA text\" 1",
+    "[normal] docs /foundations/color light/room: \"AA large / UI\" 1",
+    "[normal] docs /foundations/color light/forest: \"AA text\" 1",
+    "[normal] docs /foundations/color light/forest: \"AA large / UI\" 1",
+    "[normal] docs /foundations/color light/night: \"AA text\" 1",
+    "[normal] docs /foundations/color light/night: \"AA large / UI\" 1",
+    "[normal] docs /foundations/color light/city: \"AA text\" 1",
+    "[normal] docs /foundations/color light/city: \"AA large / UI\" 1",
+    "[reduced-transparency] docs /foundations/color light/room: \"AA text\" 1",
+    "[reduced-transparency] docs /foundations/color light/room: \"AA large / UI\" 1"
+  ],
   "excepted": [
-    "[normal] docs /foundations/grid dark/room: \"span\" 4.47",
-    "[normal] docs /components/tabs/usage dark/room: \"المنشورات\" 4.14",
-    "[normal] docs /foundations/grid dark/forest: \"span\" 4.47",
-    "[normal] docs /components/tabs/usage dark/forest: \"المنشورات\" 4.14",
-    "[normal] docs /foundations/grid dark/night: \"span\" 4.47",
-    "[normal] docs /components/tabs/usage dark/night: \"المنشورات\" 4.14",
-    "[normal] docs /foundations/grid dark/city: \"span\" 4.47",
-    "[normal] docs /components/tabs/usage dark/city: \"المنشورات\" 4.14",
-    "[normal] docs /foundations/color light/room: \"AA text\" 3.99",
-    "[normal] docs /foundations/color light/room: \"AA large / UI\" 3.99",
-    "[normal] docs /components/tabs/usage light/room: \"المنشورات\" 4.14",
-    "[normal] docs /foundations/color light/forest: \"AA text\" 3.99",
-    "[normal] docs /foundations/color light/forest: \"AA large / UI\" 3.99",
-    "[normal] docs /components/tabs/usage light/forest: \"المنشورات\" 4.14",
-    "[normal] docs /foundations/color light/night: \"AA text\" 3.99",
-    "[normal] docs /foundations/color light/night: \"AA large / UI\" 3.99",
-    "[normal] docs /components/tabs/usage light/night: \"المنشورات\" 4.14",
     "[normal] docs /components/input-group/usage light/night: \"كرونة\" 4.38",
-    "[normal] docs /foundations/color light/city: \"AA text\" 3.99",
-    "[normal] docs /foundations/color light/city: \"AA large / UI\" 3.99",
-    "[normal] docs /components/tabs/usage light/city: \"المنشورات\" 4.14",
-    "[reduced-transparency] docs /foundations/grid dark/room: \"span\" 4.47",
-    "[reduced-transparency] docs /components/tabs/usage dark/room: \"المنشورات\" 4.14",
-    "[reduced-transparency] docs /foundations/color light/room: \"AA text\" 3.99",
-    "[reduced-transparency] docs /foundations/color light/room: \"AA large / UI\" 3.99",
-    "[reduced-transparency] docs /foundations/shape light/room: \"Pane\" 4.07",
-    "[reduced-transparency] docs /components/tabs/usage light/room: \"المنشورات\" 4.14"
+    "[reduced-transparency] docs /foundations/shape light/room: \"Pane\" 4.07"
   ],
   "exception": "E-001",
   "exceptionFloor": 3.8,
   "summary": {
-    "gatingChecks": 408898,
-    "gatingFailures": 0,
-    "excepted": 27,
+    "gatingChecks": 413920,
+    "gatingFailures": 10,
+    "excepted": 2,
     "informational": []
   }
 }

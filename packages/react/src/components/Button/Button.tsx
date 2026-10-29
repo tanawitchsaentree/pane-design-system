@@ -6,7 +6,7 @@ export type ButtonVariant = 'light' | 'accent' | 'glass';
 export type ButtonSize = 'sm' | 'md';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** `light` = the loud solid (white in dark, ink in light), the one main action on a pane. `accent` = the blue sheet for a promoted action. `glass` = the quiet glass fill. */
+  /** `light` = the loud solid (white in dark, ink in light), the one main action on a pane. `accent` = the same solid glowing with its own light, for a promoted action. `glass` = quiet glass lit from above. */
   variant?: ButtonVariant;
   /** `md` = 44px tall (default, touch-friendly); `sm` = 32px for dense rows and toolbars. */
   size?: ButtonSize;

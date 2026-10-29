@@ -64,3 +64,18 @@ export function sourceHash(root = ROOT) {
   for (const d of ['packages', 'apps', 'system', 'tooling']) walk(path.join(root, d));
   return h.digest('hex').slice(0, 16);
 }
+
+// Run fn over items with at most n in flight; results keep the input order.
+export async function pool(items, n, fn) {
+  const out = new Array(items.length); let next = 0;
+  await Promise.all(Array.from({ length: Math.min(Math.max(1, n), items.length) }, async () => {
+    while (next < items.length) { const k = next++; out[k] = await fn(items[k], k); }
+  }));
+  return out;
+}
+// KILN_ROUTES=/components/chip,/foundations/color limits a browser step to those routes and their tabs,
+// for a fast check while working. A run limited this way is marked partial and proves nothing about the rest.
+export function routeFilter(all) {
+  const want = (process.env.KILN_ROUTES ?? '').split(',').map((x) => x.trim()).filter(Boolean);
+  return want.length ? all.filter((r) => want.some((w) => r === w || r.startsWith(`${w}/`))) : all;
+}

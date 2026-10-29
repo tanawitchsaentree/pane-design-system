@@ -14,19 +14,19 @@ export const EXTRAS: Record<string, () => ReactElement> = {
         <p>Colour in Pane steps with depth. The opaque page is the bottom layer, a raised surface sits on it, and a sunken surface sits below it. On glass the order is the scene, then the pane, then wells pressed into the pane and solid fills on top of it. Each layer has its own surface token, so a nested surface is always one step from its parent and never the same colour by accident.</p>
       </Section>
       <Section id="tokens" title="Colour tokens">
-        <p>Colour reaches components in three tiers. Primitives such as <code>color.blue.600</code> hold the values, semantic tokens such as <code>action.accent</code> or <code>text.secondary</code> say what a colour is for, and component tokens such as <code>button.accent-bg</code> point at a semantic token. Component CSS uses only component and semantic tokens, and a lint fails the build on any raw value.</p>
+        <p>Colour reaches components in three tiers. Primitives such as <code>color.ink.900</code> hold the values, semantic tokens such as <code>action.accent</code> or <code>text.secondary</code> say what a colour is for, and component tokens such as <code>button.accent-bg</code> point at a semantic token. Component CSS uses only component and semantic tokens, and a lint fails the build on any raw value.</p>
       </Section>
       <Section id="states" title="Interaction states">
-        <p>Pane changes shape before it changes colour. Hover lifts a control or thickens a ring, a press shrinks it, focus draws the shared white ring with a dark halo, selected adds a check or a fill, and disabled fades to half opacity. Only the accent button and the switch track change colour on hover or when on, and they ease at the same pace as the movement so colour and lift read as one event.</p>
+        <p>Pane changes shape before it changes colour. Hover lifts a control or thickens a ring, a press shrinks it, focus draws the shared white ring with a dark halo, selected adds a check or a lighter pane, and disabled fades to half opacity. Only the switch track changes colour, when it lights from within as it turns on, and it eases at the same pace as the bead so light and movement read as one event.</p>
       </Section>
       <Section id="themes" title="Colour in each theme">
-        <p>The dark theme puts white text on glass that dims the scene, and the light theme puts ink text on glass that lifts it. Solid fills invert, so the loudest button is white in dark and ink in light. Accent blue and the status fills stay the same in both, because their text pairs are computed on the fill. The Themes page shows every surface side by side.</p>
+        <p>The dark theme puts white text on glass that dims the scene, and the light theme puts ink text on glass that lifts it. Solid fills invert, so the loudest button and the accent are white in dark and ink in light. The status fills stay the same in both, because their text pairs are computed on the fill. The Themes page shows every surface side by side.</p>
       </Section>
       <Section id="high-contrast" title="High contrast">
         <p>In forced colours the browser replaces Pane’s palette with the reader’s system colours. Fills disappear, so every component draws a system-colour border instead, and selection uses Highlight. With reduced transparency the glass turns into an opaque graphite surface. Both modes are measured on every verify run.</p>
       </Section>
       <Section id="specs" title="Specifications">
-        <p>Every colour value, in both themes, is listed with its tier and reference on the <Link to="/reference/tokens">Tokens</Link> page, generated from the token source. Accent is #0071E3 with white text at 4.70:1. Positive is #13803C at 5.02:1, warning is #F5B000 with ink at 9.90:1, and critical is #C42B1C at 5.66:1.</p>
+        <p>Every colour value, in both themes, is listed with its tier and reference on the <Link to="/reference/tokens">Tokens</Link> page, generated from the token source. The loud solid and the accent pair ink and white at 18.74:1 in both themes. Info is #0071E3 at 4.70:1, positive is #13803C at 5.02:1, warning is #F5B000 with ink at 9.90:1, and critical is #C42B1C at 5.66:1.</p>
       </Section>
       <Section id="on-glass" title="Colour on glass">
         <p>Glass has no colour of its own. It shows the scene through a 6 percent white tint, and the scene supplies every hue (P1). Status colour on glass is limited to small glyphs, in brighter tones on dark glass and deeper ones on light glass, so a small mark stays visible without repainting the pane.</p>
@@ -154,7 +154,7 @@ export const EXTRAS: Record<string, () => ReactElement> = {
         <p>A glass pane casts the float shadow, a long soft drop, and the loud button casts the shorter lift shadow. Inset panes and wells cast none, because one sheet of glass is one layer (P3). These pairs are fixed in the component tokens.</p>
       </Section>
       <Section id="dark" title="Elevation in each theme">
-        <p>Shadows are deeper in the dark theme and lighter in the light theme, where a strong shadow would read as dirt on a pale pane. The rim of light on the top-left edge is white in both.</p>
+        <p>Shadows are deeper in the dark theme and lighter in the light theme, where a strong shadow would read as dirt on a pale pane. The rim of light along the top edge is white in both.</p>
       </Section>
       <Section id="interaction" title="Elevation when touched">
         <p>Hover lifts a control 2px closer, and a press shrinks it a little, quicker than the lift. Panes do not lift, because a whole pane is never a hidden button (P3).</p>

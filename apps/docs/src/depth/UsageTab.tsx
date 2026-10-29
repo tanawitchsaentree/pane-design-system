@@ -105,7 +105,7 @@ export function UsageTab({ d, name, kinds, sizes }: { d: Depth; name: string; ki
       )}
 
       {isNA(d.placement) ? <NA id="u8" title="Placement and alignment" why={d.placement} /> : (
-        <Section id="u8" title="Placement and alignment" wide>
+        <Section id="u8" title="Placement and alignment" wide fold>
           <div data-registry="U8">
             <div className="table-wrap"><table><thead><tr><th scope="col">Placement</th><th scope="col">Use it when</th></tr></thead>
               <tbody>{d.placement.rows.map(([k, v]) => <tr key={k}><th scope="row">{k}</th><td>{v}</td></tr>)}</tbody></table></div>
@@ -115,7 +115,7 @@ export function UsageTab({ d, name, kinds, sizes }: { d: Depth; name: string; ki
       )}
 
       {isNA(d.combinations) ? <NA id="u9" title="Combinations" why={d.combinations} /> : (
-        <Section id="u9" title="Combinations" wide>
+        <Section id="u9" title="Combinations" wide fold>
           <div data-registry="U9">
             <h3>Recommended</h3>
             <div className="table-wrap"><table><thead><tr><th scope="col">Combination</th><th scope="col">When</th></tr></thead>
@@ -127,18 +127,20 @@ export function UsageTab({ d, name, kinds, sizes }: { d: Depth; name: string; ki
       )}
 
       {isNA(d.content) ? <NA id="u10" title="Content" why={d.content} /> : (
-        <Section id="u10" title="Content" wide>
+        <Section id="u10" title="Content" wide fold>
           <div data-registry="U10">
             {d.content.formula}
             <PairView pair={d.content.pair} />
-            <h3>Long labels</h3><p>{d.content.overflow.text}</p><Stage className="narrow-stage">{d.content.overflow.render}</Stage>
-            <h3>Right-to-left</h3><p>{d.content.rtl.text}</p><Stage>{d.content.rtl.render}</Stage>
-            <h3>Text expansion</h3><p>{d.content.expansion.text}</p><Stage>{d.content.expansion.render}</Stage>
+            <div className="trio">
+              <div><h3>Long labels</h3><p>{d.content.overflow.text}</p><Stage className="narrow-stage">{d.content.overflow.render}</Stage></div>
+              <div><h3>Right-to-left</h3><p>{d.content.rtl.text}</p><Stage>{d.content.rtl.render}</Stage></div>
+              <div><h3>Text expansion</h3><p>{d.content.expansion.text}</p><Stage>{d.content.expansion.render}</Stage></div>
+            </div>
           </div>
         </Section>
       )}
 
-      <Section id="u11" title="Behaviours">
+      <Section id="u11" title="Behaviours" fold>
         <div data-registry="U11">
           <h3>States</h3>
           <div className="table-wrap"><table><thead><tr><th scope="col">State</th><th scope="col">What it does</th><th scope="col">Why</th></tr></thead>
@@ -152,16 +154,18 @@ export function UsageTab({ d, name, kinds, sizes }: { d: Depth; name: string; ki
       </Section>
 
       {isNA(d.deepDive) ? <NA id="u12" title="Each variant in depth" why={d.deepDive} /> : (
-        <Section id="u12" title="Each variant in depth" wide>
+        <Section id="u12" title="Each variant in depth" wide fold>
           <div data-registry="U12">
             {kindOptions.map((o) => { const v = (d.deepDive as Exclude<Depth['deepDive'], NotApplicable>)[o]; return v ? (
               <div key={o} className="deep-dive" data-deep-dive={o}>
-                <h3><code>{o}</code></h3>
-                {v.purpose}
-                <figure className="in-context" data-in-context=""><Stage>{v.context}</Stage><figcaption>{o} in a real pane</figcaption></figure>
-                <h4>Best practices</h4>
-                <ul>{v.practices.map((p) => <li key={p}>{p}</li>)}</ul>
-                <PairView pair={v.pair} />
+                <div className="dd-text">
+                  <h3><code>{o}</code></h3>
+                  {v.purpose}
+                  <h4>Best practices</h4>
+                  <ul>{v.practices.map((p) => <li key={p}>{p}</li>)}</ul>
+                </div>
+                <figure className="in-context dd-media" data-in-context=""><Stage>{v.context}</Stage><figcaption>{o} in a real pane</figcaption></figure>
+                <div className="dd-pair"><PairView pair={v.pair} /></div>
               </div>
             ) : <p key={o} className="fail" data-deep-dive={o}>No deep dive written for {o}.</p>; })}
           </div>
@@ -169,8 +173,8 @@ export function UsageTab({ d, name, kinds, sizes }: { d: Depth; name: string; ki
       )}
 
       {isNA(d.modifiers) ? <NA id="u13" title="Modifiers" why={d.modifiers} /> : (
-        <Section id="u13" title="Modifiers" wide>
-          <div data-registry="U13">{d.modifiers.map((m) => <div key={m.name} className="modifier"><h3>{m.name}</h3>{m.rules}<PairView pair={m.pair} /></div>)}</div>
+        <Section id="u13" title="Modifiers" wide fold>
+          <div data-registry="U13">{d.modifiers.map((m) => <div key={m.name} className="modifier"><div className="dd-text"><h3>{m.name}</h3>{m.rules}</div><div className="dd-media"><PairView pair={m.pair} /></div></div>)}</div>
         </Section>
       )}
 

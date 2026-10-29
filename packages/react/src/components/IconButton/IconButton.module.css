@@ -1,4 +1,4 @@
-/* A small round pane (round 3): Button's material at the size of a glyph, with gloss, the pane rim and a
+/* A small round pane lit from above (rounds 3 and 4): Button's material at the size of a glyph, with gloss, the pane rim and a
    glint under the pointer. Quiet, so it does not lift (P5); a press shrinks it (P4); the press area is
    44px each way at both sizes (P6). */
 .root {
@@ -13,20 +13,16 @@
   cursor: pointer;
   transition: transform var(--ds-motion-hover) var(--ds-motion-easing), color var(--ds-motion-hover) var(--ds-motion-easing);
 }
-/* the pane rim, brightest at the top left */
+/* the streak: light catching the curve of the top edge, brightest at its centre (round 5) */
 .root::before {
   content: '';
   position: absolute;
-  inset: 0;
   z-index: 1;
-  border-radius: inherit;
-  padding: var(--ds-width-hairline);
+  inset-block-start: 0;
+  inset-inline: 22%;
+  block-size: var(--ds-width-hairline);
   pointer-events: none;
-  background: linear-gradient(150deg, var(--ds-icon-button-rim-hi), var(--ds-icon-button-rim-lo) 38%, var(--ds-icon-button-rim-lo) 70%, var(--ds-icon-button-rim-mid));
-  /* mask keeps only the padding ring; the keyword is the mask alpha source, not a design colour */
-  -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  background: linear-gradient(90deg, transparent, var(--ds-icon-button-streak), transparent);
 }
 /* the glint, where the pointer is */
 .root::after {
@@ -48,11 +44,15 @@
 .sm { inline-size: var(--ds-icon-button-size-sm); block-size: var(--ds-icon-button-size-sm); }
 .root > svg { inline-size: var(--ds-icon-button-icon); block-size: var(--ds-icon-button-icon); }
 .glass {
-  background: linear-gradient(180deg, var(--ds-icon-button-gloss), transparent 50%), var(--ds-icon-button-glass-bg);
+  background: linear-gradient(180deg, var(--ds-icon-button-glass-top), transparent 55%), var(--ds-icon-button-glass-foot);
+  box-shadow: var(--ds-icon-button-edge), var(--ds-icon-button-cast);
   color: var(--ds-icon-button-fg);
   -webkit-backdrop-filter: blur(var(--ds-icon-button-blur));
   backdrop-filter: blur(var(--ds-icon-button-blur));
 }
+/* loud: a white bead with its own bloom, the one main action in a toolbar or dock */
+.loud { background: radial-gradient(circle at 50% 30%, var(--ds-icon-button-loud-top) 40%, var(--ds-icon-button-loud-foot)); color: var(--ds-icon-button-loud-fg); box-shadow: var(--ds-icon-button-bloom); text-shadow: none; }
+.loud::before { display: none; }
 /* ghost: the glyph alone at rest, no rim; the glint still answers the pointer */
 .ghost { background: transparent; color: var(--ds-icon-button-ghost-fg); }
 .ghost::before { display: none; }

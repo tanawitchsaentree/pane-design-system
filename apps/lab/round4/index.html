@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Round 4 · one light from above, no blue · Pane</title>
+<link rel="stylesheet" href="../../../packages/tokens/build/css/tokens.css" />
+<style>
+  /* Lab only (R-012). The user's reference: a monochrome glass system where light falls from above, so
+     every atom has the same bright top rim, a sheen on its upper half and a shade at its foot; the loud
+     action is a white solid with a glow; a chosen item is a lighter pane of glass; there is no blue.
+     0 is Pane 0.4.0. A, B and C read the same light model three ways. */
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--ds-type-family); background: #0b0c0e; color: #fff; -webkit-font-smoothing: antialiased; }
+  [data-theme=light] body { background: #f2f2f4; color: #111214; }
+  header.lab { padding: 26px 40px 6px; max-width: 1640px; margin: 0 auto; }
+  header.lab h1 { margin: 0 0 6px; font-size: 26px; } header.lab p { margin: 0 0 12px; opacity: .75; max-width: 90ch; line-height: 1.5; }
+  .controls { display: flex; gap: 8px; } .controls button { font: inherit; font-size: 14px; padding: 6px 14px; border-radius: 999px; border: 0; background: rgba(127,127,127,.18); color: inherit; cursor: pointer; }
+  .controls button[aria-pressed=true] { background: rgba(127,127,127,.4); font-weight: 650; }
+  main { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; padding: 18px 40px 80px; max-width: 1640px; margin: 0 auto; }
+  @media (max-width: 1300px) { main { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  figure { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  figcaption b { font-size: 15px; } figcaption p { margin: 3px 0 0; opacity: .7; font-size: 13px; line-height: 1.45; }
+  .stage { padding: 22px 16px; border-radius: 22px; background: center / cover url(../../docs/public/scenes/room.webp); display: flex; flex-direction: column; gap: 16px; }
+  body[data-scene=night] .stage { background-image: url(../../docs/public/scenes/night.webp); }
+  body[data-scene=forest] .stage { background-image: url(../../docs/public/scenes/forest.webp); }
+  body[data-scene=plain] .stage { background: radial-gradient(120% 90% at 30% 0%, #26282d, #0d0e10); }
+  [data-theme=light] body[data-scene=plain] .stage { background: radial-gradient(120% 90% at 30% 0%, #ffffff, #e4e5e9); }
+
+  /* ---------- the pane, common to all ---------- */
+  .pane { position: relative; isolation: isolate; padding: 18px; border-radius: 28px; display: flex; flex-direction: column; gap: 14px; color: #fff;
+    background: rgba(18,19,22,.42); -webkit-backdrop-filter: blur(40px) saturate(1.6) brightness(.62); backdrop-filter: blur(40px) saturate(1.6) brightness(.62);
+    box-shadow: 0 30px 60px -24px rgba(0,0,0,.6); }
+  [data-theme=light] .pane { color: #111214; background: rgba(255,255,255,.58); -webkit-backdrop-filter: blur(40px) saturate(1.6) brightness(1.1); backdrop-filter: blur(40px) saturate(1.6) brightness(1.1); box-shadow: 0 30px 60px -24px rgba(0,0,0,.25); }
+  .eyebrow { font-size: 11px; font-weight: 650; letter-spacing: .1em; text-transform: uppercase; opacity: .78; margin: 0; }
+  .title { font-size: 20px; font-weight: 650; margin: 0; } .meta { font-size: 14px; opacity: .85; margin: 0; }
+  .hr { height: 1px; background: rgba(255,255,255,.12); } [data-theme=light] .hr { background: rgba(17,18,20,.1); }
+  .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .between { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; }
+  .small { font-size: 12px; opacity: .75; }
+  svg.i { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* every lit object: a rim drawn with a mask, and the fill with a sheen */
+  .lit { position: relative; isolation: isolate; }
+  .lit::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none; z-index: 2;
+    background: var(--rim); -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+  .b { border: 0; font: 600 15px/1 var(--ds-type-family); min-height: 40px; padding: 0 18px; border-radius: 999px; color: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+  .ib { border: 0; width: 40px; height: 40px; border-radius: 999px; display: inline-grid; place-items: center; color: inherit; cursor: pointer; padding: 0; }
+  .track { display: inline-flex; padding: 4px; border-radius: 999px; gap: 2px; }
+  .seg { border: 0; background: transparent; color: inherit; font: 500 15px/1 var(--ds-type-family); min-height: 36px; min-width: 36px; padding: 0 14px; border-radius: 999px; cursor: pointer; }
+  .sw { position: relative; width: 52px; height: 30px; border-radius: 999px; border: 0; padding: 0; flex: none; }
+  .sw .k { position: absolute; top: 3px; left: 3px; width: 24px; height: 24px; border-radius: 999px; }
+  .sw.on .k { transform: translateX(22px); }
+  .sl { position: relative; height: 24px; display: flex; align-items: center; } .sl .t { flex: 1; height: 6px; border-radius: 999px; position: relative; overflow: hidden; }
+  .sl .r { position: absolute; inset: 0 32% 0 0; border-radius: 999px; } .sl .th { position: absolute; left: 68%; top: 50%; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 999px; }
+  .chip { border: 0; color: inherit; font: 500 14px/1 var(--ds-type-family); min-height: 32px; padding: 0 14px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; }
+  .chip svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .field { min-height: 40px; border-radius: 999px; display: flex; align-items: center; gap: 8px; padding: 0 14px; font-size: 15px; } .field .ph { opacity: .7; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; font: 600 12px/1 var(--ds-type-family); min-height: 22px; padding: 0 9px; border-radius: 999px; }
+
+  /* ================= 0 · Pane 0.4.0 (blue accent, top-left rim on some parts) ================= */
+  .v0 { --rim: linear-gradient(150deg, rgba(255,255,255,.55), rgba(255,255,255,.06) 38%, rgba(255,255,255,.06) 70%, rgba(255,255,255,.28)); }
+  .v0 .pane { box-shadow: 0 30px 60px -24px rgba(0,0,0,.6), inset 0 0 0 1px rgba(255,255,255,.28); }
+  .v0 .b.loud { background: linear-gradient(180deg, rgba(255,255,255,.26), transparent 46%), linear-gradient(180deg, #0071E3, #0062C4 55%, #0052A8); color: #fff; box-shadow: 0 12px 26px -8px rgba(0,113,227,.8); }
+  .v0 .b.quiet, .v0 .ib, .v0 .chip { background: rgba(255,255,255,.08); }
+  .v0 .track { background: rgba(0,0,0,.35); box-shadow: inset 0 2px 4px rgba(0,0,0,.55), inset 0 -2px 0 rgba(255,255,255,.55); }
+  .v0 .seg.on { background: linear-gradient(180deg, #0071E3, #0052A8); color: #fff; }
+  .v0 .sw { background: rgba(0,0,0,.35); box-shadow: inset 0 2px 4px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.5); } .v0 .sw.on { background: linear-gradient(180deg, #0062C4, #0071E3); }
+  .v0 .sw .k, .v0 .sl .th { background: radial-gradient(circle at 36% 28%, #fff 32%, #E9E9EE); box-shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 12px -4px rgba(0,0,0,.5); }
+  .v0 .sl .t { background: rgba(0,0,0,.35); } .v0 .sl .r { background: #0071E3; }
+  .v0 .chip.on { background: rgba(0,0,0,.35); box-shadow: inset 0 2px 4px rgba(0,0,0,.55); font-weight: 650; }
+  .v0 .field { background: rgba(0,0,0,.35); box-shadow: inset 0 2px 4px rgba(0,0,0,.55), inset 0 -2px 0 rgba(255,255,255,.8); }
+  .v0 .badge .g { color: #3FCB77; }
+
+  /* ================= A · one light from above, white lit solid (the reference read straight) ================= */
+  .vA { --rim: linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.12) 34%, rgba(255,255,255,.05) 70%, rgba(255,255,255,.14)); }
+  [data-theme=light] .vA { --rim: linear-gradient(180deg, #fff, rgba(255,255,255,.55) 34%, rgba(17,18,20,.06) 72%, rgba(17,18,20,.16)); }
+  .vA .pane::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none; background: var(--rim); -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+  .vA .pane { background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,0) 45%), rgba(18,19,22,.42); }
+  [data-theme=light] .vA .pane { background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 45%), rgba(255,255,255,.5); }
+  /* the loud solid: white, lit from above, with a soft glow of its own light */
+  .vA .b.loud { background: linear-gradient(180deg, #fff, #ECEDF0); color: #111214; box-shadow: 0 0 0 1px rgba(255,255,255,.3), 0 8px 26px -6px rgba(255,255,255,.38), 0 2px 6px rgba(0,0,0,.35); }
+  [data-theme=light] .vA .b.loud { background: linear-gradient(180deg, #2A2C31, #111214); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 10px 22px -8px rgba(17,18,20,.55); }
+  /* quiet things: a pane of glass lit from above */
+  .vA .b.quiet, .vA .ib, .vA .chip { background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.04)); box-shadow: 0 6px 14px -8px rgba(0,0,0,.6); }
+  [data-theme=light] .vA .b.quiet, [data-theme=light] .vA .ib, [data-theme=light] .vA .chip { background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.55)); box-shadow: 0 6px 14px -8px rgba(17,18,20,.3); }
+  .vA .ib.loud { background: linear-gradient(180deg, #fff, #ECEDF0); color: #111214; box-shadow: 0 8px 22px -6px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.35); }
+  /* a track: darker glass with the same top rim; the chosen item is a lighter pane resting in it */
+  .vA .track { background: rgba(0,0,0,.34); box-shadow: inset 0 1px 3px rgba(0,0,0,.5); }
+  [data-theme=light] .vA .track { background: rgba(17,18,20,.07); box-shadow: inset 0 1px 3px rgba(17,18,20,.18); }
+  .vA .seg.on { background: linear-gradient(180deg, rgba(255,255,255,.3), rgba(255,255,255,.12)); font-weight: 650; box-shadow: 0 4px 10px -4px rgba(0,0,0,.6); }
+  [data-theme=light] .vA .seg.on { background: linear-gradient(180deg, #fff, #F1F2F4); box-shadow: 0 4px 10px -4px rgba(17,18,20,.3); }
+  .vA .seg.on.lit::before { opacity: 1; }
+  .vA .sw { background: rgba(0,0,0,.4); box-shadow: inset 0 1px 3px rgba(0,0,0,.55); }
+  [data-theme=light] .vA .sw { background: rgba(17,18,20,.16); box-shadow: inset 0 1px 3px rgba(17,18,20,.25); }
+  .vA .sw.on { background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.88)); box-shadow: inset 0 1px 2px rgba(0,0,0,.25), 0 0 14px -2px rgba(255,255,255,.35); }
+  [data-theme=light] .vA .sw.on { background: linear-gradient(180deg, #2A2C31, #111214); box-shadow: inset 0 1px 2px rgba(0,0,0,.4); }
+  .vA .sw .k, .vA .sl .th { background: linear-gradient(180deg, #fff, #E8E9EC); box-shadow: inset 0 -1px 0 rgba(17,18,20,.08), 0 1px 2px rgba(0,0,0,.35), 0 4px 10px -3px rgba(0,0,0,.45); }
+  .vA .sl .t { background: rgba(0,0,0,.4); box-shadow: inset 0 1px 2px rgba(0,0,0,.6); } [data-theme=light] .vA .sl .t { background: rgba(17,18,20,.14); }
+  .vA .sl .r { background: linear-gradient(180deg, #fff, #D9DADE); } [data-theme=light] .vA .sl .r { background: #111214; }
+  .vA .chip.on { background: linear-gradient(180deg, #fff, #ECEDF0); color: #111214; font-weight: 650; box-shadow: 0 6px 16px -6px rgba(255,255,255,.3); }
+  [data-theme=light] .vA .chip.on { background: linear-gradient(180deg, #2A2C31, #111214); color: #fff; }
+  .vA .field { background: rgba(0,0,0,.34); box-shadow: inset 0 1px 3px rgba(0,0,0,.5), inset 0 -1px 0 rgba(255,255,255,.22), inset 0 0 0 1px rgba(255,255,255,.14); }
+  [data-theme=light] .vA .field { background: rgba(17,18,20,.05); box-shadow: inset 0 1px 3px rgba(17,18,20,.2), inset 0 -1px 0 #fff, inset 0 0 0 1px rgba(17,18,20,.46); }
+  .vA .badge { background: rgba(255,255,255,.06); } .vA .badge.pos { color: #8BE3A9; background: rgba(63,203,119,.14); } .vA .badge.warn { color: #F5D27A; background: rgba(245,176,0,.14); }
+  [data-theme=light] .vA .badge.pos { color: #0F6B33; background: rgba(19,128,60,.12); } [data-theme=light] .vA .badge.warn { color: #7A4F00; background: rgba(154,100,0,.12); }
+
+  /* ================= B · same light, chosen = recess filled with light (inverse) ================= */
+  .vB { --rim: linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.12) 34%, rgba(255,255,255,.05) 70%, rgba(255,255,255,.14)); }
+  [data-theme=light] .vB { --rim: linear-gradient(180deg, #fff, rgba(255,255,255,.55) 34%, rgba(17,18,20,.06) 72%, rgba(17,18,20,.16)); }
+  .vB .pane::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none; background: var(--rim); -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+  .vB .b.loud, .vB .ib.loud { background: #fff; color: #111214; box-shadow: 0 2px 6px rgba(0,0,0,.35); }
+  [data-theme=light] .vB .b.loud { background: #111214; color: #fff; }
+  .vB .b.quiet, .vB .ib, .vB .chip { background: rgba(255,255,255,.1); } [data-theme=light] .vB .b.quiet, [data-theme=light] .vB .ib, [data-theme=light] .vB .chip { background: rgba(255,255,255,.75); }
+  .vB .track { background: rgba(255,255,255,.08); }
+  [data-theme=light] .vB .track { background: rgba(255,255,255,.6); }
+  .vB .seg.on { background: rgba(0,0,0,.4); box-shadow: inset 0 2px 4px rgba(0,0,0,.6), inset 0 -1px 0 rgba(255,255,255,.35); font-weight: 650; }
+  [data-theme=light] .vB .seg.on { background: rgba(17,18,20,.1); box-shadow: inset 0 2px 4px rgba(17,18,20,.25), inset 0 -1px 0 #fff; }
+  .vB .seg.on.lit::before { display: none; }
+  .vB .sw { background: rgba(255,255,255,.12); } .vB .sw.on { background: #fff; } [data-theme=light] .vB .sw { background: rgba(17,18,20,.14); } [data-theme=light] .vB .sw.on { background: #111214; }
+  .vB .sw .k, .vB .sl .th { background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.45); } .vB .sw.on .k { background: #111214; } [data-theme=light] .vB .sw.on .k { background: #fff; }
+  .vB .sl .t { background: rgba(255,255,255,.14); } .vB .sl .r { background: #fff; } [data-theme=light] .vB .sl .t { background: rgba(17,18,20,.14); } [data-theme=light] .vB .sl .r { background: #111214; }
+  .vB .chip.on { background: rgba(0,0,0,.4); box-shadow: inset 0 2px 4px rgba(0,0,0,.6); font-weight: 650; } .vB .chip.on.lit::before { display: none; }
+  .vB .field { background: rgba(0,0,0,.34); box-shadow: inset 0 0 0 1px rgba(255,255,255,.4); } [data-theme=light] .vB .field { background: rgba(255,255,255,.6); box-shadow: inset 0 0 0 1px rgba(17,18,20,.5); }
+  .vB .badge.pos { color: #8BE3A9; box-shadow: inset 0 0 0 1px rgba(63,203,119,.5); } .vB .badge.warn { color: #F5D27A; box-shadow: inset 0 0 0 1px rgba(245,176,0,.5); }
+  [data-theme=light] .vB .badge.pos { color: #0F6B33; } [data-theme=light] .vB .badge.warn { color: #7A4F00; }
+
+  /* ================= C · A's light with a spectral edge on the loud and chosen surfaces ================= */
+  .vC { --rim: linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.12) 34%, rgba(255,255,255,.05) 70%, rgba(255,255,255,.14));
+        --spec: linear-gradient(100deg, rgba(255,140,170,.55), rgba(255,230,150,.55) 25%, rgba(150,255,200,.5) 50%, rgba(140,200,255,.55) 75%, rgba(200,150,255,.55)); }
+  [data-theme=light] .vC { --rim: linear-gradient(180deg, #fff, rgba(255,255,255,.55) 34%, rgba(17,18,20,.06) 72%, rgba(17,18,20,.16)); }
+  .vC .pane::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none; background: var(--rim); -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+  .vC .pane { background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,0) 45%), rgba(18,19,22,.42); }
+  [data-theme=light] .vC .pane { background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 45%), rgba(255,255,255,.5); }
+  .vC .b.loud, .vC .ib.loud { background: linear-gradient(180deg, #fff, #ECEDF0); color: #111214; box-shadow: 0 8px 26px -6px rgba(255,255,255,.38), 0 2px 6px rgba(0,0,0,.35); }
+  [data-theme=light] .vC .b.loud { background: linear-gradient(180deg, #2A2C31, #111214); color: #fff; }
+  .vC .b.loud.lit::before, .vC .seg.on.lit::before, .vC .chip.on.lit::before, .vC .ib.loud.lit::before { background: var(--spec); }
+  .vC .b.quiet, .vC .ib, .vC .chip { background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.04)); }
+  [data-theme=light] .vC .b.quiet, [data-theme=light] .vC .ib, [data-theme=light] .vC .chip { background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.55)); }
+  .vC .track { background: rgba(0,0,0,.34); box-shadow: inset 0 1px 3px rgba(0,0,0,.5); } [data-theme=light] .vC .track { background: rgba(17,18,20,.07); }
+  .vC .seg.on { background: linear-gradient(180deg, rgba(255,255,255,.3), rgba(255,255,255,.12)); font-weight: 650; } [data-theme=light] .vC .seg.on { background: linear-gradient(180deg, #fff, #F1F2F4); }
+  .vC .sw { background: rgba(0,0,0,.4); box-shadow: inset 0 1px 3px rgba(0,0,0,.55); } .vC .sw.on { background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.88)); }
+  [data-theme=light] .vC .sw { background: rgba(17,18,20,.16); } [data-theme=light] .vC .sw.on { background: #111214; }
+  .vC .sw .k, .vC .sl .th { background: linear-gradient(180deg, #fff, #E8E9EC); box-shadow: 0 1px 2px rgba(0,0,0,.35), 0 4px 10px -3px rgba(0,0,0,.45); }
+  .vC .sl .t { background: rgba(0,0,0,.4); } .vC .sl .r { background: linear-gradient(90deg, rgba(255,140,170,.8), rgba(255,230,150,.8), rgba(150,255,200,.8), rgba(140,200,255,.9)); }
+  [data-theme=light] .vC .sl .t { background: rgba(17,18,20,.14); }
+  .vC .chip.on { background: linear-gradient(180deg, rgba(255,255,255,.3), rgba(255,255,255,.12)); font-weight: 650; }
+  .vC .field { background: rgba(0,0,0,.34); box-shadow: inset 0 1px 3px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.3); } [data-theme=light] .vC .field { background: rgba(17,18,20,.05); box-shadow: inset 0 0 0 1px rgba(17,18,20,.46); }
+  .vC .badge.pos { color: #8BE3A9; background: rgba(63,203,119,.14); } .vC .badge.warn { color: #F5D27A; background: rgba(245,176,0,.14); }
+  [data-theme=light] .vC .badge.pos { color: #0F6B33; } [data-theme=light] .vC .badge.warn { color: #7A4F00; }
+</style>
+</head>
+<body data-scene="room">
+<header class="lab">
+  <h1>Round 4 · one light from above, no blue</h1>
+  <p>The same pane four ways. 0 is what shipped in 0.4.0. A reads the reference straight: one light from above on every atom, a white lit solid, chosen things as lighter glass. B keeps the light but makes chosen things recesses. C is A with a faint spectral edge on loud and chosen surfaces.</p>
+  <div class="controls">
+    <button data-theme-set="dark" aria-pressed="true">Dark</button><button data-theme-set="light" aria-pressed="false">Light</button>
+    <button data-scene-set="room" aria-pressed="true">Room</button><button data-scene-set="night" aria-pressed="false">Night</button><button data-scene-set="forest" aria-pressed="false">Forest</button><button data-scene-set="plain" aria-pressed="false">Plain</button>
+  </div>
+</header>
+<main id="m"></main>
+<script>
+const I = { l: '<svg class="i" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>', r: '<svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+  s: '<svg class="i" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2 2M16 16l2 2M6 18l2-2M16 8l2-2"/></svg>', g: '<svg class="i" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg>',
+  f: '<svg class="i" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>', q: '<svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
+  c: '<svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>', ok: '<svg class="g" viewBox="0 0 12 12" width="12" height="12"><circle cx="6" cy="6" r="5" fill="currentColor"/></svg>' };
+const PANE = () => `<div class="pane">
+  <p class="eyebrow">Up next</p><p class="title">Glass Harbour</p><p class="meta">Track 3 of 11 · 3:41</p><div class="hr"></div>
+  <div class="track lit"><button class="seg" aria-label="Previous">${I.l}</button><button class="seg">1</button><button class="seg on lit">2</button><button class="seg">3</button><button class="seg">4</button><button class="seg" aria-label="Next">${I.r}</button></div>
+  <div class="row"><button class="b loud lit">Create surface</button><button class="b quiet lit">Preview</button></div>
+  <div class="row"><button class="ib lit">${I.f}</button><button class="ib loud lit">${I.s}</button><button class="ib lit">${I.g}</button></div>
+  <div class="track lit"><button class="seg">Quiet</button><button class="seg on lit">Balanced</button><button class="seg">Vivid</button></div>
+  <div class="between"><span>Spectral highlights<br><span class="small">Adds edge dispersion to premium surfaces.</span></span><button class="sw on" aria-label="on"><span class="k"></span></button></div>
+  <div class="between"><span>Prints</span><button class="sw" aria-label="off"><span class="k"></span></button></div>
+  <div class="between"><span>Refraction</span><span class="small">68%</span></div><div class="sl"><div class="t"><div class="r"></div></div><div class="th"></div></div>
+  <div class="row"><button class="chip on lit">${I.c}Brick</button><button class="chip lit">Plate</button><button class="chip lit">Tile</button></div>
+  <div class="field">${I.q}<span class="ph">Search parts or part #</span></div>
+  <div class="row"><span class="badge pos">${I.ok}Stable</span><span class="badge warn">Beta</span><span class="badge">Draft</span></div>
+</div>`;
+const V = [['v0', '0 · Pane 0.4.0', 'Blue accent, blue tabs and switch, a rim from the top left on some parts only.'], ['vA', 'A · one light from above', 'Every atom has the same top rim and sheen; loud is a white lit solid with a glow; chosen is lighter glass resting in a track.'], ['vB', 'B · chosen as a recess', 'Same light; chosen items are pressed into the glass; loud is a flat white solid.'], ['vC', 'C · A with a spectral edge', 'A, with a faint rainbow edge on loud and chosen surfaces and a spectral slider.']];
+document.getElementById('m').innerHTML = V.map(([c, t, d]) => `<figure class="${c}"><figcaption><b>${t}</b><p>${d}</p></figcaption><div class="stage">${PANE()}</div></figure>`).join('');
+for (const b of document.querySelectorAll('[data-theme-set],[data-scene-set]')) b.addEventListener('click', () => { const t = b.dataset.themeSet, s = b.dataset.sceneSet; if (t) document.documentElement.dataset.theme = t; if (s) document.body.dataset.scene = s; for (const o of document.querySelectorAll(t ? '[data-theme-set]' : '[data-scene-set]')) o.setAttribute('aria-pressed', o === b); });
+</script>
+</body>
+</html>

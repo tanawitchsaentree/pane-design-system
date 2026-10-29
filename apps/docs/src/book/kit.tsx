@@ -49,7 +49,18 @@ export function Page({ eyebrow, title, lede, children }: { eyebrow: string; titl
   );
 }
 
-export function Section({ id, title, children, wide }: { id: string; title: string; children: ReactNode; wide?: boolean }) {
+export function Section({ id, title, children, wide, fold }: { id: string; title: string; children: ReactNode; wide?: boolean; fold?: boolean }) {
+  // fold: a long secondary section starts closed behind its heading, so a page reads in a few screens;
+  // the content stays in the page (search, print, and the depth gate all see it) and opens on click or
+  // when a link points at it
+  if (fold) return (
+    <section id={id} className={`book-section folded${wide ? ' wide' : ''}`} aria-labelledby={`${id}-h`}>
+      <details className="prose fold">
+        <summary><h2 id={`${id}-h`} className="flush">{title}</h2></summary>
+        {children}
+      </details>
+    </section>
+  );
   return (
     <section id={id} className={`book-section${wide ? ' wide' : ''}`} aria-labelledby={`${id}-h`}>
       <div className="prose">
@@ -58,6 +69,13 @@ export function Section({ id, title, children, wide }: { id: string; title: stri
       </div>
     </section>
   );
+}
+
+// a link to a folded section opens it before the browser scrolls to it
+if (typeof window !== 'undefined') {
+  const openTarget = () => { const el = location.hash ? document.getElementById(location.hash.slice(1)) : null; const d = el?.querySelector(':scope > details.fold'); if (d && !d.hasAttribute('open')) d.setAttribute('open', ''); };
+  window.addEventListener('hashchange', openTarget);
+  document.addEventListener('click', (e) => { const a = (e.target as Element)?.closest?.('a[href^="#"]'); if (a) setTimeout(openTarget, 0); });
 }
 
 export function Callout({ tone = 'note', title, children }: { tone?: 'note' | 'rule' | 'caution'; title: string; children: ReactNode }) {

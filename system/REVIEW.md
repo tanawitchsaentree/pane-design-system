@@ -31,3 +31,25 @@ Lab: `apps/lab/round3/index.html`. Card is not in it: Card is the anchor the use
 | Badge | A glyph and word · B etched with a glyph · C glass pill with a glyph | **A** | Banner's language (D-018) at word size: a glyph per tone in its mark colour, the word in text colour, no fill (P1, P6). |
 | Avatar | A a lens · B rounded square · C set in a recess | **A** | The portrait gets the pane's rim of light and a soft shadow, no white ring (P3). |
 | Slider | A carved channel and bead · B graduated · C thick lamp | **A** | Switch's material stretched out: carved channel filled with blue to the value, the same lit bead (P1, P3). |
+
+## Round 4 · 2026-10-29 · one light from above, no blue (D-024)
+
+Lab: `apps/lab/round4/index.html`, after the user's reference (monochrome glass, every atom lit from above).
+
+| Scope | Options | Picked | Why |
+|---|---|---|---|
+| Every component (Button, IconButton, Chip, Tabs, Switch, Slider, Select check, Card rim) | A one light from above · B chosen as a recess · C A with a spectral edge | **A** | The same top-lit rim, sheen and short shadow on every atom; loud is the white lit solid and accent the same solid with its own glow; chosen is lighter glass. B reads chosen as pressed off. C spends a hue the system no longer owns. |
+| Chip chosen | white solid (lab A) · lighter glass | **lighter glass** | Several chosen filters must not become several loud solids (P5). In the light theme the chosen glass is darker, because a white chip on white glass would differ only by its check. |
+| Tabs chosen | — | **lighter glass** | **Supersedes D-009's blue chosen tab**, at the user's word. |
+
+## Round 5 · 2026-10-29 · thick smoked glass, the streak, and levels (D-025)
+
+Lab: `apps/lab/round5/index.html` (the user's OpenGlass-style reference beside Pane 0.5.0).
+
+| Scope | Picked | Why |
+|---|---|---|
+| Every pane and control | **A, the reference read straight** | A smoked body thick enough to read as a slab, a faint edge all round, shade at the foot, a short streak where light catches the top edge, deep soft shadows. The user: "แบบนี้ดูเป็น glass กว่าเยอะ". |
+| Loud action | **warm off-white with a bloom** | As in the reference; reads as lit glass rather than a white hole. |
+| IconButton | **added `loud`, a white bead** | The one main action in a toolbar or dock, as in the reference. |
+| Slider thumb | **a capsule** | As in the reference; a wider thing to grab. |
+| Levels | **1 pane · 2 surface in a pane · 3 overlay on a scrim · 4 popover**, each ≥1.15:1 from what is under it | The user asked for stacked glass that reads as levels, with a formula and a check by eye. Light level 2 had to go to a 12% ink tint to pass. |

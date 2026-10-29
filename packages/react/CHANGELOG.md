@@ -2,6 +2,18 @@
 
 Every entry names the component it touches, so each component page in the book can show its own history. The conformance run fails if a component has no entry.
 
+## 0.5.0 (2026-10-29)
+
+- Thick smoked glass (D-025). A pane is a slab: a smoked body, a faint edge all round, shade at its foot, a short streak where light catches its top edge, and a long soft shadow. The loud solid is a warm off-white with a bloom.
+- Levels. `Card` takes `level` 1 to 4 (pane, surface inside a pane, overlay, popover); a Card inside a Card is level 2 by itself, with no second blur and an inner corner. Use `--ds-card-scrim` under an overlay. Each level is measured at least 1.15:1 from what is under it.
+- IconButton: new `loud` variant, a white bead. Slider: the thumb is a capsule and the track is thinner. Tabs: the track is a well and the chosen tab is grey glass.
+- The book: a palette with full ramps (50 to 950) and roles in tabs on the Colour page; a grouped, searchable token reference; long sections fold behind their headings, so no page is longer than about ten screens.
+- One light from above on every part (D-024, R-012). Every surface, control and track carries a rim brightest along its top edge, a sheen on its upper half and a short soft shadow; recesses are the inverse.
+- No blue. `Button` `accent` is the loud solid glowing with its own light (white in dark, ink in light). Tabs, Switch, Slider and the Select check are monochrome: a chosen tab is a lighter pane of glass, a switch that is on is a lit track, the slider fills with the loud solid.
+- Chip: chosen is a lighter pane with a check, the same chosen glass as Tabs.
+- Button `glass`, IconButton and Chip rest on a short soft shadow and are lit from above.
+- Tokens: `action.accent` and friends now resolve to the loud solid; new `surface.lit-*`, `elevation.track`, `elevation.loud-glow`, `elevation.quiet-cast`, `elevation.chosen-cast`, `elevation.on-glow`; `line.rim-*` describe a rim lit from above.
+
 ## 0.4.0 (2026-10-28)
 
 - IconButton: a small round pane with Button's material (gloss, rim, pointer glint); quiet, so it no longer lifts on hover. A 44px press area around both sizes.

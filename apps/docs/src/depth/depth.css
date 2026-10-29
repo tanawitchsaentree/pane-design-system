@@ -44,3 +44,16 @@ main a.tab-link:hover { color: var(--ds-text-primary); }
 /* loading placeholders for the patterns (surface.placeholder tokens), the size of the text they stand for */
 .placeholder-line { display: block; block-size: var(--ds-type-body); border-radius: var(--ds-radius-pill); background: linear-gradient(90deg, var(--ds-surface-placeholder-lo), var(--ds-surface-placeholder-hi)); }
 .indent { padding-inline-start: var(--ds-gap-2xl); }
+
+/* Use the width (2026-10-29: usage pages ran to 18 screens with everything stacked): text beside its
+   example, the do/don't pair under both, and the content cases three across. Stacks again on narrow screens. */
+@media (min-width: 1100px) {
+  .deep-dive { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); grid-template-areas: 'text media' 'pair pair'; column-gap: var(--ds-gap-3xl); row-gap: var(--ds-gap-xl); align-items: start; }
+  .deep-dive > .dd-text { grid-area: text; display: flex; flex-direction: column; gap: var(--ds-gap-md); }
+  .deep-dive > .dd-media { grid-area: media; margin: 0; }
+  .deep-dive > .dd-pair { grid-area: pair; }
+  .modifier { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr); column-gap: var(--ds-gap-3xl); align-items: start; }
+  .modifier > .dd-text { display: flex; flex-direction: column; gap: var(--ds-gap-md); }
+  .trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--ds-gap-2xl); align-items: start; }
+  .trio > div { display: flex; flex-direction: column; gap: var(--ds-gap-md); min-inline-size: 0; }
+}

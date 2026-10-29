@@ -120,5 +120,12 @@
   "autonomy": {
     "picks": "agent",
     "$comment": "2026-10-28: questions were asked once; the agent picks each derivation, logs it in system/REVIEW.md, the user reviews at the milestone"
-  }
+  },
+  "consumers": [
+    {
+      "path": "../../lego builder",
+      "vendor": "vendor",
+      "name": "Brick Forge"
+    }
+  ]
 }

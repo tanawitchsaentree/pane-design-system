@@ -15,6 +15,7 @@
 //   reasons      G-W1 (Why column, component reasons section; data from rationale.mjs)
 //   claims       G-CL1 every hex in the book is a current token value
 //   non-text     G-NT2 form-control edges ≥3:1 in every theme · G-NR1 flyout rows nest the flyout's corner
+//   stack        G-EL1 stacked glass levels a measured step apart, a scrim under an overlay
 //   milestone    G-TODO1 no starter placeholder or seed reason left   reach  G-NAV1 G-SM1   touch  G-TT1
 //
 // Usage: node tooling/engine/gates.mjs [--only G-K2,G-K3] [--report]
@@ -24,12 +25,12 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 
 import path from 'node:path';
 import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
-import { docsConfig, routes, componentPages, url } from './config.mjs';
+import { docsConfig, routes, componentPages, url, routeFilter } from './config.mjs';
 import { serveDist } from './serve-dist.mjs';
 
 const C = docsConfig();
-const ROUTES = routes(C);
-const COMPONENTS = componentPages(C);
+const ROUTES = routeFilter(routes(C));
+const COMPONENTS = componentPages(C).filter((pg) => ROUTES.some((r) => r === pg.path || r.startsWith(`${pg.path}/`)));
 const META = existsSync(C.abs(C.meta)) ? JSON.parse(readFileSync(C.abs(C.meta), 'utf8')) : { components: {} };
 const BENCH = C.benchmark && existsSync(C.abs(C.benchmark)) ? JSON.parse(readFileSync(C.abs(C.benchmark), 'utf8')).components : {};
 const ONLY = process.argv.includes('--only') ? new Set(process.argv[process.argv.indexOf('--only') + 1].split(',')) : null;
@@ -37,14 +38,26 @@ const THEME = C.themes[0];
 const SCENE = C.scenes[0];
 
 const results = [];
+// Sharding: `--shard k/n` runs every n-th gate (from k) and writes its results for `--merge n`, so
+// gates-run.mjs can run n browsers side by side and the full set finishes in a fraction of the time.
+const SHARD = process.argv.includes('--shard') ? process.argv[process.argv.indexOf('--shard') + 1].split('/').map(Number) : null;
+const MERGE = process.argv.includes('--merge') ? Number(process.argv[process.argv.indexOf('--merge') + 1]) : null;
+const shardFile = (k) => path.join(C.root, 'system', 'reports', `.gates-shard-${k}.json`);
+let gateIndex = -1;
 async function gate(id, name, fn) {
+  gateIndex++;
+  if (MERGE != null) return;
+  if (SHARD && gateIndex % SHARD[1] !== SHARD[0]) return;
   if (ONLY && !ONLY.has(id)) return;
   const t0 = Date.now();
   try {
     const detail = await fn();
-    results.push({ id, name, ok: true, detail: typeof detail === 'string' ? detail : undefined });
+    results.push({ id, name, ok: true, detail: typeof detail === 'string' ? detail : undefined, order: gateIndex });
   } catch (e) {
-    results.push({ id, name, ok: false, detail: String(e.message ?? e).split('\n')[0], problems: e.problems });
+    const msg = String(e.message ?? e).split('\n')[0];
+    // a run limited to some routes (KILN_ROUTES, verify --changed) skips a gate whose subject is not among them
+    if (process.env.KILN_ROUTES && /^NO [A-Z]/.test(msg)) results.push({ id, name, ok: true, skipped: true, detail: `skipped: nothing it checks is in the limited routes`, order: gateIndex });
+    else results.push({ id, name, ok: false, detail: msg, problems: e.problems, order: gateIndex });
   }
   // progress as each gate finishes; the full table still prints at the end
   const r = results.at(-1);
@@ -72,7 +85,9 @@ const srv = await serveDist(C.abs(C.dist));
 const browser = await chromium.launch();
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' });
 const page = await ctx.newPage();
-const go = (route, opts = {}) => page.goto(url(srv.base, route, { theme: THEME, scene: SCENE, ...opts }, C), { waitUntil: 'networkidle' });
+// folded sections are opened before anything is measured, so every check sees all of a page's content
+const unfold = (pg) => pg.evaluate(() => { for (const d of document.querySelectorAll('details')) d.open = true; });
+const go = async (route, opts = {}) => { const r = await page.goto(url(srv.base, route, { theme: THEME, scene: SCENE, ...opts }, C), { waitUntil: 'networkidle' }); await unfold(page); return r; };
 
 try {
   // ------------------------------------------------------------------ shell
@@ -891,6 +906,53 @@ try {
     return `${n} controls in ${C.themes.length} themes`;
   });
 
+  await gate('G-EL1', 'stacked glass reads as levels: each level differs from what is under it by a measured step, and a scrim dims the scene under an overlay', async () => {
+    // Pane, 2026-10-29: a dialog, the tiles inside it and the app behind were the same thin grey glass,
+    // so nothing read as above anything else. Measured from pixels on every [data-level-sample] in both themes.
+    const STEP = C.elevationStep ?? 1.15, SCRIM = C.scrimMax ?? 0.6;
+    const { PNG } = await import('pngjs');
+    const lin = (v) => { v /= 255; return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
+    const shot = async (box) => PNG.sync.read(await page.screenshot({ clip: box }));
+    const med = (a) => a.sort((x, y) => x - y)[Math.floor(a.length / 2)] ?? 0;
+    const bad = []; let n = 0, routesSeen = 0;
+    for (const theme of C.themes) for (const r of ROUTES.filter((x) => !x.startsWith(`${C.componentsBase}/`))) {
+      await go(r, { theme });
+      const els = await page.locator('[data-level-sample]').all();
+      if (!els.length) continue; routesSeen++;
+      for (const el of els) {
+        await el.scrollIntoViewIfNeeded().catch(() => {});
+        const b = await el.boundingBox(); if (!b) continue;
+        const rad = await el.evaluate((e) => parseFloat(getComputedStyle(e).borderTopLeftRadius) || 0);
+        const pad = 12, x0 = Math.max(0, b.x - pad), y0 = Math.max(0, b.y - pad);
+        const png = await shot({ x: x0, y: y0, width: b.width + pad * 2, height: b.height + pad * 2 });
+        const bx = b.x - x0, by = b.y - y0, rr = Math.min(rad, b.height / 2, b.width / 2);
+        const sd = (x, y) => { const cx = Math.min(Math.max(x, bx + rr), bx + b.width - rr), cy = Math.min(Math.max(y, by + rr), by + b.height - rr); return Math.hypot(x - cx, y - cy) - rr; };
+        const inside = [], outside = [];
+        for (let y = 0; y < png.height; y++) for (let x = 0; x < png.width; x++) {
+          const d = sd(x + 0.5, y + 0.5), k = (y * png.width + x) * 4;
+          const L = 0.2126 * lin(png.data[k]) + 0.7152 * lin(png.data[k + 1]) + 0.0722 * lin(png.data[k + 2]);
+          // just inside the edge (the body, before any content) and just outside it (whatever is underneath)
+          if (d < -2 && d > -6) inside.push(L); else if (d > 2 && d < 8) outside.push(L);
+        }
+        const a = med(inside), o = med(outside); const ratio = (Math.max(a, o) + 0.05) / (Math.min(a, o) + 0.05);
+        n++;
+        const lv = await el.getAttribute('data-level-sample');
+        if (ratio < STEP) bad.push(`${theme} ${r}: level ${lv} is ${Math.round(ratio * 100) / 100}:1 from what is under it (needs ${STEP})`);
+      }
+      for (const sc of await page.locator('[data-scrim]').all()) {
+        const b = await sc.boundingBox(); if (!b) continue;
+        const box = { x: b.x + 4, y: b.y + 4, width: Math.min(40, b.width - 8), height: Math.min(40, b.height - 8) };
+        const meanL = (png) => { let t = 0; for (let k = 0; k < png.data.length; k += 4) t += 0.2126 * lin(png.data[k]) + 0.7152 * lin(png.data[k + 1]) + 0.0722 * lin(png.data[k + 2]); return t / (png.data.length / 4); };
+        const on = meanL(await shot(box)); await sc.evaluate((e) => { e.style.visibility = 'hidden'; }); const off = meanL(await shot(box)); await sc.evaluate((e) => { e.style.visibility = ''; });
+        n++;
+        if (off > 0 && on / off > SCRIM) bad.push(`${theme} ${r}: the scrim leaves the scene at ${Math.round(on / off * 100)}% (needs ${Math.round(SCRIM * 100)}% or less)`);
+      }
+    }
+    expect(routesSeen > 0, 'NO ELEVATION DEMO FOUND ([data-level-sample])');
+    fail(bad, 'levels too close');
+    return `${n} levels and scrims in ${C.themes.length} themes`;
+  });
+
   await gate('G-NR1', 'a highlighted row inside a rounded flyout nests its corner: inner radius = outer radius − inset', async () => {
     // Pane dry run, 2026-10-28: the dropdown's highlighted row had its own pill radius and an uneven
     // inset, so its curve did not follow the flyout's. Checked on every open listbox and menu.
@@ -1011,7 +1073,7 @@ try {
       const bad = [];
       try {
         for (const r of ROUTES) {
-          await p.goto(url(srv.base, r, { theme: THEME, scene: SCENE }, C), { waitUntil: 'networkidle' });
+          await p.goto(url(srv.base, r, { theme: THEME, scene: SCENE }, C), { waitUntil: 'networkidle' }); await unfold(p);
           // In forced colours the reader's own palette sets every colour, and axe reads authored colours for
           // text inside a nested theme region (assay dry run: #F2F2EF reported on a forced white page while the
           // computed colour was black). Contrast in that mode is measured per pixel by evidence.mjs instead.
@@ -1029,6 +1091,18 @@ try {
   srv.close();
 }
 
+if (SHARD) {
+  mkdirSync(path.dirname(shardFile(SHARD[0])), { recursive: true });
+  writeFileSync(shardFile(SHARD[0]), JSON.stringify(results));
+  process.exit(0);
+}
+if (MERGE != null) {
+  for (let k = 0; k < MERGE; k++) {
+    if (!existsSync(shardFile(k))) { console.log(`✗ gates: shard ${k} wrote no results (it crashed); the run is incomplete`); process.exit(1); }
+    results.push(...JSON.parse(readFileSync(shardFile(k), 'utf8')));
+  }
+  results.sort((a, b) => a.order - b.order);
+}
 const passed = results.filter((r) => r.ok).length;
 // docs.advisory = { "G-XX": "why it cannot pass yet" }: reported as ! and kept out of the exit code, so a
 // gate still being built never forces verify to run a hand-picked --only list (which hid real reds in

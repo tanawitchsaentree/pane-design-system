@@ -1,5 +1,5 @@
 {
-  "concept": "A slider is a carved channel with a bead in it, the switch's language stretched out. The channel fills with the one blue up to the value, and the thumb is the same lit bead.",
+  "concept": "A slider is a recessed channel with a bead in it, the switch's language stretched out and lit from above. The channel fills with the loud solid up to the value, and the thumb is the same lit bead.",
   "parts": {
     "root": {
       "p": "P7",
@@ -32,14 +32,14 @@
       "why": "a carved channel, shade under its top lip and light on its bottom lip"
     },
     "range": {
-      "p": "P1",
+      "p": "P5",
       "axis": "colour",
-      "why": "the filled part spends the one blue, darker at the top where the lip shades it"
+      "why": "the filled part is the loud solid, white in dark and ink in light, lit at its top"
     },
     "thumb": {
       "p": "P3",
       "axis": "shape",
-      "why": "the switch bead, lit on its upper left, on a short shadow"
+      "why": "the switch bead, lit on its top, on a short shadow"
     }
   },
   "states": {
@@ -91,14 +91,14 @@
     {
       "p": "P1",
       "axis": "depth",
-      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur), never from an opaque tint",
+      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur) inside a smoked body thick enough that a pane reads as a slab of glass, with the scene softened behind it",
       "form": "the channel is carved by dimming, shade under its top lip, light on its bottom lip"
     },
     {
       "p": "P1",
       "axis": "colour",
-      "consequence": "the scene supplies the hue; the system owns almost no colour of its own, only white at opacities, one ink and one blue",
-      "form": "the filled part spends the one blue, darker at the top where the lip shades it"
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "the filled part is the loud solid, white in dark and ink in light, so the value reads without a hue"
     },
     {
       "p": "P3",
@@ -124,5 +124,17 @@
     "picked": "A carved channel and bead",
     "by": "agent",
     "reason": "A is Switch's material, so a settings pane with switches and sliders reads as one family (P1, P3). B adds scale marks that only help stepped values and clutter continuous ones. C's thin handle is hard to grab and breaks the round bead."
+  },
+  "round4": {
+    "lab": "apps/lab/round4/",
+    "section": "all",
+    "options": [
+      "A one light from above",
+      "B chosen as a recess",
+      "C A with a spectral edge"
+    ],
+    "picked": "A one light from above",
+    "by": "agent",
+    "reason": "The user rejected the blue and showed a reference where one light from above lights every atom alike. A reads that straight: the same top rim and sheen on every surface, the white lit solid for the loud action, chosen items as lighter glass. B makes chosen items recesses, which reads as pressed-off rather than chosen. C adds a rainbow edge, a hue the system no longer owns (P1)."
   }
 }

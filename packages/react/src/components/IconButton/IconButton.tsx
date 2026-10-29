@@ -2,12 +2,12 @@ import { forwardRef, type ButtonHTMLAttributes, type PointerEvent } from 'react'
 import { cx } from '../../cx';
 import styles from './IconButton.module.css';
 
-export type IconButtonVariant = 'glass' | 'ghost';
+export type IconButtonVariant = 'glass' | 'ghost' | 'loud';
 
 export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'aria-label'> {
   /** Required, because an icon has no text and this is the button's whole accessible name. */
   'aria-label': string;
-  /** `glass` = a small round pane with gloss and rim. `ghost` = the glyph alone, for dense rows (actions, overflow). */
+  /** `glass` = a small round slab of smoked glass. `ghost` = the glyph alone, for dense rows and toolbars. `loud` = a white bead, the one main action in a toolbar or dock. */
   variant?: IconButtonVariant;
   /** `md` = 36px disc; `sm` = 32px for action rows. Both keep a 44px press area. */
   size?: 'sm' | 'md';

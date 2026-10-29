@@ -227,14 +227,14 @@ export const RADIO: Depth = {
 export const SWITCH: Depth = {
   overview: (
     <>
-      <p>A switch turns a setting on or off the moment it changes, such as making an account private. Nothing waits for a Save button. The track is a recess carved into the glass, shaded under its top lip and lit along its bottom lip (P1). On fills the recess with the system blue, darker at the top where the lip shades it, the one place a form spends Pane’s single blue. The knob is a bead lit on its upper left. It rolls across and a mark appears, so on reads by position and by mark as well as colour (P6), and a press squashes the bead toward where it is going (P4).</p>
+      <p>A switch turns a setting on or off the moment it changes, such as making an account private. Nothing waits for a Save button. Off, the track is a recess carved into the glass, shaded under its top lip and lit along its bottom lip (P1). On, the track lights from within, bright white glass in the dark theme and ink in the light theme, with a dark mark that is ink in dark and white in light. The knob is a white bead lit on its top. It rolls across and the mark appears, so on reads by position and by mark as well as brightness (P6), and a press squashes the bead toward where it is going (P4).</p>
       <p>The label sits at the start of the row and the switch at the end, so a list of settings reads like a list.</p>
     </>
   ),
   whenToUse: ['A setting that applies at once, such as notifications or a private account.', 'A list of independent settings on a settings pane.'],
   whenNot: [{ situation: 'A choice saved with a form', to: '/components/checkbox', label: 'Checkbox' }, { situation: 'More than two states', to: '/components/radio', label: 'RadioGroup' }],
   variants: { na: 'Switch has no variant prop.' },
-  anatomy: { render: <P><Switch label="Private account" description="Only followers see your posts." defaultChecked /></P>, parts: [{ part: 'Label', selector: '[data-component="Switch"] label', what: 'The setting, at the start of the row.' }, { part: 'Track', selector: '[data-component="Switch"] button', what: 'A carved recess when off, filled with the system blue when on.' }, { part: 'Knob', selector: '[data-component="Switch"] button > span:last-child', what: 'A white bead lit on its upper left, on a short shadow; it rolls across.' }] },
+  anatomy: { render: <P><Switch label="Private account" description="Only followers see your posts." defaultChecked /></P>, parts: [{ part: 'Label', selector: '[data-component="Switch"] label', what: 'The setting, at the start of the row.' }, { part: 'Track', selector: '[data-component="Switch"] button', what: 'A carved recess when off. On, it lights from within, white in the dark theme and ink in the light theme.' }, { part: 'Knob', selector: '[data-component="Switch"] button > span:last-child', what: 'A white bead lit on its top, on a short shadow; it rolls across.' }] },
   sizes: { na: 'Switch has one size, a 52 by 32px track in a 44px row.' },
   emphasis: NO_EMPHASIS,
   placement: { rows: [['A settings pane', 'One setting per row, label first.'], ['A sheet of quick settings', 'Short labels.']], examples: [{ title: 'Settings', render: <P><Switch label="Push notifications" defaultChecked /><Switch label="Weekly summary" /></P> }] },
@@ -247,7 +247,7 @@ export const SWITCH: Depth = {
     expansion: { text: 'German labels wrap without moving the switch.', render: <P><Switch label="Privates Konto" defaultChecked /></P> },
   },
   behaviours: {
-    states: [['Off', 'Carved recess, bead at the start.', 'A recess (P1).'], ['On', 'Blue track, knob at the end, tick.', 'Colour, position and mark agree (P6).'], ['Press', 'The bead squashes toward its travel.', 'A press is a reply (P4).'], ['Change', 'The bead rolls over 420ms and settles.', 'Movement answers the press (P4).'], ['Focus', 'The shared ring and halo.', 'Visible on any scene (P2).'], ['Disabled', 'Faded.', 'Say why (P6).']],
+    states: [['Off', 'Carved recess, bead at the start.', 'A recess (P1).'], ['On', 'Lit track, knob at the end, mark.', 'Brightness, position and mark agree (P6).'], ['Press', 'The bead squashes toward its travel.', 'A press is a reply (P4).'], ['Change', 'The bead rolls over 420ms and settles.', 'Movement answers the press (P4).'], ['Focus', 'The shared ring and halo.', 'Visible on any scene (P2).'], ['Disabled', 'Faded.', 'Say why (P6).']],
     interactions: [['Keyboard', 'Tab', 'Moves focus to the switch.', 'Switch: Space toggles it'], ['Keyboard', 'Space / Enter', 'Toggles it.', 'Switch: Space toggles it'], ['Mouse / touch', 'Click / tap', 'The track or the label toggles it.', 'Native label']],
     loading: <p>If saving the change takes time, keep the new state and undo it with a Banner if saving fails.</p>,
     focus: <p>Focus stays on the switch when it toggles.</p>,

@@ -81,3 +81,25 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **Step that produced it:** pendingDerivation was allowed to ship. The list was reported on every run but nothing stopped a release with ten underived components, and 0.3.0 and 0.4.0 were packed anyway.
 - **What changed in that step:** a release is refused while pendingDerivation is not empty (kiln milestone and release-pack). Button went through its round (D-022): a small pane with rim, gloss, pointer glint and a blue cast shadow.
 - **Check that now catches it:** release-pack refuses to pack while pendingDerivation is not empty (Avatar, Badge, Card, Chip, IconButton, Slider, Tabs, Tag remain).
+
+### R-011: the app still ran the old Pane
+- **Date:** 2026-10-29
+- **User said:** "ดูที่กูเอาไปใช้จริง เย็ดเป็ดคนละเรื่อง" (Brick Forge screenshots: the old blue toggle and buttons)
+- **What was wrong:** 0.4.0 was released and announced, but Brick Forge depended on `vendor/pane-react-0.3.0.tgz`, so none of rounds 2 and 3 reached the screen the user judges by.
+- **Step that produced it:** release ended at the package and the book. No step looked at the app that consumes the package.
+- **What changed in that step:** a release now ends by installing the tarball into each known consumer and screenshotting it in both themes (kiln standard #25, `consumers` in kiln.config.json). Brick Forge runs 0.5.0, checked on screen.
+
+### R-012: blue accent and no light model
+- **Date:** 2026-10-29
+- **User said:** "accent สีฟ้า?? คือเหี้ยอะไรวะ" and, of a reference, "เขาวางขอบเงาเหมือนมีแสงตกด้านบน ทุก element ย่อยๆสวยมากๆ … มันคือความ craft ระดับ atom ไอ้เหี้ยไม่ปล่อยผ่าน"
+- **What was wrong:** the blue was written into P1 and P5 at the anchor, so every derivation that quoted the principles kept it. Light had no direction: the rim was drawn from the top left on cards and buttons only, and most atoms had no light at all.
+- **Step that produced it:** the concept step asked for consequences per axis but never for a light model, so depth was decided part by part and never as one source of light.
+- **What changed in that step:** kiln `concept.md` requires a light model for any material system (where the light comes from, and how a raised surface, a recess, a chosen item and the loud action are lit), and derivation must state how each part is lit. Pane's P3 now says light falls from above; P1 and P5 own no hue (D-024).
+
+### R-013: stacked glass had no levels
+- **Date:** 2026-10-29
+- **User said:** "พอใช้จริงดูเรื่อง modal หรือพวก กระจกซ้อนกันด้วย ให้มีระดับที่มองเห็นได้ง่ายไม่ใช่ ใส จางแม่งหมด ดู level visual ตรงนี้ด้วย หาสูตรคำนวน ตรวจด้วยตา"
+- **What was wrong:** in Brick Forge a dialog, the tiles inside it and the app behind it were the same thin grey glass, so nothing read as above anything else.
+- **Step that produced it:** depth was defined for one pane on a scene. Nothing defined what a pane inside a pane, an overlay or a popover look like, and nothing measured the difference.
+- **What changed in that step:** four levels with their own body and shadow, a scrim under an overlay, and a nested Card that becomes level 2 by itself (D-025).
+- **Check that now catches it:** G-EL1 reads pixels just inside and just outside every level and fails a step under 1.15:1, and a scrim that leaves the scene above 60%. It failed the light theme's level 2 at 1.03 before the tint was deepened.

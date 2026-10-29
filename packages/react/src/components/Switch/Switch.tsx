@@ -24,7 +24,7 @@ export interface SwitchProps {
   className?: string;
 }
 
-/** A setting that takes effect the moment it changes: a well track whose knob moves across and turns blue when on. */
+/** A setting that takes effect the moment it changes. The track is a recess when off and lights from within when on, and the bead rolls across. */
 export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch({ label, description, className, ...rest }, ref) {
   const id = useId();
   return (

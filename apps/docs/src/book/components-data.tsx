@@ -98,7 +98,7 @@ export const COMPONENTS: ComponentChapter[] = [
     importLine: "import { Card, CardCover } from 'pane-react';",
     overview: (
       <>
-        <p>A <code>Card</code> is the pane itself. It has a 6% white tint with a faint top sheen and a 64px blur that turns the scene into soft colour. A 1.8× saturation lift keeps that colour alive, and the environment’s dimming keeps white text readable. It has no hard border. A gradient specular rim catches the light at the top-left and drifts slowly on hover.</p>
+        <p>A <code>Card</code> is the pane itself. It has a 6% white tint with a faint top sheen and a 64px blur that turns the scene into soft colour. A 1.8× saturation lift keeps that colour alive, and the environment’s dimming keeps white text readable. It has no hard border. A gradient specular rim catches the light that falls from above, brightest along the top edge, and drifts slowly on hover.</p>
         <p>Everything in Pane sits on a Card. The <code>inset</code> variant nests content inside a pane without a second layer of glass. <code>CardCover</code> is the full-bleed image strip at the top, pulled to the card edges automatically.</p>
       </>
     ),
@@ -114,12 +114,12 @@ export const COMPONENTS: ComponentChapter[] = [
     anatomy: [
       ['Glass', 'Tint (surface.glass) + blur 64px + saturate 1.8 + brightness from the environment.'],
       ['Sheen', 'Top-down white gradient, 10% → 3%.'],
-      ['Specular rim', '1px gradient ring via a mask. Bright top-left, faint middle, soft bottom-right; drifts on hover over 640ms.'],
+      ['Specular rim', '1px gradient ring via a mask. Brightest along the top edge, faint down the sides, a little stronger at the foot; drifts on hover over 640ms.'],
       ['Float shadow', 'elevation.float. A long, soft drop.'],
       ['Halo', 'Text inside inherits card.text-halo; solid-fill controls reset it.'],
       ['Cover (optional)', 'CardCover. Full-bleed, decorative.'],
     ],
-    states: [['Rest', 'Rim light top-left.'], ['Hover', 'Rim light drifts toward the centre over 640ms. The light moves, the card does not.'], ['Environment change', 'Dimming glides over 640ms instead of snapping.']],
+    states: [['Rest', 'Rim light along the top edge.'], ['Hover', 'Rim light drifts toward the centre over 640ms. The light moves, the card does not.'], ['Environment change', 'Dimming glides over 640ms instead of snapping.']],
     content: ['A section card gets a heading and aria-labelledby; an article card without a heading gets an aria-label.'],
     dodont: [
       { do: 'Put every piece of text on a Card.', dont: 'Lay body text straight onto a photo. Even the halo cannot carry it.' },
@@ -170,25 +170,25 @@ export const COMPONENTS: ComponentChapter[] = [
     limitations: ['There is no loading state built in.', 'Buttons are not links. Navigation needs an anchor element.', 'Disabled uses a raw 0.5 opacity instead of a token.'],
     youMust: ['Write a label that says what happens, in a verb.', 'Keep one solid button per card. Everything else uses the glass variant.'],
     usage: '<Button>Follow</Button>\n<Button variant="glass">Message</Button>',
-    backdrops: 'The solid button inverts with the theme, white with ink text in dark and ink with white text in light, so it stays the loudest thing on the card. Accent blue is the same in both.',
+    backdrops: 'The solid button inverts with the theme, white with ink text in dark and ink with white text in light, so it stays the loudest thing on the card. The accent flips the same way and adds its own glow.',
     purpose: 'Runs an action, in one of three weights so a card has exactly one loud choice.',
     importLine: "import { Button } from 'pane-react';",
     overview: (
       <>
-        <p>Pill-shaped buttons. <code>light</code> is the solid white pill from the anchor card (“Follow”). The one main action of a card. <code>accent</code> is solid blue for a promoted action. <code>glass</code> is a quiet translucent fill for everything secondary.</p>
+        <p>Pill-shaped buttons. <code>light</code> is the solid white pill from the anchor card (“Follow”), ink in the light theme. The one main action of a card. <code>accent</code> is the same solid glowing with its own light, for a promoted action. <code>glass</code> is a quiet translucent fill for everything secondary.</p>
         <p>On hover a button rises 2px over 420ms with a long settling ease. On press it scales to 97% over 200ms, which still feels like a response.</p>
       </>
     ),
     hero: ex('ButtonPair', 'The foot of a card usually holds one light action with a glass alternative beside it.'),
     ladder: [
-      ex('ButtonVariants', 'Three variants. Light is white with near-black text (18.74:1). Accent is blue #0071E3 with white text (4.70:1). Glass is an 8% white fill, because 14% lifted the backdrop under white text to 4.25:1.'),
+      ex('ButtonVariants', 'Three variants. Light is white with near-black text (18.74:1). Accent is the same pair with a soft glow of its own. Glass is an 8% white fill, because 14% lifted the backdrop under white text to 4.25:1.'),
       ex('ButtonSizes', 'md is 44px tall and suits touch. sm is 32px for dense rows.'),
       ex('ButtonDisabled', 'Disabled uses the native attribute. Put the reason in text next to it, since nobody can focus a disabled button to ask.'),
       ex('ButtonWithIcon', 'A leading icon is decorative. The label carries the meaning.'),
     ],
     whenToUse: ['Actions such as follow, save, send and open.', 'light for the single action a card exists for; glass for the rest.'],
     whenNotToUse: [['Navigating to another page', 'A link. Buttons do, links go'], ['An icon-only action', 'IconButton (it requires a label)'], ['Switching views', 'Tabs']],
-    anatomy: [['Pill', 'corner.round; 44px (md) or 32px (sm) tall.'], ['Label', '15/14px semibold; no halo on solid fills.'], ['Lift shadow', 'elevation.lift on light and accent.'], ['Focus ring', '2px white ring 2px out + 5px dark halo.']],
+    anatomy: [['Pill', 'corner.round; 44px (md) or 32px (sm) tall.'], ['Label', '15/14px semibold; no halo on solid fills.'], ['Shadow', 'elevation.cast under light, elevation.loud-glow around accent, elevation.quiet-cast under glass.'], ['Focus ring', '2px white ring 2px out + 5px dark halo.']],
     states: [['Hover', 'Rises 2px, 420ms soft ease.'], ['Pressed', 'Scales to 0.97, 200ms.'], ['Focus', 'White ring + dark halo.'], ['Disabled', 'Native disabled, 50% opacity, no motion.']],
     content: ['Start with a verb and keep it to one or two words, like “Follow” or “Save changes”.'],
     dodont: [
@@ -212,7 +212,7 @@ export const COMPONENTS: ComponentChapter[] = [
     importLine: "import { IconButton } from 'pane-react';",
     overview: (
       <>
-        <p>A round, icon-only button. <code>glass</code> is a small round pane with Button’s material, a white gloss across the top, the pane’s rim of light at the top left and a glint under the pointer. It suits standalone actions such as edit or close. <code>ghost</code> is the glyph alone with no rim, for dense rows of actions such as more and share, where a disc on every icon would be noise. Both sizes keep a 44px press area.</p>
+        <p>A round, icon-only button. <code>glass</code> is a small round pane with Button’s material, lit at its top, with the pane’s rim of light brightest along the top edge and a glint under the pointer. It suits standalone actions such as edit or close. <code>ghost</code> is the glyph alone with no rim, for dense rows of actions such as more and share, where a disc on every icon would be noise. Both sizes keep a 44px press area.</p>
         <p>The TypeScript type requires <code>aria-label</code>. An icon has no text, so the label is the button’s entire name, and an unnamed icon button will fail to compile.</p>
       </>
     ),
@@ -225,7 +225,7 @@ export const COMPONENTS: ComponentChapter[] = [
     ],
     whenToUse: ['Well-known actions like edit, more, share and close.', 'Dense rows where text buttons would crowd the content.'],
     whenNotToUse: [['An action whose icon needs explaining', 'A Button with a text label'], ['The main action of a card', 'A light Button']],
-    anatomy: [['Disc (glass)', 'surface.quiet fill with its own 20px blur and a white gloss across the top half.'], ['Rim (glass)', 'A hairline of light, brightest at the top left.'], ['Glint', 'Light under the pointer, faded in at hover pace.'], ['Icon', '18px, currentColor stroke.'], ['Press area', '44px each way at both sizes.'], ['Focus ring', 'Same ring and halo as Button.']],
+    anatomy: [['Disc (glass)', 'surface.quiet fill with its own 20px blur, lit across the top half.'], ['Rim (glass)', 'A hairline of light, brightest along the top edge.'], ['Glint', 'Light under the pointer, faded in at hover pace.'], ['Icon', '18px, currentColor stroke.'], ['Press area', '44px each way at both sizes.'], ['Focus ring', 'Same ring and halo as Button.']],
     states: [['Hover', 'The glint shows under the pointer and the disc stays put. Ghost brightens to the primary text colour.'], ['Pressed', 'Scales to 0.97.']],
     content: ['Label the action. “Edit profile” tells people what happens, while “Pencil” only names the drawing.'],
     dodont: [
@@ -244,12 +244,12 @@ export const COMPONENTS: ComponentChapter[] = [
     limitations: ['Tabs do not scroll when they overflow. Keep the list short enough to fit at 375px.', 'Vertical tabs are not styled yet.', 'Hover has no visual answer yet.'],
     youMust: ['Give Tabs.List an aria-label that names the set.', 'Keep each panel’s content related. Tabs are not a way to hide unrelated pages.'],
     usage: '<Tabs.Root defaultValue="a">\n  <Tabs.List aria-label="Sections">\n    <Tabs.Trigger value="a">Tweets</Tabs.Trigger>\n    <Tabs.Trigger value="b">Replies</Tabs.Trigger>\n  </Tabs.List>\n  <Tabs.Content value="a">…</Tabs.Content>\n</Tabs.Root>',
-    backdrops: 'The chosen sheet is accent blue with white text in both themes. The track is a recess in surface.carve, and unselected labels follow the theme’s primary text colour.',
+    backdrops: 'The chosen tab is a lighter pane of glass in both themes, and its label keeps the theme’s primary text colour. The track is a shallow recess in surface.carve with the top-lit rim.',
     purpose: 'Switches between two to five views of the same thing.',
     importLine: "import { Tabs } from 'pane-react';",
     overview: (
       <>
-        <p>One carved track holds the tabs, with shade under its top lip and light on its bottom lip. The chosen tab is the blue accent sheet resting in the track, and it slides to the tab the reader picks. The other tabs are text in the track, with no ring and no fill. Each tab is 32px tall with a 44px press area. Panels enter with an 8px rise and fade over 640ms.</p>
+        <p>One track holds the tabs, a shallow recess with a rim of light brightest along its top edge. The chosen tab is a lighter pane of glass resting in the track, and it slides to the tab the reader picks. The other tabs are text in the track, with no ring and no fill. Each tab is 32px tall with a 44px press area. Panels enter with an 8px rise and fade over 640ms.</p>
         <p>Radix supplies the behaviour, including the single tab stop, arrow keys, Home and End, automatic activation and the tablist wiring. Pane adds the look and writes no key handling of its own.</p>
       </>
     ),
@@ -260,8 +260,8 @@ export const COMPONENTS: ComponentChapter[] = [
     ],
     whenToUse: ['Two to five views of the same object, like Tweets, Replies and Media.'],
     whenNotToUse: [['Moving between pages', 'Navigation links'], ['Triggering actions', 'Buttons'], ['More than five sections', 'A list. Tabs that wrap stop being tabs']],
-    anatomy: [['Track', 'The tablist with an aria-label, a carved recess with a 4px inset.'], ['Sheet', 'The blue accent sheet under the chosen tab, sliding to each new choice.'], ['Trigger', 'Text in the track, 32px tall with a 44px press area.'], ['Panel', 'The tabpanel labelled by its tab, with an animated entrance.']],
-    states: [['Unselected', 'Text only, with no ring and no fill.'], ['Selected', 'On the blue sheet, white text, no halo.'], ['Focus', 'Ring and dark halo.'], ['Forced colours', 'Selected tab gets a Highlight border and an underline. Never colour alone.']],
+    anatomy: [['Track', 'The tablist with an aria-label, a shallow recess with a 4px inset and the top-lit rim.'], ['Sheet', 'A lighter pane of glass under the chosen tab, sliding to each new choice.'], ['Trigger', 'Text in the track, 32px tall with a 44px press area.'], ['Panel', 'The tabpanel labelled by its tab, with an animated entrance.']],
+    states: [['Unselected', 'Text only, with no ring and no fill.'], ['Selected', 'On the lighter pane, semibold text.'], ['Focus', 'Ring and dark halo.'], ['Forced colours', 'Selected tab gets a Highlight border and an underline. Never colour alone.']],
     content: ['One short word per tab. The list must never wrap.'],
     dodont: [
       { do: 'Keep labels to one word.', dont: 'Use tabs to run actions; they switch views.' },
@@ -459,7 +459,7 @@ export const COMPONENTS: ComponentChapter[] = [
     importLine: "import { Chip } from 'pane-react';",
     overview: (
       <>
-        <p>One component covers two kinds of chip. A <b>filter chip</b> is a toggle built on a native button with <code>aria-pressed</code>. An unselected chip is a small glass pane with gloss and a rim of light. A selected chip is pressed into the glass, a carved recess with a check mark and semibold text, so many selected chips add no loud marks to a pane. An <b>input chip</b> holds a value (a recipient, a tag) and, when <code>onRemove</code> is set, shows a remove button named “Remove {'{label}'}”.</p>
+        <p>One component covers two kinds of chip. A <b>filter chip</b> is a toggle built on a native button with <code>aria-pressed</code>. An unselected chip is a small glass pane lit from above with a rim of light. A selected chip is a lighter pane of glass with a check mark and semibold text, a slightly darker tint in the light theme, so many selected chips add no loud marks to a pane. An <b>input chip</b> holds a value (a recipient, a tag) and, when <code>onRemove</code> is set, shows a remove button named “Remove {'{label}'}”.</p>
       </>
     ),
     hero: ex('ChipFilter', 'A group of filter chips, one of them pre-selected.'),
@@ -469,8 +469,8 @@ export const COMPONENTS: ComponentChapter[] = [
     ],
     whenToUse: ['Filtering a list by a few options.', 'Showing values the user added (recipients, keywords).'],
     whenNotToUse: [['A single on/off setting', 'A switch or checkbox'], ['Choosing views', 'Tabs'], ['Static labels', 'Tag or Badge']],
-    anatomy: [['Pane', '32px tall, quiet glass with a white gloss and the rim of light. Selected, it is a carved recess with white semibold text.'], ['Press area', '44px tall on the chip and on its remove button.'], ['Check mark', 'Shown when selected (filter).'], ['Remove button', 'Separate button, its own focus stop (input).']],
-    states: [['Unselected', 'A small glass pane with gloss and the rim of light.'], ['Selected', 'Pressed into a carved recess, semibold, with a check mark and aria-pressed="true".'], ['Pressed', 'Scales to 0.97.'], ['Forced colours', 'Selected border in Highlight.']],
+    anatomy: [['Pane', '32px tall, quiet glass lit at its top with the rim of light. Selected, it is a lighter pane of glass with semibold text.'], ['Press area', '44px tall on the chip and on its remove button.'], ['Check mark', 'Shown when selected (filter).'], ['Remove button', 'Separate button, its own focus stop (input).']],
+    states: [['Unselected', 'A small glass pane lit from above with the rim of light.'], ['Selected', 'A lighter pane of glass, semibold, with a check mark and aria-pressed="true".'], ['Pressed', 'Scales to 0.97.'], ['Forced colours', 'Selected border in Highlight.']],
     content: ['Use short nouns like “Photos” and “Videos”, and give the group a label such as “Filter posts”.'],
     dodont: [
       { do: 'Wrap filter chips in role="group" with a label.', dont: 'Leave a row of toggles with no context.' },
@@ -521,13 +521,13 @@ export const COMPONENTS: ComponentChapter[] = [
     limitations: ['One thumb only. A range with two thumbs is planned for wave 8.', 'There are no tick marks or labels along the track.', 'Disabled uses a raw 0.5 opacity instead of a token.'],
     youMust: ['Format the value with its unit so it is spoken with meaning, such as 60%.', 'Offer a text field next to it when people need an exact number.'],
     usage: '<Slider label="Volume" defaultValue={40} format={(v) => `${v}%`} />',
-    backdrops: 'The track is a carved channel and the filled part is the accent blue in both themes. The thumb is the Switch’s lit white bead with a shadow, so it reads on dark and light glass alike.',
+    backdrops: 'The track is a carved channel, and the filled part is the loud solid, white in dark and ink in light. The thumb is the Switch’s lit white bead with a shadow, so it reads on dark and light glass alike.',
     purpose: 'Lets people set a value along a range by dragging or with the arrow keys, with the current value shown beside the label.',
     importLine: "import { Slider } from 'pane-react';",
     overview: (
       <>
         <p>A slider sets a value where the exact number matters less than the feel, such as volume or a blur amount. The label sits above the track with the current value at the other end, formatted with its unit.</p>
-        <p>Radix supplies the behaviour, including the slider role, arrow keys, Page Up and Down, Home and End, pointer dragging and the spoken value. Pane draws a 10px carved channel that fills with the blue up to the value, and a 24px thumb that is the Switch’s lit bead. The press area is 44px tall even though the channel is thin.</p>
+        <p>Radix supplies the behaviour, including the slider role, arrow keys, Page Up and Down, Home and End, pointer dragging and the spoken value. Pane draws a 10px carved channel that fills with the loud solid up to the value, and a 24px thumb that is the Switch’s lit bead. The press area is 44px tall even though the channel is thin.</p>
       </>
     ),
     hero: ex('SliderBasic', 'A volume slider on a player, with its value as a percentage.'),
@@ -537,7 +537,7 @@ export const COMPONENTS: ComponentChapter[] = [
     ],
     whenToUse: ['A value along a range where feel matters, such as volume, brightness or a radius.'],
     whenNotToUse: [['An exact number', 'A number field (planned)'], ['A few named levels', 'Select or radio buttons']],
-    anatomy: [['Label and value', 'Above the track, value at the end, formatted.'], ['Track', 'A 10px carved channel, shade under the top lip and light on the bottom lip.'], ['Range', 'The channel filled with the accent blue up to the value, still carved.'], ['Thumb', 'A 24px lit white bead with a shadow, the same as the Switch, on a 44px press area.']],
+    anatomy: [['Label and value', 'Above the track, value at the end, formatted.'], ['Track', 'A 10px carved channel, shade under the top lip and light on the bottom lip.'], ['Range', 'The channel filled with the loud solid up to the value, white in dark and ink in light.'], ['Thumb', 'A 24px lit white bead with a shadow, the same as the Switch, on a 44px press area.']],
     states: [['Rest', 'Thumb at the value.'], ['Hover', 'The bead grows to 108% at hover pace.'], ['Dragging', 'The value updates as it moves.'], ['Disabled', 'Half opacity, cannot move.']],
     content: ['Name the setting, such as Volume, and always show the unit in the value.'],
     dodont: [{ do: 'Show the value with its unit.', dont: 'Leave a bare number with no unit.' }],
@@ -651,16 +651,16 @@ export const COMPONENTS: ComponentChapter[] = [
     limitations: ['There is no loading state while a change saves.'],
     youMust: ['Apply the setting the moment it changes, and undo it with a message if saving fails.', 'Write the label as the setting, such as Private account.'],
     usage: '<Switch label="Private account" />',
-    backdrops: 'The track is a well when off and the system blue when on, in both themes. The knob is white with a lift shadow.',
+    backdrops: 'The track is a well when off. On, it lights from within, bright white glass in dark and ink in light, with a dark mark. The knob is white with a lift shadow.',
     purpose: 'Turns a setting on or off the moment it changes.',
     importLine: "import { Switch } from 'pane-react';",
-    overview: (<><p>A switch is a setting that takes effect at once, such as making an account private. Its track is a well when off and the system blue when on, the one place a form spends Pane’s single blue (P1). The knob moves across and a tick appears, so on reads by position and mark as well as colour (P6).</p><p>Behaviour comes from Radix: Space and Enter toggle it.</p></>),
+    overview: (<><p>A switch is a setting that takes effect at once, such as making an account private. Its track is a well when off and lights from within when on, white in the dark theme and ink in the light theme (P1). The knob moves across and a mark appears, so on reads by position and mark as well as brightness (P6).</p><p>Behaviour comes from Radix: Space and Enter toggle it.</p></>),
     hero: ex('SwitchBasic', 'A setting with what it does underneath.'),
     ladder: [ex('SwitchList', 'A list of settings on one pane.'), ex('SwitchDisabled', 'Disabled, with the reason in its description.'), ex('CheckboxBasic', 'Compare with a checkbox, which waits for Save.')],
     whenToUse: ['A setting that applies the moment it changes.'],
     whenNotToUse: [['A choice saved with a form', 'Checkbox'], ['More than two states', 'RadioGroup or Select']],
-    anatomy: [['Label', 'The setting, at the start of the row.'], ['Track', 'Well when off, blue when on.'], ['Knob', 'White, slides across.'], ['Tick', 'Shown when on.']],
-    states: [['Off', 'Well track, knob at the start.'], ['On', 'Blue track, knob at the end, tick.'], ['Disabled', 'Faded.']],
+    anatomy: [['Label', 'The setting, at the start of the row.'], ['Track', 'Well when off, lit from within when on.'], ['Knob', 'White, slides across.'], ['Tick', 'Shown when on.']],
+    states: [['Off', 'Well track, knob at the start.'], ['On', 'Lit track, knob at the end, mark.'], ['Disabled', 'Faded.']],
     content: ['Name the setting, not the action, so Private account and not Make private.'],
     dodont: [{ do: 'Apply it at once.', dont: 'Put a switch in a form that waits for Save. Use a Checkbox.' }],
     a11y: ['Radix switch with role switch and aria-checked.', 'The label is its accessible name.', 'A 44px row.'],

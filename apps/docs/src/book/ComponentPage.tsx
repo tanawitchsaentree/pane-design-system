@@ -213,8 +213,8 @@ export function ComponentPage({ c, tab }: { c: ComponentChapter; tab: Tab }) {
       {tab === 'style' && (
         <>
           <StyleTab name={c.name} kinds={m.kinds} sizes={m.sizes} backdrops={<Backdrops c={c} />} />
-          <Section id="why" title="Why it looks and moves like this"><Reasons name={c.name} /></Section>
-          <Section id="css" title="CSS API" wide>
+          <Section id="why" title="Why it looks and moves like this" fold><Reasons name={c.name} /></Section>
+          <Section id="css" title="CSS API" wide fold>
             <p className="muted">Custom properties this component reads, parsed from its CSS module at build time, with the CSS property each one drives.</p>
             <TokensUsed component={c.name} />
           </Section>

@@ -180,6 +180,118 @@
           "why": "the far side of the switch bead, a step below white so the bead reads as round"
         }
       }
+    },
+    "lit-quiet-top": {
+      "$value": "{color.white-a.14}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.95}"
+        },
+        "kiln.why": {
+          "p": "P3",
+          "why": "a quiet glass object is lit from above, brighter at its top"
+        }
+      }
+    },
+    "lit-quiet-foot": {
+      "$value": "{color.white-a.05}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.55}"
+        }
+      }
+    },
+    "lit-chosen-top": {
+      "$value": "{color.white-a.30}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white}"
+        },
+        "kiln.why": {
+          "p": "P6",
+          "why": "a chosen item is a lighter pane of glass resting where it was chosen, so choice reads as a raised object as well as a word"
+        }
+      }
+    },
+    "lit-chosen-foot": {
+      "$value": "{color.white-a.12}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.paper.50}"
+        }
+      }
+    },
+    "lit-on-top": {
+      "$value": "{color.white-a.70}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink.700}"
+        },
+        "kiln.why": {
+          "p": "P3",
+          "why": "a switch that is on is lit from within, a bright track in dark and a dark one in light"
+        }
+      }
+    },
+    "lit-on-foot": {
+      "$value": "{color.white-a.90}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink.900}"
+        }
+      }
+    },
+    "chosen-tint-top": {
+      "$value": "{color.white-a.30}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.14}"
+        },
+        "kiln.why": {
+          "p": "P6",
+          "why": "a chosen item standing alone (no track around it) differs from the quiet ones by its glass, brighter in dark and darker in light"
+        }
+      }
+    },
+    "chosen-tint-foot": {
+      "$value": "{color.white-a.12}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.08}"
+        }
+      }
+    },
+    "chosen-top": {
+      "$value": "{color.chosen.top}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.chosen.top-light}"
+        },
+        "kiln.why": {
+          "p": "P6",
+          "why": "a chosen item is a lighter pane of grey glass in dark and white in light"
+        }
+      }
+    },
+    "chosen-foot": {
+      "$value": "{color.chosen.foot}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.chosen.foot-light}"
+        }
+      }
+    },
+    "well-deep": {
+      "$value": "{color.shade-a.55}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.08}"
+        },
+        "kiln.why": {
+          "p": "P3",
+          "why": "a recessed track, darker than the pane it is cut into"
+        }
+      }
     }
   },
   "text": {
@@ -196,7 +308,7 @@
       "$value": "{color.white-a.92}",
       "$extensions": {
         "pane.theme": {
-          "light": "{color.ink-a.78}"
+          "light": "{color.ink-a.85}"
         }
       }
     },
@@ -209,7 +321,12 @@
       }
     },
     "on-accent": {
-      "$value": "{color.white}"
+      "$value": "{color.ink.900}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white}"
+        }
+      }
     },
     "$extensions": {
       "kiln.why": {
@@ -221,10 +338,20 @@
   "action": {
     "$type": "color",
     "accent": {
-      "$value": "{color.blue.600}"
+      "$value": "{color.white}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink.900}"
+        }
+      }
     },
     "accent-hover": {
-      "$value": "{color.blue.700}"
+      "$value": "{color.paper.150}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink.700}"
+        }
+      }
     },
     "$extensions": {
       "kiln.why": {
@@ -232,11 +359,16 @@
           "P5",
           "P3"
         ],
-        "why": "the promoted-action fill as a sheet, light at its top and shaded at its foot, plus the white gloss and pointer glint every button carries; one blue, used at most once per pane"
+        "why": "the one solid, white in dark and ink in light, lit at its top and shaded at its foot; a promoted action is the same solid glowing with its own light; the system owns no hue (D-024)"
       }
     },
     "accent-foot": {
-      "$value": "{color.blue.800}"
+      "$value": "{color.paper.150}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink.900}"
+        }
+      }
     },
     "gloss": {
       "$value": "{color.white-a.26}"
@@ -278,6 +410,30 @@
           "light": "{color.ink.700}"
         }
       }
+    },
+    "solid-foot": {
+      "$value": "{color.paper.150}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink.900}"
+        }
+      }
+    },
+    "loud-top": {
+      "$value": "{color.loud.top}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink.700}"
+        }
+      }
+    },
+    "loud-foot": {
+      "$value": "{color.loud.foot}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink.900}"
+        }
+      }
     }
   },
   "line": {
@@ -299,23 +455,33 @@
       }
     },
     "rim-hi": {
-      "$value": "{color.white-a.55}",
+      "$value": "{color.white-a.62}",
       "$extensions": {
         "pane.theme": {
-          "light": "{color.white-a.90}"
+          "light": "{color.white}"
         }
       }
     },
     "rim-mid": {
-      "$value": "{color.white-a.28}"
+      "$value": "{color.white-a.14}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.16}"
+        }
+      }
     },
     "rim-lo": {
-      "$value": "{color.white-a.06}"
+      "$value": "{color.white-a.06}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.45}"
+        }
+      }
     },
     "$extensions": {
       "kiln.why": {
         "p": "P3",
-        "why": "hairlines that give panes and controls an edge, as rings for controls, dividers inside panes and a rim of light brightest at the top left"
+        "why": "hairlines that give panes and controls an edge; the rim is lit from above, brightest along the top edge, faint down the sides and a little stronger at the foot"
       }
     },
     "edge": {
@@ -557,6 +723,66 @@
         "kiln.why": {
           "p": "P3",
           "why": "a portrait carries the pane rim of light and a shade at its foot, so it sits on the glass as a small object"
+        }
+      }
+    },
+    "track": {
+      "$value": "{shadow.track}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.track-light}"
+        },
+        "kiln.why": {
+          "p": "P3",
+          "why": "a track is a shallow recess holding its choices, shaded under its top edge by the light from above"
+        }
+      }
+    },
+    "loud-glow": {
+      "$value": "{shadow.loud-glow}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.loud-glow-light}"
+        },
+        "kiln.why": {
+          "p": "P5",
+          "why": "the promoted solid glows with its own light, the only glow on a pane"
+        }
+      }
+    },
+    "quiet-cast": {
+      "$value": "{shadow.quiet-cast}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.quiet-cast-light}"
+        },
+        "kiln.why": {
+          "p": "P3",
+          "why": "a quiet object rests on the pane on a short soft shadow"
+        }
+      }
+    },
+    "chosen-cast": {
+      "$value": "{shadow.chosen-cast}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.chosen-cast-light}"
+        },
+        "kiln.why": {
+          "p": "P3",
+          "why": "a chosen pane rests in its track on a short soft shadow"
+        }
+      }
+    },
+    "on-glow": {
+      "$value": "{shadow.on-glow}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.on-glow-light}"
+        },
+        "kiln.why": {
+          "p": "P3",
+          "why": "a lit switch spills a little light onto the pane"
         }
       }
     }
@@ -1136,17 +1362,17 @@
       }
     },
     "column": {
-      "$value": "{color.sky-a.60}",
+      "$value": "{color.white-a.85}",
       "$extensions": {
         "pane.theme": {
-          "light": "{color.blue.600}"
+          "light": "{color.ink.900}"
         },
         "kiln.why": {
           "p": [
             "P6",
-            "P3"
+            "P1"
           ],
-          "why": "diagram columns in the accent so they stand at least 3:1 off the ground in both themes, read as the place where content goes, and carry white column numbers at 4.5:1 (solid in light, where 80% blue measured 3.51)"
+          "why": "diagram columns in the loud solid, white in dark and ink in light, so they stand well off the ground in both themes, read as the place where content goes, and carry column numbers in the opposite tone at 4.5:1 or more; the system spends no hue on diagrams (D-024)"
         }
       }
     },
@@ -1175,6 +1401,136 @@
       "kiln.why": {
         "p": "P6",
         "why": "a disabled control fades to half, and its reason is written beside it because a faded control cannot be focused to ask"
+      }
+    }
+  },
+  "level": {
+    "1": {
+      "$value": "{color.smoke.1}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.smoke.1-light}"
+        }
+      }
+    },
+    "2": {
+      "$value": "{color.smoke.2}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.smoke.2-light}"
+        }
+      }
+    },
+    "3": {
+      "$value": "{color.smoke.3}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.smoke.3-light}"
+        }
+      }
+    },
+    "4": {
+      "$value": "{color.smoke.4}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.smoke.4-light}"
+        }
+      }
+    },
+    "$type": "color",
+    "scrim": {
+      "$value": "{color.smoke.scrim}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.smoke.scrim-light}"
+        }
+      }
+    },
+    "streak": {
+      "$value": "{color.white-a.85}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white}"
+        }
+      }
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "the stack of glass: level 1 a pane, 2 a surface inside it, 3 an overlay, 4 a popover, each a measured step from its neighbours, and a scrim that halves the scene under an overlay; the streak is light catching the curve of the top edge"
+      }
+    },
+    "sheen": {
+      "$value": "{color.white-a.06}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.70}"
+        }
+      }
+    }
+  },
+  "level-shadow": {
+    "1": {
+      "$value": "{shadow.level-1}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.level-1-light}"
+        }
+      }
+    },
+    "2": {
+      "$value": "{shadow.level-2}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.level-2-light}"
+        }
+      }
+    },
+    "3": {
+      "$value": "{shadow.level-3}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.level-3-light}"
+        }
+      }
+    },
+    "4": {
+      "$value": "{shadow.level-4}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.level-4-light}"
+        }
+      }
+    },
+    "$type": "shadow",
+    "edge": {
+      "$value": "{shadow.edge}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.edge-light}"
+        }
+      }
+    },
+    "bloom": {
+      "$value": "{shadow.bloom}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.bloom-light}"
+        }
+      }
+    },
+    "well": {
+      "$value": "{shadow.well}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.well-light}"
+        }
+      }
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "each level floats a step higher on a longer shadow; every slab has an edge all round; the loud solid blooms; a track is a well"
       }
     }
   }

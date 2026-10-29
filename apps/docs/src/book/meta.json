@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-28T15:02:50.195Z",
-  "version": "0.4.0",
+  "generatedAt": "2026-10-28T17:43:41.668Z",
+  "version": "0.5.0",
   "components": {
     "Avatar": {
       "source": "packages/react/src/components/Avatar/Avatar.tsx",
@@ -245,7 +245,7 @@
               "type": "\"light\" | \"accent\" | \"glass\"",
               "required": false,
               "default": "light",
-              "description": "`light` = the loud solid (white in dark, ink in light), the one main action on a pane. `accent` = the blue sheet for a promoted action. `glass` = the quiet glass fill.",
+              "description": "`light` = the loud solid (white in dark, ink in light), the one main action on a pane. `accent` = the same solid glowing with its own light, for a promoted action. `glass` = quiet glass lit from above.",
               "enum": true,
               "options": [
                 "light",
@@ -276,8 +276,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 726,
-        "cssMin": 3506,
-        "gzip": 1454
+        "cssMin": 3466,
+        "gzip": 1438
       }
     },
     "Card": {
@@ -346,7 +346,7 @@
       "bundle": {
         "jsMin": 515,
         "cssMin": 2030,
-        "gzip": 1023
+        "gzip": 1020
       }
     },
     "Checkbox": {
@@ -531,8 +531,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 1199,
-        "cssMin": 2220,
-        "gzip": 1392
+        "cssMin": 2262,
+        "gzip": 1387
       }
     },
     "Container": {
@@ -905,8 +905,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 723,
-        "cssMin": 2439,
-        "gzip": 1244
+        "cssMin": 2467,
+        "gzip": 1246
       }
     },
     "Input": {
@@ -1548,7 +1548,7 @@
       "bundle": {
         "jsMin": 29757,
         "cssMin": 1792,
-        "gzip": 11455
+        "gzip": 11453
       }
     },
     "Stack": {
@@ -1707,7 +1707,7 @@
       "bundle": {
         "jsMin": 13993,
         "cssMin": 2694,
-        "gzip": 6081
+        "gzip": 6080
       }
     },
     "Tabs": {
@@ -1737,8 +1737,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 29016,
-        "cssMin": 2504,
-        "gzip": 10883
+        "cssMin": 2894,
+        "gzip": 10981
       }
     },
     "Tag": {

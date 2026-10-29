@@ -14,13 +14,14 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { chromium } from 'playwright';
-import { docsConfig, routes, url } from './config.mjs';
+import { docsConfig, routes, url, pool, routeFilter } from './config.mjs';
 import { serveDist } from './serve-dist.mjs';
 import { measurePageText } from './text-contrast.mjs';
 
 const C = docsConfig();
 const K = C.contrast;
-const ROUTES = routes(C);
+const ROUTES = routeFilter(routes(C));
+const PAR = Math.max(1, Number(C.parallel ?? 1)); // more than 1 only on a machine with room to spare (2026-10-29: 3 browsers at load 96 ran all night)
 const SCENES = C.scenes.length ? C.scenes : [null];
 const MODES = {
   normal: {},
@@ -43,6 +44,8 @@ async function open(mode, href) {
   if (opt.features) await (await ctx.newCDPSession(page)).send('Emulation.setEmulatedMedia', { features: opt.features });
   await page.goto(href, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
+  // folded sections are measured open, as a reader who opens them sees them
+  await page.evaluate(() => { for (const d of document.querySelectorAll('details')) d.open = true; });
   const active = await page.evaluate((m) => ({ normal: true, 'reduced-transparency': matchMedia('(prefers-reduced-transparency: reduce)').matches, 'forced-colors': matchMedia('(forced-colors: active)').matches })[m], mode);
   if (!active) throw new Error(`mode ${mode} did not take effect in this browser`);
   return { page, close: () => ctx.close() };
@@ -69,14 +72,17 @@ try {
         for (const g of K.gatingGroups) for (const t of r.all.filter((x) => x.group === g && (x.min == null || x.min < x.required))) record(`[${mode}] harness ${key}/${g}`, t);
       }
       const agg = (result.docsPage[mode][key] = { textElements: 0, failures: 0, pages: 0 });
-      if (docsScenes(mode).includes(scene)) for (const route of ROUTES) {
+      // pages are measured PAR at a time, each in its own context, so a set takes about 1/PAR as long
+      if (docsScenes(mode).includes(scene)) await pool(ROUTES, PAR, async (route) => {
         const d = await open(mode, url(srv.base, route, { theme, scene }, C));
         const dr = await measurePageText(d.page, K.threshold);
         await d.close();
         agg.textElements += dr.textElements;
         agg.pages += 1;
+        // progress inside a set, so a long run never looks stuck
+        if (agg.pages % 25 === 0) console.log(`  … ${mode} ${key} ${agg.pages}/${ROUTES.length} pages, ${agg.failures} failing so far`);
         for (const t of dr.failures.filter((x) => !K.infoGroups.includes(x.group))) { if (!isExcepted(t)) agg.failures += 1; record(`[${mode}] docs ${route} ${key}`, t); }
-      }
+      });
       console.log(`${mode.padEnd(21)} ${key.padEnd(14)} ${K.harness ? `harness ${K.gatingGroups.map((g) => `${g} ${result.harness[mode][key][g].failures}/${result.harness[mode][key][g].texts}`).join(' · ')} | ` : ''}docs ${agg.failures}/${agg.textElements} over ${agg.pages} pages`);
     }
   }

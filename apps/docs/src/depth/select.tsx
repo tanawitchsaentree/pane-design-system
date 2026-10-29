@@ -99,7 +99,7 @@ export const SELECT: Depth = {
       ['Focus', 'The shared 2px ring with its dark halo.', 'Visible on any scene (P2).'],
       ['Open', 'The list opens below on an opaque sheet; the chevron turns.', 'A reading surface stays ordinary (P7).'],
       ['Highlighted row', 'A lens lit along its top edge; a glint follows the pointer.', 'The row nests the sheet corner (P3).'],
-      ['Chosen option', 'A check at the start of the row in the accent, and a heavier weight.', 'Selection has a shape (P6).'],
+      ['Chosen option', 'A check at the start of the row in the text colour, and a heavier weight.', 'Selection has a shape (P6).'],
       ['Disabled', 'Native disabled, half opacity, cannot open.', 'Write the reason nearby (P6).'],
       ['Placeholder', 'The prompt in the secondary text colour until a value is chosen.', 'The empty state reads as a question (P7).'],
       ['Disabled option', 'Half opacity, skipped by the arrow keys and cannot be picked.', 'The reason belongs in its label (P6).'],
@@ -135,7 +135,7 @@ export const SLIDER: Depth = {
   overview: (
     <>
       <p>A slider sets a value along a range where the feel matters more than the exact number, such as volume, a blur amount or a corner radius. The label sits above the track with the current value at the other end, formatted with its unit.</p>
-      <p>The slider is the Switch’s material stretched out. The track is a 10px channel carved into the glass, and it fills with the accent blue up to the value. The thumb is the Switch’s lit bead, a 24px white bead with a shadow, so it reads as an object on both dark and light glass. The channel is thin, but the press area around it is 44px tall, so a finger lands on it easily (P6).</p>
+      <p>The slider is the Switch’s material stretched out. The track is a 10px channel carved into the glass, and it fills with the loud solid up to the value, white in the dark theme and ink in the light theme. The thumb is the Switch’s lit bead, a 24px white bead with a shadow, so it reads as an object on both dark and light glass. The channel is thin, but the press area around it is 44px tall, so a finger lands on it easily (P6).</p>
       <p>Radix supplies the behaviour. Arrow keys move one step, Page Up and Page Down move a larger step, Home and End jump to the ends, and the formatted value is what a screen reader speaks. Shift with an arrow key moves ten steps at once, the same as Page Up and Page Down. In a left-to-right layout Up and Right raise the value and Down and Left lower it.</p>
       <p>The value changes on every step of a drag, and <code>onValueChange</code> fires each time. An app that saves to a server or redraws something heavy should wait until the reader stops moving before it acts. Pane does not expose a separate callback for the moment the reader lets go.</p>
       <p>The slider has no <code>name</code> prop, so it does not send its value with a native form. Read the value through <code>onValueChange</code> and keep it in the form’s own state. It is horizontal only. There are no tick marks, no labels at the two ends and no second thumb for a range; those are not built.</p>
@@ -153,7 +153,7 @@ export const SLIDER: Depth = {
     parts: [
       { part: 'Label and value', selector: '[data-component="Slider"] > *:first-child', what: 'The setting’s name and the current value with its unit.' },
       { part: 'Channel', selector: '[data-component="Slider"] [class*="track"]', what: 'A 10px channel carved into the glass, with shade under its top lip and light on its bottom lip.' },
-      { part: 'Range', selector: '[data-component="Slider"] [class*="range"]', what: 'The channel filled with the accent blue up to the value, still carved.' },
+      { part: 'Range', selector: '[data-component="Slider"] [class*="range"]', what: 'The channel filled with the loud solid up to the value, white in dark and ink in light.' },
       { part: 'Thumb', selector: '[role="slider"]', what: 'The Switch’s lit bead, 24px, white with a shadow, on a 44px press area.' },
     ],
   },

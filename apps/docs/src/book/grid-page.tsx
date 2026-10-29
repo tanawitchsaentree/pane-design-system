@@ -145,11 +145,11 @@ export function GridLayoutPage() {
         <p>Larger viewport tokens exist (<code>viewport.xl</code> {TOKENS['viewport.xl'].value}, <code>viewport.2xl</code> {TOKENS['viewport.2xl'].value}) for container widths and component changes, but the grid itself stops changing at desktop width. Wider screens get a wider container, never more columns, so a pane keeps its proportions.</p>
       </Section>
 
-      <Section id="breakpoint-basis" title="Breakpoints follow the screen">
+      <Section id="breakpoint-basis" title="Breakpoints follow the screen" fold>
         <p>Breakpoints measure the viewport, not the content area. Opening the side rail does not turn a desktop grid into a tablet grid; the content area narrows and the columns narrow with it. Designs are drawn for the phone grid first and grow upwards, because the phone is where every pane has the least room and the scene the least space around it.</p>
       </Section>
 
-      <Section id="column-width" title="Column width">
+      <Section id="column-width" title="Column width" fold>
         <p>Columns are equal and fluid. Inside a breakpoint their width is the available width, minus margins and gutters, divided by the column count, so content scales with the screen. Gutters and margins stay fixed inside a breakpoint, which keeps the space between panes the same size wherever you are on the page.</p>
         <Code label="CSS">{`grid-template-columns: repeat(var(--ds-grid-columns), minmax(0, 1fr));\ngap: var(--ds-grid-gutter);\npadding-inline: var(--ds-grid-margin);`}</Code>
       </Section>
@@ -160,7 +160,7 @@ export function GridLayoutPage() {
         <Code label="React">{`<Grid>\n  <GridItem span="full" lg={8}>…</GridItem>\n  <GridItem span="full" lg={4}>…</GridItem>\n</Grid>`}</Code>
       </Section>
 
-      <Section id="types" title="Fluid, fixed and hybrid">
+      <Section id="types" title="Fluid, fixed and hybrid" fold>
         <ul>
           <li><b>Fluid.</b> Columns divide the width, so things get bigger as the screen grows. Use it when people want to see more of each item, such as a photo, a post or a player.</li>
           <li><b>Fixed.</b> Boxes have a size from the scale and tile, so more of them fit as the screen grows. Use it when people want to see more items, such as a grid of avatars, album covers or chips.</li>
@@ -169,7 +169,7 @@ export function GridLayoutPage() {
         <p>Pane's default is fluid for panes, because a pane is an object that should grow with the room, and fixed for small things placed on a pane.</p>
       </Section>
 
-      <Section id="max-width" title="Maximum widths">
+      <Section id="max-width" title="Maximum widths" fold>
         <p>Panes stop growing at a container width. Choose it from what the reader does on the screen.</p>
         <div className="table-wrap">
           <table>
@@ -186,21 +186,21 @@ export function GridLayoutPage() {
         <p>Reading text has its own cap on top of this, about 70 characters per line (<code>type.measure</code>), so a wide pane never makes a line too long to read (<Link to="/principles#p7">P7</Link>).</p>
       </Section>
 
-      <Section id="gutters" title="Gutters">
+      <Section id="gutters" title="Gutters" fold>
         <p>Gutters are fixed inside a breakpoint, at {BPS.map((b) => `${b.gutter}px on ${b.label.toLowerCase()}`).join(', ')}. In most systems a gutter only separates content. In Pane it is also the gap through which the reader sees the scene (<Link to="/principles#p1">P1</Link>), which is why Pane never uses a gutterless grid for panes. Two panes that touch read as one sheet of glass, and nothing in the system can tell them apart again.</p>
         <p>Content stays inside its columns. Shadows and the rim light of a pane may fall into the gutter; text and controls never do.</p>
       </Section>
 
-      <Section id="margins" title="Margins">
+      <Section id="margins" title="Margins" fold>
         <p>Margins are the space between the outermost columns and the edge of the screen, at {BPS.map((b) => `${b.margin}px on ${b.label.toLowerCase()}`).join(', ')}. They are fixed per breakpoint and always come from <code>layout.margin</code>. Leaving an empty column at each side to make a margin breaks as soon as the column count changes.</p>
       </Section>
 
-      <Section id="padding" title="Padding and the type edge">
+      <Section id="padding" title="Padding and the type edge" fold>
         <p>Inside a pane the padding is <code>gap.inset</code> ({TOKENS['gap.inset'].value}), always larger than any gap between items in that pane, so the edge of the pane reads as the edge of the object (<Link to="/principles#p3">P3</Link>). Text sits against the padding edge. A pane's title, its body and its buttons all start on the same line, which is the key line the eye follows down the pane.</p>
         <p>Corners nest by the same numbers. The pane corner minus the padding gives the corner of anything inside it. See <Link to="/foundations/shape">Shape & elevation</Link>.</p>
       </Section>
 
-      <Section id="what-aligns" title="What aligns to the grid">
+      <Section id="what-aligns" title="What aligns to the grid" fold>
         <ul>
           <li><b>Panes do.</b> Cards, feeds, players and settings groups span columns.</li>
           <li><b>Things on a pane don't.</b> Buttons, avatars, tags and the parts of a card are spaced with the gap tokens inside the pane's padding.</li>
@@ -208,16 +208,16 @@ export function GridLayoutPage() {
         </ul>
       </Section>
 
-      <Section id="nested" title="Nested grids">
+      <Section id="nested" title="Nested grids" fold>
         <p>A large pane can hold its own grid, for example a gallery inside a profile. The inner grid uses the gap tokens instead of the page gutter, because it is spacing on one object. Nested panes get the inner corner and add no second blur, since one sheet of glass is one layer.</p>
       </Section>
 
-      <Section id="behaviours" title="More things, or bigger things">
+      <Section id="behaviours" title="More things, or bigger things" fold>
         <p>When the screen grows, decide what the reader wants. If they want to see more items, keep the item size and let more columns of items fit (fixed boxes). If they want to see more of each item, keep the count and let each one grow (fluid columns). A feed of photos is the second case; a list of people to follow is the first.</p>
         <Example title="Column count follows the screen" code={GridBasicSrc} plain backdrop="field"><GridBasic /></Example>
       </Section>
 
-      <Section id="ui-behaviours" title="How each region scales" wide>
+      <Section id="ui-behaviours" title="How each region scales" wide fold>
         <div className="table-wrap">
           <table>
             <thead><tr><th scope="col">Region</th><th scope="col">Width</th><th scope="col">Height</th></tr></thead>
@@ -233,7 +233,7 @@ export function GridLayoutPage() {
         </div>
       </Section>
 
-      <Section id="regions" title="Screen regions" wide>
+      <Section id="regions" title="Screen regions" wide fold>
         <p>People expect the same things in the same places on every screen. The top bar (1) and side rail (2) sit outside the grid; panes (3) sit on it; ornaments (4) and menus (5) float above it and do not move the grid when they appear.</p>
         <Regions />
         <ul>
@@ -242,29 +242,29 @@ export function GridLayoutPage() {
         </ul>
       </Section>
 
-      <Section id="key-lines" title="Key lines" wide>
+      <Section id="key-lines" title="Key lines" wide fold>
         <p>Whatever the layout, the edges of panes should form lines the eye can follow, vertically and horizontally. Here the same screen is drawn with its key lines. Every pane edge lands on a column edge, and every row of panes starts on the same line.</p>
         <Regions keyLines />
       </Section>
 
-      <Section id="density" title="Density">
+      <Section id="density" title="Density" fold>
         <p>Pane has one density. Touch targets are 44px in every layout (<Link to="/principles#p6">P6</Link>) and the gutters are what let the scene show between panes (<Link to="/principles#p1">P1</Link>), so a compact mode would shrink exactly the two things the concept depends on. Dense data belongs on an ordinary reading surface (<Link to="/principles#p7">P7</Link>), where a table can be as compact as it needs.</p>
       </Section>
 
-      <Section id="sizing-scale" title="Sizing scale">
+      <Section id="sizing-scale" title="Sizing scale" fold>
         <p>Fixed boxes take their sizes from the space scale and the control sizes, so tiles line up without a grid being drawn. The fluid base unit is the column width at the current breakpoint.</p>
         <TokenTable prefix="control." />
       </Section>
 
-      <Section id="aspect-ratios" title="Aspect ratios">
+      <Section id="aspect-ratios" title="Aspect ratios" fold>
         <p>Avatars are square. Covers and post media are cropped to the pane by height, so the pane decides the shape and the photo fills it (<code>background-size: cover</code>). Pane does not fix a ratio for media, because the scene behind the glass already sets the mood and a fixed ratio would crop people's photos to fit the system instead of the pane.</p>
       </Section>
 
-      <Section id="vertical-rhythm" title="Vertical rhythm">
+      <Section id="vertical-rhythm" title="Vertical rhythm" fold>
         <p>Vertical space comes from the same scale. Between panes in a column the gap is the gutter of the current breakpoint, so horizontal and vertical gaps match. Between sections of a page it is <code>gap.section</code> ({TOKENS['gap.section'].value}), and between whole regions <code>gap.page</code> ({TOKENS['gap.page'].value}).</p>
       </Section>
 
-      <Section id="components" title="How components size" wide>
+      <Section id="components" title="How components size" wide fold>
         <div className="table-wrap">
           <table>
             <thead><tr><th scope="col">Component</th><th scope="col">Width</th><th scope="col">Height</th></tr></thead>
@@ -280,13 +280,13 @@ export function GridLayoutPage() {
         </div>
       </Section>
 
-      <Section id="dodont" title="Do and don’t" wide>
+      <Section id="dodont" title="Do and don’t" wide fold>
         <Pair title="Keep the scene between panes" doLabel="Leave the gutter between panes, so each one is its own object and the scene shows between them." dontLabel="Butt panes together. They merge into one sheet and the scene disappears." good={<div className="gx-two">{box('Pane')}{box('Pane')}</div>} bad={<div className="gx-two touch">{box('Pane')}{box('Pane')}</div>} />
         <Pair title="Margins come from the margin token" doLabel="Let panes start at the margin." dontLabel="Leave an empty column as a margin. It breaks when the column count changes." good={<div className="gx-margin-demo">{box('Pane')}</div>} bad={<div className="gx-margin-demo inset">{box('Pane')}</div>} />
         <Pair title="Cap reading width" doLabel="Put long text in a reading-width pane." dontLabel="Run text across all 12 columns." good={<Card as="div" className="gx-read narrow"><p className="flush">A paragraph that stays near seventy characters per line is easy to follow from one line to the next.</p></Card>} bad={<Card as="div" className="gx-read"><p className="flush">A paragraph stretched across every column of a wide screen is hard to follow, because the eye loses its place on the way back to the start of the next line.</p></Card>} />
       </Section>
 
-      <Section id="tools" title="Using the grid in code and design tools">
+      <Section id="tools" title="Using the grid in code and design tools" fold>
         <Code label="React">{`import { Container, Grid, GridItem } from 'pane-react';\n\n<Container size="xl">\n  <Grid>\n    <GridItem span="full" lg={8}>…</GridItem>\n    <GridItem span="full" lg={4}>…</GridItem>\n  </Grid>\n</Container>`}</Code>
         <Code label="CSS">{`.layout {\n  display: grid;\n  grid-template-columns: repeat(var(--ds-grid-columns), minmax(0, 1fr));\n  gap: var(--ds-grid-gutter);\n  padding-inline: var(--ds-grid-margin);\n}`}</Code>
         <Code label="SCSS">{`@media (min-width: $ds-raw-breakpoint-lg) { … }`}</Code>
@@ -298,12 +298,12 @@ export function GridLayoutPage() {
         <GridPlayground />
       </Section>
 
-      <Section id="tokens" title="Layout tokens">
+      <Section id="tokens" title="Layout tokens" fold>
         <TokenTable prefix="layout." />
         <TokenTable prefix="container." />
       </Section>
 
-      <Section id="further-reading" title="Further reading">
+      <Section id="further-reading" title="Further reading" fold>
         <ul>
           <li><a href="https://www.nngroup.com/articles/using-grids-in-interface-designs/" data-reference="">Using grids in interface designs</a>, Nielsen Norman Group.</li>
           <li><a href="https://developer.apple.com/design/human-interface-guidelines/layout" data-reference="">Layout</a>, Apple Human Interface Guidelines, including visionOS windows and ornaments.</li>

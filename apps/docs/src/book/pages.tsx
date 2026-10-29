@@ -18,6 +18,8 @@ import SettingsPanelSrc from '../examples/SettingsPanel.tsx?raw';
 import TextOnImage from '../examples/TextOnImage';
 import TextOnImageSrc from '../examples/TextOnImage.tsx?raw';
 import * as Icons from '../icons';
+import { PaletteGrid, RoleTabs, TokenBrowser } from './color-page';
+import { ElevationDemo } from './elevation';
 import { ThemePlayground, GlassPlayground, ContrastPlayground, TypePlayground, SpacingPlayground, GridPlayground, ShapePlayground, MotionPlayground, IconBrowser, TouchTargetPlayground } from './playgrounds';
 import { inline, useScene, Stage, PRINCIPLES, CONCEPT_INTRO, Callout, Code, CopyButton, ConformanceList, EvidenceTable, Example, Link, Markdown, Page, Section, TOKENS, TokenTable, VerifiedTags, useVerify } from './kit';
 import { COMPONENTS } from './components-data';
@@ -224,6 +226,11 @@ function Glass() {
         <p>Move the sliders over the current scene and watch the card. Switch the demo backdrop in the top bar to see why one value has to hold over every photo.</p>
         <GlassPlaygroundWithScene />
       </Section>
+      <Section id="levels" title="Levels of the stack" wide>
+        <p>Glass stacks in four levels. A pane sits on the scene (1). A surface inside a pane is one step lighter in dark and one step deeper in light, with no second blur (2); a Card inside a Card takes this level by itself. An overlay such as a dialog sits on a scrim that halves the scene and everything under it (3). A popover sits on top (4). Each level also floats on a longer shadow than the one below.</p>
+        <p>The step is measured. The median luminance of a band just inside each level's edge is compared with a band just outside it, on whatever is underneath, and neighbouring levels must differ by at least 1.15:1 in both themes on every photo. Under an overlay the scrim must take the scene down to 60 percent of its brightness or less. The check is gate G-EL1, and it runs on the examples below.</p>
+        <ElevationDemo />
+      </Section>
       <Section id="recipe" title="The recipe">
         <div className="table-wrap">
           <table>
@@ -234,7 +241,7 @@ function Glass() {
               <tr><th scope="row">Dim</th><td><code>glass.brightness</code></td><td><code>{tok('glass.brightness')}</code></td><td>The legibility lever. Lowers the backdrop’s light while keeping hue and detail.</td></tr>
               <tr><th scope="row">Tint</th><td><code>surface.glass</code></td><td><code>{tok('surface.glass')}</code></td><td>Almost nothing. 6% white so the pane has a body.</td></tr>
               <tr><th scope="row">Sheen</th><td><code>surface.sheen-top → sheen-bottom</code></td><td><code>{tok('surface.sheen-top')} → {tok('surface.sheen-bottom')}</code></td><td>A top-lit gradient so the pane reads as a surface catching light.</td></tr>
-              <tr><th scope="row">Rim</th><td><code>line.rim-hi / mid / lo</code></td><td><code>{tok('line.rim-hi')}</code></td><td>Takes the place of a border. It is bright at the top left and almost gone in the middle.</td></tr>
+              <tr><th scope="row">Rim</th><td><code>line.rim-hi / mid / lo</code></td><td><code>{tok('line.rim-hi')}</code></td><td>Takes the place of a border. One light falls from above, so it is brightest along the top edge, faint down the sides and a little stronger at the foot.</td></tr>
               <tr><th scope="row">Halo</th><td><code>elevation.halo</code></td><td><code>{tok('elevation.halo')}</code></td><td>A soft dark glow around white text. Counted by WCAG as the text’s background when it is there.</td></tr>
             </tbody>
           </table>
@@ -284,31 +291,26 @@ function Glass() {
 }
 
 function ColorPage() {
-  const prim = Object.entries(TOKENS).filter(([, t]) => t.tier === 'primitive' && t.type === 'color');
   return (
-    <Page eyebrow="Foundations" title="Colour" lede={<p>Pane has very little colour of its own on purpose, because the scene behind the glass supplies it. The palette is white at a handful of opacities plus one graphite for the opaque fallback, one ink for text on white and one blue.</p>}>
+    <Page eyebrow="Foundations" title="Colour" lede={<p>Pane has no hue of its own, because the scene behind the glass supplies the colour. The palette is white at a handful of opacities plus one graphite for the opaque fallback and one ink for text on white. Colour beyond that appears only where it states a status, in the info, positive, warning and critical marks.</p>}>
+      <Section id="palette" title="Palette" wide>
+        <p>Every primitive, one row per family from light to dark. Select a step to copy its variable. The alpha rows are shown on the ground they are used on.</p>
+        <PaletteGrid />
+      </Section>
+      <Section id="roles" title="Roles" wide>
+        <p>Components never use a primitive directly. They go through a role, and each role has a value in each theme. Change a role and every component that uses it follows.</p>
+        <RoleTabs />
+      </Section>
       <Section id="playground" title="Check a pair" wide>
         <p>Pick any two solid colours from the palette to see their contrast and which WCAG levels they meet.</p>
         <ContrastPlayground />
       </Section>
-      <Section id="palette" title="Palette" wide>
-        <ul className="swatches flush">
-          {prim.map(([p, t]) => <li key={p}><span className="chip" style={{ background: `var(${t.css})` }} aria-hidden="true" /><code>{p}</code><span className="muted">{t.value}</span></li>)}
-        </ul>
-      </Section>
-      <Section id="roles" title="Roles">
-        <p>Components never use a primitive directly. They go through a semantic role. Change a role and every component that uses it follows.</p>
-        <TokenTable prefix="text." />
-        <TokenTable prefix="action." />
-        <TokenTable prefix="surface." />
-        <TokenTable prefix="line." />
-      </Section>
       <Section id="rules" title="Rules">
         <ul>
           <li><b>Text follows the theme.</b> Dark glass carries white text and light glass carries ink. Secondary text is the same colour at a lower opacity, held at the lowest value that still passed on the bright photos.</li>
-          <li><b>Two solid fills only.</b> The loud solid (<code>surface.light</code>, white in dark and ink in light) for the main action, and blue (<code>action.accent</code>) for promoted ones. Never both for equal actions. <Link to="/foundations/themes">Themes & backdrops</Link> shows both.</li>
-          <li><b>Blue is #0071E3, a deeper blue than Twitter’s.</b> Twitter’s <span data-not-token>#1D9BF0</span> measured about 2.9:1 under white text on its own fill.</li>
-          <li><b>Opaque pairs are computed, glass pairs are measured.</b> White on blue is 4.70:1 by formula; anything on glass is only what the evidence run reads from pixels.</li>
+          <li><b>One loud solid.</b> The loud solid (<code>surface.light</code>, white in dark and ink in light) carries the main action. The accent (<code>action.accent</code>) is the same solid with its own glow, for a promoted action, and the two never sit side by side. <Link to="/foundations/themes">Themes & backdrops</Link> shows both.</li>
+          <li><b>Pane owns no blue.</b> Twitter’s <span data-not-token>#1D9BF0</span> is the colour people expect from a social app, and Pane leaves it out, so the only hues on screen come from the photo and the status marks.</li>
+          <li><b>Opaque pairs are computed, glass pairs are measured.</b> Ink on white is 18.74:1 by formula; anything on glass is only what the evidence run reads from pixels.</li>
         </ul>
       </Section>
     </Page>
@@ -345,12 +347,12 @@ function Themes() {
         <p>A nested region gets fresh token values, but CSS still hands it the colour and text shadow its parent already computed. Cards set both themselves. For plain text in a nested region, set them on the region too.</p>
         <Code label="CSS">{`[data-theme] [data-theme] {\n  color: var(--ds-text-primary);\n  text-shadow: var(--ds-card-text-halo);\n}`}</Code>
       </Section>
-      <Section id="matrix" title="One card, both themes, every scene" wide>
+      <Section id="matrix" title="One card, both themes, every scene" wide fold>
         <p>The same card in each theme over each of the four photos. Look at the night café row first. That is where light glass works hardest, because ink text needs a pale surface and the photo behind is almost black.</p>
         <ThemeMatrixDemo />
       </Section>
-      <Section id="changes" title="What changes between themes" wide>
-        <p>Only these tokens have a second value. Everything else, from spacing to motion to the blue accent, is the same in both themes.</p>
+      <Section id="changes" title="What changes between themes" wide fold>
+        <p>Only these tokens have a second value. Everything else, from spacing to motion to the status colours, is the same in both themes.</p>
         <div className="table-wrap">
           <table className="tokens">
             <thead><tr><th scope="col">Token</th><th scope="col">Dark</th><th scope="col">Light</th><th scope="col">Copy</th></tr></thead>
@@ -367,7 +369,7 @@ function Themes() {
           </table>
         </div>
       </Section>
-      <Section id="bright-dark" title="Bright scenes and dark scenes">
+      <Section id="bright-dark" title="Bright scenes and dark scenes" fold>
         <p>The theme and the scene are two separate things. The theme is the reader’s choice. The scene is whatever photo, video or wallpaper sits behind the glass, and you rarely control it.</p>
         <ul>
           <li><b>Dark theme on a bright scene</b> is the hard case for dark glass. The Environment level decides how far the glass dims, and <code>bright</code> is the safe default.</li>
@@ -377,14 +379,14 @@ function Themes() {
         </ul>
         <Callout tone="caution" title="Text straight on the photo">Neither theme protects text that sits outside a pane. Put it on glass, or on a scrim, in both themes.</Callout>
       </Section>
-      <Section id="solids" title="Solid fills flip">
-        <p>The loud fill in each theme is the opposite of the text colour. Dark theme uses a white button with ink text. Light theme uses an ink button with white text. Code that asks for <code>surface.light</code> gets the right one in each theme, so the name means “the loud solid” and not literally white. Accent blue and the status colours stay the same in both, because their text pairs are worked out on the fill itself.</p>
+      <Section id="solids" title="Solid fills flip" fold>
+        <p>The loud fill in each theme is the opposite of the text colour. Dark theme uses a white button with ink text. Light theme uses an ink button with white text. Code that asks for <code>surface.light</code> gets the right one in each theme, so the name means “the loud solid” and not literally white. The accent follows the same flip, white in dark and ink in light. The status colours stay the same in both, because their text pairs are worked out on the fill itself.</p>
       </Section>
-      <Section id="evidence" title="Measured in both themes" wide>
+      <Section id="evidence" title="Measured in both themes" wide fold>
         <p>Every check in the evidence run is repeated for each theme. The table shows how many text elements failed per theme and scene.</p>
         <EvidenceTable groups={['card', 'controls', 'status']} />
       </Section>
-      <Section id="checklist" title="Before you ship a theme">
+      <Section id="checklist" title="Before you ship a theme" fold>
         <ul>
           <li>Run the evidence pass with the theme on and read the worst pixel for every scene you support.</li>
           <li>Give every new semantic colour a value for both themes, or leave it theme-free on purpose.</li>
@@ -424,7 +426,7 @@ function Typography() {
       </Section>
       <Section id="legibility" title="Legibility on glass">
         <ul>
-          <li><b>Halo.</b> All text on a Card inherits <code>elevation.halo</code>, a 14px soft dark glow plus a 1px drop. Solid-fill controls (light and accent buttons, the selected tab, avatars) reset it. Dark glow around dark text on white would be mud.</li>
+          <li><b>Halo.</b> All text on a Card inherits <code>elevation.halo</code>, a 14px soft dark glow plus a 1px drop. Solid-fill controls (light and accent buttons, avatars, tags) reset it. Dark glow around dark text on white would be mud.</li>
           <li><b>Large text.</b> WCAG lets text ≥24px, or ≥18.66px bold, pass at 3:1. The evidence run applies that per text node from its computed size and weight.</li>
           <li><b>Line length.</b> Prose is capped at <code>type.measure</code> ({tok('type.measure')}).</li>
           <li><b>Uppercase is CSS.</b> Eyebrows and tags are written in normal case and uppercased with <code>text-transform</code>, so screen readers read words.</li>
@@ -502,7 +504,7 @@ function Shape() {
         <p>There are only two shadows. <b>float</b> lifts a pane off the scene; <b>lift</b> sits under solid buttons. Glass never stacks shadows on shadows.</p>
       </Section>
       <Section id="rim" title="The rim instead of a border">
-        <p>A 1px gradient ring is drawn with a mask. It is bright where light would hit at the top left, almost invisible along the middle and faint again at the bottom right, and it drifts on hover. In forced-colours mode it is replaced by a real CanvasText border so the pane edge never disappears.</p>
+        <p>A 1px gradient ring is drawn with a mask. One light falls from above, so it is brightest along the top edge, almost invisible down the sides and a little stronger again at the foot, and it drifts on hover. In forced-colours mode it is replaced by a real CanvasText border so the pane edge never disappears.</p>
       </Section>
     </Page>
   );
@@ -697,7 +699,7 @@ function Tokens() {
           <label className="field"><span>Search</span><input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="e.g. glass, accent, 40px" /></label>
           <Select label="Tier" size="md" value={tier || 'all'} onValueChange={(v) => setTier(v === 'all' ? '' : v)} options={[{ value: 'all', label: 'All' }, { value: 'primitive', label: 'Primitive' }, { value: 'semantic', label: 'Semantic' }, { value: 'component', label: 'Component' }]} />
         </div>
-        <TokenTable tier={tier || undefined} query={q} />
+        <TokenBrowser tier={tier || undefined} query={q} />
       </Section>
     </Page>
   );

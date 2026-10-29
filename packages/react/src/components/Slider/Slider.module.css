@@ -1,5 +1,5 @@
 /* A carved channel with a bead in it (round 3, Slider A), the switch's language stretched out: the
-   channel fills with the one blue up to the value and the thumb is the switch's lit bead. The row keeps a
+   channel fills with the loud solid up to the value and the thumb is the switch's lit bead. The row keeps a
    44px hit area (WCAG 2.5.8, P6) while the channel is thin. */
 .root { display: flex; flex-direction: column; gap: var(--ds-slider-gap); min-inline-size: 0; font-family: var(--ds-type-family); }
 .head { display: flex; justify-content: space-between; gap: var(--ds-gap-md); font-size: var(--ds-type-label); }
@@ -10,8 +10,8 @@
 .track { position: relative; flex: 1; block-size: var(--ds-slider-track); border-radius: var(--ds-corner-round); background: var(--ds-slider-track-bg); box-shadow: var(--ds-slider-carve); overflow: hidden; }
 .range { position: absolute; block-size: 100%; background: linear-gradient(180deg, var(--ds-slider-range-top), var(--ds-slider-range-bg)); box-shadow: var(--ds-slider-range-carve); }
 .thumb {
-  display: block; inline-size: var(--ds-slider-thumb); block-size: var(--ds-slider-thumb); border-radius: var(--ds-corner-round);
-  background: radial-gradient(circle at 36% 28%, var(--ds-slider-thumb-bg) 32%, var(--ds-slider-thumb-shade)); box-shadow: var(--ds-slider-thumb-shadow);
+  display: block; inline-size: var(--ds-slider-thumb-width); block-size: var(--ds-slider-thumb); border-radius: var(--ds-corner-round);
+  background: radial-gradient(circle at 50% 22%, var(--ds-slider-thumb-bg) 32%, var(--ds-slider-thumb-shade)); box-shadow: var(--ds-slider-thumb-shadow);
   transition: transform var(--ds-motion-hover) var(--ds-motion-easing);
 }
 .thumb { position: relative; }

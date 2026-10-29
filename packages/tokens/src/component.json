@@ -89,6 +89,50 @@
         "p": "P3",
         "why": "the card is the pane itself, so its glass fill, sheen, rim, float shadow, panel corner and inset padding all map from the material and depth roles and every pane is the same object"
       }
+    },
+    "level1": {
+      "$type": "color",
+      "$value": "{level.1}"
+    },
+    "level2": {
+      "$type": "color",
+      "$value": "{level.2}"
+    },
+    "level3": {
+      "$type": "color",
+      "$value": "{level.3}"
+    },
+    "level4": {
+      "$type": "color",
+      "$value": "{level.4}"
+    },
+    "shadow-1": {
+      "$type": "shadow",
+      "$value": "{level-shadow.1}"
+    },
+    "shadow-2": {
+      "$type": "shadow",
+      "$value": "{level-shadow.2}"
+    },
+    "shadow-3": {
+      "$type": "shadow",
+      "$value": "{level-shadow.3}"
+    },
+    "shadow-4": {
+      "$type": "shadow",
+      "$value": "{level-shadow.4}"
+    },
+    "edge": {
+      "$type": "shadow",
+      "$value": "{level-shadow.edge}"
+    },
+    "streak": {
+      "$type": "color",
+      "$value": "{level.streak}"
+    },
+    "scrim": {
+      "$type": "color",
+      "$value": "{level.scrim}"
     }
   },
   "avatar": {
@@ -134,7 +178,7 @@
   "button": {
     "light-bg": {
       "$type": "color",
-      "$value": "{surface.light}"
+      "$value": "{action.loud-foot}"
     },
     "light-fg": {
       "$type": "color",
@@ -142,7 +186,7 @@
     },
     "accent-bg": {
       "$type": "color",
-      "$value": "{action.accent}"
+      "$value": "{action.loud-foot}"
     },
     "accent-bg-hover": {
       "$type": "color",
@@ -203,7 +247,7 @@
     },
     "accent-foot": {
       "$type": "color",
-      "$value": "{action.accent-foot}"
+      "$value": "{action.loud-foot}"
     },
     "gloss": {
       "$type": "color",
@@ -219,7 +263,7 @@
     },
     "light-top": {
       "$type": "color",
-      "$value": "{action.solid-top}"
+      "$value": "{action.loud-top}"
     },
     "light-foot": {
       "$type": "color",
@@ -255,19 +299,43 @@
     },
     "accent-cast": {
       "$type": "shadow",
-      "$value": "{elevation.cast-accent}"
+      "$value": "{level-shadow.bloom}"
     },
     "accent-cast-hover": {
       "$type": "shadow",
-      "$value": "{elevation.cast-accent-hover}"
+      "$value": "{level-shadow.bloom}"
     },
     "accent-cast-press": {
       "$type": "shadow",
-      "$value": "{elevation.cast-accent-press}"
+      "$value": "{elevation.cast-press}"
     },
     "hit": {
       "$type": "dimension",
       "$value": "{layout.touch}"
+    },
+    "accent-top": {
+      "$type": "color",
+      "$value": "{action.loud-top}"
+    },
+    "glass-top": {
+      "$type": "color",
+      "$value": "{level.sheen}"
+    },
+    "glass-foot": {
+      "$type": "color",
+      "$value": "{level.3}"
+    },
+    "glass-cast": {
+      "$type": "shadow",
+      "$value": "{level-shadow.2}"
+    },
+    "edge": {
+      "$type": "shadow",
+      "$value": "{level-shadow.edge}"
+    },
+    "streak": {
+      "$type": "color",
+      "$value": "{level.streak}"
     }
   },
   "icon-button": {
@@ -335,6 +403,42 @@
     "rim-lo": {
       "$type": "color",
       "$value": "{line.rim-lo}"
+    },
+    "glass-top": {
+      "$type": "color",
+      "$value": "{level.sheen}"
+    },
+    "glass-foot": {
+      "$type": "color",
+      "$value": "{level.3}"
+    },
+    "cast": {
+      "$type": "shadow",
+      "$value": "{level-shadow.2}"
+    },
+    "edge": {
+      "$type": "shadow",
+      "$value": "{level-shadow.edge}"
+    },
+    "streak": {
+      "$type": "color",
+      "$value": "{level.streak}"
+    },
+    "loud-top": {
+      "$type": "color",
+      "$value": "{action.loud-top}"
+    },
+    "loud-foot": {
+      "$type": "color",
+      "$value": "{action.loud-foot}"
+    },
+    "loud-fg": {
+      "$type": "color",
+      "$value": "{text.on-light}"
+    },
+    "bloom": {
+      "$type": "shadow",
+      "$value": "{level-shadow.bloom}"
     }
   },
   "tabs": {
@@ -354,13 +458,9 @@
       "$type": "color",
       "$value": "{text.primary}"
     },
-    "on-bg": {
-      "$type": "color",
-      "$value": "{action.accent}"
-    },
     "on-fg": {
       "$type": "color",
-      "$value": "{text.on-accent}"
+      "$value": "{text.primary}"
     },
     "radius": {
       "$type": "dimension",
@@ -381,35 +481,47 @@
     },
     "track-bg": {
       "$type": "color",
-      "$value": "{surface.carve}"
+      "$value": "{surface.well-deep}"
     },
     "carve": {
       "$type": "shadow",
-      "$value": "{elevation.carve}"
+      "$value": "{level-shadow.well}"
     },
     "inset": {
       "$type": "dimension",
       "$value": "{gap.xs}"
     },
-    "on-mid": {
-      "$type": "color",
-      "$value": "{action.accent-hover}"
-    },
     "on-foot": {
       "$type": "color",
-      "$value": "{action.accent-foot}"
-    },
-    "gloss": {
-      "$type": "color",
-      "$value": "{action.gloss}"
+      "$value": "{surface.chosen-foot}"
     },
     "on-cast": {
       "$type": "shadow",
-      "$value": "{elevation.cast-accent-press}"
+      "$value": "{level-shadow.2}"
     },
     "off-fg": {
       "$type": "color",
       "$value": "{text.primary}"
+    },
+    "on-top": {
+      "$type": "color",
+      "$value": "{surface.chosen-top}"
+    },
+    "rim-hi": {
+      "$type": "color",
+      "$value": "{line.rim-hi}"
+    },
+    "rim-mid": {
+      "$type": "color",
+      "$value": "{line.rim-mid}"
+    },
+    "rim-lo": {
+      "$type": "color",
+      "$value": "{line.rim-lo}"
+    },
+    "streak": {
+      "$type": "color",
+      "$value": "{level.streak}"
     }
   },
   "tag": {
@@ -612,10 +724,6 @@
       "$type": "color",
       "$value": "{text.primary}"
     },
-    "on-bg": {
-      "$type": "color",
-      "$value": "{surface.carve}"
-    },
     "on-fg": {
       "$type": "color",
       "$value": "{text.primary}"
@@ -653,14 +761,6 @@
       "$type": "dimension",
       "$value": "{layout.touch}"
     },
-    "gloss": {
-      "$type": "color",
-      "$value": "{action.gloss-quiet}"
-    },
-    "carve": {
-      "$type": "shadow",
-      "$value": "{elevation.carve}"
-    },
     "rim-hi": {
       "$type": "color",
       "$value": "{line.rim-hi}"
@@ -672,6 +772,38 @@
     "rim-lo": {
       "$type": "color",
       "$value": "{line.rim-lo}"
+    },
+    "top": {
+      "$type": "color",
+      "$value": "{level.sheen}"
+    },
+    "foot": {
+      "$type": "color",
+      "$value": "{level.3}"
+    },
+    "cast": {
+      "$type": "shadow",
+      "$value": "{level-shadow.2}"
+    },
+    "on-top": {
+      "$type": "color",
+      "$value": "{surface.chosen-tint-top}"
+    },
+    "on-foot": {
+      "$type": "color",
+      "$value": "{surface.chosen-tint-foot}"
+    },
+    "on-cast": {
+      "$type": "shadow",
+      "$value": "{level-shadow.2}"
+    },
+    "edge": {
+      "$type": "shadow",
+      "$value": "{level-shadow.edge}"
+    },
+    "streak": {
+      "$type": "color",
+      "$value": "{level.streak}"
     }
   },
   "banner": {
@@ -781,7 +913,7 @@
     },
     "item-check": {
       "$type": "color",
-      "$value": "{action.accent}"
+      "$value": "{text.primary}"
     },
     "gap": {
       "$type": "dimension",
@@ -824,7 +956,7 @@
   "slider": {
     "track": {
       "$type": "dimension",
-      "$value": "{control.mark}"
+      "$value": "{width.bar}"
     },
     "track-bg": {
       "$type": "color",
@@ -832,7 +964,7 @@
     },
     "range-bg": {
       "$type": "color",
-      "$value": "{action.accent}"
+      "$value": "{action.loud-foot}"
     },
     "thumb": {
       "$type": "dimension",
@@ -865,19 +997,23 @@
     },
     "carve": {
       "$type": "shadow",
-      "$value": "{elevation.carve}"
+      "$value": "{elevation.track}"
     },
     "range-top": {
       "$type": "color",
-      "$value": "{action.accent-hover}"
+      "$value": "{action.loud-top}"
     },
     "range-carve": {
       "$type": "shadow",
-      "$value": "{elevation.carve-on}"
+      "$value": "{elevation.cast-press}"
     },
     "thumb-shade": {
       "$type": "color",
       "$value": "{surface.knob-shade}"
+    },
+    "thumb-width": {
+      "$type": "dimension",
+      "$value": "{control.sm}"
     }
   },
   "input": {
@@ -1041,7 +1177,7 @@
     },
     "on-bg": {
       "$type": "color",
-      "$value": "{action.accent}"
+      "$value": "{action.loud-top}"
     },
     "knob-bg": {
       "$type": "color",
@@ -1049,7 +1185,7 @@
     },
     "tick": {
       "$type": "color",
-      "$value": "{text.on-accent}"
+      "$value": "{text.on-light}"
     },
     "inset": {
       "$type": "shadow",
@@ -1074,11 +1210,11 @@
     },
     "on-carve": {
       "$type": "shadow",
-      "$value": "{elevation.carve-on}"
+      "$value": "{elevation.on-glow}"
     },
     "on-top": {
       "$type": "color",
-      "$value": "{action.accent-hover}"
+      "$value": "{action.loud-foot}"
     },
     "knob-shade": {
       "$type": "color",

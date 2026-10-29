@@ -28,13 +28,13 @@ export const ICON_BUTTON: Depth = {
     { situation: 'A filter that stays on', to: '/components/chip', label: 'Chip' },
   ],
   variants: {
-    glass: { purpose: 'A small round pane around the icon, with Button’s white gloss and a rim of light at the top left. For a single tool that has to read as an object, such as Edit on a cover.', pairing: 'Alone or beside a Button. Never in a long row.' },
+    glass: { purpose: 'A small round pane around the icon, with Button’s top-lit fill and a rim of light brightest along its top edge. For a single tool that has to read as an object, such as Edit on a cover.', pairing: 'Alone or beside a Button. Never in a long row.' },
     ghost: { purpose: 'The icon alone, with no pane and no rim. For rows of actions where discs would crowd each other.', pairing: 'In rows of two to five ghost buttons.' },
   },
   anatomy: {
     render: <OnCard><IconButton aria-label="Share" variant="glass" size="md"><IconShare /></IconButton></OnCard>,
     parts: [
-      { part: 'Disc', selector: '[data-component="IconButton"]', what: 'Only on glass. A round pane in the quiet fill with a 20px blur, a white gloss across its top half and a hairline rim of light brightest at the top left, as on every pane. Under the pointer a soft glint appears and fades when the pointer leaves. Its aria-label is required, because it is the button’s whole accessible name.' },
+      { part: 'Disc', selector: '[data-component="IconButton"]', what: 'Only on glass. A round pane in the quiet fill with a 20px blur, lit at its top, with a hairline rim of light brightest along the top edge, as on every pane, and a short soft shadow. Under the pointer a soft glint appears and fades when the pointer leaves. Its aria-label is required, because it is the button’s whole accessible name.' },
       { part: 'Icon', selector: '[data-component="IconButton"] svg', what: '18px outline in the current colour.' },
       { part: 'Press area', selector: '[data-component="IconButton"] [data-hit]', what: 'At least 44px each way at both sizes, wider than the disc.' },
     ],
