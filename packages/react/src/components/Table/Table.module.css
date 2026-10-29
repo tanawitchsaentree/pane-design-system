@@ -5,7 +5,7 @@
 .table { inline-size: 100%; border-collapse: separate; border-spacing: 0; font-size: var(--ds-type-body); color: var(--ds-text-primary); }
 .caption { padding: var(--ds-table-cell-block) var(--ds-table-cell-inline); caption-side: top; text-align: start; font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-primary); }
 .hidden { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.th { position: sticky; inset-block-start: 0; z-index: 1; box-sizing: border-box; block-size: var(--ds-table-hit); padding: 0 var(--ds-table-cell-inline); background: var(--ds-table-head-bg); border-block-end: var(--ds-width-hairline) solid var(--ds-table-divider); font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-secondary); text-align: start; white-space: nowrap; }
+.th { position: sticky; inset-block-start: 0; z-index: 1; box-sizing: border-box; block-size: var(--ds-table-hit); padding: 0 var(--ds-table-cell-inline); background: var(--ds-table-head-bg); border-block-end: var(--ds-width-hairline) solid var(--ds-table-divider); font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-secondary); text-align: start; vertical-align: middle; white-space: nowrap; }
 .td { padding: var(--ds-table-cell-block) var(--ds-table-cell-inline); border-block-end: var(--ds-width-hairline) solid var(--ds-table-divider); vertical-align: middle; }
 .tr:last-child .td { border-block-end: 0; }
 .comfortable .td { block-size: var(--ds-table-row); box-sizing: border-box; }

@@ -138,3 +138,15 @@
 - **ทำอย่างไร:** radial 4 วง (mesh.a–d) บนพื้น mesh.base วาดบน layer ที่ใหญ่กว่ากล่อง แล้ว blur ด้วย mesh-blur 40px ให้ขอบแต่ละวงละลายเข้าหากัน
 - **ใช้ได้:** scene หลังกระจก (Demo backdrop: Aurora), media (cover, icon, illustration), ambient shadow ใต้วัตถุ mesh — **ใช้ไม่ได้:** fill ของ control (Button, Switch, tab) และข้อความ ตาม P1 (ระบบไม่มี hue ของตัวเอง)
 - **ตรวจ:** Aurora อยู่ในรายการ scene ของ evidence แล้ว; ข้อความบนหน้า slider usage และ color ผ่าน 10,680/10,680 ทุก scene
+
+### D-030: Mesh เป็น component ที่ ship ได้ มี preset และ CLI
+- **วันที่:** 2026-10-29 · **เลือกโดย:** agent (user: "upgrade ซะ มีตัวที่ติดตั้งไปแล้ว")
+- **ตัดสิน:** `<Mesh preset>` มี preset aurora, ember, tide, dusk; product ที่ติดตั้งแล้วทำสีของตัวเองได้ด้วย CLI `pane-mesh` ซึ่งสร้างชุด token mesh ใหม่จากสีที่ให้ไป ส่วนกฎการใช้ยังเป็นไปตาม D-029 คือใช้ได้แค่ scene และ media
+- **ออกเป็น:** 0.6.0 (release/UPGRADE-0.6.0.md บอกขั้นตอนอัปเกรดให้ตัวที่ติดตั้งไปแล้ว)
+
+### D-031: สีข้อมูลของ chart เป็น content ไม่ใช่ interface
+- **วันที่:** 2026-10-29 · **เลือกโดย:** agent (wave 9 Charts; ตามกฎ "ถามตอนต้นแล้วตัดสินเอง" user review ตอนจบ milestone)
+- **ปัญหา:** P1 บอกว่าระบบไม่มี hue ของตัวเอง แต่ chart ที่มีหลาย series ต้องใช้ hue บอก identity ถ้าใช้แค่ขาว/เทาจะแยกเกิน 2 series ไม่ได้
+- **ตัดสิน:** hue ของ chart เป็นของ content แบบเดียวกับ scene, mesh และ swatch ของ ColorPicker ใช้ได้เฉพาะ mark (bar, line, dot, cell) ส่วนข้อความ legend, label, tick และ tooltip ใช้ text tone เสมอ และ control รอบ chart ยังไม่มี hue
+- **ค่า:** categorical 8 ช่องตามลำดับของ dataviz reference palette, dark/light แยก step (`color.data.*` → `data.series-1..8` → `viz.series-*`); sequential ใช้ hue ช่อง 1 จางไปเข้ม
+- **วัด:** validate_palette ผ่านทุก hard gate บน surface ของ Pane (light #f2f2f4, dark #1c1d21): CVD ΔE ต่ำสุด 9.1 / 8.4, normal ΔE 19.6 / 19.3; light มี 4 ช่องต่ำกว่า 3:1 จึงต้องมี legend, direct label และ table view ทุก chart (ChartFrame บังคับ)

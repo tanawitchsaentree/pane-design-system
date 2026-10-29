@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-29T16:27:41.558Z",
-  "passed": 248,
-  "total": 248,
+  "generatedAt": "2026-10-29T17:32:38.974Z",
+  "passed": 276,
+  "total": 276,
   "checks": [
     {
       "component": "Container",
@@ -350,6 +350,54 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "4 props"
+    },
+    {
+      "component": "Progress",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props"
+    },
+    {
+      "component": "Meter",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props"
+    },
+    {
+      "component": "Stat",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props"
+    },
+    {
+      "component": "EmptyState",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props"
+    },
+    {
+      "component": "Timeline",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "2 props"
+    },
+    {
+      "component": "DescriptionList",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "List",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props"
+    },
+    {
+      "component": "Table",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "10 props"
     },
     {
       "component": "Slider",
@@ -778,6 +826,54 @@
       "detail": "3 demos"
     },
     {
+      "component": "Progress",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Meter",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Stat",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "EmptyState",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Timeline",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "DescriptionList",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "List",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Table",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
       "component": "Slider",
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
@@ -938,7 +1034,7 @@
       "component": "IconButton",
       "name": "every button with no visible text, on every page of the book, has an accessible name",
       "ok": true,
-      "detail": "326 pages"
+      "detail": "358 pages"
     },
     {
       "component": "Tabs",
@@ -967,7 +1063,7 @@
     },
     {
       "component": "Docs page",
-      "name": "G-D3, no literal backtick in rendered text on any of the 326 pages",
+      "name": "G-D3, no literal backtick in rendered text on any of the 358 pages",
       "ok": true
     },
     {
@@ -1398,6 +1494,66 @@
     {
       "component": "TableOfContents",
       "name": "a link moves focus to its heading",
+      "ok": true
+    },
+    {
+      "component": "Progress",
+      "name": "a known amount is a progressbar with its value",
+      "ok": true
+    },
+    {
+      "component": "Progress",
+      "name": "an unknown amount has no value",
+      "ok": true
+    },
+    {
+      "component": "Meter",
+      "name": "a meter with its range and reading",
+      "ok": true
+    },
+    {
+      "component": "Meter",
+      "name": "a high reading says Almost full and a full one says Full",
+      "ok": true
+    },
+    {
+      "component": "Stat",
+      "name": "the change is read with its direction",
+      "ok": true
+    },
+    {
+      "component": "EmptyState",
+      "name": "the title is a heading at the level given",
+      "ok": true
+    },
+    {
+      "component": "Timeline",
+      "name": "an ordered list with the current event marked",
+      "ok": true
+    },
+    {
+      "component": "DescriptionList",
+      "name": "terms and details in a dl",
+      "ok": true
+    },
+    {
+      "component": "List",
+      "name": "a list whose pressable rows are links or buttons",
+      "ok": true
+    },
+    {
+      "component": "Table",
+      "name": "a captioned table in a focusable named region",
+      "ok": true
+    },
+    {
+      "component": "Table",
+      "name": "a sortable header is a button and says its order",
+      "ok": true
+    },
+    {
+      "component": "Table",
+      "name": "pressing a header sorts the rows",
       "ok": true
     }
   ]

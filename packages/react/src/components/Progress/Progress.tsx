@@ -32,7 +32,7 @@ export const Progress = forwardRef<HTMLDivElement, ProgressProps>(function Progr
       </div>
       <div role="progressbar" aria-label={label} aria-valuemin={known ? 0 : undefined} aria-valuemax={known ? max : undefined} aria-valuenow={known ? value : undefined} aria-valuetext={known ? text : undefined}
         className={cx(styles.track, styles[size], !known && styles.unknown)}>
-        <span className={styles.fill} data-glow="soft" style={known ? { inlineSize: `${pct}%` } : undefined} />
+        <span className={styles.fill} data-glow={known ? "soft" : undefined} style={known ? { inlineSize: `${pct}%` } : undefined} />
       </div>
     </div>
   );

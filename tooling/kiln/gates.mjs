@@ -633,6 +633,9 @@ try {
             const p = getComputedStyle(e, pseudo);
             if (p.content === 'none' || p.position !== 'absolute') continue;
             const w = parseFloat(p.width), h = parseFloat(p.height);
+            // a neutral hairline is a rule, such as a timeline's rail between its dots (Pane wave 7, 2026-10-29):
+            // the trope is a thick or tinted bar, so a 1px untinted line is let through
+            if (w <= 1 && !tinted(p.backgroundColor)) continue;
             if (w > 0 && w <= 8 && (h >= box.height * 0.6 || p.insetBlock === '0px' || (p.top === '0px' && p.bottom === '0px')) && (p.backgroundColor !== 'rgba(0, 0, 0, 0)' || p.backgroundImage !== 'none')) out.push({ kind: 'accent-stripe', owner: owner(e) });
           }
           // the alert trope: a small tinted disc with an icon, beside a bold title over muted text
@@ -1161,6 +1164,9 @@ try {
             let el = host; while (el && el !== stage && !isControl(el)) el = el.parentElement;
             if (!el || el === stage) continue;
             const cs = getComputedStyle(el); if (cs.visibility === 'hidden' || el.closest('[aria-hidden="true"], [hidden]')) continue;
+            // a monogram in a disc (an Avatar's initials, Pane wave 7): the disc is sized to its letters and has no
+            // start or end edge for the text to crowd, so the inset rule for pills does not apply
+            { const db = el.getBoundingClientRect(); if (Math.abs(db.width - db.height) < 2 && (parseFloat(cs.borderTopLeftRadius) || 0) >= db.height / 2 - 1) continue; }
             const rg = document.createRange(); rg.selectNodeContents(t);
             const b = el.getBoundingClientRect(); const want = need(el);
             for (const tr0 of rg.getClientRects()) {

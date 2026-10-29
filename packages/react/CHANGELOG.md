@@ -37,6 +37,14 @@ Every entry names the component it touches, so each component page in the book c
 - Accordion: new. Sections opened by their headings, one at a time or several.
 - NavigationMenu: new. Site sections in a row, some opening a panel of links; Esc returns focus.
 - TableOfContents: new. The sections of a long page, tracking the one in view.
+- Progress: new. How far a task has come, in the slider's channel with the loud fill; with no value it travels.
+- Meter: new. A reading inside a range; a high one adds a triangle and Almost full, a full one a diamond and Full.
+- Stat: new. One number said large, with its change as an arrow and words, and a sentiment apart from its direction.
+- EmptyState: new. A glyph in a carved well, a title, one sentence and the way out.
+- Timeline: new. Events on a hairline rail; done, current and upcoming dots differ by shape.
+- DescriptionList: new. Term and detail pairs in a real dl, stacked or inline, with optional dividers.
+- List: new. Rows of one kind, inset on a level-2 pane or plain; ListItem rows can be links or buttons.
+- Table: new. A captioned table with a sticky opaque header, sortable headers with aria-sort and two densities.
 - Dialog: new. A level-3 pane over a scrim (D-025) on Radix Dialog; `actions`, `size`, `Dialog.Close`, `preview` for documentation.
 - Sheet: new. A level-3 pane from the bottom, start or end; a grabber drags a bottom sheet closed.
 - Drawer: new. A Sheet from the start or end edge.

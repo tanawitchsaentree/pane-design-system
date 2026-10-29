@@ -91,4 +91,7 @@ export const Table = forwardRef(function Table<Row extends Record<string, unknow
       </table>
     </div>
   );
-}) as <Row extends Record<string, unknown>>(p: TableProps<Row> & { ref?: React.Ref<HTMLDivElement> }) => React.ReactElement;
+}) as <Row extends Record<string, unknown>>(p: TableProps<Row> & {
+  /** The scrolling region around the table, for scrolling it into view or measuring it. */
+  ref?: React.Ref<HTMLDivElement>;
+}) => React.ReactElement;

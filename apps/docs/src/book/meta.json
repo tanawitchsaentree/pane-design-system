@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T15:51:45.407Z",
+  "generatedAt": "2026-10-29T17:21:28.256Z",
   "version": "0.6.0",
   "components": {
     "Accordion": {
@@ -1307,6 +1307,58 @@
         "gzip": 31963
       }
     },
+    "DescriptionList": {
+      "source": "packages/react/src/components/DescriptionList/DescriptionList.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "DescriptionList",
+          "props": [
+            {
+              "name": "items",
+              "type": "{ term: string; detail: ReactNode; }[]",
+              "required": true,
+              "default": null,
+              "description": "The pairs, in reading order: each term with the detail that belongs to it.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "layout",
+              "type": "\"stacked\" | \"inline\"",
+              "required": false,
+              "default": "stacked",
+              "description": "`stacked` (default) puts each detail under its term; `inline` puts terms in a column beside their details and stacks again when the pane is narrow.",
+              "enum": true,
+              "options": [
+                "stacked",
+                "inline"
+              ]
+            },
+            {
+              "name": "dividers",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Draws a hairline between pairs, for long lists such as an order summary.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "layout"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 564,
+        "cssMin": 839,
+        "gzip": 724
+      }
+    },
     "Dialog": {
       "source": "packages/react/src/components/Dialog/Dialog.tsx",
       "kinds": {},
@@ -1617,6 +1669,92 @@
         "jsMin": 43514,
         "cssMin": 4688,
         "gzip": 16276
+      }
+    },
+    "EmptyState": {
+      "source": "packages/react/src/components/EmptyState/EmptyState.tsx",
+      "kinds": {},
+      "sizes": [
+        "sm",
+        "md"
+      ],
+      "exports": [
+        {
+          "displayName": "EmptyState",
+          "props": [
+            {
+              "name": "title",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Says what is empty in plain words, such as No prints yet. It is a heading at `level`.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "description",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "One or two sentences on why it is empty and what the reader can do about it.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "icon",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A glyph that stands for the missing thing; it sits in a small well above the title and is not read.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "actions",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "The way out, usually one Button, at most a primary and a secondary.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "level",
+              "type": "2 | 3 | 4",
+              "required": false,
+              "default": "2",
+              "description": "The heading level of the title, so the outline of the page stays right; 2 by default.",
+              "enum": false,
+              "options": [
+                "2",
+                "3",
+                "4"
+              ]
+            },
+            {
+              "name": "size",
+              "type": "\"sm\" | \"md\"",
+              "required": false,
+              "default": "md",
+              "description": "`md` (default) fills a page or a panel; `sm` sits inside a card or a list.",
+              "enum": true,
+              "options": [
+                "sm",
+                "md"
+              ]
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "size"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 628,
+        "cssMin": 1138,
+        "gzip": 799
       }
     },
     "Environment": {
@@ -2463,6 +2601,122 @@
         "gzip": 750
       }
     },
+    "List": {
+      "source": "packages/react/src/components/List/List.tsx",
+      "kinds": {
+        "variant": [
+          "inset",
+          "plain"
+        ]
+      },
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "List",
+          "props": [
+            {
+              "name": "variant",
+              "type": "\"inset\" | \"plain\"",
+              "required": false,
+              "default": "inset",
+              "description": "`inset` (default) sets the rows on a level-2 pane with hairlines between them, a settings group;\n`plain` puts them straight on the pane they are in, for a list inside a card.",
+              "enum": true,
+              "options": [
+                "inset",
+                "plain"
+              ]
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Names the list for screen readers when no heading above it does.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        },
+        {
+          "displayName": "ListItem",
+          "props": [
+            {
+              "name": "title",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The row's main line.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "description",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A second line in the secondary tone, such as a date or a count.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "leading",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "An Avatar, an Icon or a thumbnail at the row's start.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "trailing",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A value, a Badge, a Switch or a chevron at the row's end.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "href",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Makes the whole row a link to this address.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onClick",
+              "type": "(() => void)",
+              "required": false,
+              "default": null,
+              "description": "Makes the whole row a button that runs this. Leave out both `href` and `onClick` for a row that only shows.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "chevron",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows a chevron at the end, for a row that opens a page of its own.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "variant"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 1200,
+        "cssMin": 2045,
+        "gzip": 1361
+      }
+    },
     "Listbox": {
       "source": "packages/react/src/components/Listbox/Listbox.tsx",
       "kinds": {},
@@ -2694,6 +2948,89 @@
         "jsMin": 784,
         "cssMin": 1809,
         "gzip": 1024
+      }
+    },
+    "Meter": {
+      "source": "packages/react/src/components/Meter/Meter.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Meter",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Names what is measured, such as Storage; it is shown above the bar and read as the meter's name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "number",
+              "required": true,
+              "default": null,
+              "description": "The measured amount, between `min` and `max`.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "min",
+              "type": "number",
+              "required": false,
+              "default": "0",
+              "description": "The bottom of the range; 0 by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "max",
+              "type": "number",
+              "required": false,
+              "default": "100",
+              "description": "The top of the range; 100 by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "high",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "From this amount up the reading is high: a warning mark and the word Almost full join the value.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "critical",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "From this amount up the reading is critical: the critical mark and the word Full.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "valueText",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The amount in words, such as 41 of 50 GB, shown at the end of the label row and read aloud.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 1233,
+        "cssMin": 1282,
+        "gzip": 1215
       }
     },
     "MultiSelect": {
@@ -3238,6 +3575,88 @@
         "jsMin": 69593,
         "cssMin": 3192,
         "gzip": 25864
+      }
+    },
+    "Progress": {
+      "source": "packages/react/src/components/Progress/Progress.tsx",
+      "kinds": {},
+      "sizes": [
+        "sm",
+        "md"
+      ],
+      "exports": [
+        {
+          "displayName": "Progress",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Names the task, such as Uploading 3 photos; it is shown above the bar and read as the bar's name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "How much is done, from 0 to `max`; leave it out when the amount is not known and the bar travels instead.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "max",
+              "type": "number",
+              "required": false,
+              "default": "100",
+              "description": "The amount that means finished; 100 by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "showValue",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows the amount at the end of the label row, as a percentage unless `valueText` says otherwise.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "valueText",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The amount in words, such as 2 of 3 photos, read by screen readers and shown when `showValue` is on.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "size",
+              "type": "\"sm\" | \"md\"",
+              "required": false,
+              "default": "md",
+              "description": "`md` (default) is the channel a slider uses; `sm` is a thinner line for a card or a row.",
+              "enum": true,
+              "options": [
+                "sm",
+                "md"
+              ]
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "size"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 990,
+        "cssMin": 1311,
+        "gzip": 1129
       }
     },
     "PullToRefresh": {
@@ -4442,6 +4861,91 @@
         "gzip": 488
       }
     },
+    "Stat": {
+      "source": "packages/react/src/components/Stat/Stat.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Stat",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "What the number counts, such as Prints sold; it sits above the number.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The number itself, already formatted, such as 1,284 or 42 kg.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "change",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The change against the last period, already formatted, such as 12% or 3 prints.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "direction",
+              "type": "\"up\" | \"down\" | \"flat\"",
+              "required": false,
+              "default": "flat",
+              "description": "Which way the change went; the arrow shows it and screen readers hear up or down.",
+              "enum": true,
+              "options": [
+                "up",
+                "down",
+                "flat"
+              ]
+            },
+            {
+              "name": "sentiment",
+              "type": "\"positive\" | \"negative\" | \"neutral\"",
+              "required": false,
+              "default": "neutral",
+              "description": "Whether the change is good news; it picks the positive or critical mark, so a fall in costs can read as good.",
+              "enum": true,
+              "options": [
+                "positive",
+                "negative",
+                "neutral"
+              ]
+            },
+            {
+              "name": "caption",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "A short line under the number that says what the change is measured against, such as since last week.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "direction",
+        "sentiment"
+      ],
+      "variantCount": 2,
+      "demoFloor": 5,
+      "bundle": {
+        "jsMin": 1187,
+        "cssMin": 1461,
+        "gzip": 1172
+      }
+    },
     "Stepper": {
       "source": "packages/react/src/components/Stepper/Stepper.tsx",
       "kinds": {},
@@ -4604,6 +5108,121 @@
         "jsMin": 14012,
         "cssMin": 2694,
         "gzip": 6092
+      }
+    },
+    "Table": {
+      "source": "packages/react/src/components/Table/Table.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Table",
+          "props": [
+            {
+              "name": "caption",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Says what the table holds; it is the table's caption and the name of its scrolling region.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "showCaption",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows the caption above the table; when off it is still read by screen readers.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "columns",
+              "type": "TableColumn<Row>[]",
+              "required": true,
+              "default": null,
+              "description": "The columns, in order.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "rows",
+              "type": "Row[]",
+              "required": true,
+              "default": null,
+              "description": "The rows. Each needs an `id`, or its index is used as the key.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "density",
+              "type": "\"comfortable\" | \"compact\"",
+              "required": false,
+              "default": null,
+              "description": "`comfortable` (default) gives each row a 44px height; `compact` is tighter, for dense data read with a pointer.",
+              "enum": true,
+              "options": [
+                "comfortable",
+                "compact"
+              ]
+            },
+            {
+              "name": "defaultSort",
+              "type": "TableSort",
+              "required": false,
+              "default": null,
+              "description": "The sort the table starts with; the table then keeps its own sort.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "sort",
+              "type": "TableSort",
+              "required": false,
+              "default": null,
+              "description": "The sort, when you keep it yourself; pair it with `onSortChange` and sort `rows` before you pass them.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onSortChange",
+              "type": "((sort: TableSort) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the new sort when the reader presses a sortable header.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "maxHeight",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Keeps the header row in view while the body scrolls inside a region of this height, such as 20rem.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "ref",
+              "type": "Ref<HTMLDivElement>",
+              "required": false,
+              "default": null,
+              "description": "The scrolling region around the table, for scrolling it into view or measuring it.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "density"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 1773,
+        "cssMin": 2427,
+        "gzip": 1770
       }
     },
     "TableOfContents": {
@@ -4943,6 +5562,44 @@
         "jsMin": 647,
         "cssMin": 2093,
         "gzip": 1115
+      }
+    },
+    "Timeline": {
+      "source": "packages/react/src/components/Timeline/Timeline.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Timeline",
+          "props": [
+            {
+              "name": "items",
+              "type": "TimelineItem[]",
+              "required": true,
+              "default": null,
+              "description": "The events in the order they are read, usually oldest first; an activity feed may put the newest first.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Names the list for screen readers, such as Order history.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 841,
+        "cssMin": 1925,
+        "gzip": 1109
       }
     },
     "Toast": {
