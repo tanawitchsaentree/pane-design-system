@@ -1,43 +1,16 @@
 {
-  "generatedAt": "2026-10-29T06:57:08.224Z",
-  "passed": 5,
-  "total": 5,
+  "generatedAt": "2026-10-29T07:24:28.401Z",
+  "passed": 1,
+  "total": 1,
   "partial": true,
   "advisory": {},
   "results": [
     {
-      "id": "G-NT1",
-      "name": "diagram parts stand at least 3:1 off their ground, in every theme (WCAG 1.4.11)",
-      "ok": true,
-      "detail": "2 diagrams",
-      "order": 29
-    },
-    {
-      "id": "G-CL1",
-      "name": "every colour value written in the book is a current token value (no stale hex in prose)",
-      "ok": true,
-      "detail": "500 values checked",
-      "order": 34
-    },
-    {
-      "id": "G-NT2",
-      "name": "every form control shows its boundary at least 3:1 against what it sits on, in every theme (WCAG 1.4.11)",
-      "ok": true,
-      "detail": "188 controls in 2 themes",
-      "order": 35
-    },
-    {
-      "id": "G-EL1",
-      "name": "stacked glass reads as levels: each level differs from what is under it by a measured step, and a scrim dims the scene under an overlay",
-      "ok": true,
-      "detail": "14 levels and scrims in 2 themes",
-      "order": 36
-    },
-    {
       "id": "G-GL1",
       "name": "glow is declared and measured: in dark only [data-glow] parts give off light, each visibly (near ring vs ground) and within reach; text never glows; in light nothing glows",
       "ok": true,
-      "detail": "24 glowing parts in 2 themes (strong 1.49–1.55:1, soft 1.22–1.33:1, mark 1.21–1.21:1)",
+      "skipped": true,
+      "detail": "skipped: nothing it checks is in the limited routes",
       "order": 37
     }
   ]

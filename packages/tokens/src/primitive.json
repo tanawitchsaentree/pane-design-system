@@ -761,6 +761,10 @@
       "$value": "180px",
       "$description": "narrowest a dropdown list may be"
     },
+    "slider-min": {
+      "$value": "240px",
+      "$description": "the shortest a slider may get: enough travel to set a value by feel, and a width that does not follow its value text"
+    },
     "$extensions": {
       "kiln.why": {
         "p": "P6",

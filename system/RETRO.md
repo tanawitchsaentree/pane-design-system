@@ -111,3 +111,11 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **Step that produced it:** spacing was chosen per container (one gap for everything inside it) without a rule for how far a separate step stands from text, and nothing checked the folded sections after folding was added.
 - **What changed in that step:** the live demo steps stand 24px apart and its stage and code stay 12px apart as one unit; a demo, table or code block stands 24px from running text; folded sections lay out through an inner prose wrapper.
 - **Check that now catches it:** G-RH1 measures the block above and below every stage and every tab bar on every component page: 24px for a separate step, 16px for an intro paragraph, 8px for the stage's own heading, caption or code. It failed 282 gaps before the fix and passes now.
+
+### R-018: the slider was a stub, its pane bounced, and the anatomy pointed at nothing
+- **Date:** 2026-10-29
+- **User said:** "slide แคบมาก แล้วตัวครอบกรอบ แม่งเด้งอีกเวลา drag ไปสุด" and, of the anatomy, "คือเหี้ยไรก่อน"
+- **What was wrong:** Slider had no width of its own. On the centred studio stage its pane shrank to fit, so the slider was as wide as "Volume 2%" (78px), and the pane grew and shrank as the value text went from 2% to 100%. The fill variant collapsed the same way, and at 100% its marker sat on the value. The anatomy leaders all started at the pane's edge at the row's height, so Channel, Range and Thumb pointed at one spot.
+- **Step that produced it:** the studio stage (centred, shrink-to-fit) changed every demo's container and nobody checked a component that relies on its container for width; nothing measured a control's size across its values; the anatomy drew row markers, not pointers.
+- **What changed in that step:** Slider takes the width it is given and never less than 240px (slider.min-width); the fill value ends clear of the marker; anatomy leaders end on a pin inside each part (never on a letter, never on a smaller part), drop or rise to their own lane, and never cross a line of text; Range and Thumb are listed in the order they read.
+- **Check that now catches it:** G-SL1 presses Home and End on every slider on every component page and fails a slider under 200px or any change in its own or its pane's size. It failed 12 sliders (one at 78px) before the fix and passes 21 now.

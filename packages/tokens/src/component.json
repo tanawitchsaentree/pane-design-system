@@ -1172,6 +1172,18 @@
           "why": "the marker says where the value is now, so in dark it glows a little; in light it does not"
         }
       }
+    },
+    "min-width": {
+      "$value": "{control.slider-min}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6",
+            "P4"
+          ],
+          "why": "240px of travel at least, and the width never follows the value text, so nothing around it moves while dragging"
+        }
+      }
     }
   },
   "input": {

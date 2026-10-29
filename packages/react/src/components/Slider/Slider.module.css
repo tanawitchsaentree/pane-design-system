@@ -1,7 +1,10 @@
 /* A carved channel with a bead in it (round 3, Slider A), the switch's language stretched out: the
    channel fills with the loud solid up to the value and the thumb is the switch's lit bead. The row keeps a
    44px hit area (WCAG 2.5.8, P6) while the channel is thin. */
-.root { display: flex; flex-direction: column; gap: var(--ds-slider-gap); min-inline-size: 0; font-family: var(--ds-type-family); }
+/* a slider takes the width it is given and never less than 240px: a shrink-to-fit parent (a centred
+   stage, an inline pane) would otherwise size it to its label and value text, so it was a stub and its
+   pane resized as the value grew from 2% to 100% (R-018) */
+.root { display: flex; flex-direction: column; gap: var(--ds-slider-gap); inline-size: 100%; min-inline-size: var(--ds-slider-min-width); font-family: var(--ds-type-family); }
 .head { display: flex; justify-content: space-between; gap: var(--ds-gap-md); font-size: var(--ds-type-label); }
 .label { color: var(--ds-text-primary); }
 .value { color: var(--ds-text-secondary); font-variant-numeric: tabular-nums; }
@@ -27,7 +30,7 @@
    where the value stops. Label and value sit inside at the field's inset, over both. */
 .fill {
   position: relative; display: flex; align-items: center; isolation: isolate; overflow: hidden;
-  block-size: var(--ds-slider-fill-height); min-inline-size: 0; border-radius: var(--ds-slider-fill-radius);
+  block-size: var(--ds-slider-fill-height); inline-size: 100%; min-inline-size: var(--ds-slider-min-width); border-radius: var(--ds-slider-fill-radius);
   background: var(--ds-slider-fill-bg); box-shadow: var(--ds-slider-fill-carve);
   font-family: var(--ds-type-family); touch-action: none; user-select: none; cursor: grab;
 }
@@ -46,7 +49,8 @@
   font-size: var(--ds-type-body); color: var(--ds-text-primary);
 }
 .fillLabel { min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.fillValue { flex: none; font-variant-numeric: tabular-nums; }
+/* the value ends clear of where the marker stands at 100%, so the two never overlap */
+.fillValue { flex: none; font-variant-numeric: tabular-nums; margin-inline-end: calc(var(--ds-slider-fill-marker-inset) + var(--ds-slider-fill-marker-width)); }
 .fillThumb {
   display: block; inline-size: var(--ds-slider-fill-marker-width); block-size: var(--ds-slider-fill-marker-height);
   border-radius: var(--ds-corner-round); background: var(--ds-slider-fill-marker);

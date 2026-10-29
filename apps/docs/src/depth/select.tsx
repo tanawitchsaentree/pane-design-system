@@ -156,8 +156,8 @@ export const SLIDER: Depth = {
     parts: [
       { part: 'Label and value', selector: '[data-component="Slider"] > *:first-child', what: 'The setting’s name and the current value with its unit.' },
       { part: 'Channel', selector: '[data-component="Slider"] [class*="track"]', what: 'A 10px channel carved into the glass, with shade under its top lip and light on its bottom lip.' },
-      { part: 'Range', selector: '[data-component="Slider"] [class*="range"]', what: 'The channel filled with the loud solid up to the value, white in dark and ink in light.' },
       { part: 'Thumb', selector: '[role="slider"]', what: 'The Switch’s lit bead, 24px, white with a shadow, on a 44px press area.' },
+      { part: 'Range', selector: '[data-component="Slider"] [class*="range"]', what: 'The channel filled with the loud solid up to the value, white in dark and ink in light.' },
     ],
   },
   sizes: { na: 'Slider has one size per variant. The channel is 10px with a 24px thumb on a 44px press area; the fill bar is 56px tall and is its own press area.' },

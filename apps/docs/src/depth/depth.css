@@ -21,6 +21,7 @@ main a.tab-link:hover { color: var(--ds-text-primary); }
 .anatomy-mark { position: absolute; transform: translate(-50%, -50%); inline-size: var(--ds-gap-2xl); block-size: var(--ds-gap-2xl); border-radius: var(--ds-radius-pill); display: grid; place-items: center; font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); background: var(--ds-surface-light); color: var(--ds-text-on-light); box-shadow: var(--ds-elevation-lift); text-shadow: none; pointer-events: none; }
 [dir='rtl'] .anatomy-mark { transform: translate(50%, -50%); }
 .anatomy-lead { position: absolute; overflow: visible; pointer-events: none; }
+.anatomy-lead circle { fill: var(--ds-text-primary); }
 .anatomy-lead path { fill: none; stroke: var(--ds-text-primary); stroke-width: var(--ds-width-hairline); opacity: 0.8; }
 .anatomy-legend { margin: 0; padding-inline-start: var(--ds-gap-2xl); display: grid; gap: var(--ds-gap-sm); }
 

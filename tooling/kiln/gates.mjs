@@ -16,6 +16,7 @@
 //   claims       G-CL1 every hex in the book is a current token value
 //   non-text     G-NT2 form-control edges ≥3:1 in every theme · G-NR1 flyout rows nest the flyout's corner
 //   inset        G-IN1 text inside a control ≥8px (and ≥ half the end radius) from the control's edge
+//   travel       G-SL1 a slider ≥200px long, and it and its pane keep their size from Home to End
 //   glow         G-GL1 only [data-glow] parts emit light in dark, visibly and within reach; text never; nothing in light
 //   rhythm       G-RH1 a stage and a tab bar ≥24px from neighbouring blocks (own code/caption/heading ≥8, intro ≥16)
 //   address      G-ST1 no default written into the URL; stale or unknown values fall back and are dropped
@@ -1022,10 +1023,39 @@ try {
         if (theme === DARK && ratio < NEED[info.kind]) bad.push(`${theme} ${r}: a ${info.kind} glow lifts its surround only ${ratio.toFixed(2)}:1 (needs ${NEED[info.kind]})`);
       }
     }
-    expect(n > 0, 'NO [data-glow] part measured on any Code page');
+    expect(n > 0, 'NO GLOWING PART ([data-glow]) measured on any Code page');
     fail(bad, 'glow problems');
     const span = Object.entries(seen).map(([k, v]) => `${k} ${Math.min(...v).toFixed(2)}–${Math.max(...v).toFixed(2)}:1`).join(', ');
     return `${n} glowing parts in ${C.themes.length} themes (${span})`;
+  });
+
+  await gate('G-SL1', 'a slider has room to travel and holds still: at least 200px long, and neither it nor its pane changes size between its lowest and highest value', async () => {
+    // Pane, 2026-10-29: in a centred stage the slider shrank to its label and value text, a stub, and
+    // its pane grew and shrank as the value went from 2% to 100%. Checked by pressing Home and End.
+    const MIN = C.sliderMin ?? 200;
+    const bad = []; let n = 0;
+    for (const r of ROUTES.filter((x) => x.startsWith(`${C.componentsBase}/`))) {
+      await go(r);
+      const thumbs = await page.locator('[data-example-live] [role="slider"]').all();
+      for (const t of thumbs.slice(0, 8)) {
+        if (!(await t.isVisible()) || (await t.isDisabled().catch(() => false)) || (await t.getAttribute('aria-disabled')) === 'true') continue;
+        const measure = () => t.evaluate((e) => {
+          const root = e.closest('[data-component]') ?? e.parentElement; const pane = root.parentElement?.closest('[data-surface], [data-component="Card"]') ?? root.parentElement;
+          const a = root.getBoundingClientRect(), b = pane.getBoundingClientRect();
+          return { w: a.width, h: a.height, pw: b.width, ph: b.height, name: root.getAttribute('data-component') ?? 'slider' };
+        });
+        await t.focus(); await page.keyboard.press('Home'); await page.waitForTimeout(80); const lo = await measure();
+        await page.keyboard.press('End'); await page.waitForTimeout(80); const hi = await measure();
+        await page.keyboard.press('Home');
+        n++;
+        if (lo.w < MIN - 0.5) bad.push(`${r}: ${lo.name} is ${Math.round(lo.w)}px long (needs ${MIN})`);
+        const moved = Math.max(Math.abs(hi.w - lo.w), Math.abs(hi.h - lo.h), Math.abs(hi.pw - lo.pw), Math.abs(hi.ph - lo.ph));
+        if (moved > 1) bad.push(`${r}: ${lo.name} or its pane changes size by ${Math.round(moved)}px between its lowest and highest value`);
+      }
+    }
+    if (!n) throw new Error('NO slider on any component page');
+    fail([...new Set(bad)], 'sliders');
+    return `${n} sliders`;
   });
 
   await gate('G-NR1', 'a highlighted row inside a rounded flyout nests its corner: inner radius = outer radius − inset', async () => {

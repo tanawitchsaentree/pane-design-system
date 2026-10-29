@@ -938,6 +938,18 @@
           "why": "the chosen radio shows a 10px dot, a shape that says selected without relying on colour"
         }
       }
+    },
+    "slider-min": {
+      "$value": "{size.slider-min}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6",
+            "P4"
+          ],
+          "why": "a slider keeps a usable length and a fixed width, so its pane never resizes while the value changes"
+        }
+      }
     }
   },
   "corner": {
