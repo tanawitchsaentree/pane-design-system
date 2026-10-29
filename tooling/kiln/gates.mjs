@@ -854,9 +854,17 @@ try {
       const res = await page.evaluate((js) => {
         new Function(js + 'window.__nt2 = { parse, over, ratio, groundOf };')();
         const { parse, over, ratio, groundOf } = window.__nt2;
-        const sel = '[data-example-live] :is(input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]), textarea, [role="combobox"], [role="switch"], [role="checkbox"], [role="radio"])';
+        const sel = '[data-example-live] :is(input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]), textarea, [role="combobox"], [role="switch"], [role="checkbox"], [role="radio"], [role="slider"])';
         return [...document.querySelectorAll(sel)].filter((el) => el.getBoundingClientRect().width > 0 && !el.closest('[data-dont], :disabled, [aria-disabled="true"], [data-disabled]') && !el.matches(':disabled')).map((el) => {
           // the drawn box is the control itself or the nearest ancestor inside its component that draws an edge or a fill
+          // a slider drawn as a bar (Pane's fill slider, 2026-10-29: white on a white pane in light) is
+          // found by the bar's own edge, and a channel slider by its channel (with the fill inside it), never by
+          // the thumb alone: a white bead on a white pane says nothing about where the track runs
+          if (el.matches('[role="slider"]')) {
+            const bar = el.closest('[data-component]'); const bg = bar && parse(getComputedStyle(bar).backgroundColor);
+            if (bar && bg && bg.a > 0 && bar.getBoundingClientRect().height >= 32) el = bar;
+            else if (bar) { const drawn = [...bar.querySelectorAll('*')].filter((d) => !d.matches('[role="slider"]') && !el.contains(d) && (() => { const c = parse(getComputedStyle(d).backgroundColor); return (c && c.a > 0) || getComputedStyle(d).boxShadow !== 'none'; })()).sort((a, b) => b.getBoundingClientRect().width - a.getBoundingClientRect().width)[0]; if (drawn) el = drawn; }
+          }
           const root = el.closest('[data-component]') ?? el;
           let best = 0;
           // a switch or checkbox often draws its track or box in an aria-hidden child, so those count too

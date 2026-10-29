@@ -1,17 +1,43 @@
 {
-  "generatedAt": "2026-10-29T07:24:28.401Z",
-  "passed": 1,
-  "total": 1,
+  "generatedAt": "2026-10-29T07:34:52.511Z",
+  "passed": 5,
+  "total": 5,
   "partial": true,
   "advisory": {},
   "results": [
     {
+      "id": "G-K5",
+      "name": "the Style tab is generated: every spec cell names its token and value",
+      "ok": true,
+      "order": 20
+    },
+    {
       "id": "G-GL1",
       "name": "glow is declared and measured: in dark only [data-glow] parts give off light, each visibly (near ring vs ground) and within reach; text never glows; in light nothing glows",
       "ok": true,
-      "skipped": true,
-      "detail": "skipped: nothing it checks is in the limited routes",
+      "detail": "12 glowing parts in 2 themes (soft 1.22–1.25:1, mark 1.21–1.21:1)",
       "order": 37
+    },
+    {
+      "id": "G-SL1",
+      "name": "a slider has room to travel and holds still: at least 200px long, and neither it nor its pane changes size between its lowest and highest value",
+      "ok": true,
+      "detail": "21 sliders",
+      "order": 38
+    },
+    {
+      "id": "G-IN1",
+      "name": "text inside a control keeps its inset from the control's edge: at least 8px, and half the corner radius on a rounded end",
+      "ok": true,
+      "detail": "4 lines of text in controls",
+      "order": 40
+    },
+    {
+      "id": "G-TT1",
+      "name": "every control in a live example and in the shell gives a pointer at least 44px each way",
+      "ok": true,
+      "detail": "81 controls",
+      "order": 45
     }
   ]
 }

@@ -1050,24 +1050,24 @@
       }
     },
     "fill-bg": {
-      "$value": "{surface.well-deep}",
+      "$value": "{surface.carve}",
       "$extensions": {
         "kiln.why": {
           "p": [
             "P1"
           ],
-          "why": "the empty part is the same deep well as the tab track, carved into the pane"
+          "why": "the empty part is the same carve as a field, so in light the bar reads as a recess in the white pane and the white fill stands out from it"
         }
       }
     },
     "fill-carve": {
-      "$value": "{level-shadow.well}",
+      "$value": "{elevation.groove}",
       "$extensions": {
         "kiln.why": {
           "p": [
             "P1"
           ],
-          "why": "shade under the well's top lip, as on the tab track"
+          "why": "the bar is a groove like a field: shade under its top lip and the field's 3:1 edge all round"
         }
       }
     },

@@ -37,7 +37,8 @@
 .fill:active { cursor: grabbing; }
 .fill[data-disabled] { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
 .fill:focus-within { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
-.fillTrack { position: absolute; inset: 0; }
+/* the track sits a hairline inside the bar, so the groove's 3:1 edge shows all round even when it is full (G-NT2) */
+.fillTrack { position: absolute; inset: var(--ds-width-hairline); border-radius: inherit; }
 .fillRange {
   position: absolute; block-size: 100%; border-radius: var(--ds-slider-fill-radius);
   background: linear-gradient(180deg, var(--ds-slider-fill-top), var(--ds-slider-fill-foot));

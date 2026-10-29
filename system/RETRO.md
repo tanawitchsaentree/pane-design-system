@@ -119,3 +119,11 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **Step that produced it:** the studio stage (centred, shrink-to-fit) changed every demo's container and nobody checked a component that relies on its container for width; nothing measured a control's size across its values; the anatomy drew row markers, not pointers.
 - **What changed in that step:** Slider takes the width it is given and never less than 240px (slider.min-width); the fill value ends clear of the marker; anatomy leaders end on a pin inside each part (never on a letter, never on a smaller part), drop or rise to their own lane, and never cross a line of text; Range and Thumb are listed in the order they read.
 - **Check that now catches it:** G-SL1 presses Home and End on every slider on every component page and fails a slider under 200px or any change in its own or its pane's size. It failed 12 sliders (one at 78px) before the fix and passes 21 now.
+
+### R-019: a full fill slider vanished on a white pane
+- **Date:** 2026-10-29
+- **User said:** (light theme, Volume at 100%) "white มองแทบไม่เห็น"
+- **What was wrong:** in light the fill is white chosen glass and the empty well a near-white deep well, both on a white pane, so the bar had no boundary (1.45–1.49:1) and at 100% none at all. G-NT2 never measured sliders: its selector skipped role="slider".
+- **Step that produced it:** the fill variant took the tab track's well for its empty part, a surface meant to sit inside a pane, not to be found on one; the edge rule for fields was not applied to a new control that is also a field-like bar.
+- **What changed in that step:** the bar is a groove like a field (surface.carve and elevation.groove: shade under the top lip, the field's edge all round), and its track sits a hairline inside so the edge shows even when full.
+- **Check that now catches it:** G-NT2 measures sliders: a bar slider by the bar's own edge, a channel slider by its channel with the fill inside it, never by the thumb. It failed the fill bars in light (1.45, 1.49) before the fix; all 202 controls pass now.
