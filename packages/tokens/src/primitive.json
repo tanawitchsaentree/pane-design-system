@@ -969,11 +969,11 @@
       "$value": "inset 0 2px 3px #00143C73, inset 0 0 0 1px #003C8C80"
     },
     "groove": {
-      "$value": "inset 0 2px 4px #0000008C, inset 0 -2px 0 #FFFFFFCC, inset 0 0 0 1px #FFFFFF38",
-      "$description": "a field is a groove in the glass; its lit bottom lip is the 3:1 edge"
+      "$value": "inset 0 2px 4px #0000008C, inset 0 -1px 0 #FFFFFF33, inset 0 0 0 1px #FFFFFF8F",
+      "$description": "a field is a groove in the glass: shade under its top lip, a faint light on its bottom lip, and an edge all round that carries the 3:1 boundary"
     },
     "groove-light": {
-      "$value": "inset 0 2px 4px #1112144D, inset 0 -2px 0 #FFFFFF, inset 0 0 0 1px #1112148F"
+      "$value": "inset 0 2px 4px #1112144D, inset 0 -1px 0 #FFFFFF99, inset 0 0 0 1px #1112148F"
     },
     "lens": {
       "$value": "inset 0 1px 0 #FFFFFF29, inset 0 0 0 1px #FFFFFF0D",

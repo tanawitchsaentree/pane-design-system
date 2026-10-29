@@ -1392,6 +1392,42 @@
       }
     }
   },
+  "studio": {
+    "$type": "color",
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1",
+          "P3"
+        ],
+        "why": "the default backdrop for showing a component: a near-black sweep (a pale one in light) with one soft light from the top left, so the glass has a gradient to blur and the component stays the subject"
+      }
+    },
+    "base": {
+      "$value": "{color.ink.900}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.paper.100}"
+        }
+      }
+    },
+    "light": {
+      "$value": "{color.white-a.06}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.70}"
+        }
+      }
+    },
+    "edge": {
+      "$value": "{color.white-a.06}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.08}"
+        }
+      }
+    }
+  },
   "opacity": {
     "$type": "number",
     "disabled": {

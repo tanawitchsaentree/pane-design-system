@@ -116,9 +116,11 @@ export function Stage({ children, plain, className = '', backdrop }: { children:
   const chosen = useScene();
   // diagrams pass backdrop="field": the subject is structure, so a photo would only compete with it
   const field = backdrop === 'field' || (backdrop !== 'scene' && chosen === 'field');
-  const scene = field ? 'field' : chosen;
+  // the studio has no photo; a diagram that asks for a scene still gets one
+  const studio = !field && chosen === 'studio' && backdrop !== 'scene';
+  const scene = field ? 'field' : studio ? 'studio' : chosen === 'studio' ? 'room' : chosen;
   return (
-    <div className={`example-live${plain ? ' plain' : ''}${field ? ' stage-field' : ''} ${className}`} data-example-live="" data-surface="" style={field ? undefined : { backgroundImage: `url(/scenes/${scene}.webp)` }}>
+    <div className={`example-live${plain ? ' plain' : ''}${field ? ' stage-field' : ''}${studio ? ' stage-studio' : ''} ${className}`} data-example-live="" data-surface="" style={field || studio ? undefined : { backgroundImage: `url(/scenes/${scene}.webp)` }}>
       <Environment brightness={sceneById(scene).brightness} className="stage-env">{children}</Environment>
     </div>
   );
@@ -129,8 +131,11 @@ export function Example({ title, code, children, plain, backdrop }: { title: str
   const body = code.replace(/^\/\/ @example.*\n/m, '').trim();
   return (
     <figure className="example" data-example="">
-      <Stage plain={plain} backdrop={backdrop}>{children}</Stage>
-      <figcaption className="example-bar"><span className="example-title">{title}</span></figcaption>
+      {/* the caption sits in the stage's top-left corner, like a label on a studio plate */}
+      <div className="example-plate">
+        <figcaption className="example-bar"><span className="example-title">{title}</span></figcaption>
+        <Stage plain={plain} backdrop={backdrop}>{children}</Stage>
+      </div>
       <CodeBlock code={body} label="TSX" />
     </figure>
   );

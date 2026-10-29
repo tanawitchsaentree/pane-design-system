@@ -26,7 +26,7 @@ const rows = [];
 try {
   const page = await browser.newPage({ viewport: { width: 1640, height: 1000 }, deviceScaleFactor: 1 });
   for (const scene of SCENES) {
-    await page.goto(`${srv.base}/index.html?scene=${scene}`, { waitUntil: 'networkidle' });
+    await page.goto(`${srv.base}/index.html?backdrop=${scene}`, { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts.ready);
     // only card A matters here; hiding the others keeps the run fast and the page short
     await page.addStyleTag({ content: '.col:not(:first-child) { display: none !important; }' });

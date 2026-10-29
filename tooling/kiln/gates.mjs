@@ -15,6 +15,8 @@
 //   reasons      G-W1 (Why column, component reasons section; data from rationale.mjs)
 //   claims       G-CL1 every hex in the book is a current token value
 //   non-text     G-NT2 form-control edges ≥3:1 in every theme · G-NR1 flyout rows nest the flyout's corner
+//   inset        G-IN1 text inside a control ≥8px (and ≥ half the end radius) from the control's edge
+//   address      G-ST1 no default written into the URL; stale or unknown values fall back and are dropped
 //   stack        G-EL1 stacked glass levels a measured step apart, a scrim under an overlay
 //   milestone    G-TODO1 no starter placeholder or seed reason left   reach  G-NAV1 G-SM1   touch  G-TT1
 //
@@ -989,6 +991,79 @@ try {
     expect(n > 0, `${tried} flyout triggers found but no listbox or menu opened, so nothing was measured`);
     fail(bad, 'flyouts whose rows do not nest');
     return `${n} flyouts`;
+  });
+
+  await gate('G-IN1', 'text inside a control keeps its inset from the control\'s edge: at least 8px, and half the corner radius on a rounded end', async () => {
+    // Pane, 2026-10-29: InputGroup's "NOK" suffix sat 4px from the pill's right curve, because the end
+    // padding was sized for a round button. Every gate passed; the user saw it at once. Measured here:
+    // the gap between each line of text and the inline edges of the nearest control that draws a boundary.
+    const bad = []; let n = 0;
+    for (const r of ROUTES.filter((x) => x.startsWith(`${C.componentsBase}/`) && x.endsWith('/code'))) {
+      await go(r);
+      const res = await page.evaluate(() => {
+        const out = []; let count = 0;
+        const drawn = (el) => {
+          const cs = getComputedStyle(el);
+          const bg = cs.backgroundColor; const solid = bg && !/rgba\(.*,\s*0\)$/.test(bg) && bg !== 'transparent';
+          return parseFloat(cs.borderLeftWidth) > 0 || cs.boxShadow !== 'none' || solid || cs.backgroundImage !== 'none';
+        };
+        const isControl = (el) => {
+          const b = el.getBoundingClientRect();
+          return b.height >= 20 && b.height <= 72 && b.width > 0 && drawn(el) && (parseFloat(getComputedStyle(el).borderTopLeftRadius) || 0) >= 4;
+        };
+        const need = (el) => { const b = el.getBoundingClientRect(); const R = Math.min(parseFloat(getComputedStyle(el).borderTopLeftRadius) || 0, b.height / 2); return Math.max(8, R / 2); };
+        const label = (el) => el.closest('[data-component]')?.getAttribute('data-component') ?? el.tagName.toLowerCase();
+        for (const stage of document.querySelectorAll('[data-example-live]')) {
+          // text nodes: measured against the nearest ancestor that is a control-sized bounded shape
+          const walker = document.createTreeWalker(stage, NodeFilter.SHOW_TEXT);
+          for (let t = walker.nextNode(); t; t = walker.nextNode()) {
+            if (!t.textContent.trim()) continue;
+            let el = t.parentElement; while (el && el !== stage && !isControl(el)) el = el.parentElement;
+            if (!el || el === stage) continue;
+            const cs = getComputedStyle(el); if (cs.visibility === 'hidden' || el.closest('[aria-hidden="true"], [hidden]')) continue;
+            const rg = document.createRange(); rg.selectNodeContents(t);
+            const b = el.getBoundingClientRect(); const want = need(el);
+            for (const tr of rg.getClientRects()) {
+              if (tr.width < 1 || tr.bottom < b.top || tr.top > b.bottom) continue;
+              count++;
+              const gap = Math.min(tr.left - b.left, b.right - tr.right);
+              if (gap < want - 0.5) out.push(`${label(el)} "${t.textContent.trim().slice(0, 16)}" ${Math.round(gap)}px from its edge (needs ${Math.round(want)})`);
+            }
+          }
+          // typed text in a field that draws its own boundary starts at its padding
+          for (const f of stage.querySelectorAll('input:not([type=checkbox]):not([type=radio]):not([type=range]), textarea')) {
+            if (!isControl(f)) continue;
+            const cs = getComputedStyle(f); const want = need(f);
+            if (cs.textAlign === 'center') continue; // a centred cell (a PIN digit) is clear of both edges by construction
+            count++;
+            const pad = Math.min(parseFloat(cs.paddingLeft) + parseFloat(cs.borderLeftWidth), parseFloat(cs.paddingRight) + parseFloat(cs.borderRightWidth));
+            if (pad < want - 0.5) out.push(`${label(f)} field text ${Math.round(pad)}px from its edge (needs ${Math.round(want)})`);
+          }
+        }
+        return { out: [...new Set(out)], count };
+      });
+      n += res.count;
+      for (const o of res.out) bad.push(`${r}: ${o}`);
+    }
+    expect(n > 0, 'no text inside any control on a Code page, so nothing was measured');
+    fail(bad, 'texts that crowd their control\'s edge');
+    return `${n} lines of text in controls`;
+  });
+
+  await gate('G-ST1', 'the address holds only what someone chose: a default is never written into the URL, and a stale or unknown value falls back and is dropped', async () => {
+    // Pane, 2026-10-29: the app wrote ?scene=room into every URL while room was the default. When the
+    // default became the studio, every saved link still forced the old photo and the user kept seeing it.
+    const p2 = await browser.newPage();
+    const settle = async (q) => { await p2.goto(`${srv.base}/${q}`, { waitUntil: 'networkidle' }); await p2.waitForTimeout(600); return new URL(p2.url()).searchParams; };
+    const bad = [];
+    const clean = await settle('');
+    if ([...clean.keys()].length) bad.push(`a fresh visit to / ends with ?${clean} in the address: the app wrote its defaults into the URL`);
+    const stale = await settle(`?${C.sceneParam}=no-such-value&${C.themeParam}=no-such-value`);
+    for (const [k, v] of stale) if (v === 'no-such-value') bad.push(`?${k}=no-such-value is still in the address after load: an unknown value must fall back to the default and be dropped`);
+    expect(await p2.locator('main').count() > 0, 'the page did not render with unknown values in the address');
+    await p2.close();
+    fail(bad, 'address problems');
+    return 'clean address, stale values dropped';
   });
 
   await gate('G-NAV1', 'every page in routes.json is reachable from the book nav at 375 and 1280px', async () => {

@@ -78,6 +78,23 @@ function Overview() {
         <Stage className="hero-card"><ProfileCard idPrefix="hero" /></Stage>
       </section>
 
+      <Section id="gallery" title="Every component" wide>
+        <p>Each component on its own studio plate, in its main use. Open one for its variants, states, code and evidence.</p>
+        <div className="gallery">
+          {COMPONENTS.map((c, i) => (
+            <div key={c.slug} className="gallery-cell" data-example-live="" data-surface="">
+              <div className="gallery-head">
+                <span className="gallery-no" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                <Link to={`/components/${c.slug}`} className="gallery-name">{c.name}</Link>
+                <p className="gallery-purpose">{c.purpose}</p>
+                <code className="gallery-tag">{`<${c.name} />`}</code>
+              </div>
+              <Environment brightness="bright" className="gallery-demo"><c.hero.Render /></Environment>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       <Section id="chapters" title="The book" wide>
         <div className="category-grid">
           {PARTS.map((part) => (

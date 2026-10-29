@@ -1,16 +1,30 @@
 {
-  "generatedAt": "2026-10-29T03:20:15.765Z",
-  "passed": 1,
-  "total": 1,
+  "generatedAt": "2026-10-29T04:52:19.516Z",
+  "passed": 3,
+  "total": 3,
   "partial": true,
   "advisory": {},
   "results": [
     {
-      "id": "G-EL1",
-      "name": "stacked glass reads as levels: each level differs from what is under it by a measured step, and a scrim dims the scene under an overlay",
+      "id": "G-NT2",
+      "name": "every form control shows its boundary at least 3:1 against what it sits on, in every theme (WCAG 1.4.11)",
       "ok": true,
-      "detail": "14 levels and scrims in 2 themes",
-      "order": 36
+      "detail": "188 controls in 2 themes",
+      "order": 35
+    },
+    {
+      "id": "G-IN1",
+      "name": "text inside a control keeps its inset from the control's edge: at least 8px, and half the corner radius on a rounded end",
+      "ok": true,
+      "detail": "151 lines of text in controls",
+      "order": 38
+    },
+    {
+      "id": "G-ST1",
+      "name": "the address holds only what someone chose: a default is never written into the URL, and a stale or unknown value falls back and is dropped",
+      "ok": true,
+      "detail": "clean address, stale values dropped",
+      "order": 39
     }
   ]
 }
