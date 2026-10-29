@@ -1240,7 +1240,7 @@ try {
       });
       n += res.n; for (const o of res.out) bad.push(`${r}: ${o}`);
     }
-    expect(n > 0, 'no stage or tab bar found on any component page, so nothing was measured');
+    expect(n > 0, 'NO STAGE OR TAB BAR on any component page, so nothing was measured');
     fail(bad, 'steps that crowd each other');
     return `${n} gaps`;
   });

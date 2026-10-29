@@ -22,3 +22,7 @@ export const IconVerified = ({ label = 'Verified', ...p }: P & { label?: string 
   </svg>
 );
 export const IconChevronDown = (p: P) => <svg {...base} strokeWidth={2} {...p}><path d="M7 10l5 5 5-5" /></svg>;
+export const IconPlay = (p: P) => <svg {...base} {...p}><path d="M8 5.5v13l10.5-6.5z" fill="currentColor" /></svg>;
+export const IconPause = (p: P) => <svg {...base} {...p}><path d="M9 5.5v13M15 5.5v13" strokeWidth={2.4} /></svg>;
+export const IconPrev = (p: P) => <svg {...base} {...p}><path d="M6 6v12M18 6l-9 6 9 6z" /></svg>;
+export const IconNext = (p: P) => <svg {...base} {...p}><path d="M18 6v12M6 6l9 6-9 6z" /></svg>;

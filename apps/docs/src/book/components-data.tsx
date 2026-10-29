@@ -41,6 +41,18 @@ export interface ComponentChapter {
   related: Array<[string, string, string]>; // path · label · "use it instead when…"
 }
 
+/** The component families, in reading order: what a screen is laid on, what it is made of, what the
+ *  reader does, how they move and choose, what tells them who and what state, and the form parts. */
+export const CATEGORIES: Array<{ title: string; blurb: string; names: string[] }> = [
+  { title: 'Layout', blurb: 'Where things go: the page width, the columns and the space between items.', names: ['Container', 'Grid', 'Stack'] },
+  { title: 'Surfaces and media', blurb: 'What content sits on: the scene, the glass and the colour of the world.', names: ['Environment', 'Card', 'Mesh'] },
+  { title: 'Actions', blurb: 'What the reader does, from the one loud action to a row of icons.', names: ['Button', 'IconButton'] },
+  { title: 'Navigation and selection', blurb: 'Moving between views and choosing from a set.', names: ['Tabs', 'Chip', 'Select'] },
+  { title: 'Identity and status', blurb: 'Who something belongs to, what it is about and what state it is in.', names: ['Avatar', 'Tag', 'Badge', 'Banner'] },
+  { title: 'Form fields', blurb: 'Text the reader types, with its label, its help and its group.', names: ['Label', 'HelperText', 'FormField', 'Fieldset', 'Input', 'Textarea', 'InputGroup', 'PinInput'] },
+  { title: 'Choices and values', blurb: 'On or off, one of a few, or an amount set by feel.', names: ['Checkbox', 'Radio', 'Switch', 'Slider'] },
+];
+
 export const COMPONENTS: ComponentChapter[] = [
   {
     name: 'Environment',

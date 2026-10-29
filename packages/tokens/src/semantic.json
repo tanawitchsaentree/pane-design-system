@@ -312,6 +312,21 @@
         }
       }
     },
+    "tertiary": {
+      "$value": "{color.white-a.62}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.ink-a.85}"
+        },
+        "kiln.why": {
+          "p": [
+            "P7",
+            "P2"
+          ],
+          "why": "a third step of text for metadata (numbers, code names, counts) on opaque reading surfaces only, the page, the shell and the studio; never on glass, where secondary is already the lowest opacity that passes"
+        }
+      }
+    },
     "on-light": {
       "$value": "{color.ink.900}",
       "$extensions": {

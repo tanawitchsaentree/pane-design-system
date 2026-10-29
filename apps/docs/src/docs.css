@@ -40,7 +40,7 @@ kbd { display: inline-block; padding: var(--ds-gap-xs) var(--ds-gap-md); border-
   box-shadow: 0 0 0 calc(var(--ds-focus-ring-width) * 2 + var(--ds-focus-ring-halo-width)) var(--ds-focus-ring-halo);
 }
 
-.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 380px); gap: var(--ds-gap-section); align-items: start; }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--ds-gap-section); align-items: start; }
 .hero-copy { display: flex; flex-direction: column; gap: var(--ds-gap-2xl); }
 .stats { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--ds-gap-md); }
 .component-head { display: flex; align-items: center; justify-content: space-between; gap: var(--ds-gap-2xl); flex-wrap: wrap; }
@@ -480,25 +480,43 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .example-plate:has(> .stage-studio) > .example-bar { position: absolute; inset-block-start: var(--ds-gap-xl); inset-inline-start: var(--ds-gap-2xl); z-index: 1; pointer-events: none; }
 .example-plate:has(> .stage-studio) > .stage-studio { padding-block-start: calc(var(--ds-gap-section) + var(--ds-gap-xl)); }
 
-/* The component gallery: a full-screen dialog over the page, every component scaled down on its own
-   studio plate, five to a row on a wide screen and fewer as it narrows */
-.gallery-modal { inline-size: 100vw; block-size: 100dvh; max-inline-size: none; max-block-size: none; margin: 0; padding: var(--ds-gap-section) var(--ds-gap-page); border: 0; background: var(--ds-studio-base); color: var(--ds-text-primary); overflow-y: auto; }
+/* The component gallery: a full-screen dialog over the page, families in reading order, each component
+   on its own studio plate. Every demo is laid out at one design width (380px) and drawn at 78%, so no
+   card is squeezed and every plate reads at the same scale. Type carries the hierarchy: the name in
+   primary, what it does in secondary, the number and the code name in tertiary. */
+.gallery-modal { inline-size: 100vw; block-size: 100dvh; max-inline-size: none; max-block-size: none; margin: 0; padding: 0 var(--ds-gap-page) var(--ds-gap-page); border: 0; background: var(--ds-studio-base); color: var(--ds-text-primary); overflow-y: auto; }
 .gallery-modal::backdrop { background: var(--ds-card-scrim); }
-.gallery-modal-head { position: sticky; inset-block-start: calc(var(--ds-gap-section) * -1); z-index: 2; display: flex; justify-content: space-between; align-items: center; gap: var(--ds-gap-lg); padding-block: var(--ds-gap-lg); margin-block-end: var(--ds-gap-2xl); background: var(--ds-studio-base); }
-.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--ds-gap-md); }
-@media (min-width: 1400px) { .gallery { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
-.gallery-cell { position: relative; display: flex; flex-direction: column; min-block-size: calc(var(--ds-space-32) * 2.5); padding: var(--ds-gap-lg) var(--ds-gap-xl); border-radius: var(--ds-corner-inner); overflow: hidden;
+.gallery-modal-head { position: sticky; inset-block-start: 0; z-index: 2; display: flex; justify-content: space-between; align-items: center; gap: var(--ds-gap-lg); padding-block: var(--ds-gap-2xl); background: var(--ds-studio-base); }
+.gallery-family { display: flex; flex-direction: column; gap: var(--ds-gap-2xl); margin-block-end: var(--ds-gap-page); }
+.gallery-family-head { display: flex; flex-direction: column; gap: var(--ds-gap-xs); }
+.gallery-family-head h3 { font-size: var(--ds-type-title); }
+.gallery-family-head p { color: var(--ds-text-tertiary); font-size: var(--ds-type-label); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--ds-gap-lg); }
+.gallery-cell { position: relative; display: flex; flex-direction: column; gap: var(--ds-gap-lg); block-size: calc(var(--ds-space-32) * 2.75); padding: var(--ds-gap-xl); border-radius: var(--ds-corner-inner); overflow: hidden;
   background-color: var(--ds-studio-base);
   background-image: linear-gradient(135deg, var(--ds-studio-light) 0%, transparent 50%), radial-gradient(80% 70% at 0% 0%, var(--ds-studio-light), transparent 70%);
   box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-studio-edge); }
-.gallery-head { display: grid; grid-template-columns: auto 1fr; column-gap: var(--ds-gap-md); align-items: baseline; }
-.gallery-no { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: var(--ds-type-micro); color: var(--ds-text-secondary); }
-.gallery-name { display: inline-flex; align-items: center; min-block-size: var(--ds-layout-touch); font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); }
-.gallery-cell:hover .gallery-name, .gallery-name:focus-visible { text-decoration: underline; }
-.gallery-tag { grid-column: 2; margin: 0; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: var(--ds-type-micro); color: var(--ds-text-secondary); }
-.gallery-demo { flex: 1; display: flex; justify-content: center; align-items: center; padding-block: var(--ds-gap-lg); min-inline-size: 0; }
-/* the demo at about two thirds of its size, so a whole card fits a fifth of the screen */
-.gallery-scale { zoom: 0.68; max-inline-size: 147%; }
+.gallery-head { display: grid; grid-template-columns: auto 1fr; column-gap: var(--ds-gap-md); row-gap: var(--ds-gap-xs); align-items: baseline; }
+.gallery-no, .gallery-tag { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: var(--ds-type-micro); color: var(--ds-text-tertiary); }
+.gallery-name { display: inline-flex; align-items: center; min-block-size: var(--ds-layout-touch); margin-block: calc((var(--ds-layout-touch) - 1lh) / -2); font-size: var(--ds-type-emphasis); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-primary); text-decoration-color: var(--ds-text-tertiary); }
+.gallery-cell:hover .gallery-name, .gallery-name:focus-visible { text-decoration-color: currentColor; }
+.gallery-purpose, .gallery-tag { grid-column: 2; margin: 0; }
+.gallery-purpose { font-size: var(--ds-type-label); line-height: var(--ds-type-leading-body); color: var(--ds-text-secondary); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; max-inline-size: none; }
+/* a demo taller than its plate starts at the top and fades out at the foot, never over the header */
+.gallery-demo { flex: 1; display: flex; justify-content: center; align-items: safe center; min-inline-size: 0; min-block-size: 0; overflow: hidden; -webkit-mask-image: linear-gradient(180deg, black 80%, transparent); mask-image: linear-gradient(180deg, black 80%, transparent); }
+.gallery-scale { inline-size: 380px; zoom: 0.78; display: flex; justify-content: center; }
+.gallery-scale > * { max-inline-size: 100%; }
+/* layout thumbnails: structure on the field, never a fake card */
+.is-diagram { background-color: var(--ds-field-base); }
+.thumb-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--ds-gap-xs); inline-size: 100%; }
+.thumb-grid > span { grid-row: 1 / span 3; block-size: 100%; min-block-size: var(--ds-space-32); border-radius: var(--ds-corner-mark); background: var(--ds-field-line-major); }
+.thumb-grid > b, .thumb-stack > b, .thumb-container > b { display: grid; place-items: center; min-block-size: var(--ds-space-10); border-radius: var(--ds-corner-mark); background: var(--ds-field-column); color: var(--ds-text-on-light); font-size: var(--ds-type-micro); font-weight: var(--ds-type-weight-semibold); }
+.thumb-grid > b { grid-row: auto; align-self: center; }
+.thumb-container { display: grid; grid-template-columns: 1fr 3fr 1fr; gap: 0; inline-size: 100%; min-block-size: var(--ds-space-32); }
+.thumb-container > i { background: repeating-linear-gradient(45deg, var(--ds-field-margin) 0 var(--ds-width-hairline), transparent var(--ds-width-hairline) var(--ds-space-2)); opacity: 0.5; }
+.thumb-container > b { min-block-size: 100%; border-radius: 0; }
+.thumb-stack { display: flex; flex-direction: column; gap: var(--ds-gap-xs); inline-size: 70%; }
+.thumb-stack > em { font-style: normal; font-size: var(--ds-type-micro); color: var(--ds-text-tertiary); text-align: center; }
 
 /* layout demos on the field: plain column plates, never pills */
 .grid-demo-cell { display: grid; place-items: center; min-block-size: 56px; border-radius: var(--ds-corner-mark); background: var(--ds-field-column); color: var(--ds-text-on-light); text-shadow: none; font-size: var(--ds-type-label); font-variant-numeric: tabular-nums; text-shadow: none; }
@@ -616,3 +634,18 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .mesh-demo-swatch { margin: 0; display: flex; flex-direction: column; gap: var(--ds-gap-sm); font-size: var(--ds-type-label); }
 .mesh-demo-tile { inline-size: calc(var(--ds-space-32) * 3); block-size: calc(var(--ds-space-32) * 2); border-radius: var(--ds-corner-inner); }
 .mesh-demo-scene { display: grid; place-items: center; padding: var(--ds-gap-section) var(--ds-gap-2xl); border-radius: var(--ds-corner-inner); inline-size: 100%; }
+/* The showcase: three screens side by side, each naming the parts it is built from */
+.showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: var(--ds-gap-2xl); align-items: start; inline-size: 100%; }
+.showcase-card { display: flex; flex-direction: column; gap: var(--ds-gap-xl); min-inline-size: 0; }
+.showcase-cover { block-size: calc(var(--ds-space-32) * 1.5); border-radius: var(--ds-corner-inner); }
+.showcase-row { display: flex; align-items: center; justify-content: space-between; gap: var(--ds-gap-lg); }
+.showcase-grow { flex: 1; min-inline-size: 0; }
+.showcase-transport, .showcase-actions { display: flex; align-items: center; justify-content: center; gap: var(--ds-gap-lg); }
+.showcase-actions { justify-content: flex-start; }
+.showcase-chips { display: flex; flex-wrap: wrap; gap: var(--ds-gap-sm); }
+.showcase-parts { display: flex; flex-wrap: wrap; gap: var(--ds-gap-xs); padding-block-start: var(--ds-gap-lg); border-block-start: var(--ds-width-hairline) solid var(--ds-line-divider); }
+.hero-copy { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: var(--ds-gap-2xl); }
+.showcase-wide { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--ds-gap-xl) var(--ds-gap-2xl); align-items: center; }
+.showcase-wide > .showcase-parts { grid-column: 1 / -1; }
+@media (max-width: 860px) { .showcase-wide { grid-template-columns: minmax(0, 1fr); } }
+.is-diagram .gallery-demo { -webkit-mask-image: none; mask-image: none; }

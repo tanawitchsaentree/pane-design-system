@@ -8,6 +8,7 @@ import FeedPostSrc from '../examples/FeedPost.tsx?raw';
 import MotionDemo from '../examples/MotionDemo';
 import MotionDemoSrc from '../examples/MotionDemo.tsx?raw';
 import ProfileCard from '../examples/ProfileCard';
+import Showcase from '../examples/Showcase';
 import ProfileCardSrc from '../examples/ProfileCard.tsx?raw';
 import QuickStart from '../examples/QuickStart';
 import QuickStartSrc from '../examples/QuickStart.tsx?raw';
@@ -22,7 +23,7 @@ import { PaletteGrid, RoleTabs, TokenBrowser } from './color-page';
 import { ElevationDemo } from './elevation';
 import { ThemePlayground, GlassPlayground, ContrastPlayground, TypePlayground, SpacingPlayground, GridPlayground, ShapePlayground, MotionPlayground, IconBrowser, TouchTargetPlayground } from './playgrounds';
 import { inline, useScene, Stage, PRINCIPLES, CONCEPT_INTRO, Callout, Code, CodeBlock, CopyButton, ConformanceList, EvidenceTable, Example, Link, Markdown, Page, Section, TOKENS, TokenTable, VerifiedTags, useVerify } from './kit';
-import { COMPONENTS } from './components-data';
+import { CATEGORIES, COMPONENTS } from './components-data';
 import { GridLayoutPage } from './grid-page';
 import { ComponentPage, EVIDENCE_GROUPS, HISTORY, STATUS_LABEL, TABS } from './ComponentPage';
 import { TabRedirect } from './TabRedirect';
@@ -48,10 +49,20 @@ const OPEN_EXCEPTIONS = (exceptionsMd.match(/^### E-\d{3}:.*— OPEN\s*$/gm) ?? 
 
 // ================================ Introduction ================================
 
+/** Layout primitives have no look of their own, so the gallery shows what they do: the columns, the
+ *  centred column and the gaps, drawn on the field. */
+const LAYOUT_THUMB: Record<string, ReactNode> = {
+  Grid: <div className="thumb-grid" aria-hidden="true">{Array.from({ length: 12 }, (_, i) => <span key={i} />)}<b style={{ gridColumn: '1 / span 4' }}>4</b><b style={{ gridColumn: '5 / span 8' }}>8</b><b style={{ gridColumn: '1 / span 12' }}>12</b></div>,
+  Container: <div className="thumb-container" aria-hidden="true"><i /><b>max width</b><i /></div>,
+  Stack: <div className="thumb-stack" aria-hidden="true"><b /><em>gap</em><b /><em>gap</em><b /></div>,
+};
+
 /** The component gallery: a full-screen dialog (native <dialog>, so focus, Esc and the backdrop are the
- *  browser's) with every component scaled down on its own studio plate, four or five to a row. */
+ *  browser's) with every component, grouped by family, on its own studio plate at a smaller size. */
 function Gallery() {
   const ref = useRef<HTMLDialogElement>(null);
+  const byName = Object.fromEntries(COMPONENTS.map((c) => [c.name, c]));
+  let n = 0;
   return (
     <>
       <Button variant="glass" onClick={() => ref.current?.showModal()}>Open the gallery · {COMPONENTS.length} components</Button>
@@ -60,18 +71,27 @@ function Gallery() {
           <h2 id="gallery-h" className="flush">Every component</h2>
           <Button variant="glass" size="sm" onClick={() => ref.current?.close()}>Close</Button>
         </div>
-        <div className="gallery">
-          {COMPONENTS.map((c, i) => (
-            <div key={c.slug} className="gallery-cell" data-example-live="" data-surface="">
-              <div className="gallery-head">
-                <span className="gallery-no" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-                <Link to={`/components/${c.slug}`} className="gallery-name" onClick={() => ref.current?.close()}>{c.name}</Link>
-                <code className="gallery-tag">{`<${c.name} />`}</code>
-              </div>
-              <Environment brightness="bright" className="gallery-demo"><div className="gallery-scale"><c.hero.Render /></div></Environment>
+        {CATEGORIES.map((cat) => (
+          <section key={cat.title} className="gallery-family" aria-labelledby={`gal-${cat.title.replace(/\W+/g, '-')}`}>
+            <div className="gallery-family-head">
+              <h3 id={`gal-${cat.title.replace(/\W+/g, '-')}`} className="flush">{cat.title}</h3>
+              <p className="flush">{cat.blurb}</p>
             </div>
-          ))}
-        </div>
+            <div className="gallery">
+              {cat.names.map((name) => { const c = byName[name]; n++; return (
+                <div key={c.slug} className={`gallery-cell${LAYOUT_THUMB[name] ? ' is-diagram' : ''}`} data-example-live="" data-surface="">
+                  <div className="gallery-head">
+                    <span className="gallery-no" aria-hidden="true">{String(n).padStart(2, '0')}</span>
+                    <Link to={`/components/${c.slug}`} className="gallery-name" onClick={() => ref.current?.close()}>{c.name}</Link>
+                    <p className="gallery-purpose">{c.purpose}</p>
+                    <code className="gallery-tag">{`<${c.name} />`}</code>
+                  </div>
+                  <Environment brightness="bright" className="gallery-demo">{LAYOUT_THUMB[name] ?? <div className="gallery-scale"><c.hero.Render /></div>}</Environment>
+                </div>
+              ); })}
+            </div>
+          </section>
+        ))}
       </dialog>
     </>
   );
@@ -104,8 +124,12 @@ function Overview() {
             </ol>
           </div>
         </div>
-        <Stage className="hero-card"><ProfileCard idPrefix="hero" /></Stage>
       </section>
+
+      <Section id="glance" title="Pane at a glance" wide>
+        <p>Three screens built only from Pane, each using what its parts can do: a mesh that lights the pane, the loud bead, a fill slider, a switch that glows when it is on, a card inside a card, and tabs over chosen glass. Each card names the parts it is made of.</p>
+        <Stage className="showcase-stage"><Showcase /></Stage>
+      </Section>
 
       <Section id="gallery" title="Every component">
         <p>Every component on its own studio plate, small, in its main use. The gallery opens over the page, five to a row on a wide screen.</p>
