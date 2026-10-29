@@ -1,0 +1,114 @@
+{
+  "concept": "Moving through a long list a page at a time: round 44px steps, the current page chosen glass, Previous and Next at the ends.",
+  "default_to_avoid": [
+    {
+      "pattern": "a row of bordered square buttons with a blue current page (Bootstrap pagination)",
+      "kind": "pagination, pager, page numbers",
+      "why_not": "bordered squares with a blue current page bring a hue and a box per number"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI · Pagination",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/navigation.html"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the current page is chosen glass and semibold, announced as the current page"
+    },
+    {
+      "p": "P6",
+      "axis": "space",
+      "consequence": "every target is at least 44px in its smaller dimension or has a 44px hit area",
+      "form": "every step is a 44px round target, in every theme and on every scene"
+    },
+    {
+      "p": "P2",
+      "axis": "type",
+      "consequence": "secondary text keeps the lowest opacity that still measured as passing; text halos count only where WCAG allows them",
+      "form": "numbers are tabular so the row does not shift as pages change"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave6/",
+    "section": "pagination",
+    "options": [
+      "A round steps with chosen glass",
+      "B bordered squares",
+      "C Load more only"
+    ],
+    "picked": "A round steps with chosen glass",
+    "by": "agent",
+    "reason": "A is the system’s chosen pane. B boxes every number. C loses the place in the list."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "Previous, the pages and Next in a row"
+    },
+    "pages": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the page numbers with ellipses, the same in every theme and on every scene"
+    },
+    "step": {
+      "p": "P6",
+      "axis": "space",
+      "why": "a round 44px step, the same in every theme and on every scene"
+    },
+    "edge": {
+      "p": "P6",
+      "axis": "space",
+      "why": "Previous and Next with their words, the same in every theme and on every scene"
+    },
+    "gap": {
+      "p": "P2",
+      "axis": "type",
+      "why": "an ellipsis in secondary text where pages are skipped"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the shared focus ring so a keyboard user sees which item has focus"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours mark the current item with the system highlight"
+    },
+    "hover": {
+      "p": "P4",
+      "axis": "colour",
+      "why": "a step lightens under the pointer, the same in every theme and on every scene"
+    },
+    "aria-current=page": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the current page is chosen glass, the same in every theme and on every scene"
+    },
+    "disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "Previous on the first page and Next on the last use the disabled opacity"
+    },
+    "aria-current": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the current item does not lighten on hover, because it is already the chosen pane"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the tint eases at hover pace, the same in every theme and on every scene"
+    }
+  }
+}

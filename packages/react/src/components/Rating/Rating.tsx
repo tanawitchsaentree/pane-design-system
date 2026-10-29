@@ -28,13 +28,20 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(function Rating({ 
   const stars = Array.from({ length: max }, (_, i) => i + 1);
   const [inner, setInner] = useState(defaultValue ?? 0);
   const current = value ?? inner;
+  const set = (n: number) => { if (value === undefined) setInner(n); if (n !== current) onValueChange?.(n); };
   if (readOnly) {
     const v = current;
     return <div ref={ref} data-component="Rating" role="img" aria-label={`${label}: ${v} out of ${max}`} className={cx(styles.root, styles.readOnly, className)}>{stars.map((n) => <span key={n} className={cx(styles.star, n <= v && styles.on)}><Star /></span>)}</div>;
   }
   return (
-    <RR.Root ref={ref} data-component="Rating" aria-label={label} orientation="horizontal" value={current ? String(current) : ''}
-      onValueChange={(v) => { if (value === undefined) setInner(Number(v)); onValueChange?.(Number(v)); }} className={cx(styles.root, className)}>
+    <RR.Root ref={ref} data-component="Rating" aria-label={label} orientation="horizontal" loop={false} value={current ? String(current) : ''}
+      onValueChange={(v) => set(Number(v))} className={cx(styles.root, className)}
+      // the roving focus moves the focus star; the score follows it here, so an arrow always changes the score
+      onKeyDown={(e) => {
+        const rtl = getComputedStyle(e.currentTarget).direction === 'rtl';
+        const step = { ArrowUp: 1, ArrowDown: -1, ArrowRight: rtl ? -1 : 1, ArrowLeft: rtl ? 1 : -1 }[e.key];
+        if (step) set(Math.min(max, Math.max(1, (current || 0) + step)));
+      }}>
       {stars.map((n) => (
         <RR.Item key={n} value={String(n)} aria-label={`${n} out of ${max}`} className={cx(styles.item, styles.star)} data-on={n <= current || undefined}><Star /></RR.Item>
       ))}

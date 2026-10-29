@@ -90,3 +90,16 @@ export * from './components/ContextMenu';
 export * from './components/RadioCards';
 export * from './components/Rating';
 export * from './components/TagInput';
+
+// Wave 6 navigation (0.7.0): the tab track, glass bars and the chosen pane.
+
+export * from './components/SegmentedControl';
+export * from './components/BottomNav';
+export * from './components/Navbar';
+export * from './components/Sidebar';
+export * from './components/Breadcrumb';
+export * from './components/Pagination';
+export * from './components/Stepper';
+export * from './components/Accordion';
+export * from './components/NavigationMenu';
+export * from './components/TableOfContents';

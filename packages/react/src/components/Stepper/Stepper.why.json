@@ -1,0 +1,118 @@
+{
+  "concept": "Where the reader is in a task of a few steps: checks for done, the loud solid for now, outlines ahead, on a groove lit up to the current step.",
+  "default_to_avoid": [
+    {
+      "pattern": "numbered circles in a brand colour joined by a coloured line (wizard progress) as the stepper",
+      "kind": "stepper, progress steps, wizard steps",
+      "why_not": "a brand-coloured line and circles bring a hue"
+    }
+  ],
+  "references": [
+    {
+      "title": "Carbon · Progress indicator",
+      "url": "https://carbondesignsystem.com/components/progress-indicator/usage/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P5",
+      "axis": "colour",
+      "consequence": "one solid fill exists, the loud solid (white in dark, ink in light); a promoted action is the same solid glowing with its own light, and a pane uses one of them",
+      "form": "the current step is the loud solid, the one solid on the stepper, glowing as a mark in dark"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "done is a check, now a filled number, ahead an outline, each a different shape"
+    },
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the steps sit on the etched groove of Divider, lit up to the current step"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave6/",
+    "section": "stepper",
+    "options": [
+      "A marks on a groove",
+      "B coloured circles and line",
+      "C a progress bar with a label"
+    ],
+    "picked": "A marks on a groove",
+    "by": "agent",
+    "reason": "A carries every state by shape (P6). B brings a hue. C hides how many steps remain."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the steps in a row or a column"
+    },
+    "horizontal": {
+      "p": "P3",
+      "axis": "space",
+      "why": "steps side by side, the same in every theme and on every scene"
+    },
+    "vertical": {
+      "p": "P3",
+      "axis": "space",
+      "why": "steps one under another for long labels, the same in every theme and on every scene"
+    },
+    "step": {
+      "p": "P3",
+      "axis": "space",
+      "why": "one step: its mark and its text, the same in every theme and on every scene"
+    },
+    "done": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a done step: chosen glass with a check"
+    },
+    "current": {
+      "p": "P5",
+      "axis": "colour",
+      "why": "the current step: the loud solid, the same in every theme and on every scene"
+    },
+    "upcoming": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "an upcoming step: an outline, the same in every theme and on every scene"
+    },
+    "mark": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the round mark that carries the state, the same in every theme and on every scene"
+    },
+    "text": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the label and its description, the same in every theme and on every scene"
+    },
+    "label": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the step name in the label size, the same in every theme and on every scene"
+    },
+    "description": {
+      "p": "P2",
+      "axis": "type",
+      "why": "a line in secondary text, the same in every theme and on every scene"
+    },
+    "sr": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the state in words for a screen reader"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours outline the marks and fill the current one with the highlight"
+    }
+  },
+  "motion": {}
+}

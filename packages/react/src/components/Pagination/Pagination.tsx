@@ -1,0 +1,46 @@
+import { forwardRef } from 'react';
+import { cx } from '../../cx';
+import styles from './Pagination.module.css';
+
+export interface PaginationProps {
+  /** The current page, from 1. */
+  page: number;
+  /** How many pages there are. */
+  total: number;
+  /** Called with the page the reader chose. */
+  onPageChange: (page: number) => void;
+  /** Pages shown either side of the current one before an ellipsis. Defaults to 1. */
+  siblings?: number;
+  /** The landmark's name. Defaults to Pagination. */
+  label?: string;
+  /** Extra class on the root. */
+  className?: string;
+}
+
+const range = (page: number, total: number, sib: number): Array<number | 'gap'> => {
+  const set = new Set([1, total]); for (let p = page - sib; p <= page + sib; p++) if (p >= 1 && p <= total) set.add(p);
+  const pages = [...set].sort((a, b) => a - b); const out: Array<number | 'gap'> = [];
+  pages.forEach((p, i) => { if (i && p - pages[i - 1] > 1) out.push('gap'); out.push(p); });
+  return out;
+};
+
+/** Moving through a long list one page at a time: Previous and Next at the ends, the first, last and nearby
+ *  pages between, the current one chosen glass and announced as the current page. */
+export const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination({ page, total, onPageChange, siblings = 1, label = 'Pagination', className }, ref) {
+  const go = (p: number) => { if (p >= 1 && p <= total && p !== page) onPageChange(p); };
+  return (
+    <nav ref={ref} aria-label={label} data-component="Pagination" className={cx(styles.root, className)}>
+      <button type="button" className={cx(styles.step, styles.edge)} onClick={() => go(page - 1)} disabled={page <= 1}>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg><span>Previous</span>
+      </button>
+      <ul className={styles.pages}>
+        {range(page, total, siblings).map((p, i) => p === 'gap'
+          ? <li key={`g${i}`} className={styles.gap} aria-hidden="true">…</li>
+          : <li key={p}><button type="button" className={styles.step} aria-current={p === page ? 'page' : undefined} aria-label={`Page ${p}`} onClick={() => go(p)}>{p}</button></li>)}
+      </ul>
+      <button type="button" className={cx(styles.step, styles.edge)} onClick={() => go(page + 1)} disabled={page >= total}>
+        <span>Next</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+      </button>
+    </nav>
+  );
+});

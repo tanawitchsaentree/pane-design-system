@@ -1,0 +1,16 @@
+/* A floating pill dock at thumb reach (level 1 glass, D-025), the current destination as chosen glass with
+   a semibold label (P6: shape and weight, never only colour). */
+.dock { display: flex; gap: var(--ds-nav-gap); padding: var(--ds-nav-inset); border-radius: var(--ds-corner-round); background: var(--ds-nav-dock); box-shadow: var(--ds-nav-dock-shadow); -webkit-backdrop-filter: blur(var(--ds-nav-blur)); backdrop-filter: blur(var(--ds-nav-blur)); font-family: var(--ds-type-family); z-index: var(--ds-overlay-z-fab); }
+.fixed { position: fixed; inset-block-end: var(--ds-nav-dock-inset); inset-inline: 0; margin-inline: auto; inline-size: fit-content; }
+.contained { position: relative; inline-size: fit-content; }
+.item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--ds-space-0-5); min-inline-size: var(--ds-nav-item-min); min-block-size: var(--ds-nav-item-height); padding-inline: var(--ds-gap-lg); border-radius: var(--ds-corner-round); color: var(--ds-text-primary); text-decoration: none; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
+.item:hover:not([aria-current]) { background: var(--ds-surface-quiet); }
+.item[aria-current='page'] { background: linear-gradient(180deg, var(--ds-nav-on-top), var(--ds-nav-on-foot)); box-shadow: var(--ds-nav-on-cast); }
+.item[aria-current='page'] .label { font-weight: var(--ds-type-weight-semibold); }
+.item:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.icon { position: relative; display: inline-grid; inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); }
+.icon > svg { inline-size: 100%; block-size: 100%; }
+.label { font-size: var(--ds-type-micro); line-height: var(--ds-type-leading-tight); }
+.badge { position: absolute; inset-block-start: calc(var(--ds-gap-xs) * -1); inset-inline-end: calc(var(--ds-gap-md) * -1); display: grid; place-items: center; min-inline-size: var(--ds-nav-badge); block-size: var(--ds-nav-badge); padding-inline: var(--ds-gap-xs); border-radius: var(--ds-corner-round); background: var(--ds-nav-badge-bg); color: var(--ds-nav-badge-fg); font-size: var(--ds-type-micro); font-weight: var(--ds-type-weight-semibold); line-height: var(--ds-type-leading-tight); }
+.sr { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (forced-colors: active) { .dock { border: var(--ds-width-hairline) solid CanvasText; } .item[aria-current='page'] { outline: var(--ds-width-ring) solid Highlight; } }

@@ -1,0 +1,16 @@
+/* Sections separated by the etched groove; a 44px heading row with a chevron that turns; content that
+   eases open at entry pace (P4), and opens at once under reduced motion. */
+.root { display: flex; flex-direction: column; font-family: var(--ds-type-family); }
+.item + .item { box-shadow: inset 0 calc(var(--ds-width-hairline) * 2) 0 var(--ds-divider-light), inset 0 var(--ds-width-hairline) 0 var(--ds-divider-shade); }
+.heading { margin: 0; }
+.trigger { display: flex; align-items: center; justify-content: space-between; gap: var(--ds-gap-lg); inline-size: 100%; min-block-size: var(--ds-layout-touch); padding-block: var(--ds-gap-md); padding-inline: 0; border: 0; background: transparent; color: var(--ds-text-primary); font: inherit; font-size: var(--ds-type-emphasis); font-weight: var(--ds-type-weight-semibold); text-align: start; cursor: pointer; }
+.trigger:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); border-radius: var(--ds-corner-mark); }
+.trigger[data-disabled] { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
+.chevron { flex: none; inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); fill: none; stroke: var(--ds-text-secondary); stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; transition: rotate var(--ds-motion-hover) var(--ds-motion-easing); }
+.trigger[data-state='open'] .chevron { rotate: 180deg; }
+.content { overflow: hidden; color: var(--ds-text-primary); }
+.content[data-state='open'] { animation: open var(--ds-motion-enter) var(--ds-motion-easing); }
+.content[data-state='closed'] { animation: close var(--ds-motion-press) var(--ds-motion-easing); }
+.inner { padding-block-end: var(--ds-gap-xl); font-size: var(--ds-type-body); line-height: var(--ds-type-leading-body); }
+@keyframes open { from { block-size: 0; opacity: 0; } to { block-size: var(--radix-accordion-content-height); opacity: 1; } }
+@keyframes close { from { block-size: var(--radix-accordion-content-height); } to { block-size: 0; opacity: 0; } }

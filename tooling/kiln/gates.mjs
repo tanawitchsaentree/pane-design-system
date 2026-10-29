@@ -875,6 +875,8 @@ try {
             if (fill && fill.a > 0) best = Math.max(best, ratio(over(fill, ground), ground));
             const bw = parseFloat(cs.borderTopWidth) || 0; const bc = parse(cs.borderTopColor);
             if (bw >= 1 && bc && bc.a > 0 && cs.borderTopStyle !== 'none') best = Math.max(best, ratio(over(bc, ground), ground));
+            // a radio card's mark is a well carved by a shadow (Pane, 2026-10-29), which is its boundary too
+            for (const m of cs.boxShadow.matchAll(/rgba?\([^)]+\)/g)) { const c = parse(m[0]); if (c && c.a > 0) best = Math.max(best, ratio(over(c, ground), ground)); }
           }
           for (let e = el; e && root.contains(e); e = e.parentElement) {
             const cs = getComputedStyle(e);

@@ -37,4 +37,8 @@ export const BARREL_MANIFEST = [
     header: `Wave 5 selection (0.7.0): Select’s sheet and Input’s groove, on the WAI-ARIA patterns.`,
     components: ['Listbox', 'Combobox', 'Autocomplete', 'MultiSelect', 'Menu', 'ContextMenu', 'RadioCards', 'Rating', 'TagInput'],
   },
+  {
+    header: `Wave 6 navigation (0.7.0): the tab track, glass bars and the chosen pane.`,
+    components: ['SegmentedControl', 'BottomNav', 'Navbar', 'Sidebar', 'Breadcrumb', 'Pagination', 'Stepper', 'Accordion', 'NavigationMenu', 'TableOfContents'],
+  },
 ];

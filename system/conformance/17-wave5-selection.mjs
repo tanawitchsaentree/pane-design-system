@@ -11,7 +11,7 @@ export default async function (t) {
   });
   await go('/components/combobox/code');
   await check('Combobox', 'typing filters, arrow keys highlight while focus stays in the field, Enter chooses, Esc closes', async () => {
-    const input = main().locator('[role="combobox"]').first();
+    const input = main().locator('[data-component="Combobox"] input[role="combobox"]').first();
     await input.focus(); await page.keyboard.type('Lof'); await page.waitForTimeout(200);
     const opts = await page.locator('[role="listbox"] [role="option"]').count();
     expect(opts === 1, `filter shows ${opts} options`);
@@ -22,7 +22,7 @@ export default async function (t) {
   });
   await go('/components/autocomplete/code');
   await check('Autocomplete', 'keeps free text that matches no suggestion', async () => {
-    const input = main().locator('[role="combobox"]').first();
+    const input = main().locator('[data-component="Autocomplete"] input[role="combobox"]').first();
     await input.fill('Hasselblad X2D'); await page.keyboard.press('Escape');
     expect((await input.inputValue()) === 'Hasselblad X2D', 'free text was lost');
   });

@@ -1,0 +1,93 @@
+{
+  "concept": "Where the page sits in the hierarchy: underlined links to each level above, a quiet chevron between, the current page last in semibold.",
+  "default_to_avoid": [
+    {
+      "pattern": "blue links separated by slashes (the common breadcrumb)",
+      "kind": "breadcrumb, breadcrumbs, path",
+      "why_not": "blue is a hue the system does not own"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA APG · Breadcrumb",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "links are the text colour with an underline, never blue"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the current page is semibold and not a link"
+    },
+    {
+      "p": "P6",
+      "axis": "space",
+      "consequence": "every target is at least 44px in its smaller dimension or has a 44px hit area",
+      "form": "each link is a 44px target, and the trail wraps on a phone"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave6/",
+    "section": "breadcrumb",
+    "options": [
+      "A underlined links with chevrons",
+      "B blue links with slashes",
+      "C pills"
+    ],
+    "picked": "A underlined links with chevrons",
+    "by": "agent",
+    "reason": "A follows Link (no hue). B brings blue. C reads as buttons."
+  },
+  "parts": {
+    "root": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the trail in the label size, the same in every theme and on every scene"
+    },
+    "list": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the levels in a row that wraps, the same in every theme and on every scene"
+    },
+    "crumb": {
+      "p": "P3",
+      "axis": "space",
+      "why": "one level with its separator, the same in every theme and on every scene"
+    },
+    "sep": {
+      "p": "P2",
+      "axis": "type",
+      "why": "a quiet chevron in secondary text between levels"
+    },
+    "link": {
+      "p": "P6",
+      "axis": "space",
+      "why": "a link to a level above, a 44px target"
+    },
+    "current": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the current page in semibold, not a link"
+    }
+  },
+  "states": {
+    "hover": {
+      "p": "P4",
+      "axis": "colour",
+      "why": "the underline firms up under the pointer, the same in every theme and on every scene"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the shared focus ring on a link, the same in every theme and on every scene"
+    }
+  },
+  "motion": {}
+}

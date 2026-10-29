@@ -905,6 +905,7 @@ export const COMPONENTS: ComponentChapter[] = [
     ladder: [
       ex('RatingReadOnly', 'A score shown in a review.'),
       ex('RatingTen', 'Out of ten.'),
+      ex('RatingSaved', 'A controlled score that is saved as it changes.'),
     ],
     whenToUse: ['Gives or shows a score from one to five stars.'],
     whenNotToUse: [['A sibling named on the Usage tab', 'See When not to use it']],

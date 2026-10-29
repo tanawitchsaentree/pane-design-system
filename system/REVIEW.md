@@ -76,3 +76,13 @@ Lab: `apps/lab/round5/index.html` (the user's OpenGlass-style reference beside P
 | RadioCards (wave 5) | **A, level-2 cards, chosen glass with a check** | The stack plus a mark (P6), never only a coloured border. |
 | Rating (wave 5) | **A, loud solid stars and outlines** | No gold (P1); count and shape carry the score (P6). |
 | TagInput (wave 5) | **A, chips in a groove** | Chip is the system’s removable value; each tag edits on its own. |
+| SegmentedControl (wave 6) | **A, the tab track with chosen glass** (apps/lab/wave6/) | Kin to Tabs (D-023); a white thumb on grey is the OS look. |
+| BottomNav (wave 6) | **A, a floating pill dock** | The dock from the reference, a chosen pane and a semibold label. |
+| Navbar (wave 6) | **A, a glass strip** | Keeps the scene and reads on scroll; a solid bar brings a hue. |
+| Sidebar (wave 6) | **A, a pane with chosen glass** | The book’s own sidebar in the system. |
+| Breadcrumb (wave 6) | **A, underlined links and chevrons** | Follows Link, no blue. |
+| Pagination (wave 6) | **A, round steps with chosen glass** | The chosen pane; bordered squares box every number. |
+| Stepper (wave 6) | **A, marks on a groove** | Every state by shape (P6); the current step glows as a mark. |
+| Accordion (wave 6) | **A, grooves between headings** | The page stays a page; grey bars box it. |
+| NavigationMenu (wave 6) | **A, disclosure panels on press** | Works on touch and keyboard; hover mega menus do not. |
+| TableOfContents (wave 6) | **A, a lit line and weight** | Marks the section in view by shape and weight, not blue. |

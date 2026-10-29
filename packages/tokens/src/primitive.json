@@ -927,6 +927,26 @@
     "star": {
       "$value": "22px",
       "$description": "a rating star: big enough to read the score at a glance"
+    },
+    "nav-bar": {
+      "$value": "60px",
+      "$description": "a top bar: a 44px row with room above and below"
+    },
+    "nav-item": {
+      "$value": "52px",
+      "$description": "a bottom-nav destination: icon and label stacked"
+    },
+    "nav-item-min": {
+      "$value": "64px",
+      "$description": "the narrowest a bottom-nav destination gets"
+    },
+    "nav-panel": {
+      "$value": "320px",
+      "$description": "a navigation panel: a column of links with a line each"
+    },
+    "segment-min": {
+      "$value": "72px",
+      "$description": "the narrowest segment of a segmented control"
     }
   },
   "radius": {
@@ -1244,6 +1264,14 @@
     "glow-mark-light": {
       "$value": "0 0 0 0 #FFFFFF00",
       "$description": "light theme: no glow"
+    },
+    "ring": {
+      "$value": "inset 0 0 0 1px #FFFFFF8F",
+      "$description": "the groove ring alone: a hairline all round that carries a 3:1 boundary on dark glass"
+    },
+    "ring-light": {
+      "$value": "inset 0 0 0 1px #1112148F",
+      "$description": "the light-theme groove ring alone: an ink hairline all round that carries a 3:1 boundary on pale glass"
     }
   },
   "duration": {

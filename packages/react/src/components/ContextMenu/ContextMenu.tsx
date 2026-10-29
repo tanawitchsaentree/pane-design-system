@@ -9,6 +9,7 @@ export interface ContextMenuProps {
   children: ReactNode;
   /** The menu's name for screen readers. */
   label: string;
+  /** The rows, in order, with 'separator' between groups; every row's action must also be reachable elsewhere. */
   items: MenuEntry[];
 }
 
@@ -17,7 +18,13 @@ export interface ContextMenuProps {
 export function ContextMenu({ children, label, items }: ContextMenuProps) {
   return (
     <RC.Root>
-      <RC.Trigger asChild>{children}</RC.Trigger>
+      {/* the menu key and Shift+F10 open it at the target, the keyboard's right click (WAI-ARIA menu pattern) */}
+      <RC.Trigger asChild onKeyDown={(e) => {
+        if (e.key !== 'ContextMenu' && !(e.shiftKey && e.key === 'F10')) return;
+        e.preventDefault();
+        const r = e.currentTarget.getBoundingClientRect();
+        e.currentTarget.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, cancelable: true, clientX: r.left + r.width / 2, clientY: r.top + r.height / 2 }));
+      }}>{children}</RC.Trigger>
       <RC.Portal>
         <RC.Content aria-label={label} collisionPadding={12} className={styles.sheet} data-component="ContextMenu">
           {items.map((it, i) => it === 'separator'

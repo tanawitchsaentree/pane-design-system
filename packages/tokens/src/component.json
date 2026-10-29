@@ -2292,6 +2292,10 @@
           "why": "the check on the loud solid, ink in dark and white in light"
         }
       }
+    },
+    "ring": {
+      "$value": "{elevation.control-ring}",
+      "$type": "shadow"
     }
   },
   "rating": {
@@ -2329,6 +2333,359 @@
             "P6"
           ],
           "why": "empty stars are an outline at the 3:1 edge opacity, still countable"
+        }
+      }
+    }
+  },
+  "nav": {
+    "gap": {
+      "$value": "{gap.xs}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "segments and destinations sit close inside their track"
+        }
+      }
+    },
+    "inset": {
+      "$value": "{gap.xs}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the chosen pane sits this far inside the track, nesting its corner"
+        }
+      }
+    },
+    "track": {
+      "$value": "{surface.well-deep}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a segmented control’s track is the same well as the tab track"
+        }
+      }
+    },
+    "carve": {
+      "$value": "{level-shadow.well}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "shade under the track’s top lip, a recess"
+        }
+      }
+    },
+    "on-top": {
+      "$value": "{surface.chosen-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the chosen segment, destination or page is chosen glass lit at its top"
+        }
+      }
+    },
+    "on-foot": {
+      "$value": "{surface.chosen-foot}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "and toward its foot, the same as a chosen tab"
+        }
+      }
+    },
+    "on-cast": {
+      "$value": "{elevation.chosen-cast}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the chosen pane lifts a little on the chosen cast"
+        }
+      }
+    },
+    "segment-min": {
+      "$value": "{control.segment-min}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "no segment gets narrower than a short word"
+        }
+      }
+    },
+    "dock": {
+      "$value": "{level.1}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "bars and docks are level-1 glass over the page"
+        }
+      }
+    },
+    "dock-shadow": {
+      "$value": "{level-shadow.1}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a floating dock carries the level-1 shadow, the same for every part of the family"
+        }
+      }
+    },
+    "dock-inset": {
+      "$value": "{gap.inset}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the bottom dock floats clear of the screen edge and its gestures"
+        }
+      }
+    },
+    "blur": {
+      "$value": "{glass.blur}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "bars blur the page under them like every pane"
+        }
+      }
+    },
+    "bar": {
+      "$value": "{control.nav-bar}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the top bar is tall enough for 44px targets"
+        }
+      }
+    },
+    "bar-edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the faint edge all round of every slab"
+        }
+      }
+    },
+    "item-height": {
+      "$value": "{control.nav-item}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a destination is taller than 44px with its icon and label"
+        }
+      }
+    },
+    "item-min": {
+      "$value": "{control.nav-item-min}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a destination is at least 64px wide, the same for every part of the family"
+        }
+      }
+    },
+    "sidebar": {
+      "$value": "{control.sidebar}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a sidebar is as wide as the book’s own, so labels fit on one line"
+        }
+      }
+    },
+    "badge": {
+      "$value": "{control.badge}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P2"
+          ],
+          "why": "a count on a destination is the badge size"
+        }
+      }
+    },
+    "badge-bg": {
+      "$value": "{action.loud-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "a count is a small loud mark, the only solid in the dock"
+        }
+      }
+    },
+    "badge-fg": {
+      "$value": "{text.on-accent}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "its number on the loud solid, the same for every part of the family"
+        }
+      }
+    },
+    "panel": {
+      "$value": "{control.nav-panel}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a navigation panel is one column of described links"
+        }
+      }
+    },
+    "panel-bg": {
+      "$value": "{level.4}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a navigation panel is level 4, the top of the stack"
+        }
+      }
+    },
+    "panel-shadow": {
+      "$value": "{level-shadow.4}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "with the level-4 shadow, the same for every part of the family"
+        }
+      }
+    },
+    "toc-lit": {
+      "$value": "{action.loud-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5",
+            "P6"
+          ],
+          "why": "the section in view has a lit line beside it, a mark in the loud solid"
+        }
+      }
+    }
+  },
+  "stepper": {
+    "groove": {
+      "$value": "{line.divider}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "steps are joined by a quiet groove, the same for every part of the family"
+        }
+      }
+    },
+    "lit": {
+      "$value": "{line.edge}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the groove is lit up to the current step, at the edge opacity"
+        }
+      }
+    },
+    "current": {
+      "$value": "{action.loud-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "the current step is the loud solid with its number"
+        }
+      }
+    },
+    "current-fg": {
+      "$value": "{text.on-accent}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "its number on the loud solid, the same for every part of the family"
+        }
+      }
+    },
+    "glow": {
+      "$value": "{glow.mark}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "in dark the current step glows as a mark that says now (D-027)"
         }
       }
     }

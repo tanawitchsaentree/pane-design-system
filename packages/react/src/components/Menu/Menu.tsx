@@ -14,6 +14,7 @@ export interface MenuProps {
   label: string;
   /** Actions in order; 'separator' draws a groove between groups. A critical action goes last. */
   items: MenuEntry[];
+  /** Which edge of the trigger the sheet lines up with; start keeps it under the trigger's leading edge. */
   align?: 'start' | 'center' | 'end';
 }
 

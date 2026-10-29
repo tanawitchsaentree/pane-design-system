@@ -1,7 +1,81 @@
 {
-  "generatedAt": "2026-10-29T12:51:24.661Z",
+  "generatedAt": "2026-10-29T15:06:31.728Z",
   "version": "0.6.0",
   "components": {
+    "Accordion": {
+      "source": "packages/react/src/components/Accordion/Accordion.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Accordion",
+          "props": [
+            {
+              "name": "items",
+              "type": "AccordionItem[]",
+              "required": true,
+              "default": null,
+              "description": "The sections, each a heading that opens its content.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "type",
+              "type": "\"single\" | \"multiple\"",
+              "required": false,
+              "default": "single",
+              "description": "`single` (default) keeps one open at a time; `multiple` lets several stay open.",
+              "enum": true,
+              "options": [
+                "single",
+                "multiple"
+              ]
+            },
+            {
+              "name": "defaultValue",
+              "type": "string | string[]",
+              "required": false,
+              "default": null,
+              "description": "The section open at the start (single), or the sections (multiple).",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "headingLevel",
+              "type": "2 | 3 | 4",
+              "required": false,
+              "default": "3",
+              "description": "The heading level of each section title, from the page outline. Defaults to 3.",
+              "enum": false,
+              "options": [
+                "2",
+                "3",
+                "4"
+              ]
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the root.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "type"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 27939,
+        "cssMin": 1656,
+        "gzip": 10251
+      }
+    },
     "ActionSheet": {
       "source": "packages/react/src/components/ActionSheet/ActionSheet.tsx",
       "kinds": {},
@@ -15,7 +89,7 @@
               "type": "ReactNode",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "The control that opens it.",
               "enum": false,
               "options": null
             },
@@ -60,7 +134,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Controlled open state.",
               "enum": false,
               "options": null
             },
@@ -69,7 +143,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Starting state when uncontrolled.",
               "enum": false,
               "options": null
             },
@@ -78,7 +152,7 @@
               "type": "((open: boolean) => void)",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Called when it opens or closes.",
               "enum": false,
               "options": null
             },
@@ -99,8 +173,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 43159,
-        "cssMin": 4420,
-        "gzip": 16088
+        "cssMin": 4471,
+        "gzip": 16102
       }
     },
     "AspectRatio": {
@@ -138,6 +212,98 @@
         "jsMin": 372,
         "cssMin": 372,
         "gzip": 461
+      }
+    },
+    "Autocomplete": {
+      "source": "packages/react/src/components/Autocomplete/Autocomplete.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Autocomplete",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The field's label.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "suggestions",
+              "type": "string[]",
+              "required": true,
+              "default": null,
+              "description": "Suggestions shown as the reader types.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The text. Any text is allowed; a suggestion only fills it in.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The starting value when uncontrolled.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((value: string) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called when the value changes.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "placeholder",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "A hint inside the empty field. It never replaces the label.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Name for the value in a native form.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the root.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 71851,
+        "cssMin": 3591,
+        "gzip": 26666
       }
     },
     "Avatar": {
@@ -361,6 +527,85 @@
         "gzip": 1833
       }
     },
+    "BottomNav": {
+      "source": "packages/react/src/components/BottomNav/BottomNav.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "BottomNav",
+          "props": [
+            {
+              "name": "items",
+              "type": "BottomNavItem[]",
+              "required": true,
+              "default": null,
+              "description": "Three to five destinations.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "current",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The href of the current destination; it is marked and announced as the current page.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": "Main",
+              "description": "The landmark's name. Defaults to Main.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "position",
+              "type": "\"fixed\" | \"contained\"",
+              "required": false,
+              "default": "fixed",
+              "description": "`fixed` (default) floats at the bottom of the viewport; `contained` sits in its parent.",
+              "enum": true,
+              "options": [
+                "fixed",
+                "contained"
+              ]
+            },
+            {
+              "name": "onNavigate",
+              "type": "((href: string, event: MouseEvent<Element, MouseEvent>) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the href when a destination is chosen, for client-side routing.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the root.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "position"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 838,
+        "cssMin": 2247,
+        "gzip": 1257
+      }
+    },
     "Box": {
       "source": "packages/react/src/components/Box/Box.tsx",
       "kinds": {},
@@ -467,6 +712,53 @@
         "jsMin": 703,
         "cssMin": 871,
         "gzip": 638
+      }
+    },
+    "Breadcrumb": {
+      "source": "packages/react/src/components/Breadcrumb/Breadcrumb.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Breadcrumb",
+          "props": [
+            {
+              "name": "items",
+              "type": "BreadcrumbItem[]",
+              "required": true,
+              "default": null,
+              "description": "The path from the top, the current page last.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": "Breadcrumb",
+              "description": "The landmark's name. Defaults to Breadcrumb.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the root.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 738,
+        "cssMin": 1014,
+        "gzip": 860
       }
     },
     "Button": {
@@ -824,6 +1116,107 @@
         "gzip": 1388
       }
     },
+    "Combobox": {
+      "source": "packages/react/src/components/Combobox/Combobox.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Combobox",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The field's label, its accessible name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "options",
+              "type": "ListboxOption[]",
+              "required": true,
+              "default": null,
+              "description": "The options, in the order they are shown.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The chosen value.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The starting value when uncontrolled.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((value: string) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called when the value changes.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "placeholder",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "A hint inside the empty field. It never replaces the label.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "emptyText",
+              "type": "string",
+              "required": false,
+              "default": "No matches",
+              "description": "Shown when nothing matches what was typed. Defaults to \"No matches\".",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Name for the value in a native form.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the root.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 71883,
+        "cssMin": 3591,
+        "gzip": 26670
+      }
+    },
     "Container": {
       "source": "packages/react/src/components/Container/Container.tsx",
       "kinds": {},
@@ -865,6 +1258,53 @@
         "jsMin": 359,
         "cssMin": 335,
         "gzip": 403
+      }
+    },
+    "ContextMenu": {
+      "source": "packages/react/src/components/ContextMenu/ContextMenu.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "ContextMenu",
+          "props": [
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The area that opens the menu on a right click or a long press.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The menu's name for screen readers.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "items",
+              "type": "MenuEntry[]",
+              "required": true,
+              "default": null,
+              "description": "The rows, in order, with 'separator' between groups; every row's action must also be reachable elsewhere.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 89494,
+        "cssMin": 1600,
+        "gzip": 31963
       }
     },
     "Dialog": {
@@ -990,8 +1430,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 42814,
-        "cssMin": 3689,
-        "gzip": 15776
+        "cssMin": 3743,
+        "gzip": 15789
       }
     },
     "Divider": {
@@ -1094,6 +1534,15 @@
               "options": null
             },
             {
+              "name": "children",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "The content.",
+              "enum": false,
+              "options": null
+            },
+            {
               "name": "actions",
               "type": "ReactNode",
               "required": false,
@@ -1107,7 +1556,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Controlled open state.",
               "enum": false,
               "options": null
             },
@@ -1116,7 +1565,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Starting state when uncontrolled.",
               "enum": false,
               "options": null
             },
@@ -1125,7 +1574,7 @@
               "type": "((open: boolean) => void)",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Called when it opens or closes.",
               "enum": false,
               "options": null
             },
@@ -1143,7 +1592,7 @@
               "type": "string",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Extra class on the root.",
               "enum": false,
               "options": null
             },
@@ -1165,9 +1614,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 43744,
+        "jsMin": 43514,
         "cssMin": 4688,
-        "gzip": 16356
+        "gzip": 16276
       }
     },
     "Environment": {
@@ -2014,6 +2463,151 @@
         "gzip": 750
       }
     },
+    "Listbox": {
+      "source": "packages/react/src/components/Listbox/Listbox.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Listbox",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The list's name, shown above it and used as its accessible name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "options",
+              "type": "ListboxOption[]",
+              "required": true,
+              "default": null,
+              "description": "The options, in the order they are shown.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "string | string[]",
+              "required": false,
+              "default": null,
+              "description": "One value, or several when `multiple`.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "string | string[]",
+              "required": false,
+              "default": null,
+              "description": "The starting value when uncontrolled.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((value: string | string[]) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called when the value changes.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "multiple",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Lets the reader choose more than one; each chosen row carries a check.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the root.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 2588,
+        "cssMin": 2354,
+        "gzip": 2072
+      }
+    },
+    "Menu": {
+      "source": "packages/react/src/components/Menu/Menu.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Menu",
+          "props": [
+            {
+              "name": "trigger",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The control that opens it, usually a Button or a \"More\" IconButton.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The menu's name for screen readers.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "items",
+              "type": "MenuEntry[]",
+              "required": true,
+              "default": null,
+              "description": "Actions in order; 'separator' draws a groove between groups. A critical action goes last.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "align",
+              "type": "\"start\" | \"center\" | \"end\"",
+              "required": false,
+              "default": "start",
+              "description": "Which edge of the trigger the sheet lines up with; start keeps it under the trigger's leading edge.",
+              "enum": true,
+              "options": [
+                "start",
+                "center",
+                "end"
+              ]
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "align"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 88562,
+        "cssMin": 1600,
+        "gzip": 31600
+      }
+    },
     "Mesh": {
       "source": "packages/react/src/components/Mesh/Mesh.tsx",
       "kinds": {
@@ -2100,6 +2694,302 @@
         "jsMin": 784,
         "cssMin": 1809,
         "gzip": 1024
+      }
+    },
+    "MultiSelect": {
+      "source": "packages/react/src/components/MultiSelect/MultiSelect.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "MultiSelect",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The accessible name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "options",
+              "type": "ListboxOption[]",
+              "required": true,
+              "default": null,
+              "description": "The options, in the order they are shown.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "string[]",
+              "required": false,
+              "default": null,
+              "description": "The chosen values.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "string[]",
+              "required": false,
+              "default": null,
+              "description": "The starting value when uncontrolled.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((value: string[]) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called when the value changes.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "placeholder",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "A hint inside the empty field. It never replaces the label.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "emptyText",
+              "type": "string",
+              "required": false,
+              "default": "No matches",
+              "description": "Shown when nothing matches what was typed.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the root.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 73313,
+        "cssMin": 5856,
+        "gzip": 27720
+      }
+    },
+    "Navbar": {
+      "source": "packages/react/src/components/Navbar/Navbar.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Navbar",
+          "props": [
+            {
+              "name": "brand",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The product's name or mark at the start, usually a link home.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "links",
+              "type": "NavbarLink[]",
+              "required": false,
+              "default": "[]",
+              "description": "The main destinations, shown in the bar on wide screens.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "current",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The href of the current page among `links`.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "actions",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Actions at the end: search, an avatar, a Sign in button.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "sticky",
+              "type": "boolean",
+              "required": false,
+              "default": "true",
+              "description": "Sticks to the top while the page scrolls. Defaults to true.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": "Main",
+              "description": "The landmark's name. Defaults to Main.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the root.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 679,
+        "cssMin": 1352,
+        "gzip": 943
+      }
+    },
+    "NavigationMenu": {
+      "source": "packages/react/src/components/NavigationMenu/NavigationMenu.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "NavigationMenu",
+          "props": [
+            {
+              "name": "items",
+              "type": "NavigationGroup[]",
+              "required": true,
+              "default": null,
+              "description": "Top-level entries: a plain link (href) or a group that opens a panel of links.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": "Main",
+              "description": "The landmark's name. Defaults to Main.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the root.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 1609,
+        "cssMin": 2186,
+        "gzip": 1617
+      }
+    },
+    "Pagination": {
+      "source": "packages/react/src/components/Pagination/Pagination.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Pagination",
+          "props": [
+            {
+              "name": "page",
+              "type": "number",
+              "required": true,
+              "default": null,
+              "description": "The current page, from 1.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "total",
+              "type": "number",
+              "required": true,
+              "default": null,
+              "description": "How many pages there are.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onPageChange",
+              "type": "(page: number) => void",
+              "required": true,
+              "default": null,
+              "description": "Called with the page the reader chose.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "siblings",
+              "type": "number",
+              "required": false,
+              "default": "1",
+              "description": "Pages shown either side of the current one before an ellipsis. Defaults to 1.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": "Pagination",
+              "description": "The landmark's name. Defaults to Pagination.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the root.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 1360,
+        "cssMin": 1505,
+        "gzip": 1318
       }
     },
     "PinInput": {
@@ -2255,6 +3145,15 @@
               "options": null
             },
             {
+              "name": "children",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "The content.",
+              "enum": false,
+              "options": null
+            },
+            {
               "name": "side",
               "type": "\"top\" | \"right\" | \"bottom\" | \"left\"",
               "required": false,
@@ -2286,7 +3185,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Controlled open state.",
               "enum": false,
               "options": null
             },
@@ -2295,7 +3194,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Starting state when uncontrolled.",
               "enum": false,
               "options": null
             },
@@ -2304,7 +3203,7 @@
               "type": "((open: boolean) => void)",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Called when it opens or closes.",
               "enum": false,
               "options": null
             },
@@ -2313,7 +3212,7 @@
               "type": "string",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Extra class on the root.",
               "enum": false,
               "options": null
             },
@@ -2337,8 +3236,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 69593,
-        "cssMin": 3106,
-        "gzip": 25848
+        "cssMin": 3192,
+        "gzip": 25864
       }
     },
     "PullToRefresh": {
@@ -2375,8 +3274,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 1527,
-        "cssMin": 1334,
-        "gzip": 1381
+        "cssMin": 1394,
+        "gzip": 1398
       }
     },
     "Radio": {
@@ -2530,6 +3429,268 @@
         "jsMin": 33060,
         "cssMin": 1752,
         "gzip": 12015
+      }
+    },
+    "RadioCards": {
+      "source": "packages/react/src/components/RadioCards/RadioCards.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "RadioCards",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The question the cards answer, the group's accessible name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "options",
+              "type": "RadioCardOption[]",
+              "required": true,
+              "default": null,
+              "description": "The options, in the order they are shown.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The controlled value.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The starting value when uncontrolled.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((value: string) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called when the value changes.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "columns",
+              "type": "2 | 3",
+              "required": false,
+              "default": null,
+              "description": "Cards per row on a wide screen. Defaults to as many as fit at 200px.",
+              "enum": false,
+              "options": [
+                "2",
+                "3"
+              ]
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the root.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 32549,
+        "cssMin": 2213,
+        "gzip": 12005
+      }
+    },
+    "Rating": {
+      "source": "packages/react/src/components/Rating/Rating.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Rating",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "What is being rated, the group's accessible name: Rate this print.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "The rating, 1 to `max`.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "The starting value when uncontrolled.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((value: number) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called when the value changes.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "max",
+              "type": "number",
+              "required": false,
+              "default": "5",
+              "description": "How many stars. Defaults to 5.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "readOnly",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows a rating without letting the reader change it, read as \"4 out of 5\".",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the root.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "readOnly"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 29637,
+        "cssMin": 926,
+        "gzip": 10964
+      }
+    },
+    "SegmentedControl": {
+      "source": "packages/react/src/components/SegmentedControl/SegmentedControl.tsx",
+      "kinds": {},
+      "sizes": [
+        "md",
+        "sm"
+      ],
+      "exports": [
+        {
+          "displayName": "SegmentedControl",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The setting it switches, its accessible name: View, Units.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "options",
+              "type": "SegmentedOption[]",
+              "required": true,
+              "default": null,
+              "description": "Two to five modes.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The chosen mode.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The starting mode when uncontrolled.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((value: string) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called when the mode changes. A mode is always chosen; pressing the chosen one keeps it.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "size",
+              "type": "\"md\" | \"sm\"",
+              "required": false,
+              "default": "md",
+              "description": "`md` (default) or `sm` for toolbars.",
+              "enum": true,
+              "options": [
+                "md",
+                "sm"
+              ]
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the root.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "size"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 26049,
+        "cssMin": 1493,
+        "gzip": 9730
       }
     },
     "Select": {
@@ -2696,6 +3857,15 @@
               "options": null
             },
             {
+              "name": "children",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "The content.",
+              "enum": false,
+              "options": null
+            },
+            {
               "name": "actions",
               "type": "ReactNode",
               "required": false,
@@ -2722,7 +3892,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Controlled open state.",
               "enum": false,
               "options": null
             },
@@ -2731,7 +3901,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Starting state when uncontrolled.",
               "enum": false,
               "options": null
             },
@@ -2740,7 +3910,7 @@
               "type": "((open: boolean) => void)",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Called when it opens or closes.",
               "enum": false,
               "options": null
             },
@@ -2758,7 +3928,7 @@
               "type": "string",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Extra class on the root.",
               "enum": false,
               "options": null
             },
@@ -2780,9 +3950,83 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 43588,
+        "jsMin": 43358,
         "cssMin": 4688,
-        "gzip": 16313
+        "gzip": 16233
+      }
+    },
+    "Sidebar": {
+      "source": "packages/react/src/components/Sidebar/Sidebar.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Sidebar",
+          "props": [
+            {
+              "name": "sections",
+              "type": "SidebarSection[]",
+              "required": true,
+              "default": null,
+              "description": "Groups of destinations, each with an optional heading.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "current",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The href of the current page.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "header",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Something at the top, such as the product's name or a workspace switcher.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "footer",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Something at the foot, such as the signed-in person.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": "Main",
+              "description": "The landmark's name. Defaults to Main.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the root.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 1072,
+        "cssMin": 1960,
+        "gzip": 1259
       }
     },
     "Skeleton": {
@@ -2972,7 +4216,7 @@
               "type": "boolean",
               "required": true,
               "default": null,
-              "description": null,
+              "description": "Controlled open state.",
               "enum": false,
               "options": null
             },
@@ -2981,7 +4225,7 @@
               "type": "(open: boolean) => void",
               "required": true,
               "default": null,
-              "description": null,
+              "description": "Called when it opens or closes.",
               "enum": false,
               "options": null
             },
@@ -3017,7 +4261,7 @@
               "type": "string",
               "required": false,
               "default": null,
-              "description": null,
+              "description": "Extra class on the root.",
               "enum": false,
               "options": null
             },
@@ -3038,8 +4282,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 38625,
-        "cssMin": 1761,
-        "gzip": 13504
+        "cssMin": 1863,
+        "gzip": 13543
       }
     },
     "Spacer": {
@@ -3198,6 +4442,76 @@
         "gzip": 488
       }
     },
+    "Stepper": {
+      "source": "packages/react/src/components/Stepper/Stepper.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Stepper",
+          "props": [
+            {
+              "name": "steps",
+              "type": "StepperStep[]",
+              "required": true,
+              "default": null,
+              "description": "The steps, in order.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "current",
+              "type": "number",
+              "required": true,
+              "default": null,
+              "description": "The index of the current step, from 0. Steps before it are complete.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "orientation",
+              "type": "\"horizontal\" | \"vertical\"",
+              "required": false,
+              "default": "horizontal",
+              "description": "`horizontal` (default) or `vertical` for long labels and phones.",
+              "enum": true,
+              "options": [
+                "horizontal",
+                "vertical"
+              ]
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": "Progress",
+              "description": "The list's name. Defaults to Progress.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the root.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "orientation"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 1059,
+        "cssMin": 2400,
+        "gzip": 1350
+      }
+    },
     "Switch": {
       "source": "packages/react/src/components/Switch/Switch.tsx",
       "kinds": {},
@@ -3292,6 +4606,62 @@
         "gzip": 6092
       }
     },
+    "TableOfContents": {
+      "source": "packages/react/src/components/TableOfContents/TableOfContents.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "TableOfContents",
+          "props": [
+            {
+              "name": "items",
+              "type": "TocItem[]",
+              "required": true,
+              "default": null,
+              "description": "The sections of the page, by the id of their heading.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": "On this page",
+              "description": "The list's name. Defaults to On this page.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "track",
+              "type": "boolean",
+              "required": false,
+              "default": "true",
+              "description": "Marks the section in view as the reader scrolls. Defaults to true.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the root.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 1181,
+        "cssMin": 1366,
+        "gzip": 1255
+      }
+    },
     "Tabs": {
       "source": "packages/react/src/components/Tabs/Tabs.tsx",
       "kinds": {},
@@ -3352,6 +4722,98 @@
         "gzip": 497
       }
     },
+    "TagInput": {
+      "source": "packages/react/src/components/TagInput/TagInput.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "TagInput",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The field's label.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "string[]",
+              "required": false,
+              "default": null,
+              "description": "The tags.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "string[]",
+              "required": false,
+              "default": null,
+              "description": "The starting value when uncontrolled.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((tags: string[]) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called when the value changes.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "placeholder",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "A hint inside the empty field. It never replaces the label.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "max",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "Stop accepting tags after this many.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "hint",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "A line under the field, such as \"Press Enter after each tag\".",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the root.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 2547,
+        "cssMin": 3313,
+        "gzip": 2190
+      }
+    },
     "Text": {
       "source": "packages/react/src/components/Text/Text.tsx",
       "kinds": {
@@ -3376,7 +4838,7 @@
               "type": "\"reading\" | \"body\" | \"label\" | \"caption\" | \"micro\"",
               "required": false,
               "default": "body",
-              "description": "A step of the type scale: `reading` 16 (long text), `body` 15 (default), `label` 13, `caption` 12, `micro` 11.",
+              "description": "A step of the type scale: `reading` 16 (long text), `body` 15 (default), `label` 14, `caption` 13, `micro` 11.",
               "enum": true,
               "options": [
                 "reading",
@@ -3511,7 +4973,7 @@
               "type": "(open: boolean) => void",
               "required": true,
               "default": null,
-              "description": null,
+              "description": "Called when it opens or closes.",
               "enum": false,
               "options": null
             },
@@ -3592,8 +5054,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 39156,
-        "cssMin": 2704,
-        "gzip": 13899
+        "cssMin": 2771,
+        "gzip": 13929
       }
     },
     "Tooltip": {

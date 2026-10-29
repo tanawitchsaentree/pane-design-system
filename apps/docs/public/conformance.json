@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-29T13:46:58.292Z",
-  "passed": 178,
-  "total": 186,
+  "generatedAt": "2026-10-29T15:16:59.239Z",
+  "passed": 213,
+  "total": 213,
   "checks": [
     {
       "component": "Container",
@@ -120,26 +120,26 @@
     {
       "component": "Sheet",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": false,
-      "detail": "no JSDoc: open, defaultOpen, onOpenChange, className"
+      "ok": true,
+      "detail": "12 props"
     },
     {
       "component": "Drawer",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": false,
-      "detail": "no JSDoc: open, defaultOpen, onOpenChange, className"
+      "ok": true,
+      "detail": "12 props"
     },
     {
       "component": "ActionSheet",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": false,
-      "detail": "no JSDoc: trigger, open, defaultOpen, onOpenChange"
+      "ok": true,
+      "detail": "9 props"
     },
     {
       "component": "Popover",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": false,
-      "detail": "no JSDoc: open, defaultOpen, onOpenChange, className"
+      "ok": true,
+      "detail": "10 props"
     },
     {
       "component": "Tooltip",
@@ -150,14 +150,14 @@
     {
       "component": "Toast",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": false,
-      "detail": "no JSDoc: onOpenChange"
+      "ok": true,
+      "detail": "9 props"
     },
     {
       "component": "Snackbar",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": false,
-      "detail": "no JSDoc: open, onOpenChange, className"
+      "ok": true,
+      "detail": "7 props"
     },
     {
       "component": "FAB",
@@ -236,6 +236,60 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "11 props"
+    },
+    {
+      "component": "Listbox",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props"
+    },
+    {
+      "component": "Combobox",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props"
+    },
+    {
+      "component": "Autocomplete",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "8 props"
+    },
+    {
+      "component": "MultiSelect",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "8 props"
+    },
+    {
+      "component": "Menu",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props"
+    },
+    {
+      "component": "ContextMenu",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "RadioCards",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props"
+    },
+    {
+      "component": "Rating",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props"
+    },
+    {
+      "component": "TagInput",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "8 props"
     },
     {
       "component": "Slider",
@@ -548,6 +602,60 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos"
+    },
+    {
+      "component": "Listbox",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Combobox",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Autocomplete",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "MultiSelect",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Menu",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "ContextMenu",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "RadioCards",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Rating",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "TagInput",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
     },
     {
       "component": "Slider",
@@ -965,8 +1073,7 @@
     {
       "component": "Text",
       "name": "sizes come from the type scale and secondary is the measured secondary tone",
-      "ok": false,
-      "detail": "off-scale sizes: 17px, 16px, 15px, 13px"
+      "ok": true
     },
     {
       "component": "Kbd",
@@ -1026,8 +1133,7 @@
     {
       "component": "Popover",
       "name": "opens on Enter, closes on Esc with focus back on the trigger",
-      "ok": false,
-      "detail": "did not open"
+      "ok": true
     },
     {
       "component": "Tooltip",
@@ -1052,6 +1158,51 @@
     {
       "component": "PullToRefresh",
       "name": "a Refresh button is reachable with Tab and shows on focus",
+      "ok": true
+    },
+    {
+      "component": "Listbox",
+      "name": "one tab stop; arrow keys move, Space chooses, aria-selected follows",
+      "ok": true
+    },
+    {
+      "component": "Combobox",
+      "name": "typing filters, arrow keys highlight while focus stays in the field, Enter chooses, Esc closes",
+      "ok": true
+    },
+    {
+      "component": "Autocomplete",
+      "name": "keeps free text that matches no suggestion",
+      "ok": true
+    },
+    {
+      "component": "MultiSelect",
+      "name": "chosen values are chips with named remove buttons; Backspace removes the last",
+      "ok": true
+    },
+    {
+      "component": "Menu",
+      "name": "opens from the keyboard on its first action and Esc returns focus",
+      "ok": true
+    },
+    {
+      "component": "ContextMenu",
+      "name": "opens from the keyboard menu key on a focused target",
+      "ok": true
+    },
+    {
+      "component": "RadioCards",
+      "name": "a radio group: arrow keys choose and the chosen card carries a check",
+      "ok": true
+    },
+    {
+      "component": "Rating",
+      "name": "arrow keys change the score; read-only is one image with a spoken score",
+      "ok": true
+    },
+    {
+      "component": "TagInput",
+      "name": "Enter and a comma add, duplicates are ignored, Backspace removes",
       "ok": true
     }
   ]

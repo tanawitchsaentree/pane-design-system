@@ -1,0 +1,103 @@
+{
+  "concept": "The bar across the top of a page on a strip of glass: the brand at the start, the destinations, actions at the end.",
+  "default_to_avoid": [
+    {
+      "pattern": "a solid white or brand-coloured header bar with coloured active link (Bootstrap navbar)",
+      "kind": "navbar, top bar, header, app bar",
+      "why_not": "a solid coloured bar owns a hue and hides the scene"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI · Menus and navigation",
+      "url": "https://www.w3.org/WAI/tutorials/menus/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "a level-1 strip of glass that blurs the page when it sticks over it"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the current page is semibold and underlined, never only a colour"
+    },
+    {
+      "p": "P6",
+      "axis": "space",
+      "consequence": "every target is at least 44px in its smaller dimension or has a 44px hit area",
+      "form": "every link and action is a 44px target"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave6/",
+    "section": "navbar",
+    "options": [
+      "A glass strip",
+      "B solid brand bar",
+      "C transparent links"
+    ],
+    "picked": "A glass strip",
+    "by": "agent",
+    "reason": "A keeps the scene under it and reads on scroll. B brings a hue. C loses contrast over content."
+  },
+  "parts": {
+    "bar": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a level-1 glass strip across the top, the same in every theme and on every scene"
+    },
+    "sticky": {
+      "p": "P3",
+      "axis": "space",
+      "why": "sticks to the top while the page scrolls"
+    },
+    "brand": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the product name in semibold at the start"
+    },
+    "nav": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the destinations, scrolling sideways if they do not fit"
+    },
+    "link": {
+      "p": "P6",
+      "axis": "space",
+      "why": "a 44px link, the same in every theme and on every scene"
+    },
+    "actions": {
+      "p": "P3",
+      "axis": "space",
+      "why": "actions pushed to the end, the same in every theme and on every scene"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the shared focus ring so a keyboard user sees which item has focus"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours mark the current item with the system highlight"
+    },
+    "hover": {
+      "p": "P4",
+      "axis": "colour",
+      "why": "a link lightens under the pointer, the same in every theme and on every scene"
+    },
+    "aria-current=page": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the current page is underlined and semibold, the same in every theme and on every scene"
+    }
+  },
+  "motion": {}
+}

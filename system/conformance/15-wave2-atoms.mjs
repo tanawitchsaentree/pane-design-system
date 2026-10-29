@@ -4,7 +4,7 @@ export default async function (t) {
   await go('/components/text/code');
   await check('Text', 'sizes come from the type scale and secondary is the measured secondary tone', async () => {
     // the scale is read from the type tokens themselves, so the check follows the tokens
-    const scale = await page.evaluate(() => ['micro', 'caption', 'label', 'body', 'reading'].map((k) => { const p = document.createElement('p'); p.style.fontSize = `var(--ds-type-${k})`; document.body.append(p); const v = getComputedStyle(p).fontSize; p.remove(); return v; }));
+    const scale = await page.evaluate(() => ['micro', 'caption', 'label', 'body', 'reading', 'emphasis'].map((k) => { const p = document.createElement('p'); p.style.fontSize = `var(--ds-type-${k})`; document.body.append(p); const v = getComputedStyle(p).fontSize; p.remove(); return v; }));
     const sizes = await main().locator('[data-component="Text"]').evaluateAll((els) => [...new Set(els.map((e) => getComputedStyle(e).fontSize))]);
     expect(sizes.every((s) => scale.includes(s)), `off-scale sizes: ${sizes.join(', ')} (scale ${scale.join(', ')})`);
     const trunc = await main().locator('[data-component="Text"]').evaluateAll((els) => els.filter((e) => getComputedStyle(e).textOverflow === 'ellipsis').map((e) => !!e.title));

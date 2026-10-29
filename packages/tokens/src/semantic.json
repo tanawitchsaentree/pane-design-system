@@ -800,6 +800,18 @@
           "why": "a lit switch spills a little light onto the pane"
         }
       }
+    },
+    "control-ring": {
+      "$value": "{shadow.ring}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.ring-light}"
+        },
+        "kiln.why": {
+          "p": "P6",
+          "why": "a pane that is itself a control, such as a radio card, carries the groove ring as its 3:1 edge, where a level-2 pane alone reads under 1.5:1 in either theme"
+        }
+      }
     }
   },
   "width": {
@@ -1037,6 +1049,78 @@
             "P6"
           ],
           "why": "a rating star is big enough to count at a glance, inside a 44px press area"
+        }
+      }
+    },
+    "nav-bar": {
+      "$value": "{size.nav-bar}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a top bar holds 44px targets with room above and below, never cramped against the edge"
+        }
+      }
+    },
+    "nav-item": {
+      "$value": "{size.nav-item}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a bottom-nav destination stacks its icon and label in a target taller than 44px"
+        }
+      }
+    },
+    "nav-item-min": {
+      "$value": "{size.nav-item-min}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a destination is at least 64px wide, easy to hit with a thumb"
+        }
+      }
+    },
+    "nav-panel": {
+      "$value": "{size.nav-panel}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a navigation panel is a column of links, each with a line of description"
+        }
+      }
+    },
+    "segment-min": {
+      "$value": "{size.segment-min}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a segment is never narrower than a short word, so modes do not crowd"
+        }
+      }
+    },
+    "sidebar": {
+      "$value": "{size.sidebar}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a navigation column is 280px, wide enough for labels on one line beside the content"
         }
       }
     }
