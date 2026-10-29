@@ -1017,6 +1017,7 @@
     },
     "fill-height": {
       "$value": "{control.xl}",
+      "$type": "dimension",
       "$extensions": {
         "kiln.why": {
           "p": [
@@ -1029,6 +1030,7 @@
     },
     "fill-radius": {
       "$value": "{corner.round}",
+      "$type": "dimension",
       "$extensions": {
         "kiln.why": {
           "p": [
@@ -1040,6 +1042,7 @@
     },
     "fill-padding": {
       "$value": "{gap.inset}",
+      "$type": "dimension",
       "$extensions": {
         "kiln.why": {
           "p": [
@@ -1051,6 +1054,7 @@
     },
     "fill-bg": {
       "$value": "{surface.carve}",
+      "$type": "color",
       "$extensions": {
         "kiln.why": {
           "p": [
@@ -1062,6 +1066,7 @@
     },
     "fill-carve": {
       "$value": "{elevation.groove}",
+      "$type": "shadow",
       "$extensions": {
         "kiln.why": {
           "p": [
@@ -1073,6 +1078,7 @@
     },
     "fill-top": {
       "$value": "{surface.chosen-top}",
+      "$type": "color",
       "$extensions": {
         "kiln.why": {
           "p": [
@@ -1085,6 +1091,7 @@
     },
     "fill-foot": {
       "$value": "{surface.chosen-foot}",
+      "$type": "color",
       "$extensions": {
         "kiln.why": {
           "p": [
@@ -1096,6 +1103,7 @@
     },
     "fill-rim": {
       "$value": "{line.rim-hi}",
+      "$type": "color",
       "$extensions": {
         "kiln.why": {
           "p": [
@@ -1107,6 +1115,7 @@
     },
     "fill-marker": {
       "$value": "{action.loud-top}",
+      "$type": "color",
       "$extensions": {
         "kiln.why": {
           "p": [
@@ -1118,6 +1127,7 @@
     },
     "fill-marker-width": {
       "$value": "{width.bar}",
+      "$type": "dimension",
       "$extensions": {
         "kiln.why": {
           "p": [
@@ -1129,6 +1139,7 @@
     },
     "fill-marker-height": {
       "$value": "{control.check}",
+      "$type": "dimension",
       "$extensions": {
         "kiln.why": {
           "p": [
@@ -1140,6 +1151,7 @@
     },
     "fill-marker-inset": {
       "$value": "{gap.lg}",
+      "$type": "dimension",
       "$extensions": {
         "kiln.why": {
           "p": [
@@ -1151,6 +1163,7 @@
     },
     "range-glow": {
       "$value": "{glow.soft}",
+      "$type": "shadow",
       "$extensions": {
         "kiln.why": {
           "p": [
@@ -1163,6 +1176,7 @@
     },
     "fill-marker-glow": {
       "$value": "{glow.mark}",
+      "$type": "shadow",
       "$extensions": {
         "kiln.why": {
           "p": [
@@ -1175,6 +1189,7 @@
     },
     "min-width": {
       "$value": "{control.slider-min}",
+      "$type": "dimension",
       "$extensions": {
         "kiln.why": {
           "p": [

@@ -582,6 +582,29 @@
           "why": "a chosen item is a lighter pane of grey glass in dark and white in light, resting in its track"
         }
       }
+    },
+    "mesh": {
+      "$type": "color",
+      "base": {
+        "$value": "#ECE7F1",
+        "$description": "aurora mesh: the pale ground the colour pools sit in"
+      },
+      "peach": {
+        "$value": "#F7B27C",
+        "$description": "aurora mesh: warm pool, top left"
+      },
+      "coral": {
+        "$value": "#F2837B",
+        "$description": "aurora mesh: coral pool, top right"
+      },
+      "violet": {
+        "$value": "#5F5BF2",
+        "$description": "aurora mesh: violet pool, low"
+      },
+      "lilac": {
+        "$value": "#B9A3F5",
+        "$description": "aurora mesh: lilac pool, bottom left"
+      }
     }
   },
   "blur": {
@@ -597,6 +620,10 @@
         "p": "P2",
         "why": "64px is the blur where small bright spots in the photos average out enough for text to pass; 20px is for small scrims that must keep detail"
       }
+    },
+    "mesh": {
+      "$value": "40px",
+      "$description": "melts the mesh's pools into each other: wide enough that no pool keeps an edge"
     }
   },
   "saturate": {

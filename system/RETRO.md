@@ -127,3 +127,11 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **Step that produced it:** the fill variant took the tab track's well for its empty part, a surface meant to sit inside a pane, not to be found on one; the edge rule for fields was not applied to a new control that is also a field-like bar.
 - **What changed in that step:** the bar is a groove like a field (surface.carve and elevation.groove: shade under the top lip, the field's edge all round), and its track sits a hairline inside so the edge shows even when full.
 - **Check that now catches it:** G-NT2 measures sliders: a bar slider by the bar's own edge, a channel slider by its channel with the fill inside it, never by the thumb. It failed the fill bars in light (1.45, 1.49) before the fix; all 202 controls pass now.
+
+### R-020: evidence measured one scene and called it four
+- **Date:** 2026-10-29
+- **Found by:** the agent, while adding the Aurora scene.
+- **What was wrong:** since ad9d3e4 the book reads ?backdrop= and drops ?scene=, but kiln.config still told every check to send ?scene=. So every "4 scenes" evidence run since then measured the studio four times. With the scene really applied, a do/don't pair on the Slider page turned out to spill 48px out of its column and under the "On this page" rail, putting a demo behind the rail's text (1.0–1.9:1).
+- **Step that produced it:** the URL change (R-015) changed a contract the checks depend on, and nothing verified that the checks' own parameters still reached the app.
+- **What changed in that step:** kiln.config sends ?backdrop= and lists studio and aurora; the pair row wraps when a demo needs more than half the column.
+- **Check that now catches it:** G-ST1 opens the book with each configured scene and fails if the app drops it (it failed on ?scene=room before the fix); G-S6 fails anything in main that spills out of the page column (it named the pair cell, 48px).

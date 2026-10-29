@@ -433,7 +433,8 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .gx-app.lines .gx-r { outline: var(--ds-width-hairline) dashed var(--ds-action-accent); outline-offset: 0; }
 .gx-app.lines .gx-r.main { outline: none; }
 .gx-pair { display: flex; flex-direction: column; gap: var(--ds-gap-lg); }
-.gx-pair-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--ds-gap-2xl); }
+/* a do and a don't side by side while both fit, stacked when a demo needs more than half the column */
+.gx-pair-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: var(--ds-gap-2xl); }
 .gx-pair-cell { margin: 0; display: flex; flex-direction: column; gap: var(--ds-gap-md); }
 .gx-pair-cell figcaption { font-size: var(--ds-type-label); }
 .gx-mini { padding: var(--ds-gap-2xl); min-block-size: 160px; }
@@ -571,3 +572,35 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .day-track { display: flex; align-items: center; gap: var(--ds-gap-xl); font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-medium); color: var(--ds-text-secondary); }
 .day-track .day-now { display: inline-flex; align-items: center; gap: var(--ds-gap-sm); color: var(--ds-text-primary); }
 .day-dot { inline-size: var(--ds-control-mark); block-size: var(--ds-control-mark); border-radius: var(--ds-corner-round); background: var(--ds-action-loud-top); box-shadow: var(--ds-glow-mark); }
+/* Mesh gradient (D-029): four colour pools laid as soft radial gradients, then blurred together on a
+   layer of their own so no pool keeps an edge. Not a linear or a radial gradient: the blur is what makes
+   the pools flow into each other. A scene or a piece of media only, never a control's fill (P1). */
+.mesh { position: relative; isolation: isolate; overflow: hidden; background-color: var(--ds-mesh-base); }
+.mesh::before {
+  content: ''; position: absolute; inset: -20%; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(58% 66% at 14% 14%, var(--ds-mesh-a), transparent 76%),
+    radial-gradient(56% 64% at 90% 26%, var(--ds-mesh-b), transparent 76%),
+    radial-gradient(72% 60% at 60% 96%, var(--ds-mesh-c), transparent 76%),
+    radial-gradient(50% 56% at 4% 92%, var(--ds-mesh-d), transparent 74%);
+  filter: blur(var(--ds-mesh-blur));
+}
+/* a mesh object casts light the colour of itself: an ambient shadow, the same mesh blurred under it */
+.mesh-tile { position: relative; inline-size: calc(var(--ds-space-32) * 1.5); block-size: var(--ds-space-32); border-radius: var(--ds-corner-inner); }
+.mesh-tile::after {
+  content: ''; position: absolute; inset: 30% 8% -12%; z-index: -1; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(60% 60% at 40% 40%, var(--ds-mesh-a), transparent 70%), radial-gradient(60% 60% at 60% 70%, var(--ds-mesh-c), transparent 70%);
+  filter: blur(var(--ds-mesh-blur)); opacity: 0.55;
+}
+.mesh-tile-wrap { position: relative; isolation: isolate; display: inline-block; }
+.gradient-kinds { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: var(--ds-gap-2xl); }
+.gradient-kinds figure { margin: 0; display: flex; flex-direction: column; gap: var(--ds-gap-md); }
+.gradient-swatch { block-size: calc(var(--ds-space-32) * 2.5); border-radius: var(--ds-corner-inner); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); }
+.gradient-swatch.linear { background: linear-gradient(135deg, var(--ds-mesh-a), var(--ds-mesh-c)); }
+.gradient-swatch.radial { background: radial-gradient(circle at 30% 30%, var(--ds-mesh-a), var(--ds-mesh-c) 75%); }
+.gradient-swatch.conic { background: conic-gradient(from 200deg at 50% 50%, var(--ds-mesh-a), var(--ds-mesh-b), var(--ds-mesh-c), var(--ds-mesh-d), var(--ds-mesh-a)); }
+.gradient-swatch.mesh { overflow: hidden; }
+.mesh-scene { padding: var(--ds-gap-section) var(--ds-gap-2xl); border-radius: var(--ds-corner-inner); }
+.mesh-scene-env { justify-content: center; }
+.stage-aurora { min-block-size: calc(var(--ds-space-32) * 2.25); }
+.stage-aurora:not(.plain) > .stage-env { justify-content: center; align-items: center; align-content: center; }

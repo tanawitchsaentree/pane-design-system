@@ -866,6 +866,7 @@
     },
     "xl": {
       "$value": "{size.control-xl}",
+      "$type": "dimension",
       "$extensions": {
         "kiln.why": {
           "p": [
@@ -941,6 +942,7 @@
     },
     "slider-min": {
       "$value": "{size.slider-min}",
+      "$type": "dimension",
       "$extensions": {
         "kiln.why": {
           "p": [
@@ -1647,6 +1649,84 @@
           ],
           "why": "a small mark that says now (the current step, where a value stops) glows a little wider than its size"
         }
+      }
+    }
+  },
+  "mesh": {
+    "$type": "color",
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1"
+        ],
+        "why": "a mesh gradient is a scene or a piece of media, never a control's fill: the world supplies the hue and the glass shows it (P1)"
+      }
+    },
+    "base": {
+      "$value": "{color.mesh.base}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the pale ground the pools sit in, light enough that glass over it reads as dimmed, not dirty"
+        }
+      }
+    },
+    "a": {
+      "$value": "{color.mesh.peach}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the warm pool at the top left, where light seems to come from, matching the one light from above"
+        }
+      }
+    },
+    "b": {
+      "$value": "{color.mesh.coral}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the coral pool at the top right that carries the warmth across the top of the scene"
+        }
+      }
+    },
+    "c": {
+      "$value": "{color.mesh.violet}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the deepest pool, low in the frame, so the mesh has a dark point and the glass a bright one to test"
+        }
+      }
+    },
+    "d": {
+      "$value": "{color.mesh.lilac}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the lilac pool at the bottom left that joins the violet back to the pale ground"
+        }
+      }
+    }
+  },
+  "mesh-blur": {
+    "$value": "{blur.mesh}",
+    "$type": "dimension",
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1"
+        ],
+        "why": "the pools of a mesh are blurred until they flow, which is what makes it a mesh and not a set of radial gradients"
       }
     }
   }

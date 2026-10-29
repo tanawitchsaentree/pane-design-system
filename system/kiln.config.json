@@ -64,7 +64,10 @@
       "dark",
       "light"
     ],
+    "sceneParam": "backdrop",
     "scenes": [
+      "studio",
+      "aurora",
       "room",
       "forest",
       "night",

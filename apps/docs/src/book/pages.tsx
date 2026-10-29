@@ -21,7 +21,7 @@ import * as Icons from '../icons';
 import { PaletteGrid, RoleTabs, TokenBrowser } from './color-page';
 import { ElevationDemo } from './elevation';
 import { ThemePlayground, GlassPlayground, ContrastPlayground, TypePlayground, SpacingPlayground, GridPlayground, ShapePlayground, MotionPlayground, IconBrowser, TouchTargetPlayground } from './playgrounds';
-import { inline, useScene, Stage, PRINCIPLES, CONCEPT_INTRO, Callout, Code, CopyButton, ConformanceList, EvidenceTable, Example, Link, Markdown, Page, Section, TOKENS, TokenTable, VerifiedTags, useVerify } from './kit';
+import { inline, useScene, Stage, PRINCIPLES, CONCEPT_INTRO, Callout, Code, CodeBlock, CopyButton, ConformanceList, EvidenceTable, Example, Link, Markdown, Page, Section, TOKENS, TokenTable, VerifiedTags, useVerify } from './kit';
 import { COMPONENTS } from './components-data';
 import { GridLayoutPage } from './grid-page';
 import { ComponentPage, EVIDENCE_GROUPS, HISTORY, STATUS_LABEL, TABS } from './ComponentPage';
@@ -321,6 +321,48 @@ function ColorPage() {
       <Section id="playground" title="Check a pair" wide>
         <p>Pick any two solid colours from the palette to see their contrast and which WCAG levels they meet.</p>
         <ContrastPlayground />
+      </Section>
+      <Section id="gradients" title="Gradients" wide>
+        <p>A gradient is named by how its colour moves. Pane uses three of them in its own material and keeps the fourth, the mesh, for scenes and media, because the world supplies the hue and the glass only shows it (P1).</p>
+        <div className="gradient-kinds">
+          <figure><div className="gradient-swatch linear" /><figcaption><b>Linear.</b> Colour moves along one line. Pane uses it for the sheen on every surface: light at the top, fading toward the foot.</figcaption></figure>
+          <figure><div className="gradient-swatch radial" /><figcaption><b>Radial.</b> Colour moves out from one point. Pane uses it for glows and the bead’s lit top.</figcaption></figure>
+          <figure><div className="gradient-swatch conic" /><figcaption><b>Conic.</b> Colour moves around a centre, like a colour wheel. Pane does not use it.</figcaption></figure>
+          <figure><div className="gradient-swatch mesh" /><figcaption><b>Mesh</b> (freeform). Several pools of colour, each placed on its own, melted into each other. It is not a linear or a radial gradient: the blur between the pools is what makes it one.</figcaption></figure>
+        </div>
+        <h3>How the mesh is made</h3>
+        <p>Four soft radial pools (<code>mesh.a</code> to <code>mesh.d</code>) sit on a pale ground (<code>mesh.base</code>), each at its own spot and size. They are drawn on a layer of their own, larger than the box, and that layer is blurred by <code>mesh-blur</code> (40px) so no pool keeps an edge. The box clips it. CSS has no mesh gradient, so this is the recipe; SwiftUI calls the same thing a MeshGradient and Figma a mesh fill.</p>
+        <CodeBlock label="CSS" code={`.mesh { position: relative; isolation: isolate; overflow: hidden; background-color: var(--ds-mesh-base); }
+.mesh::before {
+  content: ''; position: absolute; inset: -20%; z-index: -1;
+  background:
+    radial-gradient(58% 66% at 14% 14%, var(--ds-mesh-a), transparent 76%),
+    radial-gradient(56% 64% at 90% 26%, var(--ds-mesh-b), transparent 76%),
+    radial-gradient(72% 60% at 60% 96%, var(--ds-mesh-c), transparent 76%),
+    radial-gradient(50% 56% at 4% 92%, var(--ds-mesh-d), transparent 74%);
+  filter: blur(var(--ds-mesh-blur));
+}`} />
+        <h3>Where it goes</h3>
+        <div className="table-wrap"><table>
+          <thead><tr><th scope="col">Use</th><th scope="col">Allowed</th><th scope="col">Why</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">A scene behind glass</th><td>Yes. Pick <b>Aurora (mesh)</b> in Demo backdrop.</td><td>It is the world, and glass is made to show the world.</td></tr>
+            <tr><th scope="row">Media: a cover, an app or folder icon, an illustration</th><td>Yes</td><td>It is content, like a photo.</td></tr>
+            <tr><th scope="row">An ambient shadow under a mesh object</th><td>Yes</td><td>A coloured object lights what is under it in its own colour: the same mesh, blurred, under the object.</td></tr>
+            <tr><th scope="row">A Button, a Switch, a selected tab</th><td>No</td><td>Controls own no hue (P1). The loud action is the lit solid, and in dark it glows white.</td></tr>
+            <tr><th scope="row">Text</th><td>No</td><td>A gradient changes the letter’s contrast along its width, so no part of it can be measured.</td></tr>
+          </tbody>
+        </table></div>
+        <div className="mesh mesh-scene" data-example-live="" data-surface="">
+          <Environment brightness="bright" className="stage-env mesh-scene-env">
+            <Card as="div" className="demo-card">
+              <div className="mesh-tile-wrap"><div className="mesh mesh-tile" role="img" aria-label="Happy Files folder art" /></div>
+              <p className="eyebrow flush">New</p>
+              <h3 className="flush">Happy Files</h3>
+              <p className="flush">88 photos · 24 videos · 9 documents</p>
+            </Card>
+          </Environment>
+        </div>
       </Section>
       <Section id="rules" title="Rules">
         <ul>

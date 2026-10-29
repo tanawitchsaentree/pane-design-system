@@ -1,43 +1,51 @@
 {
-  "generatedAt": "2026-10-29T07:34:52.511Z",
-  "passed": 5,
-  "total": 5,
+  "generatedAt": "2026-10-29T08:05:24.228Z",
+  "passed": 6,
+  "total": 6,
   "partial": true,
   "advisory": {},
   "results": [
     {
-      "id": "G-K5",
-      "name": "the Style tab is generated: every spec cell names its token and value",
+      "id": "G-P0",
+      "name": "every page renders: a <main>, a heading and no uncaught error",
       "ok": true,
-      "order": 20
+      "detail": "5 pages",
+      "order": 0
     },
     {
-      "id": "G-GL1",
-      "name": "glow is declared and measured: in dark only [data-glow] parts give off light, each visibly (near ring vs ground) and within reach; text never glows; in light nothing glows",
+      "id": "G-S3",
+      "name": "no two surfaces touch (<8px) or overlap, every page, 375 and 1280px",
       "ok": true,
-      "detail": "12 glowing parts in 2 themes (soft 1.22–1.25:1, mark 1.21–1.21:1)",
-      "order": 37
+      "order": 4
     },
     {
-      "id": "G-SL1",
-      "name": "a slider has room to travel and holds still: at least 200px long, and neither it nor its pane changes size between its lowest and highest value",
+      "id": "G-W1",
+      "name": "reasons are on the page: token tables have a filled Why column and every component page explains its parts, states and motion",
       "ok": true,
-      "detail": "21 sliders",
-      "order": 38
+      "detail": "1 token rows with reasons",
+      "order": 27
     },
     {
-      "id": "G-IN1",
-      "name": "text inside a control keeps its inset from the control's edge: at least 8px, and half the corner radius on a rounded end",
+      "id": "G-NT1",
+      "name": "diagram parts stand at least 3:1 off their ground, in every theme (WCAG 1.4.11)",
       "ok": true,
-      "detail": "4 lines of text in controls",
-      "order": 40
+      "skipped": true,
+      "detail": "skipped: nothing it checks is in the limited routes",
+      "order": 29
     },
     {
-      "id": "G-TT1",
-      "name": "every control in a live example and in the shell gives a pointer at least 44px each way",
+      "id": "G-CL1",
+      "name": "every colour value written in the book is a current token value (no stale hex in prose)",
       "ok": true,
-      "detail": "81 controls",
-      "order": 45
+      "detail": "26 values checked",
+      "order": 34
+    },
+    {
+      "id": "G-RH1",
+      "name": "separate steps stand apart: a demo stage and a tab bar sit at least 24px from the blocks around them; a stage's own code, caption or heading may sit 8px off and its intro 16px",
+      "ok": true,
+      "detail": "63 gaps",
+      "order": 43
     }
   ]
 }

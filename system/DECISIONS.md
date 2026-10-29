@@ -131,3 +131,10 @@
 - **ปัญหา:** pane ระดับ 1 บน studio เดิม (#111214) ต่างจากพื้นแค่ 1.09:1 ต่ำกว่าเกณฑ์ 1.15 ของ G-EL1
 - **ทางเลือก:** ทำ pane ให้สว่างขึ้น (กระทบวัสดุที่ user อนุมัติใน round 5 ทุกฉาก) หรือทำพื้น studio ให้เข้มขึ้น (กระทบแค่ฉากโชว์ของ docs) — เลือกพื้น เพราะ studio เป็นแค่ฉากนำเสนอ ส่วน pane คือระบบ
 - **วัด:** #0A0A0C ได้ 1.13, #050506 ผ่าน; demo ระดับความลึกกลับมาอยู่บน studio เหมือน demo อื่น; G-GL1 ยังผ่าน (strong 1.49–1.55, soft 1.22–1.33, mark 1.21)
+
+### D-029: mesh gradient (Aurora) เป็น scene และ media เท่านั้น
+- **วันที่:** 2026-10-29 · **เลือกโดย:** agent ตาม reference ("ไม่ใช่ linear หรือ radial ถ้าทำได้ทำ แล้วหาหมวดหมู่")
+- **หมวด:** mesh gradient (freeform gradient; SwiftUI MeshGradient, Figma mesh fill) + ambient shadow (เงาสีเดียวกับวัตถุ)
+- **ทำอย่างไร:** radial 4 วง (mesh.a–d) บนพื้น mesh.base วาดบน layer ที่ใหญ่กว่ากล่อง แล้ว blur ด้วย mesh-blur 40px ให้ขอบแต่ละวงละลายเข้าหากัน
+- **ใช้ได้:** scene หลังกระจก (Demo backdrop: Aurora), media (cover, icon, illustration), ambient shadow ใต้วัตถุ mesh — **ใช้ไม่ได้:** fill ของ control (Button, Switch, tab) และข้อความ ตาม P1 (ระบบไม่มี hue ของตัวเอง)
+- **ตรวจ:** Aurora อยู่ในรายการ scene ของ evidence แล้ว; ข้อความบนหน้า slider usage และ color ผ่าน 10,680/10,680 ทุก scene

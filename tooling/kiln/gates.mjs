@@ -4,7 +4,7 @@
 // finds none of its markers fails with NOTHING FOUND. Component behaviour (keyboard, roles) is the
 // system's own conformance suite; this file owns what every kiln docs site must be.
 //
-//   shell        G-P0 G-D3 G-S1 G-S2 G-S3 G-S5          copy        G-C1 G-C2
+//   shell        G-P0 G-D3 G-S1 G-S2 G-S3 G-S5 G-S6 (nothing spills out of the page column)          copy        G-C1 G-C2
 //   reading      G-R1 (size, leading, measure)      affordance  G-A1      loading  G-PF1 G-PF2
 //   chrome       G-SH1 plain opaque shell; the system's look lives in demo stages only
 //   foundations  G-F1 G-N1                          themes      G-T1
@@ -1066,6 +1066,26 @@ try {
     return `${n} sliders`;
   });
 
+  await gate('G-S6', 'nothing in the page column spills out of it: no element crosses into the rail or the margin beside main (folds open)', async () => {
+    // Pane, 2026-10-29: a do/don't pair grew past its 1fr column, slid under the sticky "On this page"
+    // rail and put a demo behind its text. Only the evidence run noticed, as a contrast failure.
+    const bad = []; let n = 0;
+    for (const r of ROUTES) {
+      await go(r);
+      await page.evaluate(() => document.querySelectorAll('main details').forEach((d) => d.setAttribute('open', '')));
+      const out = await page.evaluate(() => {
+        const main = document.querySelector('main'); if (!main) return [];
+        const m = main.getBoundingClientRect();
+        const scrolls = (e) => { for (let a = e.parentElement; a && a !== main; a = a.parentElement) { const o = getComputedStyle(a).overflowX; if (o === 'auto' || o === 'scroll' || o === 'hidden' || o === 'clip') return true; } return false; };
+        const over = [...main.querySelectorAll('*')].filter((e) => { const b = e.getBoundingClientRect(); return b.width > 0 && b.height > 0 && (b.right > m.right + 1 || b.left < m.left - 1) && getComputedStyle(e).position !== 'fixed' && !scrolls(e); });
+        return over.filter((e) => !over.includes(e.parentElement)).slice(0, 3).map((e) => `${e.closest('[data-component]')?.getAttribute('data-component') ?? e.tagName.toLowerCase()}${e.className && typeof e.className === 'string' ? '.' + e.className.split(' ')[0] : ''} by ${Math.round(Math.max(e.getBoundingClientRect().right - m.right, m.left - e.getBoundingClientRect().left))}px`);
+      });
+      n++; for (const o of out) bad.push(`${r}: ${o}`);
+    }
+    fail(bad, 'elements spilling out of the page column');
+    return `${n} pages`;
+  });
+
   await gate('G-NR1', 'a highlighted row inside a rounded flyout nests its corner: inner radius = outer radius − inset', async () => {
     // Pane dry run, 2026-10-28: the dropdown's highlighted row had its own pill radius and an uneven
     // inset, so its curve did not follow the flyout's. Checked on every open listbox and menu.
@@ -1172,6 +1192,9 @@ try {
     const stale = await settle(`?${C.sceneParam}=no-such-value&${C.themeParam}=no-such-value`);
     for (const [k, v] of stale) if (v === 'no-such-value') bad.push(`?${k}=no-such-value is still in the address after load: an unknown value must fall back to the default and be dropped`);
     expect(await p2.locator('main').count() > 0, 'the page did not render with unknown values in the address');
+    // every configured scene must be one the app understands, or every scene-swept check measures the default
+    // (Pane, 2026-10-29: the app moved to ?backdrop= and evidence kept sending ?scene=, so its "4 scenes" were one)
+    for (const sc of C.scenes.slice(1)) { const kept = await settle(`?${C.sceneParam}=${sc}`); if (kept.get(C.sceneParam) !== sc) bad.push(`?${C.sceneParam}=${sc} is dropped on load: the app does not read the scene the checks ask for`); }
     await p2.close();
     fail(bad, 'address problems');
     return 'clean address, stale values dropped';
