@@ -20,3 +20,40 @@
 .thumb:hover { transform: scale(1.08); }
 .thumb:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
 @media (forced-colors: active) { .track { border: var(--ds-width-hairline) solid ButtonText; } .range { background: Highlight; } .thumb { border: var(--ds-width-ring) solid ButtonText; } }
+
+/* Fill (D-026): the whole pill is the track and the target. The empty part is the tab track's deep
+   well; the value is chosen glass lit on its top edge; a thin lit bar just inside the fill's end marks
+   where the value stops. Label and value sit inside at the field's inset, over both. */
+.fill {
+  position: relative; display: flex; align-items: center; isolation: isolate; overflow: hidden;
+  block-size: var(--ds-slider-fill-height); min-inline-size: 0; border-radius: var(--ds-slider-fill-radius);
+  background: var(--ds-slider-fill-bg); box-shadow: var(--ds-slider-fill-carve);
+  font-family: var(--ds-type-family); touch-action: none; user-select: none; cursor: grab;
+}
+.fill:active { cursor: grabbing; }
+.fill[data-disabled] { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
+.fill:focus-within { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.fillTrack { position: absolute; inset: 0; }
+.fillRange {
+  position: absolute; block-size: 100%; border-radius: var(--ds-slider-fill-radius);
+  background: linear-gradient(180deg, var(--ds-slider-fill-top), var(--ds-slider-fill-foot));
+  box-shadow: inset 0 var(--ds-width-hairline) 0 var(--ds-slider-fill-rim);
+}
+.fillText {
+  position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; gap: var(--ds-gap-lg);
+  inline-size: 100%; padding-inline: var(--ds-slider-fill-padding); pointer-events: none;
+  font-size: var(--ds-type-body); color: var(--ds-text-primary);
+}
+.fillLabel { min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fillValue { flex: none; font-variant-numeric: tabular-nums; }
+.fillThumb {
+  display: block; inline-size: var(--ds-slider-fill-marker-width); block-size: var(--ds-slider-fill-marker-height);
+  border-radius: var(--ds-corner-round); background: var(--ds-slider-fill-marker);
+  transform: translateX(calc(var(--ds-slider-fill-marker-inset) * -1)); outline: 0;
+}
+[dir='rtl'] .fillThumb { transform: translateX(var(--ds-slider-fill-marker-inset)); }
+@media (forced-colors: active) { .fill { border: var(--ds-width-hairline) solid ButtonText; } .fillRange { background: Highlight; } .fillThumb { background: ButtonText; } }
+/* the marker is what takes focus, so it carries a 44px press area like the bead; the bar around it is
+   the larger target for a pointer */
+.fillThumb { position: relative; }
+.fillThumb::after { content: ''; position: absolute; inset-inline-start: 50%; inset-block-start: 50%; inline-size: var(--ds-slider-hit); block-size: var(--ds-slider-hit); transform: translate(-50%, -50%); }

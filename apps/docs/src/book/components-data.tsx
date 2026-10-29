@@ -532,6 +532,7 @@ export const COMPONENTS: ComponentChapter[] = [
     ),
     hero: ex('SliderBasic', 'A volume slider on a player, with its value as a percentage.'),
     ladder: [
+      ex('SliderFill', 'The fill variant: a bar held whole, with the label and value inside, for settings stacked in a panel.'),
       ex('SliderFormat', 'Set min, max and step for the range, and format to show the unit.'),
       ex('SliderDisabled', 'Disabled keeps the value visible and explains why it cannot change.'), ex('SliderSteps', 'A step of 10 moves the value in tens with the arrow keys.')
     ],

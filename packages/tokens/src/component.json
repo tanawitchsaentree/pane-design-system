@@ -1014,6 +1014,140 @@
     "thumb-width": {
       "$type": "dimension",
       "$value": "{control.sm}"
+    },
+    "fill-height": {
+      "$value": "{control.xl}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3",
+            "P6"
+          ],
+          "why": "the bar is the target: 56px holds the label and value inside it and clears the 44px touch size"
+        }
+      }
+    },
+    "fill-radius": {
+      "$value": "{corner.round}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "held in the hand, so a full pill like every other control"
+        }
+      }
+    },
+    "fill-padding": {
+      "$value": "{gap.inset}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "label and value keep the field's inset from the curved ends"
+        }
+      }
+    },
+    "fill-bg": {
+      "$value": "{surface.well-deep}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the empty part is the same deep well as the tab track, carved into the pane"
+        }
+      }
+    },
+    "fill-carve": {
+      "$value": "{level-shadow.well}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "shade under the well's top lip, as on the tab track"
+        }
+      }
+    },
+    "fill-top": {
+      "$value": "{surface.chosen-top}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P5"
+          ],
+          "why": "the filled part is chosen glass, lighter than the well, lit from above"
+        }
+      }
+    },
+    "fill-foot": {
+      "$value": "{surface.chosen-foot}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the chosen glass fades toward its foot, one light from above"
+        }
+      }
+    },
+    "fill-rim": {
+      "$value": "{line.rim-hi}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the filled glass catches the light on its top edge"
+        }
+      }
+    },
+    "fill-marker": {
+      "$value": "{action.loud-top}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "a thin bar in the loud solid (white in dark, ink in light) marks where the value ends, the one loud mark on the control"
+        }
+      }
+    },
+    "fill-marker-width": {
+      "$value": "{width.bar}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a 4px bar: a mark to read, while the whole control is the thing to grab"
+        }
+      }
+    },
+    "fill-marker-height": {
+      "$value": "{control.check}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the marker stands about half the bar's height"
+        }
+      }
+    },
+    "fill-marker-inset": {
+      "$value": "{gap.lg}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the marker sits just inside the end of the fill so it never touches the curve"
+        }
+      }
     }
   },
   "input": {

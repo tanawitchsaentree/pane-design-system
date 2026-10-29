@@ -715,6 +715,10 @@
     "control-lg": {
       "$value": "44px"
     },
+    "control-xl": {
+      "$value": "56px",
+      "$description": "a control the hand holds as a whole bar, such as a fill slider: 56px"
+    },
     "icon-sm": {
       "$value": "16px"
     },

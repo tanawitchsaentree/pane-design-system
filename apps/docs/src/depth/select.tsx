@@ -147,7 +147,10 @@ export const SLIDER: Depth = {
     { situation: 'A few named levels', to: '/components/select', label: 'Select' },
     { situation: 'A range with two ends', to: '/reference/status', label: 'RangeSlider (planned, wave 8)' },
   ],
-  variants: { na: 'Slider has one look. Its states are covered under Behaviours.' },
+  variants: {
+    channel: { purpose: 'The default. A thin carved channel with a lit bead, the label and value above it. For forms, players and any pane where the slider sits among other content.', pairing: 'Beside Switches, Inputs and text in a settings pane; the bead is the Switch’s, so they read as one family.' },
+    fill: { purpose: 'A 56px bar the hand holds whole, with the label and value inside it and the value drawn as chosen glass. For quick settings stacked in a panel, such as brightness, volume or a timer.', pairing: 'Stacked with other fill sliders, 8px apart, in a panel of its own. Do not mix it with channel sliders on one pane.' },
+  },
   anatomy: {
     render: <OnCard><Slider label="Volume" defaultValue={60} format={(v) => `${v}%`} /></OnCard>,
     parts: [
@@ -157,7 +160,7 @@ export const SLIDER: Depth = {
       { part: 'Thumb', selector: '[role="slider"]', what: 'The Switch’s lit bead, 24px, white with a shadow, on a 44px press area.' },
     ],
   },
-  sizes: { na: 'Slider has one size. Its channel is 10px, its thumb 24px and its press area 44px tall.' },
+  sizes: { na: 'Slider has one size per variant. The channel is 10px with a 24px thumb on a 44px press area; the fill bar is 56px tall and is its own press area.' },
   emphasis: { na: 'A slider carries no emphasis. It is a setting and sits with the content it changes.' },
   placement: {
     rows: [
@@ -192,7 +195,20 @@ export const SLIDER: Depth = {
     loading: <p>A slider has no loading state. If the value it sets takes time to apply, keep the thumb where the reader left it and show the result when it is ready.</p>,
     focus: <p>Focus stays on the thumb while the value changes.</p>,
   },
-  deepDive: { na: 'Slider has no variant prop, so there is nothing to compare.' },
+  deepDive: {
+    channel: {
+      purpose: <p>The channel slider is a setting among other content. Its label sits above, its value at the end of the label row, and a 10px channel carved into the glass fills with the loud solid up to the bead. It takes little height, so it fits a form or a player.</p>,
+      context: <OnCard><h3 className="flush">Northern Lights</h3><Slider label="Volume" defaultValue={60} format={(v) => `${v}%`} /></OnCard>,
+      practices: ['Use it where the slider is one control among others.', 'Give it the full width of its column so each pixel of travel moves the value a little.', 'Keep the label short; a long one wraps above the channel.'],
+      pair: { do: <OnCard><Slider label="Volume" defaultValue={60} format={(v) => `${v}%`} /></OnCard>, doNote: 'One channel slider under the content it changes.', dont: <OnCard><Slider variant="fill" label="Volume" defaultValue={60} format={(v) => `${v}%`} /><p className="flush">Track 3 of 12 · Northern Lights</p></OnCard>, dontNote: 'A fill bar inside a player crowds the content it belongs to.' },
+    },
+    fill: {
+      purpose: <p>The fill slider is the control itself, the way quick settings work on a phone or a headset. The whole bar is the target: a press anywhere sets the value and a drag moves it. The empty part is the tab track’s deep well, the value is chosen glass lit on its top edge, and a thin lit bar just inside the fill marks where it stops. The label and value live inside the bar, so a stack of settings takes one row each.</p>,
+      context: <OnCard><Stack gap="sm"><Slider variant="fill" label="Brightness" defaultValue={50} format={(v) => `${v}%`} /><Slider variant="fill" label="Timer" min={0} max={12} defaultValue={8} format={(v) => (v === 0 ? 'Off' : `${v}h`)} /></Stack></OnCard>,
+      practices: ['Stack fill sliders 8px apart in a panel of their own, one setting per bar.', 'Keep the label to one or two words; it ellipsizes before it touches the value.', 'Always pass format so the value carries its unit, such as 50% or 8h.', 'Use it for values set by feel. An exact number still wants a number field.'],
+      pair: { do: <OnCard><Stack gap="sm"><Slider variant="fill" label="Brightness" defaultValue={50} format={(v) => `${v}%`} /><Slider variant="fill" label="Warmth" defaultValue={30} format={(v) => `${v}%`} /></Stack></OnCard>, doNote: 'Related settings stacked, each with its unit.', dont: <OnCard><Stack gap="sm"><Slider variant="fill" label="Brightness" defaultValue={50} format={(v) => `${v}%`} /><Slider label="Warmth" defaultValue={30} format={(v) => `${v}%`} /></Stack></OnCard>, dontNote: 'A fill bar and a channel slider on one pane read as two systems.' },
+    },
+  },
   modifiers: [
     { name: 'Range and step', rules: <p>Set <code>min</code>, <code>max</code> and <code>step</code> to the values that make sense, such as 0 to 40 in steps of 2 for a radius.</p>, pair: { do: <OnCard><Slider label="Corner radius" min={0} max={40} step={2} defaultValue={18} format={(v) => `${v}px`} /></OnCard>, doNote: 'A range that matches the setting.', dont: <OnCard><Slider label="Corner radius" min={0} max={1000} defaultValue={18} format={(v) => `${v}px`} /></OnCard>, dontNote: 'A huge range where every useful value sits in the first few pixels.' } },
   ],

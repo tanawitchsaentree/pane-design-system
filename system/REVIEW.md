@@ -53,3 +53,4 @@ Lab: `apps/lab/round5/index.html` (the user's OpenGlass-style reference beside P
 | IconButton | **added `loud`, a white bead** | The one main action in a toolbar or dock, as in the reference. |
 | Slider thumb | **a capsule** | As in the reference; a wider thing to grab. |
 | Levels | **1 pane · 2 surface in a pane · 3 overlay on a scrim · 4 popover**, each ≥1.15:1 from what is under it | The user asked for stacked glass that reads as levels, with a formula and a check by eye. Light level 2 had to go to a 12% ink tint to pass. |
+| Slider `fill` (D-026) | **variant of Slider, label and value inside, thin lit marker** | The user's reference; same behaviour and API as Slider, so a variant rather than a new component. |

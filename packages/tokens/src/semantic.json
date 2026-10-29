@@ -864,6 +864,18 @@
     "lg": {
       "$value": "{size.control-lg}"
     },
+    "xl": {
+      "$value": "{size.control-xl}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3",
+            "P6"
+          ],
+          "why": "a bar the whole hand drags, tall enough to hold its label and value inside it"
+        }
+      }
+    },
     "icon-sm": {
       "$value": "{size.icon-sm}"
     },

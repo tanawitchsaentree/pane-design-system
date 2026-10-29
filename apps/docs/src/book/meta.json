@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T17:43:41.668Z",
+  "generatedAt": "2026-10-29T05:55:44.400Z",
   "version": "0.5.0",
   "components": {
     "Avatar": {
@@ -276,8 +276,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 726,
-        "cssMin": 3466,
-        "gzip": 1438
+        "cssMin": 3327,
+        "gzip": 1413
       }
     },
     "Card": {
@@ -319,6 +319,20 @@
                 "header",
                 "div"
               ]
+            },
+            {
+              "name": "level",
+              "type": "1 | 2 | 3 | 4",
+              "required": false,
+              "default": null,
+              "description": "Where the pane sits in the stack: 1 a pane on the scene (default), 2 a surface inside a pane, 3 an overlay such as a dialog, 4 a popover. A Card inside a Card is level 2 without being told.",
+              "enum": false,
+              "options": [
+                "1",
+                "2",
+                "3",
+                "4"
+              ]
             }
           ]
         },
@@ -344,9 +358,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 515,
-        "cssMin": 2030,
-        "gzip": 1020
+        "jsMin": 578,
+        "cssMin": 2269,
+        "gzip": 1139
       }
     },
     "Checkbox": {
@@ -531,8 +545,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 1199,
-        "cssMin": 2262,
-        "gzip": 1387
+        "cssMin": 2157,
+        "gzip": 1355
       }
     },
     "Container": {
@@ -850,7 +864,8 @@
       "kinds": {
         "variant": [
           "glass",
-          "ghost"
+          "ghost",
+          "loud"
         ]
       },
       "sizes": [
@@ -872,14 +887,15 @@
             },
             {
               "name": "variant",
-              "type": "\"glass\" | \"ghost\"",
+              "type": "\"glass\" | \"ghost\" | \"loud\"",
               "required": false,
               "default": "glass",
-              "description": "`glass` = a small round pane with gloss and rim. `ghost` = the glyph alone, for dense rows (actions, overflow).",
+              "description": "`glass` = a small round slab of smoked glass. `ghost` = the glyph alone, for dense rows and toolbars. `loud` = a white bead, the one main action in a toolbar or dock.",
               "enum": true,
               "options": [
                 "glass",
-                "ghost"
+                "ghost",
+                "loud"
               ]
             },
             {
@@ -904,9 +920,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 723,
-        "cssMin": 2467,
-        "gzip": 1246
+        "jsMin": 732,
+        "cssMin": 2549,
+        "gzip": 1279
       }
     },
     "Input": {
@@ -999,8 +1015,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 442,
-        "cssMin": 1017,
-        "gzip": 728
+        "cssMin": 1134,
+        "gzip": 758
       }
     },
     "Label": {
@@ -1435,13 +1451,18 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 91577,
-        "cssMin": 3633,
-        "gzip": 33248
+        "cssMin": 3681,
+        "gzip": 33254
       }
     },
     "Slider": {
       "source": "packages/react/src/components/Slider/Slider.tsx",
-      "kinds": {},
+      "kinds": {
+        "variant": [
+          "channel",
+          "fill"
+        ]
+      },
       "sizes": [],
       "exports": [
         {
@@ -1520,6 +1541,18 @@
               "options": null
             },
             {
+              "name": "variant",
+              "type": "\"channel\" | \"fill\"",
+              "required": false,
+              "default": "channel",
+              "description": "`channel` (default) is a thin carved channel with a bead, for forms and players. `fill` is a 56px bar\nwith the label and value inside, for quick settings stacked in a panel, such as brightness or a timer.",
+              "enum": true,
+              "options": [
+                "channel",
+                "fill"
+              ]
+            },
+            {
               "name": "disabled",
               "type": "boolean",
               "required": false,
@@ -1541,14 +1574,15 @@
         }
       ],
       "variantDimensions": [
+        "variant",
         "disabled"
       ],
-      "variantCount": 1,
-      "demoFloor": 4,
+      "variantCount": 2,
+      "demoFloor": 5,
       "bundle": {
-        "jsMin": 29757,
-        "cssMin": 1792,
-        "gzip": 11453
+        "jsMin": 30350,
+        "cssMin": 3481,
+        "gzip": 11883
       }
     },
     "Stack": {
@@ -1737,8 +1771,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 29016,
-        "cssMin": 2894,
-        "gzip": 10981
+        "cssMin": 2600,
+        "gzip": 10918
       }
     },
     "Tag": {
