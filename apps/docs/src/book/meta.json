@@ -1,7 +1,44 @@
 {
-  "generatedAt": "2026-10-29T08:41:38.526Z",
+  "generatedAt": "2026-10-29T10:55:48.273Z",
   "version": "0.6.0",
   "components": {
+    "AspectRatio": {
+      "source": "packages/react/src/components/AspectRatio/AspectRatio.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "AspectRatio",
+          "props": [
+            {
+              "name": "ratio",
+              "type": "\"square\" | \"photo\" | \"video\" | \"portrait\" | \"wide\"",
+              "required": false,
+              "default": "video",
+              "description": "`square` 1:1, `photo` 4:3, `video` 16:9 (default), `portrait` 3:4, `wide` 21:9.",
+              "enum": true,
+              "options": [
+                "square",
+                "photo",
+                "video",
+                "portrait",
+                "wide"
+              ]
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "ratio"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 372,
+        "cssMin": 372,
+        "gzip": 461
+      }
+    },
     "Avatar": {
       "source": "packages/react/src/components/Avatar/Avatar.tsx",
       "kinds": {},
@@ -223,6 +260,114 @@
         "gzip": 1833
       }
     },
+    "Box": {
+      "source": "packages/react/src/components/Box/Box.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Box",
+          "props": [
+            {
+              "name": "padding",
+              "type": "\"none\" | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | \"2xl\"",
+              "required": false,
+              "default": "none",
+              "description": "Padding on every side, from the gap scale. Defaults to none.",
+              "enum": true,
+              "options": [
+                "none",
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl",
+                "2xl"
+              ]
+            },
+            {
+              "name": "paddingInline",
+              "type": "\"none\" | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | \"2xl\"",
+              "required": false,
+              "default": null,
+              "description": "Padding on the inline sides only; overrides `padding` there.",
+              "enum": true,
+              "options": [
+                "none",
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl",
+                "2xl"
+              ]
+            },
+            {
+              "name": "paddingBlock",
+              "type": "\"none\" | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | \"2xl\"",
+              "required": false,
+              "default": null,
+              "description": "Padding on the block sides only; overrides `padding` there.",
+              "enum": true,
+              "options": [
+                "none",
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl",
+                "2xl"
+              ]
+            },
+            {
+              "name": "radius",
+              "type": "\"none\" | \"inner\" | \"media\" | \"round\"",
+              "required": false,
+              "default": "none",
+              "description": "Corner from the shape scale: `inner` for a surface inside a pane, `media` for an image, `round` for a pill.",
+              "enum": true,
+              "options": [
+                "none",
+                "inner",
+                "media",
+                "round"
+              ]
+            },
+            {
+              "name": "as",
+              "type": "\"div\" | \"section\" | \"article\" | \"aside\" | \"header\" | \"footer\" | \"span\"",
+              "required": false,
+              "default": "div",
+              "description": "The element to render. Defaults to div.",
+              "enum": true,
+              "options": [
+                "div",
+                "section",
+                "article",
+                "aside",
+                "header",
+                "footer",
+                "span"
+              ]
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "padding",
+        "paddingInline",
+        "paddingBlock",
+        "radius",
+        "as"
+      ],
+      "variantCount": 5,
+      "demoFloor": 8,
+      "bundle": {
+        "jsMin": 703,
+        "cssMin": 871,
+        "gzip": 638
+      }
+    },
     "Button": {
       "source": "packages/react/src/components/Button/Button.tsx",
       "kinds": {
@@ -276,8 +421,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 767,
-        "cssMin": 3327,
-        "gzip": 1437
+        "cssMin": 3436,
+        "gzip": 1458
       }
     },
     "Card": {
@@ -361,6 +506,35 @@
         "jsMin": 578,
         "cssMin": 2269,
         "gzip": 1139
+      }
+    },
+    "Center": {
+      "source": "packages/react/src/components/Center/Center.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Center",
+          "props": [
+            {
+              "name": "inline",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Centres inline content (an icon beside text) without taking a full row.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 305,
+        "cssMin": 77,
+        "gzip": 307
       }
     },
     "Checkbox": {
@@ -545,8 +719,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 1199,
-        "cssMin": 2157,
-        "gzip": 1355
+        "cssMin": 2266,
+        "gzip": 1388
       }
     },
     "Container": {
@@ -590,6 +764,58 @@
         "jsMin": 359,
         "cssMin": 335,
         "gzip": 403
+      }
+    },
+    "Divider": {
+      "source": "packages/react/src/components/Divider/Divider.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Divider",
+          "props": [
+            {
+              "name": "orientation",
+              "type": "\"horizontal\" | \"vertical\"",
+              "required": false,
+              "default": "horizontal",
+              "description": "`horizontal` (default) runs across a column; `vertical` stands between items in a row.",
+              "enum": true,
+              "options": [
+                "horizontal",
+                "vertical"
+              ]
+            },
+            {
+              "name": "inset",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Insets the line from both ends by the content inset, so it aligns with text instead of the pane's edge.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "decorative",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Hides the line from assistive technology when it only decorates (the default is a separator).",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "orientation"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 460,
+        "cssMin": 531,
+        "gzip": 559
       }
     },
     "Environment": {
@@ -676,6 +902,97 @@
         "jsMin": 492,
         "cssMin": 401,
         "gzip": 514
+      }
+    },
+    "Flex": {
+      "source": "packages/react/src/components/Flex/Flex.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Flex",
+          "props": [
+            {
+              "name": "direction",
+              "type": "\"row\" | \"column\"",
+              "required": false,
+              "default": "row",
+              "description": "`row` (default) or `column`.",
+              "enum": true,
+              "options": [
+                "row",
+                "column"
+              ]
+            },
+            {
+              "name": "gap",
+              "type": "\"none\" | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
+              "required": false,
+              "default": "md",
+              "description": "Space between children, from the gap scale. Defaults to md.",
+              "enum": true,
+              "options": [
+                "none",
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl"
+              ]
+            },
+            {
+              "name": "justify",
+              "type": "\"start\" | \"center\" | \"end\" | \"between\"",
+              "required": false,
+              "default": "start",
+              "description": "Main-axis distribution: `start` (default), `center`, `end`, `between`.",
+              "enum": true,
+              "options": [
+                "start",
+                "center",
+                "end",
+                "between"
+              ]
+            },
+            {
+              "name": "align",
+              "type": "\"start\" | \"center\" | \"end\" | \"stretch\" | \"baseline\"",
+              "required": false,
+              "default": "center",
+              "description": "Cross-axis alignment: `stretch`, `start`, `center` (default), `end`, `baseline`.",
+              "enum": true,
+              "options": [
+                "start",
+                "center",
+                "end",
+                "stretch",
+                "baseline"
+              ]
+            },
+            {
+              "name": "wrap",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Lets children wrap to a new line when they do not fit.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "direction",
+        "gap",
+        "justify",
+        "align"
+      ],
+      "variantCount": 4,
+      "demoFloor": 7,
+      "bundle": {
+        "jsMin": 618,
+        "cssMin": 482,
+        "gzip": 617
       }
     },
     "FormField": {
@@ -820,6 +1137,63 @@
         "gzip": 486
       }
     },
+    "Heading": {
+      "source": "packages/react/src/components/Heading/Heading.tsx",
+      "kinds": {},
+      "sizes": [
+        "title",
+        "display",
+        "headline",
+        "emphasis"
+      ],
+      "exports": [
+        {
+          "displayName": "Heading",
+          "props": [
+            {
+              "name": "level",
+              "type": "1 | 2 | 3 | 4 | 5 | 6",
+              "required": true,
+              "default": null,
+              "description": "The outline level, h1 to h6. Pick it from the page outline, never from the look.",
+              "enum": false,
+              "options": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6"
+              ]
+            },
+            {
+              "name": "size",
+              "type": "\"title\" | \"display\" | \"headline\" | \"emphasis\"",
+              "required": false,
+              "default": null,
+              "description": "The look, from the type scale: `display`, `headline`, `title`, `emphasis`. Defaults by level.",
+              "enum": true,
+              "options": [
+                "title",
+                "display",
+                "headline",
+                "emphasis"
+              ]
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "size"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 437,
+        "cssMin": 351,
+        "gzip": 483
+      }
+    },
     "HelperText": {
       "source": "packages/react/src/components/HelperText/HelperText.tsx",
       "kinds": {
@@ -857,6 +1231,61 @@
         "jsMin": 644,
         "cssMin": 715,
         "gzip": 770
+      }
+    },
+    "Icon": {
+      "source": "packages/react/src/components/Icon/Icon.tsx",
+      "kinds": {},
+      "sizes": [
+        "sm",
+        "md"
+      ],
+      "exports": [
+        {
+          "displayName": "Icon",
+          "props": [
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The SVG glyph. It inherits the text colour.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "size",
+              "type": "\"sm\" | \"md\"",
+              "required": false,
+              "default": "md",
+              "description": "`sm` 16px or `md` 18px (default), the two icon steps in Pane.",
+              "enum": true,
+              "options": [
+                "sm",
+                "md"
+              ]
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Names the icon when it carries meaning on its own. Leave it out when text beside it says the same.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "size"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 392,
+        "cssMin": 327,
+        "gzip": 472
       }
     },
     "IconButton": {
@@ -921,8 +1350,65 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 771,
-        "cssMin": 2549,
-        "gzip": 1303
+        "cssMin": 2658,
+        "gzip": 1320
+      }
+    },
+    "Image": {
+      "source": "packages/react/src/components/Image/Image.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Image",
+          "props": [
+            {
+              "name": "alt",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Required: what the image shows, or \"\" when it only decorates.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "radius",
+              "type": "\"media\" | \"inner\" | \"none\"",
+              "required": false,
+              "default": "media",
+              "description": "The corner: `media` (default) inside a pane, `inner` for a full-bleed card image, `none`.",
+              "enum": true,
+              "options": [
+                "media",
+                "inner",
+                "none"
+              ]
+            },
+            {
+              "name": "fit",
+              "type": "\"cover\" | \"contain\"",
+              "required": false,
+              "default": "cover",
+              "description": "`cover` (default) fills the box and crops; `contain` shows the whole image.",
+              "enum": true,
+              "options": [
+                "cover",
+                "contain"
+              ]
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "radius",
+        "fit"
+      ],
+      "variantCount": 2,
+      "demoFloor": 5,
+      "bundle": {
+        "jsMin": 539,
+        "cssMin": 420,
+        "gzip": 598
       }
     },
     "Input": {
@@ -1019,6 +1505,25 @@
         "gzip": 758
       }
     },
+    "Kbd": {
+      "source": "packages/react/src/components/Kbd/Kbd.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Kbd",
+          "props": []
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 267,
+        "cssMin": 565,
+        "gzip": 507
+      }
+    },
     "Label": {
       "source": "packages/react/src/components/Label/Label.tsx",
       "kinds": {},
@@ -1046,6 +1551,54 @@
         "jsMin": 393,
         "cssMin": 218,
         "gzip": 394
+      }
+    },
+    "Link": {
+      "source": "packages/react/src/components/Link/Link.tsx",
+      "kinds": {
+        "variant": [
+          "inline",
+          "standalone"
+        ]
+      },
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Link",
+          "props": [
+            {
+              "name": "variant",
+              "type": "\"inline\" | \"standalone\"",
+              "required": false,
+              "default": "inline",
+              "description": "`inline` (default) sits in a sentence and is underlined; `standalone` stands on its own line with a heavier weight and an underline on hover.",
+              "enum": true,
+              "options": [
+                "inline",
+                "standalone"
+              ]
+            },
+            {
+              "name": "external",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks a link that leaves the product; adds the words \"opens in a new tab\" for screen readers.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "variant"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 497,
+        "cssMin": 896,
+        "gzip": 705
       }
     },
     "Mesh": {
@@ -1543,6 +2096,50 @@
         "gzip": 33254
       }
     },
+    "Skeleton": {
+      "source": "packages/react/src/components/Skeleton/Skeleton.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Skeleton",
+          "props": [
+            {
+              "name": "shape",
+              "type": "\"text\" | \"block\" | \"circle\"",
+              "required": false,
+              "default": "text",
+              "description": "`text` (default) is a line of text, `block` a rectangle such as a cover, `circle` an avatar.",
+              "enum": true,
+              "options": [
+                "text",
+                "block",
+                "circle"
+              ]
+            },
+            {
+              "name": "lines",
+              "type": "number",
+              "required": false,
+              "default": "1",
+              "description": "For `text`, how many lines; the last one is shorter.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "shape"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 609,
+        "cssMin": 698,
+        "gzip": 682
+      }
+    },
     "Slider": {
       "source": "packages/react/src/components/Slider/Slider.tsx",
       "kinds": {
@@ -1671,6 +2268,97 @@
         "jsMin": 30388,
         "cssMin": 3985,
         "gzip": 11957
+      }
+    },
+    "Spacer": {
+      "source": "packages/react/src/components/Spacer/Spacer.tsx",
+      "kinds": {},
+      "sizes": [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+        "2xl"
+      ],
+      "exports": [
+        {
+          "displayName": "Spacer",
+          "props": [
+            {
+              "name": "size",
+              "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | \"2xl\"",
+              "required": false,
+              "default": null,
+              "description": "A fixed space from the gap scale. Leave it out to take all the free space in a row or column.",
+              "enum": true,
+              "options": [
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl",
+                "2xl"
+              ]
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "size"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 399,
+        "cssMin": 439,
+        "gzip": 440
+      }
+    },
+    "Spinner": {
+      "source": "packages/react/src/components/Spinner/Spinner.tsx",
+      "kinds": {},
+      "sizes": [
+        "sm",
+        "md"
+      ],
+      "exports": [
+        {
+          "displayName": "Spinner",
+          "props": [
+            {
+              "name": "size",
+              "type": "\"sm\" | \"md\"",
+              "required": false,
+              "default": "md",
+              "description": "`sm` 16px, `md` 24px (default).",
+              "enum": true,
+              "options": [
+                "sm",
+                "md"
+              ]
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": "Loading",
+              "description": "What is loading, read by screen readers. Defaults to \"Loading\".",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "size"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 429,
+        "cssMin": 620,
+        "gzip": 602
       }
     },
     "Stack": {
@@ -1892,6 +2580,106 @@
         "gzip": 497
       }
     },
+    "Text": {
+      "source": "packages/react/src/components/Text/Text.tsx",
+      "kinds": {
+        "tone": [
+          "primary",
+          "secondary"
+        ]
+      },
+      "sizes": [
+        "reading",
+        "body",
+        "label",
+        "caption",
+        "micro"
+      ],
+      "exports": [
+        {
+          "displayName": "Text",
+          "props": [
+            {
+              "name": "size",
+              "type": "\"reading\" | \"body\" | \"label\" | \"caption\" | \"micro\"",
+              "required": false,
+              "default": "body",
+              "description": "A step of the type scale: `reading` 16 (long text), `body` 15 (default), `label` 13, `caption` 12, `micro` 11.",
+              "enum": true,
+              "options": [
+                "reading",
+                "body",
+                "label",
+                "caption",
+                "micro"
+              ]
+            },
+            {
+              "name": "tone",
+              "type": "\"primary\" | \"secondary\"",
+              "required": false,
+              "default": "primary",
+              "description": "`primary` (default) or `secondary`, the lowest opacity that still passes on glass.",
+              "enum": true,
+              "options": [
+                "primary",
+                "secondary"
+              ]
+            },
+            {
+              "name": "weight",
+              "type": "\"regular\" | \"medium\" | \"semibold\"",
+              "required": false,
+              "default": "regular",
+              "description": "`regular` (default), `medium` or `semibold`.",
+              "enum": true,
+              "options": [
+                "regular",
+                "medium",
+                "semibold"
+              ]
+            },
+            {
+              "name": "as",
+              "type": "\"p\" | \"span\" | \"div\" | \"small\" | \"strong\"",
+              "required": false,
+              "default": "p",
+              "description": "The element: p (default), span, div, small or strong.",
+              "enum": true,
+              "options": [
+                "p",
+                "span",
+                "div",
+                "small",
+                "strong"
+              ]
+            },
+            {
+              "name": "truncate",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Cuts the text to one line with an ellipsis. Keep the full text in a title or nearby.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "size",
+        "tone",
+        "weight",
+        "as"
+      ],
+      "variantCount": 4,
+      "demoFloor": 7,
+      "bundle": {
+        "jsMin": 492,
+        "cssMin": 786,
+        "gzip": 611
+      }
+    },
     "Textarea": {
       "source": "packages/react/src/components/Textarea/Textarea.tsx",
       "kinds": {},
@@ -1921,6 +2709,35 @@
         "jsMin": 647,
         "cssMin": 2093,
         "gzip": 1115
+      }
+    },
+    "VisuallyHidden": {
+      "source": "packages/react/src/components/VisuallyHidden/VisuallyHidden.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "VisuallyHidden",
+          "props": [
+            {
+              "name": "focusable",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows the content again while it, or something in it, has keyboard focus (for skip links).",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 331,
+        "cssMin": 347,
+        "gzip": 443
       }
     }
   }

@@ -2,6 +2,24 @@
 
 Every entry names the component it touches, so each component page in the book can show its own history. The conformance run fails if a component has no entry.
 
+## 0.7.0 (unreleased)
+
+- Box: new. Padding and a corner from the scales, nothing else.
+- Flex: new. A row or column with a gap from the scale and both alignments named.
+- Center: new. Content in the middle of the space it is given.
+- Spacer: new. A fixed step from the gap scale, or the free space in a row.
+- Divider: new. A hairline groove etched into the glass, shade over light; horizontal or vertical, optionally inset.
+- AspectRatio: new. square, photo, video, portrait or wide at any width.
+- VisuallyHidden: new. Text for screen readers only; `focusable` brings a skip link back into view.
+- Text: new. Text at a step of the type scale (reading, body, label, caption, micro) in one of two tones and three weights; `truncate` for one line.
+- Heading: new. The level from the outline, the size from the scale.
+- Icon: new. A glyph at 16 or 18px in the text colour; decorative unless it has a `label`.
+- Link: new. Found by its underline in the text colour (no hue); `standalone` and `external`.
+- Spinner: new. A lit arc turning in a groove, with a status role and a label; still under reduced motion.
+- Skeleton: new. Text lines, a block or a circle carved into the glass, breathing slowly.
+- Kbd: new. A key as a small keycap lit from above.
+- Image: new. A picture with a corner from the scale that fades in over the carve and stays a quiet recess if it fails.
+
 ## 0.6.0 (2026-10-29)
 
 - Mesh: new (D-029). A mesh gradient for covers, icons, illustrations and scenes, never a control's fill. Presets `aurora`, `ember`, `tide`, `dusk`; your own colours through `colors` and `base`, or the `--ds-mesh-*` variables; `rotate` turns the light; `glow` adds an ambient shadow in the mesh's colours; `label` names it as an image.

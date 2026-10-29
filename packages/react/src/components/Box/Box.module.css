@@ -1,0 +1,27 @@
+/* Box: padding and a corner from the scales, nothing else (no form of its own, so it never drifts into a Card). */
+.root { box-sizing: border-box; min-inline-size: 0; }
+.p-none { padding: var(--ds-gap-none); }
+.p-xs { padding: var(--ds-gap-xs); }
+.p-sm { padding: var(--ds-gap-sm); }
+.p-md { padding: var(--ds-gap-md); }
+.p-lg { padding: var(--ds-gap-lg); }
+.p-xl { padding: var(--ds-gap-xl); }
+.p-2xl { padding: var(--ds-gap-2xl); }
+.pi-none { padding-inline: var(--ds-gap-none); }
+.pi-xs { padding-inline: var(--ds-gap-xs); }
+.pi-sm { padding-inline: var(--ds-gap-sm); }
+.pi-md { padding-inline: var(--ds-gap-md); }
+.pi-lg { padding-inline: var(--ds-gap-lg); }
+.pi-xl { padding-inline: var(--ds-gap-xl); }
+.pi-2xl { padding-inline: var(--ds-gap-2xl); }
+.pb-none { padding-block: var(--ds-gap-none); }
+.pb-xs { padding-block: var(--ds-gap-xs); }
+.pb-sm { padding-block: var(--ds-gap-sm); }
+.pb-md { padding-block: var(--ds-gap-md); }
+.pb-lg { padding-block: var(--ds-gap-lg); }
+.pb-xl { padding-block: var(--ds-gap-xl); }
+.pb-2xl { padding-block: var(--ds-gap-2xl); }
+.r-none { border-radius: 0; }
+.r-inner { border-radius: var(--ds-corner-inner); }
+.r-media { border-radius: var(--ds-corner-media); }
+.r-round { border-radius: var(--ds-corner-round); }

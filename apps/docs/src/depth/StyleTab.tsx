@@ -101,8 +101,8 @@ export function StyleTab({ name, kinds, sizes, backdrops }: { name: string; kind
           <summary><h2 id="s3-h" className="flush">Structure and spacing</h2></summary>
           <div className="prose">
           <p>Measured from the DOM per size. The redline shows the same numbers on the live component.</p>
-          <Table caption={`${name} structure per size`} head={['Size', 'Height', 'Inline padding', 'Gap', 'Radius', 'Icon']}
-            rows={(sizes.length ? sizeKeys : [kindKeys[0] ?? {}]).map((p) => { const v = find(keyOf(p), 'dark')?.states.default ?? {}; return [p.size ?? 'default', v['min-height']?.value && v['min-height'].value !== '0px' ? v['min-height'] : v.height, v['padding-inline-start'], v['column-gap'], v['border-top-left-radius'], v['icon-size']]; })} />
+          <Table caption={`${name} structure per size`} head={['Size', 'Height', 'Width', 'Inline padding', 'Gap', 'Radius', 'Icon']}
+            rows={(sizes.length ? sizeKeys : [kindKeys[0] ?? {}]).map((p) => { const v = find(keyOf(p), 'dark')?.states.default ?? {}; return [p.size ?? 'default', v['min-height']?.value && !['0px', 'auto'].includes(v['min-height'].value) ? v['min-height'] : v.height ?? v['block-size'], v['inline-size'], v['padding-inline-start'], v['column-gap'], v['border-top-left-radius'], v['icon-size']]; })} />
           {subject && <div className="redlines">{(sizes.length ? sizeKeys : [kindKeys[0] ?? {}]).map((p) => { const v = find(keyOf(p), 'dark')?.states.default ?? {}; return (
             <figure key={keyOf(p)} className="redline" data-example="">
               <Stage backdrop="field"><div className="redline-host">{subject.bare ? subject.render(p) : <OnPane>{subject.render(p)}</OnPane>}

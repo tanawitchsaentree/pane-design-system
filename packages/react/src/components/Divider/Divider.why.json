@@ -1,0 +1,78 @@
+{
+  "concept": "A divider is a groove cut into the glass between two groups, shaded on its upper lip and lit on its lower one, the same as every recess in Pane.",
+  "default_to_avoid": [
+    {
+      "pattern": "a 1px grey border or <hr> rule (Material divider, Bootstrap hr)",
+      "kind": "divider, separator, rule, hr",
+      "why_not": "a drawn grey line sits on top of the glass and owns a colour; Pane's light model makes edges from shade and light, not ink"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA · separator role",
+      "url": "https://www.w3.org/TR/wai-aria-1.2/#separator"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip",
+      "form": "the divider is the thinnest recess: one hairline of shade over one hairline of light"
+    },
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "shade and light at low opacity, no grey of its own, so it takes the colour of the glass it is cut into"
+    },
+    {
+      "p": "P3",
+      "axis": "shape",
+      "consequence": "corners are continuous and nest, so an inner surface's radius is the outer radius minus the padding between them and a pane inside a pane reads as inside it; controls are full pills because they are held in the hand",
+      "form": "an inset divider stops at the content inset, so it lines up with text instead of running into the pane's curve"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave1/",
+    "section": "divider",
+    "options": [
+      "A etched (shade over light)",
+      "B ink hairline",
+      "C fading ends"
+    ],
+    "picked": "A etched (shade over light)",
+    "by": "agent",
+    "reason": "A is the light model at its thinnest, a groove like every recess in Pane (P3 depth). B owns a grey colour the system does not have (P1). C fades into nothing on bright scenes and loses its job."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a hairline groove between two groups, so the layout reads the same everywhere it is used"
+    },
+    "horizontal": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "shade above, light below, across a column wherever the component is used in a screen"
+    },
+    "vertical": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "shade on the start side, light on the end side, between items in a row"
+    },
+    "inset": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "stops at the content inset so it lines up with the text"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "in forced colours it is a plain CanvasText line"
+    }
+  },
+  "motion": {}
+}

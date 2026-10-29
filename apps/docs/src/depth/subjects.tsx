@@ -1,8 +1,8 @@
 // How to render each component for the Style tab and the header's live demo, given the enum props
 // a reader picks. Only the content is fixed here; which options exist comes from meta.json.
 import type { ReactNode } from 'react';
-import { Avatar, Badge, Mesh, Banner, Button, Card, Checkbox, Chip, Container, Environment, Fieldset, FormField, Grid, GridItem, HelperText, IconButton, Input, InputGroup, Label, PinInput, Radio, RadioGroup, Select, Slider, Stack, Switch, Tabs, Tag, Textarea } from 'pane-react';
-import { IconShare } from '../icons';
+import { AspectRatio, Avatar, Badge, Box, Heading, Icon, Image, Kbd, Link, Skeleton, Spinner, Text, Center, Divider, Flex, Mesh, Spacer, VisuallyHidden, Banner, Button, Card, Checkbox, Chip, Container, Environment, Fieldset, FormField, Grid, GridItem, HelperText, IconButton, Input, InputGroup, Label, PinInput, Radio, RadioGroup, Select, Slider, Stack, Switch, Tabs, Tag, Textarea } from 'pane-react';
+import { IconPin, IconShare } from '../icons';
 
 type P = Record<string, string>;
 // bare: the subject is itself a surface (Card, Environment, layout) and must not sit on a second pane
@@ -34,6 +34,21 @@ export const SUBJECTS: Record<string, Subject> = {
   Avatar: { render: (p) => <Avatar name="Mara Lind" {...p} />, code: (p) => `<Avatar name="Mara Lind"${attrs(p)} />` },
   Chip: { render: () => <Chip defaultSelected>Photos</Chip>, code: () => '<Chip defaultSelected>Photos</Chip>' },
   Tag: { render: () => <Tag>Landscape</Tag>, code: () => '<Tag>Landscape</Tag>' },
+  Box: { render: () => <Box padding="lg" radius="inner" className="demo-box">Padded</Box>, code: () => '<Box padding="lg" radius="inner">…</Box>' },
+  Flex: { render: () => <Flex justify="between" className="demo-wide"><span>Title</span><span>Action</span></Flex>, code: () => '<Flex justify="between">…</Flex>' },
+  Center: { render: () => <Center className="demo-center">Centred</Center>, code: () => '<Center>…</Center>' },
+  Spacer: { bare: true, render: (p) => <Spacer {...p} className="demo-spacer-vis" />, code: (p) => `<Spacer${attrs(p)} />` },
+  Divider: { render: () => <div className="demo-wide"><Divider /></div>, code: () => '<Divider />' },
+  AspectRatio: { render: () => <div className="demo-ratio-lg"><AspectRatio ratio="video" className="demo-media"><Mesh preset="ember" /></AspectRatio></div>, code: () => '<AspectRatio ratio="video">…</AspectRatio>' },
+  VisuallyHidden: { render: () => <span>Bergen<VisuallyHidden>, your location</VisuallyHidden></span>, code: () => '<VisuallyHidden>…</VisuallyHidden>' },
+  Text: { render: (p) => <Text {...p}>Six nights in Lofoten</Text>, code: (p) => `<Text${attrs(p)}>Six nights in Lofoten</Text>` },
+  Heading: { render: (p) => <Heading level={3} {...p}>Packing list</Heading>, code: (p) => `<Heading level={3}${attrs(p)}>Packing list</Heading>` },
+  Icon: { render: (p) => <Icon {...p}><IconPin /></Icon>, code: (p) => `<Icon${attrs(p)}><IconPin /></Icon>` },
+  Link: { render: (p) => <span>Read the <Link href="#guide" {...p}>shipping guide</Link></span>, code: (p) => `<Link href="/guide"${attrs(p)}>shipping guide</Link>` },
+  Spinner: { render: (p) => <Spinner {...p} />, code: (p) => `<Spinner${attrs(p)} />` },
+  Skeleton: { render: (p) => <div className="demo-wide"><Skeleton {...p} /></div>, code: (p) => `<Skeleton${attrs(p)} />` },
+  Kbd: { render: () => <Kbd>⌘</Kbd>, code: () => '<Kbd>⌘</Kbd>' },
+  Image: { render: (p) => <Image src="/scenes/forest-sm.jpg" alt="Spruce forest in fog" className="demo-img" {...p} />, code: (p) => `<Image src="/photo.jpg" alt="…"${attrs(p)} />` },
   Mesh: { bare: true, render: (p) => <Mesh {...p} className="mesh-demo-tile" />, code: (p) => `<Mesh${attrs(p)} />` },
   Tabs: { render: () => <Tabs.Root defaultValue="a"><Tabs.List aria-label="Demo sections"><Tabs.Trigger value="a">Posts</Tabs.Trigger><Tabs.Trigger value="b">Media</Tabs.Trigger></Tabs.List><Tabs.Content value="a">Posts</Tabs.Content><Tabs.Content value="b">Media</Tabs.Content></Tabs.Root>, code: () => '<Tabs.Root defaultValue="a">\n  <Tabs.List aria-label="Demo sections">\n    <Tabs.Trigger value="a">Posts</Tabs.Trigger>\n    <Tabs.Trigger value="b">Media</Tabs.Trigger>\n  </Tabs.List>\n</Tabs.Root>' },
   Select: { disabled: true, render: (p, d) => <Select label="Plan" options={[{ value: 'free', label: 'Free' }, { value: 'pro', label: 'Pro' }]} defaultValue="pro" {...p} disabled={d} />, code: (p) => `<Select label="Plan" defaultValue="pro"${attrs(p)}\n  options={[{ value: 'free', label: 'Free' }, { value: 'pro', label: 'Pro' }]} />` },

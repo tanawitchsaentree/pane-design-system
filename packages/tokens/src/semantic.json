@@ -967,6 +967,18 @@
           "why": "a slider keeps a usable length and a fixed width, so its pane never resizes while the value changes"
         }
       }
+    },
+    "kbd": {
+      "$value": "{size.kbd}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P2"
+          ],
+          "why": "a keycap is a caption-sized slab, big enough to read the key printed on it inside a sentence"
+        }
+      }
     }
   },
   "corner": {
@@ -1141,6 +1153,30 @@
       "kiln.why": {
         "p": "P4",
         "why": "motion roles mapped to durations and distances, so hover, press and entry always feel the same across components"
+      }
+    },
+    "spin": {
+      "$value": "{duration.spin}",
+      "$type": "duration",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P4"
+          ],
+          "why": "a spinner turns once a second or so, steady enough to read as working and never frantic; zero under reduced motion"
+        }
+      }
+    },
+    "breathe": {
+      "$value": "{duration.breathe}",
+      "$type": "duration",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P4"
+          ],
+          "why": "a skeleton fades in and out slowly, so waiting reads as calm rather than as a flashing alert; zero under reduced motion"
+        }
       }
     }
   },
@@ -1478,6 +1514,18 @@
       "kiln.why": {
         "p": "P6",
         "why": "a disabled control fades to half, and its reason is written beside it because a faded control cannot be focused to ask"
+      }
+    },
+    "faint": {
+      "$value": "{alpha.dim}",
+      "$type": "number",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P4"
+          ],
+          "why": "the faint point of a breath or a fade-in, still visible as a recess on bright scenes"
+        }
       }
     }
   },
@@ -1952,6 +2000,72 @@
           "P3"
         ],
         "why": "a mesh object's ambient light is strong enough to tint the pane under it and faint enough that it never reads as a second object"
+      }
+    }
+  },
+  "aspect": {
+    "$type": "number",
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3"
+        ],
+        "why": "named proportions, so media keeps its shape at any width and nothing jumps when it loads"
+      }
+    },
+    "square": {
+      "$value": "{ratio.square}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "one to one, for avatars, app icons and grid tiles"
+        }
+      }
+    },
+    "photo": {
+      "$value": "{ratio.photo}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "four to three, the shape of most camera photos"
+        }
+      }
+    },
+    "video": {
+      "$value": "{ratio.video}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "sixteen to nine, the shape of video and wide covers"
+        }
+      }
+    },
+    "portrait": {
+      "$value": "{ratio.portrait}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "three to four, for people and posters held upright"
+        }
+      }
+    },
+    "wide": {
+      "$value": "{ratio.wide}",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "twenty-one to nine, for banners and cinematic headers"
+        }
       }
     }
   }

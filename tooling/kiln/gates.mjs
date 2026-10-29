@@ -1149,7 +1149,9 @@ try {
           const walker = document.createTreeWalker(stage, NodeFilter.SHOW_TEXT);
           for (let t = walker.nextNode(); t; t = walker.nextNode()) {
             if (!t.textContent.trim()) continue;
-            let el = t.parentElement; while (el && el !== stage && !isControl(el)) el = el.parentElement;
+            // text kept for screen readers only (clipped to a pixel) is not on screen, so it cannot crowd anything
+            const host = t.parentElement; const hb = host?.getBoundingClientRect(); if (!hb || hb.width <= 1 || hb.height <= 1) continue;
+            let el = host; while (el && el !== stage && !isControl(el)) el = el.parentElement;
             if (!el || el === stage) continue;
             const cs = getComputedStyle(el); if (cs.visibility === 'hidden' || el.closest('[aria-hidden="true"], [hidden]')) continue;
             const rg = document.createRange(); rg.selectNodeContents(t);

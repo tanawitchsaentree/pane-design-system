@@ -55,3 +55,9 @@ Lab: `apps/lab/round5/index.html` (the user's OpenGlass-style reference beside P
 | Levels | **1 pane · 2 surface in a pane · 3 overlay on a scrim · 4 popover**, each ≥1.15:1 from what is under it | The user asked for stacked glass that reads as levels, with a formula and a check by eye. Light level 2 had to go to a 12% ink tint to pass. |
 | Slider `fill` (D-026) | **variant of Slider, label and value inside, thin lit marker** | The user's reference; same behaviour and API as Slider, so a variant rather than a new component. |
 | Mesh (D-029, D-030) | **A, pools melted** (apps/lab/mesh/) | Four pools placed where the light is and blurred into each other; B (no blur) reads as spotlights, C (conic) swirls around one centre. Presets aurora, ember, tide, dusk; a product's own colours through `colors`. |
+| Divider (wave 1) | **A, etched** (apps/lab/wave1/) | Shade over light, a groove like every recess (P3); an ink hairline owns a colour (P1), fading ends vanish on bright scenes. Box, Flex, Center, Spacer, AspectRatio, VisuallyHidden have no form (identity: false). |
+| Link (wave 2) | **A, underline in the text colour** (apps/lab/wave2/) | Found by its underline without a hue (P1, WCAG 1.4.1); blue was rejected (R-012). |
+| Spinner (wave 2) | **A, lit arc in a groove** | The light model at its smallest (P3); dots bounce (P4), a pulsing disc reads as an alert. |
+| Skeleton (wave 2) | **A, carved recess that breathes** | Pressed into the glass like the field it becomes (P3), a slow breath not a shimmer (P4). |
+| Kbd (wave 2) | **A, lit keycap** | A small Pane slab lit from above; a bordered grey box brings a colour and a border. |
+| Image (wave 2) | **A, fade in over the carve** | Settles instead of popping (P4); waits and fails as a recess, never a white box (P3). Text, Heading and Icon have no form (identity: false). |

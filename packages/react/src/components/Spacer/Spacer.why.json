@@ -1,0 +1,49 @@
+{
+  "identity": false,
+  "identity_reason": "a spacer is empty space; it has no form to derive",
+  "concept": "Space with no content, either a step from the gap scale or all the free space, so spacing stays a gap and never a margin.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "empty space that is never content, so the layout reads the same everywhere it is used"
+    },
+    "grow": {
+      "p": "P3",
+      "axis": "space",
+      "why": "takes the free space in a row so what follows sits at the far end"
+    },
+    "s-xs": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a fixed step from the gap scale (xs)"
+    },
+    "s-sm": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a fixed step from the gap scale (sm)"
+    },
+    "s-md": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a fixed step from the gap scale (md)"
+    },
+    "s-lg": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a fixed step from the gap scale (lg)"
+    },
+    "s-xl": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a fixed step from the gap scale (xl)"
+    },
+    "s-2xl": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a fixed step from the gap scale (2xl)"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

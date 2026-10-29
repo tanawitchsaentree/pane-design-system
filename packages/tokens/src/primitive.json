@@ -875,6 +875,10 @@
     },
     "mark": {
       "$value": "10px"
+    },
+    "kbd": {
+      "$value": "22px",
+      "$description": "a keycap: the height of a caption line with a little room"
     }
   },
   "radius": {
@@ -1213,6 +1217,14 @@
         "p": "P4",
         "why": "200ms for a reply to a press, 420ms for hover and small changes, 640ms for arriving and scene changes, so motion settles instead of snapping"
       }
+    },
+    "spin": {
+      "$value": "900ms",
+      "$description": "one turn of a spinner: steady, not frantic"
+    },
+    "breathe": {
+      "$value": "1400ms",
+      "$description": "half a breath of a skeleton: slow enough to read as waiting, not flashing"
     }
   },
   "easing": {
@@ -1401,6 +1413,36 @@
     "ambient": {
       "$value": 0.55,
       "$description": "how strongly a mesh object lights what is under it"
+    },
+    "dim": {
+      "$value": 0.55,
+      "$description": "how far a skeleton fades at the bottom of its breath"
+    }
+  },
+  "ratio": {
+    "$type": "number",
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3"
+        ],
+        "why": "the raw proportions behind the named aspect ratios, one place to change a shape"
+      }
+    },
+    "square": {
+      "$value": "1 / 1"
+    },
+    "photo": {
+      "$value": "4 / 3"
+    },
+    "video": {
+      "$value": "16 / 9"
+    },
+    "portrait": {
+      "$value": "3 / 4"
+    },
+    "wide": {
+      "$value": "21 / 9"
     }
   }
 }

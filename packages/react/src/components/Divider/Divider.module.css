@@ -1,0 +1,8 @@
+/* An etched line (D-024, one light from above): a hairline of shade with a hairline of light just under it,
+   as a groove cut into the glass is shaded on its upper lip and lit on its lower one. */
+.root { flex: none; border: 0; }
+.horizontal { inline-size: 100%; block-size: calc(var(--ds-divider-width) * 2); background: linear-gradient(180deg, var(--ds-divider-shade) 50%, var(--ds-divider-light) 50%); }
+.vertical { align-self: stretch; inline-size: calc(var(--ds-divider-width) * 2); min-block-size: var(--ds-divider-min); background: linear-gradient(90deg, var(--ds-divider-shade) 50%, var(--ds-divider-light) 50%); }
+.horizontal.inset { inline-size: auto; margin-inline: var(--ds-divider-inset); }
+.vertical.inset { margin-block: var(--ds-divider-inset); }
+@media (forced-colors: active) { .root { background: CanvasText; } }

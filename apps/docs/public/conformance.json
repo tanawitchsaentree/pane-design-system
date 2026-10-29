@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-29T08:54:26.414Z",
-  "passed": 111,
-  "total": 111,
+  "generatedAt": "2026-10-29T10:35:46.658Z",
+  "passed": 124,
+  "total": 132,
   "checks": [
     {
       "component": "Container",
@@ -20,6 +20,48 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "3 props"
+    },
+    {
+      "component": "Box",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "5 props"
+    },
+    {
+      "component": "Flex",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "5 props"
+    },
+    {
+      "component": "Center",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props"
+    },
+    {
+      "component": "Spacer",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props"
+    },
+    {
+      "component": "Divider",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "AspectRatio",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props"
+    },
+    {
+      "component": "VisuallyHidden",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props"
     },
     {
       "component": "Environment",
@@ -182,6 +224,48 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 6)",
       "ok": true,
       "detail": "6 demos"
+    },
+    {
+      "component": "Box",
+      "name": "demo floor met (≥ variant dimensions + 3 = 8)",
+      "ok": false,
+      "detail": "5 demos across the tabs"
+    },
+    {
+      "component": "Flex",
+      "name": "demo floor met (≥ variant dimensions + 3 = 7)",
+      "ok": false,
+      "detail": "4 demos across the tabs"
+    },
+    {
+      "component": "Center",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Spacer",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Divider",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": false,
+      "detail": "3 demos across the tabs"
+    },
+    {
+      "component": "AspectRatio",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": false,
+      "detail": "3 demos across the tabs"
+    },
+    {
+      "component": "VisuallyHidden",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
     },
     {
       "component": "Environment",
@@ -410,7 +494,7 @@
       "component": "IconButton",
       "name": "every button with no visible text, on every page of the book, has an accessible name",
       "ok": true,
-      "detail": "150 pages"
+      "detail": "178 pages"
     },
     {
       "component": "Tabs",
@@ -439,8 +523,9 @@
     },
     {
       "component": "Docs page",
-      "name": "G-D3, no literal backtick in rendered text on any of the 150 pages",
-      "ok": true
+      "name": "G-D3, no literal backtick in rendered text on any of the 178 pages",
+      "ok": false,
+      "detail": "page.evaluate: TypeError: Failed to execute 'createTreeWalker' on 'Document': parameter 1 is not of type 'Node'."
     },
     {
       "component": "Grid",
@@ -626,6 +711,44 @@
       "component": "Mesh",
       "name": "forced colours drop the pools",
       "ok": true
+    },
+    {
+      "component": "Divider",
+      "name": "a separator by default, no role when decorative, never focusable",
+      "ok": true
+    },
+    {
+      "component": "Spacer",
+      "name": "hidden from assistive technology",
+      "ok": true
+    },
+    {
+      "component": "VisuallyHidden",
+      "name": "off screen but in the tree; focusable content shows on focus",
+      "ok": true
+    },
+    {
+      "component": "AspectRatio",
+      "name": "keeps its ratio at any width",
+      "ok": true
+    },
+    {
+      "component": "Box",
+      "name": "has behaviour checks in system/conformance/",
+      "ok": false,
+      "detail": "no check names \"Box\", so its keys, roles and measured values are untested"
+    },
+    {
+      "component": "Flex",
+      "name": "has behaviour checks in system/conformance/",
+      "ok": false,
+      "detail": "no check names \"Flex\", so its keys, roles and measured values are untested"
+    },
+    {
+      "component": "Center",
+      "name": "has behaviour checks in system/conformance/",
+      "ok": false,
+      "detail": "no check names \"Center\", so its keys, roles and measured values are untested"
     }
   ]
 }

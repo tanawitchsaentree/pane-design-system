@@ -3,7 +3,7 @@
 export const BARREL_MANIFEST = [
   {
     header: `Layout (D-014): Container, Grid/GridItem, Stack — columns, gutters, margins and breakpoints from tokens.`,
-    components: ['Container', 'Grid', 'Stack'],
+    components: ['Container', 'Grid', 'Stack', 'Box', 'Flex', 'Center', 'Spacer', 'Divider', 'AspectRatio', 'VisuallyHidden'],
   },
   {
     header: `Anchor A — the parts of the profile card: Environment, Card, Avatar, Button, IconButton, Tabs, Tag.`,
@@ -24,5 +24,9 @@ export const BARREL_MANIFEST = [
   {
     header: `Media (D-029): Mesh — a mesh gradient for scenes, covers and icons, never a control's fill.`,
     components: ['Mesh'],
+  },
+  {
+    header: `Wave 2 atoms (0.7.0): type, links, keys, pictures and loading.`,
+    components: ['Text', 'Heading', 'Icon', 'Link', 'Kbd', 'Image', 'Spinner', 'Skeleton'],
   },
 ];

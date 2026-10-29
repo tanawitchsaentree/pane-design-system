@@ -8,6 +8,13 @@
 export * from './components/Container';
 export * from './components/Grid';
 export * from './components/Stack';
+export * from './components/Box';
+export * from './components/Flex';
+export * from './components/Center';
+export * from './components/Spacer';
+export * from './components/Divider';
+export * from './components/AspectRatio';
+export * from './components/VisuallyHidden';
 
 // Anchor A — the parts of the profile card: Environment, Card, Avatar, Button, IconButton, Tabs, Tag.
 
@@ -47,3 +54,14 @@ export * from './components/Switch';
 // Media (D-029): Mesh — a mesh gradient for scenes, covers and icons, never a control's fill.
 
 export * from './components/Mesh';
+
+// Wave 2 atoms (0.7.0): type, links, keys, pictures and loading.
+
+export * from './components/Text';
+export * from './components/Heading';
+export * from './components/Icon';
+export * from './components/Link';
+export * from './components/Kbd';
+export * from './components/Image';
+export * from './components/Spinner';
+export * from './components/Skeleton';

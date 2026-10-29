@@ -1,0 +1,7 @@
+/* A lit arc in a groove (one light from above): the groove is the recess, the arc is the light. */
+.root { position: relative; display: inline-block; flex: none; border-radius: var(--ds-corner-round); box-shadow: inset 0 0 0 var(--ds-spinner-width) var(--ds-spinner-track); }
+.sm { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); }
+.md { inline-size: var(--ds-control-check); block-size: var(--ds-control-check); }
+.arc { position: absolute; inset: 0; border-radius: inherit; border: var(--ds-spinner-width) solid transparent; border-block-start-color: var(--ds-spinner-arc); animation: spin var(--ds-motion-spin) linear infinite; }
+@keyframes spin { to { transform: rotate(1turn); } }
+@media (forced-colors: active) { .arc { border-block-start-color: CanvasText; } }

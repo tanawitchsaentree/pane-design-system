@@ -1,0 +1,30 @@
+{
+  "identity": false,
+  "identity_reason": "it is invisible by definition, so there is no form",
+  "concept": "Text for a screen reader that a sighted reader does not need, so a meaning carried by an icon or a colour is also said in words (P6).",
+  "parts": {
+    "root": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "off screen for the eye, in the accessibility tree for a screen reader"
+    },
+    "focusable": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a skip link comes back into view while it has focus"
+    }
+  },
+  "states": {
+    "focus-within": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a focused skip link is shown so a keyboard user sees where they are"
+    },
+    "focus": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the same, when the hidden element itself takes focus"
+    }
+  },
+  "motion": {}
+}

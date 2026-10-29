@@ -1,0 +1,34 @@
+{
+  "identity": false,
+  "identity_reason": "a heading takes its size from the type scale and its level from the outline, so it has no form to derive",
+  "concept": "A heading whose level comes from the page outline and whose size comes from the scale, so structure and look never fight.",
+  "parts": {
+    "root": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the heading family, weight and tight leading shared by every level of the outline"
+    },
+    "display": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the display size for the one title that opens a page or a hero"
+    },
+    "headline": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the headline size for sections of a page in the outline"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the title size for the heading of a card or a pane"
+    },
+    "emphasis": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the emphasis size for small headings inside a card or a list"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

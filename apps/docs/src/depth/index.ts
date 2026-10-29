@@ -14,5 +14,7 @@ import { SELECT, SLIDER } from './select';
 import { TABS } from './tabs';
 import { TAG } from './tag';
 import { MESH } from './mesh';
+import { HEADING, ICON, IMAGE, KBD, LINK, SKELETON, SPINNER, TEXT } from './wave2';
+import { ASPECT_RATIO, BOX, CENTER, DIVIDER, FLEX, SPACER, VISUALLY_HIDDEN } from './wave1';
 
-export const DEPTH: Record<string, Depth> = { Mesh: MESH, Checkbox: CHECKBOX, Fieldset: FIELDSET, FormField: FORM_FIELD, HelperText: HELPER_TEXT, Input: INPUT, InputGroup: INPUT_GROUP, Label: LABEL, PinInput: PIN_INPUT, Radio: RADIO, Switch: SWITCH, Textarea: TEXTAREA, Avatar: AVATAR, Badge: BADGE, Banner: BANNER, Button: BUTTON, Card: CARD, Chip: CHIP, Container: CONTAINER, Environment: ENVIRONMENT, Grid: GRID, IconButton: ICON_BUTTON, Select: SELECT, Slider: SLIDER, Stack: STACK, Tabs: TABS, Tag: TAG };
+export const DEPTH: Record<string, Depth> = { Mesh: MESH, Text: TEXT, Heading: HEADING, Icon: ICON, Link: LINK, Spinner: SPINNER, Skeleton: SKELETON, Kbd: KBD, Image: IMAGE, Box: BOX, Flex: FLEX, Center: CENTER, Spacer: SPACER, Divider: DIVIDER, AspectRatio: ASPECT_RATIO, VisuallyHidden: VISUALLY_HIDDEN, Checkbox: CHECKBOX, Fieldset: FIELDSET, FormField: FORM_FIELD, HelperText: HELPER_TEXT, Input: INPUT, InputGroup: INPUT_GROUP, Label: LABEL, PinInput: PIN_INPUT, Radio: RADIO, Switch: SWITCH, Textarea: TEXTAREA, Avatar: AVATAR, Badge: BADGE, Banner: BANNER, Button: BUTTON, Card: CARD, Chip: CHIP, Container: CONTAINER, Environment: ENVIRONMENT, Grid: GRID, IconButton: ICON_BUTTON, Select: SELECT, Slider: SLIDER, Stack: STACK, Tabs: TABS, Tag: TAG };

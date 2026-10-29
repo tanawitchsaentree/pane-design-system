@@ -1,0 +1,9 @@
+/* Spacer: a fixed step from the gap scale, or all the free space in a flex container. */
+.root { display: block; flex: none; }
+.grow { flex: 1 1 0; min-inline-size: 0; min-block-size: 0; }
+.s-xs { inline-size: var(--ds-gap-xs); block-size: var(--ds-gap-xs); }
+.s-sm { inline-size: var(--ds-gap-sm); block-size: var(--ds-gap-sm); }
+.s-md { inline-size: var(--ds-gap-md); block-size: var(--ds-gap-md); }
+.s-lg { inline-size: var(--ds-gap-lg); block-size: var(--ds-gap-lg); }
+.s-xl { inline-size: var(--ds-gap-xl); block-size: var(--ds-gap-xl); }
+.s-2xl { inline-size: var(--ds-gap-2xl); block-size: var(--ds-gap-2xl); }

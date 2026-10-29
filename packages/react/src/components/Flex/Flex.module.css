@@ -1,0 +1,20 @@
+/* Flex: a row or column with a gap from the scale and both alignments named. */
+.root { display: flex; min-inline-size: 0; }
+.row { flex-direction: row; }
+.column { flex-direction: column; }
+.wrap { flex-wrap: wrap; }
+.g-none { gap: var(--ds-gap-none); }
+.g-xs { gap: var(--ds-gap-xs); }
+.g-sm { gap: var(--ds-gap-sm); }
+.g-md { gap: var(--ds-gap-md); }
+.g-lg { gap: var(--ds-gap-lg); }
+.g-xl { gap: var(--ds-gap-xl); }
+.j-start { justify-content: flex-start; }
+.j-center { justify-content: center; }
+.j-end { justify-content: flex-end; }
+.j-between { justify-content: space-between; }
+.a-stretch { align-items: stretch; }
+.a-start { align-items: flex-start; }
+.a-center { align-items: center; }
+.a-end { align-items: flex-end; }
+.a-baseline { align-items: baseline; }

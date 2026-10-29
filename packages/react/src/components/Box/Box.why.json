@@ -1,0 +1,139 @@
+{
+  "identity": false,
+  "identity_reason": "a box has no shape of its own; it only carries padding and a corner from the scales",
+  "concept": "Padding and a corner from the scales and nothing else, so layout never invents a look and glass stays with Card.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a box that only holds padding and a corner, so a Card stays the one thing with a look"
+    },
+    "p-none": {
+      "p": "P3",
+      "axis": "space",
+      "why": "padding on every side from the gap scale (none)"
+    },
+    "pi-none": {
+      "p": "P3",
+      "axis": "space",
+      "why": "inline padding from the gap scale (none) wherever the component is used in a screen"
+    },
+    "pb-none": {
+      "p": "P3",
+      "axis": "space",
+      "why": "block padding from the gap scale (none) wherever the component is used in a screen"
+    },
+    "p-xs": {
+      "p": "P3",
+      "axis": "space",
+      "why": "padding on every side from the gap scale (xs)"
+    },
+    "pi-xs": {
+      "p": "P3",
+      "axis": "space",
+      "why": "inline padding from the gap scale (xs) wherever the component is used in a screen"
+    },
+    "pb-xs": {
+      "p": "P3",
+      "axis": "space",
+      "why": "block padding from the gap scale (xs) wherever the component is used in a screen"
+    },
+    "p-sm": {
+      "p": "P3",
+      "axis": "space",
+      "why": "padding on every side from the gap scale (sm)"
+    },
+    "pi-sm": {
+      "p": "P3",
+      "axis": "space",
+      "why": "inline padding from the gap scale (sm) wherever the component is used in a screen"
+    },
+    "pb-sm": {
+      "p": "P3",
+      "axis": "space",
+      "why": "block padding from the gap scale (sm) wherever the component is used in a screen"
+    },
+    "p-md": {
+      "p": "P3",
+      "axis": "space",
+      "why": "padding on every side from the gap scale (md)"
+    },
+    "pi-md": {
+      "p": "P3",
+      "axis": "space",
+      "why": "inline padding from the gap scale (md) wherever the component is used in a screen"
+    },
+    "pb-md": {
+      "p": "P3",
+      "axis": "space",
+      "why": "block padding from the gap scale (md) wherever the component is used in a screen"
+    },
+    "p-lg": {
+      "p": "P3",
+      "axis": "space",
+      "why": "padding on every side from the gap scale (lg)"
+    },
+    "pi-lg": {
+      "p": "P3",
+      "axis": "space",
+      "why": "inline padding from the gap scale (lg) wherever the component is used in a screen"
+    },
+    "pb-lg": {
+      "p": "P3",
+      "axis": "space",
+      "why": "block padding from the gap scale (lg) wherever the component is used in a screen"
+    },
+    "p-xl": {
+      "p": "P3",
+      "axis": "space",
+      "why": "padding on every side from the gap scale (xl)"
+    },
+    "pi-xl": {
+      "p": "P3",
+      "axis": "space",
+      "why": "inline padding from the gap scale (xl) wherever the component is used in a screen"
+    },
+    "pb-xl": {
+      "p": "P3",
+      "axis": "space",
+      "why": "block padding from the gap scale (xl) wherever the component is used in a screen"
+    },
+    "p-2xl": {
+      "p": "P3",
+      "axis": "space",
+      "why": "padding on every side from the gap scale (2xl)"
+    },
+    "pi-2xl": {
+      "p": "P3",
+      "axis": "space",
+      "why": "inline padding from the gap scale (2xl) wherever the component is used in a screen"
+    },
+    "pb-2xl": {
+      "p": "P3",
+      "axis": "space",
+      "why": "block padding from the gap scale (2xl) wherever the component is used in a screen"
+    },
+    "r-none": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "the none corner from the shape scale, so a box nested in a pane can follow its curve"
+    },
+    "r-inner": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "the inner corner from the shape scale, so a box nested in a pane can follow its curve"
+    },
+    "r-media": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "the media corner from the shape scale, so a box nested in a pane can follow its curve"
+    },
+    "r-round": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "the round corner from the shape scale, so a box nested in a pane can follow its curve"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

@@ -1,0 +1,99 @@
+{
+  "concept": "A picture with a corner from the scale that fades in over the carve of the glass, and stays a quiet recess if it fails.",
+  "default_to_avoid": [
+    {
+      "pattern": "a bare img that pops in and shows the browser broken-image icon",
+      "kind": "image, img, picture, photo",
+      "why_not": "a pop-in jumps the eye and a broken-image box looks like a bug on glass"
+    }
+  ],
+  "references": [
+    {
+      "title": "web.dev · Browser-level image lazy loading",
+      "url": "https://web.dev/articles/browser-level-image-lazy-loading"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "shape",
+      "consequence": "corners are continuous and nest, so an inner surface's radius is the outer radius minus the padding between them and a pane inside a pane reads as inside it; controls are full pills because they are held in the hand",
+      "form": "the image takes the media corner inside a pane so its curve nests in the pane"
+    },
+    {
+      "p": "P4",
+      "axis": "motion",
+      "consequence": "long ease-out curves (420 to 640ms) for arriving and hovering, a shorter one (200ms) for pressing because a press is a reply; under reduced motion every duration is zero at the token level",
+      "form": "it fades in at entry pace when it arrives, so it settles rather than pops"
+    },
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "before it loads and if it fails, its space is the carve of the glass, a recess, never a white box"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave2/",
+    "section": "image",
+    "options": [
+      "A fade in over the carve",
+      "B pop in",
+      "C blur up"
+    ],
+    "picked": "A fade in over the carve",
+    "by": "agent",
+    "reason": "A settles (P4) and keeps a recess in the glass while waiting (P3). B jumps. C needs a second tiny image for every picture."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the image box, with the carve showing until the picture arrives"
+    },
+    "media": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "the media corner, nested inside a pane, the same in every theme and on every scene"
+    },
+    "inner": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "the inner corner for an image that fills a card edge to edge"
+    },
+    "none": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "no corner, for an image that runs to the edge of a page"
+    },
+    "cover": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "fills the box and crops, for covers and thumbnails"
+    },
+    "contain": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "shows the whole picture, for diagrams and product shots"
+    }
+  },
+  "states": {
+    "data-state=loading": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "faint while loading, so the arrival reads as a fade in"
+    },
+    "data-state=error": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a failed image stays a quiet recess with its alt text available"
+    }
+  },
+  "motion": {
+    "opacity": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "fades in at entry pace when the picture arrives"
+    }
+  }
+}

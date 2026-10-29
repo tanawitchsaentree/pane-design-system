@@ -1440,5 +1440,306 @@
         "why": "labels sit above their field and look like labels, help reads as secondary, and an error carries a glyph and a spoken word as well as colour"
       }
     }
+  },
+  "divider": {
+    "shade": {
+      "$value": "{line.divider}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the upper lip of the groove, in shade"
+        }
+      }
+    },
+    "light": {
+      "$value": "{line.rim-lo}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the lower lip of the groove, catching the light from above"
+        }
+      }
+    },
+    "width": {
+      "$value": "{width.hairline}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "each lip is one hairline, the thinnest recess the glass can show"
+        }
+      }
+    },
+    "inset": {
+      "$value": "{gap.inset}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "an inset divider stops at the content inset, in line with the text"
+        }
+      }
+    },
+    "min": {
+      "$value": "{control.icon-md}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a vertical divider is at least as tall as an icon, so it still reads between two small items"
+        }
+      }
+    }
+  },
+  "link": {
+    "offset": {
+      "$value": "{gap.xs}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P2"
+          ],
+          "why": "the underline sits a little below the baseline so it never cuts through descenders"
+        }
+      }
+    },
+    "underline": {
+      "$value": "{line.ring}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the underline at rest is a quiet line in the text colour, the only thing that marks a link since the system owns no hue"
+        }
+      }
+    }
+  },
+  "spinner": {
+    "width": {
+      "$value": "{width.ring}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the groove and its arc are two pixels, readable at the small size"
+        }
+      }
+    },
+    "track": {
+      "$value": "{line.divider}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the groove the arc turns in, a quiet recess"
+        }
+      }
+    },
+    "arc": {
+      "$value": "{action.loud-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "the arc is the loud solid, white in dark and ink in light, the one thing moving on the pane"
+        }
+      }
+    }
+  },
+  "skeleton": {
+    "bg": {
+      "$value": "{surface.carve}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a skeleton is pressed into the glass where the content will land, the same carve as a field"
+        }
+      }
+    },
+    "carve": {
+      "$value": "{elevation.well}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "shade under its top lip, so it reads as a recess and not as a grey block"
+        }
+      }
+    },
+    "gap": {
+      "$value": "{gap.md}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "lines of a text skeleton are as far apart as lines of body text"
+        }
+      }
+    },
+    "line": {
+      "$value": "{type.body}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a text line is as tall as the body type it stands in for"
+        }
+      }
+    },
+    "dim": {
+      "$value": "{opacity.faint}",
+      "$type": "number",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P4"
+          ],
+          "why": "the faintest point of its slow breath, still visible as a recess on bright scenes"
+        }
+      }
+    }
+  },
+  "kbd": {
+    "size": {
+      "$value": "{control.kbd}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P2"
+          ],
+          "why": "one keycap height for every key, so a shortcut lines up inside a sentence"
+        }
+      }
+    },
+    "padding": {
+      "$value": "{gap.sm}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "room either side of a wide key such as Shift"
+        }
+      }
+    },
+    "radius": {
+      "$value": "{corner.mark}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a small corner, the radius of the smallest marks"
+        }
+      }
+    },
+    "top": {
+      "$value": "{surface.lit-quiet-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the keycap is lit at its top edge by the one light from above"
+        }
+      }
+    },
+    "foot": {
+      "$value": "{surface.lit-quiet-foot}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "and darker toward its foot, like every raised slab on a pane"
+        }
+      }
+    },
+    "cap": {
+      "$value": "{elevation.quiet-cast}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a short soft shadow under the cap so it stands on the pane"
+        }
+      }
+    }
+  },
+  "image": {
+    "placeholder": {
+      "$value": "{surface.carve}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "before an image arrives its space is the carve of the glass, never a white box"
+        }
+      }
+    },
+    "carve": {
+      "$value": "{elevation.well}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "an image that failed stays a recess, quiet, with its alt text available"
+        }
+      }
+    },
+    "loading-opacity": {
+      "$value": "{opacity.faint}",
+      "$type": "number",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P4"
+          ],
+          "why": "an image fades in from this point as it loads, so it arrives rather than pops"
+        }
+      }
+    }
   }
 }
