@@ -2,7 +2,7 @@
 
 Every entry names the component it touches, so each component page in the book can show its own history. The conformance run fails if a component has no entry.
 
-## 0.7.0 (unreleased)
+## 0.7.0 (2026-10-29)
 
 - Box: new. Padding and a corner from the scales, nothing else.
 - Flex: new. A row or column with a gap from the scale and both alignments named.
@@ -18,6 +18,25 @@ Every entry names the component it touches, so each component page in the book c
 - Spinner: new. A lit arc turning in a groove, with a status role and a label; still under reduced motion.
 - Skeleton: new. Text lines, a block or a circle carved into the glass, breathing slowly.
 - Kbd: new. A key as a small keycap lit from above.
+- Listbox: new. Options kept on the page in a recess, one or several (`multiple`), with checks.
+- Combobox: new. A groove that filters a long list as you type, on the WAI-ARIA combobox pattern.
+- Autocomplete: new. Suggestions with free text.
+- MultiSelect: new. Several values from a long list, each a removable Chip.
+- Menu: new. Actions from a button in Select’s sheet, grouped, the critical one last.
+- ContextMenu: new. The Menu sheet on a right click, a long press or the menu key.
+- RadioCards: new. One choice as level-2 cards, chosen glass with a check.
+- Rating: new. Stars in the loud solid and outlines; `readOnly` reads as “4 out of 5”.
+- TagInput: new. Free-form tags as chips; Enter or a comma adds, Backspace removes.
+- Dialog: new. A level-3 pane over a scrim (D-025) on Radix Dialog; `actions`, `size`, `Dialog.Close`, `preview` for documentation.
+- Sheet: new. A level-3 pane from the bottom, start or end; a grabber drags a bottom sheet closed.
+- Drawer: new. A Sheet from the start or end edge.
+- ActionSheet: new. Actions for one item from the bottom, Cancel set apart, the critical action last.
+- Popover: new. A level-4 pane next to its trigger without a scrim.
+- Tooltip: new. A few words on hover, focus and tap.
+- Toast: new. A level-4 pane at the top end with a status mark, announced politely, pausing under the pointer.
+- Snackbar: new. One line with Undo at the bottom of a phone screen.
+- FAB: new. The loud bead at thumb reach, glowing strong in dark.
+- PullToRefresh: new. Pull a list down to refresh it, with a Refresh button for keyboards (WCAG 2.5.1).
 - Image: new. A picture with a corner from the scale that fades in over the carve and stays a quiet recess if it fails.
 
 ## 0.6.0 (2026-10-29)

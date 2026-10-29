@@ -1,0 +1,89 @@
+{
+  "concept": "Context in a small pane at level 4 next to its trigger, the top of the stack, without dimming the screen.",
+  "default_to_avoid": [
+    {
+      "pattern": "a white tooltip-like box with an arrow and a grey border (Bootstrap popover)",
+      "kind": "popover, flyout, info panel",
+      "why_not": "an arrowed white box owns a colour and a border and ignores the stack"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA APG · Disclosure",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "a level-4 pane, the lightest and highest, next to its trigger with no scrim"
+    },
+    {
+      "p": "P3",
+      "axis": "motion",
+      "consequence": "panes enter by rising a short distance and settling, as an object placed in space would",
+      "form": "it grows a little from its trigger and settles"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "Esc and a press outside close it and focus returns to the trigger"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave4/",
+    "section": "popover",
+    "options": [
+      "A level-4 pane, no arrow",
+      "B arrowed box",
+      "C inline expansion"
+    ],
+    "picked": "A level-4 pane, no arrow",
+    "by": "agent",
+    "reason": "A is the top of the measured stack (D-025); its position says where it came from without an arrow. B adds a border and an arrow the glass does not need. C pushes the layout down."
+  },
+  "parts": {
+    "popover": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a level-4 pane next to its trigger, narrow enough for a sentence and a few controls"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "a short title in the emphasis size, the same in every theme and on every scene"
+    },
+    "previewWrap": {
+      "p": "P3",
+      "axis": "space",
+      "why": "in a preview the trigger and the open popover sit one under the other"
+    },
+    "preview": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "drawn in place for documentation, without its entry animation"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the shared focus ring on the pane or control so a keyboard user sees where they are"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours draw an outline so the overlay keeps its edge without the glass"
+    }
+  },
+  "motion": {
+    "@pop": {
+      "p": "P3",
+      "axis": "motion",
+      "why": "it grows a little from its trigger and settles, zero under reduced motion"
+    }
+  }
+}

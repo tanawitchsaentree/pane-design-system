@@ -1151,12 +1151,15 @@ try {
             if (!t.textContent.trim()) continue;
             // text kept for screen readers only (clipped to a pixel) is not on screen, so it cannot crowd anything
             const host = t.parentElement; const hb = host?.getBoundingClientRect(); if (!hb || hb.width <= 1 || hb.height <= 1) continue;
+            // a line cut with an ellipsis is clipped by its own box; measure the box, not the text that runs past it
+            const clipped = getComputedStyle(host).textOverflow === 'ellipsis' && host.scrollWidth > host.clientWidth;
             let el = host; while (el && el !== stage && !isControl(el)) el = el.parentElement;
             if (!el || el === stage) continue;
             const cs = getComputedStyle(el); if (cs.visibility === 'hidden' || el.closest('[aria-hidden="true"], [hidden]')) continue;
             const rg = document.createRange(); rg.selectNodeContents(t);
             const b = el.getBoundingClientRect(); const want = need(el);
-            for (const tr of rg.getClientRects()) {
+            for (const tr0 of rg.getClientRects()) {
+              const tr = clipped ? { left: Math.max(tr0.left, hb.left), right: Math.min(tr0.right, hb.right), top: tr0.top, bottom: tr0.bottom, width: tr0.width } : tr0;
               if (tr.width < 1 || tr.bottom < b.top || tr.top > b.bottom) continue;
               count++;
               const gap = Math.min(tr.left - b.left, b.right - tr.right);
@@ -1311,7 +1314,9 @@ try {
         const sel = '[data-example-live] :is(button, a[href], [role="button"], [role="tab"], [role="slider"], [role="checkbox"], [role="radio"], [role="switch"], [role="combobox"], input:not([type="hidden"]), select, textarea), header :is(button, a[href]), nav[data-book-nav] button';
         // inline text links are exempt (WCAG 2.5.8 exception); a deliberate exception carries data-touch-exempt and an EXCEPTIONS entry
         const els = [...document.querySelectorAll(sel)].filter((e) => e.getBoundingClientRect().width > 0 && !e.closest('[data-dont], [data-touch-exempt]') && !(e.tagName === 'A' && e.closest('p, li, td')));
-        return els.map((e) => { const [w, h] = hit(e); return w + 0.5 >= min && h + 0.5 >= min ? null : `${(e.getAttribute('aria-label') || e.textContent || e.tagName).trim().slice(0, 20)} ${Math.round(w)}×${Math.round(h)}`; });
+        // a control hidden until it has focus (a skip link, a Refresh button for a gesture) is measured focused
+        const sized = (e) => { let [w, h] = hit(e); if (w <= 2 && h <= 2) { e.focus({ preventScroll: true }); [w, h] = hit(e); e.blur(); } return [w, h]; };
+        return els.map((e) => { const [w, h] = sized(e); return w + 0.5 >= min && h + 0.5 >= min ? null : `${(e.getAttribute('aria-label') || e.textContent || e.tagName).trim().slice(0, 20)} ${Math.round(w)}×${Math.round(h)}`; });
       }, TOUCH);
       n += res.length;
       for (const x of new Set(res.filter(Boolean))) bad.push(`${r}: ${x}`);

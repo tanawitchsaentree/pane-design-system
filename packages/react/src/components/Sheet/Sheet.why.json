@@ -1,0 +1,149 @@
+{
+  "concept": "A pane that comes in from an edge over a dimmed scene: a bottom sheet with a grabber on a phone, a side panel on a wide screen.",
+  "default_to_avoid": [
+    {
+      "pattern": "a full-width white drawer that slides over a black backdrop (Material bottom sheet)",
+      "kind": "sheet, bottom sheet, side sheet, panel",
+      "why_not": "a white slab owns a colour and a hard edge; it ignores the stack and the light"
+    }
+  ],
+  "references": [
+    {
+      "title": "Apple HIG · Sheets",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/sheets"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "a level-3 pane at an edge, its corners round only away from the edge it belongs to"
+    },
+    {
+      "p": "P3",
+      "axis": "motion",
+      "consequence": "panes enter by rising a short distance and settling, as an object placed in space would",
+      "form": "it comes in from its edge and settles; dragging the grabber down far enough closes it"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "focus is trapped inside, Esc closes it, and the grabber is never the only way out"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave4/",
+    "section": "sheet",
+    "options": [
+      "A level-3 pane from an edge",
+      "B full-width white drawer",
+      "C card that pops up"
+    ],
+    "picked": "A level-3 pane from an edge",
+    "by": "agent",
+    "reason": "A belongs to its edge and to the measured stack. B ignores both. C floats free and loses the connection to the edge it came from."
+  },
+  "parts": {
+    "scrim": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the scrim dims the scene under the sheet"
+    },
+    "sheet": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a level-3 pane fixed to an edge, scrolling inside itself"
+    },
+    "bottom": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "from the bottom: round top corners, square bottom ones, short of the top of the screen"
+    },
+    "start": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "from the start edge: round corners only on its end side"
+    },
+    "end": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "from the end edge: round corners only on its start side"
+    },
+    "grabber": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a bar to drag the sheet down, with a 44px press area around it"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the title in the title size, the accessible name"
+    },
+    "description": {
+      "p": "P2",
+      "axis": "type",
+      "why": "a sentence in secondary text under the title"
+    },
+    "body": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the content on the overlay gap, the same in every theme and on every scene"
+    },
+    "actions": {
+      "p": "P5",
+      "axis": "space",
+      "why": "actions at the foot, the loud one last"
+    },
+    "hidden": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a title kept for screen readers when it is hidden visually, never shown on the sheet itself"
+    },
+    "preview": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "drawn in place for documentation: open, not modal, full width of its parent"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the shared focus ring on the pane or control so a keyboard user sees where they are"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours draw an outline so the overlay keeps its edge without the glass"
+    }
+  },
+  "motion": {
+    "@fade": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the scrim fades in, zero under reduced motion"
+    },
+    "@from-bottom": {
+      "p": "P3",
+      "axis": "motion",
+      "why": "the sheet comes up from the bottom edge and settles"
+    },
+    "@from-start": {
+      "p": "P3",
+      "axis": "motion",
+      "why": "the panel slides in from the start edge"
+    },
+    "@from-end": {
+      "p": "P3",
+      "axis": "motion",
+      "why": "the panel slides in from the end edge"
+    },
+    "translate": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the sheet follows the finger while dragged and springs back at press pace"
+    }
+  }
+}

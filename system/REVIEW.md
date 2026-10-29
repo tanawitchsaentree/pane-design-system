@@ -61,3 +61,18 @@ Lab: `apps/lab/round5/index.html` (the user's OpenGlass-style reference beside P
 | Skeleton (wave 2) | **A, carved recess that breathes** | Pressed into the glass like the field it becomes (P3), a slow breath not a shimmer (P4). |
 | Kbd (wave 2) | **A, lit keycap** | A small Pane slab lit from above; a bordered grey box brings a colour and a border. |
 | Image (wave 2) | **A, fade in over the carve** | Settles instead of popping (P4); waits and fails as a recess, never a white box (P3). Text, Heading and Icon have no form (identity: false). |
+| Dialog (wave 4) | **A, level-3 pane over a scrim** (apps/lab/wave4/) | The measured stack (D-025); a full-screen sheet hides the context, an inline panel is not a dialog. |
+| Sheet (wave 4) | **A, level-3 pane from an edge** | Belongs to its edge; a grabber drags it closed; Drawer is the same Sheet from a side. |
+| ActionSheet (wave 4) | **A, actions with Cancel apart** | The way out is always in one place and never beside the critical action (P5). |
+| Popover (wave 4) | **A, level-4 pane without an arrow** | The top of the stack next to its trigger; an arrow and a border are not needed on glass. |
+| Tooltip (wave 4) | **A, glass pill on hover, focus and tap** | Reaches every input (P6); hover-only tips never show on touch. |
+| Toast (wave 4) | **A, level-4 pane with a status mark** | Colour stays on the mark (P5); a filled banner shouts in a hue. |
+| Snackbar (wave 4) | **A, level-4 pill at the bottom** | At thumb reach, one line and Undo. |
+| FAB (wave 4) | **A, loud bead at the bottom end** | The loud solid glowing strong (P5) at thumb reach (P6), never a brand-colour disc. |
+| PullToRefresh (wave 4) | **A, pull with a focusable Refresh button** | The gesture people expect, with the button WCAG 2.5.1 needs. |
+| Listbox (wave 5) | **A, Select’s rows in a recess with checks** (apps/lab/wave5/) | One family with Select (D-017); a chosen row is a pane with a check (P6). |
+| Combobox (wave 5) | **A, Input’s groove with a filtering sheet** | Typing and choosing stay in one field (WAI-ARIA combobox). Autocomplete and MultiSelect share its form. |
+| Menu (wave 5) | **A, Select’s sheet with grouped rows** | Opaque so actions read on any scene; rows nest the corner (R-008). ContextMenu shares its form. |
+| RadioCards (wave 5) | **A, level-2 cards, chosen glass with a check** | The stack plus a mark (P6), never only a coloured border. |
+| Rating (wave 5) | **A, loud solid stars and outlines** | No gold (P1); count and shape carry the score (P6). |
+| TagInput (wave 5) | **A, chips in a groove** | Chip is the system’s removable value; each tag edits on its own. |

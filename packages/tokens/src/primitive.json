@@ -879,6 +879,54 @@
     "kbd": {
       "$value": "22px",
       "$description": "a keycap: the height of a caption line with a little room"
+    },
+    "overlay-md": {
+      "$value": "480px",
+      "$description": "a dialog's width: a comfortable measure for a question and its answer"
+    },
+    "overlay-lg": {
+      "$value": "640px",
+      "$description": "a wide dialog or a bottom sheet on a tablet: a short form fits"
+    },
+    "overlay-side": {
+      "$value": "360px",
+      "$description": "a side drawer: the width of a phone, for navigation and filters"
+    },
+    "overlay-pop": {
+      "$value": "320px",
+      "$description": "a popover: wide enough for a sentence and two controls"
+    },
+    "overlay-tip": {
+      "$value": "240px",
+      "$description": "a tooltip: a few words, never a paragraph"
+    },
+    "overlay-toast": {
+      "$value": "400px",
+      "$description": "the toast column at the top end"
+    },
+    "grabber": {
+      "$value": "36px",
+      "$description": "the grabber on a bottom sheet: wide enough to find with a thumb"
+    },
+    "fab": {
+      "$value": "56px",
+      "$description": "a floating action button: a step larger than an IconButton, at thumb reach"
+    },
+    "listbox-max": {
+      "$value": "320px",
+      "$description": "a popup list stops at about seven rows and scrolls, so it never covers the page"
+    },
+    "input-min": {
+      "$value": "96px",
+      "$description": "the text part of a field that holds chips never gets narrower than a short word"
+    },
+    "radio-card-min": {
+      "$value": "200px",
+      "$description": "a radio card is never narrower than a short title and a line of detail"
+    },
+    "star": {
+      "$value": "22px",
+      "$description": "a rating star: big enough to read the score at a glance"
     }
   },
   "radius": {
@@ -1443,6 +1491,10 @@
     },
     "wide": {
       "$value": "21 / 9"
+    },
+    "sheet-max": {
+      "$value": "85dvh",
+      "$description": "a bottom sheet stops short of the top so the screen behind still shows"
     }
   }
 }

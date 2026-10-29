@@ -14,7 +14,7 @@ export default async function (t) {
   });
   await go('/components/center/code');
   await check('Center', 'its content sits in the middle both ways', async () => {
-    const r = await main().locator('[data-component="Center"]').first().evaluate((e) => { const b = e.getBoundingClientRect(); const c = e.firstElementChild.getBoundingClientRect(); return [Math.abs((b.left + b.right) / 2 - (c.left + c.right) / 2), Math.abs((b.top + b.bottom) / 2 - (c.top + c.bottom) / 2)]; });
+    const r = await main().locator('[data-component="Center"]:has(> *)').first().evaluate((e) => { const b = e.getBoundingClientRect(); const c = e.firstElementChild.getBoundingClientRect(); return [Math.abs((b.left + b.right) / 2 - (c.left + c.right) / 2), Math.abs((b.top + b.bottom) / 2 - (c.top + c.bottom) / 2)]; });
     expect(r[0] < 1.5 && r[1] < 1.5, `off centre by ${r.map((x) => x.toFixed(1)).join(', ')}px`);
   });
   await go('/components/divider/code');

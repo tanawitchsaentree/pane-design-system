@@ -1,0 +1,9 @@
+/* Level 4 (D-025): the top of the stack, next to its trigger, with no scrim; it rises a short way from
+   its trigger and settles. */
+.popover { z-index: var(--ds-overlay-z-pop); display: flex; flex-direction: column; gap: var(--ds-gap-md); inline-size: max-content; max-inline-size: min(calc(100vw - var(--ds-overlay-margin) * 2), var(--ds-overlay-pop)); animation: pop var(--ds-motion-hover) var(--ds-motion-easing) both; transform-origin: var(--radix-popover-content-transform-origin); }
+.title { margin: 0; font-size: var(--ds-type-emphasis); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-primary); }
+.popover:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+@keyframes pop { from { opacity: 0; scale: var(--ds-motion-press-scale); } }
+@media (forced-colors: active) { .popover { border: var(--ds-width-hairline) solid CanvasText; } }
+.previewWrap { display: inline-flex; flex-direction: column; align-items: flex-start; gap: var(--ds-gap-md); max-inline-size: 100%; }
+.preview { animation: none; z-index: auto; inline-size: auto; max-inline-size: min(100%, var(--ds-overlay-pop)); }

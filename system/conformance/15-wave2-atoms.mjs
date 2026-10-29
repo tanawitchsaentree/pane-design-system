@@ -1,6 +1,20 @@
 // Wave 2 atoms. Run by tooling/kiln/conformance.mjs on the built book.
 export default async function (t) {
   const { check, expect, go, main, page } = t;
+  await go('/components/text/code');
+  await check('Text', 'sizes come from the type scale and secondary is the measured secondary tone', async () => {
+    // the scale is read from the type tokens themselves, so the check follows the tokens
+    const scale = await page.evaluate(() => ['micro', 'caption', 'label', 'body', 'reading'].map((k) => { const p = document.createElement('p'); p.style.fontSize = `var(--ds-type-${k})`; document.body.append(p); const v = getComputedStyle(p).fontSize; p.remove(); return v; }));
+    const sizes = await main().locator('[data-component="Text"]').evaluateAll((els) => [...new Set(els.map((e) => getComputedStyle(e).fontSize))]);
+    expect(sizes.every((s) => scale.includes(s)), `off-scale sizes: ${sizes.join(', ')} (scale ${scale.join(', ')})`);
+    const trunc = await main().locator('[data-component="Text"]').evaluateAll((els) => els.filter((e) => getComputedStyle(e).textOverflow === 'ellipsis').map((e) => !!e.title));
+    expect(trunc.length > 0 && trunc.every(Boolean), 'a truncated line without its full text in a title');
+  });
+  await go('/components/kbd/code');
+  await check('Kbd', 'renders a kbd element that is not focusable', async () => {
+    const r = await main().locator('[data-component="Kbd"]').evaluateAll((els) => els.map((e) => [e.tagName, e.tabIndex]));
+    expect(r.length > 0 && r.every(([t, ti]) => t === 'KBD' && ti < 0), 'a keycap that is not a kbd or takes focus');
+  });
   await go('/components/heading/code');
   await check('Heading', 'renders the h level it is given, whatever its size', async () => {
     const tags = await main().locator('[data-component="Heading"]').evaluateAll((els) => els.map((e) => e.tagName));

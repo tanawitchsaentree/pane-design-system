@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Wave 5: selection, three ways each</title>
+<style>
+  body { margin: 0; padding: 48px; background: #0B0B0D; color: #fff; font: 15px/1.5 system-ui, sans-serif; }
+  section { margin-block-end: 36px; } .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .pane { padding: 18px; border-radius: 22px; background: linear-gradient(180deg, #2a2b30, #1c1d21); box-shadow: inset 0 1px 0 #fff2; }
+  .well { padding: 6px; border-radius: 16px; background: #0000005a; box-shadow: inset 0 2px 4px #0008; } .r { padding: 10px 12px; border-radius: 10px; } .on { background: #ffffff1a; font-weight: 600; }
+  .sheet { padding: 6px; border-radius: 16px; background: #1c1c22; box-shadow: 0 12px 30px #0009; } figcaption { margin-top: 8px; color: #ffffffcc; font-size: 13px; }
+  .card { padding: 12px; border-radius: 14px; background: #ffffff10; margin-bottom: 6px; } .card.sel { background: linear-gradient(180deg,#ffffff2e,#ffffff14); }
+</style></head><body>
+<h1>Wave 5 derivations (Pane)</h1>
+<section><h2>Listbox / Combobox / Menu</h2><div class="row">
+ <figure><div class="pane"><div class="well"><div class="r on">✓ Lofoten</div><div class="r">Senja</div><div class="r">Vík</div></div></div><figcaption><b>Listbox A · rows in a recess with checks (picked)</b>; B native select multiple; C checkboxes</figcaption></figure>
+ <figure><div class="pane"><div class="well" style="padding:10px 14px">Lof|</div><div class="sheet" style="margin-top:6px"><div class="r on">Lofoten</div></div></div><figcaption><b>Combobox A · groove with a filtering sheet (picked)</b>; B datalist; C search inside the menu</figcaption></figure>
+ <figure><div class="pane"><div class="sheet"><div class="r on">Share</div><div class="r">Rename</div><div class="r" style="color:#ff8a80">Delete</div></div></div><figcaption><b>Menu A · Select’s sheet (picked)</b>; B white dropdown; C glass sheet</figcaption></figure></div></section>
+<section><h2>RadioCards / Rating / TagInput</h2><div class="row">
+ <figure><div class="pane"><div class="card sel">Standard ✓<br><small>3–5 days</small></div><div class="card">Express<br><small>Tomorrow</small></div></div><figcaption><b>RadioCards A · chosen glass with a check (picked)</b>; B coloured border; C radio dots</figcaption></figure>
+ <figure><div class="pane" style="font-size:24px">★★★★<span style="opacity:.55">☆</span></div><figcaption><b>Rating A · loud solid and outlines (picked)</b>; B gold stars; C a number</figcaption></figure>
+ <figure><div class="pane"><div class="well" style="padding:8px 12px"><span class="r on" style="padding:4px 10px;border-radius:99px">Norway ×</span> Fjords ×  typ|</div></div><figcaption><b>TagInput A · chips in a groove (picked)</b>; B comma text; C blue pills</figcaption></figure></div></section>
+</body></html>

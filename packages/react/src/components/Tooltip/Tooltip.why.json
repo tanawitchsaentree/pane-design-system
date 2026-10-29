@@ -1,0 +1,79 @@
+{
+  "concept": "A few words next to a control in a small level-4 pill, on hover, on focus and on a tap where there is no hover.",
+  "default_to_avoid": [
+    {
+      "pattern": "a black rectangle tooltip with an arrow, hover only (the browser title, Bootstrap tooltip)",
+      "kind": "tooltip, hint, title attribute",
+      "why_not": "hover-only tips never show on touch screens or for keyboards; a black box ignores the glass"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA APG · Tooltip",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "a small level-4 pill, the top of the stack, blurred like every pane"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "it opens on hover, on keyboard focus and on a tap, so every input method reaches it"
+    },
+    {
+      "p": "P2",
+      "axis": "type",
+      "consequence": "secondary text keeps the lowest opacity that still measured as passing; text halos count only where WCAG allows them",
+      "form": "a few words in the label size, wrapping before it becomes a paragraph"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave4/",
+    "section": "tooltip",
+    "options": [
+      "A glass pill on hover, focus and tap",
+      "B black box on hover",
+      "C info icon that opens a popover"
+    ],
+    "picked": "A glass pill on hover, focus and tap",
+    "by": "agent",
+    "reason": "A reaches every input (P6) and sits at the top of the stack. B is hover only. C turns a hint into a dialog."
+  },
+  "parts": {
+    "tip": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a level-4 pill of text next to its control, blurred like every pane"
+    },
+    "previewWrap": {
+      "p": "P3",
+      "axis": "space",
+      "why": "in a preview the tip sits above its control, the way it opens"
+    },
+    "preview": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "drawn in place for documentation, without its fade"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours outline the pill, the same in every theme and on every scene"
+    }
+  },
+  "motion": {
+    "@fade": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "it fades in at hover pace and never moves"
+    }
+  }
+}

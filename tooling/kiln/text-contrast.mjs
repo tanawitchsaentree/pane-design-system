@@ -110,7 +110,7 @@ export async function measurePageText(page, threshold = 4.5) {
     if (Math.abs(at - Math.min(y, height - vh)) > 1) throw new Error(`scroll landed at ${at}, wanted ${y}`);
     await page.waitForTimeout(50);
     const items = await collect();
-    await page.addStyleTag({ content: '[data-ev-doc] { color: transparent !important; forced-color-adjust: none !important; } * { text-decoration-line: none !important; }' }).then((h) => h.evaluate((s) => (s.id = 'ev-hide')));
+    await page.addStyleTag({ content: '[data-ev-doc] { color: transparent !important; forced-color-adjust: none !important; } * { text-decoration-line: none !important; text-overflow: clip !important; }' }).then((h) => h.evaluate((s) => (s.id = 'ev-hide')));
     await page.waitForTimeout(50);
     // one retry on a screenshot timeout (a loaded machine, not a page problem); a second failure throws
     const shot = () => page.screenshot({ timeout: 90000 });

@@ -1,0 +1,20 @@
+/* One line in a level-4 pill at the bottom centre (D-025), the message and one action; it rises a short
+   way, settles, and leaves by fading or a swipe down. */
+.viewport { position: fixed; z-index: var(--ds-overlay-z-pop); inset-block-end: 0; inset-inline: 0; display: flex; justify-content: center; padding: var(--ds-overlay-margin); margin: 0; list-style: none; outline: 0; pointer-events: none; }
+.bar { pointer-events: auto; display: flex; align-items: center; gap: var(--ds-gap-lg); max-inline-size: min(calc(100vw - var(--ds-overlay-margin) * 2), var(--ds-overlay-md)); min-block-size: var(--ds-overlay-row); padding-inline: var(--ds-gap-inset); border-radius: var(--ds-corner-round); background: var(--ds-overlay-toast-bg); box-shadow: var(--ds-overlay-toast-shadow); color: var(--ds-text-primary); font-family: var(--ds-type-family); -webkit-backdrop-filter: blur(var(--ds-overlay-blur)); backdrop-filter: blur(var(--ds-overlay-blur)); }
+.bar[data-state='open'] { animation: rise var(--ds-motion-enter) var(--ds-motion-easing) both; }
+.bar[data-state='closed'], .bar[data-swipe='end'] { animation: fade var(--ds-motion-press) var(--ds-motion-easing) both; }
+.bar[data-swipe='move'] { translate: 0 var(--radix-toast-swipe-move-y); }
+.message { flex: 1; min-inline-size: 0; margin: 0; font-size: var(--ds-type-body); line-height: var(--ds-type-leading-body); }
+.action { flex: none; min-block-size: var(--ds-layout-touch); padding-inline: var(--ds-gap-lg); border: 0; border-radius: var(--ds-corner-round); background: transparent; color: var(--ds-text-primary); font: inherit; font-weight: var(--ds-type-weight-semibold); cursor: pointer; }
+.action:hover { background: var(--ds-surface-quiet); }
+.action:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+@keyframes rise { from { opacity: 0; translate: 0 var(--ds-motion-rise); } }
+@keyframes fade { to { opacity: 0; } }
+@media (forced-colors: active) { .bar { border: var(--ds-width-hairline) solid CanvasText; } }
+.previewViewport { position: relative; inset: auto; z-index: auto; inline-size: 100%; padding: 0; }
+/* with an action, the round button sits close to the curve; a message alone keeps the full inset */
+.bar:has(> button) { padding-inline-end: var(--ds-gap-sm); }
+.viewport { pointer-events: none; }
+.viewport > * { pointer-events: auto; }
+.viewport:empty { padding: 0; }

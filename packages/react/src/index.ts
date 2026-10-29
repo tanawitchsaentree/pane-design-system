@@ -65,3 +65,28 @@ export * from './components/Kbd';
 export * from './components/Image';
 export * from './components/Spinner';
 export * from './components/Skeleton';
+
+// Wave 4 overlays (0.7.0): the stack's levels 3 and 4 (D-025) on Radix behaviour.
+
+export * from './components/Dialog';
+export * from './components/Sheet';
+export * from './components/Drawer';
+export * from './components/ActionSheet';
+export * from './components/Popover';
+export * from './components/Tooltip';
+export * from './components/Toast';
+export * from './components/Snackbar';
+export * from './components/FAB';
+export * from './components/PullToRefresh';
+
+// Wave 5 selection (0.7.0): Select’s sheet and Input’s groove, on the WAI-ARIA patterns.
+
+export * from './components/Listbox';
+export * from './components/Combobox';
+export * from './components/Autocomplete';
+export * from './components/MultiSelect';
+export * from './components/Menu';
+export * from './components/ContextMenu';
+export * from './components/RadioCards';
+export * from './components/Rating';
+export * from './components/TagInput';

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T10:35:47.024Z",
+  "generatedAt": "2026-10-29T13:46:58.684Z",
   "browser": "chromium 156.0.8078.4",
   "threshold": 4.5,
   "modes": [
@@ -2874,71 +2874,71 @@
   "docsPage": {
     "normal": {
       "dark/studio": {
-        "textElements": 4351,
-        "failures": 0,
-        "pages": 28
+        "textElements": 7734,
+        "failures": 1,
+        "pages": 41
       },
       "dark/aurora": {
-        "textElements": 4375,
-        "failures": 0,
-        "pages": 28
+        "textElements": 7766,
+        "failures": 6,
+        "pages": 41
       },
       "dark/room": {
-        "textElements": 4346,
-        "failures": 0,
-        "pages": 28
+        "textElements": 7787,
+        "failures": 2,
+        "pages": 41
       },
       "dark/forest": {
-        "textElements": 4346,
-        "failures": 0,
-        "pages": 28
+        "textElements": 7787,
+        "failures": 7,
+        "pages": 41
       },
       "dark/night": {
-        "textElements": 4346,
-        "failures": 0,
-        "pages": 28
+        "textElements": 7787,
+        "failures": 2,
+        "pages": 41
       },
       "dark/city": {
-        "textElements": 4346,
-        "failures": 0,
-        "pages": 28
+        "textElements": 7787,
+        "failures": 7,
+        "pages": 41
       },
       "light/studio": {
-        "textElements": 4351,
-        "failures": 0,
-        "pages": 28
+        "textElements": 7734,
+        "failures": 1,
+        "pages": 41
       },
       "light/aurora": {
-        "textElements": 4375,
-        "failures": 0,
-        "pages": 28
+        "textElements": 7766,
+        "failures": 2,
+        "pages": 41
       },
       "light/room": {
-        "textElements": 4346,
-        "failures": 0,
-        "pages": 28
+        "textElements": 7787,
+        "failures": 7,
+        "pages": 41
       },
       "light/forest": {
-        "textElements": 4346,
-        "failures": 0,
-        "pages": 28
+        "textElements": 7787,
+        "failures": 8,
+        "pages": 41
       },
       "light/night": {
-        "textElements": 4346,
-        "failures": 0,
-        "pages": 28
+        "textElements": 7787,
+        "failures": 7,
+        "pages": 41
       },
       "light/city": {
-        "textElements": 4346,
-        "failures": 0,
-        "pages": 28
+        "textElements": 7787,
+        "failures": 7,
+        "pages": 41
       }
     },
     "reduced-transparency": {
       "dark/studio": {
-        "textElements": 4351,
-        "failures": 0,
-        "pages": 28
+        "textElements": 7734,
+        "failures": 3,
+        "pages": 41
       },
       "dark/aurora": {
         "textElements": 0,
@@ -2966,9 +2966,9 @@
         "pages": 0
       },
       "light/studio": {
-        "textElements": 4351,
-        "failures": 0,
-        "pages": 28
+        "textElements": 7734,
+        "failures": 3,
+        "pages": 41
       },
       "light/aurora": {
         "textElements": 0,
@@ -2998,9 +2998,9 @@
     },
     "forced-colors": {
       "dark/studio": {
-        "textElements": 4349,
-        "failures": 0,
-        "pages": 28
+        "textElements": 7732,
+        "failures": 2,
+        "pages": 41
       },
       "dark/aurora": {
         "textElements": 0,
@@ -3028,9 +3028,9 @@
         "pages": 0
       },
       "light/studio": {
-        "textElements": 4349,
-        "failures": 0,
-        "pages": 28
+        "textElements": 7732,
+        "failures": 2,
+        "pages": 41
       },
       "light/aurora": {
         "textElements": 0,
@@ -3059,14 +3059,116 @@
       }
     }
   },
-  "failures": [],
-  "excepted": [],
+  "failures": [
+    "[normal] docs /components/pull-to-refresh/style dark/studio: \"Inbox\" 1",
+    "[normal] docs /components/pull-to-refresh/usage dark/aurora: \"Inbox\" 1.36",
+    "[normal] docs /components/pull-to-refresh/style dark/aurora: \"Inbox\" 1",
+    "[normal] docs /components/pull-to-refresh/style dark/aurora: \"Inbox\" 1.36",
+    "[normal] docs /components/pull-to-refresh/style dark/aurora: \"Inbox\" 1.37",
+    "[normal] docs /components/pull-to-refresh/code dark/aurora: \"Inbox\" 1.36",
+    "[normal] docs /components/pull-to-refresh/accessibility dark/aurora: \"Inbox\" 1.36",
+    "[normal] docs /components/pull-to-refresh/style dark/room: \"Inbox\" 1",
+    "[normal] docs /components/pull-to-refresh/style dark/room: \"Inbox\" 1",
+    "[normal] docs /components/pull-to-refresh/usage dark/forest: \"Inbox\" 3.22",
+    "[normal] docs /components/pull-to-refresh/style dark/forest: \"Inbox\" 1",
+    "[normal] docs /components/pull-to-refresh/style dark/forest: \"Inbox\" 1.2",
+    "[normal] docs /components/pull-to-refresh/style dark/forest: \"Inbox\" 2.59",
+    "[normal] docs /components/pull-to-refresh/style dark/forest: \"Inbox\" 3.22",
+    "[normal] docs /components/pull-to-refresh/code dark/forest: \"Inbox\" 3.22",
+    "[normal] docs /components/pull-to-refresh/accessibility dark/forest: \"Inbox\" 3.22",
+    "[normal] docs /components/pull-to-refresh/style dark/night: \"Inbox\" 1",
+    "[normal] docs /components/pull-to-refresh/style dark/night: \"Inbox\" 1.05",
+    "[normal] docs /components/pull-to-refresh/usage dark/city: \"Inbox\" 1.43",
+    "[normal] docs /components/pull-to-refresh/style dark/city: \"Inbox\" 1",
+    "[normal] docs /components/pull-to-refresh/style dark/city: \"Inbox\" 1.43",
+    "[normal] docs /components/pull-to-refresh/style dark/city: \"Inbox\" 1.61",
+    "[normal] docs /components/pull-to-refresh/style dark/city: \"Inbox\" 1.78",
+    "[normal] docs /components/pull-to-refresh/code dark/city: \"Inbox\" 1.43",
+    "[normal] docs /components/pull-to-refresh/accessibility dark/city: \"Inbox\" 1.43",
+    "[normal] docs /components/pull-to-refresh/style light/studio: \"Inbox\" 1",
+    "[normal] docs /components/pull-to-refresh/style light/aurora: \"Inbox\" 1",
+    "[normal] docs /components/pull-to-refresh/style light/aurora: \"Inbox\" 1.37",
+    "[normal] docs /components/action-sheet/usage light/room: \"Save to the shared family album\" 1.04",
+    "[normal] docs /components/pull-to-refresh/usage light/room: \"Inbox\" 1",
+    "[normal] docs /components/pull-to-refresh/style light/room: \"Inbox\" 1",
+    "[normal] docs /components/pull-to-refresh/style light/room: \"Inbox\" 1",
+    "[normal] docs /components/pull-to-refresh/style light/room: \"Inbox\" 1",
+    "[normal] docs /components/pull-to-refresh/code light/room: \"Inbox\" 1",
+    "[normal] docs /components/pull-to-refresh/accessibility light/room: \"Inbox\" 1",
+    "[normal] docs /components/action-sheet/usage light/forest: \"Save to the shared family album\" 1.02",
+    "[normal] docs /components/pull-to-refresh/usage light/forest: \"Inbox\" 1.03",
+    "[normal] docs /components/pull-to-refresh/style light/forest: \"Inbox\" 1",
+    "[normal] docs /components/pull-to-refresh/style light/forest: \"Inbox\" 1.03",
+    "[normal] docs /components/pull-to-refresh/style light/forest: \"Inbox\" 1.2",
+    "[normal] docs /components/pull-to-refresh/style light/forest: \"Inbox\" 2.59",
+    "[normal] docs /components/pull-to-refresh/code light/forest: \"Inbox\" 1.03",
+    "[normal] docs /components/pull-to-refresh/accessibility light/forest: \"Inbox\" 1.03",
+    "[normal] docs /components/action-sheet/usage light/night: \"Save to the shared family album\" 1",
+    "[normal] docs /components/pull-to-refresh/usage light/night: \"Inbox\" 1.04",
+    "[normal] docs /components/pull-to-refresh/style light/night: \"Inbox\" 1",
+    "[normal] docs /components/pull-to-refresh/style light/night: \"Inbox\" 1.04",
+    "[normal] docs /components/pull-to-refresh/style light/night: \"Inbox\" 1.05",
+    "[normal] docs /components/pull-to-refresh/code light/night: \"Inbox\" 1.04",
+    "[normal] docs /components/pull-to-refresh/accessibility light/night: \"Inbox\" 1.04",
+    "[normal] docs /components/pull-to-refresh/usage light/city: \"Inbox\" 1.46",
+    "[normal] docs /components/pull-to-refresh/style light/city: \"Inbox\" 1",
+    "[normal] docs /components/pull-to-refresh/style light/city: \"Inbox\" 1.46",
+    "[normal] docs /components/pull-to-refresh/style light/city: \"Inbox\" 1.61",
+    "[normal] docs /components/pull-to-refresh/style light/city: \"Inbox\" 1.78",
+    "[normal] docs /components/pull-to-refresh/code light/city: \"Inbox\" 1.46",
+    "[normal] docs /components/pull-to-refresh/accessibility light/city: \"Inbox\" 1.46",
+    "[reduced-transparency] docs /components/fab/style dark/studio: \"Feed\" 1.25",
+    "[reduced-transparency] docs /components/fab/style dark/studio: \"Feed\" 1.42",
+    "[reduced-transparency] docs /components/pull-to-refresh/style dark/studio: \"Inbox\" 1",
+    "[reduced-transparency] docs /components/fab/style light/studio: \"Feed\" 1.25",
+    "[reduced-transparency] docs /components/fab/style light/studio: \"Feed\" 1.42",
+    "[reduced-transparency] docs /components/pull-to-refresh/style light/studio: \"Inbox\" 1",
+    "[forced-colors] docs /components/action-sheet/usage dark/studio: \"Save to the shared family album\" 1.48",
+    "[forced-colors] docs /components/pull-to-refresh/style dark/studio: \"Inbox\" 1",
+    "[forced-colors] docs /components/action-sheet/usage light/studio: \"Save to the shared family album\" 1.48",
+    "[forced-colors] docs /components/pull-to-refresh/style light/studio: \"Inbox\" 1"
+  ],
+  "excepted": [
+    "[normal] docs /components/action-sheet/style dark/room: \"Delete photo\" 4.38",
+    "[normal] docs /components/action-sheet/style dark/forest: \"Delete photo\" 4.37",
+    "[normal] docs /components/action-sheet/style dark/night: \"Delete photo\" 4.29",
+    "[normal] docs /components/action-sheet/usage dark/city: \"Save to the shared family album\" 4.25",
+    "[normal] docs /components/action-sheet/usage light/room: \"Delete\" 4.35",
+    "[normal] docs /components/action-sheet/usage light/room: \"Delete photo\" 4.46",
+    "[normal] docs /components/action-sheet/usage light/room: \"Delete\" 4.46",
+    "[normal] docs /components/action-sheet/usage light/room: \"Leave group\" 4.46",
+    "[normal] docs /components/action-sheet/usage light/room: \"Leave group\" 4.46",
+    "[normal] docs /components/action-sheet/usage light/room: \"Erase all\" 4.47",
+    "[normal] docs /components/action-sheet/style light/room: \"Delete photo\" 4.38",
+    "[normal] docs /components/action-sheet/style light/room: \"Delete photo\" 4.46",
+    "[normal] docs /components/action-sheet/code light/room: \"Leave group\" 4.41",
+    "[normal] docs /components/action-sheet/code light/room: \"Delete photo\" 4.46",
+    "[normal] docs /components/action-sheet/code light/room: \"Delete photo\" 4.46",
+    "[normal] docs /components/action-sheet/accessibility light/room: \"Delete photo\" 4.46",
+    "[normal] docs /components/action-sheet/usage light/forest: \"Delete\" 4.4",
+    "[normal] docs /components/action-sheet/usage light/forest: \"Delete photo\" 4.42",
+    "[normal] docs /components/action-sheet/usage light/forest: \"Delete photo\" 4.45",
+    "[normal] docs /components/action-sheet/usage light/forest: \"Yes\" 4.45",
+    "[normal] docs /components/action-sheet/usage light/forest: \"Leave group\" 4.45",
+    "[normal] docs /components/action-sheet/usage light/forest: \"Leave group\" 4.45",
+    "[normal] docs /components/action-sheet/usage light/forest: \"Delete\" 4.49",
+    "[normal] docs /components/action-sheet/usage light/forest: \"Erase all\" 4.49",
+    "[normal] docs /components/action-sheet/style light/forest: \"Delete photo\" 4.37",
+    "[normal] docs /components/action-sheet/style light/forest: \"Delete photo\" 4.45",
+    "[normal] docs /components/action-sheet/code light/forest: \"Delete photo\" 4.45",
+    "[normal] docs /components/action-sheet/code light/forest: \"Leave group\" 4.45",
+    "[normal] docs /components/action-sheet/code light/forest: \"Delete photo\" 4.49",
+    "[normal] docs /components/action-sheet/accessibility light/forest: \"Delete photo\" 4.45",
+    "[normal] docs /components/action-sheet/usage light/night: \"Delete\" 4.29",
+    "[normal] docs /components/action-sheet/style light/night: \"Delete photo\" 4.29",
+    "[normal] docs /components/action-sheet/usage light/city: \"Save to the shared family album\" 4.24"
+  ],
   "exception": "E-001",
   "exceptionFloor": 3.8,
   "summary": {
-    "gatingChecks": 70916,
-    "gatingFailures": 0,
-    "excepted": 0,
+    "gatingChecks": 125524,
+    "gatingFailures": 67,
+    "excepted": 33,
     "informational": []
   }
 }

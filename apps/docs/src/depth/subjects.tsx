@@ -1,8 +1,8 @@
 // How to render each component for the Style tab and the header's live demo, given the enum props
 // a reader picks. Only the content is fixed here; which options exist comes from meta.json.
 import type { ReactNode } from 'react';
-import { AspectRatio, Avatar, Badge, Box, Heading, Icon, Image, Kbd, Link, Skeleton, Spinner, Text, Center, Divider, Flex, Mesh, Spacer, VisuallyHidden, Banner, Button, Card, Checkbox, Chip, Container, Environment, Fieldset, FormField, Grid, GridItem, HelperText, IconButton, Input, InputGroup, Label, PinInput, Radio, RadioGroup, Select, Slider, Stack, Switch, Tabs, Tag, Textarea } from 'pane-react';
-import { IconPin, IconShare } from '../icons';
+import { ActionSheet, AspectRatio, Autocomplete, Combobox, ContextMenu, Listbox, Menu, MultiSelect, RadioCards, Rating, TagInput, Avatar, Badge, Box, Dialog, Drawer, FAB, Popover, PullToRefresh, Sheet, Snackbar, Toast, Tooltip, Heading, Icon, Image, Kbd, Link, Skeleton, Spinner, Text, Center, Divider, Flex, Mesh, Spacer, VisuallyHidden, Banner, Button, Card, Checkbox, Chip, Container, Environment, Fieldset, FormField, Grid, GridItem, HelperText, IconButton, Input, InputGroup, Label, PinInput, Radio, RadioGroup, Select, Slider, Stack, Switch, Tabs, Tag, Textarea } from 'pane-react';
+import { IconPencil, IconPin, IconShare } from '../icons';
 
 type P = Record<string, string>;
 // bare: the subject is itself a surface (Card, Environment, layout) and must not sit on a second pane
@@ -44,11 +44,30 @@ export const SUBJECTS: Record<string, Subject> = {
   Text: { render: (p) => <Text {...p}>Six nights in Lofoten</Text>, code: (p) => `<Text${attrs(p)}>Six nights in Lofoten</Text>` },
   Heading: { render: (p) => <Heading level={3} {...p}>Packing list</Heading>, code: (p) => `<Heading level={3}${attrs(p)}>Packing list</Heading>` },
   Icon: { render: (p) => <Icon {...p}><IconPin /></Icon>, code: (p) => `<Icon${attrs(p)}><IconPin /></Icon>` },
-  Link: { render: (p) => <span>Read the <Link href="#guide" {...p}>shipping guide</Link></span>, code: (p) => `<Link href="/guide"${attrs(p)}>shipping guide</Link>` },
+  Link: { render: (p) => <Text>Read the <Link href="#guide" {...p}>shipping guide</Link></Text>, code: (p) => `<Link href="/guide"${attrs(p)}>shipping guide</Link>` },
   Spinner: { render: (p) => <Spinner {...p} />, code: (p) => `<Spinner${attrs(p)} />` },
   Skeleton: { render: (p) => <div className="demo-wide"><Skeleton {...p} /></div>, code: (p) => `<Skeleton${attrs(p)} />` },
   Kbd: { render: () => <Kbd>⌘</Kbd>, code: () => '<Kbd>⌘</Kbd>' },
   Image: { render: (p) => <Image src="/scenes/forest-sm.jpg" alt="Spruce forest in fog" className="demo-img" {...p} />, code: (p) => `<Image src="/photo.jpg" alt="…"${attrs(p)} />` },
+  Dialog: { bare: true, render: (p) => <Dialog preview title="Discard this draft?" description="Your changes will be lost." actions={<><Button variant="glass">Keep editing</Button><Button>Discard</Button></>} {...p} />, code: (p) => `<Dialog title="Discard this draft?"${attrs(p)} … />` },
+  Sheet: { bare: true, render: (p) => <Sheet preview title="Filters" {...p}><Switch label="Photos" defaultChecked /></Sheet>, code: (p) => `<Sheet title="Filters"${attrs(p)}>…</Sheet>` },
+  Drawer: { bare: true, render: (p) => <Drawer preview title="Filters" {...p}><Switch label="Only mine" /></Drawer>, code: (p) => `<Drawer title="Filters"${attrs(p)}>…</Drawer>` },
+  ActionSheet: { bare: true, render: () => <ActionSheet preview title="Photo" actions={[{ label: 'Share', onSelect: () => {} }, { label: 'Delete photo', tone: 'critical', onSelect: () => {} }]} />, code: () => '<ActionSheet title="Photo" actions={[…]} />' },
+  Popover: { bare: true, render: (p) => <Popover preview trigger={<Button variant="glass">Shipping</Button>} title="Shipping" {...p}><Text>Within a week.</Text></Popover>, code: (p) => `<Popover trigger={…} title="Shipping"${attrs(p)}>…</Popover>` },
+  Tooltip: { bare: true, render: (p) => <Tooltip preview content="Share" {...p}><IconButton aria-label="Share" variant="glass"><IconShare /></IconButton></Tooltip>, code: (p) => `<Tooltip content="Share"${attrs(p)}>…</Tooltip>` },
+  Toast: { bare: true, render: (p) => <Toast preview open onOpenChange={() => {}} title="Print ordered" {...p} />, code: (p) => `<Toast title="Print ordered"${attrs(p)} … />` },
+  Snackbar: { bare: true, render: () => <Snackbar preview open onOpenChange={() => {}} message="Message archived" />, code: () => '<Snackbar message="Message archived" … />' },
+  FAB: { bare: true, render: (p) => <div className="demo-phone"><FAB icon={<IconPencil />} label="New post" position="contained" {...p} /></div>, code: (p) => `<FAB icon={…} label="New post"${attrs(p)} />` },
+  PullToRefresh: { render: () => <PullToRefresh className="demo-ptr" onRefresh={() => {}}><Text>Inbox</Text></PullToRefresh>, code: () => '<PullToRefresh onRefresh={load}>…</PullToRefresh>' },
+  Listbox: { bare: true, render: () => <div className="demo-wide"><Listbox label="Paper" defaultValue="matte" options={[{ value: 'matte', label: 'Matte' }, { value: 'gloss', label: 'Gloss' }]} /></div>, code: () => '<Listbox label="Paper" options={…} />' },
+  Combobox: { bare: true, render: () => <div className="demo-wide"><Combobox label="Destination" options={[{ value: 'lofoten', label: 'Lofoten' }]} /></div>, code: () => '<Combobox label="Destination" options={…} />' },
+  Autocomplete: { bare: true, render: () => <div className="demo-wide"><Autocomplete label="Camera" suggestions={['Leica Q2']} /></div>, code: () => '<Autocomplete label="Camera" suggestions={…} />' },
+  MultiSelect: { bare: true, render: () => <div className="demo-wide"><MultiSelect label="Places" defaultValue={['lofoten']} options={[{ value: 'lofoten', label: 'Lofoten' }, { value: 'senja', label: 'Senja' }]} /></div>, code: () => '<MultiSelect label="Places" options={…} />' },
+  Menu: { render: (p) => <Menu label="Photo" trigger={<Button variant="glass">Photo</Button>} items={[{ label: 'Share', onSelect: () => {} }]} {...p} />, code: (p) => `<Menu label="Photo" trigger={…} items={…}${attrs(p)} />` },
+  ContextMenu: { render: () => <ContextMenu label="Row" items={[{ label: 'Copy', onSelect: () => {} }]}><div tabIndex={0} className="demo-row-target">Right click</div></ContextMenu>, code: () => '<ContextMenu label="Row" items={…}>…</ContextMenu>' },
+  RadioCards: { bare: true, render: (p) => <div className="demo-wide"><RadioCards label="Delivery" defaultValue="s" options={[{ value: 's', title: 'Standard', description: 'Free' }, { value: 'e', title: 'Express', description: '90 NOK' }]} {...p} /></div>, code: (p) => `<RadioCards label="Delivery" options={…}${attrs(p)} />` },
+  Rating: { render: () => <Rating label="Rate this print" defaultValue={4} />, code: () => '<Rating label="Rate this print" defaultValue={4} />' },
+  TagInput: { bare: true, render: () => <div className="demo-wide"><TagInput label="Tags" defaultValue={['fjords']} /></div>, code: () => '<TagInput label="Tags" />' },
   Mesh: { bare: true, render: (p) => <Mesh {...p} className="mesh-demo-tile" />, code: (p) => `<Mesh${attrs(p)} />` },
   Tabs: { render: () => <Tabs.Root defaultValue="a"><Tabs.List aria-label="Demo sections"><Tabs.Trigger value="a">Posts</Tabs.Trigger><Tabs.Trigger value="b">Media</Tabs.Trigger></Tabs.List><Tabs.Content value="a">Posts</Tabs.Content><Tabs.Content value="b">Media</Tabs.Content></Tabs.Root>, code: () => '<Tabs.Root defaultValue="a">\n  <Tabs.List aria-label="Demo sections">\n    <Tabs.Trigger value="a">Posts</Tabs.Trigger>\n    <Tabs.Trigger value="b">Media</Tabs.Trigger>\n  </Tabs.List>\n</Tabs.Root>' },
   Select: { disabled: true, render: (p, d) => <Select label="Plan" options={[{ value: 'free', label: 'Free' }, { value: 'pro', label: 'Pro' }]} defaultValue="pro" {...p} disabled={d} />, code: (p) => `<Select label="Plan" defaultValue="pro"${attrs(p)}\n  options={[{ value: 'free', label: 'Free' }, { value: 'pro', label: 'Pro' }]} />` },

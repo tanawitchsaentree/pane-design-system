@@ -1644,14 +1644,14 @@
       }
     },
     "padding": {
-      "$value": "{gap.sm}",
+      "$value": "{gap.md}",
       "$type": "dimension",
       "$extensions": {
         "kiln.why": {
           "p": [
             "P3"
           ],
-          "why": "room either side of a wide key such as Shift"
+          "why": "room either side of the key, so even a single character clears the cap’s edge by 8px"
         }
       }
     },
@@ -1738,6 +1738,597 @@
             "P4"
           ],
           "why": "an image fades in from this point as it loads, so it arrives rather than pops"
+        }
+      }
+    }
+  },
+  "fab": {
+    "size": {
+      "$value": "{control.fab}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6",
+            "P5"
+          ],
+          "why": "a step bigger than an IconButton so the one main action is easy to hit with a thumb"
+        }
+      }
+    },
+    "top": {
+      "$value": "{action.loud-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "the loud solid lit at its top, the same bead as a loud IconButton"
+        }
+      }
+    },
+    "foot": {
+      "$value": "{action.loud-foot}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "and the loud solid toward its foot, so every overlay reads as one family"
+        }
+      }
+    },
+    "fg": {
+      "$value": "{text.on-accent}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "the glyph on the loud solid, ink in dark and white in light"
+        }
+      }
+    },
+    "glow": {
+      "$value": "{glow.strong}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "in dark it shines with its own light, the one strong glow on the screen"
+        }
+      }
+    },
+    "inset": {
+      "$value": "{gap.inset}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "floats 22px from the bottom end, at thumb reach and clear of the edge gestures"
+        }
+      }
+    }
+  },
+  "overlay": {
+    "gap": {
+      "$value": "{gap.lg}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the gap between the title, the body and the actions of an overlay"
+        }
+      }
+    },
+    "margin": {
+      "$value": "{gap.2xl}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "an overlay always keeps 16px from the screen edge so it reads as a pane, not the page"
+        }
+      }
+    },
+    "row": {
+      "$value": "{control.lg}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "an action row in an action sheet is a full 44px target"
+        }
+      }
+    },
+    "blur": {
+      "$value": "{glass.blur}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "overlays blur what is under them like every pane, so they read as glass"
+        }
+      }
+    },
+    "scrim": {
+      "$value": "{level.scrim}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P3"
+          ],
+          "why": "the scrim dims the scene under a level-3 overlay so the overlay reads as above everything"
+        }
+      }
+    },
+    "grabber-color": {
+      "$value": "{line.ring}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the grabber is a quiet bar, visible but never the loudest thing on the sheet"
+        }
+      }
+    },
+    "tip-bg": {
+      "$value": "{level.4}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a tooltip is the top of the stack, level 4, the same body as a popover"
+        }
+      }
+    },
+    "tip-shadow": {
+      "$value": "{level-shadow.4}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "and the level-4 shadow, so it floats over everything"
+        }
+      }
+    },
+    "toast-bg": {
+      "$value": "{level.4}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a toast floats at level 4 over whatever is on screen"
+        }
+      }
+    },
+    "toast-shadow": {
+      "$value": "{level-shadow.4}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "with the level-4 shadow, the longest one, so every overlay reads as one family"
+        }
+      }
+    },
+    "z": {
+      "$value": "{layer.overlay}",
+      "$type": "number",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "dialogs and sheets sit above the page and its sticky header"
+        }
+      }
+    },
+    "z-pop": {
+      "$value": "{layer.toast}",
+      "$type": "number",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "popovers, tooltips and toasts sit above dialogs, the top of the stack"
+        }
+      }
+    },
+    "z-fab": {
+      "$value": "{layer.sticky}",
+      "$type": "number",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a floating action sits over the content but under every overlay"
+        }
+      }
+    }
+  },
+  "listbox": {
+    "gap": {
+      "$value": "{gap.sm}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "label and field sit close, the same gap as every field in Pane"
+        }
+      }
+    },
+    "inset": {
+      "$value": "{gap.sm}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the rows sit this far inside the sheet, and their corners nest the sheet’s by this much"
+        }
+      }
+    },
+    "radius": {
+      "$value": "{corner.inner}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the sheet has the inner corner; its rows nest it"
+        }
+      }
+    },
+    "row": {
+      "$value": "{control.lg}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "every option row is a 44px target, easy to hit on a phone"
+        }
+      }
+    },
+    "sheet": {
+      "$value": "{surface.raised}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P7"
+          ],
+          "why": "the popup list is an opaque sheet so its options read on any scene"
+        }
+      }
+    },
+    "ring": {
+      "$value": "{line.divider}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a quiet edge round the sheet so it stands off the page"
+        }
+      }
+    },
+    "shadow": {
+      "$value": "{elevation.float}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the sheet floats over the page on the float shadow"
+        }
+      }
+    },
+    "highlight": {
+      "$value": "{surface.quiet}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the highlighted row is a lighter pane inside the sheet"
+        }
+      }
+    },
+    "lens": {
+      "$value": "{elevation.lens}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "lit on its top edge like a lens, the one light from above"
+        }
+      }
+    },
+    "well": {
+      "$value": "{surface.carve}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "fields and the on-page list are recesses carved into the glass"
+        }
+      }
+    },
+    "groove": {
+      "$value": "{elevation.groove}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3",
+            "P6"
+          ],
+          "why": "the field’s groove with its 3:1 edge, the same as Input"
+        }
+      }
+    },
+    "field": {
+      "$value": "{control.lg}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a field is at least 44px tall and grows as chips wrap"
+        }
+      }
+    },
+    "field-radius": {
+      "$value": "{corner.media}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a field that may wrap to several lines takes the media corner, not a full pill"
+        }
+      }
+    },
+    "padding": {
+      "$value": "{gap.lg}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "text and chips keep the field’s inset from its edge"
+        }
+      }
+    },
+    "input-min": {
+      "$value": "{control.input-min}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P2"
+          ],
+          "why": "the typing space never shrinks below a short word"
+        }
+      }
+    },
+    "max": {
+      "$value": "{control.listbox-max}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a popup list stops at about seven rows"
+        }
+      }
+    },
+    "menu-min": {
+      "$value": "{control.menu-min}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a menu is at least wide enough for a short label and a shortcut"
+        }
+      }
+    }
+  },
+  "radio-cards": {
+    "min": {
+      "$value": "{control.radio-card-min}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "cards wrap to a new row before they get narrower than their title"
+        }
+      }
+    },
+    "bg": {
+      "$value": "{level.2}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a radio card is a surface inside a pane, level 2"
+        }
+      }
+    },
+    "hover": {
+      "$value": "{surface.quiet}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P4"
+          ],
+          "why": "a card lightens a little under the pointer at hover pace"
+        }
+      }
+    },
+    "edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "each card has the faint edge all round of every slab"
+        }
+      }
+    },
+    "on-top": {
+      "$value": "{surface.chosen-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the chosen card is chosen glass, lit at its top"
+        }
+      }
+    },
+    "on-foot": {
+      "$value": "{surface.chosen-foot}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "and toward its foot, like a chosen tab"
+        }
+      }
+    },
+    "on-edge": {
+      "$value": "{elevation.chosen-cast}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the chosen card lifts on the chosen cast, so it reads as picked up"
+        }
+      }
+    },
+    "mark": {
+      "$value": "{action.loud-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5",
+            "P6"
+          ],
+          "why": "the check mark is the loud solid, a shape that says chosen without a hue"
+        }
+      }
+    },
+    "mark-fg": {
+      "$value": "{text.on-accent}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "the check on the loud solid, ink in dark and white in light"
+        }
+      }
+    }
+  },
+  "rating": {
+    "star": {
+      "$value": "{control.star}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "one star size for every rating, readable at a glance in a row"
+        }
+      }
+    },
+    "on": {
+      "$value": "{action.loud-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5",
+            "P1"
+          ],
+          "why": "chosen stars are the loud solid, so the score reads without a gold hue"
+        }
+      }
+    },
+    "off": {
+      "$value": "{line.edge}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "empty stars are an outline at the 3:1 edge opacity, still countable"
         }
       }
     }

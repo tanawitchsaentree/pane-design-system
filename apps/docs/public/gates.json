@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T10:30:25.782Z",
+  "generatedAt": "2026-10-29T13:38:57.332Z",
   "passed": 49,
   "total": 49,
   "partial": false,
@@ -9,14 +9,14 @@
       "id": "G-P0",
       "name": "every page renders: a <main>, a heading and no uncaught error",
       "ok": true,
-      "detail": "36 pages",
+      "detail": "41 pages",
       "order": 0
     },
     {
       "id": "G-D3",
       "name": "no literal backtick in rendered text",
       "ok": true,
-      "detail": "36 pages",
+      "detail": "41 pages",
       "order": 1
     },
     {
@@ -78,13 +78,15 @@
       "id": "G-C1",
       "name": "every code block has a Copy button you can see",
       "ok": true,
-      "detail": "98 code blocks",
+      "detail": "108 code blocks",
       "order": 11
     },
     {
       "id": "G-C2",
       "name": "Copy puts the whole snippet on the clipboard, including hidden lines",
       "ok": true,
+      "skipped": true,
+      "detail": "skipped: nothing it checks is in the limited routes",
       "order": 12
     },
     {
@@ -141,7 +143,7 @@
       "id": "G-K6",
       "name": "usage depth ≥ 0.5 × the Carbon page for the same component (words and sections)",
       "ok": true,
-      "detail": "Box 461w/26s (no benchmark) · Flex 445w/30s (no benchmark) · Center 346w/26s (no benchmark) · Spacer 396w/24s (no benchmark) · Divider 451w/26s (no benchmark) · AspectRatio 359w/26s (no benchmark) · VisuallyHidden 355w/26s (no benchmark) · Button 3002/5260w 43/36s · Slider 1444/1592w 32/22s",
+      "detail": "Dialog 1341/2654w 41/34s · Sheet 502w/39s (no benchmark) · Drawer 342w/31s (no benchmark) · ActionSheet 397w/41s (no benchmark) · Popover 776/1521w 28/35s · Tooltip 662/1266w 28/21s · Toast 447w/31s (no benchmark) · Snackbar 265w/28s (no benchmark) · FAB 351w/29s (no benchmark) · PullToRefresh 336w/28s (no benchmark)",
       "order": 21
     },
     {
@@ -221,7 +223,7 @@
       "id": "G-TODO1",
       "name": "no starter placeholder is left on any page: no TODO( and no seed reason",
       "ok": true,
-      "detail": "36 pages clean",
+      "detail": "41 pages clean",
       "order": 33
     },
     {
@@ -235,7 +237,7 @@
       "id": "G-NT2",
       "name": "every form control shows its boundary at least 3:1 against what it sits on, in every theme (WCAG 1.4.11)",
       "ok": true,
-      "detail": "20 controls in 2 themes",
+      "detail": "12 controls in 2 themes",
       "order": 35
     },
     {
@@ -250,21 +252,22 @@
       "id": "G-GL1",
       "name": "glow is declared and measured: in dark only [data-glow] parts give off light, each visibly (near ring vs ground) and within reach; text never glows; in light nothing glows",
       "ok": true,
-      "detail": "18 glowing parts in 2 themes (soft 1.22–1.28:1, strong 1.49–1.55:1, mark 1.21–1.21:1)",
+      "detail": "16 glowing parts in 2 themes (soft 1.30–1.32:1, strong 1.37–1.43:1)",
       "order": 37
     },
     {
       "id": "G-SL1",
       "name": "a slider has room to travel and holds still: at least 200px long, and neither it nor its pane changes size between its lowest and highest value",
       "ok": true,
-      "detail": "21 sliders",
+      "skipped": true,
+      "detail": "skipped: nothing it checks is in the limited routes",
       "order": 38
     },
     {
       "id": "G-S6",
       "name": "nothing in the page column spills out of it: no element crosses into the rail or the margin beside main (folds open)",
       "ok": true,
-      "detail": "36 pages",
+      "detail": "41 pages",
       "order": 39
     },
     {
@@ -278,7 +281,7 @@
       "id": "G-IN1",
       "name": "text inside a control keeps its inset from the control's edge: at least 8px, and half the corner radius on a rounded end",
       "ok": true,
-      "detail": "43 lines of text in controls",
+      "detail": "36 lines of text in controls",
       "order": 41
     },
     {
@@ -292,28 +295,28 @@
       "id": "G-RH1",
       "name": "separate steps stand apart: a demo stage and a tab bar sit at least 24px from the blocks around them; a stage's own code, caption or heading may sit 8px off and its intro 16px",
       "ok": true,
-      "detail": "474 gaps",
+      "detail": "552 gaps",
       "order": 43
     },
     {
       "id": "G-NAV1",
       "name": "every page in routes.json is reachable from the book nav at 375 and 1280px",
       "ok": true,
-      "detail": "76 pages",
+      "detail": "94 pages",
       "order": 44
     },
     {
       "id": "G-SM1",
       "name": "following an in-page link (table of contents, heading anchor) lands with its heading clear of the sticky header",
       "ok": true,
-      "detail": "18 links followed",
+      "detail": "22 links followed",
       "order": 45
     },
     {
       "id": "G-TT1",
       "name": "every control in a live example and in the shell gives a pointer at least 44px each way",
       "ok": true,
-      "detail": "578 controls",
+      "detail": "727 controls",
       "order": 46
     },
     {

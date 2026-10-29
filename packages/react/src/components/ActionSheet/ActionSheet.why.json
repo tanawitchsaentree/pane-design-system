@@ -1,0 +1,149 @@
+{
+  "concept": "A short list of actions that rises from the bottom, with Cancel set apart, so the way out is always in the same place on a phone.",
+  "default_to_avoid": [
+    {
+      "pattern": "a dropdown menu opened from a three-dot button on a phone, used instead of an action sheet",
+      "kind": "action sheet, bottom menu, share sheet",
+      "why_not": "a desktop menu is a small target far from the thumb; it puts a destructive action next to the others"
+    }
+  ],
+  "references": [
+    {
+      "title": "Apple HIG · Action sheets",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/action-sheets"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "two level-3 panes at the bottom edge: the actions, and Cancel apart under them"
+    },
+    {
+      "p": "P5",
+      "axis": "colour",
+      "consequence": "one solid fill exists, the loud solid (white in dark, ink in light); a promoted action is the same solid glowing with its own light, and a pane uses one of them",
+      "form": "the critical action alone takes the critical mark colour and sits last"
+    },
+    {
+      "p": "P6",
+      "axis": "space",
+      "consequence": "every target is at least 44px in its smaller dimension or has a 44px hit area",
+      "form": "every action row is a full 44px target at thumb reach"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave4/",
+    "section": "actionsheet",
+    "options": [
+      "A grouped list with Cancel apart",
+      "B one list with Cancel inside",
+      "C a menu at the trigger"
+    ],
+    "picked": "A grouped list with Cancel apart",
+    "by": "agent",
+    "reason": "A keeps the way out in one place and away from the critical action (P5). B puts Cancel next to Delete. C is a desktop menu far from the thumb."
+  },
+  "parts": {
+    "scrim": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the scrim dims the screen under the sheet"
+    },
+    "wrap": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the two panes at the bottom edge, one measure wide, with the overlay margin"
+    },
+    "group": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the pane holding the title and the actions"
+    },
+    "head": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the title and its sentence, centred above the actions"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "a short title in secondary text naming what the actions apply to"
+    },
+    "description": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the consequence of the critical action, in secondary text"
+    },
+    "list": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the actions one under another, each separated by a hairline"
+    },
+    "action": {
+      "p": "P6",
+      "axis": "space",
+      "why": "one action per 44px row, the label centred"
+    },
+    "cancel": {
+      "p": "P6",
+      "axis": "space",
+      "why": "Cancel in its own pane under the actions, always in the same place"
+    },
+    "critical": {
+      "p": "P5",
+      "axis": "colour",
+      "why": "the action that destroys something, in the critical mark colour"
+    },
+    "icon": {
+      "p": "P2",
+      "axis": "type",
+      "why": "an icon at the icon size before the label"
+    },
+    "cancelPane": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the separate level-3 pane that holds Cancel, the same in every theme and on every scene"
+    },
+    "preview": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "drawn in place for documentation: open, not modal, full width of its parent"
+    }
+  },
+  "states": {
+    "hover": {
+      "p": "P4",
+      "axis": "colour",
+      "why": "a row lightens under the pointer at press pace"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring inside the row, the same in every theme and on every scene"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours outline both panes, the same in every theme and on every scene"
+    }
+  },
+  "motion": {
+    "@fade": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the scrim fades in, zero under reduced motion"
+    },
+    "@from-bottom": {
+      "p": "P3",
+      "axis": "motion",
+      "why": "the panes rise from the bottom edge and settle"
+    },
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the row tint eases at press pace, the same in every theme and on every scene"
+    }
+  }
+}

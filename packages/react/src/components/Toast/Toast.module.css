@@ -1,0 +1,27 @@
+/* A level-4 pane at the top end (D-025): a status mark, the message, one action and a close. It rises in,
+   settles and leaves by fading; swiping it to the end dismisses it. */
+.viewport { position: fixed; z-index: var(--ds-overlay-z-pop); inset-block-start: 0; inset-inline-end: 0; display: flex; flex-direction: column; gap: var(--ds-gap-md); inline-size: min(100vw, var(--ds-overlay-toast)); padding: var(--ds-overlay-margin); margin: 0; list-style: none; outline: 0; }
+.toast { display: flex; align-items: flex-start; gap: var(--ds-gap-lg); padding: var(--ds-gap-xl); border-radius: var(--ds-corner-inner); background: var(--ds-overlay-toast-bg); box-shadow: var(--ds-overlay-toast-shadow); color: var(--ds-text-primary); font-family: var(--ds-type-family); -webkit-backdrop-filter: blur(var(--ds-overlay-blur)); backdrop-filter: blur(var(--ds-overlay-blur)); }
+.toast[data-state='open'] { animation: rise var(--ds-motion-enter) var(--ds-motion-easing) both; }
+.toast[data-state='closed'] { animation: fade var(--ds-motion-press) var(--ds-motion-easing) both; }
+.toast[data-swipe='move'] { translate: var(--radix-toast-swipe-move-x) 0; }
+.toast[data-swipe='end'] { animation: fade var(--ds-motion-press) var(--ds-motion-easing) both; }
+.mark { flex: none; inline-size: var(--ds-control-dot); block-size: var(--ds-control-dot); margin-block-start: calc((var(--ds-type-leading-body) * var(--ds-type-body) - var(--ds-control-dot)) / 2); border-radius: var(--ds-corner-round); }
+.info { background: var(--ds-text-secondary); }
+.positive { background: var(--ds-status-positive-mark); }
+.critical { background: var(--ds-status-critical-mark); }
+.text { flex: 1; min-inline-size: 0; display: flex; flex-direction: column; gap: var(--ds-gap-xs); }
+.title { margin: 0; font-size: var(--ds-type-body); font-weight: var(--ds-type-weight-semibold); line-height: var(--ds-type-leading-body); }
+.description { margin: 0; font-size: var(--ds-type-label); line-height: var(--ds-type-leading-body); color: var(--ds-text-secondary); }
+.action, .close { flex: none; display: inline-grid; place-items: center; min-block-size: var(--ds-layout-touch); min-inline-size: var(--ds-layout-touch); margin-block: calc((var(--ds-layout-touch) - var(--ds-type-leading-body) * var(--ds-type-body)) / -2); padding-inline: var(--ds-gap-lg); border: 0; border-radius: var(--ds-corner-round); background: transparent; color: var(--ds-text-primary); font: inherit; font-weight: var(--ds-type-weight-semibold); cursor: pointer; }
+.action:hover, .close:hover { background: var(--ds-surface-quiet); }
+.close { padding: 0; }
+.close svg { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; }
+.action:focus-visible, .close:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+@keyframes rise { from { opacity: 0; translate: 0 calc(var(--ds-motion-rise) * -1); } }
+@keyframes fade { to { opacity: 0; } }
+@media (forced-colors: active) { .toast { border: var(--ds-width-hairline) solid CanvasText; } .mark { background: CanvasText; } }
+.previewViewport { position: relative; inset: auto; z-index: auto; inline-size: 100%; padding: 0; }
+.viewport { pointer-events: none; }
+.viewport > * { pointer-events: auto; }
+.viewport:empty { padding: 0; }

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-29T10:35:46.658Z",
-  "passed": 124,
-  "total": 132,
+  "generatedAt": "2026-10-29T13:46:58.292Z",
+  "passed": 178,
+  "total": 186,
   "checks": [
     {
       "component": "Container",
@@ -62,6 +62,114 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "1 props"
+    },
+    {
+      "component": "Text",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "5 props"
+    },
+    {
+      "component": "Heading",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "2 props"
+    },
+    {
+      "component": "Icon",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "Link",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "2 props"
+    },
+    {
+      "component": "Spinner",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "2 props"
+    },
+    {
+      "component": "Skeleton",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "2 props"
+    },
+    {
+      "component": "Kbd",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "no props of its own (pass-through only)"
+    },
+    {
+      "component": "Image",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "Dialog",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "11 props"
+    },
+    {
+      "component": "Sheet",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": false,
+      "detail": "no JSDoc: open, defaultOpen, onOpenChange, className"
+    },
+    {
+      "component": "Drawer",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": false,
+      "detail": "no JSDoc: open, defaultOpen, onOpenChange, className"
+    },
+    {
+      "component": "ActionSheet",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": false,
+      "detail": "no JSDoc: trigger, open, defaultOpen, onOpenChange"
+    },
+    {
+      "component": "Popover",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": false,
+      "detail": "no JSDoc: open, defaultOpen, onOpenChange, className"
+    },
+    {
+      "component": "Tooltip",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props"
+    },
+    {
+      "component": "Toast",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": false,
+      "detail": "no JSDoc: onOpenChange"
+    },
+    {
+      "component": "Snackbar",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": false,
+      "detail": "no JSDoc: open, onOpenChange, className"
+    },
+    {
+      "component": "FAB",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props"
+    },
+    {
+      "component": "PullToRefresh",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "2 props"
     },
     {
       "component": "Environment",
@@ -228,14 +336,14 @@
     {
       "component": "Box",
       "name": "demo floor met (≥ variant dimensions + 3 = 8)",
-      "ok": false,
-      "detail": "5 demos across the tabs"
+      "ok": true,
+      "detail": "8 demos"
     },
     {
       "component": "Flex",
       "name": "demo floor met (≥ variant dimensions + 3 = 7)",
-      "ok": false,
-      "detail": "4 demos across the tabs"
+      "ok": true,
+      "detail": "7 demos"
     },
     {
       "component": "Center",
@@ -252,17 +360,125 @@
     {
       "component": "Divider",
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": false,
-      "detail": "3 demos across the tabs"
+      "ok": true,
+      "detail": "4 demos"
     },
     {
       "component": "AspectRatio",
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": false,
-      "detail": "3 demos across the tabs"
+      "ok": true,
+      "detail": "4 demos"
     },
     {
       "component": "VisuallyHidden",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Text",
+      "name": "demo floor met (≥ variant dimensions + 3 = 7)",
+      "ok": true,
+      "detail": "7 demos"
+    },
+    {
+      "component": "Heading",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Icon",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Link",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Spinner",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Skeleton",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Kbd",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Image",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "Dialog",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Sheet",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Drawer",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "ActionSheet",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Popover",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "Tooltip",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Toast",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Snackbar",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "FAB",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "PullToRefresh",
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos"
@@ -494,7 +710,7 @@
       "component": "IconButton",
       "name": "every button with no visible text, on every page of the book, has an accessible name",
       "ok": true,
-      "detail": "178 pages"
+      "detail": "286 pages"
     },
     {
       "component": "Tabs",
@@ -523,9 +739,8 @@
     },
     {
       "component": "Docs page",
-      "name": "G-D3, no literal backtick in rendered text on any of the 178 pages",
-      "ok": false,
-      "detail": "page.evaluate: TypeError: Failed to execute 'createTreeWalker' on 'Document': parameter 1 is not of type 'Node'."
+      "name": "G-D3, no literal backtick in rendered text on any of the 286 pages",
+      "ok": true
     },
     {
       "component": "Grid",
@@ -713,6 +928,21 @@
       "ok": true
     },
     {
+      "component": "Box",
+      "name": "padding and corner come from the scales and it draws no surface",
+      "ok": true
+    },
+    {
+      "component": "Flex",
+      "name": "spacing is a gap from the scale, never a margin on the children",
+      "ok": true
+    },
+    {
+      "component": "Center",
+      "name": "its content sits in the middle both ways",
+      "ok": true
+    },
+    {
       "component": "Divider",
       "name": "a separator by default, no role when decorative, never focusable",
       "ok": true
@@ -733,22 +963,96 @@
       "ok": true
     },
     {
-      "component": "Box",
-      "name": "has behaviour checks in system/conformance/",
+      "component": "Text",
+      "name": "sizes come from the type scale and secondary is the measured secondary tone",
       "ok": false,
-      "detail": "no check names \"Box\", so its keys, roles and measured values are untested"
+      "detail": "off-scale sizes: 17px, 16px, 15px, 13px"
     },
     {
-      "component": "Flex",
-      "name": "has behaviour checks in system/conformance/",
-      "ok": false,
-      "detail": "no check names \"Flex\", so its keys, roles and measured values are untested"
+      "component": "Kbd",
+      "name": "renders a kbd element that is not focusable",
+      "ok": true
     },
     {
-      "component": "Center",
-      "name": "has behaviour checks in system/conformance/",
+      "component": "Heading",
+      "name": "renders the h level it is given, whatever its size",
+      "ok": true
+    },
+    {
+      "component": "Link",
+      "name": "reachable with Tab, underlined inline, external says it opens a new tab",
+      "ok": true
+    },
+    {
+      "component": "Spinner",
+      "name": "a status with a label",
+      "ok": true
+    },
+    {
+      "component": "Skeleton",
+      "name": "hidden from assistive technology",
+      "ok": true
+    },
+    {
+      "component": "Image",
+      "name": "every image has alt, loads lazily, and a failed one stays a recess",
+      "ok": true
+    },
+    {
+      "component": "Icon",
+      "name": "decorative by default, an img with its label when named",
+      "ok": true
+    },
+    {
+      "component": "Dialog",
+      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
+      "ok": true
+    },
+    {
+      "component": "Sheet",
+      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
+      "ok": true
+    },
+    {
+      "component": "Drawer",
+      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
+      "ok": true
+    },
+    {
+      "component": "ActionSheet",
+      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
+      "ok": true
+    },
+    {
+      "component": "Popover",
+      "name": "opens on Enter, closes on Esc with focus back on the trigger",
       "ok": false,
-      "detail": "no check names \"Center\", so its keys, roles and measured values are untested"
+      "detail": "did not open"
+    },
+    {
+      "component": "Tooltip",
+      "name": "shows on keyboard focus",
+      "ok": true
+    },
+    {
+      "component": "Toast",
+      "name": "is announced as a status in a labelled region",
+      "ok": true
+    },
+    {
+      "component": "Snackbar",
+      "name": "shows one line with its action reachable",
+      "ok": true
+    },
+    {
+      "component": "FAB",
+      "name": "has an accessible name and a 56px target",
+      "ok": true
+    },
+    {
+      "component": "PullToRefresh",
+      "name": "a Refresh button is reachable with Tab and shows on focus",
+      "ok": true
     }
   ]
 }

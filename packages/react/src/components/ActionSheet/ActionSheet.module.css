@@ -1,0 +1,21 @@
+/* Two level-3 panes at the bottom edge (D-025): the actions, and Cancel set apart under them, so the
+   way out is always in the same place and never next to the critical action. */
+.scrim { position: fixed; inset: 0; z-index: var(--ds-overlay-z); background: var(--ds-overlay-scrim); animation: fade var(--ds-motion-enter) var(--ds-motion-easing) both; }
+.wrap { position: fixed; z-index: var(--ds-overlay-z); inset-inline: 0; inset-block-end: 0; margin-inline: auto; inline-size: min(calc(100vw - var(--ds-overlay-margin) * 2), var(--ds-overlay-md)); padding-block-end: var(--ds-overlay-margin); display: flex; flex-direction: column; gap: var(--ds-gap-md); animation: from-bottom var(--ds-motion-enter) var(--ds-motion-easing) both; outline: 0; }
+.group { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
+.head { display: flex; flex-direction: column; gap: var(--ds-gap-xs); padding: var(--ds-gap-xl) var(--ds-gap-inset); text-align: center; }
+.title { margin: 0; font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-secondary); }
+.description { margin: 0; font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.list { display: flex; flex-direction: column; }
+.action, .cancel { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; text-align: center; min-inline-size: 0; gap: var(--ds-gap-md); min-block-size: var(--ds-overlay-row); padding-inline: var(--ds-gap-inset); border: 0; background: transparent; color: var(--ds-text-primary); font-family: var(--ds-type-family); font-size: var(--ds-type-emphasis); cursor: pointer; box-shadow: inset 0 var(--ds-width-hairline) 0 var(--ds-line-divider); transition: background-color var(--ds-motion-press) var(--ds-motion-easing); }
+.action:hover, .cancel:hover { background: var(--ds-surface-quiet); }
+.action:focus-visible, .cancel:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: calc(var(--ds-focus-ring-width) * -1); }
+.critical { color: var(--ds-status-critical-mark); font-weight: var(--ds-type-weight-semibold); }
+.icon { display: inline-grid; inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); }
+.icon > svg { inline-size: 100%; block-size: 100%; }
+.cancelPane { padding: 0; overflow: hidden; }
+.cancel { inline-size: 100%; box-shadow: none; font-weight: var(--ds-type-weight-semibold); }
+@keyframes fade { from { opacity: 0; } }
+@keyframes from-bottom { from { translate: 0 100%; } }
+@media (forced-colors: active) { .group, .cancelPane { border: var(--ds-width-hairline) solid CanvasText; } }
+.preview { position: relative; inset: auto; margin: 0; animation: none; z-index: auto; inline-size: 100%; padding-block-end: 0; }

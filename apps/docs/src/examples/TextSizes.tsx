@@ -7,8 +7,8 @@ export default function TextSizes() {
       <Stack gap="sm">
         <Text size="reading">Reading, 16px, for paragraphs people read through.</Text>
         <Text>Body, 15px, the default for interface text.</Text>
-        <Text size="label">Label, 13px, beside controls.</Text>
-        <Text size="caption" tone="secondary">Caption, 12px, under media.</Text>
+        <Text size="label">Label, 14px, beside controls.</Text>
+        <Text size="caption" tone="secondary">Caption, 13px, under media.</Text>
         <Text size="micro" tone="secondary">MICRO, 11px, for counts</Text>
       </Stack>
     </Card>

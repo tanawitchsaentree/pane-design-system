@@ -143,7 +143,7 @@
   ],
   "default_to_avoid": [
     {
-      "pattern": "the Radix or Material dropdown: a padded card with pill-shaped rows whose corner does not follow the card's, a check at the far end",
+      "pattern": "the Radix or Material dropdown: a padded card with pill-shaped rows whose corner does not follow the card's, a check at the far end as the select",
       "why_not": "the highlighted row's corner bulged against the flyout's (24px corner, 4px inset, 18px rows on 32px), so the two curves fought; the closed trigger measured 2.65:1 in light (R-008)"
     }
   ],

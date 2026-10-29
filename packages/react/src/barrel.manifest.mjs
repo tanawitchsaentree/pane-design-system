@@ -29,4 +29,12 @@ export const BARREL_MANIFEST = [
     header: `Wave 2 atoms (0.7.0): type, links, keys, pictures and loading.`,
     components: ['Text', 'Heading', 'Icon', 'Link', 'Kbd', 'Image', 'Spinner', 'Skeleton'],
   },
+  {
+    header: `Wave 4 overlays (0.7.0): the stack's levels 3 and 4 (D-025) on Radix behaviour.`,
+    components: ['Dialog', 'Sheet', 'Drawer', 'ActionSheet', 'Popover', 'Tooltip', 'Toast', 'Snackbar', 'FAB', 'PullToRefresh'],
+  },
+  {
+    header: `Wave 5 selection (0.7.0): Select’s sheet and Input’s groove, on the WAI-ARIA patterns.`,
+    components: ['Listbox', 'Combobox', 'Autocomplete', 'MultiSelect', 'Menu', 'ContextMenu', 'RadioCards', 'Rating', 'TagInput'],
+  },
 ];

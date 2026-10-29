@@ -1,0 +1,109 @@
+{
+  "concept": "A list of actions that opens from a button, the menu sheet with rows that nest its corner and a groove between groups.",
+  "default_to_avoid": [
+    {
+      "pattern": "a white dropdown with grey hover rows and a 1px border (Bootstrap dropdown) as the menu",
+      "kind": "menu, dropdown menu, action menu",
+      "why_not": "a white box with grey rows owns colours the glass does not, and its rows do not nest its corner"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA APG · Menu button",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P7",
+      "axis": "depth",
+      "consequence": "opaque page, raised and sunken surfaces; no blur",
+      "form": "the menu is the opaque sheet of Select so its actions read on any scene"
+    },
+    {
+      "p": "P3",
+      "axis": "shape",
+      "consequence": "corners are continuous and nest, so an inner surface's radius is the outer radius minus the padding between them and a pane inside a pane reads as inside it; controls are full pills because they are held in the hand",
+      "form": "its rows nest the sheet’s corner by the inset, the rule from R-008"
+    },
+    {
+      "p": "P5",
+      "axis": "colour",
+      "consequence": "one solid fill exists, the loud solid (white in dark, ink in light); a promoted action is the same solid glowing with its own light, and a pane uses one of them",
+      "form": "a critical action alone takes the critical mark colour and comes last"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave5/",
+    "section": "menu",
+    "options": [
+      "A Select’s sheet with grouped rows",
+      "B white dropdown",
+      "C glass blur sheet"
+    ],
+    "picked": "A Select’s sheet with grouped rows",
+    "by": "agent",
+    "reason": "A is one family with Select (D-017). B brings white and grey. C makes rows unreadable over a busy scene."
+  },
+  "parts": {
+    "sheet": {
+      "p": "P7",
+      "axis": "depth",
+      "why": "the opaque menu sheet over the page, on the float shadow"
+    },
+    "item": {
+      "p": "P6",
+      "axis": "space",
+      "why": "each action is a 44px row whose corner nests the sheet’s"
+    },
+    "critical": {
+      "p": "P5",
+      "axis": "colour",
+      "why": "the action that destroys something, in the critical mark colour, last"
+    },
+    "icon": {
+      "p": "P2",
+      "axis": "type",
+      "why": "an icon at the icon size before the label"
+    },
+    "label": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the action’s name, taking the free width, the same in every theme and on every scene"
+    },
+    "shortcut": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the keyboard shortcut in secondary text at the end of the row"
+    },
+    "separator": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a groove between groups, the same etched line as Divider"
+    }
+  },
+  "states": {
+    "data-highlighted": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the highlighted row is a lighter pane lit on its top edge"
+    },
+    "data-disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a disabled action uses the shared disabled opacity"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours outline the sheet and the highlighted row"
+    }
+  },
+  "motion": {
+    "@sheet-in": {
+      "p": "P3",
+      "axis": "motion",
+      "why": "the sheet drops a short way from its trigger and settles"
+    }
+  }
+}

@@ -1,7 +1,108 @@
 {
-  "generatedAt": "2026-10-29T10:55:48.273Z",
+  "generatedAt": "2026-10-29T12:51:24.661Z",
   "version": "0.6.0",
   "components": {
+    "ActionSheet": {
+      "source": "packages/react/src/components/ActionSheet/ActionSheet.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "ActionSheet",
+          "props": [
+            {
+              "name": "trigger",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "title",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "A short title naming what the actions apply to.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "description",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A sentence under the title, for example the consequence of the critical action.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "actions",
+              "type": "ActionSheetAction[]",
+              "required": true,
+              "default": null,
+              "description": "The actions, most used first.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "cancelLabel",
+              "type": "string",
+              "required": false,
+              "default": "Cancel",
+              "description": "The label of the button that closes without acting. Defaults to Cancel.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "open",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultOpen",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onOpenChange",
+              "type": "((open: boolean) => void)",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "preview",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 43159,
+        "cssMin": 4420,
+        "gzip": 16088
+      }
+    },
     "AspectRatio": {
       "source": "packages/react/src/components/AspectRatio/AspectRatio.tsx",
       "kinds": {},
@@ -766,6 +867,133 @@
         "gzip": 403
       }
     },
+    "Dialog": {
+      "source": "packages/react/src/components/Dialog/Dialog.tsx",
+      "kinds": {},
+      "sizes": [
+        "md",
+        "lg"
+      ],
+      "exports": [
+        {
+          "displayName": "Dialog",
+          "props": [
+            {
+              "name": "trigger",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "The control that opens it, usually a Button. Leave it out and use `open` for a controlled dialog.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "title",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The dialog's title, its accessible name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "description",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "One or two sentences under the title, its accessible description.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "The body.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "actions",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Buttons at the foot, the loud action last. Wrap a button in `Dialog.Close` to close on press.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "open",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Controlled open state.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultOpen",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Starting state when uncontrolled.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onOpenChange",
+              "type": "((open: boolean) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called when it opens or closes.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "size",
+              "type": "\"md\" | \"lg\"",
+              "required": false,
+              "default": "md",
+              "description": "`md` (default, 480px) or `lg` (640px) for a form.",
+              "enum": true,
+              "options": [
+                "md",
+                "lg"
+              ]
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the dialog pane.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "preview",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "size"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 42814,
+        "cssMin": 3689,
+        "gzip": 15776
+      }
+    },
     "Divider": {
       "source": "packages/react/src/components/Divider/Divider.tsx",
       "kinds": {},
@@ -818,6 +1046,130 @@
         "gzip": 559
       }
     },
+    "Drawer": {
+      "source": "packages/react/src/components/Drawer/Drawer.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Drawer",
+          "props": [
+            {
+              "name": "side",
+              "type": "\"start\" | \"end\"",
+              "required": false,
+              "default": "end",
+              "description": "`end` (default) or `start`: the side the panel slides in from.",
+              "enum": true,
+              "options": [
+                "start",
+                "end"
+              ]
+            },
+            {
+              "name": "trigger",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "The control that opens it.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "title",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The sheet's title, its accessible name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "description",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A sentence under the title.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "actions",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Buttons at the foot.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "open",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultOpen",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onOpenChange",
+              "type": "((open: boolean) => void)",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "hideTitle",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Hides the title visually while keeping it as the accessible name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "preview",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "side"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 43744,
+        "cssMin": 4688,
+        "gzip": 16356
+      }
+    },
     "Environment": {
       "source": "packages/react/src/components/Environment/Environment.tsx",
       "kinds": {},
@@ -864,6 +1216,67 @@
         "jsMin": 264,
         "cssMin": 0,
         "gzip": 201
+      }
+    },
+    "FAB": {
+      "source": "packages/react/src/components/FAB/FAB.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "FAB",
+          "props": [
+            {
+              "name": "icon",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The icon.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The action's name. Shown beside the icon when `extended`; otherwise it is the accessible name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "extended",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows the label beside the icon, for the first visit or a wide screen.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "position",
+              "type": "\"fixed\" | \"contained\"",
+              "required": false,
+              "default": "fixed",
+              "description": "`fixed` (default) floats over the viewport at the bottom end; `contained` floats in its nearest positioned parent.",
+              "enum": true,
+              "options": [
+                "fixed",
+                "contained"
+              ]
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "position"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 584,
+        "cssMin": 1238,
+        "gzip": 887
       }
     },
     "Fieldset": {
@@ -1597,8 +2010,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 497,
-        "cssMin": 896,
-        "gzip": 705
+        "cssMin": 973,
+        "gzip": 750
       }
     },
     "Mesh": {
@@ -1813,6 +2226,157 @@
         "jsMin": 1913,
         "cssMin": 1951,
         "gzip": 1760
+      }
+    },
+    "Popover": {
+      "source": "packages/react/src/components/Popover/Popover.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Popover",
+          "props": [
+            {
+              "name": "trigger",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The control that opens it.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "title",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A short title, the popover's accessible name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "side",
+              "type": "\"top\" | \"right\" | \"bottom\" | \"left\"",
+              "required": false,
+              "default": "bottom",
+              "description": "Which side of the trigger it opens on. Defaults to bottom; it flips when there is no room.",
+              "enum": true,
+              "options": [
+                "top",
+                "right",
+                "bottom",
+                "left"
+              ]
+            },
+            {
+              "name": "align",
+              "type": "\"start\" | \"center\" | \"end\"",
+              "required": false,
+              "default": "center",
+              "description": "Alignment along that side.",
+              "enum": true,
+              "options": [
+                "start",
+                "center",
+                "end"
+              ]
+            },
+            {
+              "name": "open",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultOpen",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onOpenChange",
+              "type": "((open: boolean) => void)",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "preview",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "side",
+        "align"
+      ],
+      "variantCount": 2,
+      "demoFloor": 5,
+      "bundle": {
+        "jsMin": 69593,
+        "cssMin": 3106,
+        "gzip": 25848
+      }
+    },
+    "PullToRefresh": {
+      "source": "packages/react/src/components/PullToRefresh/PullToRefresh.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "PullToRefresh",
+          "props": [
+            {
+              "name": "onRefresh",
+              "type": "() => void | Promise<unknown>",
+              "required": true,
+              "default": null,
+              "description": "Called when the reader pulls past the threshold or presses the refresh button. Return a promise; the spinner stays until it settles.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": "Refresh",
+              "description": "What refreshing does, for the button and the spinner: Refresh messages.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 1527,
+        "cssMin": 1334,
+        "gzip": 1381
       }
     },
     "Radio": {
@@ -2096,6 +2660,131 @@
         "gzip": 33254
       }
     },
+    "Sheet": {
+      "source": "packages/react/src/components/Sheet/Sheet.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Sheet",
+          "props": [
+            {
+              "name": "trigger",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "The control that opens it.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "title",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The sheet's title, its accessible name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "description",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A sentence under the title.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "actions",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Buttons at the foot.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "side",
+              "type": "\"bottom\" | \"start\" | \"end\"",
+              "required": false,
+              "default": "bottom",
+              "description": "`bottom` (default) rises from the bottom edge; `start` and `end` slide in from the sides.",
+              "enum": true,
+              "options": [
+                "bottom",
+                "start",
+                "end"
+              ]
+            },
+            {
+              "name": "open",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultOpen",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onOpenChange",
+              "type": "((open: boolean) => void)",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "hideTitle",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Hides the title visually while keeping it as the accessible name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "preview",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "side"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 43588,
+        "cssMin": 4688,
+        "gzip": 16313
+      }
+    },
     "Skeleton": {
       "source": "packages/react/src/components/Skeleton/Skeleton.tsx",
       "kinds": {},
@@ -2268,6 +2957,89 @@
         "jsMin": 30388,
         "cssMin": 3985,
         "gzip": 11957
+      }
+    },
+    "Snackbar": {
+      "source": "packages/react/src/components/Snackbar/Snackbar.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Snackbar",
+          "props": [
+            {
+              "name": "open",
+              "type": "boolean",
+              "required": true,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onOpenChange",
+              "type": "(open: boolean) => void",
+              "required": true,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "message",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "One short line: Message archived.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "action",
+              "type": "{ label: string; altText: string; onClick: () => void; }",
+              "required": false,
+              "default": null,
+              "description": "One action, usually Undo. `altText` says how to undo without the snackbar, for screen readers.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "duration",
+              "type": "number",
+              "required": false,
+              "default": "4000",
+              "description": "How long it stays, in milliseconds. Defaults to 4000.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "preview",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 38625,
+        "cssMin": 1761,
+        "gzip": 13504
       }
     },
     "Spacer": {
@@ -2709,6 +3481,182 @@
         "jsMin": 647,
         "cssMin": 2093,
         "gzip": 1115
+      }
+    },
+    "Toast": {
+      "source": "packages/react/src/components/Toast/Toast.tsx",
+      "kinds": {
+        "tone": [
+          "info",
+          "positive",
+          "critical"
+        ]
+      },
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Toast",
+          "props": [
+            {
+              "name": "open",
+              "type": "boolean",
+              "required": true,
+              "default": null,
+              "description": "Whether it is showing. It hides itself after `duration` and calls onOpenChange(false).",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onOpenChange",
+              "type": "(open: boolean) => void",
+              "required": true,
+              "default": null,
+              "description": null,
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "title",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "What happened, in a few words: Print ordered.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "description",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "One sentence more, if the title is not enough.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "action",
+              "type": "{ label: string; altText: string; onClick: () => void; }",
+              "required": false,
+              "default": null,
+              "description": "One action, such as Undo or View. `altText` says how to do it without the toast, for screen readers.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "tone",
+              "type": "\"info\" | \"positive\" | \"critical\"",
+              "required": false,
+              "default": "info",
+              "description": "`info` (default), `positive` or `critical`: the status mark beside the title.",
+              "enum": true,
+              "options": [
+                "info",
+                "positive",
+                "critical"
+              ]
+            },
+            {
+              "name": "duration",
+              "type": "number",
+              "required": false,
+              "default": "5000",
+              "description": "How long it stays, in milliseconds. Defaults to 5000; it pauses while hovered or focused.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the toast pane.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "preview",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "tone"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 39156,
+        "cssMin": 2704,
+        "gzip": 13899
+      }
+    },
+    "Tooltip": {
+      "source": "packages/react/src/components/Tooltip/Tooltip.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Tooltip",
+          "props": [
+            {
+              "name": "children",
+              "type": "ReactElement<unknown, string | JSXElementConstructor<any>>",
+              "required": true,
+              "default": null,
+              "description": "The control it describes. It must be focusable, such as an IconButton.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "content",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "A few words: what the control does or what a mark means.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "side",
+              "type": "\"top\" | \"right\" | \"bottom\" | \"left\"",
+              "required": false,
+              "default": "top",
+              "description": "Which side it appears on. Defaults to top.",
+              "enum": true,
+              "options": [
+                "top",
+                "right",
+                "bottom",
+                "left"
+              ]
+            },
+            {
+              "name": "preview",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "side"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 56351,
+        "cssMin": 750,
+        "gzip": 20547
       }
     },
     "VisuallyHidden": {

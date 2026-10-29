@@ -979,6 +979,66 @@
           "why": "a keycap is a caption-sized slab, big enough to read the key printed on it inside a sentence"
         }
       }
+    },
+    "fab": {
+      "$value": "{size.fab}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a floating action button: 56px, larger than any other control on the screen"
+        }
+      }
+    },
+    "listbox-max": {
+      "$value": "{size.listbox-max}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a popup list stops at about seven rows and scrolls inside itself, so the page under it stays visible"
+        }
+      }
+    },
+    "input-min": {
+      "$value": "{size.input-min}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P2"
+          ],
+          "why": "the typing space in a field full of chips keeps room for a short word, so the reader can always add one"
+        }
+      }
+    },
+    "radio-card-min": {
+      "$value": "{size.radio-card-min}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a radio card keeps room for its title and a line of detail before the row wraps"
+        }
+      }
+    },
+    "star": {
+      "$value": "{size.star}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a rating star is big enough to count at a glance, inside a 44px press area"
+        }
+      }
     }
   },
   "corner": {
@@ -2065,6 +2125,105 @@
             "P3"
           ],
           "why": "twenty-one to nine, for banners and cinematic headers"
+        }
+      }
+    }
+  },
+  "overlay": {
+    "md": {
+      "$value": "{size.overlay-md}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a dialog is one measure wide, so its question and answer read as one short block"
+        }
+      }
+    },
+    "lg": {
+      "$value": "{size.overlay-lg}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a wide dialog or a bottom sheet on a tablet, room for a short form"
+        }
+      }
+    },
+    "side": {
+      "$value": "{size.overlay-side}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a drawer is about the width of a phone, so navigation inside it reads the same everywhere"
+        }
+      }
+    },
+    "pop": {
+      "$value": "{size.overlay-pop}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a popover holds a sentence and a couple of controls, never a page"
+        }
+      }
+    },
+    "tip": {
+      "$value": "{size.overlay-tip}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P2"
+          ],
+          "why": "a tooltip wraps after a few words so it never grows into a paragraph"
+        }
+      }
+    },
+    "toast": {
+      "$value": "{size.overlay-toast}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the toast column is narrow enough to leave the content beside it readable"
+        }
+      }
+    },
+    "sheet-max": {
+      "$value": "{ratio.sheet-max}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P3"
+          ],
+          "why": "a bottom sheet stops short of the top so the screen it came from still shows above it"
+        }
+      }
+    },
+    "grabber": {
+      "$value": "{size.grabber}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the grabber is wide enough to find with a thumb, with a 44px press area around it"
         }
       }
     }
