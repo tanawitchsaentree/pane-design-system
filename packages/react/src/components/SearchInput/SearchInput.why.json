@@ -12,6 +12,11 @@
       "p": "P6",
       "axis": "interaction",
       "why": "the browser cancel button is removed so the clear button is the one way to clear"
+    },
+    "idle": {
+      "p": "P6",
+      "axis": "space",
+      "why": "the clear button keeps its place while empty so the field does not grow when the first letter is typed"
     }
   },
   "states": {},

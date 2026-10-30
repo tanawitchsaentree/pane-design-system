@@ -18,6 +18,7 @@
 //   inset        G-IN1 text inside a control ≥8px (and ≥ half the end radius) from the control's edge
 //   travel       G-SL1 a slider ≥200px long, and it and its pane keep their size from Home to End
 //   states       G-SV1 every promised state is present, visible and announced (state matrix)
+//   text fields  G-TX1 fields hold Thai marks and keep their size while typing
 //   glow         G-GL1 only [data-glow] parts emit light in dark, visibly and within reach; text never; nothing in light
 //   rhythm       G-RH1 a stage and a tab bar ≥24px from neighbouring blocks (own code/caption/heading ≥8, intro ≥16)
 //   address      G-ST1 no default written into the URL; stale or unknown values fall back and are dropped
@@ -1294,6 +1295,37 @@ try {
     expect(n > 0, `${tried} flyout triggers found but no listbox or menu opened, so nothing was measured`);
     fail(bad, 'flyouts whose rows do not nest');
     return `${n} flyouts`;
+  });
+
+  await gate('G-TX1', 'a text field holds every script and keeps its size while typing: Thai marks above and below are not clipped, and typing never widens the field', async () => {
+    // Pane, 2026-10-30, user: "ภาษาไทยสระบนสุดโดนตัด … ตอนพิมพ์ input มันยืดยาวขึ้น". The field's line box was
+    // 1.15em, which cuts the tone mark stacked over an upper vowel, and SearchInput grew by its clear button
+    // once there was a query. Measured on the state matrix, where every field family has a row.
+    const route = C.statesRoute ?? '/patterns/states';
+    if (!ROUTES.includes(route)) throw new Error('NO state matrix route in this run');
+    await go(route);
+    const SEL = 'input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="tel"], [type="url"], :not([type])):not([readonly]):not(:disabled), textarea:not([readonly]):not(:disabled)';
+    const fields = await page.locator(`main ${SEL}`).all();
+    const bad = [];
+    for (const f of fields) {
+      if (!(await f.isVisible())) continue;
+      const before = await f.evaluate((el) => {
+        const cs = getComputedStyle(el); const fs = parseFloat(cs.fontSize);
+        const lh = cs.lineHeight === 'normal' ? fs * 1.4 : parseFloat(cs.lineHeight);
+        const host = el.closest('[data-component]:not([data-component="Input"])') ?? el.closest('[data-component]') ?? el;
+        return { name: host.getAttribute('data-component') ?? el.tagName, ratio: lh / fs, w: host.getBoundingClientRect().width };
+      });
+      // a tone mark over an upper vowel and a lower vowel need about 1.35em of line box in Thai fonts
+      if (before.ratio < 1.35) bad.push(`${before.name}: line box ${before.ratio.toFixed(2)}em clips Thai marks (needs 1.35)`);
+      await f.fill('เหี่ยะอะไรเนี่ย ปู่ฤๅษี');
+      const after = await f.evaluate((el) => (el.closest('[data-component]:not([data-component="Input"])') ?? el.closest('[data-component]') ?? el).getBoundingClientRect().width);
+      if (Math.abs(after - before.w) > 1) bad.push(`${before.name}: ${Math.round(before.w)}px empty, ${Math.round(after)}px while typing`);
+      await f.fill('');
+    }
+    if (!fields.length) throw new Error('NO text fields on the state matrix');
+    const u = [...new Set(bad)];
+    if (u.length) throw new Error(`${u.length} fields: ${u.slice(0, 8).join(' | ')}`);
+    return `${fields.length} fields`;
   });
 
   await gate('G-IN1', 'text inside a control keeps its inset from the control\'s edge: at least 8px, and half the corner radius on a rounded end', async () => {

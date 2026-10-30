@@ -4,6 +4,8 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- Input: the line box is the body leading, so Thai tone marks over upper vowels are no longer cut off (every field built on Input gets it).
+- SearchInput: the clear button keeps its place while the field is empty, so typing never widens the field.
 - Toast: each tone has its own glyph (the Banner shapes) and its word is read before the title; it swipes towards the end edge in RTL too.
 - Table: straight on a scene it blurs and dims what is behind it like a Card, so its rows read on a photo; inside a pane it stays the inner level.
 - List: the inset list brings its own glass on a scene, as Table does.

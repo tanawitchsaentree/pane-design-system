@@ -33,7 +33,9 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
   return (
     <InputGroup data-component="SearchInput" role="search" className={className}
       start={<svg viewBox="0 0 24 24" aria-hidden="true" className={styles.glyph}><circle cx="10.5" cy="10.5" r="6" /><path d="M15 15l5.5 5.5" /></svg>}
-      end={q ? <IconButton variant="ghost" aria-label={clearLabel} onClick={clear}><svg viewBox="0 0 24 24" aria-hidden="true" className={styles.glyph}><path d="M7 7l10 10M17 7 7 17" /></svg></IconButton> : undefined}>
+      // the clear button keeps its place while the field is empty (hidden, out of the tab order), so the
+      // field never grows when the first letter is typed
+      end={<IconButton variant="ghost" aria-label={clearLabel} onClick={clear} className={q ? undefined : styles.idle} tabIndex={q ? undefined : -1} aria-hidden={q ? undefined : true}><svg viewBox="0 0 24 24" aria-hidden="true" className={styles.glyph}><path d="M7 7l10 10M17 7 7 17" /></svg></IconButton>}>
       <Input
         ref={(el) => { input.current = el; if (typeof ref === 'function') ref(el); else if (ref) ref.current = el; }}
         type="search" enterKeyHint="search" value={q}

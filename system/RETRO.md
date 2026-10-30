@@ -182,3 +182,11 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **What was wrong:** Toast marked info, positive and critical with a coloured dot only. That breaks Pane's own status rule (glyph and word) and WCAG 1.4.1. Its swipe also ran to the right in RTL, where the toast sits on the left.
 - **What changed:** Toast uses Banner's glyph shapes and says the tone word before the title. It swipes towards the end edge in both directions.
 - **Check that now catches it:** G-SV1 rows for the overlay family (wave V0), plus axe on the Toast page.
+
+### R-027: Thai marks cut off in a field, and SearchInput grew while typing
+- **Date:** 2026-10-30
+- **User said:** "ภาษาไทยสระบนสุดโดนตัด … ตอนพิมพ์ input มันยืดยาวขึ้น"
+- **What was wrong:** Input set its line box to the tight leading (1.15em). A text field clips to its line box, so a tone mark stacked over an upper vowel (เหี่ยะ) lost its top. SearchInput added its clear button only once there was a query, so a field sized by its content grew by a button's width at the first letter.
+- **Step that produced it:** field type was set with the display leading used for one-line labels, and every check typed Latin text. No step typed into a field and measured it before and after.
+- **What changed in that step:** fields use the body leading (1.42em). SearchInput keeps the clear button's place while empty, hidden and out of the tab order.
+- **Check that now catches it:** G-TX1 types Thai with stacked marks into every text field on the state matrix. It fails a line box under 1.35em and any field whose width changes while typing. It was red on the old build (FormField, PasswordInput, SearchInput, NumberInput at 1.15em, SearchInput 215 → 249px) and is green now.

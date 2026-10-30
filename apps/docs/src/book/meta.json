@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T14:00:13.388Z",
+  "generatedAt": "2026-10-30T14:30:39.822Z",
   "version": "0.7.0",
   "components": {
     "Accordion": {
@@ -418,8 +418,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 14202,
-        "cssMin": 14665,
-        "gzip": 7971
+        "cssMin": 14664,
+        "gzip": 7968
       }
     },
     "Autocomplete": {
@@ -1927,8 +1927,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 39121,
-        "cssMin": 5498,
-        "gzip": 15302
+        "cssMin": 5497,
+        "gzip": 15299
       }
     },
     "Combobox": {
@@ -3177,8 +3177,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 6952,
-        "cssMin": 3736,
-        "gzip": 4132
+        "cssMin": 3735,
+        "gzip": 4130
       }
     },
     "EmptyState": {
@@ -4374,8 +4374,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 692,
-        "cssMin": 2362,
-        "gzip": 1194
+        "cssMin": 2361,
+        "gzip": 1190
       }
     },
     "InputGroup": {
@@ -5785,8 +5785,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 9518,
-        "cssMin": 7488,
-        "gzip": 5833
+        "cssMin": 7487,
+        "gzip": 5830
       }
     },
     "OTPFlow": {
@@ -6000,8 +6000,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 8250,
-        "cssMin": 7284,
-        "gzip": 5236
+        "cssMin": 7283,
+        "gzip": 5233
       }
     },
     "PinInput": {
@@ -7245,9 +7245,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 8569,
-        "cssMin": 7366,
-        "gzip": 5423
+        "jsMin": 8642,
+        "cssMin": 7386,
+        "gzip": 5462
       }
     },
     "SegmentedControl": {
@@ -9366,7 +9366,7 @@
               "type": "\"info\" | \"positive\" | \"critical\"",
               "required": false,
               "default": "info",
-              "description": "`info` (default), `positive` or `critical`: each with its own glyph shape beside the title and its word read first, so colour is never the only cue.",
+              "description": "The tone, `info` (default), `positive` or `critical`. Each has its own glyph shape beside the title and its word is read first, so colour is never the only cue.",
               "enum": true,
               "options": [
                 "info",
@@ -9410,9 +9410,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 46307,
+        "jsMin": 46822,
         "cssMin": 5497,
-        "gzip": 17256
+        "gzip": 17298
       }
     },
     "Tooltip": {
