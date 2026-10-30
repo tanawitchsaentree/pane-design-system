@@ -26,7 +26,7 @@ export const Stepper = forwardRef<HTMLOListElement, StepperProps>(function Stepp
         const state = i < current ? 'done' : i === current ? 'current' : 'upcoming';
         return (
           <li key={s.label} className={cx(styles.step, styles[state])} aria-current={state === 'current' ? 'step' : undefined}>
-            <span className={styles.mark} aria-hidden="true">{state === 'done' ? <svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg> : i + 1}</span>
+            <span className={styles.mark} aria-hidden="true" data-glow={state === 'current' ? 'mark' : undefined}>{state === 'done' ? <svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg> : i + 1}</span>
             <span className={styles.text}>
               <span className={styles.label}>{s.label}<span className={styles.sr}>{state === 'done' ? ', done' : state === 'upcoming' ? ', not started' : ''}</span></span>
               {s.description && <span className={styles.description}>{s.description}</span>}

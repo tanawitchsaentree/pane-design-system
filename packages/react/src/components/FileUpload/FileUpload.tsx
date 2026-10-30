@@ -41,7 +41,7 @@ export const FileUpload = forwardRef<HTMLDivElement, FileUploadProps>(function F
   const add = (chosen: File[]) => { const { ok, refused: no } = check(chosen, accept, maxSize); setRefused(no.map((n) => n.reason)); set(multiple ? [...list, ...ok] : ok.slice(0, 1)); };
   return (
     <div ref={ref} data-component="FileUpload" className={cx(styles.root, className)}>
-      <input ref={input} id={`${id}-in`} type="file" name={name} accept={accept} multiple={multiple} disabled={disabled} className={styles.native} tabIndex={-1} aria-hidden="true"
+      <input ref={input} id={`${id}-in`} type="file" name={name} accept={accept} multiple={multiple} disabled={disabled} hidden
         onChange={(e) => { add(Array.from(e.target.files ?? [])); e.target.value = ''; }} />
       <div className={styles.head}>
         <Button variant="glass" disabled={disabled} onClick={() => input.current?.click()} aria-describedby={hint ? `${id}-hint` : undefined}>

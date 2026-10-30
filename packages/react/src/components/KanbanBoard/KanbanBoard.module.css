@@ -3,6 +3,7 @@
 .root { display: flex; flex-direction: column; gap: var(--ds-gap-md); min-inline-size: 0; font-family: var(--ds-type-family); }
 .hint { margin: 0; font-size: var(--ds-type-caption); color: var(--ds-text-secondary); }
 .columns { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(var(--ds-kanban-board-column), 1fr); gap: var(--ds-kanban-board-gap); overflow-x: auto; padding-block-end: var(--ds-gap-sm); }
+.columns:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); border-radius: var(--ds-corner-media); }
 .column { display: flex; flex-direction: column; gap: var(--ds-gap-md); padding: var(--ds-kanban-board-padding); border-radius: var(--ds-corner-media); background: var(--ds-kanban-board-bg); box-shadow: var(--ds-kanban-board-edge); transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
 .over { background: var(--ds-kanban-board-over); }
 .title { display: flex; align-items: center; justify-content: space-between; margin: 0; font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-primary); }

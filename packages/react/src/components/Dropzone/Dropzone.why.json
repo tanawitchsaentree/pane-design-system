@@ -55,11 +55,6 @@
       "axis": "depth",
       "why": "the zone is a large groove with centred contents and is a button for keyboard and touch"
     },
-    "native": {
-      "p": "P6",
-      "axis": "interaction",
-      "why": "the native file input is kept for the chooser but the zone is what is pressed"
-    },
     "well": {
       "p": "P3",
       "axis": "depth",

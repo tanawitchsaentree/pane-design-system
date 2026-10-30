@@ -45,6 +45,39 @@ Every entry names the component it touches, so each component page in the book c
 - DescriptionList: new. Term and detail pairs in a real dl, stacked or inline, with optional dividers.
 - List: new. Rows of one kind, inset on a level-2 pane or plain; ListItem rows can be links or buttons.
 - Table: new. A captioned table with a sticky opaque header, sortable headers with aria-sort and two densities.
+- PasswordInput: new. Input's groove with a show button that says its state; it hides again on submit.
+- SearchInput: new. A search landmark with a magnifier and a clear button; Enter searches and Esc clears.
+- NumberInput: new. A spinbutton with minus and plus in one groove, held to its limits when the field is left.
+- RangeSlider: new. Slider's channel with two beads, each named for its end; the two never cross.
+- Editable: new. Text that turns into the groove where it stands; Enter saves and Esc puts the words back.
+- FileUpload: new. A button and a list of chosen files with sizes and remove buttons; refusals are said in words.
+- Dropzone: new. A large carved well that takes dragged files and is a button for the chooser.
+- ColorPicker: new. Named swatches as radios, with an optional hex field, for the content's own colours.
+- OTPFlow: new. PinInput with where the code went, the check, the error in words and a resend countdown.
+- Calendar: new. A month of round 44px days in a grid; today ringed, the chosen day the loud solid, a range a band of chosen glass.
+- DatePicker: new. Select's groove opening Calendar on a level-4 popover; single days or a stay, focus back on the field.
+- TimePicker: new. Times at a fixed step in the reader's clock, on Select's groove and sheet.
+- TreeView: new. Nested rows with a turning chevron and the chosen pane; the WAI-ARIA tree keys and type-ahead.
+- Carousel: new. Slides that snap and never move by themselves, with buttons and dots.
+- VirtualList: new. Draws only the rows in view, each with its place in the whole list.
+- TransferList: new. Two Listboxes with move buttons that say how many they move.
+- DataGrid: new. Table as a grid with one tab stop, cell keys, chosen rows and a sticky name column.
+- BarChart: new. Thin bars from one baseline in the data palette (D-031), with a legend, labels and a table view.
+- LineChart: new. 2px lines with end labels and a crosshair; never a second axis.
+- Sparkline: new. A small trend in the secondary tone, with its trend said in words.
+- Heatmap: new. One hue from faint to full with a 2px gap and a scale.
+- Form: new. One column of fields with an error summary that takes focus after a failed submit and links to each field.
+- Wizard: new. Stepper, one panel at a time under a heading that takes focus, Back and the loud Next last.
+- AuthForm: new. Sign in, sign up and reset with the autocomplete names password managers need.
+- CommandPalette: new. ⌘K opens a level-3 pane with grouped commands; focus stays in the field.
+- NotificationCenter: new. A bell with the unread count and notices grouped by day; unread says New.
+- CoachMark: new. A level-4 card anchored to one thing, with Next and Skip tour and no scrim.
+- KanbanBoard: new. Cards that move by drag and by keyboard, every move said aloud.
+- Feed: new. A WAI-ARIA feed that loads more near the end and says when it is done.
+- AppShell: new. Header, sidebar or bottom bar by its own width, and a skip link.
+- SettingsLayout: new. Groups of rows with a name, a sentence and the control at the end.
+- RichTextEditor: new. A few marks over Input's groove, each saying when it is on; paste arrives plain.
+- CommandPalette and CoachMark have a preview prop for docs, like the wave 4 overlays.
 - Dialog: new. A level-3 pane over a scrim (D-025) on Radix Dialog; `actions`, `size`, `Dialog.Close`, `preview` for documentation.
 - Sheet: new. A level-3 pane from the bottom, start or end; a grabber drags a bottom sheet closed.
 - Drawer: new. A Sheet from the start or end edge.

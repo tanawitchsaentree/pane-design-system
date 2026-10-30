@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-29T17:32:38.974Z",
-  "passed": 276,
-  "total": 276,
+  "generatedAt": "2026-10-30T03:39:40.387Z",
+  "passed": 410,
+  "total": 410,
   "checks": [
     {
       "component": "Container",
@@ -400,6 +400,198 @@
       "detail": "10 props"
     },
     {
+      "component": "PasswordInput",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "SearchInput",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props"
+    },
+    {
+      "component": "NumberInput",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props"
+    },
+    {
+      "component": "RangeSlider",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "11 props"
+    },
+    {
+      "component": "Editable",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "8 props"
+    },
+    {
+      "component": "FileUpload",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "10 props"
+    },
+    {
+      "component": "Dropzone",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props"
+    },
+    {
+      "component": "ColorPicker",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props"
+    },
+    {
+      "component": "OTPFlow",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props"
+    },
+    {
+      "component": "Calendar",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "12 props"
+    },
+    {
+      "component": "DatePicker",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "13 props"
+    },
+    {
+      "component": "TimePicker",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "13 props"
+    },
+    {
+      "component": "TreeView",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props"
+    },
+    {
+      "component": "Carousel",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props"
+    },
+    {
+      "component": "VirtualList",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props"
+    },
+    {
+      "component": "TransferList",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props"
+    },
+    {
+      "component": "DataGrid",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "12 props"
+    },
+    {
+      "component": "BarChart",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props"
+    },
+    {
+      "component": "LineChart",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props"
+    },
+    {
+      "component": "Sparkline",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "5 props"
+    },
+    {
+      "component": "Heatmap",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "8 props"
+    },
+    {
+      "component": "Form",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "5 props"
+    },
+    {
+      "component": "Wizard",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props"
+    },
+    {
+      "component": "AuthForm",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "11 props"
+    },
+    {
+      "component": "CommandPalette",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props"
+    },
+    {
+      "component": "NotificationCenter",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props"
+    },
+    {
+      "component": "CoachMark",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "10 props"
+    },
+    {
+      "component": "KanbanBoard",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props"
+    },
+    {
+      "component": "Feed",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "10 props"
+    },
+    {
+      "component": "AppShell",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props"
+    },
+    {
+      "component": "SettingsLayout",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props"
+    },
+    {
+      "component": "RichTextEditor",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props"
+    },
+    {
       "component": "Slider",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
@@ -439,7 +631,7 @@
       "component": "FormField",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "6 props"
+      "detail": "7 props"
     },
     {
       "component": "Label",
@@ -874,6 +1066,198 @@
       "detail": "4 demos"
     },
     {
+      "component": "PasswordInput",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "SearchInput",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "NumberInput",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "RangeSlider",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Editable",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "FileUpload",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Dropzone",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "ColorPicker",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "OTPFlow",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Calendar",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "DatePicker",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "TimePicker",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "TreeView",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Carousel",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "VirtualList",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "TransferList",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "DataGrid",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "BarChart",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "LineChart",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Sparkline",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Heatmap",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Form",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Wizard",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "AuthForm",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "CommandPalette",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "NotificationCenter",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "CoachMark",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "KanbanBoard",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Feed",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "AppShell",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "SettingsLayout",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "RichTextEditor",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
       "component": "Slider",
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
@@ -1034,7 +1418,7 @@
       "component": "IconButton",
       "name": "every button with no visible text, on every page of the book, has an accessible name",
       "ok": true,
-      "detail": "358 pages"
+      "detail": "486 pages"
     },
     {
       "component": "Tabs",
@@ -1063,7 +1447,7 @@
     },
     {
       "component": "Docs page",
-      "name": "G-D3, no literal backtick in rendered text on any of the 358 pages",
+      "name": "G-D3, no literal backtick in rendered text on any of the 486 pages",
       "ok": true
     },
     {
@@ -1554,6 +1938,356 @@
     {
       "component": "Table",
       "name": "pressing a header sorts the rows",
+      "ok": true
+    },
+    {
+      "component": "PasswordInput",
+      "name": "the show button toggles what is typed and says its state",
+      "ok": true
+    },
+    {
+      "component": "PasswordInput",
+      "name": "it carries the autocomplete name password managers need",
+      "ok": true
+    },
+    {
+      "component": "SearchInput",
+      "name": "it is a search landmark with a named field",
+      "ok": true
+    },
+    {
+      "component": "SearchInput",
+      "name": "Esc clears the query and keeps focus in the field",
+      "ok": true
+    },
+    {
+      "component": "SearchInput",
+      "name": "the clear button shows with a query and puts focus back",
+      "ok": true
+    },
+    {
+      "component": "NumberInput",
+      "name": "arrow keys step and Home and End go to the limits",
+      "ok": true
+    },
+    {
+      "component": "NumberInput",
+      "name": "a typed number is held to the limits when the field is left",
+      "ok": true
+    },
+    {
+      "component": "NumberInput",
+      "name": "the steppers stop at the limits",
+      "ok": true
+    },
+    {
+      "component": "RangeSlider",
+      "name": "two sliders, each named for its end",
+      "ok": true
+    },
+    {
+      "component": "RangeSlider",
+      "name": "arrow keys move one end and the two never cross",
+      "ok": true
+    },
+    {
+      "component": "Editable",
+      "name": "Enter saves and focus returns to the text",
+      "ok": true
+    },
+    {
+      "component": "Editable",
+      "name": "Esc puts the words back",
+      "ok": true
+    },
+    {
+      "component": "FileUpload",
+      "name": "a chosen file is listed with its size and a remove button",
+      "ok": true
+    },
+    {
+      "component": "FileUpload",
+      "name": "a refused file is said in words",
+      "ok": true
+    },
+    {
+      "component": "Dropzone",
+      "name": "the zone is a button that opens the file chooser",
+      "ok": true
+    },
+    {
+      "component": "Dropzone",
+      "name": "a file of the wrong type is refused in words",
+      "ok": true
+    },
+    {
+      "component": "ColorPicker",
+      "name": "swatches are radios named for their colour",
+      "ok": true
+    },
+    {
+      "component": "ColorPicker",
+      "name": "a typed hex chooses that colour",
+      "ok": true
+    },
+    {
+      "component": "OTPFlow",
+      "name": "a wrong code is said in words and the cells clear",
+      "ok": true
+    },
+    {
+      "component": "OTPFlow",
+      "name": "a right code is accepted",
+      "ok": true
+    },
+    {
+      "component": "OTPFlow",
+      "name": "the resend button waits before it can be pressed",
+      "ok": true
+    },
+    {
+      "component": "Calendar",
+      "name": "a month is a grid of day buttons named in full, with the chosen day selected",
+      "ok": true
+    },
+    {
+      "component": "Calendar",
+      "name": "arrow keys move a day and a week, and Enter chooses",
+      "ok": true
+    },
+    {
+      "component": "Calendar",
+      "name": "Page Down shows the next month",
+      "ok": true
+    },
+    {
+      "component": "Calendar",
+      "name": "a range is chosen with two presses",
+      "ok": true
+    },
+    {
+      "component": "Calendar",
+      "name": "unavailable days cannot be chosen",
+      "ok": true
+    },
+    {
+      "component": "DatePicker",
+      "name": "it opens the calendar, and choosing closes it with focus back on the field",
+      "ok": true
+    },
+    {
+      "component": "DatePicker",
+      "name": "Esc closes the calendar",
+      "ok": true
+    },
+    {
+      "component": "TimePicker",
+      "name": "times are offered at the step",
+      "ok": true
+    },
+    {
+      "component": "TreeView",
+      "name": "it is a tree with levels and open state",
+      "ok": true
+    },
+    {
+      "component": "TreeView",
+      "name": "arrow keys open, close and move between rows",
+      "ok": true
+    },
+    {
+      "component": "TreeView",
+      "name": "typing a letter finds the next row",
+      "ok": true
+    },
+    {
+      "component": "Carousel",
+      "name": "slides are named groups and Next moves on",
+      "ok": true
+    },
+    {
+      "component": "Carousel",
+      "name": "it never moves by itself",
+      "ok": true
+    },
+    {
+      "component": "VirtualList",
+      "name": "only rows in view are drawn and each says its place",
+      "ok": true
+    },
+    {
+      "component": "VirtualList",
+      "name": "scrolling draws the rows further down",
+      "ok": true
+    },
+    {
+      "component": "TransferList",
+      "name": "Add moves the chosen items and says how many",
+      "ok": true
+    },
+    {
+      "component": "DataGrid",
+      "name": "one tab stop, and arrow keys move between cells",
+      "ok": true
+    },
+    {
+      "component": "DataGrid",
+      "name": "choose all chooses every row",
+      "ok": true
+    },
+    {
+      "component": "DataGrid",
+      "name": "pressing a sortable header sorts the rows",
+      "ok": true
+    },
+    {
+      "component": "BarChart",
+      "name": "arrow keys read each category aloud",
+      "ok": true
+    },
+    {
+      "component": "BarChart",
+      "name": "the table view holds every value",
+      "ok": true
+    },
+    {
+      "component": "BarChart",
+      "name": "two or more series have a legend",
+      "ok": true
+    },
+    {
+      "component": "LineChart",
+      "name": "arrow keys walk the points and every series is read",
+      "ok": true
+    },
+    {
+      "component": "LineChart",
+      "name": "up to four series are labelled at their ends",
+      "ok": true
+    },
+    {
+      "component": "Sparkline",
+      "name": "it is an image with its trend in words",
+      "ok": true
+    },
+    {
+      "component": "Heatmap",
+      "name": "arrow keys read each cell aloud",
+      "ok": true
+    },
+    {
+      "component": "Heatmap",
+      "name": "a scale says the lowest and the highest value",
+      "ok": true
+    },
+    {
+      "component": "Form",
+      "name": "nothing in a form takes focus when the page opens",
+      "ok": true
+    },
+    {
+      "component": "Form",
+      "name": "a failed submit shows a summary that takes focus and links to each field",
+      "ok": true
+    },
+    {
+      "component": "Wizard",
+      "name": "Next moves on and the step heading takes focus",
+      "ok": true
+    },
+    {
+      "component": "Wizard",
+      "name": "Back keeps what was typed",
+      "ok": true
+    },
+    {
+      "component": "Wizard",
+      "name": "a step that fails its check stays",
+      "ok": true
+    },
+    {
+      "component": "AuthForm",
+      "name": "it carries the autocomplete names password managers need",
+      "ok": true
+    },
+    {
+      "component": "AuthForm",
+      "name": "errors are in the summary and under each field",
+      "ok": true
+    },
+    {
+      "component": "CommandPalette",
+      "name": "typing filters and focus stays in the field",
+      "ok": true
+    },
+    {
+      "component": "CommandPalette",
+      "name": "arrow keys move the highlight",
+      "ok": true
+    },
+    {
+      "component": "CommandPalette",
+      "name": "Ctrl+K opens it and Esc closes it",
+      "ok": true
+    },
+    {
+      "component": "NotificationCenter",
+      "name": "unread notices say New and the bell gives the count",
+      "ok": true
+    },
+    {
+      "component": "CoachMark",
+      "name": "the card says its step, with Skip tour and Next",
+      "ok": true
+    },
+    {
+      "component": "CoachMark",
+      "name": "Esc skips the tour",
+      "ok": true
+    },
+    {
+      "component": "KanbanBoard",
+      "name": "Space picks a card up, arrows carry it and Space drops it, said aloud",
+      "ok": true
+    },
+    {
+      "component": "KanbanBoard",
+      "name": "Esc puts a moved card back",
+      "ok": true
+    },
+    {
+      "component": "Feed",
+      "name": "articles are in a feed and Page Down moves between them",
+      "ok": true
+    },
+    {
+      "component": "Feed",
+      "name": "the end of a feed is said in words",
+      "ok": true
+    },
+    {
+      "component": "AppShell",
+      "name": "the skip link moves focus to the main content",
+      "ok": true
+    },
+    {
+      "component": "AppShell",
+      "name": "either the sidebar or the bottom bar shows, never both",
+      "ok": true
+    },
+    {
+      "component": "SettingsLayout",
+      "name": "each row names its control",
+      "ok": true
+    },
+    {
+      "component": "RichTextEditor",
+      "name": "the toolbar is one tab stop with arrow keys between tools",
+      "ok": true
+    },
+    {
+      "component": "RichTextEditor",
+      "name": "a mark says when it is on",
       "ok": true
     }
   ]

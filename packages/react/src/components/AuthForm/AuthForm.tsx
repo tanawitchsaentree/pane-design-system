@@ -14,7 +14,7 @@ export interface AuthFormProps {
   mode?: 'sign-in' | 'sign-up' | 'reset';
   /** Called with the values on submit. Check them and pass any problems back in `errors`. */
   onSubmit: (values: AuthValues) => void;
-  /** Problems after a submit, keyed by field: `email`, `password` or `name`. They show in the summary and under each field. */
+  /** Problems after a submit, keyed by the field they belong to, `email`, `password` or `name`. They show in the summary and under each field. */
   errors?: Partial<Record<keyof AuthValues, string>>;
   /** Locks the button and says Signing in, while the request runs. */
   pending?: boolean;
@@ -54,11 +54,11 @@ export const AuthForm = forwardRef<HTMLFormElement, AuthFormProps>(function Auth
       </div>
       <Form ref={ref} errors={list} onSubmit={(fd) => onSubmit({ email: String(fd.get('email') ?? ''), password: fd.get('password') != null ? String(fd.get('password')) : undefined, name: fd.get('name') != null ? String(fd.get('name')) : undefined })}
         actions={<Button type="submit" variant="light" disabled={pending} className={styles.submit}>{pending ? t.pending : t.button}</Button>}>
-        {mode === 'sign-up' && <FormField label="Name" error={errors.name}><Input id={`${id}-name`} name="name" autoComplete="name" /></FormField>}
-        <FormField label="Email" error={errors.email}><Input id={`${id}-email`} name="email" type="email" autoComplete={mode === 'sign-up' ? 'email' : 'username'} inputMode="email" spellCheck={false} /></FormField>
+        {mode === 'sign-up' && <FormField id={`${id}-name`} label="Name" error={errors.name}><Input name="name" autoComplete="name" /></FormField>}
+        <FormField id={`${id}-email`} label="Email" error={errors.email}><Input name="email" type="email" autoComplete={mode === 'sign-up' ? 'email' : 'username'} inputMode="email" spellCheck={false} /></FormField>
         {mode !== 'reset' && (
-          <FormField label="Password" error={errors.password} help={mode === 'sign-up' ? passwordHint : undefined}>
-            <PasswordInput id={`${id}-password`} name="password" autoComplete={mode === 'sign-up' ? 'new-password' : 'current-password'} />
+          <FormField id={`${id}-password`} label="Password" error={errors.password} help={mode === 'sign-up' ? passwordHint : undefined}>
+            <PasswordInput name="password" autoComplete={mode === 'sign-up' ? 'new-password' : 'current-password'} />
           </FormField>
         )}
         {mode === 'sign-in' && onForgot && <button type="button" className={styles.link} onClick={onForgot}>Forgot your password?</button>}

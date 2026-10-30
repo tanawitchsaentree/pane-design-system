@@ -3230,6 +3230,10 @@
         ],
         "why": "round swatches in the colours of the content, the chosen one ringed and checked in the loud solid"
       }
+    },
+    "edge": {
+      "$value": "{elevation.control-ring}",
+      "$type": "shadow"
     }
   },
   "otp-flow": {
@@ -3325,7 +3329,7 @@
       "$type": "dimension"
     },
     "padding": {
-      "$value": "{gap.md}",
+      "$value": "{gap.lg}",
       "$type": "dimension"
     },
     "radius": {
@@ -3381,10 +3385,6 @@
     "dot-on": {
       "$value": "{action.loud-top}",
       "$type": "color"
-    },
-    "glow": {
-      "$value": "{glow.mark}",
-      "$type": "shadow"
     },
     "$extensions": {
       "kiln.why": {
@@ -3597,6 +3597,10 @@
         ],
         "why": "the frame of an app: header, a sidebar beside the content when wide and a bottom bar when narrow, measured by its own width"
       }
+    },
+    "scroll-margin": {
+      "$value": "{gap.page}",
+      "$type": "dimension"
     }
   },
   "auth-form": {
@@ -3697,6 +3701,14 @@
         ],
         "why": "a level-3 pane over the scrim with a field and grouped rows lit like menu rows"
       }
+    },
+    "field-bg": {
+      "$value": "{surface.carve}",
+      "$type": "color"
+    },
+    "groove": {
+      "$value": "{elevation.groove}",
+      "$type": "shadow"
     }
   },
   "feed": {
@@ -3807,10 +3819,6 @@
       "$value": "{text.on-accent}",
       "$type": "color"
     },
-    "glow": {
-      "$value": "{glow.mark}",
-      "$type": "shadow"
-    },
     "highlight": {
       "$value": "{surface.quiet}",
       "$type": "color"
@@ -3920,6 +3928,20 @@
           "P5"
         ],
         "why": "Stepper, one panel at a time and the loud button last"
+      }
+    }
+  },
+  "number-input": {
+    "min": {
+      "$value": "{control.xl}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P6"
+        ],
+        "why": "the number keeps room for a few digits between its steppers, so the field never shrinks to a sliver"
       }
     }
   }

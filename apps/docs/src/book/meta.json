@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T17:21:28.256Z",
+  "generatedAt": "2026-10-30T02:45:34.112Z",
   "version": "0.6.0",
   "components": {
     "Accordion": {
@@ -177,6 +177,89 @@
         "gzip": 16102
       }
     },
+    "AppShell": {
+      "source": "packages/react/src/components/AppShell/AppShell.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "AppShell",
+          "props": [
+            {
+              "name": "header",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "The top bar, usually a Navbar; it stays at the top.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "sidebar",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "The side navigation, usually a Sidebar; it shows beside the content on a wide screen.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "bottomNav",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "The bottom bar for a narrow screen, usually a BottomNav; it replaces the sidebar there.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "aside",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A panel at the end of the content, such as details of the chosen item; it drops under the content when narrow.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The page itself; it is the main landmark.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Names the main landmark when the page has more than one heading level one, such as Library.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the shell.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 861,
+        "cssMin": 1771,
+        "gzip": 1110
+      }
+    },
     "AspectRatio": {
       "source": "packages/react/src/components/AspectRatio/AspectRatio.tsx",
       "kinds": {},
@@ -212,6 +295,131 @@
         "jsMin": 372,
         "cssMin": 372,
         "gzip": 461
+      }
+    },
+    "AuthForm": {
+      "source": "packages/react/src/components/AuthForm/AuthForm.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "AuthForm",
+          "props": [
+            {
+              "name": "mode",
+              "type": "\"sign-in\" | \"sign-up\" | \"reset\"",
+              "required": false,
+              "default": "sign-in",
+              "description": "`sign-in` (default) asks for email and password; `sign-up` adds a name and asks for a new password; `reset` asks only for the email.",
+              "enum": true,
+              "options": [
+                "sign-in",
+                "sign-up",
+                "reset"
+              ]
+            },
+            {
+              "name": "onSubmit",
+              "type": "(values: AuthValues) => void",
+              "required": true,
+              "default": null,
+              "description": "Called with the values on submit. Check them and pass any problems back in `errors`.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "errors",
+              "type": "Partial<Record<keyof AuthValues, string>>",
+              "required": false,
+              "default": "{}",
+              "description": "Problems after a submit, keyed by the field they belong to, `email`, `password` or `name`. They show in the summary and under each field.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "pending",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Locks the button and says Signing in, while the request runs.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "title",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The heading; Sign in, Create an account or Reset your password by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "description",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A line under the heading, such as the product's name or why an account is needed.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "passwordHint",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Shown under the password field in sign-up, such as At least 12 characters.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onForgot",
+              "type": "(() => void)",
+              "required": false,
+              "default": null,
+              "description": "Adds a Forgot your password link under the password in sign-in.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onSwitch",
+              "type": "(() => void)",
+              "required": false,
+              "default": null,
+              "description": "Adds the line that switches between signing in and creating an account.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "providers",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Buttons for other ways in, such as Continue with Apple, shown under the form after a divider.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the wrapper.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "mode"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 8288,
+        "cssMin": 12910,
+        "gzip": 5317
       }
     },
     "Autocomplete": {
@@ -527,6 +735,112 @@
         "gzip": 1833
       }
     },
+    "BarChart": {
+      "source": "packages/react/src/components/BarChart/BarChart.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "BarChart",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The chart's title; it names the figure and the plot.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "A line under the title that says what is measured and over what, such as Prints sold per month, 2026.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "categories",
+              "type": "string[]",
+              "required": true,
+              "default": null,
+              "description": "The category names along the axis, one per value in each series.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "series",
+              "type": "ChartSeries[]",
+              "required": true,
+              "default": null,
+              "description": "One or more series; with two or more a legend appears. Up to eight keep their own colours; fold the rest into Other.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "layout",
+              "type": "\"column\" | \"bar\"",
+              "required": false,
+              "default": "column",
+              "description": "`column` (default) grows up from the baseline; `bar` grows sideways, for many or long category names.",
+              "enum": true,
+              "options": [
+                "column",
+                "bar"
+              ]
+            },
+            {
+              "name": "stacked",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Stacks the series in one bar per category, for part-to-whole; otherwise they sit side by side.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "format",
+              "type": "((value: number) => string)",
+              "required": false,
+              "default": "(v: number) => new Intl.NumberFormat(undefined, { notation: Math.abs(v) >= 1000 ? 'compact' : 'standard', maximumFractionDigits: 1 }).format(v)",
+              "description": "Formats values in labels, the tooltip and the table, such as a currency.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "blockSize",
+              "type": "number",
+              "required": false,
+              "default": "240",
+              "description": "The plot's height in pixels for `column`; 240 by default. A `bar` chart grows with its categories.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the figure.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "layout"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 6678,
+        "cssMin": 3924,
+        "gzip": 4000
+      }
+    },
     "BottomNav": {
       "source": "packages/react/src/components/BottomNav/BottomNav.tsx",
       "kinds": {},
@@ -818,6 +1132,139 @@
         "gzip": 1458
       }
     },
+    "Calendar": {
+      "source": "packages/react/src/components/Calendar/Calendar.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Calendar",
+          "props": [
+            {
+              "name": "mode",
+              "type": "\"single\" | \"range\"",
+              "required": false,
+              "default": null,
+              "description": "`single` (default) chooses one day.\n`range` chooses a first and a last day; the first press sets the start and the second the end.",
+              "enum": true,
+              "options": [
+                "single",
+                "range"
+              ]
+            },
+            {
+              "name": "value",
+              "type": "Date | DateRange | null",
+              "required": false,
+              "default": null,
+              "description": "The chosen day, when you keep it yourself.\nThe chosen range, when you keep it yourself.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "Date | DateRange | null",
+              "required": false,
+              "default": null,
+              "description": "The day it starts with.\nThe range it starts with.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((value: Date) => void) | ((value: DateRange) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the day the reader chooses.\nCalled with the range after each press; `end` is null until the second day is chosen.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultMonth",
+              "type": "Date",
+              "required": false,
+              "default": null,
+              "description": "The month shown first; the month of the value, or this month, by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "min",
+              "type": "Date",
+              "required": false,
+              "default": null,
+              "description": "The earliest day that can be chosen.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "max",
+              "type": "Date",
+              "required": false,
+              "default": null,
+              "description": "The latest day that can be chosen.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "isUnavailable",
+              "type": "((date: Date) => boolean)",
+              "required": false,
+              "default": null,
+              "description": "Days that cannot be chosen, such as a fully booked day; they stay visible and are read as unavailable.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "locale",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "A BCP 47 locale for month and weekday names, such as nb-NO; the browser's own by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "weekStartsOn",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "The first day of the week, 0 for Sunday to 6 for Saturday; 1, Monday, by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Names the calendar for screen readers, such as Check-in date.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the wrapper.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "mode"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 5031,
+        "cssMin": 5134,
+        "gzip": 3587
+      }
+    },
     "Card": {
       "source": "packages/react/src/components/Card/Card.tsx",
       "kinds": {
@@ -899,6 +1346,66 @@
         "jsMin": 578,
         "cssMin": 2269,
         "gzip": 1139
+      }
+    },
+    "Carousel": {
+      "source": "packages/react/src/components/Carousel/Carousel.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Carousel",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Names the carousel, such as Featured prints; it is a region with this name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The slides, one child each; each is a group read as Slide 2 of 5.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "perView",
+              "type": "1 | 2 | 3",
+              "required": false,
+              "default": "1",
+              "description": "How many slides show at once on a wide pane; 1 by default. It drops to one on a narrow pane.",
+              "enum": false,
+              "options": [
+                "1",
+                "2",
+                "3"
+              ]
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the wrapper.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 2598,
+        "cssMin": 4352,
+        "gzip": 2555
       }
     },
     "Center": {
@@ -1116,6 +1623,206 @@
         "gzip": 1388
       }
     },
+    "CoachMark": {
+      "source": "packages/react/src/components/CoachMark/CoachMark.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "CoachMark",
+          "props": [
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The thing being pointed out; the mark is anchored to it and does not change it.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "open",
+              "type": "boolean",
+              "required": true,
+              "default": null,
+              "description": "Shows the mark. Show one at a time, in order, and only on a first visit or after a change.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "title",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "What the thing does, in a few words, such as Filter by place.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "description",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "One sentence on why it helps.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "step",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "This mark's place in the tour, from 1; with `total` it reads 2 of 4.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "total",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "How many marks the tour has.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onNext",
+              "type": "() => void",
+              "required": true,
+              "default": null,
+              "description": "Called by Next, or Done on the last mark.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onSkip",
+              "type": "() => void",
+              "required": true,
+              "default": null,
+              "description": "Called by Skip tour and by Esc; the tour should not come back by itself.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "side",
+              "type": "\"top\" | \"right\" | \"bottom\" | \"left\"",
+              "required": false,
+              "default": "bottom",
+              "description": "Which side of the thing the mark opens on; below by default.",
+              "enum": true,
+              "options": [
+                "top",
+                "right",
+                "bottom",
+                "left"
+              ]
+            },
+            {
+              "name": "preview",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Draws the card in place under the thing, for documentation, previews and screenshots, never in a product flow.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "side"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 72070,
+        "cssMin": 7118,
+        "gzip": 27458
+      }
+    },
+    "ColorPicker": {
+      "source": "packages/react/src/components/ColorPicker/ColorPicker.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "ColorPicker",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Names what the colour is for, such as Album colour.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "swatches",
+              "type": "ColorSwatch[]",
+              "required": true,
+              "default": null,
+              "description": "The colours to choose from.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The chosen colour as a hex value, when you keep it yourself.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The colour it starts with.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((value: string) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the hex value when a swatch is chosen or a valid hex is typed.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "custom",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Adds a hex field under the swatches for a colour that is not among them.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the wrapper.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 34050,
+        "cssMin": 5290,
+        "gzip": 13137
+      }
+    },
     "Combobox": {
       "source": "packages/react/src/components/Combobox/Combobox.tsx",
       "kinds": {},
@@ -1217,6 +1924,89 @@
         "gzip": 26670
       }
     },
+    "CommandPalette": {
+      "source": "packages/react/src/components/CommandPalette/CommandPalette.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "CommandPalette",
+          "props": [
+            {
+              "name": "commands",
+              "type": "Command[]",
+              "required": true,
+              "default": null,
+              "description": "The commands, in the order they are listed when nothing is typed.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "open",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Open state, when you keep it yourself.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onOpenChange",
+              "type": "((open: boolean) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called when the palette opens or closes, including from the shortcut and Esc.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "hotkey",
+              "type": "boolean",
+              "required": false,
+              "default": "true",
+              "description": "Opens the palette on ⌘K or Ctrl+K anywhere on the page; on by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "placeholder",
+              "type": "string",
+              "required": false,
+              "default": "Type a command or search",
+              "description": "The words in the empty field; Type a command or search by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "empty",
+              "type": "string",
+              "required": false,
+              "default": "No commands match",
+              "description": "Shown when nothing matches; No commands match by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "preview",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Draws it in place, open and not modal, inside its parent. Use it for documentation, previews and screenshots, never in a product flow.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 44956,
+        "cssMin": 7489,
+        "gzip": 17448
+      }
+    },
     "Container": {
       "source": "packages/react/src/components/Container/Container.tsx",
       "kinds": {},
@@ -1305,6 +2095,279 @@
         "jsMin": 89494,
         "cssMin": 1600,
         "gzip": 31963
+      }
+    },
+    "DataGrid": {
+      "source": "packages/react/src/components/DataGrid/DataGrid.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "DataGrid",
+          "props": [
+            {
+              "name": "caption",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Says what the grid holds; it names the grid and its scrolling region.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "columns",
+              "type": "TableColumn<Row>[]",
+              "required": true,
+              "default": null,
+              "description": "The columns, in order; `sortable` columns sort from their header.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "rows",
+              "type": "Row[]",
+              "required": true,
+              "default": null,
+              "description": "The rows; each needs a unique `id`.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "selectable",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Adds a checkbox to each row and a select-all in the header.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "selected",
+              "type": "(string | number)[]",
+              "required": false,
+              "default": null,
+              "description": "The chosen row ids, when you keep them yourself.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onSelectedChange",
+              "type": "((ids: (string | number)[]) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the chosen row ids after each change.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultSort",
+              "type": "TableSort",
+              "required": false,
+              "default": null,
+              "description": "The sort the grid starts with.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "stickyFirst",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Keeps the first column in view while the grid scrolls sideways, for a name column.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "maxHeight",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Keeps the header in view while the body scrolls inside a region of this height, such as 24rem.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "loading",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shown over the body while new rows load; the rows stay so the reader keeps their place.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the wrapper.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "ref",
+              "type": "Ref<HTMLDivElement>",
+              "required": false,
+              "default": null,
+              "description": "The grid’s pane, for scrolling it into view or measuring it.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "loading"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 20590,
+        "cssMin": 4826,
+        "gzip": 8990
+      }
+    },
+    "DatePicker": {
+      "source": "packages/react/src/components/DatePicker/DatePicker.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "DatePicker",
+          "props": [
+            {
+              "name": "mode",
+              "type": "\"single\" | \"range\"",
+              "required": false,
+              "default": null,
+              "description": "`single` (default) is one day.\n`range` is a first and a last day, such as a stay; the calendar closes once the last day is chosen.",
+              "enum": true,
+              "options": [
+                "single",
+                "range"
+              ]
+            },
+            {
+              "name": "value",
+              "type": "Date | DateRange | null",
+              "required": false,
+              "default": null,
+              "description": "The chosen day, when you keep it yourself.\nThe chosen range, when you keep it yourself.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "Date | DateRange | null",
+              "required": false,
+              "default": null,
+              "description": "The day it starts with.\nThe range it starts with.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((value: Date) => void) | ((value: DateRange) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the chosen day; the calendar closes and focus returns to the field.\nCalled with the range after each press; `end` is null until the second day is chosen.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "placeholder",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Shown in the field when nothing is chosen, such as Choose a date.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "min",
+              "type": "Date",
+              "required": false,
+              "default": null,
+              "description": "The earliest day that can be chosen.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "max",
+              "type": "Date",
+              "required": false,
+              "default": null,
+              "description": "The latest day that can be chosen.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "isUnavailable",
+              "type": "((date: Date) => boolean)",
+              "required": false,
+              "default": null,
+              "description": "Days that cannot be chosen; they stay visible in the calendar and are read as unavailable.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "locale",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "A BCP 47 locale for the field's text and the calendar, such as nb-NO.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "weekStartsOn",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "The first day of the week, 0 for Sunday; 1, Monday, by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "aria-label",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Names the field when it is not inside a FormField.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Turns the field off. Inside a FormField, its `disabled` sets this for you.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the field.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "mode",
+        "disabled"
+      ],
+      "variantCount": 2,
+      "demoFloor": 5,
+      "bundle": {
+        "jsMin": 75823,
+        "cssMin": 12626,
+        "gzip": 29943
       }
     },
     "DescriptionList": {
@@ -1671,6 +2734,210 @@
         "gzip": 16276
       }
     },
+    "Dropzone": {
+      "source": "packages/react/src/components/Dropzone/Dropzone.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Dropzone",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Says what to drop, such as Drop photos here. It is the zone's main line.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "hint",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The second line, usually what is accepted, such as JPG or PNG up to 20 MB.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "accept",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "File types it takes, as in the native accept attribute.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "multiple",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Lets the reader drop or choose more than one file.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "maxSize",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "The largest file it takes, in bytes.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onFiles",
+              "type": "((files: File[], refused: string[]) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the files that fit, and with the reasons for any that were refused.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "icon",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A glyph above the label; an upload arrow by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Turns the zone off.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the zone.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "disabled"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 1879,
+        "cssMin": 1820,
+        "gzip": 1713
+      }
+    },
+    "Editable": {
+      "source": "packages/react/src/components/Editable/Editable.tsx",
+      "kinds": {},
+      "sizes": [
+        "body",
+        "title"
+      ],
+      "exports": [
+        {
+          "displayName": "Editable",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Names the value, such as Album title; the button reads Edit album title and the field takes it as its name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The text, when you keep it yourself.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The text it starts with.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onSave",
+              "type": "((value: string) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the new text when an edit is saved; not called when it is cancelled or unchanged.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "placeholder",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Shown in the secondary tone when the text is empty, such as Add a title.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "size",
+              "type": "\"body\" | \"title\"",
+              "required": false,
+              "default": "body",
+              "description": "`body` (default) is body text; `title` edits a heading in the title size.",
+              "enum": true,
+              "options": [
+                "body",
+                "title"
+              ]
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Turns editing off; the text stays readable.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the wrapper.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "size",
+        "disabled"
+      ],
+      "variantCount": 2,
+      "demoFloor": 5,
+      "bundle": {
+        "jsMin": 1926,
+        "cssMin": 3693,
+        "gzip": 2050
+      }
+    },
     "EmptyState": {
       "source": "packages/react/src/components/EmptyState/EmptyState.tsx",
       "kinds": {},
@@ -1866,6 +3133,118 @@
         "gzip": 887
       }
     },
+    "Feed": {
+      "source": "packages/react/src/components/Feed/Feed.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Feed",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Names the feed, such as Latest from people you follow.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "items",
+              "type": "T[]",
+              "required": true,
+              "default": null,
+              "description": "The items loaded so far, newest first.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "renderItem",
+              "type": "(item: T, index: number) => ReactNode",
+              "required": true,
+              "default": null,
+              "description": "Draws one article's content.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "getLabel",
+              "type": "(item: T) => string",
+              "required": true,
+              "default": null,
+              "description": "Names each article for screen readers, such as Mara Lind, Lofoten at dusk.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "getKey",
+              "type": "(item: T) => string | number",
+              "required": true,
+              "default": null,
+              "description": "A key for each item.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onLoadMore",
+              "type": "(() => void)",
+              "required": false,
+              "default": null,
+              "description": "Called when the reader nears the end and more can be loaded.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "loading",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "More is loading; the feed says so and is marked busy.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "hasMore",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "There is more to load; when false the feed ends with a line that says so.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the feed.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "ref",
+              "type": "Ref<HTMLDivElement>",
+              "required": false,
+              "default": null,
+              "description": "The wrapper around the feed, for scrolling it into view.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "loading"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 1801,
+        "cssMin": 1613,
+        "gzip": 1508
+      }
+    },
     "Fieldset": {
       "source": "packages/react/src/components/Fieldset/Fieldset.tsx",
       "kinds": {},
@@ -1902,6 +3281,118 @@
         "jsMin": 492,
         "cssMin": 401,
         "gzip": 514
+      }
+    },
+    "FileUpload": {
+      "source": "packages/react/src/components/FileUpload/FileUpload.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "FileUpload",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Names what is asked for, such as Receipts; it is the button's text after Choose and the list's name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "accept",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "File types it takes, as in the native accept attribute, such as image/*,.pdf. Refused files are listed with the reason.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "multiple",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Lets the reader choose more than one file.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "maxSize",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "The largest file it takes, in bytes.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "files",
+              "type": "File[]",
+              "required": false,
+              "default": null,
+              "description": "The chosen files, when you keep them yourself.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onFilesChange",
+              "type": "((files: File[]) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the whole list whenever a file is added or removed.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "hint",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "A line under the button that says what is accepted, such as PDF or JPG up to 10 MB.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Name for form submission.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Turns the control off.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the wrapper.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "disabled"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 3824,
+        "cssMin": 7444,
+        "gzip": 3206
       }
     },
     "Flex": {
@@ -1995,6 +3486,71 @@
         "gzip": 617
       }
     },
+    "Form": {
+      "source": "packages/react/src/components/Form/Form.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Form",
+          "props": [
+            {
+              "name": "onSubmit",
+              "type": "((values: FormData, event: FormEvent<HTMLFormElement>) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called on submit with the form's values; the native submit never reloads the page.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "errors",
+              "type": "FormError[]",
+              "required": false,
+              "default": "[]",
+              "description": "The errors after a submit. When there are any, a summary appears at the top, takes focus and lists each as a link.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "errorTitle",
+              "type": "string",
+              "required": false,
+              "default": "There is a problem",
+              "description": "The sentence above the error list; There is a problem by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "actions",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "The buttons at the end, usually one loud submit and a quiet cancel.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The fields and Fieldsets.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 1373,
+        "cssMin": 1646,
+        "gzip": 1338
+      }
+    },
     "FormField": {
       "source": "packages/react/src/components/FormField/FormField.tsx",
       "kinds": {},
@@ -2003,6 +3559,15 @@
         {
           "displayName": "FormField",
           "props": [
+            {
+              "name": "id",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Sets the control's id, so a Form's error summary can link to the field; one is made for you otherwise.",
+              "enum": false,
+              "options": null
+            },
             {
               "name": "label",
               "type": "ReactNode",
@@ -2071,9 +3636,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 1658,
+        "jsMin": 1670,
         "cssMin": 1046,
-        "gzip": 1201
+        "gzip": 1210
       }
     },
     "Grid": {
@@ -2192,6 +3757,98 @@
         "jsMin": 437,
         "cssMin": 351,
         "gzip": 483
+      }
+    },
+    "Heatmap": {
+      "source": "packages/react/src/components/Heatmap/Heatmap.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Heatmap",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The chart's title.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "A line under the title that says what the shade measures, such as Orders per hour.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "rows",
+              "type": "string[]",
+              "required": true,
+              "default": null,
+              "description": "The row names, top to bottom, such as weekdays.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "columns",
+              "type": "string[]",
+              "required": true,
+              "default": null,
+              "description": "The column names, start to end, such as hours.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "values",
+              "type": "number[][]",
+              "required": true,
+              "default": null,
+              "description": "One array per row, one value per column.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "format",
+              "type": "((value: number) => string)",
+              "required": false,
+              "default": "(v: number) => new Intl.NumberFormat(undefined, { notation: Math.abs(v) >= 1000 ? 'compact' : 'standard', maximumFractionDigits: 1 }).format(v)",
+              "description": "Formats values in the tooltip and the table.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "labelEvery",
+              "type": "number",
+              "required": false,
+              "default": "1",
+              "description": "Shows every nth column name so names do not collide; 1 by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the figure.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 4474,
+        "cssMin": 4485,
+        "gzip": 3217
       }
     },
     "HelperText": {
@@ -2505,6 +4162,62 @@
         "gzip": 758
       }
     },
+    "KanbanBoard": {
+      "source": "packages/react/src/components/KanbanBoard/KanbanBoard.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "KanbanBoard",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Names the board, such as Print orders.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "columns",
+              "type": "KanbanColumn[]",
+              "required": true,
+              "default": null,
+              "description": "The columns, in order, each with its cards in order.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onChange",
+              "type": "(columns: KanbanColumn[]) => void",
+              "required": true,
+              "default": null,
+              "description": "Called with the new columns after every move, by drag or by keyboard.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the board.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 3357,
+        "cssMin": 2521,
+        "gzip": 2350
+      }
+    },
     "Kbd": {
       "source": "packages/react/src/components/Kbd/Kbd.tsx",
       "kinds": {},
@@ -2551,6 +4264,107 @@
         "jsMin": 393,
         "cssMin": 218,
         "gzip": 394
+      }
+    },
+    "LineChart": {
+      "source": "packages/react/src/components/LineChart/LineChart.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "LineChart",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The chart's title; it names the figure and the plot.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "A line under the title that says what is measured, such as Visitors per day.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "points",
+              "type": "string[]",
+              "required": true,
+              "default": null,
+              "description": "The points along the x axis, in order, such as dates; one per value in each series.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "series",
+              "type": "ChartSeries[]",
+              "required": true,
+              "default": null,
+              "description": "One or more series; with two or more a legend appears, and up to four are also labelled at their ends.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "area",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Fills under a single series with a faint wash of its colour, for a total over time.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "format",
+              "type": "((value: number) => string)",
+              "required": false,
+              "default": "(v: number) => new Intl.NumberFormat(undefined, { notation: Math.abs(v) >= 1000 ? 'compact' : 'standard', maximumFractionDigits: 1 }).format(v)",
+              "description": "Formats values in the tooltip, the end labels and the table.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "labelEvery",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "Shows every nth point's name on the axis so names do not collide; chosen from the width by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "blockSize",
+              "type": "number",
+              "required": false,
+              "default": "240",
+              "description": "The plot's height in pixels; 240 by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the figure.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 5880,
+        "cssMin": 4001,
+        "gzip": 3724
       }
     },
     "Link": {
@@ -3255,6 +5069,257 @@
         "gzip": 1617
       }
     },
+    "NotificationCenter": {
+      "source": "packages/react/src/components/NotificationCenter/NotificationCenter.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "NotificationCenter",
+          "props": [
+            {
+              "name": "notices",
+              "type": "Notice[]",
+              "required": true,
+              "default": null,
+              "description": "The notices, newest first.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onMarkAllRead",
+              "type": "(() => void)",
+              "required": false,
+              "default": null,
+              "description": "Called by Mark all as read.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onOpenNotice",
+              "type": "((notice: Notice) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with a notice when its row is pressed, after its own `onOpen`.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": "Notifications",
+              "description": "The bell's name for screen readers; it adds the unread count, as Notifications, 3 unread.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "preview",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Renders the panel in place instead of from the bell, for docs and tests.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the panel.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 73620,
+        "cssMin": 13091,
+        "gzip": 28718
+      }
+    },
+    "NumberInput": {
+      "source": "packages/react/src/components/NumberInput/NumberInput.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "NumberInput",
+          "props": [
+            {
+              "name": "value",
+              "type": "number | null",
+              "required": false,
+              "default": null,
+              "description": "The number, when you keep it yourself; `null` is an empty field.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "number | null",
+              "required": false,
+              "default": null,
+              "description": "The number it starts with.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((value: number | null) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the new number after a step, or after typing once the field is left; `null` when it is emptied.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "min",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "The smallest number allowed; typing below it is raised to it when the field is left.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "max",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "The largest number allowed; typing above it is lowered to it when the field is left.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "step",
+              "type": "number",
+              "required": false,
+              "default": "1",
+              "description": "How much one press of a stepper button or an arrow key changes the number; 1 by default. Page Up and Page Down move ten steps.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "unit",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "A unit shown at the end of the field and read with the number, such as kg or prints.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Names the field for the stepper buttons, such as Quantity, so they read Decrease quantity and Increase quantity.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the value as wrong. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "invalid"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 3761,
+        "cssMin": 6541,
+        "gzip": 3297
+      }
+    },
+    "OTPFlow": {
+      "source": "packages/react/src/components/OTPFlow/OTPFlow.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "OTPFlow",
+          "props": [
+            {
+              "name": "destination",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Where the code went, already masked, such as •••• 4821 or m•••@lind.no. It is said in the first line.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "length",
+              "type": "number",
+              "required": false,
+              "default": "6",
+              "description": "Number of characters in the code; 6 by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onVerify",
+              "type": "(code: string) => boolean | Promise<boolean>",
+              "required": true,
+              "default": null,
+              "description": "Checks a full code; return or resolve `true` when it is right. While it runs the cells are locked and a spinner says Checking.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onResend",
+              "type": "(() => void)",
+              "required": false,
+              "default": null,
+              "description": "Sends a new code. The resend button waits `resendAfter` seconds before it can be pressed again.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "resendAfter",
+              "type": "number",
+              "required": false,
+              "default": "30",
+              "description": "Seconds before a new code can be asked for; 30 by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the wrapper.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 4612,
+        "cssMin": 6813,
+        "gzip": 3861
+      }
+    },
     "Pagination": {
       "source": "packages/react/src/components/Pagination/Pagination.tsx",
       "kinds": {},
@@ -3327,6 +5392,59 @@
         "jsMin": 1360,
         "cssMin": 1505,
         "gzip": 1318
+      }
+    },
+    "PasswordInput": {
+      "source": "packages/react/src/components/PasswordInput/PasswordInput.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "PasswordInput",
+          "props": [
+            {
+              "name": "autoComplete",
+              "type": "\"current-password\" | \"new-password\"",
+              "required": false,
+              "default": "current-password",
+              "description": "`current-password` (default) for signing in; `new-password` when the reader is choosing one, so managers offer a strong one.",
+              "enum": true,
+              "options": [
+                "current-password",
+                "new-password"
+              ]
+            },
+            {
+              "name": "showLabel",
+              "type": "string",
+              "required": false,
+              "default": "Show password",
+              "description": "The words on the show button for screen readers; Show password by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the value as wrong. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "autoComplete",
+        "invalid"
+      ],
+      "variantCount": 2,
+      "demoFloor": 5,
+      "bundle": {
+        "jsMin": 2521,
+        "cssMin": 6337,
+        "gzip": 2720
       }
     },
     "PinInput": {
@@ -3936,6 +6054,127 @@
         "gzip": 12005
       }
     },
+    "RangeSlider": {
+      "source": "packages/react/src/components/RangeSlider/RangeSlider.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "RangeSlider",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Visible label for the pair, such as Price; each bead is named from it, Price minimum and Price maximum.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "[number, number]",
+              "required": false,
+              "default": null,
+              "description": "The low and the high end, when you keep them yourself.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "[number, number]",
+              "required": false,
+              "default": null,
+              "description": "The low and the high end it starts with; the whole range by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((value: [number, number]) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with both ends on every change while dragging or pressing keys.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "min",
+              "type": "number",
+              "required": false,
+              "default": "0",
+              "description": "Lowest value. Defaults to 0.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "max",
+              "type": "number",
+              "required": false,
+              "default": "100",
+              "description": "Highest value. Defaults to 100.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "step",
+              "type": "number",
+              "required": false,
+              "default": "1",
+              "description": "Step between values. Defaults to 1.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "minGap",
+              "type": "number",
+              "required": false,
+              "default": "1",
+              "description": "How many steps must stay between the two beads, so the range never closes to nothing; 1 by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "format",
+              "type": "((value: number) => string)",
+              "required": false,
+              "default": null,
+              "description": "Formats each end where it is shown and spoken, for example a function that adds a currency.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Turns the control off, so neither bead can be focused or moved.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the wrapper.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "disabled"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 30102,
+        "cssMin": 4084,
+        "gzip": 11979
+      }
+    },
     "Rating": {
       "source": "packages/react/src/components/Rating/Rating.tsx",
       "kinds": {},
@@ -4019,6 +6258,176 @@
         "jsMin": 29637,
         "cssMin": 926,
         "gzip": 10964
+      }
+    },
+    "RichTextEditor": {
+      "source": "packages/react/src/components/RichTextEditor/RichTextEditor.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "RichTextEditor",
+          "props": [
+            {
+              "name": "aria-label",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Names the editor when it is not inside a FormField, such as Description.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "string",
+              "required": false,
+              "default": "",
+              "description": "The HTML it starts with. Only paragraphs, bold, italic, lists and links are kept.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onChange",
+              "type": "((html: string) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the HTML after every change. Clean it on the server before you show it to others.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "placeholder",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Shown in the secondary tone while the editor is empty.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "rows",
+              "type": "number",
+              "required": false,
+              "default": "5",
+              "description": "The smallest height, in lines of text; 5 by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Turns editing off; the text stays readable.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the wrapper.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "disabled"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 3224,
+        "cssMin": 2868,
+        "gzip": 2556
+      }
+    },
+    "SearchInput": {
+      "source": "packages/react/src/components/SearchInput/SearchInput.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "SearchInput",
+          "props": [
+            {
+              "name": "aria-label",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Names the field for screen readers when there is no visible label, such as Search prints.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The query, when you keep it yourself.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The query it starts with.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((value: string) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the query on every change, for search as you type.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onSearch",
+              "type": "((value: string) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the query when the reader presses Enter, for search on submit.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "clearLabel",
+              "type": "string",
+              "required": false,
+              "default": "Clear search",
+              "description": "The words on the clear button for screen readers; Clear search by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the value as wrong. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "invalid"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 2832,
+        "cssMin": 6419,
+        "gzip": 2894
       }
     },
     "SegmentedControl": {
@@ -4238,6 +6647,117 @@
         "jsMin": 91577,
         "cssMin": 3681,
         "gzip": 33254
+      }
+    },
+    "SettingsLayout": {
+      "source": "packages/react/src/components/SettingsLayout/SettingsLayout.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "SettingsGroup",
+          "props": [
+            {
+              "name": "title",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The group's heading, such as Notifications.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "description",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A line under the heading.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "SettingsRows.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        },
+        {
+          "displayName": "SettingsRow",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The setting's name, such as Email me when someone comments.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "description",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A sentence under the name on what it changes.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "control",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The control, such as a Switch, a Select, a SegmentedControl or a Button. Give it the same label.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        },
+        {
+          "displayName": "SettingsLayout",
+          "props": [
+            {
+              "name": "title",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The page heading, such as Settings.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The groups.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the wrapper.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 1085,
+        "cssMin": 1622,
+        "gzip": 1008
       }
     },
     "Sheet": {
@@ -4750,6 +7270,71 @@
         "gzip": 440
       }
     },
+    "Sparkline": {
+      "source": "packages/react/src/components/Sparkline/Sparkline.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Sparkline",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Says what the line shows in words, such as Sales over the last 12 weeks, rising; it is the line's name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "values",
+              "type": "number[]",
+              "required": true,
+              "default": null,
+              "description": "The values, oldest first; about twelve read best.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "blockSize",
+              "type": "number",
+              "required": false,
+              "default": "32",
+              "description": "The line's height in pixels; 32 by default, the height of a Stat's change row.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "showLast",
+              "type": "boolean",
+              "required": false,
+              "default": "true",
+              "description": "Marks the last point with a dot in the accent, for the current period.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the wrapper.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 1098,
+        "cssMin": 4018,
+        "gzip": 1748
+      }
+    },
     "Spinner": {
       "source": "packages/react/src/components/Spinner/Spinner.tsx",
       "kinds": {},
@@ -4942,8 +7527,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 1187,
-        "cssMin": 1461,
-        "gzip": 1172
+        "cssMin": 1427,
+        "gzip": 1167
       }
     },
     "Stepper": {
@@ -5011,9 +7596,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 1059,
+        "jsMin": 1099,
         "cssMin": 2400,
-        "gzip": 1350
+        "gzip": 1359
       }
     },
     "Switch": {
@@ -5564,6 +8149,145 @@
         "gzip": 1115
       }
     },
+    "TimePicker": {
+      "source": "packages/react/src/components/TimePicker/TimePicker.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "TimePicker",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Visible label, also the field's accessible name, such as Pick-up time.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "hideLabel",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Hides the label visually when the context already says it; it is still read.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The chosen time as HH:MM in 24 hours, such as 09:30, when you keep it yourself.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "The time it starts with, as HH:MM.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((value: string) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the chosen time as HH:MM.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "step",
+              "type": "number",
+              "required": false,
+              "default": "15",
+              "description": "Minutes between the times offered; 15 by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "min",
+              "type": "string",
+              "required": false,
+              "default": "00:00",
+              "description": "The earliest time offered, as HH:MM; 00:00 by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "max",
+              "type": "string",
+              "required": false,
+              "default": "23:59",
+              "description": "The latest time offered, as HH:MM; 23:59 by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "locale",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "A BCP 47 locale for how times read, such as en-US for 9:30 AM or nb-NO for 09:30.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "placeholder",
+              "type": "string",
+              "required": false,
+              "default": "Choose a time",
+              "description": "Shown when nothing is chosen, such as Choose a time.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Turns the field off.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Name for form submission; the value is sent as HH:MM.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the wrapper.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "disabled"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 92246,
+        "cssMin": 3681,
+        "gzip": 33559
+      }
+    },
     "Timeline": {
       "source": "packages/react/src/components/Timeline/Timeline.tsx",
       "kinds": {},
@@ -5778,6 +8502,264 @@
         "gzip": 20547
       }
     },
+    "TransferList": {
+      "source": "packages/react/src/components/TransferList/TransferList.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "TransferList",
+          "props": [
+            {
+              "name": "options",
+              "type": "ListboxOption[]",
+              "required": true,
+              "default": null,
+              "description": "Everything that can be chosen.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "string[]",
+              "required": false,
+              "default": null,
+              "description": "The values on the chosen side, when you keep them yourself.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "string[]",
+              "required": false,
+              "default": null,
+              "description": "The values on the chosen side at the start.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((value: string[]) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the chosen values, in the order of `options`, after each move.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "labels",
+              "type": "[string, string]",
+              "required": false,
+              "default": "['Available', 'Chosen']",
+              "description": "Names the two lists, such as Available and Shown on the card.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the wrapper.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 4685,
+        "cssMin": 6440,
+        "gzip": 3666
+      }
+    },
+    "TreeView": {
+      "source": "packages/react/src/components/TreeView/TreeView.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "TreeView",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Names the tree for screen readers, such as Folders.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "nodes",
+              "type": "TreeNode[]",
+              "required": true,
+              "default": null,
+              "description": "The top-level nodes.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "value",
+              "type": "string | null",
+              "required": false,
+              "default": null,
+              "description": "The chosen node's id, when you keep it yourself.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultValue",
+              "type": "string | null",
+              "required": false,
+              "default": null,
+              "description": "The node chosen at the start.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onValueChange",
+              "type": "((id: string) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with the id of the node the reader chooses with a press, Enter or Space.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "defaultExpanded",
+              "type": "string[]",
+              "required": false,
+              "default": "[]",
+              "description": "The ids open at the start.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the tree.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 2623,
+        "cssMin": 1729,
+        "gzip": 1977
+      }
+    },
+    "VirtualList": {
+      "source": "packages/react/src/components/VirtualList/VirtualList.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "VirtualList",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Names the list for screen readers, such as All prints.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "items",
+              "type": "T[]",
+              "required": true,
+              "default": null,
+              "description": "Every item; only the ones in view, plus a few either side, are in the page at a time.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "renderItem",
+              "type": "(item: T, index: number) => ReactNode",
+              "required": true,
+              "default": null,
+              "description": "Draws one row. Rows must all be `rowHeight` tall.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "rowHeight",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "The height of every row in pixels; 44 by default, the touch size.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "blockSize",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The block size of the scrolling pane, such as 24rem.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "overscan",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "Rows drawn beyond each edge so a fast scroll does not show blanks; 6 by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "getKey",
+              "type": "((item: T, index: number) => string | number)",
+              "required": false,
+              "default": null,
+              "description": "A key for each item, so rows keep their state as they scroll; the index by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the pane.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "ref",
+              "type": "Ref<HTMLDivElement>",
+              "required": false,
+              "default": null,
+              "description": "The scrolling pane, for scrolling it to a row or measuring it.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 963,
+        "cssMin": 752,
+        "gzip": 951
+      }
+    },
     "VisuallyHidden": {
       "source": "packages/react/src/components/VisuallyHidden/VisuallyHidden.tsx",
       "kinds": {},
@@ -5805,6 +8787,80 @@
         "jsMin": 331,
         "cssMin": 347,
         "gzip": 443
+      }
+    },
+    "Wizard": {
+      "source": "packages/react/src/components/Wizard/Wizard.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Wizard",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Names the whole task, such as Order a print.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "steps",
+              "type": "WizardStep[]",
+              "required": true,
+              "default": null,
+              "description": "The steps, in order.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onFinish",
+              "type": "() => void",
+              "required": true,
+              "default": null,
+              "description": "Called after the last step validates.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "finishLabel",
+              "type": "string",
+              "required": false,
+              "default": "Finish",
+              "description": "The words on the last button; Finish by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onCancel",
+              "type": "(() => void)",
+              "required": false,
+              "default": null,
+              "description": "Called when the reader leaves without finishing; shows a Cancel button.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the wrapper.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 2989,
+        "cssMin": 6623,
+        "gzip": 3023
       }
     }
   }

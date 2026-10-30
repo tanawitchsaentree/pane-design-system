@@ -41,4 +41,7 @@ export const VirtualList = forwardRef(function VirtualList<T>({ label, items, re
       </ul>
     </div>
   );
-}) as <T>(p: VirtualListProps<T> & { ref?: React.Ref<HTMLDivElement> }) => React.ReactElement;
+}) as <T>(p: VirtualListProps<T> & {
+  /** The scrolling pane, for scrolling it to a row or measuring it. */
+  ref?: React.Ref<HTMLDivElement>;
+}) => React.ReactElement;

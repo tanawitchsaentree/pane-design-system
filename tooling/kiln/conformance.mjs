@@ -73,6 +73,12 @@ for (const { name } of CHAPTERS) {
 
 const SYSTEM_CHECKS = path.join(ROOT, 'system', 'conformance');
 const systemFiles = existsSync(SYSTEM_CHECKS) ? readdirSync(SYSTEM_CHECKS).filter((f) => f.endsWith('.mjs')).sort() : [];
+// a quick run for the pages being worked on (KILN_CHECKS=20,21 picks those check files; KILN_ROUTES limits
+// the demo floor and coverage loops to those components); a full run, without them, is still the one that counts
+const ONLY_FILES = (process.env.KILN_CHECKS ?? '').split(',').map((x) => x.trim()).filter(Boolean);
+const ONLY_ROUTES = new Set((process.env.KILN_ROUTES ?? '').split(',').map((x) => x.trim()).filter(Boolean));
+const inScope = (slug) => !ONLY_ROUTES.size || ONLY_ROUTES.has(`/components/${slug}`);
+const runFiles = ONLY_FILES.length ? systemFiles.filter((f) => ONLY_FILES.some((k) => f.startsWith(k))) : systemFiles;
 
 const srv = await serveDist(C.abs(C.dist));
 const THEME = C.themes[0];
@@ -83,7 +89,7 @@ try {
   const go = (route, theme = THEME) => page.goto(url(srv.base, route, { theme }, C), { waitUntil: 'networkidle' });
   const main = () => page.locator('main');
 
-  for (const { name, slug } of CHAPTERS) {
+  for (const { name, slug } of CHAPTERS.filter((c) => inScope(c.slug))) {
     await check(name, `demo floor met (≥ variant dimensions + 3 = ${META.components?.[name]?.demoFloor})`, async () => {
       let n = 0;
       for (const t of C.tabs) { await go(`${C.componentsBase}/${slug}/${t}`); n += await main().locator('figure.example').count(); }
@@ -95,12 +101,12 @@ try {
   // --- the system's own component checks ---------------------------------------------------------
   const covered = new Set();
   const t = { check: async (component, name, fn) => { covered.add(component); return check(component, name, fn); }, expect, eventually, tabTo, page, go, main, browser, base: srv.base, url: (r, o) => url(srv.base, r, o, C), tokens: TOKENS, config: SYS, chapters: CHAPTERS };
-  for (const f of systemFiles) {
+  for (const f of runFiles) {
     const mod = await import(pathToFileURL(path.join(SYSTEM_CHECKS, f)).href);
     await page.setViewportSize({ width: 1440, height: 900 });
     await mod.default(t);
   }
-  for (const { name } of CHAPTERS) {
+  for (const { name } of CHAPTERS.filter((c) => inScope(c.slug))) {
     if (!covered.has(name)) await check(name, 'has behaviour checks in system/conformance/', () => expect(false, `no check names "${name}", so its keys, roles and measured values are untested`));
   }
 } finally {

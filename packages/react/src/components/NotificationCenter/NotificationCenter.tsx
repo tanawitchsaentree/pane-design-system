@@ -66,7 +66,7 @@ export const NotificationCenter = forwardRef<HTMLDivElement, NotificationCenterP
                     {n.body && <span className={styles.body}>{n.body}</span>}
                     <span className={styles.time}>{n.unread && <span className={styles.new}>New · </span>}{n.time}</span>
                   </span>
-                  {n.unread && <span className={styles.dot} data-glow="mark" aria-hidden="true" />}
+                  {n.unread && <span className={styles.dot} aria-hidden="true" />}
                 </button>
               </li>
             ))}

@@ -1,7 +1,6 @@
 /* A glass button and a list of chosen files on a level-2 pane, each row with its size and a remove button;
    a refused file is said in words in the critical mark's row (P6). */
 .root { display: flex; flex-direction: column; gap: var(--ds-file-upload-gap); min-inline-size: 0; font-family: var(--ds-type-family); }
-.native { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); opacity: 0; pointer-events: none; }
 .head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ds-file-upload-gap) var(--ds-gap-lg); }
 .hint { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
 .glyph { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); flex: none; fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }

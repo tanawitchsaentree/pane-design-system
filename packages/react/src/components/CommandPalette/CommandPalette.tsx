@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useId, useMemo, useState, type ReactNode } from 'react';
+import { Fragment, forwardRef, useEffect, useId, useMemo, useState, type ReactNode } from 'react';
 import * as RD from '@radix-ui/react-dialog';
 import { cx } from '../../cx';
 import { Card } from '../Card';
@@ -36,6 +36,8 @@ export interface CommandPaletteProps {
   placeholder?: string;
   /** Shown when nothing matches; No commands match by default. */
   empty?: string;
+  /** Draws it in place, open and not modal, inside its parent. Use it for documentation, previews and screenshots, never in a product flow. */
+  preview?: boolean;
 }
 
 const score = (c: Command, q: string) => {
@@ -49,15 +51,15 @@ const score = (c: Command, q: string) => {
 /** Every action in reach of the keyboard: ⌘K opens a level-3 pane over the scrim with a field and the
  *  commands under it, grouped. Typing filters, arrow keys move the highlight while focus stays in the
  *  field, Enter runs, Esc closes and focus goes back where it was. */
-export const CommandPalette = forwardRef<HTMLDivElement, CommandPaletteProps>(function CommandPalette({ commands, open, onOpenChange, hotkey = true, placeholder = 'Type a command or search', empty = 'No commands match' }, ref) {
+export const CommandPalette = forwardRef<HTMLDivElement, CommandPaletteProps>(function CommandPalette({ commands, open, onOpenChange, hotkey = true, placeholder = 'Type a command or search', empty = 'No commands match', preview }, ref) {
   const id = useId();
   const [inner, setInner] = useState(false);
-  const isOpen = open ?? inner;
+  const isOpen = preview ? true : open ?? inner;
   const set = (v: boolean) => { if (open === undefined) setInner(v); onOpenChange?.(v); };
   const [q, setQ] = useState('');
   const [at, setAt] = useState(0);
   useEffect(() => {
-    if (!hotkey) return;
+    if (!hotkey || preview) return;
     const on = (e: KeyboardEvent) => { if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); set(!isOpen); } };
     window.addEventListener('keydown', on); return () => window.removeEventListener('keydown', on);
   });
@@ -65,18 +67,19 @@ export const CommandPalette = forwardRef<HTMLDivElement, CommandPaletteProps>(fu
   const shown = useMemo(() => commands.map((c, i) => ({ c, s: score(c, q), i })).filter((x) => x.s > 0).sort((a, b) => (q ? b.s - a.s : 0) || a.i - b.i).map((x) => x.c), [commands, q]);
   const groups = useMemo(() => { const m = new Map<string, Command[]>(); for (const c of shown) { const g = q ? 'Results' : c.group ?? 'Commands'; m.set(g, [...(m.get(g) ?? []), c]); } return [...m]; }, [shown, q]);
   const flat = groups.flatMap(([, cs]) => cs);
+  const Portal = preview ? Fragment : RD.Portal;
   const run = (c: Command) => { set(false); setTimeout(c.onSelect, 0); };
   return (
-    <RD.Root open={isOpen} onOpenChange={set}>
-      <RD.Portal>
-        <RD.Overlay className={dlg.scrim} />
+    <RD.Root open={isOpen} onOpenChange={set} modal={!preview}>
+      <Portal>
+        {!preview && <RD.Overlay className={dlg.scrim} />}
         <RD.Content asChild aria-describedby={undefined}>
-          <Card ref={ref} as="div" level={3} data-component="CommandPalette" className={styles.root}>
+          <Card ref={ref} as="div" level={3} data-component="CommandPalette" className={cx(styles.root, preview && styles.preview)}>
             <RD.Title className={styles.hidden}>Command palette</RD.Title>
             <div className={styles.field}>
               <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.glyph}><circle cx="10.5" cy="10.5" r="6" /><path d="M15 15l5.5 5.5" /></svg>
               <input className={styles.input} role="combobox" aria-expanded aria-controls={`${id}-list`} aria-autocomplete="list" aria-activedescendant={flat[at] ? `${id}-${flat[at].id}` : undefined}
-                aria-label="Command" placeholder={placeholder} value={q} autoFocus
+                aria-label="Command" placeholder={placeholder} value={q} autoFocus={!preview}
                 onChange={(e) => { setQ(e.target.value); setAt(0); }}
                 onKeyDown={(e) => {
                   if (e.key === 'ArrowDown') { e.preventDefault(); setAt((a) => Math.min(flat.length - 1, a + 1)); }
@@ -85,8 +88,8 @@ export const CommandPalette = forwardRef<HTMLDivElement, CommandPaletteProps>(fu
                   if (e.key === 'Enter' && flat[at]) { e.preventDefault(); run(flat[at]); }
                 }} />
             </div>
-            <div id={`${id}-list`} role="listbox" aria-label="Commands" className={styles.list}>
-              {flat.length === 0 && <p className={styles.empty} role="status">{empty}</p>}
+            {flat.length === 0 && <p className={styles.empty} role="status">{empty}</p>}
+            <div id={`${id}-list`} role="listbox" aria-label="Commands" className={styles.list} hidden={flat.length === 0}>
               {groups.map(([g, cs], gi) => (
                 <div key={g} role="group" aria-labelledby={`${id}-g-${gi}`} className={styles.group}>
                   <p id={`${id}-g-${gi}`} className={styles.heading} role="presentation">{g}</p>
@@ -103,7 +106,7 @@ export const CommandPalette = forwardRef<HTMLDivElement, CommandPaletteProps>(fu
             <p className={styles.foot} aria-hidden="true"><Kbd>↑</Kbd><Kbd>↓</Kbd> to move · <Kbd>↵</Kbd> to run · <Kbd>esc</Kbd> to close</p>
           </Card>
         </RD.Content>
-      </RD.Portal>
+      </Portal>
     </RD.Root>
   );
 });

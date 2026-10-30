@@ -34,7 +34,7 @@ export const Dropzone = forwardRef<HTMLButtonElement, DropzoneProps>(function Dr
   const take = (list: FileList | null) => { const { ok, refused } = check(Array.from(list ?? []), accept, maxSize); onFiles?.(multiple ? ok : ok.slice(0, 1), refused.map((r) => r.reason)); };
   return (
     <>
-      <input ref={input} type="file" accept={accept} multiple={multiple} disabled={disabled} className={styles.native} tabIndex={-1} aria-hidden="true" onChange={(e) => { take(e.target.files); e.target.value = ''; }} />
+      <input ref={input} type="file" accept={accept} multiple={multiple} disabled={disabled} hidden onChange={(e) => { take(e.target.files); e.target.value = ''; }} />
       <button ref={ref} type="button" data-component="Dropzone" data-over={over || undefined} disabled={disabled} className={cx(styles.root, className)} aria-describedby={hint ? `${id}-hint` : undefined}
         onClick={() => input.current?.click()}
         onDragEnter={(e) => { e.preventDefault(); setOver(true); }}

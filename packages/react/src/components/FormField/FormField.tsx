@@ -12,6 +12,8 @@ const FieldContext = createContext<FieldContextValue | null>(null);
 export const useField = () => useContext(FieldContext);
 
 export interface FormFieldProps extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
+  /** Sets the control's id, so a Form's error summary can link to the field; one is made for you otherwise. */
+  id?: string;
   /** The field's name, shown above the control and used as its accessible name. */
   label: ReactNode;
   /** Optional help shown under the control and read after the label. */
@@ -26,8 +28,9 @@ export interface FormFieldProps extends Omit<HTMLAttributes<HTMLDivElement>, 'ch
   children: ReactNode;
 }
 
-export function FormField({ label, help, error, required = false, disabled = false, className, children, ...rest }: FormFieldProps) {
-  const id = useId();
+export function FormField({ id: fixedId, label, help, error, required = false, disabled = false, className, children, ...rest }: FormFieldProps) {
+  const auto = useId();
+  const id = fixedId ?? auto;
   const helpId = help != null ? `${id}-help` : undefined;
   const errorId = error != null ? `${id}-error` : undefined;
   const describedBy = [errorId, helpId].filter(Boolean).join(' ') || undefined;

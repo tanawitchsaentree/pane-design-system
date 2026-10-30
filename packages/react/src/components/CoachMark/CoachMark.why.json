@@ -84,6 +84,16 @@
       "p": "P3",
       "axis": "shape",
       "why": "the arrow points from the card to the thing in the card tone"
+    },
+    "previewWrap": {
+      "p": "P3",
+      "axis": "space",
+      "why": "in a preview the thing and its card stack in place so docs can show them together"
+    },
+    "preview": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "in a preview the card sits in the page without rising or floating"
     }
   },
   "states": {

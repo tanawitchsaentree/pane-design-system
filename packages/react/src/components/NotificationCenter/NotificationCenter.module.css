@@ -1,5 +1,5 @@
-/* A bell with a count, and a popover of notices grouped by day; an unread row is semibold with a dot that
-   glows faintly in dark and the word New, so unread reads by mark and word (P6). */
+/* A bell with a count, and a popover of notices grouped by day; an unread row is semibold with a dot and
+   the word New, so unread reads by mark and word (P6). */
 .pop { padding: 0; inline-size: min(calc(100vw - var(--ds-overlay-margin) * 2), var(--ds-notification-center-width)); }
 .panel { display: flex; flex-direction: column; gap: var(--ds-gap-md); max-block-size: var(--ds-notification-center-max); overflow-y: auto; padding: var(--ds-notification-center-padding); font-family: var(--ds-type-family); }
 .head { display: flex; align-items: center; justify-content: space-between; gap: var(--ds-gap-md); }
@@ -17,7 +17,7 @@
 .body { font-size: var(--ds-type-label); color: var(--ds-text-secondary); overflow-wrap: anywhere; }
 .time { font-size: var(--ds-type-caption); color: var(--ds-text-secondary); }
 .new { color: var(--ds-text-primary); font-weight: var(--ds-type-weight-medium); }
-.dot { flex: none; inline-size: var(--ds-control-dot); block-size: var(--ds-control-dot); margin-block-start: var(--ds-gap-sm); border-radius: var(--ds-corner-round); background: var(--ds-notification-center-dot); box-shadow: var(--ds-notification-center-glow); }
+.dot { flex: none; inline-size: var(--ds-control-dot); block-size: var(--ds-control-dot); margin-block-start: var(--ds-gap-sm); border-radius: var(--ds-corner-round); background: var(--ds-notification-center-dot); }
 .bell { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
 .badge { position: absolute; inset-block-start: 0; inset-inline-end: 0; display: inline-grid; place-items: center; min-inline-size: var(--ds-control-badge); block-size: var(--ds-control-badge); padding-inline: var(--ds-gap-xs); border-radius: var(--ds-corner-round); background: var(--ds-notification-center-dot); color: var(--ds-notification-center-dot-fg); font-size: var(--ds-type-micro); font-weight: var(--ds-type-weight-semibold); pointer-events: none; }
 @media (forced-colors: active) { .dot, .badge { background: Highlight; color: HighlightText; } }

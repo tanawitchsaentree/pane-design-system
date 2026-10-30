@@ -56,4 +56,7 @@ export const Feed = forwardRef(function Feed<T>({ label, items, renderItem, getL
       </div>
     </div>
   );
-}) as <T>(p: FeedProps<T> & { ref?: React.Ref<HTMLDivElement> }) => React.ReactElement;
+}) as <T>(p: FeedProps<T> & {
+  /** The wrapper around the feed, for scrolling it into view. */
+  ref?: React.Ref<HTMLDivElement>;
+}) => React.ReactElement;

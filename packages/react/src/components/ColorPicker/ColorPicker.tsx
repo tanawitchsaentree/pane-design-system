@@ -42,11 +42,10 @@ export const ColorPicker = forwardRef<HTMLDivElement, ColorPickerProps>(function
   const set = (v: string) => { const n = norm(v); if (!n) return; if (value === undefined) setInner(n); onValueChange?.(n); };
   const named = swatches.find((s) => norm(s.value) === current);
   return (
-    <div ref={ref} data-component="ColorPicker" className={cx(styles.root, className)}>
+    <div ref={ref} data-component="ColorPicker" data-not-token="" className={cx(styles.root, className)}>
       <RR.Root aria-label={label} value={named ? norm(named.value)! : ''} onValueChange={set} orientation="horizontal" className={styles.swatches}>
         {swatches.map((s) => (
-          <RR.Item key={s.value} value={norm(s.value)!} aria-label={s.name} title={s.name} className={styles.item}>
-            <span className={styles.swatch} style={{ ['--pane-swatch' as string]: s.value }} />
+          <RR.Item key={s.value} value={norm(s.value)!} aria-label={s.name} title={s.name} className={styles.item} style={{ ['--pane-swatch' as string]: s.value }}>
             <RR.Indicator className={styles.check}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></RR.Indicator>
           </RR.Item>
         ))}

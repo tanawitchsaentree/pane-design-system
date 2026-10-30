@@ -114,4 +114,7 @@ export const DataGrid = forwardRef(function DataGrid<Row extends { id: string | 
       {loading && <div className={styles.loading} role="status">Loading rows</div>}
     </div>
   );
-}) as <Row extends { id: string | number }>(p: DataGridProps<Row> & { ref?: React.Ref<HTMLDivElement> }) => React.ReactElement;
+}) as <Row extends { id: string | number }>(p: DataGridProps<Row> & {
+  /** The grid’s pane, for scrolling it into view or measuring it. */
+  ref?: React.Ref<HTMLDivElement>;
+}) => React.ReactElement;

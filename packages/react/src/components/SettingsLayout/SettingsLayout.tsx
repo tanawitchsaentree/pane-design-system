@@ -7,7 +7,7 @@ export interface SettingsRowProps {
   label: string;
   /** A sentence under the name on what it changes. */
   description?: ReactNode;
-  /** The control: a Switch, a Select, a SegmentedControl or a Button. Give it the same label. */
+  /** The control, such as a Switch, a Select, a SegmentedControl or a Button. Give it the same label. */
   control: ReactNode;
 }
 

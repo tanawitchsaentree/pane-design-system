@@ -63,12 +63,7 @@
     "item": {
       "p": "P6",
       "axis": "space",
-      "why": "each swatch is a radio with a 44px round press area"
-    },
-    "swatch": {
-      "p": "P3",
-      "axis": "depth",
-      "why": "the colour is a disc with a hairline rim so a pale colour still has an edge"
+      "why": "each swatch is a 44px round radio filled with its colour and ringed so a pale colour still has an edge"
     },
     "check": {
       "p": "P6",

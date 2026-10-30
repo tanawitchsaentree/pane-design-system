@@ -756,6 +756,326 @@
           ]
         },
         {
+          "path": "/components/password-input",
+          "title": "PasswordInput",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/search-input",
+          "title": "SearchInput",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/number-input",
+          "title": "NumberInput",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/range-slider",
+          "title": "RangeSlider",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/editable",
+          "title": "Editable",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/file-upload",
+          "title": "FileUpload",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/dropzone",
+          "title": "Dropzone",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/color-picker",
+          "title": "ColorPicker",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/otp-flow",
+          "title": "OTPFlow",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/calendar",
+          "title": "Calendar",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/date-picker",
+          "title": "DatePicker",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/time-picker",
+          "title": "TimePicker",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/tree-view",
+          "title": "TreeView",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/carousel",
+          "title": "Carousel",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/virtual-list",
+          "title": "VirtualList",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/transfer-list",
+          "title": "TransferList",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/data-grid",
+          "title": "DataGrid",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/bar-chart",
+          "title": "BarChart",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/line-chart",
+          "title": "LineChart",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/sparkline",
+          "title": "Sparkline",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/heatmap",
+          "title": "Heatmap",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/form",
+          "title": "Form",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/wizard",
+          "title": "Wizard",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/auth-form",
+          "title": "AuthForm",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/command-palette",
+          "title": "CommandPalette",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/notification-center",
+          "title": "NotificationCenter",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/coach-mark",
+          "title": "CoachMark",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/kanban-board",
+          "title": "KanbanBoard",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/feed",
+          "title": "Feed",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/app-shell",
+          "title": "AppShell",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/settings-layout",
+          "title": "SettingsLayout",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/rich-text-editor",
+          "title": "RichTextEditor",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
           "path": "/components/slider",
           "title": "Slider",
           "tabs": [

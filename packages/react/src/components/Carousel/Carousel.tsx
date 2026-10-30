@@ -35,7 +35,7 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(function Carou
       </div>
       <div className={styles.controls}>
         <IconButton aria-label="Previous slide" disabled={at === 0} onClick={() => to(at - 1)}><svg viewBox="0 0 24 24" aria-hidden="true" className={styles.chev}><path d="M14.5 6 8.5 12l6 6" /></svg></IconButton>
-        <div className={styles.dots} aria-hidden="true">{slides.map((_, i) => <span key={i} className={cx(styles.dot, i === at && styles.on)} data-glow={i === at ? 'mark' : undefined} />)}</div>
+        <div className={styles.dots} aria-hidden="true">{slides.map((_, i) => <span key={i} className={cx(styles.dot, i === at && styles.on)} />)}</div>
         <IconButton aria-label="Next slide" disabled={at >= slides.length - 1} onClick={() => to(at + 1)}><svg viewBox="0 0 24 24" aria-hidden="true" className={styles.chev}><path d="M9.5 6l6 6-6 6" /></svg></IconButton>
         <span className={styles.count} aria-live="polite">{at + 1} of {slides.length}</span>
       </div>

@@ -29,7 +29,9 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(function Form({ onSub
   const summary = useRef<HTMLDivElement>(null);
   const id = useId();
   const count = errors.length;
-  useEffect(() => { if (count) summary.current?.focus(); }, [errors, count]);
+  // focus moves to the summary when a submit fails, never on first render, so a page opens at its heading
+  const mounted = useRef(false);
+  useEffect(() => { if (mounted.current && count) summary.current?.focus(); mounted.current = true; }, [errors, count]);
   return (
     <form ref={ref} data-component="Form" noValidate={noValidate} className={cx(styles.root, className)} {...rest}
       onSubmit={(e) => { e.preventDefault(); onSubmit?.(new FormData(e.currentTarget), e); }}>

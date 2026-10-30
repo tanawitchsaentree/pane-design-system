@@ -2,6 +2,7 @@ import { forwardRef, useEffect, useRef, type ReactNode } from 'react';
 import * as RP from '@radix-ui/react-popover';
 import { Card } from '../Card';
 import { Button } from '../Button';
+import { cx } from '../../cx';
 import styles from './CoachMark.module.css';
 
 export interface CoachMarkProps {
@@ -23,28 +24,41 @@ export interface CoachMarkProps {
   onSkip: () => void;
   /** Which side of the thing the mark opens on; below by default. */
   side?: 'top' | 'right' | 'bottom' | 'left';
+  /** Draws the card in place under the thing, for documentation, previews and screenshots, never in a product flow. */
+  preview?: boolean;
 }
 
 /** A small level-4 card anchored to one thing on the page, saying what it does, with Next and Skip tour.
  *  It never covers the page with a scrim and never blocks the thing it points at; Esc skips, and focus
  *  moves to the card when it opens and back to the page when the tour ends. */
-export const CoachMark = forwardRef<HTMLDivElement, CoachMarkProps>(function CoachMark({ children, open, title, description, step, total, onNext, onSkip, side = 'bottom' }, ref) {
+export const CoachMark = forwardRef<HTMLDivElement, CoachMarkProps>(function CoachMark({ children, open, title, description, step, total, onNext, onSkip, side = 'bottom', preview }, ref) {
   const head = useRef<HTMLParagraphElement>(null);
-  useEffect(() => { if (open) requestAnimationFrame(() => head.current?.focus()); }, [open]);
+  useEffect(() => { if (open && !preview) requestAnimationFrame(() => head.current?.focus()); }, [open, preview]);
   const last = step !== undefined && total !== undefined && step >= total;
+  const body = (
+    <>
+      {step !== undefined && total !== undefined && <span className={styles.count}>{step} of {total}</span>}
+      <p ref={head} tabIndex={-1} className={styles.title}>{title}</p>
+      {description && <p className={styles.description}>{description}</p>}
+      <div className={styles.actions}>
+        {!last && <Button variant="glass" size="sm" onClick={onSkip}>Skip tour</Button>}
+        <Button variant="light" size="sm" onClick={onNext}>{last ? 'Done' : 'Next'}</Button>
+      </div>
+    </>
+  );
+  if (preview) return (
+    <span className={styles.previewWrap}>
+      <span className={styles.anchor} data-coached={open || undefined} data-glow={open ? 'soft' : undefined}>{children}</span>
+      {open && <Card ref={ref} as="section" level={4} data-component="CoachMark" aria-label={title} className={cx(styles.card, styles.preview)}>{body}</Card>}
+    </span>
+  );
   return (
     <RP.Root open={open} onOpenChange={(o) => { if (!o) onSkip(); }}>
-      <RP.Anchor asChild><span className={styles.anchor} data-coached={open || undefined}>{children}</span></RP.Anchor>
+      <RP.Anchor asChild><span className={styles.anchor} data-coached={open || undefined} data-glow={open ? 'soft' : undefined}>{children}</span></RP.Anchor>
       <RP.Portal>
         <RP.Content asChild side={side} align="center" sideOffset={12} collisionPadding={12} onOpenAutoFocus={(e) => e.preventDefault()} onInteractOutside={(e) => e.preventDefault()}>
           <Card ref={ref} as="section" level={4} data-component="CoachMark" aria-label={title} className={styles.card}>
-            {step !== undefined && total !== undefined && <span className={styles.count}>{step} of {total}</span>}
-            <p ref={head} tabIndex={-1} className={styles.title}>{title}</p>
-            {description && <p className={styles.description}>{description}</p>}
-            <div className={styles.actions}>
-              {!last && <Button variant="glass" size="sm" onClick={onSkip}>Skip tour</Button>}
-              <Button variant="light" size="sm" onClick={onNext}>{last ? 'Done' : 'Next'}</Button>
-            </div>
+            {body}
             <RP.Arrow className={styles.arrow} width={16} height={8} />
           </Card>
         </RP.Content>

@@ -63,7 +63,7 @@
     "field": {
       "p": "P3",
       "axis": "space",
-      "why": "the field row carries the magnifier and a hairline under it"
+      "why": "the field row holds the magnifier over the groove, inset from the pane edge"
     },
     "glyph": {
       "p": "P2",
@@ -73,7 +73,7 @@
     "input": {
       "p": "P2",
       "axis": "type",
-      "why": "the query is at the emphasis size with no groove because the pane is the field"
+      "why": "the query sits in the Input groove at the emphasis size so it reads as a field"
     },
     "list": {
       "p": "P3",
@@ -124,6 +124,11 @@
       "p": "P2",
       "axis": "type",
       "why": "the foot lists the keys in the secondary tone at caption size"
+    },
+    "preview": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "in a preview the palette sits in place in its parent without the scrim, for docs only"
     }
   },
   "states": {
@@ -131,6 +136,11 @@
       "p": "P6",
       "axis": "depth",
       "why": "in forced colours the system draws the edges and marks so every part stays findable"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the field shows the focus ring when the palette opens from the keyboard"
     }
   },
   "motion": {

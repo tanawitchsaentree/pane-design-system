@@ -28,7 +28,7 @@
       "p": "P6",
       "axis": "shape",
       "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
-      "form": "the current dot is longer than the rest and in dark gives off a faint light"
+      "form": "the current dot is longer than the rest and in the loud solid, so where you are reads by shape"
     },
     {
       "p": "P5",
@@ -98,7 +98,7 @@
     "on": {
       "p": "P6",
       "axis": "shape",
-      "why": "the current dot is three times as long and in the loud solid"
+      "why": "the current dot is three times as long and in the loud solid, so where you are reads by shape"
     },
     "count": {
       "p": "P6",

@@ -1,4 +1,4 @@
-import { forwardRef, useId, useState, type KeyboardEvent, type ReactNode } from 'react';
+import { forwardRef, useId, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
 import { cx } from '../../cx';
 import styles from './KanbanBoard.module.css';
 
@@ -35,7 +35,9 @@ export const KanbanBoard = forwardRef<HTMLDivElement, KanbanBoardProps>(function
     next[toCol].cards.splice(Math.max(0, Math.min(toIdx, next[toCol].cards.length)), 0, card);
     return next;
   };
-  const focusCard = (id: string) => requestAnimationFrame(() => document.querySelector<HTMLElement>(`[data-card="${CSS.escape(id)}"]`)?.focus());
+  // scoped to this board, so two boards with the same card ids never take each other's focus
+  const box = useRef<HTMLDivElement | null>(null);
+  const focusCard = (id: string) => requestAnimationFrame(() => box.current?.querySelector<HTMLElement>(`[data-card="${CSS.escape(id)}"]`)?.focus());
   const key = (e: KeyboardEvent, card: KanbanCard) => {
     const { c, i } = where(columns, card.id);
     if (e.key === ' ' || e.key === 'Enter') {
@@ -61,9 +63,9 @@ export const KanbanBoard = forwardRef<HTMLDivElement, KanbanBoardProps>(function
     }
   };
   return (
-    <div ref={ref} data-component="KanbanBoard" role="region" aria-label={label} className={cx(styles.root, className)}>
+    <div ref={(el) => { box.current = el; if (typeof ref === 'function') ref(el); else if (ref) ref.current = el; }} data-component="KanbanBoard" role="region" aria-label={label} className={cx(styles.root, className)}>
       <p className={styles.hint} id={`${uid}-hint`}>Press Space on a card to pick it up, then use the arrow keys.</p>
-      <div className={styles.columns}>
+      <div className={styles.columns} role="group" tabIndex={0} aria-label={`${label}, columns`}>
         {columns.map((col, ci) => (
           <section key={col.id} aria-labelledby={`${uid}-${ci}`} className={cx(styles.column, over === col.id && styles.over)}
             onDragOver={(e) => { e.preventDefault(); setOver(col.id); }} onDragLeave={() => setOver(null)}
