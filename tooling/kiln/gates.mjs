@@ -18,6 +18,7 @@
 //   inset        G-IN1 text inside a control ≥8px (and ≥ half the end radius) from the control's edge
 //   travel       G-SL1 a slider ≥200px long, and it and its pane keep their size from Home to End
 //   states       G-SV1 every promised state is present, visible and announced (state matrix)
+//   nesting      G-NC1 a shape near a rounded parent's corner nests it (even inset, inner = outer − inset)
 //   text fields  G-TX1 fields hold Thai marks and keep their size while typing
 //   glow         G-GL1 only [data-glow] parts emit light in dark, visibly and within reach; text never; nothing in light
 //   rhythm       G-RH1 a stage and a tab bar ≥24px from neighbouring blocks (own code/caption/heading ≥8, intro ≥16)
@@ -1257,6 +1258,58 @@ try {
     }
     fail(bad, 'elements spilling out of the page column');
     return `${n} pages`;
+  });
+
+  await gate('G-NC1', 'a shape inside a rounded shape nests its corner wherever it sits near one: even inset and inner radius = outer radius − inset', async () => {
+    // Pane, 2026-10-30, user: the ⌘K key in the topbar search pill sat 4px from the pill's round end and
+    // 12px from its top and bottom, with a 6px corner against a 22px one. G-NR1 checked this rule only for
+    // the highlighted row of an open flyout, so the topbar, built later, never met it. This is the rule
+    // itself: any drawn box near a drawn parent's rounded corner, on the shell and on component pages.
+    const routes = [...new Set(['/', ...ROUTES.filter((x) => x.startsWith(`${C.componentsBase}/`) && x.endsWith('/code')).slice(0, 40), ...(ROUTES.includes(C.statesRoute ?? '/patterns/states') ? [C.statesRoute ?? '/patterns/states'] : [])])].filter((r) => ROUTES.includes(r));
+    if (!routes.length) throw new Error('NO pages to check');
+    const bad = [];
+    for (const r of routes) {
+      await go(r);
+      const res = await page.evaluate(() => {
+        const out = [];
+        const drawn = (el) => {
+          const cs = getComputedStyle(el);
+          if (cs.visibility === 'hidden' || cs.display === 'contents') return false;
+          const bg = cs.backgroundColor; const solid = bg && !/rgba\(.*,\s*0\)$/.test(bg) && bg !== 'transparent';
+          return solid || cs.backgroundImage !== 'none' || (cs.boxShadow !== 'none' && !/inset/.test(cs.boxShadow) ? true : cs.boxShadow !== 'none') || parseFloat(cs.borderTopWidth) > 0;
+        };
+        const rad = (el) => parseFloat(getComputedStyle(el).borderTopLeftRadius) || 0;
+        const name = (el) => el.closest('[data-component]')?.getAttribute('data-component') ?? (el.className && typeof el.className === 'string' ? `.${el.className.split(' ')[0]}` : el.tagName.toLowerCase());
+        for (const el of document.querySelectorAll('body *')) {
+          if (el.closest('svg, [aria-hidden="true"] [aria-hidden="true"], [data-nc-exempt]') || !drawn(el)) continue;
+          const b = el.getBoundingClientRect();
+          if (b.width < 12 || b.height < 12 || b.width > 600) continue;
+          let p = el.parentElement; while (p && p !== document.body && !drawn(p)) p = p.parentElement;
+          if (!p || p === document.body) continue;
+          const pb = p.getBoundingClientRect(); const R = Math.min(rad(p), pb.height / 2, pb.width / 2);
+          if (R < 10 || pb.height > 160) continue;
+          const l = b.left - pb.left, rr = pb.right - b.right, t = b.top - pb.top, bo = pb.bottom - b.bottom;
+          if (Math.min(l, rr, t, bo) < -0.5) continue; // not inside: a lens, a tooltip, a popover
+          // only boxes that sit in a corner region: both their inline and block insets smaller than the corner
+          const h = Math.min(l, rr), v = Math.min(t, bo);
+          // a corner is only read as shared when the gap to it is small next to its curve (under 0.6 R);
+          // further in, the inner shape stands on its own and keeps its own corner
+          if (Math.max(h, v) > 0.6 * R) continue;
+          // flush against a parent that clips its children (a code block's bar) the parent's own corner does the work
+          if (Math.max(h, v) < 1 && getComputedStyle(p).overflow !== 'visible') continue;
+          const want = Math.max(0, R - Math.max(h, v)); const got = Math.min(rad(el), b.height / 2, b.width / 2);
+          // a pill's end is set by its height, so a pill only owes the even inset, never a radius
+          const pill = got >= Math.min(b.height, b.width) / 2 - 1;
+          const uneven = Math.abs(h - v) > Math.max(2, 0.25 * Math.max(h, v)) && Math.min(h, v) < 0.6 * Math.max(h, v);
+          if (uneven || (!pill && Math.abs(got - want) > Math.max(2, 0.2 * want))) out.push(`${name(el)} in ${name(p)}: inset ${Math.round(h)}px/${Math.round(v)}px, corner ${Math.round(got)}px (wants even insets and ${Math.round(want)}px)`);
+        }
+        return out;
+      });
+      for (const x of res) bad.push(`${r}: ${x}`);
+    }
+    const u = [...new Set(bad.map((x) => x.replace(/^\S+: /, '')))];
+    if (u.length) throw new Error(`${u.length} nested shapes: ${u.slice(0, 8).join(' | ')}`);
+    return `${routes.length} pages`;
   });
 
   await gate('G-NR1', 'a highlighted row inside a rounded flyout nests its corner: inner radius = outer radius − inset', async () => {
