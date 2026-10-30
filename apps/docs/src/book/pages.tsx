@@ -162,20 +162,25 @@ function GettingStarted() {
   return (
     <Page eyebrow="Getting started" title="Getting started" lede={<p>Install the two packages and load the token stylesheet once. Then wrap the screen in an Environment that matches its backdrop and put your content on Cards.</p>}>
       <Section id="install" title="1 · Install">
+        <p>Pane is not on the npm registry yet, so installing <code>pane-react</code> by name fails with a 404. Install it from the tarball this repo builds, as below; once the packages are published the same import lines work unchanged.</p>
         <p>One package and one import are enough. <code>pane-react</code> carries the tokens inside it, so a React app installs nothing else and loads one stylesheet. It needs React 18 or newer.</p>
-        <Code label="Install">{'npm install pane-react'}</Code>
+        <Code label="Install">{`# in this repo
+pnpm run release:pack
+
+# in your project
+npm install /path/to/pilot-glass/release/pane-react-${meta.version}.tgz`}</Code>
         <Code label="main.tsx">{"import 'pane-react/all.css';\nimport { Environment, Card, Button } from 'pane-react';"}</Code>
         <p>The tokens are also on their own as <code>pane-tokens</code>, for projects that are not React. The React package includes them as <code>pane-react/tokens.css</code> and <code>pane-react/tokens</code>, so you never need both.</p>
         <div className="pkg-grid">
           <div className="panel" data-surface="">
             <p className="flush"><b>pane-tokens</b> <span className="muted">v{meta.version}</span></p>
             <p className="flush muted">{Object.keys(TOKENS).length} tokens as CSS custom properties (<code>pane-tokens/css</code>) and resolved JSON (<code>pane-tokens/json</code>).</p>
-            <Code>{'pnpm add pane-tokens'}</Code>
+            <Code>{`npm install /path/to/release/pane-tokens-${meta.version}.tgz`}</Code>
           </div>
           <div className="panel" data-surface="">
             <p className="flush"><b>pane-react</b> <span className="muted">v{meta.version}</span></p>
             <p className="flush muted">{Object.keys(meta.components).length} components, {(Object.values(meta.components).reduce((n, c) => n + c.bundle.gzip, 0) / 1024).toFixed(1)} kB min+gz all together (measured with esbuild; Tabs carries Radix).</p>
-            <Code>{'pnpm add pane-react'}</Code>
+            <Code>{`npm install /path/to/release/pane-react-${meta.version}.tgz`}</Code>
           </div>
         </div>
       </Section>

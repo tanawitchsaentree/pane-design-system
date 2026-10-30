@@ -143,3 +143,11 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **Step that produced it:** the round-5 streak was drawn for wide pills and copied to the disc; the gallery was laid out for the cell, not for scanning.
 - **What changed in that step:** the streak is the shape's own top border faded toward the sides, so it follows any curve (IconButton, Button, Chip). The gallery is a full-screen dialog, five to a row on a wide screen, each demo at about two thirds of its size.
 - **Check that now catches it:** none measures a highlight's fit to a curve yet; checked by eye at 3× on IconButton, Button and Chip.
+
+### R-022: the install line pointed at a registry nobody had published to
+- **Date:** 2026-10-30
+- **User said:** "ทำไม pane ติดตั้งไม่ได้วะ" with another project's log: `pnpm add pane-tokens pane-react` returned 404 for both, and it stopped work.
+- **What was wrong:** Getting started opened with `npm install pane-react` and the package cards said `pnpm add`; the line that says nothing is published came a section later. Publishing is the user's step (Phase 8), so the documented command could never work.
+- **Step that produced it:** the install section was written from the shape of a published library, before the release path (tarballs) existed, and never re-read against it.
+- **What changed in that step:** every install line is the tarball path, and step 1 says Pane is not on npm yet. kiln rule 17: an install line is a promise.
+- **Check that now catches it:** G-PUB1 fails any page that shows a registry install of a package not listed in kiln.config `published`.

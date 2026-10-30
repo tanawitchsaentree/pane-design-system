@@ -21,7 +21,7 @@
 //   rhythm       G-RH1 a stage and a tab bar ≥24px from neighbouring blocks (own code/caption/heading ≥8, intro ≥16)
 //   address      G-ST1 no default written into the URL; stale or unknown values fall back and are dropped
 //   stack        G-EL1 stacked glass levels a measured step apart, a scrim under an overlay
-//   milestone    G-TODO1 no starter placeholder or seed reason left   reach  G-NAV1 G-SM1   touch  G-TT1
+//   milestone    G-TODO1 no starter placeholder or seed reason left · G-PUB1 no registry install of an unpublished package   reach  G-NAV1 G-SM1   touch  G-TT1
 //
 // Usage: node tooling/engine/gates.mjs [--only G-K2,G-K3] [--report]
 //   --report  also writes system/reports/docs-audit-{date}.md, a ranked punch list
@@ -785,6 +785,32 @@ try {
     return `${ROUTES.length} pages clean`;
   });
 
+  await gate('G-PUB1', 'an install command names only what can be installed: no bare registry install of an unpublished package', async () => {
+    // Pane, 2026-10-30: Getting started said `npm install pane-react` while nothing was on npm; another
+    // project followed it, got a 404 twice and stalled. Packages count as published only when listed
+    // in kiln.config `published`; until then the book must show the tarball or file path instead.
+    const pkgDir = path.join(C.root, 'packages');
+    const names = existsSync(pkgDir) ? readdirSync(pkgDir).map((d) => path.join(pkgDir, d, 'package.json')).filter(existsSync).map((f) => JSON.parse(readFileSync(f, 'utf8'))).filter((j) => !j.private).map((j) => j.name) : [];
+    const unpublished = names.filter((n) => !(C.published ?? []).includes(n));
+    if (!unpublished.length) return 'NO unpublished packages';
+    const bad = [];
+    for (const r of ROUTES) {
+      await go(r);
+      const hits = await page.evaluate((list) => {
+        const t = document.querySelector('main')?.innerText ?? '';
+        const out = [];
+        for (const m of t.matchAll(/(?:npm (?:install|i)|pnpm add|yarn add|bun add)((?:[ \t]+[^\s#]+)+)/g)) {
+          const args = m[1].trim().split(/\s+/).filter((a) => !a.startsWith('-'));
+          for (const a of args) if (list.includes(a.replace(/@[^@/]*$/, ''))) out.push(m[0].slice(0, 60));
+        }
+        return out;
+      }, unpublished);
+      for (const h of new Set(hits)) bad.push(`${r}: "${h}"`);
+    }
+    fail(bad, 'install commands for unpublished packages');
+    return `${ROUTES.length} pages, ${unpublished.length} unpublished packages never shown as a registry install`;
+  });
+
   await gate('G-CL1', 'every colour value written in the book is a current token value (no stale hex in prose)', async () => {
     // a hex typed into prose drifts when the token changes (assay dry run: #B3261E stayed in four pages
     // after the hazard red was darkened); the book should read values from tokens, and this catches it
@@ -802,6 +828,9 @@ try {
       const hexes = await page.evaluate(() => {
         const m = document.querySelector('main')?.cloneNode(true); if (!m) return [];
         for (const e of m.querySelectorAll('[data-not-token]')) e.remove();
+        // a code listing is the example's own source, compiled as shown, so it cannot drift from it (Pane,
+        // 2026-10-30: ColorPicker examples pass the content's own colours as hex); prose is what drifts
+        for (const e of m.querySelectorAll('pre')) e.remove();
         document.body.appendChild(m); m.style.cssText = 'position:absolute; inset-inline-start:-99999px';
         const t = m.innerText; m.remove();
         return [...t.matchAll(/#[0-9a-f]{6}(?:[0-9a-f]{2})?\b/gi)].map((x) => x[0]);
@@ -866,7 +895,7 @@ try {
           if (el.matches('[role="slider"]')) {
             const bar = el.closest('[data-component]'); const bg = bar && parse(getComputedStyle(bar).backgroundColor);
             if (bar && bg && bg.a > 0 && bar.getBoundingClientRect().height >= 32) el = bar;
-            else if (bar) { const drawn = [...bar.querySelectorAll('*')].filter((d) => !d.matches('[role="slider"]') && !el.contains(d) && (() => { const c = parse(getComputedStyle(d).backgroundColor); return (c && c.a > 0) || getComputedStyle(d).boxShadow !== 'none'; })()).sort((a, b) => b.getBoundingClientRect().width - a.getBoundingClientRect().width)[0]; if (drawn) el = drawn; }
+            else if (bar) { const drawn = [...bar.querySelectorAll('*')].filter((d) => !d.matches('[role="slider"]') && !el.contains(d) && (() => { const c = parse(getComputedStyle(d).backgroundColor); return (c && c.a > 0) || getComputedStyle(d).boxShadow !== 'none'; })()).sort((a, b) => b.getBoundingClientRect().width - a.getBoundingClientRect().width)[0]; if (drawn) { el = drawn; el.setAttribute('data-nt2-channel', ''); } }
           }
           const root = el.closest('[data-component]') ?? el;
           let best = 0;
@@ -908,6 +937,18 @@ try {
             if (cs.boxShadow !== 'none' || (parseFloat(cs.borderTopWidth) || 0) >= 1 || (c && c.a > 0)) { box = e; break; }
             if (e === root) break;
           }
+          // a field inside a well (Pane's InputGroup, 2026-10-30: PasswordInput, NumberInput) draws nothing itself;
+          // the enclosing component's groove is its edge, so step out to it when it paints one
+          if (box === el) {
+            const cs0 = getComputedStyle(el); const c0 = parse(cs0.backgroundColor);
+            const bare = cs0.boxShadow === 'none' && !((parseFloat(cs0.borderTopWidth) || 0) >= 1) && !(c0 && c0.a > 0);
+            const well = bare ? root.parentElement?.closest('[data-component]') : null;
+            const ws = well && getComputedStyle(well);
+            if (ws && ws.boxShadow !== 'none' && well.contains(el)) {
+              box = well; const ground = groundOf(well.parentElement ?? well);
+              for (const m of ws.boxShadow.matchAll(/rgba?\([^)]+\)/g)) { const c = parse(m[0]); if (c && c.a > 0) best = Math.max(best, ratio(over(c, ground), ground)); }
+            }
+          }
           // several controls can share one drawn box (Pane's SegmentedControl, 2026-10-29: every segment is drawn
           // by its track); a box keeps the first index it was given, or the earlier locator finds nothing
           const i = box.dataset.nt2 ?? String(document.querySelectorAll('[data-nt2]').length); box.setAttribute('data-nt2', i);
@@ -917,7 +958,11 @@ try {
       for (const [name, computed, glass, i] of res) {
         n++;
         let best = computed;
-        if (glass) best = seen.get(`${theme}|${r}|${i}`) ?? await pixelEdge(page.locator(`[data-nt2="${i}"]`));
+        // a channel is measured without its beads: the beads sit on the channel and are not its edge (Pane's
+        // RangeSlider, 2026-10-30: two white beads covered enough of a light channel to sink its percentile)
+        const beads = async (show) => page.evaluate(([j, v]) => { const el = document.querySelector(`[data-nt2="${j}"][data-nt2-channel]`); el?.closest('[data-component]')?.querySelectorAll('[role="slider"]').forEach((t) => { t.style.visibility = v; }); }, [i, show ? '' : 'hidden']);
+        if (glass && !seen.has(`${theme}|${r}|${i}`)) { await beads(false); best = await pixelEdge(page.locator(`[data-nt2="${i}"]`)); await beads(true); }
+        else if (glass) best = seen.get(`${theme}|${r}|${i}`);
         seen.set(`${theme}|${r}|${i}`, best);
         if (best < 3) bad.push(`${theme} ${r}: ${name} edge ${best}:1${glass ? ' (measured over glass)' : ''}`);
       }
@@ -1021,10 +1066,15 @@ try {
         const pad = 40, x0 = Math.max(0, b.x - pad), y0 = Math.max(0, b.y - pad);
         // the glow's own light: the same crop with and without the part's shadow, so neighbours cancel out
         const clip = { x: x0, y: y0, width: b.width + pad * 2, height: b.height + pad * 2 };
+        // a slider's beads sit on its glowing fill and are parts of their own; they are hidden while the fill's light
+        // is measured (Pane's RangeSlider, 2026-10-30: two beads at the ends of a short fill sank the median)
+        const beads = (v) => el.evaluate((e, v) => { if (e.matches('[role="slider"]')) return; e.closest('[data-component]')?.querySelectorAll('[role="slider"]').forEach((t) => { t.style.visibility = v; }); }, v);
+        await beads('hidden');
         const on = PNG.sync.read(await page.screenshot({ clip }));
         const prev = await el.evaluate((e) => { const p = e.style.boxShadow; e.style.transition = 'none'; e.style.boxShadow = 'none'; return p; });
         const off = PNG.sync.read(await page.screenshot({ clip }));
         await el.evaluate((e, p) => { e.style.boxShadow = p; e.style.transition = ''; }, prev);
+        await beads('');
         const bx = b.x - x0, by = b.y - y0, rr = Math.min(info.r, b.height / 2, b.width / 2);
         const sd = (x, y) => { const cx = Math.min(Math.max(x, bx + rr), bx + b.width - rr), cy = Math.min(Math.max(y, by + rr), by + b.height - rr); return Math.hypot(x - cx, y - cy) - rr; };
         const lum = (png, k) => 0.2126 * lin(png.data[k]) + 0.7152 * lin(png.data[k + 1]) + 0.0722 * lin(png.data[k + 2]);
@@ -1324,7 +1374,10 @@ try {
         };
         const sel = '[data-example-live] :is(button, a[href], [role="button"], [role="tab"], [role="slider"], [role="checkbox"], [role="radio"], [role="switch"], [role="combobox"], input:not([type="hidden"]), select, textarea), header :is(button, a[href]), nav[data-book-nav] button';
         // inline text links are exempt (WCAG 2.5.8 exception); a deliberate exception carries data-touch-exempt and an EXCEPTIONS entry
-        const els = [...document.querySelectorAll(sel)].filter((e) => e.getBoundingClientRect().width > 0 && !e.closest('[data-dont], [data-touch-exempt]') && !(e.tagName === 'A' && e.closest('p, li, td')));
+        // a form's mirror input (Radix renders an aria-hidden, untabbable input beside a switch or checkbox inside a
+        // <form>, Pane's Form, 2026-10-30) is not a target; the visible control beside it is measured instead
+        const mirror = (e) => e.tagName === 'INPUT' && e.getAttribute('aria-hidden') === 'true' && e.tabIndex < 0;
+        const els = [...document.querySelectorAll(sel)].filter((e) => e.getBoundingClientRect().width > 0 && !mirror(e) && !e.closest('[data-dont], [data-touch-exempt]') && !(e.tagName === 'A' && e.closest('p, li, td')));
         // a control hidden until it has focus (a skip link, a Refresh button for a gesture) is measured focused
         const sized = (e) => { let [w, h] = hit(e); if (w <= 2 && h <= 2) { e.focus({ preventScroll: true }); [w, h] = hit(e); e.blur(); } return [w, h]; };
         return els.map((e) => { const [w, h] = sized(e); return w + 0.5 >= min && h + 0.5 >= min ? null : `${(e.getAttribute('aria-label') || e.textContent || e.tagName).trim().slice(0, 20)} ${Math.round(w)}×${Math.round(h)}`; });

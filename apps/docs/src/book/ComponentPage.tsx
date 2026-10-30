@@ -227,7 +227,7 @@ export function ComponentPage({ c, tab }: { c: ComponentChapter; tab: Tab }) {
       {tab === 'code' && (
         <>
           <Section id="import" title="Import and use">
-            <Code label="Install">{'pnpm add pane-tokens pane-react'}</Code>
+            <Code label="Install">{'npm install /path/to/release/pane-react-<version>.tgz   # not on npm yet; see Getting started'}</Code>
             <Code label="Import">{c.importLine}</Code>
             <Code label="Usage">{c.usage}</Code>
           </Section>
