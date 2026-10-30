@@ -232,15 +232,6 @@
       "$type": "shadow",
       "$value": "{elevation.lift}"
     },
-    "$extensions": {
-      "kiln.why": {
-        "p": [
-          "P3",
-          "P5"
-        ],
-        "why": "a button is a small pane, a sheet lit at its top and shaded at its foot, with the pane rim, a glint under the pointer and a shadow that is blue under the accent; loud, accent and quiet roles, all full pills"
-      }
-    },
     "accent-mid": {
       "$type": "color",
       "$value": "{action.accent-hover}"
@@ -360,6 +351,27 @@
     "danger-fg": {
       "$value": "{text.critical}",
       "$type": "color"
+    },
+    "pressed-top": {
+      "$value": "{surface.chosen-top}",
+      "$type": "color"
+    },
+    "pressed-foot": {
+      "$value": "{surface.chosen-foot}",
+      "$type": "color"
+    },
+    "pressed-ring": {
+      "$value": "{line.ring}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P5"
+        ],
+        "why": "a button is a small pane, a sheet lit at its top and shaded at its foot, with the pane rim, a glint under the pointer and a shadow that is blue under the accent; loud, accent and quiet roles, all full pills"
+      }
     }
   },
   "icon-button": {
@@ -394,15 +406,6 @@
     "radius": {
       "$type": "dimension",
       "$value": "{corner.round}"
-    },
-    "$extensions": {
-      "kiln.why": {
-        "p": [
-          "P3",
-          "P6"
-        ],
-        "why": "a small round pane with Button material (gloss, rim, pointer glint) and a 44px hit area around the small size"
-      }
     },
     "hit": {
       "$type": "dimension",
@@ -463,6 +466,27 @@
     "bloom": {
       "$type": "shadow",
       "$value": "{level-shadow.bloom}"
+    },
+    "pressed-top": {
+      "$value": "{surface.chosen-top}",
+      "$type": "color"
+    },
+    "pressed-foot": {
+      "$value": "{surface.chosen-foot}",
+      "$type": "color"
+    },
+    "pressed-ring": {
+      "$value": "{line.ring}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P6"
+        ],
+        "why": "a small round pane with Button material (gloss, rim, pointer glint) and a 44px hit area around the small size"
+      }
     }
   },
   "tabs": {
@@ -1478,6 +1502,10 @@
     "group-gap": {
       "$type": "dimension",
       "$value": "{gap.md}"
+    },
+    "warning-mark": {
+      "$value": "{status.warning-mark}",
+      "$type": "color"
     },
     "$extensions": {
       "kiln.why": {
@@ -3208,15 +3236,6 @@
       "$value": "{status.critical-mark}",
       "$type": "color"
     },
-    "$extensions": {
-      "kiln.why": {
-        "p": [
-          "P3",
-          "P6"
-        ],
-        "why": "a glass button and chosen files on one level-2 pane, refusals said in words"
-      }
-    },
     "ring-invalid": {
       "$value": "{status.critical-mark}",
       "$type": "color",
@@ -3227,6 +3246,27 @@
           ],
           "why": "a wrong answer is ringed in the critical mark, the same ring a field takes, and the words in FormField say what is wrong"
         }
+      }
+    },
+    "bar": {
+      "$value": "{control.menu-min}",
+      "$type": "dimension"
+    },
+    "done-mark": {
+      "$value": "{status.positive-mark}",
+      "$type": "color"
+    },
+    "error-mark": {
+      "$value": "{status.critical-mark}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P6"
+        ],
+        "why": "a glass button and chosen files on one level-2 pane, refusals said in words"
       }
     }
   },
@@ -4293,6 +4333,42 @@
           "P6"
         ],
         "why": "lanes with hairline rails and arrows between them, solid for a message and dashed for a reply"
+      }
+    }
+  },
+  "button-group": {
+    "gap": {
+      "$value": "{gap.sm}",
+      "$type": "dimension"
+    },
+    "seam": {
+      "$value": "{width.hairline}",
+      "$type": "dimension"
+    },
+    "inner": {
+      "$value": "{corner.check}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "buttons that belong together sit at the small gap; joined, a hairline of the scene shows between them and the inner corners square off so the piece reads as one object of parts"
+      }
+    }
+  },
+  "split-button": {
+    "more-padding": {
+      "$value": "{gap.md}",
+      "$type": "dimension"
+    },
+    "more-min": {
+      "$value": "{layout.touch}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "the menu half is only its chevron, kept narrow so the pair reads as one action plus more"
       }
     }
   }

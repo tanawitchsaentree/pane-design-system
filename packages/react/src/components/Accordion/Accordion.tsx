@@ -3,7 +3,8 @@ import * as RA from '@radix-ui/react-accordion';
 import { cx } from '../../cx';
 import styles from './Accordion.module.css';
 
-export interface AccordionItem { value: string; title: string; content: ReactNode; disabled?: boolean }
+/** One section. `title` can be live content, such as a heading with a timer; it stays inside the real heading and the button. */
+export interface AccordionItem { value: string; title: ReactNode; content: ReactNode; disabled?: boolean }
 
 export interface AccordionProps {
   /** The sections, each a heading that opens its content. */

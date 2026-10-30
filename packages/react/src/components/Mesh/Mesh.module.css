@@ -4,11 +4,13 @@
 .root {
   --mesh-a: var(--ds-mesh-a); --mesh-b: var(--ds-mesh-b); --mesh-c: var(--ds-mesh-c); --mesh-d: var(--ds-mesh-d); --mesh-base: var(--ds-mesh-base);
   position: relative; isolation: isolate; border-radius: inherit;
+  /* the ground colour under the pools, also on the box itself so it reads before the paint layer loads */
+  background-color: var(--mesh-base);
 }
 .ember { --mesh-a: var(--ds-mesh-ember-a); --mesh-b: var(--ds-mesh-ember-b); --mesh-c: var(--ds-mesh-ember-c); --mesh-d: var(--ds-mesh-ember-d); --mesh-base: var(--ds-mesh-ember-base); }
 .tide { --mesh-a: var(--ds-mesh-tide-a); --mesh-b: var(--ds-mesh-tide-b); --mesh-c: var(--ds-mesh-tide-c); --mesh-d: var(--ds-mesh-tide-d); --mesh-base: var(--ds-mesh-tide-base); }
 .dusk { --mesh-a: var(--ds-mesh-dusk-a); --mesh-b: var(--ds-mesh-dusk-b); --mesh-c: var(--ds-mesh-dusk-c); --mesh-d: var(--ds-mesh-dusk-d); --mesh-base: var(--ds-mesh-dusk-base); }
-.paint { position: absolute; inset: 0; z-index: -1; overflow: hidden; border-radius: inherit; background-color: var(--mesh-base); pointer-events: none; }
+.paint { position: absolute; inset: 0; z-index: -1; overflow: hidden; container-type: size; border-radius: inherit; background-color: var(--mesh-base); pointer-events: none; }
 .paint::before {
   content: ''; position: absolute; inset: -20%;
   background:
@@ -16,7 +18,9 @@
     radial-gradient(var(--mesh-b-size, 56% 64%) at var(--mesh-b-at, 90% 26%), var(--mesh-b), transparent 76%),
     radial-gradient(var(--mesh-c-size, 72% 60%) at var(--mesh-c-at, 60% 96%), var(--mesh-c), transparent 76%),
     radial-gradient(var(--mesh-d-size, 50% 56%) at var(--mesh-d-at, 4% 92%), var(--mesh-d), transparent 74%);
-  filter: blur(var(--mesh-blur, var(--ds-mesh-blur))); transform: rotate(var(--mesh-rotate, 0deg));
+  /* the blur scales with the box (a fifth of its short side, never more than the token), so a 64px swatch
+     keeps its pools instead of washing flat */
+  filter: blur(min(var(--mesh-blur, var(--ds-mesh-blur)), 20cqmin)); transform: rotate(var(--mesh-rotate, 0deg));
 }
 /* the light a mesh object casts: its own pools, blurred and set a little below it */
 .glow {

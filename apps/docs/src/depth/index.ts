@@ -6,6 +6,8 @@ import { lazyMap } from '../book/lazy';
 export const DEPTH = lazyMap<Depth>({
   Scale: () => import('./wave9').then((m) => m.SCALE),
   RadarChart: () => import('./wave9').then((m) => m.RADAR_CHART),
+  ButtonGroup: () => import('./waveA').then((m) => m.BUTTON_GROUP),
+  SplitButton: () => import('./waveA').then((m) => m.SPLIT_BUTTON),
   ConfidenceChip: () => import('./x11').then((m) => m.CONFIDENCE_CHIP),
   NodeCard: () => import('./x11').then((m) => m.NODE_CARD),
   NetworkGraph: () => import('./x11').then((m) => m.NETWORK_GRAPH),

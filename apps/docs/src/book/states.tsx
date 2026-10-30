@@ -8,6 +8,7 @@ import {
   RichTextEditor, SearchInput, SegmentedControl, Select, Slider, Switch, Table, TagInput, Textarea, TimePicker,
 } from 'pane-react';
 import { IconMore } from '../icons';
+import { MORE_FAMILIES, MORE_ROWS, MORE_TEXT } from './states-more';
 
 const OPTS = [{ value: 'lofoten', label: 'Lofoten' }, { value: 'senja', label: 'Senja' }, { value: 'vik', label: 'Vík' }];
 const SW = [{ value: '#3A6EA5', name: 'Fjord blue' }, { value: '#C9A227', name: 'Ochre' }, { value: '#5E8C61', name: 'Moss' }];
@@ -69,9 +70,10 @@ export const STATE_ROWS: StateRow[] = [
   { component: 'SequenceDiagram', family: 'Tables', cells: [['message and reply', <SequenceDiagram label="Order" actors={[{ id: 'a', label: 'App' }, { id: 'b', label: 'API' }]} steps={[{ from: 'a', to: 'b', label: 'Place' }, { from: 'b', to: 'a', label: 'Placed', kind: 'reply' }]} />], ['note', <SequenceDiagram label="Order" actors={[{ id: 'a', label: 'App' }]} steps={[{ from: 'a', to: 'a', label: 'Retries twice', kind: 'note' }]} />]] },
   { component: 'RadarChart', family: 'Tables', cells: [['default', <RadarChart label="Shape" blockSize={180} max={5} axes={['Speed', 'Interaction', 'Late game']} series={[{ name: 'Deck', values: [4, 2, 3] }]} />], ['two series', <RadarChart label="Shape" blockSize={180} max={5} axes={['Speed', 'Interaction', 'Late game']} series={[{ name: 'Deck', values: [4, 2, 3] }, { name: 'Other', values: [2, 4, 3] }]} />]] },
   { component: 'BarChart', family: 'Tables', cells: [['default', <BarChart label="Sold" categories={['Jan', 'Feb']} series={[{ name: 'Prints', values: [4, 7] }]} />], ['empty', <BarChart label="Sold" categories={[]} series={[{ name: 'Prints', values: [] }]} />]] },
+  ...MORE_ROWS,
 ];
 
-const FAMILIES = ['Fields', 'Choices', 'Ranges', 'Files', 'Actions', 'Tables'];
+const FAMILIES = ['Fields', 'Choices', 'Ranges', 'Files', 'Actions', 'Tables', ...MORE_FAMILIES];
 const FAMILY_TEXT: Record<string, string> = {
   Fields: 'Every field has the same six states. Disabled dims the groove and refuses focus. Invalid adds the critical ring, and FormField says what is wrong in words. Read-only drops the groove for a hairline, so the value reads as settled but can still be focused and copied. Required is announced and marked on the label.',
   Choices: 'A choice says its state by shape as well as tone. A checkbox shows a check, a radio a filled dot, a switch moves its knob and a card turns to chosen glass. Invalid rings the control in the critical mark; disabled dims it and refuses presses.',
@@ -79,6 +81,7 @@ const FAMILY_TEXT: Record<string, string> = {
   Files: 'File controls take the field states. Disabled refuses drops and presses. Invalid takes the critical ring, and a refused file is listed with its reason in words.',
   Actions: 'Loading keeps the button in place and at its width, with a spinner over unseen content, says it is busy and ignores presses. Disabled dims it and takes it out of the tab order.',
   Tables: 'A table says when it is sorted (aria-sort and the arrow), when rows are chosen (chosen glass and a check), when it is empty (one quiet line) and when it is loading (a scrim over the rows it keeps). A scale compared with another value adds a ring, a band and an arrow; a chart with a second series adds a legend.',
+  ...MORE_TEXT,
 };
 
 /** The book page: every row of the matrix, by family, each cell captioned with its state. */
@@ -94,7 +97,7 @@ export function StatesPage({ Page, Section }: { Page: (p: { eyebrow: string; tit
               <div className="state-cells">
                 {r.cells.map(([state, el]) => (
                   <figure key={state} className="state-cell" data-state-cell={`${r.component}|${state}`}>
-                    <div className="state-stage" data-harness="">{el}</div>
+                    <div className="state-stage" data-harness="" data-tone-skip="">{el}</div>
                     <figcaption>{state}</figcaption>
                   </figure>
                 ))}

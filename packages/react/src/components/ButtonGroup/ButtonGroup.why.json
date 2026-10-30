@@ -1,0 +1,71 @@
+{
+  "concept": "Buttons that belong together as one named group: apart at the small gap, or joined into one piece with a hairline of the scene between them.",
+  "default_to_avoid": [
+    {
+      "pattern": "a button group as a grey bordered box with dividers between the buttons",
+      "kind": "button group, toolbar group, segmented actions",
+      "why_not": "a box with dividers adds a frame the glass does not need; Pane joins the buttons themselves with a hairline seam and squared inner corners"
+    }
+  ],
+  "references": [
+    {
+      "title": "MUI · Button group",
+      "url": "https://mui.com/material-ui/react-button-group/"
+    },
+    {
+      "title": "WAI-ARIA · Toolbar and group",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "shape",
+      "consequence": "corners are continuous and nest, so an inner surface's radius is the outer radius minus the padding between them and a pane inside a pane reads as inside it; controls are full pills because they are held in the hand",
+      "form": "joined buttons square their inner corners so the piece keeps one outline"
+    },
+    {
+      "p": "P3",
+      "axis": "space",
+      "consequence": "padding inside a pane is larger than the gap between items in it, so the edge reads as the object's boundary",
+      "form": "apart they sit at the small gap; joined, the gap is a hairline that lets the scene show through"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "each button keeps its own focus stop and the group has a name"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/waveA/",
+    "section": "buttongroup",
+    "options": [
+      "A hairline seam, squared inner corners",
+      "B bordered box with dividers",
+      "C buttons touching with no seam"
+    ],
+    "picked": "A hairline seam, squared inner corners",
+    "by": "agent",
+    "reason": "A reads as one object of parts on glass (P3). B frames it twice. C merges the buttons into one blur."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the buttons sit in a row at the small gap and wrap on a narrow pane"
+    },
+    "vertical": {
+      "p": "P3",
+      "axis": "space",
+      "why": "stacked, the buttons fill the column for a side toolbar"
+    },
+    "attached": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "joined, the gap is a hairline and the inner corners square off so the piece reads as one"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

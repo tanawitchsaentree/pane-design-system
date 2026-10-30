@@ -75,6 +75,11 @@
       "p": "P1",
       "axis": "depth",
       "why": "the track fills the whole well, so a press anywhere on the bar sets the value"
+    },
+    "sr": {
+      "p": "P6",
+      "axis": "type",
+      "why": "text kept for screen readers only, so a row that already shows the words does not show them twice"
     }
   },
   "states": {

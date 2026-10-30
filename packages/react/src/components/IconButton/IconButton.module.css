@@ -45,7 +45,7 @@
 :global([dir='rtl']) .hit { transform: translate(50%, -50%); }
 .md { inline-size: var(--ds-icon-button-size); block-size: var(--ds-icon-button-size); }
 .sm { inline-size: var(--ds-icon-button-size-sm); block-size: var(--ds-icon-button-size-sm); }
-.root > svg { inline-size: var(--ds-icon-button-icon); block-size: var(--ds-icon-button-icon); }
+.root > svg, .content > svg { inline-size: var(--ds-icon-button-icon); block-size: var(--ds-icon-button-icon); }
 .glass {
   background: linear-gradient(180deg, var(--ds-icon-button-glass-top), transparent 55%), var(--ds-icon-button-glass-foot);
   box-shadow: var(--ds-icon-button-edge), var(--ds-icon-button-cast);
@@ -73,3 +73,6 @@
 .loading .content { opacity: 0; }
 .spinner { position: absolute; inset: 0; display: grid; place-items: center; color: currentColor; }
 @media (forced-colors: active) { .root { border: var(--ds-focus-ring-width) solid ButtonText; } .root::before, .root::after { display: none; } }
+/* a toggle that is on is chosen glass with a ring, as Button's (P3); aria-pressed says it */
+.toggle[aria-pressed='true'] { background: linear-gradient(180deg, var(--ds-icon-button-pressed-top), var(--ds-icon-button-pressed-foot)); color: var(--ds-text-primary); box-shadow: 0 0 0 var(--ds-width-ring) var(--ds-icon-button-pressed-ring); }
+@media (forced-colors: active) { .toggle[aria-pressed='true'] { outline: var(--ds-width-ring) solid Highlight; } }

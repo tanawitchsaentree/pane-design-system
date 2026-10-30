@@ -24,3 +24,5 @@
    R-025); inside a pane the pane's glass does that and it stays the inner level. */
 .card { background: var(--ds-surface-glass); -webkit-backdrop-filter: blur(var(--ds-glass-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-glass-brightness)); backdrop-filter: blur(var(--ds-glass-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-glass-brightness)); }
 :global(:is([data-pane-card], [role="dialog"], [role="alertdialog"], [data-pane-surface])) .card { background: var(--ds-radio-cards-bg); -webkit-backdrop-filter: none; backdrop-filter: none; }
+/* a hidden label still names the group, for a row that already shows it */
+.sr { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

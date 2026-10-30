@@ -1,6 +1,6 @@
 /* A tall pane beside the content (level 1); the current item is chosen glass with a semibold label, and
    sections are headed in the micro caps, the same as the book's own navigation. */
-.pane { display: flex; flex-direction: column; gap: var(--ds-gap-xl); inline-size: var(--ds-nav-sidebar); max-inline-size: 100%; padding: var(--ds-gap-lg); border-radius: var(--ds-corner-inner); background: var(--ds-nav-dock); box-shadow: var(--ds-nav-bar-edge); -webkit-backdrop-filter: blur(var(--ds-nav-blur)); backdrop-filter: blur(var(--ds-nav-blur)); color: var(--ds-text-primary); font-family: var(--ds-type-family); }
+.pane { display: flex; flex-direction: column; font-family: var(--ds-type-family); font-size: var(--ds-type-body); line-height: var(--ds-type-leading-body); gap: var(--ds-gap-xl); inline-size: var(--ds-nav-sidebar); max-inline-size: 100%; padding: var(--ds-gap-lg); border-radius: var(--ds-corner-inner); background: var(--ds-nav-dock); box-shadow: var(--ds-nav-bar-edge); -webkit-backdrop-filter: blur(var(--ds-nav-blur)); backdrop-filter: blur(var(--ds-nav-blur)); color: var(--ds-text-primary); font-family: var(--ds-type-family); }
 .header, .footer { padding-inline: var(--ds-gap-md); }
 .footer { margin-block-start: auto; }
 .section { display: flex; flex-direction: column; gap: var(--ds-gap-xs); }

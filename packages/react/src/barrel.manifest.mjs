@@ -66,6 +66,10 @@ export const BARREL_MANIFEST = [
     components: ['ConfidenceChip', 'NodeCard', 'NetworkGraph', 'SequenceDiagram'],
   },
   {
+    header: `Button family (0.7.0): buttons that belong together, and one action with its alternatives.`,
+    components: ['ButtonGroup', 'SplitButton'],
+  },
+  {
     header: `Language (0.7.0): one catalog for every word a component shows or speaks, English by default, Thai included.`,
     components: ['PaneProvider'],
   },

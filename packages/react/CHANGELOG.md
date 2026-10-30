@@ -4,6 +4,29 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- IconButton: icons are drawn at their size again (a content wrapper had made them 0×0).
+- Pagination: when the whole bar does not fit its space, the numbered pages give way to the page in words between Previous and Next.
+- SegmentedControl: stretched by its container, the segments share the track evenly.
+- List: sets its own body type instead of taking the page's.
+- Sidebar: sets its own body type instead of taking the page's.
+- SplitButton: the menu half keeps a 44px press area.
+- Mesh: the ground colour is also on the box, under the pools.
+- Button: `pressed` makes it a toggle (chosen glass, a ring, aria-pressed); `chevron` draws a chevron that turns while its menu is open; `href` renders it as a link that looks like a button.
+- IconButton: `pressed` and `pressedIcon` make it a toggle, such as Favourite.
+- ButtonGroup: new. Buttons that belong together, apart or joined with a hairline seam and squared inner corners, in a row or stacked.
+- SplitButton: new. The usual action and a chevron that opens its alternatives, two focus stops.
+- Input: `clearable` adds a clear button that keeps its place; `showCount` with maxLength shows the count and says it near the limit.
+- Textarea: `autoResize` grows with the text up to `maxRows`; `showCount` as Input.
+- HelperText: `warning` tone, the triangle glyph and the word Warning.
+- FormField: `warning`, a note that does not mark the field invalid.
+- Fieldset: `error` for the whole group, such as Choose at least one.
+- FileUpload: `status` says where each file's upload has got to (a bar, Uploaded, or the reason and Retry with `onRetry`).
+- Progress: `hideLabel` keeps the label for screen readers only.
+- RadioCards: `hideLabel`, for a SettingsRow that already shows the words.
+- Slider: `hideLabel`, as RadioCards.
+- Accordion: an item's title can be any content, such as a heading with a live timer.
+- Navbar: a long brand shrinks with an ellipsis on a phone instead of pushing the actions off the edge.
+- Mesh: the pool blur scales with the box, so a small swatch keeps its pools.
 - InputGroup: read only is drawn on the well, so a read-only PasswordInput or field with adornments no longer shows a second pill inside the first.
 - Checkbox: a soft round wash fills the 44px hit area under a pointer.
 - Radio: a soft round wash fills the 44px hit area under a pointer.

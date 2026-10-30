@@ -63,6 +63,12 @@ const en = {
   seqStep: (a: string, b: string, what: string, reply: boolean) => reply ? `${a} replies to ${b}: ${what}` : `${a} to ${b}: ${what}`,
   seqNote: (a: string, what: string) => `Note on ${a}: ${what}`,
   confidence: ['Very low', 'Low', 'Medium', 'High', 'Very high'],
+  clear: 'Clear',
+  charCount: (n: number, max: number) => `${n} of ${max} characters`,
+  uploading: (name: string) => `Uploading ${name}`,
+  uploaded: 'Uploaded',
+  uploadFailed: 'Upload failed',
+  retry: 'Retry',
 };
 export type PaneMessages = typeof en;
 export default en;

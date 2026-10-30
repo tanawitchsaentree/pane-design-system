@@ -1,0 +1,2 @@
+/* the menu half is only its chevron, square to the button's height so the pair reads as action plus more (P6) */
+.more { min-inline-size: var(--ds-split-button-more-min); padding-inline: var(--ds-split-button-more-padding); }

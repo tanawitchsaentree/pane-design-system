@@ -94,6 +94,11 @@
       "p": "P4",
       "axis": "motion",
       "why": "an unknown amount shows a third of the channel travelling slowly from start to end"
+    },
+    "sr": {
+      "p": "P6",
+      "axis": "type",
+      "why": "text kept for screen readers only, so a row that already shows the words does not show them twice"
     }
   },
   "states": {

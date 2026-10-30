@@ -1,4 +1,4 @@
-import { forwardRef, type ButtonHTMLAttributes, type PointerEvent, type ReactNode } from 'react';
+import { forwardRef, type ButtonHTMLAttributes, type MouseEvent, type PointerEvent, type ReactNode } from 'react';
 import { cx } from '../../cx';
 import { Spinner } from '../Spinner';
 import styles from './Button.module.css';
@@ -19,10 +19,22 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   iconEnd?: ReactNode;
   /** Fills the width of its container, for the one action at the foot of a form or a sheet. */
   fullWidth?: boolean;
+  /** Makes it a toggle that stays on, such as Bold or Mute. When on it takes the chosen glass and a ring, and aria-pressed says so. Leave it undefined for an ordinary button. */
+  pressed?: boolean;
+  /** Draws a chevron at the end that turns while a menu it opens is open, for a Menu trigger (a menu button). */
+  chevron?: boolean;
+  /** Renders it as a link that looks like this button, for an action that goes somewhere, such as Get started. */
+  href?: string;
+  /** With href, where the link opens. */
+  target?: string;
+  /** With href, the link's relation; noopener is added for target="_blank". */
+  rel?: string;
 }
 
+const CHEVRON = <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5" /></svg>;
+
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { loading, onClick, icon, iconEnd, fullWidth, variant = 'light', size = 'md', type = 'button', className, onPointerMove, children, ...rest },
+  { loading, onClick, icon, iconEnd, fullWidth, pressed, chevron, href, target, rel, variant = 'light', size = 'md', type = 'button', className, onPointerMove, children, ...rest },
   ref,
 ) {
   // the glint sits under the pointer (the visionOS hover effect); nothing moves without the reader
@@ -32,12 +44,29 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     e.currentTarget.style.setProperty('--pane-gy', `${e.clientY - r.top}px`);
     onPointerMove?.(e);
   };
-  return (
-    <button ref={ref} type={type} data-component="Button" data-glow={variant === 'accent' ? 'strong' : undefined} className={cx(styles.root, styles[variant], styles[size], loading && styles.loading, fullWidth && styles.full, className)} onPointerMove={glint}
-      aria-busy={loading || undefined} aria-disabled={loading || rest['aria-disabled'] || undefined} onClick={(e) => { if (loading) { e.preventDefault(); return; } onClick?.(e); }} {...rest}>
-      <span className={styles.content}>{icon && <span className={styles.icon} aria-hidden="true">{icon}</span>}{children}{iconEnd && <span className={styles.icon} aria-hidden="true">{iconEnd}</span>}</span>
+  const cls = cx(styles.root, styles[variant], styles[size], loading && styles.loading, fullWidth && styles.full, pressed != null && styles.toggle, className);
+  const inner = (
+    <>
+      <span className={styles.content}>{icon && <span className={styles.icon} aria-hidden="true">{icon}</span>}{children}{iconEnd && <span className={styles.icon} aria-hidden="true">{iconEnd}</span>}{chevron && <span className={cx(styles.icon, styles.chevron)} aria-hidden="true">{CHEVRON}</span>}</span>
       {loading && <span className={styles.spinner}><Spinner size="sm" aria-hidden="true" /></span>}
       <span data-hit className={styles.hit} aria-hidden="true" />
+    </>
+  );
+  if (href != null) {
+    // a link that looks like a button: disabled or loading drops the href, so it cannot be followed
+    const off = rest.disabled || loading;
+    return (
+      <a ref={ref as never} href={off ? undefined : href} target={target} rel={target === '_blank' ? cx('noopener', rel) : rel} data-component="Button" data-glow={variant === 'accent' ? 'strong' : undefined} className={cls}
+        aria-busy={loading || undefined} aria-disabled={off || undefined} onClick={(e) => { if (off) { e.preventDefault(); return; } onClick?.(e as unknown as MouseEvent<HTMLButtonElement>); }}
+        onPointerMove={glint as never} id={rest.id} title={rest.title} aria-label={rest['aria-label']} aria-describedby={rest['aria-describedby']} aria-current={rest['aria-current']}>
+        {inner}
+      </a>
+    );
+  }
+  return (
+    <button ref={ref} type={type} data-component="Button" data-glow={variant === 'accent' ? 'strong' : undefined} className={cls} onPointerMove={glint}
+      aria-pressed={pressed} aria-busy={loading || undefined} aria-disabled={loading || rest['aria-disabled'] || undefined} onClick={(e) => { if (loading) { e.preventDefault(); return; } onClick?.(e); }} {...rest}>
+      {inner}
     </button>
   );
 });

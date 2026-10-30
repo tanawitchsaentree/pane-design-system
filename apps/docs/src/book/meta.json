@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T14:42:49.507Z",
+  "generatedAt": "2026-10-30T19:43:52.767Z",
   "version": "0.7.0",
   "components": {
     "Accordion": {
@@ -172,9 +172,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 48205,
+        "jsMin": 48355,
         "cssMin": 4464,
-        "gzip": 18252
+        "gzip": 18305
       }
     },
     "AppShell": {
@@ -255,9 +255,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5887,
+        "jsMin": 6037,
         "cssMin": 1771,
-        "gzip": 3208
+        "gzip": 3264
       }
     },
     "AspectRatio": {
@@ -417,9 +417,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 14202,
-        "cssMin": 14664,
-        "gzip": 7968
+        "jsMin": 16805,
+        "cssMin": 16838,
+        "gzip": 9199
       }
     },
     "Autocomplete": {
@@ -549,9 +549,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 77345,
-        "cssMin": 5562,
-        "gzip": 29331
+        "jsMin": 77495,
+        "cssMin": 5635,
+        "gzip": 29402
       }
     },
     "Avatar": {
@@ -774,9 +774,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 6927,
+        "jsMin": 7077,
         "cssMin": 2555,
-        "gzip": 3937
+        "gzip": 3995
       }
     },
     "BarChart": {
@@ -880,9 +880,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 11661,
+        "jsMin": 11811,
         "cssMin": 3924,
-        "gzip": 6091
+        "gzip": 6148
       }
     },
     "BottomNav": {
@@ -959,9 +959,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 5873,
+        "jsMin": 6023,
         "cssMin": 2247,
-        "gzip": 3364
+        "gzip": 3419
       }
     },
     "Box": {
@@ -1114,9 +1114,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5771,
+        "jsMin": 5921,
         "cssMin": 1141,
-        "gzip": 3029
+        "gzip": 3084
       }
     },
     "Button": {
@@ -1202,6 +1202,51 @@
               "description": "Fills the width of its container, for the one action at the foot of a form or a sheet.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "pressed",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Makes it a toggle that stays on, such as Bold or Mute. When on it takes the chosen glass and a ring, and aria-pressed says so. Leave it undefined for an ordinary button.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "chevron",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Draws a chevron at the end that turns while a menu it opens is open, for a Menu trigger (a menu button).",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "href",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Renders it as a link that looks like this button, for an action that goes somewhere, such as Get started.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "target",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "With href, where the link opens.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "rel",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "With href, the link's relation; noopener is added for target=\"_blank\".",
+              "enum": false,
+              "options": null
             }
           ]
         }
@@ -1214,9 +1259,61 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 6696,
-        "cssMin": 4853,
-        "gzip": 4174
+        "jsMin": 7599,
+        "cssMin": 5638,
+        "gzip": 4672
+      }
+    },
+    "ButtonGroup": {
+      "source": "packages/react/src/components/ButtonGroup/ButtonGroup.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "ButtonGroup",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Names the group for screen readers, such as Text style or Pages.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "attached",
+              "type": "boolean",
+              "required": false,
+              "default": "false",
+              "description": "Joins the buttons into one piece, with squared inner corners and a hairline of the scene between them. Off, they sit apart at the small gap.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "orientation",
+              "type": "\"horizontal\" | \"vertical\"",
+              "required": false,
+              "default": "horizontal",
+              "description": "`horizontal` (default) puts them in a row; `vertical` stacks them, for a side toolbar.",
+              "enum": true,
+              "options": [
+                "horizontal",
+                "vertical"
+              ]
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "orientation"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 470,
+        "cssMin": 760,
+        "gzip": 547
       }
     },
     "Calendar": {
@@ -1347,9 +1444,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 10807,
-        "cssMin": 5945,
-        "gzip": 6104
+        "jsMin": 11042,
+        "cssMin": 6277,
+        "gzip": 6260
       }
     },
     "Card": {
@@ -1490,9 +1587,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 8305,
-        "cssMin": 5163,
-        "gzip": 5043
+        "jsMin": 8538,
+        "cssMin": 5495,
+        "gzip": 5208
       }
     },
     "Center": {
@@ -1642,8 +1739,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 17460,
-        "cssMin": 3040,
-        "gzip": 7331
+        "cssMin": 3113,
+        "gzip": 7344
       }
     },
     "Chip": {
@@ -1715,9 +1812,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6288,
+        "jsMin": 6438,
         "cssMin": 2519,
-        "gzip": 3599
+        "gzip": 3656
       }
     },
     "CoachMark": {
@@ -1832,9 +1929,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 78038,
-        "cssMin": 8535,
-        "gzip": 30207
+        "jsMin": 78954,
+        "cssMin": 9320,
+        "gzip": 30672
       }
     },
     "ColorPicker": {
@@ -1926,9 +2023,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 39121,
-        "cssMin": 5497,
-        "gzip": 15299
+        "jsMin": 42018,
+        "cssMin": 10343,
+        "gzip": 17280
       }
     },
     "Combobox": {
@@ -2067,9 +2164,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 77400,
-        "cssMin": 5562,
-        "gzip": 29352
+        "jsMin": 77550,
+        "cssMin": 5635,
+        "gzip": 29422
       }
     },
     "CommandPalette": {
@@ -2150,9 +2247,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 50042,
+        "jsMin": 50192,
         "cssMin": 7489,
-        "gzip": 19577
+        "gzip": 19634
       }
     },
     "ConfidenceChip": {
@@ -2206,9 +2303,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5840,
+        "jsMin": 5990,
         "cssMin": 917,
-        "gzip": 2968
+        "gzip": 3025
       }
     },
     "Container": {
@@ -2435,9 +2532,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 25801,
+        "jsMin": 25951,
         "cssMin": 5803,
-        "gzip": 11353
+        "gzip": 11409
       }
     },
     "DatePicker": {
@@ -2598,9 +2695,9 @@
       "variantCount": 4,
       "demoFloor": 7,
       "bundle": {
-        "jsMin": 81810,
-        "cssMin": 13990,
-        "gzip": 32607
+        "jsMin": 82044,
+        "cssMin": 14398,
+        "gzip": 32772
       }
     },
     "DescriptionList": {
@@ -3075,9 +3172,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 6910,
+        "jsMin": 7060,
         "cssMin": 1944,
-        "gzip": 3856
+        "gzip": 3913
       }
     },
     "Editable": {
@@ -3176,9 +3273,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 6952,
-        "cssMin": 3735,
-        "gzip": 4130
+        "jsMin": 10187,
+        "cssMin": 9850,
+        "gzip": 6534
       }
     },
     "EmptyState": {
@@ -3483,9 +3580,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 6832,
+        "jsMin": 6982,
         "cssMin": 1613,
-        "gzip": 3609
+        "gzip": 3665
       }
     },
     "Fieldset": {
@@ -3513,17 +3610,28 @@
               "description": "Optional help for the whole group, under the legend.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "error",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "An error for the group as a whole, such as Choose at least one; shown under the legend with the octagon and the word Error, and read with the group.",
+              "enum": false,
+              "options": null
             }
           ]
         }
       ],
-      "variantDimensions": [],
-      "variantCount": 0,
-      "demoFloor": 3,
+      "variantDimensions": [
+        "error"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
       "bundle": {
-        "jsMin": 492,
-        "cssMin": 401,
-        "gzip": 514
+        "jsMin": 6664,
+        "cssMin": 1188,
+        "gzip": 3328
       }
     },
     "FileUpload": {
@@ -3632,6 +3740,24 @@
               "description": "Marks the answer as wrong with a critical ring and aria-invalid. Inside a FormField, its `error` sets this for you.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "status",
+              "type": "((file: File, index: number) => FileStatus)",
+              "required": false,
+              "default": null,
+              "description": "Says where each file's upload has got to, when the product uploads as files are chosen. Return undefined for a file not started.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onRetry",
+              "type": "((file: File, index: number) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called by a failed file's Retry button.",
+              "enum": false,
+              "options": null
             }
           ]
         }
@@ -3643,9 +3769,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 10114,
-        "cssMin": 9190,
-        "gzip": 6081
+        "jsMin": 12991,
+        "cssMin": 12211,
+        "gzip": 7575
       }
     },
     "Flex": {
@@ -3799,9 +3925,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6403,
+        "jsMin": 6553,
         "cssMin": 1646,
-        "gzip": 3431
+        "gzip": 3487
       }
     },
     "FormField": {
@@ -3849,6 +3975,15 @@
               "options": null
             },
             {
+              "name": "warning",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A warning, for a value that is allowed but worth a second look, such as This will notify 2,000 people. It shows with the triangle glyph and the word Warning and does not mark the field invalid; an error wins over it.",
+              "enum": false,
+              "options": null
+            },
+            {
               "name": "required",
               "type": "boolean",
               "required": false,
@@ -3889,9 +4024,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 6710,
-        "cssMin": 1046,
-        "gzip": 3310
+        "jsMin": 7232,
+        "cssMin": 1119,
+        "gzip": 3478
       }
     },
     "Grid": {
@@ -4099,9 +4234,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 9429,
+        "jsMin": 9579,
         "cssMin": 4485,
-        "gzip": 5266
+        "gzip": 5324
       }
     },
     "HelperText": {
@@ -4109,6 +4244,7 @@
       "kinds": {
         "tone": [
           "help",
+          "warning",
           "error"
         ]
       },
@@ -4119,13 +4255,14 @@
           "props": [
             {
               "name": "tone",
-              "type": "\"help\" | \"error\"",
+              "type": "\"help\" | \"warning\" | \"error\"",
               "required": false,
               "default": "help",
-              "description": "`help` is secondary text. `error` adds the octagon glyph and the spoken word Error, so the tone is never colour alone.",
+              "description": "`help` is secondary text. `warning` adds the triangle glyph and the spoken word Warning, for a value that is allowed but worth a second look. `error` adds the octagon glyph and the spoken word Error. The tone is never colour alone.",
               "enum": true,
               "options": [
                 "help",
+                "warning",
                 "error"
               ]
             }
@@ -4138,9 +4275,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 5680,
-        "cssMin": 715,
-        "gzip": 2884
+        "jsMin": 6108,
+        "cssMin": 788,
+        "gzip": 3022
       }
     },
     "Icon": {
@@ -4257,6 +4394,24 @@
               "description": "Shows a spinner in place of the content while an action runs. The button keeps its width and focus, says it is busy, and ignores presses until it is done.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "pressed",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Makes it a toggle that stays on, such as Favourite or Mute. When on it takes the chosen glass and a ring, and aria-pressed says so. Keep the aria-label the same in both states.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "pressedIcon",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "With pressed, the glyph shown while it is on, such as a filled star for an outline one.",
+              "enum": false,
+              "options": null
             }
           ]
         }
@@ -4269,9 +4424,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 6485,
-        "cssMin": 3469,
-        "gzip": 3881
+        "jsMin": 6718,
+        "cssMin": 3801,
+        "gzip": 4050
       }
     },
     "Image": {
@@ -4340,6 +4495,10 @@
       ],
       "exports": [
         {
+          "displayName": "clearField",
+          "props": []
+        },
+        {
           "displayName": "Input",
           "props": [
             {
@@ -4362,6 +4521,24 @@
               "description": "Marks the value as wrong. Inside a FormField, its `error` sets this for you.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "clearable",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Adds a clear button at the end once there is text. It empties the field through its own change event, so a controlled value clears too, and puts focus back.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "showCount",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "With maxLength, shows how many characters are used under the field, such as 12 of 40, and says it when the limit is near.",
+              "enum": false,
+              "options": null
             }
           ]
         }
@@ -4373,9 +4550,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 692,
-        "cssMin": 2361,
-        "gzip": 1190
+        "jsMin": 8940,
+        "cssMin": 8476,
+        "gzip": 5825
       }
     },
     "InputGroup": {
@@ -4421,8 +4598,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 442,
-        "cssMin": 1270,
-        "gzip": 801
+        "cssMin": 1607,
+        "gzip": 853
       }
     },
     "KanbanBoard": {
@@ -4476,9 +4653,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 8271,
+        "jsMin": 8421,
         "cssMin": 2521,
-        "gzip": 4381
+        "gzip": 4439
       }
     },
     "Kbd": {
@@ -4524,9 +4701,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5419,
+        "jsMin": 5569,
         "cssMin": 218,
-        "gzip": 2496
+        "gzip": 2552
       }
     },
     "LineChart": {
@@ -4625,9 +4802,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 10852,
+        "jsMin": 11002,
         "cssMin": 4001,
-        "gzip": 5800
+        "gzip": 5857
       }
     },
     "Link": {
@@ -4673,9 +4850,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 5518,
+        "jsMin": 5668,
         "cssMin": 973,
-        "gzip": 2847
+        "gzip": 2903
       }
     },
     "List": {
@@ -4790,8 +4967,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 1200,
-        "cssMin": 2482,
-        "gzip": 1478
+        "cssMin": 2552,
+        "gzip": 1482
       }
     },
     "Listbox": {
@@ -4894,8 +5071,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 2898,
-        "cssMin": 3977,
-        "gzip": 2492
+        "cssMin": 4050,
+        "gzip": 2503
       }
     },
     "Menu": {
@@ -5044,8 +5221,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 784,
-        "cssMin": 1809,
-        "gzip": 1024
+        "cssMin": 1842,
+        "gzip": 1048
       }
     },
     "Meter": {
@@ -5126,9 +5303,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6260,
+        "jsMin": 6410,
         "cssMin": 1282,
-        "gzip": 3312
+        "gzip": 3369
       }
     },
     "MultiSelect": {
@@ -5258,9 +5435,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 78898,
-        "cssMin": 8080,
-        "gzip": 30465
+        "jsMin": 79048,
+        "cssMin": 8153,
+        "gzip": 30535
       }
     },
     "Navbar": {
@@ -5341,9 +5518,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5716,
-        "cssMin": 1352,
-        "gzip": 3054
+        "jsMin": 5866,
+        "cssMin": 1451,
+        "gzip": 3141
       }
     },
     "NavigationMenu": {
@@ -5388,9 +5565,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6643,
+        "jsMin": 6793,
         "cssMin": 2186,
-        "gzip": 3733
+        "gzip": 3789
       }
     },
     "NetworkGraph": {
@@ -5488,9 +5665,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 10007,
+        "jsMin": 10157,
         "cssMin": 4253,
-        "gzip": 5576
+        "gzip": 5631
       }
     },
     "NodeCard": {
@@ -5607,9 +5784,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6806,
+        "jsMin": 6956,
         "cssMin": 3125,
-        "gzip": 3975
+        "gzip": 4030
       }
     },
     "NotificationCenter": {
@@ -5681,9 +5858,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 79897,
-        "cssMin": 14713,
-        "gzip": 31477
+        "jsMin": 80899,
+        "cssMin": 15833,
+        "gzip": 31961
       }
     },
     "NumberInput": {
@@ -5774,6 +5951,24 @@
               "description": "Marks the value as wrong. Inside a FormField, its `error` sets this for you.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "clearable",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Adds a clear button at the end once there is text. It empties the field through its own change event, so a controlled value clears too, and puts focus back.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "showCount",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "With maxLength, shows how many characters are used under the field, such as 12 of 40, and says it when the limit is near.",
+              "enum": false,
+              "options": null
             }
           ]
         }
@@ -5784,9 +5979,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 9518,
-        "cssMin": 7487,
-        "gzip": 5830
+        "jsMin": 10967,
+        "cssMin": 8865,
+        "gzip": 6633
       }
     },
     "OTPFlow": {
@@ -5858,9 +6053,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 10159,
-        "cssMin": 7740,
-        "gzip": 6268
+        "jsMin": 11066,
+        "cssMin": 8598,
+        "gzip": 6717
       }
     },
     "Pagination": {
@@ -5932,9 +6127,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6391,
-        "cssMin": 1505,
-        "gzip": 3435
+        "jsMin": 6987,
+        "cssMin": 1736,
+        "gzip": 3789
       }
     },
     "PaneProvider": {
@@ -5946,9 +6141,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 19957,
+        "jsMin": 20595,
         "cssMin": 0,
-        "gzip": 4827
+        "gzip": 4957
       }
     },
     "PasswordInput": {
@@ -5988,6 +6183,24 @@
               "description": "Marks the value as wrong. Inside a FormField, its `error` sets this for you.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "clearable",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Adds a clear button at the end once there is text. It empties the field through its own change event, so a controlled value clears too, and puts focus back.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "showCount",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "With maxLength, shows how many characters are used under the field, such as 12 of 40, and says it when the limit is near.",
+              "enum": false,
+              "options": null
             }
           ]
         }
@@ -5999,9 +6212,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 8250,
-        "cssMin": 7283,
-        "gzip": 5233
+        "jsMin": 9711,
+        "cssMin": 8661,
+        "gzip": 6101
       }
     },
     "PinInput": {
@@ -6135,9 +6348,9 @@
       "variantCount": 4,
       "demoFloor": 7,
       "bundle": {
-        "jsMin": 6987,
-        "cssMin": 2080,
-        "gzip": 3908
+        "jsMin": 7137,
+        "cssMin": 2153,
+        "gzip": 3978
       }
     },
     "Popover": {
@@ -6329,6 +6542,15 @@
                 "sm",
                 "md"
               ]
+            },
+            {
+              "name": "hideLabel",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Keeps the label for screen readers only, for a bar inside a row that already names its task, such as a file in an upload list.",
+              "enum": false,
+              "options": null
             }
           ]
         }
@@ -6339,9 +6561,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 990,
-        "cssMin": 1311,
-        "gzip": 1129
+        "jsMin": 1020,
+        "cssMin": 1461,
+        "gzip": 1188
       }
     },
     "PullToRefresh": {
@@ -6377,9 +6599,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6576,
+        "jsMin": 6726,
         "cssMin": 1394,
-        "gzip": 3519
+        "gzip": 3575
       }
     },
     "RadarChart": {
@@ -6478,9 +6700,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 8810,
+        "jsMin": 8960,
         "cssMin": 4135,
-        "gzip": 4994
+        "gzip": 5051
       }
     },
     "Radio": {
@@ -6641,8 +6863,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 33268,
-        "cssMin": 3049,
-        "gzip": 12369
+        "cssMin": 3122,
+        "gzip": 12383
       }
     },
     "RadioCards": {
@@ -6659,6 +6881,15 @@
               "required": true,
               "default": null,
               "description": "The question the cards answer, the group's accessible name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "hideLabel",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Keeps the label for screen readers only, when a row beside it already shows the same words, such as a SettingsRow.",
               "enum": false,
               "options": null
             },
@@ -6747,9 +6978,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 32800,
-        "cssMin": 3837,
-        "gzip": 12450
+        "jsMin": 32831,
+        "cssMin": 4060,
+        "gzip": 12485
       }
     },
     "RangeSlider": {
@@ -6868,9 +7099,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 35158,
-        "cssMin": 4084,
-        "gzip": 14121
+        "jsMin": 35315,
+        "cssMin": 4234,
+        "gzip": 14210
       }
     },
     "Rating": {
@@ -6963,9 +7194,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 34707,
+        "jsMin": 34857,
         "cssMin": 998,
-        "gzip": 13145
+        "gzip": 13203
       }
     },
     "RichTextEditor": {
@@ -7068,9 +7299,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 8433,
-        "cssMin": 3121,
-        "gzip": 4764
+        "jsMin": 8583,
+        "cssMin": 3194,
+        "gzip": 4837
       }
     },
     "Scale": {
@@ -7160,9 +7391,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6579,
+        "jsMin": 6729,
         "cssMin": 2198,
-        "gzip": 3698
+        "gzip": 3754
       }
     },
     "SearchInput": {
@@ -7235,6 +7466,24 @@
               "description": "Marks the value as wrong. Inside a FormField, its `error` sets this for you.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "clearable",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Adds a clear button at the end once there is text. It empties the field through its own change event, so a controlled value clears too, and puts focus back.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "showCount",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "With maxLength, shows how many characters are used under the field, such as 12 of 40, and says it when the limit is near.",
+              "enum": false,
+              "options": null
             }
           ]
         }
@@ -7245,9 +7494,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 8642,
-        "cssMin": 7386,
-        "gzip": 5462
+        "jsMin": 10095,
+        "cssMin": 8764,
+        "gzip": 6254
       }
     },
     "SegmentedControl": {
@@ -7347,8 +7596,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 26071,
-        "cssMin": 1531,
-        "gzip": 9737
+        "cssMin": 1548,
+        "gzip": 9749
       }
     },
     "Select": {
@@ -7495,8 +7744,8 @@
       "demoFloor": 7,
       "bundle": {
         "jsMin": 91988,
-        "cssMin": 5018,
-        "gzip": 33650
+        "cssMin": 5091,
+        "gzip": 33663
       }
     },
     "SequenceDiagram": {
@@ -7541,9 +7790,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6586,
+        "jsMin": 6736,
         "cssMin": 3423,
-        "gzip": 3803
+        "gzip": 3859
       }
     },
     "SettingsLayout": {
@@ -7609,7 +7858,7 @@
               "type": "ReactNode",
               "required": true,
               "default": null,
-              "description": "The control, such as a Switch, a Select, a SegmentedControl or a Button. Give it the same label.",
+              "description": "The control, such as a Switch, a Select, a SegmentedControl or a Button. Give it the same label; a control that shows its label (RadioCards, Slider) takes hideLabel so the words appear once.",
               "enum": false,
               "options": null
             }
@@ -7860,9 +8109,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6109,
-        "cssMin": 1977,
-        "gzip": 3376
+        "jsMin": 6259,
+        "cssMin": 2047,
+        "gzip": 3448
       }
     },
     "Skeleton": {
@@ -7928,6 +8177,15 @@
               "required": true,
               "default": null,
               "description": "Visible label, also the slider's accessible name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "hideLabel",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Keeps the label (and the value beside it) for screen readers only, when a row beside it already shows the same words, such as a SettingsRow. The fill variant always shows its label inside the bar.",
               "enum": false,
               "options": null
             },
@@ -8034,9 +8292,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 30388,
-        "cssMin": 3985,
-        "gzip": 11957
+        "jsMin": 30419,
+        "cssMin": 4135,
+        "gzip": 11999
       }
     },
     "Snackbar": {
@@ -8273,9 +8531,128 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 5466,
+        "jsMin": 5616,
         "cssMin": 620,
-        "gzip": 2716
+        "gzip": 2771
+      }
+    },
+    "SplitButton": {
+      "source": "packages/react/src/components/SplitButton/SplitButton.tsx",
+      "kinds": {
+        "variant": [
+          "light",
+          "accent",
+          "glass",
+          "ghost",
+          "danger"
+        ]
+      },
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "exports": [
+        {
+          "displayName": "SplitButton",
+          "props": [
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The main action's label, such as Save.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onClick",
+              "type": "() => void",
+              "required": true,
+              "default": null,
+              "description": "Runs the main action.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "menuLabel",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Names the menu and its button for screen readers, such as More ways to save.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "items",
+              "type": "MenuEntry[]",
+              "required": true,
+              "default": null,
+              "description": "The other ways to do it, such as Save as and Save a copy, in the Menu's shape.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "variant",
+              "type": "\"light\" | \"accent\" | \"glass\" | \"ghost\" | \"danger\"",
+              "required": false,
+              "default": "light",
+              "description": "The variant both halves share; `light` by default.",
+              "enum": true,
+              "options": [
+                "light",
+                "accent",
+                "glass",
+                "ghost",
+                "danger"
+              ]
+            },
+            {
+              "name": "size",
+              "type": "\"sm\" | \"md\" | \"lg\"",
+              "required": false,
+              "default": "md",
+              "description": "The size both halves share; `md` by default.",
+              "enum": true,
+              "options": [
+                "sm",
+                "md",
+                "lg"
+              ]
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Turns both halves off.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "loading",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows the main half busy while its action runs; the menu half stays usable.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "variant",
+        "size",
+        "disabled",
+        "loading"
+      ],
+      "variantCount": 4,
+      "demoFloor": 7,
+      "bundle": {
+        "jsMin": 97029,
+        "cssMin": 8091,
+        "gzip": 36242
       }
     },
     "Stack": {
@@ -8423,9 +8800,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 6213,
+        "jsMin": 6363,
         "cssMin": 1427,
-        "gzip": 3282
+        "gzip": 3338
       }
     },
     "Stepper": {
@@ -8493,9 +8870,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 6139,
+        "jsMin": 6289,
         "cssMin": 2400,
-        "gzip": 3471
+        "gzip": 3526
       }
     },
     "Switch": {
@@ -8598,8 +8975,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 14214,
-        "cssMin": 3989,
-        "gzip": 6467
+        "cssMin": 4062,
+        "gzip": 6482
       }
     },
     "Table": {
@@ -8731,9 +9108,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 7049,
+        "jsMin": 7199,
         "cssMin": 3155,
-        "gzip": 4151
+        "gzip": 4206
       }
     },
     "TableOfContents": {
@@ -8787,9 +9164,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6213,
+        "jsMin": 6363,
         "cssMin": 1170,
-        "gzip": 3313
+        "gzip": 3369
       }
     },
     "Tabs": {
@@ -8979,9 +9356,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 8028,
-        "cssMin": 4952,
-        "gzip": 4864
+        "jsMin": 8178,
+        "cssMin": 5025,
+        "gzip": 4940
       }
     },
     "Text": {
@@ -9100,6 +9477,33 @@
               "description": "Marks the value as wrong. Inside a FormField, its `error` sets this for you.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "autoResize",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Grows with the text, from `rows` lines up to maxRows, then scrolls; for a comment or a message box.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "maxRows",
+              "type": "number",
+              "required": false,
+              "default": "8",
+              "description": "With autoResize, the most lines it grows to before it scrolls; 8 by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "showCount",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "With maxLength, shows how many characters are used under the field, such as 120 of 500, and says it when the limit is near.",
+              "enum": false,
+              "options": null
             }
           ]
         }
@@ -9110,9 +9514,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 647,
-        "cssMin": 2222,
-        "gzip": 1144
+        "jsMin": 6754,
+        "cssMin": 2747,
+        "gzip": 3899
       }
     },
     "TimePicker": {
@@ -9259,9 +9663,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 97731,
-        "cssMin": 5018,
-        "gzip": 36094
+        "jsMin": 97881,
+        "cssMin": 5091,
+        "gzip": 36164
       }
     },
     "Timeline": {
@@ -9410,9 +9814,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 46822,
+        "jsMin": 46972,
         "cssMin": 5497,
-        "gzip": 17298
+        "gzip": 17355
       }
     },
     "Tooltip": {
@@ -9547,9 +9951,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 10956,
-        "cssMin": 9480,
-        "gzip": 6736
+        "jsMin": 11863,
+        "cssMin": 10338,
+        "gzip": 7151
       }
     },
     "TreeView": {
@@ -9834,9 +10238,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 8939,
-        "cssMin": 8040,
-        "gzip": 5698
+        "jsMin": 9850,
+        "cssMin": 8825,
+        "gzip": 6127
       }
     }
   }

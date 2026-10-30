@@ -74,6 +74,36 @@
       "p": "P6",
       "axis": "space",
       "why": "the small size is 32px for dense desktop toolbars and stays below the touch size, which the docs say plainly"
+    },
+    "wrap": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a field with a clear button or a count stacks the field and its count"
+    },
+    "idle": {
+      "p": "P6",
+      "axis": "space",
+      "why": "the clear button keeps its place while the field is empty so typing never widens the field"
+    },
+    "glyph": {
+      "p": "P2",
+      "axis": "colour",
+      "why": "the cross is drawn with the ring stroke in the secondary tone, quieter than the text"
+    },
+    "count": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the count is caption size in tabular figures at the end, under the field"
+    },
+    "full": {
+      "p": "P2",
+      "axis": "type",
+      "why": "at the limit the count comes up to the primary tone and medium weight"
+    },
+    "sr": {
+      "p": "P6",
+      "axis": "type",
+      "why": "near the limit the count is said in words, and not at every key"
     }
   },
   "states": {

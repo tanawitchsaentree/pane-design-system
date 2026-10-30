@@ -13,3 +13,11 @@
 .refused li::marker { color: var(--ds-file-upload-critical-mark); }
 /* wrong: the choose button takes the critical ring a field takes (P6) */
 .root[data-invalid] .head > button { outline: var(--ds-width-ring) solid var(--ds-file-upload-ring-invalid); outline-offset: var(--ds-width-hairline); }
+/* each file says where its upload has got to in words beside a shape: a bar while it goes, a check when it
+   is in, the octagon and the reason with Retry when it failed (P6) */
+.status { display: inline-flex; align-items: center; gap: var(--ds-gap-sm); font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.bar { inline-size: var(--ds-file-upload-bar); }
+.done .glyph { stroke: var(--ds-file-upload-done-mark); }
+.failed { color: var(--ds-text-primary); }
+.failed .glyph { stroke: var(--ds-file-upload-error-mark); }
+.sr { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

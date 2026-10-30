@@ -20,6 +20,8 @@ export interface FormFieldProps extends Omit<HTMLAttributes<HTMLDivElement>, 'ch
   help?: ReactNode;
   /** An error message. Setting it marks the control invalid and shows the error under it. */
   error?: ReactNode;
+  /** A warning, for a value that is allowed but worth a second look, such as This will notify 2,000 people. It shows with the triangle glyph and the word Warning and does not mark the field invalid; an error wins over it. */
+  warning?: ReactNode;
   /** Marks the field required. The label says (required) in words, never with a colour or an asterisk alone. */
   required?: boolean;
   /** Disables the control inside. */
@@ -28,18 +30,20 @@ export interface FormFieldProps extends Omit<HTMLAttributes<HTMLDivElement>, 'ch
   children: ReactNode;
 }
 
-export function FormField({ id: fixedId, label, help, error, required = false, disabled = false, className, children, ...rest }: FormFieldProps) {
+export function FormField({ id: fixedId, label, help, error, warning, required = false, disabled = false, className, children, ...rest }: FormFieldProps) {
   const auto = useId();
   const id = fixedId ?? auto;
   const helpId = help != null ? `${id}-help` : undefined;
   const errorId = error != null ? `${id}-error` : undefined;
-  const describedBy = [errorId, helpId].filter(Boolean).join(' ') || undefined;
+  const warnId = error == null && warning != null ? `${id}-warning` : undefined;
+  const describedBy = [errorId, warnId, helpId].filter(Boolean).join(' ') || undefined;
   return (
     <div data-component="FormField" className={cx(styles.root, className)} {...rest}>
       {/* the label's id also names a group control such as PinInput, whose label cannot point at one cell */}
       <Label id={`${id}-label`} htmlFor={id} required={required}>{label}</Label>
       <FieldContext.Provider value={{ id, describedBy, invalid: error != null, required, disabled }}>{children}</FieldContext.Provider>
       {error != null && <HelperText id={errorId} tone="error">{error}</HelperText>}
+      {warnId && <HelperText id={warnId} tone="warning">{warning}</HelperText>}
       {help != null && <HelperText id={helpId}>{help}</HelperText>}
     </div>
   );

@@ -106,6 +106,16 @@
       "p": "P6",
       "axis": "type",
       "why": "a hidden word Error is spoken before the message, because the glyph is not read aloud"
+    },
+    "warning": {
+      "p": "P2",
+      "axis": "colour",
+      "why": "a warning keeps the primary text tone, so it reads as a note and not as a fault"
+    },
+    "warnGlyph": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the warning is a triangle in the warning mark, its own shape beside the error octagon"
     }
   },
   "states": {

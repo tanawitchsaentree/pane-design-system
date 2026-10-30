@@ -89,3 +89,30 @@ Not a priority list — order of discovery.
 
 ## Variant and sub-state completeness (user, 2026-10-30 evening)
 "ไปสำรวจหาแต่ละ component มันจะมี variant state ย่อยอีกเยอะ … ดูให้ครบ". Audit of all 118 against MUI/Carbon/Ant/HIG/Radix/Fluent running in four groups (A actions+fields, B selection+nav, C overlays+surfaces+layout, D data+charts+patterns); results in the job's tmp/audit/{A,B,C,D}.md, then P1 gaps built wave by wave with gates (G-SV1 state matrix row per new state).
+
+## Flagged back by a consumer (Lumen mobile chat mock, 2026-10-30 night)
+Bugs, into the next wave:
+- **Navbar**: on a 390px screen the brand slot never shrinks (flex 0 1 auto, min-width auto), pushing actions off the edge. → brand `min-inline-size: 0` + truncate; G-S1 at 375px on a long brand.
+- **SettingsRow + RadioCards/Slider**: the label shows twice (row label and the control's own required label). → controls take `aria-labelledby` / a hideLabel, SettingsRow wires it.
+- **Accordion**: title is string-only, so a live title (a timer) is impossible. → title: ReactNode.
+- **Mesh** at small sizes (≤64px) is a flat wash: the pool blur is fixed at 40px. → blur scales with the mesh's size (container units).
+Gaps, mapped to the variant waves:
+- **Sheet**: detents (medium/large), drag to dismiss with velocity, scale the view behind (iOS card). → wave C (audit C P1 detents).
+- **Drawer**: follows the finger from an edge swipe; main view shifts/scales behind. → wave C.
+- **List/ListItem**: swipe actions (reveal Pin/Archive/Delete, full swipe to delete). → wave D (List).
+- **ContextMenu**: preview/lift slot and a header slot (reaction bar). → wave B (Menu family).
+- **Menu**: checkbox and radio items (menuitemradio). → wave B P1, already listed.
+- **CodeBlock** component and syntax colour tokens that pass 4.5:1 on the well in both themes. → new component (wave D/Type); syntax ramp validated like D-031.
+- **Motion**: spring tokens and an interruptible gesture helper (`pane-react/motion`). → new foundation, after the waves.
+- **Chat**: bubble, composer (Textarea autoResize is in wave A), status pill that morphs (Dynamic Island). → Chat pattern (MUI X gap list already has Chat), after wave D.
+
+## JD gap waves (user, 2026-10-31 night: "เว็บนี้ตอบได้ทุกข้อยัง ถ้ายังก็จัดเต็มซะ", a Senior Product Designer, Design Systems JD at OpenLoop Health)
+Order, after wave A ships:
+- **J1 White-label theming**: brand token sets layered on the semantic tier (2–3 sample client brands), a brand switcher in the docs header beside theme and scene, a Theming chapter (what a brand may override, what it may not, contrast re-measured per brand by the evidence run), `pane-theme` CLI that validates a brand file.
+- **J2 Figma variables pipeline**: DTCG ⇄ Figma variables JSON both ways (`pane-figma export|import`, modes = themes and brands), a drift check that diffs a Figma export against the tokens and fails on mismatches, a docs page for the round trip.
+- **J3 AI skills**: ship a Claude Code skill for building with Pane (`pane-react/skill/SKILL.md`: which component for which job, the iron rules, the states each family must handle), agent instructions page, the MCP gaining `check_usage` (lint a snippet against the rules).
+- **J4 AI interaction patterns**: Chat (bubble, composer, streaming text, tool call rows), AgentStatus (thinking, working with steps, waiting on a human, done, failed), HumanHandoff (escalate, take over, hand back), Citation and Confidence on answers. With the Lumen mock findings.
+- **J5 Data-dense ops**: FilterBar (chips, saved views, clear all), bulk action bar on selection (Table and DataGrid), row actions, density toggle, complex form patterns (sections, conditional fields, review step), DataGrid X2 resumes.
+- **J6 Motion**: spring tokens and an interruptible gesture helper, a motion principles chapter with live specimens (enter, exit, move, feedback, reduced motion).
+- **J7 Governance and adoption**: contribution and RFC process, deprecation and versioning policy page, `pane-adoption` CLI that scans a product repo (Pane imports vs raw elements and hard-coded values) and reports a score; an Adoption page.
+- **J8 Clinical and regulated**: a healthcare sample flow (intake form, appointment, results table with abnormal flags by glyph and word), WCAG 2.2 AA evidence page per component already exists; add an accessibility conformance report export (VPAT-style).

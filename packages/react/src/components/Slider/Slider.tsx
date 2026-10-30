@@ -11,6 +11,8 @@ import styles from './Slider.module.css';
 export interface SliderProps {
   /** Visible label, also the slider's accessible name. */
   label: string;
+  /** Keeps the label (and the value beside it) for screen readers only, when a row beside it already shows the same words, such as a SettingsRow. The fill variant always shows its label inside the bar. */
+  hideLabel?: boolean;
   /** Controlled value. */
   value?: number;
   /** Starting value when uncontrolled. */
@@ -35,7 +37,7 @@ export interface SliderProps {
 }
 
 export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider(
-  { label, value, defaultValue, onValueChange, min = 0, max = 100, step = 1, format = String, variant = 'channel', disabled, className },
+  { label, hideLabel, value, defaultValue, onValueChange, min = 0, max = 100, step = 1, format = String, variant = 'channel', disabled, className },
   ref,
 ) {
   const id = useId();
@@ -54,7 +56,7 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider(
   );
   return (
     <div className={cx(styles.root, className)} data-component="Slider">
-      <div className={styles.head}>
+      <div className={cx(styles.head, hideLabel && styles.sr)}>
         <span id={`${id}-label`} className={styles.label}>{label}</span>
         <output className={styles.value} aria-hidden="true">{format(current)}</output>
       </div>

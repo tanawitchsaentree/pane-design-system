@@ -198,3 +198,33 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **Root cause:** the nesting rule (R-008: inner radius = outer radius − inset, with an even inset) became a gate, G-NR1, for one case only, the highlighted row of an open flyout. Every later surface that put a shape inside a rounded one, the topbar first, never met the rule. The end padding was also copied from the "a round button sits at the end" case (gap.xs), which only fits a shape as tall as the pill. In InputGroup, Input's read-only ring outranked the group's reset of the inner field.
 - **What changed in that step:** the rule is checked as a rule. Any drawn shape near a drawn parent's rounded corner (within 0.6 of its radius) must have even insets, and, unless it is a pill, a radius equal to the outer radius minus the inset. The topbar key and tag fill the pill's height less an even 4px and are pills. Read-only now lives on the InputGroup well.
 - **Check that now catches it:** G-NC1 on the shell, the first 40 component pages and the state matrix. It was red on the topbar (Kbd 4/7px with a 4px corner, tag 4/10px) and on the read-only PasswordInput, and it is green now.
+
+### R-029: every IconButton icon was drawn at 0×0 for a day
+- **Date:** 2026-10-31
+- **User said:** "จริงๆก็ต้องตรวจทุกอันนั่นแหละ" (gallery screenshots: an IconButton pill with a dot, Menu and Tooltip triggers as empty discs)
+- **What was wrong:** the loading state (R-023) wrapped IconButton's children in a content span. The rule that sized the icon was `.root > svg`, so it stopped matching and every glyph collapsed to nothing. Menu and Tooltip demos use IconButton triggers, so they went blank too.
+- **Root cause:** a change to a component's DOM never re-checked the selectors that depend on that DOM, and no gate asked whether an icon has area. The state matrix compared each state with its default, so the default itself being empty passed.
+- **What changed:** the rule sizes `.content > svg` too.
+- **Check that now catches it:** G-IC1 fails any visible svg inside a component that measures under 4×4px. It was red on the old build (IconButton 0×0) and is green now.
+
+### R-030: the book's prose styles reached inside components
+- **Date:** 2026-10-31
+- **Found in:** the same gallery review. Pagination's page list stood in a column, and the links in Sidebar, NavigationMenu, BottomNav and List rows were underlined.
+- **What was wrong:** the gallery sits inside the overview's `.prose`. `.prose ul` (flex column), `.prose a` (underline), `.prose p, li` (reading size) and `.prose h3` matched the lists, links and text inside components. Sidebar and List also set no font size of their own, so they took the page's reading size.
+- **Root cause:** docs element rules were written for authored prose and never scoped away from live components. Components were only ever checked in their own example stage, where those rules happen not to apply.
+- **What changed:** every `.prose` element rule now skips anything inside `[data-component]` or `[data-example-live]`. List and Sidebar set their own type.
+- **Check that now catches it:** G-LK1 clones each component outside main, where no page rule reaches, and compares the layout of its own parts (display, direction, type, decoration, spacing). It was red on the old CSS for 26 components and is green now.
+
+### R-031: nodes in a row put their ports on each other
+- **Date:** 2026-10-31
+- **What was wrong:** NodeCard's ports sit half outside its edge. The examples set the cards in a `demo-row` at the small gap, which wrapped in the gallery, so one card's out port landed on the next card's in port.
+- **What changed:** the node examples use a canvas row that keeps the cards a port apart and scrolls instead of wrapping. SegmentedControl's segments share a stretched track evenly, so no empty well is left at its end.
+- **Check that now catches it:** G-OV1 measures everything each neighbouring component draws, ports and badges included, and fails any overlap.
+
+### R-032: the glass drifted from anchor A towards a dark smoked slab
+- **Date:** 2026-10-31
+- **User said:** "เหมือนจะหลุด concept glass ไปไกลเลยวะเช็คด้วยนะ"
+- **What was measured:** `apps/lab/concept-check/` sets the same card four ways: A as picked (grey body rgba(118,118,128,.32), blur 44, saturate 160%, no dimming), Pane today (6% white body over a scene dimmed to 0.42), and two returns towards A with a floor of dimming. On a photo, today's pane reads as smoked glass, close to anchor C, which was not picked. On the book's black studio it reads as a flat dark card, because black glass over black has nothing to show. The gallery and the state matrix always sat on that black, whatever backdrop was chosen.
+- **Root cause:** each step after D-008 tuned one number against one measurement (contrast at the worst pixel in D-010/D-011, slab thickness in D-025, the studio floor in D-028) and was checked against the gates, never against the anchor. No gate asks whether a pane still looks like A, so every step was green and the sum walked away from the pick. The black studio default then removed the scene that P1 says is part of the interface.
+- **What changed so far:** the gallery follows the chosen backdrop, as every example does. The material is the user's call: candidates R1 and R2 are rendered beside A and today's pane, on a photo, on the black studio and on a softly lit studio.
+- **Next:** once a candidate is picked, add an anchor-likeness check that measures the pane body against A's on the same backdrop (luminance and chroma of the body, rim contrast). The material then cannot move past it without a visible decision.

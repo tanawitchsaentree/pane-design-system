@@ -64,3 +64,5 @@
    the larger target for a pointer */
 .fillThumb { position: relative; }
 .fillThumb::after { content: ''; position: absolute; inset-inline-start: 50%; inset-block-start: 50%; inline-size: var(--ds-slider-hit); block-size: var(--ds-slider-hit); transform: translate(-50%, -50%); }
+/* a hidden head still names the slider, for a row that already shows its words */
+.sr { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

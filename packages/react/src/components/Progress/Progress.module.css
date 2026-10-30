@@ -17,3 +17,5 @@
 @keyframes travel { from { inset-inline-start: -34%; } to { inset-inline-start: 100%; } }
 @media (prefers-reduced-motion: reduce) { .unknown .fill { animation: none; inline-size: 100%; opacity: var(--ds-opacity-faint); } }
 @media (forced-colors: active) { .track { border: var(--ds-width-hairline) solid CanvasText; } .fill { background: Highlight; } }
+/* a hidden label is still read: the bar sits in a row that names its task */
+.sr { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

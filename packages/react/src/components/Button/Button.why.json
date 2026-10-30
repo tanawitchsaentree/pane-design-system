@@ -75,6 +75,16 @@
       "p": "P6",
       "axis": "shape",
       "why": "a glyph beside the label is hidden from screen readers so the label alone says the action"
+    },
+    "toggle": {
+      "p": "P3",
+      "axis": "colour",
+      "why": "a toggle that is on takes the chosen glass and a ring, the system way to say on without a hue"
+    },
+    "chevron": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a menu button ends in a chevron that turns while its menu is open, so the reader sees what the press will do"
     }
   },
   "states": {
@@ -102,6 +112,21 @@
       "p": "P6",
       "axis": "depth",
       "why": "forced colours drop rim, glint and fills, so a real system-colour border keeps the shape"
+    },
+    "aria-pressed=true": {
+      "p": "P3",
+      "axis": "colour",
+      "why": "on, the toggle is chosen glass with a ring and aria-pressed says so"
+    },
+    "aria-expanded=true": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "while its menu is open the chevron turns over and the button keeps a ring as the menu source"
+    },
+    "aria-disabled=true": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a link button that is off or busy loses its href, dims and says not allowed to the pointer"
     }
   },
   "motion": {
