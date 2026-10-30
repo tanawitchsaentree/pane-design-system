@@ -9,7 +9,7 @@ export interface CardProps extends HTMLAttributes<HTMLElement> {
   variant?: CardVariant;
   /** Rendered element. Use `article` for self-contained content, `section` for a titled region, `aside` for complementary content and `header` for a page head. */
   as?: 'article' | 'section' | 'aside' | 'header' | 'div';
-  /** Where the pane sits in the stack: 1 a pane on the scene (default), 2 a surface inside a pane, 3 an overlay such as a dialog, 4 a popover. A Card inside a Card is level 2 without being told. */
+  /** Where the pane sits in the stack. 1 is a pane on the scene (default), 2 a surface inside a pane, 3 an overlay such as a dialog, 4 a popover. A Card inside a Card is level 2 without being told. */
   level?: 1 | 2 | 3 | 4;
 }
 

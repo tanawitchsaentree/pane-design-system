@@ -64,7 +64,8 @@ export const CommandPalette = forwardRef<HTMLDivElement, CommandPaletteProps>(fu
   const [at, setAt] = useState(0);
   useEffect(() => {
     if (!hotkey || preview) return;
-    const on = (e: KeyboardEvent) => { if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); set(!isOpen); } };
+    // with two palettes on a page (the site's search and a demo), the first one to take the key wins
+    const on = (e: KeyboardEvent) => { if (!e.defaultPrevented && (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); set(!isOpen); } };
     window.addEventListener('keydown', on); return () => window.removeEventListener('keydown', on);
   });
   useEffect(() => { if (!isOpen) { setQ(''); setAt(0); } }, [isOpen]);

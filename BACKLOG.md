@@ -82,3 +82,7 @@ Not a priority list — order of discovery.
 - **MoneyFlow**: flows between parties → X4 Sankey (with the table view).
 - **Sequence**: an ordered exchange between actors (lanes and messages) → SequenceDiagram / swimlane timeline, a sibling of Timeline. → X11.
 - **PerfOverlay**: a developer overlay for frame time and glass cost. Not a product component; offer as a dev-only tool (`pane-react/devtools`) if wanted.
+
+## Token sheet split (PEG, 2026-10-30, measured: CSS 27.6 kB gz with tokens.css, 13.7 of it the sheet)
+- Component tokens move into each component's CSS file (arrive only with the component).
+- Separate entries: `pane-react/tokens/core.css` (space, size, radius, type, motion, z) and `pane-react/tokens/colour.css` (ramps, semantic colours, themes, environments), so a product with its own colours loads core only. tokens.css stays as both.

@@ -2,15 +2,15 @@
 // of the page you are on start open, and a search opens everything so every match shows. Components fold
 // once more into their families, so 100-odd pages stay a short list. Pages new in this release say so.
 import { useEffect, useState } from 'react';
-import { CATEGORIES } from './components-data';
-import { HISTORY } from './ComponentPage';
+import { CATEGORIES } from './categories';
+import { HISTORY } from './chapter-facts';
 
 type Page = { path: string; title: string };
 type Part = { title: string; pages: Page[] };
 const latest = HISTORY[0]?.version;
 const NEW_COMPONENTS = new Set(HISTORY.filter((h) => h.version === latest && /^new\b/i.test(h.text)).map((h) => h.component));
 // chapters (not components) added in the current release
-const NEW_PAGES = new Set(['/getting-started/language', '/getting-started/install-app', '/getting-started/ios', '/patterns/states']);
+const NEW_PAGES = new Set(['/getting-started/ai', '/getting-started/language', '/getting-started/install-app', '/getting-started/ios', '/patterns/states']);
 const isNew = (p: Page) => NEW_PAGES.has(p.path) || NEW_COMPONENTS.has(p.title);
 
 function Fold({ id, title, open, onToggle, level, children }: { id: string; title: string; open: boolean; onToggle: () => void; level: 1 | 2; children: React.ReactNode }) {

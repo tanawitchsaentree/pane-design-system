@@ -7,7 +7,7 @@ export interface NavigationLink { href: string; label: string; description?: str
 export interface NavigationGroup { label: string; href?: string; links?: NavigationLink[] }
 
 export interface NavigationMenuProps {
-  /** Top-level entries: a plain link (href) or a group that opens a panel of links. */
+  /** Top-level entries, each a plain link (href) or a group that opens a panel of links. */
   items: NavigationGroup[];
   /** The landmark's name. Defaults to Main. */
   label?: string;

@@ -6,21 +6,35 @@
 import { useState } from 'react';
 import { Environment, Select, Tag } from 'pane-react';
 import meta from './meta.json';
-import { inline, WhyText, type Why, Code, CodeBlock, ConformanceList, DoDont, EvidenceTable, Example, Link, Page, Section, Stage, TokensUsed, useVerify } from './kit';
+import { inline, WhyText, type Why, Code, CodeBlock, ConformanceList, DoDont, EvidenceTable, Example, Link, Page, Section, Stage, TokensUsed, useVerify, CSS_MODULES, cssModuleKey } from './kit';
 import type { ComponentChapter } from './components-data';
 import { DEPTH } from '../depth';
 import { UsageTab } from '../depth/UsageTab';
-import { StyleTab } from '../depth/StyleTab';
-import { OnPane, SUBJECTS } from '../depth/subjects';
-import changelog from '../../../../packages/react/CHANGELOG.md?raw';
+import { preloadExamples } from './components-data';
+import { lazyMap } from './lazy';
+import { TABS, HISTORY, STATUS_LABEL, EVIDENCE_GROUPS, type Tab } from './chapter-facts';
+export { TABS, HISTORY, STATUS_LABEL, EVIDENCE_GROUPS, type Tab } from './chapter-facts';
 import '../depth/depth.css';
 
-export const TABS = ['usage', 'style', 'code', 'accessibility'] as const;
-export type Tab = typeof TABS[number];
 const TAB_LABEL: Record<Tab, string> = { usage: 'Usage', style: 'Style', code: 'Code', accessibility: 'Accessibility' };
 
-const WHYS = import.meta.glob('../../../../packages/react/src/components/*/*.why.json', { eager: true, import: 'default' }) as Record<string, { concept: string; parts: Record<string, Why>; states: Record<string, Why>; motion: Record<string, Why> }>;
-const whyOf = (name: string) => WHYS[`../../../../packages/react/src/components/${name}/${name}.why.json`];
+// The live demos (every component, so all of pane-react), the Style tab with its measured specs,
+// the reasons and the CSS text are loaded by the chapter's route, never by the first chunk.
+const MODULES = lazyMap<unknown>({ subjects: () => import('../depth/subjects'), style: () => import('../depth/StyleTab') });
+const subjectsModule = () => MODULES.read('subjects') as typeof import('../depth/subjects');
+const StyleTab = (p: Parameters<typeof import('../depth/StyleTab').StyleTab>[0]) => { const M = MODULES.read('style') as typeof import('../depth/StyleTab'); return <M.StyleTab {...p} />; };
+const WHYS = lazyMap(import.meta.glob<{ concept: string; parts: Record<string, Why>; states: Record<string, Why>; motion: Record<string, Why> }>('../../../../packages/react/src/components/*/*.why.json', { import: 'default' }));
+const whyKey = (name: string) => `../../../../packages/react/src/components/${name}/${name}.why.json`;
+const whyOf = (name: string) => WHYS.read(whyKey(name));
+
+/** Everything a chapter tab shows, loaded before the tab is painted. */
+export const preloadChapter = (c: ComponentChapter, tab: Tab) => Promise.all([
+  MODULES.load('subjects'),
+  // a chapter without a depth file shows its first-edition notes, which print the examples
+  tab === 'usage' ? DEPTH.load(c.name).then((d) => preloadExamples(d ? [c.hero] : [c.hero, ...c.ladder], !d))
+    : preloadExamples(tab === 'code' ? [c.hero, ...c.ladder] : [c.hero], tab === 'code'),
+  tab === 'style' && Promise.all([MODULES.load('style'), WHYS.load(whyKey(c.name)), CSS_MODULES.load(cssModuleKey(c.name))]),
+]);
 
 function Reasons({ name }: { name: string }) {
   const w = whyOf(name);
@@ -46,17 +60,9 @@ function Reasons({ name }: { name: string }) {
   );
 }
 
-// History per component, parsed from the package changelog: "## version (date)" then "- Name: text".
-export const HISTORY: Array<{ version: string; date: string; component: string; text: string }> = changelog.split(/^## /m).slice(1).flatMap((block) => {
-  const [, version, date] = block.match(/^(\S+) \((\d{4}-\d{2}-\d{2})\)/) ?? [];
-  return [...block.matchAll(/^- (\w+): (.*)$/gm)].map((m) => ({ version, date, component: m[1], text: m[2] }));
-});
-export const STATUS_LABEL = { alpha: 'Alpha', beta: 'Beta', stable: 'Stable' } as const;
 
 type Meta = typeof meta.components[keyof typeof meta.components];
 
-// Which evidence-harness groups hold this component's text.
-export const EVIDENCE_GROUPS: Record<string, string[]> = { Container: ['layout'], Grid: ['layout'], Stack: ['layout'], Badge: ['status'], Chip: ['status'], Banner: ['status'], Environment: ['environment'], Card: ['card'], Avatar: ['card'], Button: ['controls'], IconButton: ['controls'], Tabs: ['controls'], Tag: ['controls', 'media'], Select: ['controls'], Slider: ['controls'], Input: ['forms'], Textarea: ['forms'], Checkbox: ['forms'], Radio: ['forms'], Switch: ['forms'], FormField: ['forms'], Label: ['forms'], HelperText: ['forms'], Fieldset: ['forms'], InputGroup: ['forms'], PinInput: ['forms'] };
 
 const twoCol = (rows: Array<[string, string]>, a: string, b: string) => (
   <div className="table-wrap">
@@ -84,6 +90,7 @@ function Facts({ c, m }: { c: ComponentChapter; m: Meta }) {
 
 /** U1: the live demo in the header. Selectors are Pane's own Select (G-N1), one per enum prop. */
 function LiveDemo({ c, m }: { c: ComponentChapter; m: Meta }) {
+  const { SUBJECTS, OnPane } = subjectsModule();
   const subject = SUBJECTS[c.name];
   const dims: Array<[string, string[]]> = [...Object.entries(m.kinds), ...(m.sizes.length ? [['size', m.sizes] as [string, string[]]] : [])];
   const [theme, setTheme] = useState<'dark' | 'light'>(() => (document.documentElement.dataset.theme as 'dark' | 'light') ?? 'dark');
@@ -108,7 +115,7 @@ function LiveDemo({ c, m }: { c: ComponentChapter; m: Meta }) {
   );
 }
 
-function GeneratedProps({ m, inherits }: { m: Meta; inherits?: string }) {
+export function GeneratedProps({ m, inherits }: { m: Meta; inherits?: string }) {
   return (
     <>
       {m.exports.map((e) => (
@@ -197,7 +204,7 @@ function LegacyUsage({ c }: { c: ComponentChapter }) {
 
 export function ComponentPage({ c, tab }: { c: ComponentChapter; tab: Tab }) {
   const m = (meta.components as Record<string, Meta>)[c.name];
-  const depth = DEPTH[c.name];
+  const depth = DEPTH.read(c.name);
   const base = `/components/${c.slug}`;
   const demos = 1 + c.ladder.length;
   return (

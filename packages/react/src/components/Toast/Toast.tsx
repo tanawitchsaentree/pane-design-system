@@ -9,7 +9,7 @@ export interface ToastProps {
   open: boolean;
   /** Called when it opens or closes. */
   onOpenChange: (open: boolean) => void;
-  /** What happened, in a few words: Print ordered. */
+  /** What happened, in a few words, such as Print ordered. */
   title: ReactNode;
   /** One sentence more, if the title is not enough. */
   description?: ReactNode;
@@ -21,7 +21,7 @@ export interface ToastProps {
   duration?: number;
   /** Extra class on the toast pane. */
   className?: string;
-  /** Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow. */
+  /** Draws it in place, open and not modal, inside its parent, for documentation, previews and screenshots, never in a product flow. */
   preview?: boolean;
 }
 

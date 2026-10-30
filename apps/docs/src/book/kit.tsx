@@ -1,10 +1,9 @@
 // The book's building blocks. Everything derivable is derived: tokens from pane-tokens/json,
 // "tokens used" from each component's real CSS module, evidence and conformance from the JSON the
 // verify run writes. Prose is the only hand-written part.
-import { createContext, useContext, useState, type AnchorHTMLAttributes, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import tokens from 'pane-tokens/json';
 import { Button, Card, Environment, Tag } from 'pane-react';
-import { navigate } from './router';
 import { SCENES, sceneById } from '../scenes';
 
 export type Why = { p: string | string[]; why: string };
@@ -12,28 +11,12 @@ export type Token = { tier: string; type: string; value: string; ref: string | n
 export const TOKENS = tokens as Record<string, Token>;
 const BY_CSS = Object.fromEntries(Object.entries(TOKENS).map(([p, t]) => [t.css, p]));
 
-// ---------- verification data (loaded once by the shell) ----------
-export interface GroupResult { texts: number; worst: number | null; failures: number }
-export interface Evidence {
-  generatedAt: string; browser: string; threshold: number; modes: string[]; themes?: string[]; exceptionFloor?: number;
-  harness: Record<string, Record<string, Record<string, GroupResult>>>;
-  docsPage: Record<string, Record<string, { textElements: number; failures: number }>>;
-  summary: { gatingChecks: number; gatingFailures: number; excepted?: number; informational: string[] };
-}
-export interface Conformance { generatedAt: string; passed: number; total: number; checks: Array<{ component: string; name: string; ok: boolean; detail?: string }> }
-export const VerifyContext = createContext<{ evidence: Evidence | null; conformance: Conformance | null }>({ evidence: null, conformance: null });
-export const useVerify = () => useContext(VerifyContext);
-export const SceneContext = createContext<string>('room');
-export const useScene = () => useContext(SceneContext);
-
-// ---------- navigation ----------
-export function Link({ to, children, ...rest }: { to: string; children: ReactNode } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & Record<`data-${string}`, string>) {
-  return (
-    <a {...rest} href={to} onClick={(e) => { if (e.metaKey || e.ctrlKey) return; e.preventDefault(); navigate(to); }}>
-      {children}
-    </a>
-  );
-}
+// the shell's light half (contexts, Link, verification types) lives in kit-core, so the shell's first
+// chunk does not carry the tokens, CSS sources and concept text this file holds; re-exported here
+export { VerifyContext, useVerify, SceneContext, useScene, Link } from './kit-core';
+export type { GroupResult, Evidence, Conformance } from './kit-core';
+import { useVerify, useScene, Link } from './kit-core';
+import { lazyMap } from './lazy';
 
 // ---------- page structure ----------
 export function Page({ eyebrow, title, lede, children }: { eyebrow: string; title: string; lede: ReactNode; children: ReactNode }) {
@@ -233,9 +216,11 @@ export function WhyText({ w }: { w?: Why | null }) {
 
 // Every component's CSS module, as text. The "tokens used" list is parsed from what the component
 // actually references, so it cannot drift from the code.
-const CSS_MODULES = import.meta.glob('../../../../packages/react/src/components/*/*.module.css', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+// each component's CSS text is loaded by its style route (cssModuleKey + CSS_MODULES.load)
+export const CSS_MODULES = lazyMap(import.meta.glob<string>('../../../../packages/react/src/components/*/*.module.css', { query: '?raw', import: 'default' }));
+export const cssModuleKey = (component: string) => `../../../../packages/react/src/components/${component}/${component}.module.css`;
 export function TokensUsed({ component }: { component: string }) {
-  const src = Object.entries(CSS_MODULES).find(([k]) => k.endsWith(`/${component}/${component}.module.css`))?.[1] ?? '';
+  const src = CSS_MODULES.read(cssModuleKey(component)) ?? '';
   const names = [...new Set([...src.matchAll(/var\((--ds-[a-z0-9-]+)/g)].map((m) => m[1]))].sort();
   // which CSS property each custom property drives, read from the declarations that use it
   const drives = (n: string) => [...new Set([...src.matchAll(/([a-z-]+)\s*:[^;{}]*?var\((--ds-[a-z0-9-]+)/g)].filter((m) => src.slice(m.index, src.indexOf(';', m.index)).includes(n)).map((m) => m[1]))].join(', ');

@@ -3,7 +3,7 @@ import { cx } from '../../cx';
 import styles from './DescriptionList.module.css';
 
 export interface DescriptionListProps extends Omit<HTMLAttributes<HTMLDListElement>, 'children'> {
-  /** The pairs, in reading order: each term with the detail that belongs to it. */
+  /** The pairs, in reading order, each term with the detail that belongs to it. */
   items: { term: string; detail: ReactNode }[];
   /** `stacked` (default) puts each detail under its term; `inline` puts terms in a column beside their details and stacks again when the pane is narrow. */
   layout?: 'stacked' | 'inline';

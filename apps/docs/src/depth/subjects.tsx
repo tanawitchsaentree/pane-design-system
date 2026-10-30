@@ -68,7 +68,7 @@ export const SUBJECTS: Record<string, Subject> = {
   Toast: { bare: true, render: (p) => <Toast preview open onOpenChange={() => {}} title="Print ordered" {...p} />, code: (p) => `<Toast title="Print ordered"${attrs(p)} … />` },
   Snackbar: { bare: true, render: () => <Snackbar preview open onOpenChange={() => {}} message="Message archived" />, code: () => '<Snackbar message="Message archived" … />' },
   FAB: { bare: true, render: (p) => <div className="demo-phone"><FAB icon={<IconPencil />} label="New post" position="contained" {...p} /></div>, code: (p) => `<FAB icon={…} label="New post"${attrs(p)} />` },
-  PullToRefresh: { render: () => <PullToRefresh className="demo-ptr" onRefresh={() => {}}><Text>Inbox</Text></PullToRefresh>, code: () => '<PullToRefresh onRefresh={load}>…</PullToRefresh>' },
+  PullToRefresh: { render: () => <Card as="div" className="demo-card"><PullToRefresh className="demo-ptr" onRefresh={() => {}}><Text>Inbox</Text></PullToRefresh></Card>, code: () => '<PullToRefresh onRefresh={load}>…</PullToRefresh>' },
   Listbox: { bare: true, render: () => <div className="demo-wide"><Listbox label="Paper" defaultValue="matte" options={[{ value: 'matte', label: 'Matte' }, { value: 'gloss', label: 'Gloss' }]} /></div>, code: () => '<Listbox label="Paper" options={…} />' },
   Combobox: { bare: true, render: () => <div className="demo-wide"><Combobox label="Destination" options={[{ value: 'lofoten', label: 'Lofoten' }]} /></div>, code: () => '<Combobox label="Destination" options={…} />' },
   Autocomplete: { bare: true, render: () => <div className="demo-wide"><Autocomplete label="Camera" suggestions={['Leica Q2']} /></div>, code: () => '<Autocomplete label="Camera" suggestions={…} />' },

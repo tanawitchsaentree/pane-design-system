@@ -17,7 +17,7 @@ export interface MeshProps extends HTMLAttributes<HTMLDivElement> {
   base?: string;
   /** Turns the pools around the centre, in degrees, to move where the light seems to come from. */
   rotate?: number;
-  /** Lights what is under the mesh in its own colours: an ambient shadow, for a mesh object such as an icon. */
+  /** Lights what is under the mesh in its own colours with an ambient shadow, for a mesh object such as an icon. */
   glow?: boolean;
   /** Names the mesh for assistive technology when it carries meaning (an illustration). Leave it out when it is decoration. */
   label?: string;

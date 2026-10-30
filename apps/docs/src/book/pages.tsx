@@ -23,9 +23,9 @@ import { PaletteGrid, RoleTabs, TokenBrowser } from './color-page';
 import { ElevationDemo } from './elevation';
 import { ThemePlayground, GlassPlayground, ContrastPlayground, TypePlayground, SpacingPlayground, GridPlayground, ShapePlayground, MotionPlayground, IconBrowser, TouchTargetPlayground } from './playgrounds';
 import { inline, useScene, Stage, PRINCIPLES, CONCEPT_INTRO, Callout, Code, CodeBlock, CopyButton, ConformanceList, EvidenceTable, Example, Link, Markdown, Page, Section, TOKENS, TokenTable, VerifiedTags, useVerify } from './kit';
-import { CATEGORIES, COMPONENTS } from './components-data';
+import { CATEGORIES, COMPONENTS, preloadExamples } from './components-data';
 import { GridLayoutPage } from './grid-page';
-import { ComponentPage, EVIDENCE_GROUPS, HISTORY, STATUS_LABEL, TABS } from './ComponentPage';
+import { ComponentPage, preloadChapter, EVIDENCE_GROUPS, HISTORY, STATUS_LABEL, TABS, type Tab } from './ComponentPage';
 import { TabRedirect } from './TabRedirect';
 import { PATTERN_DEPTH } from '../patterns/content';
 import { EXTRAS } from './foundation-extras';
@@ -33,6 +33,7 @@ import { AccessibilityFoundation, ContentFoundation, Contributing, Designing, De
 import { IOSPage } from './ios';
 import { PatternDepthPage } from '../patterns/PatternDepth';
 import { StatesPage } from './states';
+import { ApiPage } from './ApiPage';
 import { Language } from './language';
 import { SCENES } from '../scenes';
 import { PARTS } from './router';
@@ -65,10 +66,13 @@ const LAYOUT_THUMB: Record<string, ReactNode> = {
 function Gallery() {
   const ref = useRef<HTMLDialogElement>(null);
   const byName = Object.fromEntries(COMPONENTS.map((c) => [c.name, c]));
+  // the live heroes are a hundred small chunks: fetched when the reader opens the gallery, not with the page
+  const [ready, setReady] = useState(false);
+  const open = () => preloadExamples(COMPONENTS.filter((c) => !LAYOUT_THUMB[c.name]).map((c) => c.hero), false).then(() => { setReady(true); ref.current?.showModal(); });
   let n = 0;
   return (
     <>
-      <Button variant="glass" onClick={() => ref.current?.showModal()}>Open the gallery · {COMPONENTS.length} components</Button>
+      <Button variant="glass" onClick={open}>Open the gallery · {COMPONENTS.length} components</Button>
       <dialog ref={ref} className="gallery-modal" aria-labelledby="gallery-h" onClick={(e) => { if (e.target === e.currentTarget) ref.current?.close(); }}>
         <div className="gallery-modal-head">
           <h2 id="gallery-h" className="flush">Every component</h2>
@@ -89,7 +93,7 @@ function Gallery() {
                     <p className="gallery-purpose">{c.purpose}</p>
                     <code className="gallery-tag">{`<${c.name} />`}</code>
                   </div>
-                  <Environment brightness="bright" className="gallery-demo">{LAYOUT_THUMB[name] ?? <div className="gallery-scale"><c.hero.Render /></div>}</Environment>
+                  <Environment brightness="bright" className="gallery-demo">{LAYOUT_THUMB[name] ?? <div className="gallery-scale">{ready && <c.hero.Render />}</div>}</Environment>
                 </div>
               ); })}
             </div>
@@ -178,6 +182,22 @@ function InstallApp() {
       </Section>
       <Section id="checks" title="What is checked">
         <p>kiln G-PWA1 loads a page at phone size, reads the manifest, decodes the 192 and 512 icons to check their sizes, looks for a maskable icon and an iPhone icon, waits for the service worker, then turns the network off and reloads the page. The gate fails if any step does.</p>
+      </Section>
+    </Page>
+  );
+}
+
+function AiPage() {
+  return (
+    <Page eyebrow="Getting started" title="MCP and llms.txt" lede={<p>An AI assistant working in your project can look Pane up instead of guessing which component fits, how to import it, what every prop does and which tokens a theme can change. There are two ways in, built from the same generated data, so they always agree with this book.</p>}>
+      <Section id="mcp" title="MCP server">
+        <p>pane-mcp is a Model Context Protocol server that ships inside pane-react. Add it once to Claude Code, Cursor or any client that speaks MCP. It runs on your machine and needs no account.</p>
+        <Code label="Claude Code">{'claude mcp add pane -- npx pane-mcp'}</Code>
+        <Code label="mcp.json">{'{ "mcpServers": { "pane": { "command": "npx", "args": ["pane-mcp"] } } }'}</Code>
+        <p>It answers five questions. list_components names every component with its idea in a line. search_components finds one for a need, such as a date range or an upload. get_component returns the import, every prop with its type and default, the component tokens and the links to its pages. search_tokens finds tokens by name or value with their dark and light values, and how_to_install says how to install Pane in a React app or a plain HTML site.</p>
+      </Section>
+      <Section id="llms" title="llms.txt">
+        <p>Some tools read a site instead of calling a server. For them the book publishes <a href="/llms.txt">llms.txt</a>, an index of every chapter, and <a href="/llms-full.txt">llms-full.txt</a>, with every component's import, props and tokens in one file. Point an assistant at either address.</p>
       </Section>
     </Page>
   );
@@ -1002,6 +1022,7 @@ const BASE_PAGES: Record<string, () => ReactElement> = {
   '/foundations/accessibility': AccessibilityFoundation,
   '/principles': Principles,
   '/getting-started/install-app': InstallApp,
+  '/getting-started/ai': AiPage,
   '/patterns/states': () => <StatesPage Page={Page} Section={Section} />,
   '/foundations/glass': Glass,
   '/foundations/color': ColorPage,
@@ -1017,6 +1038,7 @@ const BASE_PAGES: Record<string, () => ReactElement> = {
     [`/components/${c.slug}`, () => <TabRedirect to={`/components/${c.slug}/usage`} />] as const,
     ...TABS.map((t) => [`/components/${c.slug}/${t}`, () => <ComponentPage c={c} tab={t} />] as const),
   ])),
+  ...Object.fromEntries(COMPONENTS.map((c) => [`/api/${c.slug}`, () => <ApiPage c={c} />] as const)),
   ...Object.fromEntries(Object.entries(PATTERN_DEPTH).map(([path, p]) => [path, () => <PatternDepthPage p={p} />])),
   ...PATTERNS,
   '/accessibility': Accessibility,
@@ -1033,3 +1055,11 @@ export const PAGE_COMPONENTS: Record<string, () => ReactElement> = Object.fromEn
   const Extra = EXTRAS[route];
   return [route, Extra ? () => <><Page /><Extra /></> : Page];
 }));
+
+/** Loads what the page at `path` shows, so App can paint it whole (no fallback, no late pop-in). */
+export function preload(path: string): Promise<unknown> {
+  if (path === '/foundations/themes') return preloadExamples(COMPONENTS.filter((c) => c.name === 'Card').map((c) => c.hero), false);
+  const [, slug, tab] = path.match(/^\/components\/([^/]+)\/([^/]+)$/) ?? [];
+  const c = slug ? COMPONENTS.find((x) => x.slug === slug) : undefined;
+  return c && (TABS as readonly string[]).includes(tab) ? preloadChapter(c, tab as Tab) : Promise.resolve();
+}

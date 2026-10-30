@@ -28,7 +28,7 @@ export interface DialogProps {
   size?: 'md' | 'lg';
   /** Extra class on the dialog pane. */
   className?: string;
-  /** Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow. */
+  /** Draws it in place, open and not modal, inside its parent, for documentation, previews and screenshots, never in a product flow. */
   preview?: boolean;
 }
 

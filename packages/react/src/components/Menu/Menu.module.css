@@ -4,7 +4,7 @@
 .item { display: flex; align-items: center; gap: var(--ds-gap-md); min-block-size: var(--ds-listbox-row); padding-inline: var(--ds-gap-md) var(--ds-gap-xl); border-radius: calc(var(--ds-listbox-radius) - var(--ds-listbox-inset)); cursor: pointer; outline: 0; user-select: none; }
 .item[data-highlighted] { background: var(--ds-listbox-highlight); box-shadow: var(--ds-listbox-lens); }
 .item[data-disabled] { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
-.critical { color: var(--ds-status-critical-mark); }
+.critical { color: var(--ds-text-critical); }
 .icon { display: inline-flex; flex: none; inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); }
 .icon > svg { inline-size: 100%; block-size: 100%; }
 .label { flex: 1; min-inline-size: 0; }

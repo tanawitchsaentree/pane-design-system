@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T08:19:37.243Z",
+  "generatedAt": "2026-10-30T09:47:21.802Z",
   "version": "0.7.0",
   "components": {
     "Accordion": {
@@ -161,7 +161,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": "Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow.",
+              "description": "Draws it in place, open and not modal, inside its parent, for documentation, previews and screenshots, never in a product flow.",
               "enum": false,
               "options": null
             }
@@ -173,8 +173,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 47799,
-        "cssMin": 4471,
-        "gzip": 18097
+        "cssMin": 4464,
+        "gzip": 18090
       }
     },
     "AppShell": {
@@ -1393,7 +1393,7 @@
               "type": "1 | 2 | 3 | 4",
               "required": false,
               "default": null,
-              "description": "Where the pane sits in the stack: 1 a pane on the scene (default), 2 a surface inside a pane, 3 an overlay such as a dialog, 4 a popover. A Card inside a Card is level 2 without being told.",
+              "description": "Where the pane sits in the stack. 1 is a pane on the scene (default), 2 a surface inside a pane, 3 an overlay such as a dialog, 4 a popover. A Card inside a Card is level 2 without being told.",
               "enum": false,
               "options": [
                 "1",
@@ -2237,8 +2237,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 89494,
-        "cssMin": 1600,
-        "gzip": 31963
+        "cssMin": 1593,
+        "gzip": 31955
       }
     },
     "DataGrid": {
@@ -2556,7 +2556,7 @@
               "type": "{ term: string; detail: ReactNode; }[]",
               "required": true,
               "default": null,
-              "description": "The pairs, in reading order: each term with the detail that belongs to it.",
+              "description": "The pairs, in reading order, each term with the detail that belongs to it.",
               "enum": false,
               "options": null
             },
@@ -2704,7 +2704,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": "Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow.",
+              "description": "Draws it in place, open and not modal, inside its parent, for documentation, previews and screenshots, never in a product flow.",
               "enum": false,
               "options": null
             }
@@ -2889,7 +2889,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": "Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow.",
+              "description": "Draws it in place, open and not modal, inside its parent, for documentation, previews and screenshots, never in a product flow.",
               "enum": false,
               "options": null
             }
@@ -4227,7 +4227,7 @@
               "type": "string",
               "required": true,
               "default": null,
-              "description": "Required: what the image shows, or \"\" when it only decorates.",
+              "description": "Says what the image shows, or \"\" when it only decorates.",
               "enum": false,
               "options": null
             },
@@ -4896,8 +4896,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 88562,
-        "cssMin": 1600,
-        "gzip": 31600
+        "cssMin": 1593,
+        "gzip": 31592
       }
     },
     "Mesh": {
@@ -4961,7 +4961,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": "Lights what is under the mesh in its own colours: an ambient shadow, for a mesh object such as an icon.",
+              "description": "Lights what is under the mesh in its own colours with an ambient shadow, for a mesh object such as an icon.",
               "enum": false,
               "options": null
             },
@@ -5037,7 +5037,7 @@
               "type": "number",
               "required": false,
               "default": null,
-              "description": "From this amount up the reading is high: a warning mark and the word Almost full join the value.",
+              "description": "From this amount up the reading is high, with a warning mark and the word Almost full join the value.",
               "enum": false,
               "options": null
             },
@@ -5046,7 +5046,7 @@
               "type": "number",
               "required": false,
               "default": null,
-              "description": "From this amount up the reading is critical: the critical mark and the word Full.",
+              "description": "From this amount up the reading is critical, with the critical mark and the word Full.",
               "enum": false,
               "options": null
             },
@@ -5243,7 +5243,7 @@
               "type": "ReactNode",
               "required": false,
               "default": null,
-              "description": "Actions at the end: search, an avatar, a Sign in button.",
+              "description": "Actions at the end, such as search, an avatar or a Sign in button.",
               "enum": false,
               "options": null
             },
@@ -5299,7 +5299,7 @@
               "type": "NavigationGroup[]",
               "required": true,
               "default": null,
-              "description": "Top-level entries: a plain link (href) or a group that opens a panel of links.",
+              "description": "Top-level entries, each a plain link (href) or a group that opens a panel of links.",
               "enum": false,
               "options": null
             },
@@ -5964,7 +5964,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": "Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow.",
+              "description": "Draws it in place, open and not modal, inside its parent, for documentation, previews and screenshots, never in a product flow.",
               "enum": false,
               "options": null
             }
@@ -6087,7 +6087,7 @@
               "type": "string",
               "required": false,
               "default": null,
-              "description": "What refreshing does, for the button and the spinner: Refresh messages.",
+              "description": "What refreshing does, for the button and the spinner, such as Refresh messages.",
               "enum": false,
               "options": null
             }
@@ -6607,7 +6607,7 @@
               "type": "string",
               "required": true,
               "default": null,
-              "description": "What is being rated, the group's accessible name: Rate this print.",
+              "description": "What is being rated, read as the group's accessible name, such as Rate this print.",
               "enum": false,
               "options": null
             },
@@ -6987,7 +6987,7 @@
               "type": "string",
               "required": true,
               "default": null,
-              "description": "The setting it switches, its accessible name: View, Units.",
+              "description": "The setting it switches, read as its accessible name, such as View or Units.",
               "enum": false,
               "options": null
             },
@@ -7447,7 +7447,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": "Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow.",
+              "description": "Draws it in place, open and not modal, inside its parent, for documentation, previews and screenshots, never in a product flow.",
               "enum": false,
               "options": null
             }
@@ -7744,7 +7744,7 @@
               "type": "ReactNode",
               "required": true,
               "default": null,
-              "description": "One short line: Message archived.",
+              "description": "One short line, such as Message archived.",
               "enum": false,
               "options": null
             },
@@ -7780,7 +7780,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": "Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow.",
+              "description": "Draws it in place, open and not modal, inside its parent, for documentation, previews and screenshots, never in a product flow.",
               "enum": false,
               "options": null
             }
@@ -8722,7 +8722,7 @@
               "type": "\"p\" | \"span\" | \"div\" | \"small\" | \"strong\"",
               "required": false,
               "default": "p",
-              "description": "The element: p (default), span, div, small or strong.",
+              "description": "The element to render, p (default), span, div, small or strong.",
               "enum": true,
               "options": [
                 "p",
@@ -9013,7 +9013,7 @@
               "type": "ReactNode",
               "required": true,
               "default": null,
-              "description": "What happened, in a few words: Print ordered.",
+              "description": "What happened, in a few words, such as Print ordered.",
               "enum": false,
               "options": null
             },
@@ -9071,7 +9071,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": "Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow.",
+              "description": "Draws it in place, open and not modal, inside its parent, for documentation, previews and screenshots, never in a product flow.",
               "enum": false,
               "options": null
             }
@@ -9111,7 +9111,7 @@
               "type": "ReactNode",
               "required": true,
               "default": null,
-              "description": "A few words: what the control does or what a mark means.",
+              "description": "A few words on what the control does or what a mark means.",
               "enum": false,
               "options": null
             },
@@ -9134,7 +9134,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": "Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow.",
+              "description": "Draws it in place, open and not modal, inside its parent, for documentation, previews and screenshots, never in a product flow.",
               "enum": false,
               "options": null
             }

@@ -1,27 +1,120 @@
 // Usage-tab content per component. A component missing here renders its first-edition notes and
-// fails G-K2 until its depth file is written.
+// fails G-K2 until its depth file is written. Each file is its own chunk, loaded by the route.
 import type { Depth } from './types';
-import { AVATAR } from './avatar';
-import { BADGE } from './badge';
-import { BANNER } from './banner';
-import { BUTTON } from './button';
-import { CARD } from './card';
-import { CHIP } from './chip';
-import { ICON_BUTTON } from './icon-button';
-import { CHECKBOX, FIELDSET, FORM_FIELD, HELPER_TEXT, INPUT, INPUT_GROUP, LABEL, PIN_INPUT, RADIO, SWITCH, TEXTAREA } from './forms';
-import { CONTAINER, ENVIRONMENT, GRID, STACK } from './layout';
-import { SELECT, SLIDER } from './select';
-import { TABS } from './tabs';
-import { TAG } from './tag';
-import { MESH } from './mesh';
-import { AUTOCOMPLETE, COMBOBOX, CONTEXT_MENU, LISTBOX, MENU, MULTI_SELECT, RADIO_CARDS, RATING, TAG_INPUT } from './wave5';
-import { APP_SHELL, AUTH_FORM, COACH_MARK, COMMAND_PALETTE, FEED, FORM, KANBAN_BOARD, NOTIFICATION_CENTER, RICH_TEXT_EDITOR, SETTINGS_LAYOUT, WIZARD } from './wave10';
-import { BAR_CHART, RADAR_CHART, SCALE, CALENDAR, CAROUSEL, DATA_GRID, DATE_PICKER, HEATMAP, LINE_CHART, SPARKLINE, TIME_PICKER, TRANSFER_LIST, TREE_VIEW, VIRTUAL_LIST } from './wave9';
-import { COLOR_PICKER, DROPZONE, EDITABLE, FILE_UPLOAD, NUMBER_INPUT, OTP_FLOW, PASSWORD_INPUT, RANGE_SLIDER, SEARCH_INPUT } from './wave8';
-import { DESCRIPTION_LIST, EMPTY_STATE, LIST, METER, PROGRESS, STAT, TABLE, TIMELINE } from './wave7';
-import { ACCORDION, BOTTOM_NAV, BREADCRUMB, NAVBAR, NAVIGATION_MENU, PAGINATION, SEGMENTED_CONTROL, SIDEBAR, STEPPER, TABLE_OF_CONTENTS } from './wave6';
-import { ACTION_SHEET, DIALOG, DRAWER, FAB_DEPTH, POPOVER, PULL_TO_REFRESH, SHEET, SNACKBAR, TOAST, TOOLTIP } from './wave4';
-import { HEADING, ICON, IMAGE, KBD, LINK, SKELETON, SPINNER, TEXT } from './wave2';
-import { ASPECT_RATIO, BOX, CENTER, DIVIDER, FLEX, SPACER, VISUALLY_HIDDEN } from './wave1';
+import { lazyMap } from '../book/lazy';
 
-export const DEPTH: Record<string, Depth> = { Scale: SCALE, RadarChart: RADAR_CHART, Form: FORM, Wizard: WIZARD, AuthForm: AUTH_FORM, CommandPalette: COMMAND_PALETTE, NotificationCenter: NOTIFICATION_CENTER, CoachMark: COACH_MARK, KanbanBoard: KANBAN_BOARD, Feed: FEED, AppShell: APP_SHELL, SettingsLayout: SETTINGS_LAYOUT, RichTextEditor: RICH_TEXT_EDITOR, Calendar: CALENDAR, DatePicker: DATE_PICKER, TimePicker: TIME_PICKER, TreeView: TREE_VIEW, Carousel: CAROUSEL, VirtualList: VIRTUAL_LIST, TransferList: TRANSFER_LIST, DataGrid: DATA_GRID, BarChart: BAR_CHART, LineChart: LINE_CHART, Sparkline: SPARKLINE, Heatmap: HEATMAP, PasswordInput: PASSWORD_INPUT, SearchInput: SEARCH_INPUT, NumberInput: NUMBER_INPUT, RangeSlider: RANGE_SLIDER, Editable: EDITABLE, FileUpload: FILE_UPLOAD, Dropzone: DROPZONE, ColorPicker: COLOR_PICKER, OTPFlow: OTP_FLOW, Progress: PROGRESS, Meter: METER, Stat: STAT, EmptyState: EMPTY_STATE, Timeline: TIMELINE, DescriptionList: DESCRIPTION_LIST, List: LIST, Table: TABLE, SegmentedControl: SEGMENTED_CONTROL, BottomNav: BOTTOM_NAV, Navbar: NAVBAR, Sidebar: SIDEBAR, Breadcrumb: BREADCRUMB, Pagination: PAGINATION, Stepper: STEPPER, Accordion: ACCORDION, NavigationMenu: NAVIGATION_MENU, TableOfContents: TABLE_OF_CONTENTS, Mesh: MESH, Listbox: LISTBOX, Combobox: COMBOBOX, Autocomplete: AUTOCOMPLETE, MultiSelect: MULTI_SELECT, Menu: MENU, ContextMenu: CONTEXT_MENU, RadioCards: RADIO_CARDS, Rating: RATING, TagInput: TAG_INPUT, Dialog: DIALOG, Sheet: SHEET, Drawer: DRAWER, ActionSheet: ACTION_SHEET, Popover: POPOVER, Tooltip: TOOLTIP, Toast: TOAST, Snackbar: SNACKBAR, FAB: FAB_DEPTH, PullToRefresh: PULL_TO_REFRESH, Text: TEXT, Heading: HEADING, Icon: ICON, Link: LINK, Spinner: SPINNER, Skeleton: SKELETON, Kbd: KBD, Image: IMAGE, Box: BOX, Flex: FLEX, Center: CENTER, Spacer: SPACER, Divider: DIVIDER, AspectRatio: ASPECT_RATIO, VisuallyHidden: VISUALLY_HIDDEN, Checkbox: CHECKBOX, Fieldset: FIELDSET, FormField: FORM_FIELD, HelperText: HELPER_TEXT, Input: INPUT, InputGroup: INPUT_GROUP, Label: LABEL, PinInput: PIN_INPUT, Radio: RADIO, Switch: SWITCH, Textarea: TEXTAREA, Avatar: AVATAR, Badge: BADGE, Banner: BANNER, Button: BUTTON, Card: CARD, Chip: CHIP, Container: CONTAINER, Environment: ENVIRONMENT, Grid: GRID, IconButton: ICON_BUTTON, Select: SELECT, Slider: SLIDER, Stack: STACK, Tabs: TABS, Tag: TAG };
+export const DEPTH = lazyMap<Depth>({
+  Scale: () => import('./wave9').then((m) => m.SCALE),
+  RadarChart: () => import('./wave9').then((m) => m.RADAR_CHART),
+  Form: () => import('./wave10').then((m) => m.FORM),
+  Wizard: () => import('./wave10').then((m) => m.WIZARD),
+  AuthForm: () => import('./wave10').then((m) => m.AUTH_FORM),
+  CommandPalette: () => import('./wave10').then((m) => m.COMMAND_PALETTE),
+  NotificationCenter: () => import('./wave10').then((m) => m.NOTIFICATION_CENTER),
+  CoachMark: () => import('./wave10').then((m) => m.COACH_MARK),
+  KanbanBoard: () => import('./wave10').then((m) => m.KANBAN_BOARD),
+  Feed: () => import('./wave10').then((m) => m.FEED),
+  AppShell: () => import('./wave10').then((m) => m.APP_SHELL),
+  SettingsLayout: () => import('./wave10').then((m) => m.SETTINGS_LAYOUT),
+  RichTextEditor: () => import('./wave10').then((m) => m.RICH_TEXT_EDITOR),
+  Calendar: () => import('./wave9').then((m) => m.CALENDAR),
+  DatePicker: () => import('./wave9').then((m) => m.DATE_PICKER),
+  TimePicker: () => import('./wave9').then((m) => m.TIME_PICKER),
+  TreeView: () => import('./wave9').then((m) => m.TREE_VIEW),
+  Carousel: () => import('./wave9').then((m) => m.CAROUSEL),
+  VirtualList: () => import('./wave9').then((m) => m.VIRTUAL_LIST),
+  TransferList: () => import('./wave9').then((m) => m.TRANSFER_LIST),
+  DataGrid: () => import('./wave9').then((m) => m.DATA_GRID),
+  BarChart: () => import('./wave9').then((m) => m.BAR_CHART),
+  LineChart: () => import('./wave9').then((m) => m.LINE_CHART),
+  Sparkline: () => import('./wave9').then((m) => m.SPARKLINE),
+  Heatmap: () => import('./wave9').then((m) => m.HEATMAP),
+  PasswordInput: () => import('./wave8').then((m) => m.PASSWORD_INPUT),
+  SearchInput: () => import('./wave8').then((m) => m.SEARCH_INPUT),
+  NumberInput: () => import('./wave8').then((m) => m.NUMBER_INPUT),
+  RangeSlider: () => import('./wave8').then((m) => m.RANGE_SLIDER),
+  Editable: () => import('./wave8').then((m) => m.EDITABLE),
+  FileUpload: () => import('./wave8').then((m) => m.FILE_UPLOAD),
+  Dropzone: () => import('./wave8').then((m) => m.DROPZONE),
+  ColorPicker: () => import('./wave8').then((m) => m.COLOR_PICKER),
+  OTPFlow: () => import('./wave8').then((m) => m.OTP_FLOW),
+  Progress: () => import('./wave7').then((m) => m.PROGRESS),
+  Meter: () => import('./wave7').then((m) => m.METER),
+  Stat: () => import('./wave7').then((m) => m.STAT),
+  EmptyState: () => import('./wave7').then((m) => m.EMPTY_STATE),
+  Timeline: () => import('./wave7').then((m) => m.TIMELINE),
+  DescriptionList: () => import('./wave7').then((m) => m.DESCRIPTION_LIST),
+  List: () => import('./wave7').then((m) => m.LIST),
+  Table: () => import('./wave7').then((m) => m.TABLE),
+  SegmentedControl: () => import('./wave6').then((m) => m.SEGMENTED_CONTROL),
+  BottomNav: () => import('./wave6').then((m) => m.BOTTOM_NAV),
+  Navbar: () => import('./wave6').then((m) => m.NAVBAR),
+  Sidebar: () => import('./wave6').then((m) => m.SIDEBAR),
+  Breadcrumb: () => import('./wave6').then((m) => m.BREADCRUMB),
+  Pagination: () => import('./wave6').then((m) => m.PAGINATION),
+  Stepper: () => import('./wave6').then((m) => m.STEPPER),
+  Accordion: () => import('./wave6').then((m) => m.ACCORDION),
+  NavigationMenu: () => import('./wave6').then((m) => m.NAVIGATION_MENU),
+  TableOfContents: () => import('./wave6').then((m) => m.TABLE_OF_CONTENTS),
+  Mesh: () => import('./mesh').then((m) => m.MESH),
+  Listbox: () => import('./wave5').then((m) => m.LISTBOX),
+  Combobox: () => import('./wave5').then((m) => m.COMBOBOX),
+  Autocomplete: () => import('./wave5').then((m) => m.AUTOCOMPLETE),
+  MultiSelect: () => import('./wave5').then((m) => m.MULTI_SELECT),
+  Menu: () => import('./wave5').then((m) => m.MENU),
+  ContextMenu: () => import('./wave5').then((m) => m.CONTEXT_MENU),
+  RadioCards: () => import('./wave5').then((m) => m.RADIO_CARDS),
+  Rating: () => import('./wave5').then((m) => m.RATING),
+  TagInput: () => import('./wave5').then((m) => m.TAG_INPUT),
+  Dialog: () => import('./wave4').then((m) => m.DIALOG),
+  Sheet: () => import('./wave4').then((m) => m.SHEET),
+  Drawer: () => import('./wave4').then((m) => m.DRAWER),
+  ActionSheet: () => import('./wave4').then((m) => m.ACTION_SHEET),
+  Popover: () => import('./wave4').then((m) => m.POPOVER),
+  Tooltip: () => import('./wave4').then((m) => m.TOOLTIP),
+  Toast: () => import('./wave4').then((m) => m.TOAST),
+  Snackbar: () => import('./wave4').then((m) => m.SNACKBAR),
+  FAB: () => import('./wave4').then((m) => m.FAB_DEPTH),
+  PullToRefresh: () => import('./wave4').then((m) => m.PULL_TO_REFRESH),
+  Text: () => import('./wave2').then((m) => m.TEXT),
+  Heading: () => import('./wave2').then((m) => m.HEADING),
+  Icon: () => import('./wave2').then((m) => m.ICON),
+  Link: () => import('./wave2').then((m) => m.LINK),
+  Spinner: () => import('./wave2').then((m) => m.SPINNER),
+  Skeleton: () => import('./wave2').then((m) => m.SKELETON),
+  Kbd: () => import('./wave2').then((m) => m.KBD),
+  Image: () => import('./wave2').then((m) => m.IMAGE),
+  Box: () => import('./wave1').then((m) => m.BOX),
+  Flex: () => import('./wave1').then((m) => m.FLEX),
+  Center: () => import('./wave1').then((m) => m.CENTER),
+  Spacer: () => import('./wave1').then((m) => m.SPACER),
+  Divider: () => import('./wave1').then((m) => m.DIVIDER),
+  AspectRatio: () => import('./wave1').then((m) => m.ASPECT_RATIO),
+  VisuallyHidden: () => import('./wave1').then((m) => m.VISUALLY_HIDDEN),
+  Checkbox: () => import('./forms').then((m) => m.CHECKBOX),
+  Fieldset: () => import('./forms').then((m) => m.FIELDSET),
+  FormField: () => import('./forms').then((m) => m.FORM_FIELD),
+  HelperText: () => import('./forms').then((m) => m.HELPER_TEXT),
+  Input: () => import('./forms').then((m) => m.INPUT),
+  InputGroup: () => import('./forms').then((m) => m.INPUT_GROUP),
+  Label: () => import('./forms').then((m) => m.LABEL),
+  PinInput: () => import('./forms').then((m) => m.PIN_INPUT),
+  Radio: () => import('./forms').then((m) => m.RADIO),
+  Switch: () => import('./forms').then((m) => m.SWITCH),
+  Textarea: () => import('./forms').then((m) => m.TEXTAREA),
+  Avatar: () => import('./avatar').then((m) => m.AVATAR),
+  Badge: () => import('./badge').then((m) => m.BADGE),
+  Banner: () => import('./banner').then((m) => m.BANNER),
+  Button: () => import('./button').then((m) => m.BUTTON),
+  Card: () => import('./card').then((m) => m.CARD),
+  Chip: () => import('./chip').then((m) => m.CHIP),
+  Container: () => import('./layout').then((m) => m.CONTAINER),
+  Environment: () => import('./layout').then((m) => m.ENVIRONMENT),
+  Grid: () => import('./layout').then((m) => m.GRID),
+  IconButton: () => import('./icon-button').then((m) => m.ICON_BUTTON),
+  Select: () => import('./select').then((m) => m.SELECT),
+  Slider: () => import('./select').then((m) => m.SLIDER),
+  Stack: () => import('./layout').then((m) => m.STACK),
+  Tabs: () => import('./tabs').then((m) => m.TABS),
+  Tag: () => import('./tag').then((m) => m.TAG),
+});
