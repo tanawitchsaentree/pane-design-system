@@ -136,7 +136,7 @@ try {
       const menu = page.locator('button[data-menu-toggle]');
       if (await menu.isVisible()) { await menu.click(); await page.waitForTimeout(150); }
       // a folding nav may hide the link in a closed part: open its folds first, as a reader would
-      await page.evaluate((t) => { const a = [...document.querySelectorAll('nav[data-book-nav] a')].find((x) => x.textContent.trim() === t || x.firstChild?.textContent?.trim() === t); for (let el = a?.parentElement; el; el = el.parentElement) if (el.hidden) { const b = document.querySelector(`[aria-controls="${el.id}"]`); b?.click(); } }, target.title);
+      await page.evaluate((t) => { const a = [...document.querySelectorAll('nav[data-book-nav] a')].find((x) => x.textContent.trim() === t || x.firstChild?.textContent?.trim() === t); for (let el = a?.parentElement; el; el = el.parentElement) if (el.hidden || el.inert) { const b = document.querySelector(`[aria-controls="${el.id}"]`); b?.click(); } }, target.title);
       await page.waitForTimeout(150);
       await page.locator('nav[data-book-nav]').getByRole('link', { name: target.title, exact: false }).first().click();
       await eventually(() => page.locator('#page-title').textContent(), target.title, `heading did not change at ${w}px`);
