@@ -64,3 +64,12 @@
   .list::before, .list::after { display: none; }
   .trigger[data-state='active'] { border: var(--ds-focus-ring-width) solid Highlight; text-decoration: underline; }
 }
+/* V0 */
+/* a tab not chosen comes up to the primary tone under a pointer (P2) */
+@media (hover: hover) { .trigger:not([data-state='active']):not([data-disabled]):hover { color: var(--ds-text-primary); } }
+/* a tab that cannot be chosen is dimmed and says so to the pointer */
+.trigger[data-disabled] { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
+/* vertical tabs stack the track beside the panel */
+.root[data-orientation='vertical'] { display: flex; align-items: flex-start; gap: var(--ds-gap-xl); }
+.list[data-orientation='vertical'] { flex-direction: column; align-items: stretch; }
+.list[data-orientation='vertical']::before { inset-block: 0 auto; inset-inline: var(--ds-tabs-inset); inline-size: auto; block-size: var(--pane-th, 0); transform: translateY(var(--pane-ty, 0)); }

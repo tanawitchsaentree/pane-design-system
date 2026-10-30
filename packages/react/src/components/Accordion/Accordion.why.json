@@ -102,6 +102,21 @@
       "p": "P4",
       "axis": "motion",
       "why": "a closing section eases shut, the same in every theme and on every scene"
+    },
+    "hover": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a pointer gets a wash before the press so the target shows its size; only where the device can hover, so a tap never leaves it stuck"
+    },
+    "@media hover: hover": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "hover styles apply only on devices that can hover, so a touch screen never shows a stuck wash after a tap"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the link, the current page and the focus ring so every part stays findable"
     }
   },
   "motion": {

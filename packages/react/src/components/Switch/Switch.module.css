@@ -31,3 +31,6 @@
 /* a wrong answer is ringed in the critical mark, like a field (P6) */
 .track[aria-invalid='true'] { outline: var(--ds-width-ring) solid var(--ds-switch-ring-invalid); outline-offset: var(--ds-width-hairline); }
 @media (forced-colors: active) { .track { border: var(--ds-width-hairline) solid ButtonText; } .track[data-state='checked'] { background: Highlight; } .knob { background: ButtonText; } }
+/* V0 */
+/* under a pointer a soft wash fills the hit area around the track, so the target shows its size (P6) */
+@media (hover: hover) { .track:not(:disabled):hover::after { border-radius: var(--ds-corner-round); background: var(--ds-surface-quiet); } }

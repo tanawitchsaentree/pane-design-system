@@ -15,6 +15,11 @@
       "p": "P4",
       "axis": "motion",
       "why": "the panel rises a few pixels and settles when its tab is chosen"
+    },
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the root holds the track and the panels and lays them side by side when the tabs run vertically"
     }
   },
   "states": {
@@ -47,6 +52,26 @@
       "p": "P6",
       "axis": "depth",
       "why": "forced colours drop the sliding sheet, so a real system-colour border keeps the shape"
+    },
+    "data-disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a tab that cannot be chosen is dimmed and the pointer says not allowed, and Radix skips it with the arrow keys"
+    },
+    "hover": {
+      "p": "P2",
+      "axis": "colour",
+      "why": "a tab not chosen comes up to the primary tone under a pointer, so it reads as pressable"
+    },
+    "data-orientation=vertical": {
+      "p": "P3",
+      "axis": "space",
+      "why": "vertical tabs stack down beside their panel and the chosen sheet slides down instead of across"
+    },
+    "@media hover: hover": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "hover styles apply only on devices that can hover, so a touch screen never shows a stuck wash after a tap"
     }
   },
   "motion": {

@@ -4,6 +4,16 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- InputGroup: read only is drawn on the well, so a read-only PasswordInput or field with adornments no longer shows a second pill inside the first.
+- Checkbox: a soft round wash fills the 44px hit area under a pointer.
+- Radio: a soft round wash fills the 44px hit area under a pointer.
+- Switch: a soft wash fills the hit area around the track under a pointer.
+- FAB: rises one step under a pointer.
+- Chip: a chip that is a button washes under a pointer.
+- Accordion: the header row washes under a pointer; forced colours draw the chevron and focus ring.
+- Tabs: `orientation="vertical"` lays the track beside the panel with the sheet sliding down; disabled tabs are dimmed; a tab not chosen comes up to the primary tone under a pointer.
+- Textarea: read only drops the groove for a hairline ring, as Input.
+- Breadcrumb: forced colours draw the links, the current page and the focus ring.
 - Input: the line box is the body leading, so Thai tone marks over upper vowels are no longer cut off (every field built on Input gets it).
 - SearchInput: the clear button keeps its place while the field is empty, so typing never widens the field.
 - Toast: each tone has its own glyph (the Banner shapes) and its word is read before the title; it swipes towards the end edge in RTL too.

@@ -87,6 +87,11 @@
       "p": "P6",
       "axis": "interaction",
       "why": "the shared focus ring on a link, the same in every theme and on every scene"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the link, the current page and the focus ring so every part stays findable"
     }
   },
   "motion": {}

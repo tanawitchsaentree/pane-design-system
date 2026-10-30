@@ -190,3 +190,11 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **Step that produced it:** field type was set with the display leading used for one-line labels, and every check typed Latin text. No step typed into a field and measured it before and after.
 - **What changed in that step:** fields use the body leading (1.42em). SearchInput keeps the clear button's place while empty, hidden and out of the tab order.
 - **Check that now catches it:** G-TX1 types Thai with stacked marks into every text field on the state matrix. It fails a line box under 1.35em and any field whose width changes while typing. It was red on the old build (FormField, PasswordInput, SearchInput, NumberInput at 1.15em, SearchInput 215 → 249px) and is green now.
+
+### R-028: the ⌘K key did not nest in the search pill
+- **Date:** 2026-10-30
+- **User said:** "เห็นไหม ปัญหาเกิดจากอะไร หารากปัญหาให้เจอ" (screenshot of the topbar search pill with its ⌘K key)
+- **What was wrong:** the key sat 4px from the pill's round end and 7px from its top and bottom, with a 4px corner inside a 22px round end, so the two curves fought. The New tag in the announcement pill had the same fault (4px and 10px). A read-only PasswordInput drew a second pill inside its well.
+- **Root cause:** the nesting rule (R-008: inner radius = outer radius − inset, with an even inset) became a gate, G-NR1, for one case only, the highlighted row of an open flyout. Every later surface that put a shape inside a rounded one, the topbar first, never met the rule. The end padding was also copied from the "a round button sits at the end" case (gap.xs), which only fits a shape as tall as the pill. In InputGroup, Input's read-only ring outranked the group's reset of the inner field.
+- **What changed in that step:** the rule is checked as a rule. Any drawn shape near a drawn parent's rounded corner (within 0.6 of its radius) must have even insets, and, unless it is a pill, a radius equal to the outer radius minus the inset. The topbar key and tag fill the pill's height less an even 4px and are pills. Read-only now lives on the InputGroup well.
+- **Check that now catches it:** G-NC1 on the shell, the first 40 component pages and the state matrix. It was red on the topbar (Kbd 4/7px with a 4px corner, tag 4/10px) and on the read-only PasswordInput, and it is green now.
