@@ -186,6 +186,13 @@ npm install /path/to/pilot-glass/release/pane-react-${meta.version}.tgz`}</Code>
       </Section>
       <Section id="other-project" title="Using Pane in another project">
         <p>Nothing is published to a registry (that stays your decision). Three ways to bring Pane into another codebase, from simplest:</p>
+        <h3>For a plain HTML site, one link</h3>
+        <p>A site without React needs only the tokens, and this book serves them. Link the stylesheet and use the <code>--ds-*</code> variables; nothing to install. The pinned address keeps a site on one version until you change it.</p>
+        <Code label="index.html">{`<link rel="stylesheet" href="https://pane-design-system.pages.dev/pane-tokens-${meta.version}.css">
+
+<!-- then, in your own CSS -->
+.card { background: var(--ds-level-2); padding: var(--ds-gap-lg); border-radius: var(--ds-corner-media); color: var(--ds-text-primary); }`}</Code>
+        <p>The theme follows <code>data-theme="light"</code> or <code>"dark"</code> on the <code>html</code> element.</p>
         <h3>A · Tarballs</h3>
         <Code>{`# in this repo
 pnpm run release:pack            # → release/pane-tokens-${meta.version}.tgz, release/pane-react-${meta.version}.tgz
