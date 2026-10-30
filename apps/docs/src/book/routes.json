@@ -1002,6 +1002,46 @@
           ]
         },
         {
+          "path": "/components/confidence-chip",
+          "title": "ConfidenceChip",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/node-card",
+          "title": "NodeCard",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/network-graph",
+          "title": "NetworkGraph",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/sequence-diagram",
+          "title": "SequenceDiagram",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
           "path": "/components/form",
           "title": "Form",
           "tabs": [
@@ -1601,6 +1641,22 @@
         {
           "path": "/api/radar-chart",
           "title": "RadarChart"
+        },
+        {
+          "path": "/api/confidence-chip",
+          "title": "ConfidenceChip"
+        },
+        {
+          "path": "/api/node-card",
+          "title": "NodeCard"
+        },
+        {
+          "path": "/api/network-graph",
+          "title": "NetworkGraph"
+        },
+        {
+          "path": "/api/sequence-diagram",
+          "title": "SequenceDiagram"
         },
         {
           "path": "/api/form",

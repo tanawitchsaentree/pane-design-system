@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T09:39:49.328Z",
+  "generatedAt": "2026-10-30T12:20:40.681Z",
   "lint": "/Users/tanawitch.saentree/Downloads/human-tone-folder/.claude/skills/human-tone/scripts/lint.py",
   "excluded": [
     "/reference/decisions"
@@ -7,7 +7,7 @@
   "pages": {
     "/": {
       "ok": false,
-      "words": 1363,
+      "words": 1395,
       "hard": 6,
       "report": {
         "hard": [
@@ -42,7 +42,7 @@
             "text": "Where the reader is and how they move: bars, docks, paths, pages and steps."
           },
           {
-            "line": 35,
+            "line": 36,
             "rule": "label colon in prose",
             "code": "label_colon",
             "text": "Panes above the page: levels 3 and 4 of the stack, from a dialog to a tooltip."
@@ -71,25 +71,31 @@
             "line": 33,
             "rule": "possible rule-of-three",
             "code": "triad",
+            "text": "Steps, links and messages between things, each with words for every part."
+          },
+          {
+            "line": 34,
+            "rule": "possible rule-of-three",
+            "code": "triad",
             "text": "Whole steps built from the components before them, such as forms, tours, boards "
           },
           {
-            "line": 40,
+            "line": 41,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Values beyond plain text, such as secrets, searches, numbers, ranges, files, col"
           },
           {
-            "line": 45,
+            "line": 46,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Glass, colour, type, space, shape, motion and icons. Each with live values."
           },
           {
-            "line": 57,
+            "line": 58,
             "rule": "possible rule-of-three",
             "code": "triad",
-            "text": "Pane is a pilot with 114 components, verified in Chromium only. It can lay out a"
+            "text": "Pane is a pilot with 118 components, verified in Chromium only. It can lay out a"
           },
           {
             "line": 0,
@@ -107,7 +113,13 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "Panes above the page: levels 3 and 4 of the stack, from a dialog to a tooltip."
+            "text": "What the reader sees while content is on its way."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "117 chapters: Container · Grid · Stack · Box · Flex · Center · Spacer · Divider "
           },
           {
             "line": 0,
@@ -2039,8 +2051,8 @@
     },
     "/components/text/code": {
       "ok": false,
-      "words": 224,
-      "hard": 2,
+      "words": 226,
+      "hard": 1,
       "report": {
         "hard": [
           {
@@ -2048,12 +2060,6 @@
             "rule": "label colon in prose",
             "code": "label_colon",
             "text": "A step of the type scale: code 16 (long text), code 15 (default), code 14, code "
-          },
-          {
-            "line": 26,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "The element: p (default), span, div, small or strong."
           }
         ],
         "warn": [
@@ -2631,15 +2637,9 @@
     "/components/image/code": {
       "ok": false,
       "words": 188,
-      "hard": 2,
+      "hard": 1,
       "report": {
         "hard": [
-          {
-            "line": 19,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Required: what the image shows, or \"\" when it only decorates."
-          },
           {
             "line": 20,
             "rule": "label colon in prose",
@@ -2799,18 +2799,11 @@
       }
     },
     "/components/dialog/code": {
-      "ok": false,
+      "ok": true,
       "words": 228,
-      "hard": 1,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 27,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 7,
@@ -2822,10 +2815,10 @@
             "line": 27,
             "rule": "possible rule-of-three",
             "code": "triad",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
+            "text": "Draws it in place, open and not modal, inside its parent, for documentation, pre"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -2911,7 +2904,7 @@
     "/components/sheet/code": {
       "ok": false,
       "words": 222,
-      "hard": 2,
+      "hard": 1,
       "report": {
         "hard": [
           {
@@ -2919,12 +2912,6 @@
             "rule": "label colon in prose",
             "code": "label_colon",
             "text": "Brings a task in from an edge over a dimmed scene: a bottom sheet on a phone, a "
-          },
-          {
-            "line": 28,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
           }
         ],
         "warn": [
@@ -2938,7 +2925,7 @@
             "line": 28,
             "rule": "possible rule-of-three",
             "code": "triad",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
+            "text": "Draws it in place, open and not modal, inside its parent, for documentation, pre"
           },
           {
             "line": 0,
@@ -3040,7 +3027,7 @@
     "/components/drawer/code": {
       "ok": false,
       "words": 198,
-      "hard": 2,
+      "hard": 1,
       "report": {
         "hard": [
           {
@@ -3048,12 +3035,6 @@
             "rule": "label colon in prose",
             "code": "label_colon",
             "text": "code (default) or code: the side the panel slides in from."
-          },
-          {
-            "line": 28,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
           }
         ],
         "warn": [
@@ -3067,7 +3048,7 @@
             "line": 28,
             "rule": "possible rule-of-three",
             "code": "triad",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
+            "text": "Draws it in place, open and not modal, inside its parent, for documentation, pre"
           }
         ],
         "pass": false,
@@ -3134,18 +3115,11 @@
       }
     },
     "/components/action-sheet/code": {
-      "ok": false,
+      "ok": true,
       "words": 189,
-      "hard": 1,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 23,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 7,
@@ -3157,10 +3131,10 @@
             "line": 23,
             "rule": "possible rule-of-three",
             "code": "triad",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
+            "text": "Draws it in place, open and not modal, inside its parent, for documentation, pre"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -3268,18 +3242,11 @@
       }
     },
     "/components/popover/code": {
-      "ok": false,
+      "ok": true,
       "words": 199,
-      "hard": 1,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 28,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 7,
@@ -3291,10 +3258,10 @@
             "line": 28,
             "rule": "possible rule-of-three",
             "code": "triad",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
+            "text": "Draws it in place, open and not modal, inside its parent, for documentation, pre"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -3414,24 +3381,11 @@
       }
     },
     "/components/tooltip/code": {
-      "ok": false,
-      "words": 165,
-      "hard": 2,
+      "ok": true,
+      "words": 166,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 18,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "A few words: what the control does or what a mark means."
-          },
-          {
-            "line": 20,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 2,
@@ -3449,10 +3403,10 @@
             "line": 20,
             "rule": "possible rule-of-three",
             "code": "triad",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
+            "text": "Draws it in place, open and not modal, inside its parent, for documentation, pre"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -3536,27 +3490,15 @@
     },
     "/components/toast/code": {
       "ok": false,
-      "words": 214,
-      "hard": 3,
+      "words": 216,
+      "hard": 1,
       "report": {
         "hard": [
-          {
-            "line": 19,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "What happened, in a few words: Print ordered."
-          },
           {
             "line": 22,
             "rule": "label colon in prose",
             "code": "label_colon",
             "text": "code (default), code or code: the status mark beside the title."
-          },
-          {
-            "line": 25,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
           }
         ],
         "warn": [
@@ -3570,7 +3512,7 @@
             "line": 25,
             "rule": "possible rule-of-three",
             "code": "triad",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
+            "text": "Draws it in place, open and not modal, inside its parent, for documentation, pre"
           },
           {
             "line": 0,
@@ -3650,24 +3592,11 @@
       }
     },
     "/components/snackbar/code": {
-      "ok": false,
-      "words": 170,
-      "hard": 2,
+      "ok": true,
+      "words": 172,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 17,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "One short line: Message archived."
-          },
-          {
-            "line": 21,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 7,
@@ -3679,10 +3608,10 @@
             "line": 21,
             "rule": "possible rule-of-three",
             "code": "triad",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
+            "text": "Draws it in place, open and not modal, inside its parent, for documentation, pre"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -3821,7 +3750,7 @@
     },
     "/components/pull-to-refresh/style": {
       "ok": true,
-      "words": 164,
+      "words": 344,
       "hard": 0,
       "report": {
         "hard": [],
@@ -3844,18 +3773,11 @@
       }
     },
     "/components/pull-to-refresh/code": {
-      "ok": false,
-      "words": 144,
-      "hard": 1,
+      "ok": true,
+      "words": 146,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 16,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "What refreshing does, for the button and the spinner: Refresh messages."
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 7,
@@ -3864,7 +3786,7 @@
             "text": "#Variants, states and compositions"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -4018,18 +3940,11 @@
       }
     },
     "/components/card/code": {
-      "ok": false,
-      "words": 297,
-      "hard": 1,
+      "ok": true,
+      "words": 298,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 21,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Where the pane sits in the stack: 1 a pane on the scene (default), 2 a surface i"
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 7,
@@ -4038,7 +3953,7 @@
             "text": "#Variants, states and compositions"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -4722,18 +4637,11 @@
       }
     },
     "/components/mesh/code": {
-      "ok": false,
-      "words": 250,
-      "hard": 1,
+      "ok": true,
+      "words": 251,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 21,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Lights what is under the mesh in its own colours: an ambient shadow, for a mesh "
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 7,
@@ -4748,7 +4656,7 @@
             "text": "Your own four pools, top left, top right, low and bottom left, as any CSS colour"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -5809,18 +5717,11 @@
       }
     },
     "/components/rating/code": {
-      "ok": false,
-      "words": 202,
-      "hard": 1,
+      "ok": true,
+      "words": 206,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 19,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "What is being rated, the group's accessible name: Rate this print."
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 7,
@@ -5829,7 +5730,7 @@
             "text": "#Variants, states and compositions"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -6003,18 +5904,11 @@
       }
     },
     "/components/segmented-control/code": {
-      "ok": false,
-      "words": 211,
-      "hard": 1,
+      "ok": true,
+      "words": 216,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 19,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "The setting it switches, its accessible name: View, Units."
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 7,
@@ -6023,7 +5917,7 @@
             "text": "#Variants, states and compositions"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -6094,18 +5988,11 @@
       }
     },
     "/components/navbar/code": {
-      "ok": false,
-      "words": 172,
-      "hard": 1,
+      "ok": true,
+      "words": 175,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 18,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Actions at the end: search, an avatar, a Sign in button."
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 7,
@@ -6114,7 +6001,7 @@
             "text": "#Variants, states and compositions"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -6185,18 +6072,11 @@
       }
     },
     "/components/navigation-menu/code": {
-      "ok": false,
-      "words": 129,
-      "hard": 1,
+      "ok": true,
+      "words": 130,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 15,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Top-level entries: a plain link (href) or a group that opens a panel of links."
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 7,
@@ -6205,7 +6085,7 @@
             "text": "#Variants, states and compositions"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -7037,24 +6917,11 @@
       }
     },
     "/components/meter/code": {
-      "ok": false,
-      "words": 205,
-      "hard": 2,
+      "ok": true,
+      "words": 207,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 21,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "From this amount up the reading is high: a warning mark and the word Almost full"
-          },
-          {
-            "line": 22,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "From this amount up the reading is critical: the critical mark and the word Full"
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 7,
@@ -7075,7 +6942,7 @@
             "text": ""
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -7397,18 +7264,11 @@
       }
     },
     "/components/description-list/code": {
-      "ok": false,
+      "ok": true,
       "words": 161,
-      "hard": 1,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 17,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "The pairs, in reading order: each term with the detail that belongs to it."
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 7,
@@ -7417,7 +7277,7 @@
             "text": "#Variants, states and compositions"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -9698,6 +9558,384 @@
         "profile": []
       }
     },
+    "/components/confidence-chip/usage": {
+      "ok": true,
+      "words": 390,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 6,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Red, amber and green would say pass and fail, and a reader who cannot tell red f"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#When to use it\nUse ConfidenceChip for\nBeside a finding, a match or an inference"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/confidence-chip/style": {
+      "ok": true,
+      "words": 286,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/confidence-chip/code": {
+      "ok": true,
+      "words": 192,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/confidence-chip/accessibility": {
+      "ok": true,
+      "words": 257,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 5,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "See the Accessibility tab for keys, roles and what it announces."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#What you still have to do\nSay what the level is about with label, and pick word"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/node-card/usage": {
+      "ok": true,
+      "words": 387,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/node-card/style": {
+      "ok": true,
+      "words": 339,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/node-card/code": {
+      "ok": true,
+      "words": 311,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#Props\nGenerated from the TypeScript source by react-docgen-typescript\nThe node'"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "It also passes through every prop of code."
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'called'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/node-card/accessibility": {
+      "ok": true,
+      "words": 285,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 5,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "See the Accessibility tab for keys, roles and what it announces."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#What you still have to do\nGive every node a title that says what the step does,"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/network-graph/usage": {
+      "ok": true,
+      "words": 366,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Nodes are dots in their group colour from the content palette; links are hairlin"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/network-graph/style": {
+      "ok": true,
+      "words": 159,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/network-graph/code": {
+      "ok": true,
+      "words": 245,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 6,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Accounts linked by a shared device, card and address."
+          },
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "code (no labels, small) for a preview in a card or a row; code (default) labels "
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/network-graph/accessibility": {
+      "ok": true,
+      "words": 293,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 5,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "See the Accessibility tab for keys, roles and what it announces."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#What you still have to do\nTitle the graph with what is linked, name every node,"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/sequence-diagram/usage": {
+      "ok": false,
+      "words": 347,
+      "hard": 1,
+      "report": {
+        "hard": [
+          {
+            "line": 5,
+            "rule": "doubled 'from X to Y' parallelism in one sentence",
+            "code": "symmetry",
+            "text": "A SequenceDiagram shows messages between actors in time, such as an app calling "
+          }
+        ],
+        "warn": [
+          {
+            "line": 18,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Steps. Messages, replies and notes in order."
+          },
+          {
+            "line": 30,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "UML · Sequence diagrams. Lanes, messages and replies."
+          }
+        ],
+        "pass": false,
+        "profile": []
+      }
+    },
+    "/components/sequence-diagram/style": {
+      "ok": true,
+      "words": 153,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/sequence-diagram/code": {
+      "ok": true,
+      "words": 144,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/sequence-diagram/accessibility": {
+      "ok": true,
+      "words": 259,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 5,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "See the Accessibility tab for keys, roles and what it announces."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#What you still have to do\nName the sequence, give every step what passes, and m"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
     "/components/form/usage": {
       "ok": true,
       "words": 296,
@@ -11912,8 +12150,8 @@
     },
     "/api/text": {
       "ok": false,
-      "words": 160,
-      "hard": 2,
+      "words": 162,
+      "hard": 1,
       "report": {
         "hard": [
           {
@@ -11921,12 +12159,6 @@
             "rule": "label colon in prose",
             "code": "label_colon",
             "text": "A step of the type scale: code 16 (long text), code 15 (default), code 14, code "
-          },
-          {
-            "line": 10,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "The element: p (default), span, div, small or strong."
           }
         ],
         "warn": [],
@@ -12017,15 +12249,9 @@
     "/api/image": {
       "ok": false,
       "words": 150,
-      "hard": 2,
+      "hard": 1,
       "report": {
         "hard": [
-          {
-            "line": 7,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Required: what the image shows, or \"\" when it only decorates."
-          },
           {
             "line": 8,
             "rule": "label colon in prose",
@@ -12039,59 +12265,45 @@
       }
     },
     "/api/dialog": {
-      "ok": false,
+      "ok": true,
       "words": 199,
-      "hard": 1,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 17,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 17,
             "rule": "possible rule-of-three",
             "code": "triad",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
+            "text": "Draws it in place, open and not modal, inside its parent, for documentation, pre"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
     "/api/sheet": {
-      "ok": false,
+      "ok": true,
       "words": 184,
-      "hard": 1,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 18,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 18,
             "rule": "possible rule-of-three",
             "code": "triad",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
+            "text": "Draws it in place, open and not modal, inside its parent, for documentation, pre"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
     "/api/drawer": {
       "ok": false,
       "words": 180,
-      "hard": 2,
+      "hard": 1,
       "report": {
         "hard": [
           {
@@ -12099,12 +12311,6 @@
             "rule": "label colon in prose",
             "code": "label_colon",
             "text": "code (default) or code: the side the panel slides in from."
-          },
-          {
-            "line": 18,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
           }
         ],
         "warn": [
@@ -12112,7 +12318,7 @@
             "line": 18,
             "rule": "possible rule-of-three",
             "code": "triad",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
+            "text": "Draws it in place, open and not modal, inside its parent, for documentation, pre"
           }
         ],
         "pass": false,
@@ -12120,109 +12326,70 @@
       }
     },
     "/api/action-sheet": {
-      "ok": false,
+      "ok": true,
       "words": 175,
-      "hard": 1,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 15,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 15,
             "rule": "possible rule-of-three",
             "code": "triad",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
+            "text": "Draws it in place, open and not modal, inside its parent, for documentation, pre"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
     "/api/popover": {
-      "ok": false,
+      "ok": true,
       "words": 172,
-      "hard": 1,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 16,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 16,
             "rule": "possible rule-of-three",
             "code": "triad",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
+            "text": "Draws it in place, open and not modal, inside its parent, for documentation, pre"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
     "/api/tooltip": {
-      "ok": false,
-      "words": 150,
-      "hard": 2,
+      "ok": true,
+      "words": 151,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 8,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "A few words: what the control does or what a mark means."
-          },
-          {
-            "line": 10,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 10,
             "rule": "possible rule-of-three",
             "code": "triad",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
+            "text": "Draws it in place, open and not modal, inside its parent, for documentation, pre"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
     "/api/toast": {
       "ok": false,
-      "words": 204,
-      "hard": 3,
+      "words": 206,
+      "hard": 1,
       "report": {
         "hard": [
-          {
-            "line": 9,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "What happened, in a few words: Print ordered."
-          },
           {
             "line": 12,
             "rule": "label colon in prose",
             "code": "label_colon",
             "text": "code (default), code or code: the status mark beside the title."
-          },
-          {
-            "line": 15,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
           }
         ],
         "warn": [
@@ -12230,7 +12397,7 @@
             "line": 15,
             "rule": "possible rule-of-three",
             "code": "triad",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
+            "text": "Draws it in place, open and not modal, inside its parent, for documentation, pre"
           }
         ],
         "pass": false,
@@ -12238,33 +12405,20 @@
       }
     },
     "/api/snackbar": {
-      "ok": false,
-      "words": 161,
-      "hard": 2,
+      "ok": true,
+      "words": 163,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 9,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "One short line: Message archived."
-          },
-          {
-            "line": 13,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 13,
             "rule": "possible rule-of-three",
             "code": "triad",
-            "text": "Draws it in place, open and not modal, inside its parent: for documentation, pre"
+            "text": "Draws it in place, open and not modal, inside its parent, for documentation, pre"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -12280,20 +12434,13 @@
       }
     },
     "/api/pull-to-refresh": {
-      "ok": false,
-      "words": 130,
-      "hard": 1,
+      "ok": true,
+      "words": 132,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 8,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "What refreshing does, for the button and the spinner: Refresh messages."
-          }
-        ],
+        "hard": [],
         "warn": [],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -12316,20 +12463,13 @@
       }
     },
     "/api/card": {
-      "ok": false,
-      "words": 209,
-      "hard": 1,
+      "ok": true,
+      "words": 210,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 9,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Where the pane sits in the stack: 1 a pane on the scene (default), 2 a surface i"
-          }
-        ],
+        "hard": [],
         "warn": [],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -12427,18 +12567,11 @@
       }
     },
     "/api/mesh": {
-      "ok": false,
-      "words": 199,
-      "hard": 1,
+      "ok": true,
+      "words": 200,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 11,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Lights what is under the mesh in its own colours: an ambient shadow, for a mesh "
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 8,
@@ -12447,7 +12580,7 @@
             "text": "Your own four pools, top left, top right, low and bottom left, as any CSS colour"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -12610,20 +12743,13 @@
       }
     },
     "/api/rating": {
-      "ok": false,
-      "words": 190,
-      "hard": 1,
+      "ok": true,
+      "words": 194,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 7,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "What is being rated, the group's accessible name: Rate this print."
-          }
-        ],
+        "hard": [],
         "warn": [],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -12639,56 +12765,35 @@
       }
     },
     "/api/segmented-control": {
-      "ok": false,
-      "words": 186,
-      "hard": 1,
+      "ok": true,
+      "words": 191,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 7,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "The setting it switches, its accessible name: View, Units."
-          }
-        ],
+        "hard": [],
         "warn": [],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
     "/api/navbar": {
-      "ok": false,
-      "words": 160,
-      "hard": 1,
+      "ok": true,
+      "words": 163,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 10,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Actions at the end: search, an avatar, a Sign in button."
-          }
-        ],
+        "hard": [],
         "warn": [],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
     "/api/navigation-menu": {
-      "ok": false,
-      "words": 139,
-      "hard": 1,
+      "ok": true,
+      "words": 140,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 7,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "Top-level entries: a plain link (href) or a group that opens a panel of links."
-          }
-        ],
+        "hard": [],
         "warn": [],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -12800,24 +12905,11 @@
       }
     },
     "/api/meter": {
-      "ok": false,
-      "words": 220,
-      "hard": 2,
+      "ok": true,
+      "words": 222,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 11,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "From this amount up the reading is high: a warning mark and the word Almost full"
-          },
-          {
-            "line": 12,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "From this amount up the reading is critical: the critical mark and the word Full"
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 0,
@@ -12844,7 +12936,7 @@
             "text": ""
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -12908,18 +13000,11 @@
       }
     },
     "/api/description-list": {
-      "ok": false,
+      "ok": true,
       "words": 157,
-      "hard": 1,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 7,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "The pairs, in reading order: each term with the detail that belongs to it."
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 0,
@@ -12934,7 +13019,7 @@
             "text": "#Keyboard\nKeys DescriptionList answers to\nTakes no focus"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -13409,6 +13494,89 @@
         "profile": []
       }
     },
+    "/api/confidence-chip": {
+      "ok": true,
+      "words": 191,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "#Theme tokens\nSet any of these on a parent element to change ConfidenceChip belo"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/api/node-card": {
+      "ok": true,
+      "words": 287,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "12 component tokens for NodeCard\n#Keyboard\nKeys NodeCard answers to\nMoves focus "
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Shows only the header; code adds the button that opens it again."
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'called'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/api/network-graph": {
+      "ok": true,
+      "words": 222,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "code (no labels, small) for a preview in a card or a row; code (default) labels "
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "The plot's height in pixels; 320 by default, 120 for mini."
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/api/sequence-diagram": {
+      "ok": true,
+      "words": 134,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
     "/api/form": {
       "ok": true,
       "words": 192,
@@ -13818,7 +13986,7 @@
     },
     "/patterns/states": {
       "ok": true,
-      "words": 356,
+      "words": 358,
       "hard": 0,
       "report": {
         "hard": [],
@@ -14135,12 +14303,12 @@
     },
     "/reference/changelog": {
       "ok": false,
-      "words": 2731,
+      "words": 2816,
       "hard": 1,
       "report": {
         "hard": [
           {
-            "line": 128,
+            "line": 132,
             "rule": "label colon in prose",
             "code": "label_colon",
             "text": "new code variant, a white bead. Slider: the thumb is a capsule and the track is "
@@ -14148,97 +14316,97 @@
         ],
         "warn": [
           {
-            "line": 4,
+            "line": 8,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code and code variants, size code, code and code, and code."
           },
           {
-            "line": 6,
+            "line": 10,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "month names, weekdays and its button names follow PaneProvider's catalog and loc"
           },
           {
-            "line": 8,
+            "line": 12,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Previous, Next and Page n come from the catalog."
           },
           {
-            "line": 25,
+            "line": 29,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code and code."
           },
           {
-            "line": 26,
+            "line": 30,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code and code."
           },
           {
-            "line": 27,
+            "line": 31,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code and code; read-only chips have no remove button."
           },
           {
-            "line": 28,
+            "line": 32,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code and code."
           },
           {
-            "line": 65,
+            "line": 69,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. Done, current and upcoming steps of one task, horizontal or vertical."
           },
           {
-            "line": 73,
+            "line": 77,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. Events on a hairline rail; done, current and upcoming dots differ by shape."
           },
           {
-            "line": 99,
+            "line": 103,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. Stepper, one panel at a time under a heading that takes focus, Back and the"
           },
           {
-            "line": 114,
+            "line": 118,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. A few words on hover, focus and tap."
           },
           {
-            "line": 121,
+            "line": 125,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new (D-029). A mesh gradient for covers, icons, illustrations and scenes, never "
           },
           {
-            "line": 139,
+            "line": 143,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "removed code, code, code, code, code, code, code, code, code; added the etch, po"
           },
           {
-            "line": 143,
+            "line": 147,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code, code, code, code, code, code, code, code, code, code, code, an"
           },
           {
-            "line": 169,
+            "line": 173,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "First release with glass, inset and solid variants and a cover slot. Glass dims "
           },
           {
-            "line": 172,
+            "line": 176,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "First release with light, accent and glass variants and the soft hover lift."
@@ -14283,7 +14451,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "code is removed; the row radius is computed from code and code."
+            "text": "First release, part of the W3 form family drawn as a well in the pane (D-020)."
           },
           {
             "line": 0,
@@ -14298,7 +14466,7 @@
     },
     "/reference/status": {
       "ok": true,
-      "words": 1483,
+      "words": 1535,
       "hard": 0,
       "report": {
         "hard": [],

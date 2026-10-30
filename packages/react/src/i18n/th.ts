@@ -55,5 +55,15 @@ const th: PaneMessages = {
   row: (n) => `แถว ${n}`,
   recent: 'ล่าสุด',
   name: 'ชื่อ', email: 'อีเมล', password: 'รหัสผ่าน', forgotPassword: 'ลืมรหัสผ่าน?',
+  node: 'โหนด',
+  expand: (t) => `เปิด ${t}`,
+  collapse: (t) => `ปิด ${t}`,
+  from: 'จาก',
+  to: 'ถึง',
+  graphSummary: (label, n, e) => `${label}. ${n} โหนด ${e} เส้นเชื่อม ใช้ปุ่มลูกศรเพื่อไปทีละโหนด หรือดูเป็นตาราง`,
+  graphNode: (label, n) => `${label}, เชื่อมกับ ${n}`,
+  seqStep: (a, b, what, reply) => reply ? `${a} ตอบ ${b}: ${what}` : `${a} ถึง ${b}: ${what}`,
+  seqNote: (a, what) => `หมายเหตุที่ ${a}: ${what}`,
+  confidence: ['ต่ำมาก', 'ต่ำ', 'ปานกลาง', 'สูง', 'สูงมาก'],
 };
 export default th;

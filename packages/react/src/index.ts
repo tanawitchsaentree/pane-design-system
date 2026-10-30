@@ -160,6 +160,10 @@ export * from './components/RichTextEditor';
 
 export * from './components/Scale';
 export * from './components/RadarChart';
+export * from './components/ConfidenceChip';
+export * from './components/NodeCard';
+export * from './components/NetworkGraph';
+export * from './components/SequenceDiagram';
 
 // Language (0.7.0): one catalog for every word a component shows or speaks, English by default, Thai included.
 

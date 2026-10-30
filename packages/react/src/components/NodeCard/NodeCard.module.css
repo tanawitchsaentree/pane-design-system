@@ -1,0 +1,23 @@
+/* A small level-2 pane on a canvas, with dots on its edges where lines attach; chosen is chosen glass and a
+   ring, and a moved node lifts like a card picked up (P3 depth, P4 lift, P6 shape). */
+.root { position: relative; display: flex; flex-direction: column; min-inline-size: var(--ds-node-card-min); max-inline-size: var(--ds-node-card-max); border-radius: var(--ds-corner-media); background: var(--ds-node-card-bg); box-shadow: var(--ds-node-card-edge); color: var(--ds-text-primary); font-family: var(--ds-type-family); cursor: pointer; transition: transform var(--ds-motion-hover) var(--ds-motion-easing), box-shadow var(--ds-motion-hover) var(--ds-motion-easing); }
+.root:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.root[data-selected] { background: linear-gradient(180deg, var(--ds-node-card-chosen-top), var(--ds-node-card-chosen-foot)); box-shadow: var(--ds-node-card-edge), 0 0 0 var(--ds-width-ring) var(--ds-node-card-ring); }
+.root[data-dragging] { transform: translateY(calc(var(--ds-motion-lift) * -1)); background: var(--ds-node-card-lift-bg); box-shadow: var(--ds-node-card-lift); cursor: grabbing; }
+.head { display: flex; align-items: center; gap: var(--ds-gap-md); min-block-size: var(--ds-layout-touch); padding: var(--ds-gap-sm) var(--ds-gap-lg); }
+.icon { display: inline-grid; place-items: center; flex: none; color: var(--ds-text-secondary); }
+.icon svg { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); }
+.titles { display: flex; flex-direction: column; gap: var(--ds-gap-xs); flex: 1; min-inline-size: 0; }
+.title { font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); overflow-wrap: anywhere; }
+.meta { font-size: var(--ds-type-caption); color: var(--ds-text-secondary); }
+.toggle { position: relative; display: inline-grid; place-items: center; flex: none; inline-size: var(--ds-control-sm); block-size: var(--ds-control-sm); border: 0; border-radius: var(--ds-corner-round); background: transparent; color: var(--ds-text-secondary); cursor: pointer; }
+.toggle::after { content: ''; position: absolute; inset-inline-start: 50%; inset-block-start: 50%; inline-size: var(--ds-layout-touch); block-size: var(--ds-layout-touch); transform: translate(-50%, -50%); }
+.toggle:hover { background: var(--ds-surface-quiet); color: var(--ds-text-primary); }
+.toggle:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-width-ring); }
+.toggle svg { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; transition: transform var(--ds-motion-hover) var(--ds-motion-easing); }
+.toggle[aria-expanded='false'] svg { transform: rotate(-90deg); }
+.body { padding: 0 var(--ds-gap-lg) var(--ds-gap-lg); font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.port { position: absolute; inset-block-start: var(--pane-port); inline-size: var(--ds-node-card-port); block-size: var(--ds-node-card-port); border-radius: var(--ds-corner-round); background: var(--ds-node-card-port-bg); box-shadow: 0 0 0 var(--ds-width-ring) var(--ds-node-card-port-ring); transform: translateY(-50%); }
+.in { inset-inline-start: calc(var(--ds-node-card-port) / -2); }
+.out { inset-inline-end: calc(var(--ds-node-card-port) / -2); }
+@media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid CanvasText; } .root[data-selected] { outline: var(--ds-width-ring) solid Highlight; } .port { background: CanvasText; } }

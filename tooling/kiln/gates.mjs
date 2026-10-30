@@ -1079,7 +1079,7 @@ try {
       disabled: ':disabled, [aria-disabled="true"], [data-disabled]', invalid: '[aria-invalid="true"], [data-invalid]',
       readonly: '[readonly], [aria-readonly="true"], [data-readonly]', required: '[required], [aria-required="true"]',
       checked: '[data-state="checked"], [data-state="on"], [aria-checked="true"], [aria-selected="true"], [aria-pressed="true"]',
-      indeterminate: '[data-state="indeterminate"], [aria-checked="mixed"]', selected: '[data-state="checked"], [data-state="on"], [aria-selected="true"], [aria-pressed="true"], [data-state="active"]',
+      indeterminate: '[data-state="indeterminate"], [aria-checked="mixed"]', selected: '[data-state="checked"], [data-state="on"], [aria-selected="true"], [aria-pressed="true"], [aria-current="true"], [data-state="active"]',
       loading: '[aria-busy="true"]', sorted: '[aria-sort="ascending"], [aria-sort="descending"]',
     };
     const bad = []; let n = 0;

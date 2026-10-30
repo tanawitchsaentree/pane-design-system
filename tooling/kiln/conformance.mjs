@@ -75,6 +75,7 @@ const SYSTEM_CHECKS = path.join(ROOT, 'system', 'conformance');
 const systemFiles = existsSync(SYSTEM_CHECKS) ? readdirSync(SYSTEM_CHECKS).filter((f) => f.endsWith('.mjs')).sort() : [];
 // a quick run for the pages being worked on (KILN_CHECKS=20,21 picks those check files; KILN_ROUTES limits
 // the demo floor and coverage loops to those components); a full run, without them, is still the one that counts
+const COVERED = new Set();
 const ONLY_FILES = (process.env.KILN_CHECKS ?? '').split(',').map((x) => x.trim()).filter(Boolean);
 const ONLY_ROUTES = new Set((process.env.KILN_ROUTES ?? '').split(',').map((x) => x.trim()).filter(Boolean));
 const inScope = (slug) => !ONLY_ROUTES.size || ONLY_ROUTES.has(`/components/${slug}`);
@@ -99,7 +100,7 @@ try {
   }
 
   // --- the system's own component checks ---------------------------------------------------------
-  const covered = new Set();
+  const covered = COVERED;
   const t = { check: async (component, name, fn) => { covered.add(component); return check(component, name, fn); }, expect, eventually, tabTo, page, go, main, browser, base: srv.base, url: (r, o) => url(srv.base, r, o, C), tokens: TOKENS, config: SYS, chapters: CHAPTERS };
   for (const f of runFiles) {
     const mod = await import(pathToFileURL(path.join(SYSTEM_CHECKS, f)).href);
@@ -114,11 +115,19 @@ try {
   srv.close();
 }
 
+// A run of a few files (KILN_CHECKS) refreshes only the components those files cover and keeps the
+// rest of the last full run, so a quick check never wipes the book's evidence for every other component.
+const OUT = path.join(C.abs(C.app), 'public/conformance.json');
+if (ONLY_FILES.length && existsSync(OUT)) {
+  const fresh = checks.filter((c) => COVERED.has(c.component));
+  const kept = JSON.parse(readFileSync(OUT, 'utf8')).checks.filter((c) => !COVERED.has(c.component));
+  checks.splice(0, checks.length, ...kept, ...fresh);
+}
 const passed = checks.filter((c) => c.ok).length;
 for (const c of checks) console.log(`${c.ok ? '✓' : '✗'} ${c.component}: ${c.name}${c.detail ? ` — ${c.detail}` : ''}`);
 mkdirSync(path.join(C.abs(C.app), 'public'), { recursive: true });
 writeFileSync(
-  path.join(C.abs(C.app), 'public/conformance.json'),
+  OUT,
   JSON.stringify({ generatedAt: new Date().toISOString(), passed, total: checks.length, checks }, null, 2) + '\n',
 );
 console.log(`\n${passed === checks.length ? '✓' : '✗'} conformance: ${passed}/${checks.length}`);

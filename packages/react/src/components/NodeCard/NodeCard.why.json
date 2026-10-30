@@ -1,0 +1,153 @@
+{
+  "concept": "A step on a canvas: a small level-2 pane with a title, ports where links attach, and chosen glass with a ring when picked.",
+  "default_to_avoid": [
+    {
+      "pattern": "a node card as a flat white box with a coloured header bar",
+      "kind": "node card, flow node, graph node, pipeline step, canvas card",
+      "why_not": "a coloured header bar shouts and hides which node is picked; Pane lifts the picked pane with chosen glass and a ring"
+    }
+  ],
+  "references": [
+    {
+      "title": "React Flow · Custom nodes",
+      "url": "https://reactflow.dev/learn/customization/custom-nodes"
+    },
+    {
+      "title": "WAI-ARIA · Grid and focus management",
+      "url": "https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "a node is a level-2 pane on the canvas and lifts while it is dragged"
+    },
+    {
+      "p": "P3",
+      "axis": "colour",
+      "consequence": "the rim and sheen are white at low opacity, like light catching an edge",
+      "form": "the picked node takes the chosen glass of the system, never a hue of its own"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "Enter or Space picks it and the arrow keys move it, ten steps with Shift"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/x11/",
+    "section": "nodecard",
+    "options": [
+      "A level-2 pane with ports",
+      "B coloured header bar",
+      "C bare text box"
+    ],
+    "picked": "A level-2 pane with ports",
+    "by": "agent",
+    "reason": "A uses the system material and its chosen state (P3). B adds a hue the concept does not ask for. C loses where links attach."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a level-2 pane held between a min and a max width on the canvas"
+    },
+    "head": {
+      "p": "P3",
+      "axis": "space",
+      "why": "icon, titles and the toggle share one row"
+    },
+    "icon": {
+      "p": "P2",
+      "axis": "colour",
+      "why": "the icon is in the secondary tone at icon size"
+    },
+    "titles": {
+      "p": "P3",
+      "axis": "space",
+      "why": "title and meta stack with a small gap"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the title is label size, medium weight, primary tone"
+    },
+    "meta": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the meta line is caption size in the secondary tone"
+    },
+    "toggle": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the collapse toggle is a small button with a 44px press area"
+    },
+    "body": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the body sits under a hairline at the field rhythm"
+    },
+    "port": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a port is a small knob on the edge where a link attaches"
+    },
+    "in": {
+      "p": "P6",
+      "axis": "space",
+      "why": "the in port sits on the start edge"
+    },
+    "out": {
+      "p": "P6",
+      "axis": "space",
+      "why": "the out port sits on the end edge"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring shows when the node is reached by keyboard"
+    },
+    "data-selected": {
+      "p": "P3",
+      "axis": "colour",
+      "why": "the picked node takes the chosen glass and the ring"
+    },
+    "data-dragging": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "while dragged the node lifts one level so it reads above the others it passes"
+    },
+    "hover": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the toggle washes on hover so the pointer shows it can be pressed"
+    },
+    "aria-expanded=false": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a closed node turns its chevron to say the body is hidden"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the edge and the picked ring are drawn by the system"
+    }
+  },
+  "motion": {
+    "box-shadow": {
+      "p": "P3",
+      "axis": "motion",
+      "why": "the lift eases in at the hover duration so a picked node rises instead of jumping"
+    },
+    "transform": {
+      "p": "P3",
+      "axis": "motion",
+      "why": "the chevron turns at the hover duration so the reader sees the body open or close"
+    }
+  }
+}

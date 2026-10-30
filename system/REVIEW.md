@@ -110,3 +110,7 @@ Lab: `apps/lab/round5/index.html` (the user's OpenGlass-style reference beside P
 | RichTextEditor (wave 10) | **A few tools over the groove** | A keeps the system type (P2) and the field family (P3). B lets text leave the system. C asks readers to learn syntax. |
 | Scale (indicators) | **A stepped channel, bead and ring** | A shows the steps and both positions by shape (P6) on the slider material (P3). B rests on hue. C cannot show a value between steps or a comparison. |
 | RadarChart (indicators) | **A thin outlines with a wash** | A keeps overlapping shapes readable (dataviz). B hides one behind another. C loses the profile at a glance. |
+| ConfidenceChip (diagrams) | **A dots in one hue with a word** | A reads by count and word (P6). B reads as pass or fail. C gives false precision to a judgement. |
+| NodeCard (diagrams) | **A level-2 pane with ports** | A uses the system material and its chosen state (P3). B adds a hue the concept does not ask for. C loses where links attach. |
+| NetworkGraph (diagrams) | **A hairlines with a lit neighbourhood** | A shows structure on a quiet grid (dataviz). B is noise. C loses the shape of the network. |
+| SequenceDiagram (diagrams) | **A lanes with a spoken list** | A keeps the picture and the words (P6). B shuts out screen readers. C loses who talks to whom at a glance. |

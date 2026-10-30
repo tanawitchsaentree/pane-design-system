@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-30T09:49:56.038Z",
-  "passed": 51,
+  "generatedAt": "2026-10-30T12:35:18.496Z",
+  "passed": 52,
   "total": 52,
   "partial": false,
   "advisory": {},
@@ -9,14 +9,14 @@
       "id": "G-P0",
       "name": "every page renders: a <main>, a heading and no uncaught error",
       "ok": true,
-      "detail": "6 pages",
+      "detail": "21 pages",
       "order": 0
     },
     {
       "id": "G-D3",
       "name": "no literal backtick in rendered text",
       "ok": true,
-      "detail": "6 pages",
+      "detail": "21 pages",
       "order": 1
     },
     {
@@ -65,11 +65,7 @@
     {
       "id": "G-PF2",
       "name": "page weight: no image over 300 kB, no page over 1.5 MB transferred (gzip counted)",
-      "ok": false,
-      "detail": "1 over budget: /components/card/code: 1602 kB total",
-      "problems": [
-        "/components/card/code: 1602 kB total"
-      ],
+      "ok": true,
       "order": 9
     },
     {
@@ -82,7 +78,7 @@
       "id": "G-C1",
       "name": "every code block has a Copy button you can see",
       "ok": true,
-      "detail": "15 code blocks",
+      "detail": "51 code blocks",
       "order": 11
     },
     {
@@ -145,7 +141,7 @@
       "id": "G-K6",
       "name": "usage depth ≥ 0.5 × the Carbon page for the same component (words and sections)",
       "ok": true,
-      "detail": "Card 1235/2181w 35/44s",
+      "detail": "ConfidenceChip 624w/29s (no benchmark) · NodeCard 624w/30s (no benchmark) · NetworkGraph 524w/28s (no benchmark) · SequenceDiagram 531w/29s (no benchmark)",
       "order": 21
     },
     {
@@ -225,28 +221,28 @@
       "id": "G-TODO1",
       "name": "no starter placeholder is left on any page: no TODO( and no seed reason",
       "ok": true,
-      "detail": "6 pages clean",
+      "detail": "21 pages clean",
       "order": 33
     },
     {
       "id": "G-PUB1",
       "name": "an install command names only what can be installed: no bare registry install of an unpublished package",
       "ok": true,
-      "detail": "6 pages, 2 unpublished packages never shown as a registry install",
+      "detail": "21 pages, 2 unpublished packages never shown as a registry install",
       "order": 34
     },
     {
       "id": "G-PWA1",
       "name": "the book installs as an app and reads offline: a valid manifest with 192 and 512 icons, a service worker that takes control, and a page that loads with the network off",
       "ok": true,
-      "detail": "manifest, icons and worker in place; /components/card/usage renders offline",
+      "detail": "manifest, icons and worker in place; /components/confidence-chip/usage renders offline",
       "order": 35
     },
     {
       "id": "G-CL1",
       "name": "every colour value written in the book is a current token value (no stale hex in prose)",
       "ok": true,
-      "detail": "21 values checked",
+      "detail": "28 values checked",
       "order": 36
     },
     {
@@ -269,7 +265,7 @@
       "id": "G-SV1",
       "name": "every promised state is there and visible: each cell of the state matrix differs from its row default and carries its ARIA, in every theme",
       "ok": true,
-      "detail": "NO state matrix route in this run",
+      "detail": "254 state cells differ from their default and carry their ARIA",
       "order": 39
     },
     {
@@ -292,7 +288,7 @@
       "id": "G-S6",
       "name": "nothing in the page column spills out of it: no element crosses into the rail or the margin beside main (folds open)",
       "ok": true,
-      "detail": "6 pages",
+      "detail": "21 pages",
       "order": 42
     },
     {
@@ -306,7 +302,7 @@
       "id": "G-IN1",
       "name": "text inside a control keeps its inset from the control's edge: at least 8px, and half the corner radius on a rounded end",
       "ok": true,
-      "detail": "1 lines of text in controls",
+      "detail": "35 lines of text in controls",
       "order": 44
     },
     {
@@ -320,28 +316,28 @@
       "id": "G-RH1",
       "name": "separate steps stand apart: a demo stage and a tab bar sit at least 24px from the blocks around them; a stage's own code, caption or heading may sit 8px off and its intro 16px",
       "ok": true,
-      "detail": "71 gaps",
+      "detail": "240 gaps",
       "order": 46
     },
     {
       "id": "G-NAV1",
       "name": "every page in routes.json is reachable from the book nav at 375 and 1280px",
       "ok": true,
-      "detail": "273 pages",
+      "detail": "281 pages",
       "order": 47
     },
     {
       "id": "G-SM1",
       "name": "following an in-page link (table of contents, heading anchor) lands with its heading clear of the sticky header",
       "ok": true,
-      "detail": "6 links followed",
+      "detail": "18 links followed",
       "order": 48
     },
     {
       "id": "G-TT1",
       "name": "every control in a live example and in the shell gives a pointer at least 44px each way",
       "ok": true,
-      "detail": "223 controls",
+      "detail": "830 controls",
       "order": 49
     },
     {

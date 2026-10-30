@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-30T10:57:17.558Z",
-  "passed": 423,
-  "total": 423,
+  "generatedAt": "2026-10-30T12:40:07.448Z",
+  "passed": 441,
+  "total": 441,
   "checks": [
     {
       "component": "Container",
@@ -2357,6 +2357,104 @@
     {
       "component": "PaneProvider",
       "name": "without a provider the components speak English, as before",
+      "ok": true
+    },
+    {
+      "component": "ConfidenceChip",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props"
+    },
+    {
+      "component": "NodeCard",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "11 props"
+    },
+    {
+      "component": "NetworkGraph",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "8 props"
+    },
+    {
+      "component": "SequenceDiagram",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "ConfidenceChip",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "NodeCard",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "6 demos"
+    },
+    {
+      "component": "NetworkGraph",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "SequenceDiagram",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "ConfidenceChip",
+      "name": "it is an image that says its level",
+      "ok": true
+    },
+    {
+      "component": "ConfidenceChip",
+      "name": "it says the level in words",
+      "ok": true
+    },
+    {
+      "component": "NodeCard",
+      "name": "each node is a tab stop",
+      "ok": true
+    },
+    {
+      "component": "NodeCard",
+      "name": "Enter picks the node",
+      "ok": true
+    },
+    {
+      "component": "NodeCard",
+      "name": "arrow keys move the node",
+      "ok": true
+    },
+    {
+      "component": "NetworkGraph",
+      "name": "the plot is one tab stop",
+      "ok": true
+    },
+    {
+      "component": "NetworkGraph",
+      "name": "arrow keys walk from node to node",
+      "ok": true
+    },
+    {
+      "component": "NetworkGraph",
+      "name": "Enter picks the node",
+      "ok": true
+    },
+    {
+      "component": "SequenceDiagram",
+      "name": "each step is spoken in order",
+      "ok": true
+    },
+    {
+      "component": "SequenceDiagram",
+      "name": "the lanes scroll with the keyboard",
       "ok": true
     }
   ]

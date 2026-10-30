@@ -4143,5 +4143,157 @@
         "why": "Slider's channel cut into steps with Slider's bead at the value, a hollow ring to compare and a mark-coloured band between them"
       }
     }
+  },
+  "confidence-chip": {
+    "gap": {
+      "$value": "{gap.sm}",
+      "$type": "dimension"
+    },
+    "height": {
+      "$value": "{control.sm}",
+      "$type": "dimension"
+    },
+    "padding": {
+      "$value": "{gap.md}",
+      "$type": "dimension"
+    },
+    "bg": {
+      "$value": "{level.2}",
+      "$type": "color"
+    },
+    "edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow"
+    },
+    "dot": {
+      "$value": "{control.mark}",
+      "$type": "dimension"
+    },
+    "dot-gap": {
+      "$value": "{gap.xs}",
+      "$type": "dimension"
+    },
+    "ring": {
+      "$value": "{line.ring}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P6"
+        ],
+        "why": "dots filled to the level in the sequential ramp, with the level in words beside them"
+      }
+    }
+  },
+  "node-card": {
+    "min": {
+      "$value": "{control.menu-min}",
+      "$type": "dimension"
+    },
+    "max": {
+      "$value": "{overlay.pop}",
+      "$type": "dimension"
+    },
+    "bg": {
+      "$value": "{level.2}",
+      "$type": "color"
+    },
+    "edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow"
+    },
+    "chosen-top": {
+      "$value": "{surface.chosen-top}",
+      "$type": "color"
+    },
+    "chosen-foot": {
+      "$value": "{surface.chosen-foot}",
+      "$type": "color"
+    },
+    "ring": {
+      "$value": "{line.ring}",
+      "$type": "color"
+    },
+    "lift": {
+      "$value": "{level-shadow.3}",
+      "$type": "shadow"
+    },
+    "port": {
+      "$value": "{control.mark}",
+      "$type": "dimension"
+    },
+    "port-bg": {
+      "$value": "{surface.knob}",
+      "$type": "color"
+    },
+    "port-ring": {
+      "$value": "{line.edge}",
+      "$type": "color"
+    },
+    "lift-bg": {
+      "$value": "{level.3}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P6"
+        ],
+        "why": "a small level-2 pane on a canvas, chosen glass and a ring when chosen, ports where links attach"
+      }
+    }
+  },
+  "sequence": {
+    "lane": {
+      "$value": "{control.menu-min}",
+      "$type": "dimension"
+    },
+    "head": {
+      "$value": "{control.xl}",
+      "$type": "dimension"
+    },
+    "row": {
+      "$value": "{control.xl}",
+      "$type": "dimension"
+    },
+    "rail": {
+      "$value": "{line.divider}",
+      "$type": "color"
+    },
+    "actor-bg": {
+      "$value": "{level.2}",
+      "$type": "color"
+    },
+    "actor-edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow"
+    },
+    "arrow": {
+      "$value": "{text.primary}",
+      "$type": "color"
+    },
+    "reply": {
+      "$value": "{text.secondary}",
+      "$type": "color"
+    },
+    "head-size": {
+      "$value": "{control.mark}",
+      "$type": "dimension"
+    },
+    "note-bg": {
+      "$value": "{surface.quiet}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P2",
+          "P6"
+        ],
+        "why": "lanes with hairline rails and arrows between them, solid for a message and dashed for a reply"
+      }
+    }
   }
 }

@@ -53,6 +53,16 @@ const en = {
   row: (n: number) => `row ${n}`,
   recent: 'Recent',
   name: 'Name', email: 'Email', password: 'Password', forgotPassword: 'Forgot your password?',
+  node: 'node',
+  expand: (t: string) => `Open ${t}`,
+  collapse: (t: string) => `Close ${t}`,
+  from: 'From',
+  to: 'To',
+  graphSummary: (label: string, n: number, e: number) => `${label}. ${n} nodes and ${e} links. Use the arrow keys to walk from node to node, or show the table.`,
+  graphNode: (label: string, n: number) => `${label}, linked to ${n}`,
+  seqStep: (a: string, b: string, what: string, reply: boolean) => reply ? `${a} replies to ${b}: ${what}` : `${a} to ${b}: ${what}`,
+  seqNote: (a: string, what: string) => `Note on ${a}: ${what}`,
+  confidence: ['Very low', 'Low', 'Medium', 'High', 'Very high'],
 };
 export type PaneMessages = typeof en;
 export default en;
