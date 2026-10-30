@@ -11,7 +11,7 @@ export const MESH: Depth = {
     <>
       <p>A mesh gradient is colour pooled in several places and melted together. It is not a linear gradient, which moves along one line, or a radial one, which spreads from one point. Pane draws four soft pools on a pale ground, on a layer larger than the box, and blurs that layer until no pool keeps an edge. The box clips it.</p>
       <p>A mesh is a piece of the world, never part of a control. Use it as a cover, an app or folder icon, an illustration, or the light a coloured object casts on what is under it. Pane itself owns no hue (P1), so a Button, a Switch or a chosen tab never takes a mesh. Text goes on glass over the mesh, where Pane can measure it, never straight on the pools.</p>
-      <p>Four presets ship measured: aurora (peach and coral over violet), ember, tide and dusk. A product brings its own colours through <code>colors</code>, or through the five <code>--ds-mesh-*</code> variables, which <code>npx pane-mesh --from brand.png</code> writes from a brand image.</p>
+      <p>Four presets ship, each measured. They are aurora (peach and coral over violet), ember, tide and dusk. A product brings its own colours through <code>colors</code>, or through the five <code>--ds-mesh-*</code> variables, which <code>npx pane-mesh --from brand.png</code> writes from a brand image.</p>
     </>
   ),
   whenToUse: ['A cover or thumbnail for content that has no photo yet.', 'An app, folder or feature icon with a brand’s colours.', 'A scene behind glass on a marketing or onboarding screen.', 'The ambient light under a coloured object (glow).'],
@@ -21,22 +21,22 @@ export const MESH: Depth = {
     { situation: 'A status or a category', to: '/components/badge', label: 'Badge' },
   ],
   variants: {
-    aurora: { purpose: 'The default: peach and coral at the top, where the light comes from, and violet low.', pairing: 'Any product without its own colours; the book’s Aurora backdrop.' },
-    ember: { purpose: 'Warm: amber and rose over plum, for food, evening and firelight.', pairing: 'Warm photography and the dark theme.' },
-    tide: { purpose: 'Cool: aqua and sky over indigo, for water, air and health.', pairing: 'Calm, informational products.' },
-    dusk: { purpose: 'Evening: lilac and rose over deep navy, for media and night scenes.', pairing: 'Players and night modes.' },
+    aurora: { purpose: 'The default puts peach and coral at the top, where the light comes from, and violet low.', pairing: 'Any product without its own colours; the book’s Aurora backdrop.' },
+    ember: { purpose: 'Warm amber and rose over plum, for food, evening and firelight.', pairing: 'Warm photography and the dark theme.' },
+    tide: { purpose: 'Cool aqua and sky over indigo, for water, air and health.', pairing: 'Calm, informational products.' },
+    dusk: { purpose: 'Evening lilac and rose over deep navy, for media and night scenes.', pairing: 'Players and night modes.' },
   },
   anatomy: {
     render: <Card as="div" className="demo-card"><Mesh className="mesh-demo-icon" glow label="Folder art" /></Card>,
     parts: [
       { part: 'Ground', selector: '[data-component="Mesh"] [class*="paint"]', what: 'The pale base colour, clipped to the mesh’s corner.' },
       { part: 'Pools', selector: '[data-component="Mesh"]', what: 'Four radial pools at the top left, top right, low and bottom left, blurred 40px into each other.' },
-      { part: 'Ambient glow', selector: '[data-component="Mesh"] [class*="glow"]', what: 'With glow: the same colours, blurred and set a little below, lighting what is under the mesh.' },
+      { part: 'Ambient glow', selector: '[data-component="Mesh"] [class*="glow"]', what: 'With glow on, the same colours sit blurred a little below and light what is under the mesh.' },
     ],
   },
   sizes: { na: 'Mesh has no size of its own. It fills the box it is given, so set its width, height and corner with a class, and the pools scale with it.' },
   emphasis: {
-    text: <p>A mesh is the most colourful thing on a pane, so it takes the place a photo would: one per card, at the top. Two meshes side by side compete, and a mesh behind a mesh turns to mud.</p>,
+    text: <p>A mesh is the most colourful thing on a pane, so it takes the place a photo would, one per card at the top. Two meshes side by side compete, and a mesh behind a mesh turns to mud.</p>,
     pair: { do: <Cover />, doNote: 'One mesh as the cover.', dont: <Card as="div" className="demo-card"><Stack direction="row" gap="sm"><Mesh className="mesh-demo-icon" /><Mesh preset="ember" className="mesh-demo-icon" /></Stack></Card>, dontNote: 'Two meshes compete for the eye.' },
   },
   placement: {

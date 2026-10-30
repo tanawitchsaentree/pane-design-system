@@ -34,16 +34,16 @@ Glass is a mood, never the carrier of meaning, so everything works without it an
 
 ### P7 Reading surfaces stay ordinary
 Where people read or configure (documentation, settings, forms), the scene would only compete with the words.
-**Therefore** space: reading lines are about 70 characters with generous line height. shape: reading layouts use plain rectangles and hairlines, no floating panes. depth: opaque page, raised and sunken surfaces; no blur. colour: neutral greys from the same ink and white the glass uses. type: 16px reading size at 1.6 line height. motion: none beyond the controls' own. interaction: links look like links and labels look like labels, never alike.
+**Therefore** space: reading lines are about 70 characters with generous line height. shape: reading layouts use plain rectangles and hairlines, no floating panes. depth: opaque page, raised and sunken surfaces; no blur. colour: neutral greys from the same ink and white the glass uses. type: 16px reading size at 1.6 line height. motion: none beyond the controls' own. interaction: links look like links and labels look like labels, so the two stay distinct.
 
 ## Light
 
-One light falls from above (D-024). Every surface reflects it: a rim brightest on the top edge, a sheen at the top, shade at the foot. In the dark theme a few white parts also **give off** light of their own (D-027). The test is what the part says, not that it is white:
+One light falls from above (D-024). Every surface reflects it, with a rim brightest on the top edge, a sheen at the top and shade at the foot. In the dark theme a few white parts also **give off** light of their own (D-027). What decides it is what the part says, whatever its colour.
 
-- **Glows strong — it is the promoted action.** The accent Button and the loud IconButton: the one thing on a pane that shines on purpose (P5). At most one per pane.
-- **Glows soft — it is on, or it is a lit amount.** A Switch that is on, a Slider's filled channel, a progress or meter fill. Power and quantity read as light.
-- **Glows as a mark — it says now.** The marker where a fill slider's value stops, the current step or day in a tracker, a live indicator. Small, so its glow is a little wider than the mark.
-- **Never glows — it reflects.** Text and icons (glow blurs a letter), edges and rims, chosen glass (a selected tab, a picked segment), objects the hand holds (a slider bead, a switch knob), identity (an avatar), status colours (a glow would bleed the hue), anything disabled.
-- **In the light theme nothing glows.** The same parts read by their solid ink; light only falls, it is not emitted.
+- **Glows strong when it is the promoted action.** The accent Button and the loud IconButton are the one thing on a pane that shines on purpose (P5). At most one per pane.
+- **Glows soft when it is on, or when it is a lit amount.** A Switch that is on, a Slider's filled channel, a progress or meter fill. Power and quantity read as light.
+- **Glows as a mark when it says now.** The marker where a fill slider's value stops, the current step or day in a tracker, a live indicator. It is small, so its glow is a little wider than the mark.
+- **Reflects and never glows.** Text and icons (glow blurs a letter), edges and rims, chosen glass (a selected tab, a picked segment), objects the hand holds (a slider bead, a switch knob), identity (an avatar), status colours (a glow would bleed the hue), anything disabled.
+- **In the light theme nothing glows.** The same parts read by their solid ink, and light only falls.
 
-**Therefore** depth: a glow is centred on its part with no offset, because it is emitted, not cast, and it is gone within 32px so it never fogs the pane. colour: glow is white at opacity, never a hue. interaction: glowing marks state, never hover; hover still lifts. The glow tokens (glow.strong, glow.soft, glow.mark) are the only ones allowed to emit, and G-GL1 measures each from pixels, glow on against glow off.
+**Therefore** depth: a glow is centred on its part with no offset, because it is emitted rather than cast, and it is gone within 32px so it never fogs the pane. colour: glow is white at opacity, never a hue. interaction: glowing marks state, never hover; hover still lifts. The glow tokens (glow.strong, glow.soft, glow.mark) are the only ones allowed to emit, and G-GL1 measures each from pixels, glow on against glow off.

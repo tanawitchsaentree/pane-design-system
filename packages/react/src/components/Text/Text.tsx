@@ -5,7 +5,7 @@ import styles from './Text.module.css';
 export type TextSize = 'reading' | 'body' | 'label' | 'caption' | 'micro';
 
 export interface TextProps extends HTMLAttributes<HTMLElement> {
-  /** A step of the type scale: `reading` 16 (long text), `body` 15 (default), `label` 14, `caption` 13, `micro` 11. */
+  /** A step of the type scale. Use `reading` 16 for long text, `body` 15 (default), `label` 14, `caption` 13 or `micro` 11. */
   size?: TextSize;
   /** `primary` (default) or `secondary`, the lowest opacity that still passes on glass. */
   tone?: 'primary' | 'secondary';

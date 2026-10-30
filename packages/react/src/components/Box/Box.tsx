@@ -11,7 +11,7 @@ export interface BoxProps extends HTMLAttributes<HTMLDivElement> {
   paddingInline?: BoxSpace;
   /** Padding on the block sides only; overrides `padding` there. */
   paddingBlock?: BoxSpace;
-  /** Corner from the shape scale: `inner` for a surface inside a pane, `media` for an image, `round` for a pill. */
+  /** The corner, taken from the shape scale. Use `inner` for a surface inside a pane, `media` for an image and `round` for a pill. */
   radius?: 'none' | 'inner' | 'media' | 'round';
   /** The element to render. Defaults to div. */
   as?: 'div' | 'section' | 'article' | 'aside' | 'header' | 'footer' | 'span';

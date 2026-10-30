@@ -1,4 +1,4 @@
-// @example Lower is better: a rise reads as bad
+// @example Where lower is better, a rise reads as bad
 import { Card, Scale } from 'pane-react';
 
 export default function ScaleRisk() {

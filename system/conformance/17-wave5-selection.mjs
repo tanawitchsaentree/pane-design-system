@@ -53,7 +53,7 @@ export default async function (t) {
     expect(open, 'Shift+F10 did not open the menu');
   });
   await go('/components/radio-cards/code');
-  await check('RadioCards', 'a radio group: arrow keys choose and the chosen card carries a check', async () => {
+  await check('RadioCards', 'arrow keys choose like a radio group and the chosen card carries a check', async () => {
     const r = main().locator('[role="radio"][data-state="checked"]').first();
     await r.focus(); await page.keyboard.press('ArrowRight'); await page.waitForTimeout(100);
     expect(await main().locator('[role="radio"][data-state="checked"] svg').count() > 0, 'no check on the chosen card');

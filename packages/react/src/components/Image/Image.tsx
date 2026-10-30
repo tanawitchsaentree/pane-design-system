@@ -5,7 +5,7 @@ import styles from './Image.module.css';
 export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   /** Says what the image shows, or "" when it only decorates. */
   alt: string;
-  /** The corner: `media` (default) inside a pane, `inner` for a full-bleed card image, `none`. */
+  /** The corner. Use `media` (default) inside a pane, `inner` for a full-bleed card image, or `none`. */
   radius?: 'media' | 'inner' | 'none';
   /** `cover` (default) fills the box and crops; `contain` shows the whole image. */
   fit?: 'cover' | 'contain';

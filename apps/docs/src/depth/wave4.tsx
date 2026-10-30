@@ -17,15 +17,15 @@ const keysDialog: Depth['behaviours']['interactions'] = [
 export const DIALOG: Depth = {
   overview: (
     <>
-      <p>A Dialog stops the reader and asks for an answer: confirm a deletion, name a new trip, sign in again. It is level 3 of the stack. A scrim dims and softens the scene so nothing behind it competes, and the dialog rises onto it a short way and settles. While it is open, focus is held inside it, the page behind is inert, and Esc closes it and returns focus to the control that opened it.</p>
+      <p>A Dialog stops the reader and asks for an answer, such as confirming a deletion, naming a new trip or signing in again. It is level 3 of the stack. A scrim dims and softens the scene so nothing behind it competes, and the dialog rises onto it a short way and settles. While it is open, focus is held inside it, the page behind is inert, and Esc closes it and returns focus to the control that opened it.</p>
       <p>Use a dialog only when the reader must deal with something before going on. Every dialog is an interruption, and readers learn to dismiss the ones that interrupt for nothing. If the information can wait, put it on the page. If the question is small and belongs to one control, a popover next to that control interrupts less. If the task is long, with many fields or steps, give it a page of its own, where the reader can come back to it and the browser’s back button works.</p>
-      <p>A good dialog is short. The title asks the question or names the task in a few words. The description says what will happen, in one or two sentences, so the reader can decide without opening anything else. The actions at the foot answer the question in its own words: Discard and Keep editing, not OK and Cancel. The loud action goes last, at the end, and when that action destroys something it says so plainly.</p>
+      <p>A good dialog is short. The title asks the question or names the task in a few words. The description says what will happen, in one or two sentences, so the reader can decide without opening anything else. The actions at the foot answer the question in its own words, such as Discard and Keep editing instead of OK and Cancel. The loud action goes last, at the end, and when that action destroys something it says so plainly.</p>
       <p>Write the dialog before you design it. If the title cannot be phrased as a question or a short task, the dialog is probably carrying a message that belongs on the page. If the description needs more than two sentences, the reader is being asked to read a document in a box; link to the page that explains it instead. If there are more than two actions, the dialog is offering a menu, and a sheet or a page does that better.</p>
-      <p>Destructive dialogs deserve the most care. Name what will be destroyed in the title, say whether it can be undone in the description, and label the loud button with the verb: Delete trip, not OK. Do not move the destructive button to a different place to make it harder to hit; readers find it by its words, and moving it only makes the safe answer harder to find. When an action can be undone, consider skipping the dialog altogether and offering Undo in a snackbar afterwards, which interrupts nobody who meant it.</p>
+      <p>Destructive dialogs deserve the most care. Name what will be destroyed in the title, say whether it can be undone in the description, and label the loud button with the verb, such as Delete trip instead of OK. Do not move the destructive button to a different place to make it harder to hit; readers find it by its words, and moving it only makes the safe answer harder to find. When an action can be undone, consider skipping the dialog altogether and offering Undo in a snackbar afterwards, which interrupts nobody who meant it.</p>
       <p>On small screens a dialog keeps a 16px margin to the edge and scrolls inside itself, so the actions are never pushed off screen. On a phone, a task that is really about the screen behind it, such as filters, is better as a bottom sheet, because the reader’s thumb is already at the bottom and the context stays visible above the sheet.</p>
-      <p>Some dialogs only inform: an expired session, a payment that needs another step. Even then, give the reader an action that moves them on, such as Sign in again, rather than a lone OK. And never open a dialog the reader did not ask for while they are typing or reading; if the system has to interrupt, say why in the title, so the interruption at least explains itself.</p>
-      <p>Test a dialog with the keyboard alone. Open it with Enter, move through it with Tab, answer with Enter and close it with Esc, and check that focus lands back on the control that opened it. Then test it with a screen reader: the title should be read as the dialog’s name and the description straight after, without the reader having to hunt for them.</p>
-      <p>Pane draws the dialog with the measured levels from the Glass chapter. Its body is one step lighter than the pane under it and its shadow is longer, and the scrim keeps the scene below at no more than 60% of its brightness. That is why a dialog over a busy photo still reads as above it, and why two dialogs never need to stack: if a dialog needs another dialog, the first one is doing too much.</p>
+      <p>Some dialogs only inform, about an expired session or a payment that needs another step. Even then, give the reader an action that moves them on, such as Sign in again, rather than a lone OK. And never open a dialog the reader did not ask for while they are typing or reading; if the system has to interrupt, say why in the title, so the interruption at least explains itself.</p>
+      <p>Test a dialog with the keyboard alone. Open it with Enter, move through it with Tab, answer with Enter and close it with Esc, and check that focus lands back on the control that opened it. Then test it with a screen reader. The title should be read as the dialog’s name and the description straight after, without the reader having to hunt for them.</p>
+      <p>Pane draws the dialog with the measured levels from the Glass chapter. Its body is one step lighter than the pane under it and its shadow is longer, and the scrim keeps the scene below at no more than 60% of its brightness. That is why a dialog over a busy photo still reads as above it, and why two dialogs never need to stack. If a dialog needs another dialog, the first one is doing too much.</p>
     </>
   ),
   whenToUse: ['Confirming an action that cannot be undone, such as deleting a trip with its photos.', 'A short task that must be finished or abandoned before going on, such as renaming an album or inviting one person.', 'Asking the reader to sign in again before a protected action, such as changing the payment card.', 'Warning that leaving now will lose unsaved changes, with a choice to stay or leave.'],
@@ -61,7 +61,7 @@ export const DIALOG: Depth = {
 };
 
 export const SHEET: Depth = {
-  overview: <><p>A Sheet comes in from an edge. From the bottom it is a phone’s bottom sheet: a level-3 pane that stops short of the top so the screen behind still shows, with a grabber the reader can drag down to close it. From the start or end it is a side panel. It holds focus like a dialog and closes on Esc and on a press outside.</p><p>Use a sheet for a task that belongs to the screen behind it, such as filters for a list or sharing options for a photo, where the reader wants to keep the context in view.</p></>,
+  overview: <><p>A Sheet comes in from an edge. From the bottom it is a phone’s bottom sheet, a level-3 pane that stops short of the top so the screen behind still shows, with a grabber the reader can drag down to close it. From the start or end it is a side panel. It holds focus like a dialog and closes on Esc and on a press outside.</p><p>Use a sheet for a task that belongs to the screen behind it, such as filters for a list or sharing options for a photo, where the reader wants to keep the context in view.</p></>,
   whenToUse: ['Filters and sort for a list on a phone.', 'Share and save options for one item.'],
   whenNot: [{ situation: 'A question that needs an answer', to: '/components/dialog', label: 'Dialog' }, { situation: 'A short list of actions', to: '/components/action-sheet', label: 'ActionSheet' }],
   variants: { na: 'Sheet has one look; side is a modifier covered below.' },
@@ -79,7 +79,7 @@ export const SHEET: Depth = {
 };
 
 export const DRAWER: Depth = {
-  overview: <><p>A Drawer is a Sheet from the start or end edge: a side panel for navigation or filters on a wide screen. It has the Sheet’s focus trap, Esc and scrim, and its corners are round only on the side away from the edge.</p></>,
+  overview: <><p>A Drawer is a Sheet from the start or end edge, used as a side panel for navigation or filters on a wide screen. It has the Sheet’s focus trap, Esc and scrim, and its corners are round only on the side away from the edge.</p></>,
   whenToUse: ['Navigation that does not fit the top bar.', 'Filters beside a list on a tablet or desktop.'],
   whenNot: [{ situation: 'A phone’s bottom panel', to: '/components/sheet', label: 'Sheet' }, { situation: 'Navigation that is always visible', to: '/reference/status', label: 'Sidebar (planned)' }],
   variants: { na: 'Drawer has one look; side is a modifier covered below.' },
@@ -117,12 +117,12 @@ export const ACTION_SHEET: Depth = {
 export const POPOVER: Depth = {
   overview: (
     <>
-      <p>A Popover opens a small pane next to the control that opened it: the shipping details behind a Shipping button, a note field behind Add note, an explanation behind Why. It is level 4 of the stack, the lightest and highest pane, and it does not dim the screen, because the reader is still working on the page.</p>
+      <p>A Popover opens a small pane next to the control that opened it, such as the shipping details behind a Shipping button, a note field behind Add note or an explanation behind Why. It is level 4 of the stack, the lightest and highest pane, and it does not dim the screen, because the reader is still working on the page.</p>
       <p>Keep what is inside a popover optional. A reader who never opens it should still be able to finish the task; the popover only saves them a trip. Because it closes the moment focus or the pointer goes elsewhere, never put the only copy of something the reader needs to keep, such as a generated code, in a popover without a way to copy it.</p>
       <p>Open a popover with a press, never with hover alone. Hover is not available on touch screens, and content that appears on hover and holds controls is hard to reach with a pointer that has to travel across a gap. If the words are only a hint, use a tooltip, which does open on hover and on focus.</p>
       <p>It closes on Esc and on a press outside, and focus returns to its trigger. It flips to the other side when there is no room, and keeps 12px from the edge of the screen.</p>
-      <p>A popover is part of the page’s flow for a keyboard user: focus moves into it when it opens and back to the trigger when it closes, so the reader never loses their place. Give its trigger a name that says what will open, such as Shipping details, so a screen reader announces the button and its purpose together, and keep the popover’s own title short, because it becomes the pane’s accessible name.</p>
-      <p>A popover is the right size for a sentence or two and a couple of controls. When the content grows into a form with several fields, a list of choices or anything the reader must finish before going on, it is a dialog. When it is only a name for an icon, it is a tooltip. Pane draws no arrow: the pane opens 8px from its trigger and grows a little out of it, so where it came from is never in doubt.</p>
+      <p>A popover is part of the page’s flow for a keyboard user. Focus moves into it when it opens and back to the trigger when it closes, so the reader never loses their place. Give its trigger a name that says what will open, such as Shipping details, so a screen reader announces the button and its purpose together, and keep the popover’s own title short, because it becomes the pane’s accessible name.</p>
+      <p>A popover is the right size for a sentence or two and a couple of controls. When the content grows into a form with several fields, a list of choices or anything the reader must finish before going on, it is a dialog. When it is only a name for an icon, it is a tooltip. Pane draws no arrow. The pane opens 8px from its trigger and grows a little out of it, so where it came from is never in doubt.</p>
     </>
   ),
   whenToUse: ['Details about one control or value, such as what a price includes or how long shipping takes.', 'A one- or two-field form next to the thing it changes, such as a note on a photo.', 'An explanation the reader asks for with a Why or Learn more button, in place.'],
@@ -144,11 +144,11 @@ export const POPOVER: Depth = {
 export const TOOLTIP: Depth = {
   overview: (
     <>
-      <p>A Tooltip gives a control a few words: the name of an icon, the meaning of a mark. It opens on hover after a short delay, on keyboard focus, and on a tap on touch screens, where there is no hover. It is a small level-4 pill, blurred like every pane, and it never moves.</p>
-      <p>Use a tooltip for one job: putting a name to a control that shows only an icon, so a sighted reader who does not recognise the glyph can find out what it does before pressing it. The same name must already be the control’s accessible name, set with aria-label, because a screen reader announces that and never waits for the tooltip. If you find yourself writing a tooltip for a button that already has a visible label, delete it; it adds a second reading of the same word.</p>
-      <p>Do not use a tooltip to hide something important to save space: an error, a price condition, the reason a control is disabled. Readers on touch screens see it only if they tap, and readers who never hover never see it at all. Put that text next to the control instead, in the helper text or the description, where it is always there.</p>
+      <p>A Tooltip gives a control a few words, such as the name of an icon or the meaning of a mark. It opens on hover after a short delay, on keyboard focus, and on a tap on touch screens, where there is no hover. It is a small level-4 pill, blurred like every pane, and it never moves.</p>
+      <p>Use a tooltip for one job, putting a name to a control that shows only an icon, so a sighted reader who does not recognise the glyph can find out what it does before pressing it. The same name must already be the control’s accessible name, set with aria-label, because a screen reader announces that and never waits for the tooltip. If you find yourself writing a tooltip for a button that already has a visible label, delete it; it adds a second reading of the same word.</p>
+      <p>Do not use a tooltip to hide something important to save space, such as an error, a price condition or the reason a control is disabled. Readers on touch screens see it only if they tap, and readers who never hover never see it at all. Put that text next to the control instead, in the helper text or the description, where it is always there.</p>
       <p>Every tooltip in Pane opens after a short delay so that a pointer passing over a row of icons does not set off a string of tips, and it stays open while the pointer moves onto it, so a reader who needs to read it slowly can. It closes on Esc without moving focus, which WCAG asks of content that appears on hover or focus. On touch, a tap shows it and a second tap or a tap elsewhere hides it, so the control’s own action still needs a deliberate press.</p>
-      <p>Write tooltips in a few words, without a full stop: Share, Copy link, Unread. If the explanation needs a sentence, the control probably needs a visible label instead.</p>
+      <p>Write tooltips in a few words, without a full stop, such as Share, Copy link or Unread. If the explanation needs a sentence, the control probably needs a visible label instead.</p>
       <p>A tooltip never holds anything the reader must act on, because it disappears as soon as the pointer leaves. If the words matter for using the screen, put them on the screen. An icon-only button still needs its own accessible name; the tooltip repeats it for sighted readers.</p>
     </>
   ),
@@ -169,7 +169,7 @@ export const TOOLTIP: Depth = {
 };
 
 export const TOAST: Depth = {
-  overview: <><p>A Toast tells the reader about something that just happened: a print was ordered, an upload failed. It appears at the top end in a level-4 pane, announced politely so it does not interrupt a screen reader, pauses while the pointer or focus is on it, and leaves by itself. Colour stays on a small status mark; the pane is glass.</p><p>A toast is never the only place something is said. Anything the reader needs later belongs on the page too.</p></>,
+  overview: <><p>A Toast tells the reader about something that just happened, such as a print being ordered or an upload failing. It appears at the top end in a level-4 pane, announced politely so it does not interrupt a screen reader, pauses while the pointer or focus is on it, and leaves by itself. The tone is a glyph and a word beside the title, and the pane stays glass.</p><p>A toast is never the only place something is said. Anything the reader needs later belongs on the page too.</p></>,
   whenToUse: ['Confirming an action that finished in the background.', 'A failure that does not block the screen.'],
   whenNot: [{ situation: 'A question', to: '/components/dialog', label: 'Dialog' }, { situation: 'A message that stays', to: '/components/banner', label: 'Banner' }, { situation: 'One line with Undo on a phone', to: '/components/snackbar', label: 'Snackbar' }],
   variants: { info: { purpose: 'Neutral news.', pairing: 'Background updates.' }, positive: { purpose: 'Something finished.', pairing: 'Orders, saves, uploads.' }, critical: { purpose: 'Something failed.', pairing: 'Uploads and payments; say what to do.' } },
@@ -191,7 +191,7 @@ export const TOAST: Depth = {
 };
 
 export const SNACKBAR: Depth = {
-  overview: <><p>A Snackbar is one line at the bottom of a phone screen confirming what the reader just did, usually with Undo. It is a level-4 pill at thumb reach. One at a time: a new one replaces the last. It is announced politely and leaves by itself.</p></>,
+  overview: <><p>A Snackbar is one line at the bottom of a phone screen confirming what the reader just did, usually with Undo. It is a level-4 pill at thumb reach. Only one shows at a time, and a new one replaces the last. It is announced politely and leaves by itself.</p></>,
   whenToUse: ['Confirming an action with Undo on a phone.'],
   whenNot: [{ situation: 'Something that happened in the background', to: '/components/toast', label: 'Toast' }],
   variants: { na: 'Snackbar has one look.' },
@@ -209,7 +209,7 @@ export const SNACKBAR: Depth = {
 };
 
 export const FAB_DEPTH: Depth = {
-  overview: <><p>A FAB is the one primary action of a phone screen, floating at the bottom end where the thumb rests: New post on a feed, Add place on a map. It is the loud white bead, a step bigger than an IconButton, glowing in dark. There is one per screen, and only when one action clearly leads.</p></>,
+  overview: <><p>A FAB is the one primary action of a phone screen, floating at the bottom end where the thumb rests, such as New post on a feed or Add place on a map. It is the loud white bead, a step bigger than an IconButton, glowing in dark. There is one per screen, and only when one action clearly leads.</p></>,
   whenToUse: ['The main creation action of a phone screen.'],
   whenNot: [{ situation: 'Several equal actions', to: '/components/icon-button', label: 'IconButton' }, { situation: 'A desktop toolbar', to: '/components/button', label: 'Button' }],
   variants: { na: 'FAB has one look, the loud bead; extended and position are modifiers.' },
@@ -227,7 +227,7 @@ export const FAB_DEPTH: Depth = {
 };
 
 export const PULL_TO_REFRESH: Depth = {
-  overview: <><p>PullToRefresh lets the reader refresh a list by pulling it down from the top: the list moves with the finger at half its speed, a spinner appears in the gap, and past 64px it refreshes. Pulling is a gesture, so a Refresh button is always in the tree too; it shows when it has focus, for keyboards and switch access.</p></>,
+  overview: <><p>PullToRefresh lets the reader refresh a list by pulling it down from the top. The list moves with the finger at half its speed, a spinner appears in the gap, and past 64px it refreshes. Pulling is a gesture, so a Refresh button is always in the tree too; it shows when it has focus, for keyboards and switch access.</p></>,
   whenToUse: ['Inboxes, feeds and lists that update.'],
   whenNot: [{ situation: 'Content that updates by itself', to: '/components/toast', label: 'a quiet update and a Toast' }],
   variants: { na: 'PullToRefresh has one look.' },
