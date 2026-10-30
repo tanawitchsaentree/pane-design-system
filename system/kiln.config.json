@@ -118,7 +118,13 @@
     "topicsDir": "../kiln/marketplace/plugins/kiln/skills/docs-engine/benchmarks/topics",
     "history": [
       "/reference/decisions"
-    ]
+    ],
+    "treeShake": {
+      "package": "pane-react",
+      "probe": "Environment",
+      "maxJsGz": 8000,
+      "tokensCss": "pane-react/tokens.css"
+    }
   },
   "autonomy": {
     "picks": "agent",

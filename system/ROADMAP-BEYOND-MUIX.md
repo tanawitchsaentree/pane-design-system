@@ -34,3 +34,9 @@ full, with a nodes-and-edges table view), SequenceDiagram (actors in lanes, mess
 sequential data ramp and an ordinal ConfidenceChip (D-032: confidence is magnitude, never categorical hue),
 a provenance Badge kind (live, sample, synthetic, stale) with its pattern page, and an optional dev-only
 PerfOverlay in `pane-react/devtools`. MoneyFlow is X4's Sankey.
+
+## X10 · Native (user, 2026-10-30: "ทำให้หมดเลยกูจะเทสทดสอบใน mobile iOS")
+`packages/tokens/build.mjs` also writes `build/swift/PaneTokens.swift` (every token, dark and light, colours
+dynamic per appearance). `packages/swift/PaneKit` is the SwiftUI library (iOS 17, macOS 14) on those
+tokens, with English and Thai messages; `apps/ios/PaneGallery.swiftpm` is the app to run on an iPhone.
+MUI X has no native side at all. Next: Kotlin/Compose tokens for Android, and the rest of the families.

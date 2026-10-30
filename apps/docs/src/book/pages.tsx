@@ -30,6 +30,7 @@ import { TabRedirect } from './TabRedirect';
 import { PATTERN_DEPTH } from '../patterns/content';
 import { EXTRAS } from './foundation-extras';
 import { AccessibilityFoundation, ContentFoundation, Contributing, Designing, Developing, Migrating } from './guides';
+import { IOSPage } from './ios';
 import { PatternDepthPage } from '../patterns/PatternDepth';
 import { StatesPage } from './states';
 import { Language } from './language';
@@ -972,6 +973,7 @@ const BASE_PAGES: Record<string, () => ReactElement> = {
   '/getting-started/language': Language,
   '/getting-started/designing': Designing,
   '/getting-started/developing': Developing,
+  '/getting-started/ios': IOSPage,
   '/getting-started/contributing': Contributing,
   '/getting-started/migrating': Migrating,
   '/foundations/content': ContentFoundation,

@@ -159,3 +159,11 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **Step that produced it:** each component was derived and documented on its own; no step listed the states a family must have, so a state a page described could be absent and no gate asked.
 - **What changed in that step:** the state matrix (`/patterns/states`) is the list: each family's states are rows, written once, and a new component joins its family's row.
 - **Check that now catches it:** G-SV1 shoots every cell in one fixed, opaque dock (so equal cells rasterise equally) and fails a cell that matches its row default or lacks its ARIA; proven by removing Checkbox's invalid ring (0 px differ, red) and putting it back.
+
+### R-024: one import pulled in the whole library
+- **Date:** 2026-10-30
+- **User said:** (relayed from a product that installed 0.7.0) Environment alone grew the shared JS by 77 kB gz and CSS by 34 kB, pushing its Read page past its 150 kB budget; it asked for per-component subpath exports, per-component CSS and an Environment that does not drag the library in.
+- **What was wrong:** pane-react shipped one ESM file and one stylesheet, so no bundler could leave anything out. Worse, a first fix named its CSS `*.module.css`, which a consumer's bundler would have scoped a second time, breaking every class.
+- **Step that produced it:** the library build was set up for the docs app, which uses everything, and never measured from a product's side.
+- **What changed in that step:** ESM keeps one file per module and every module imports its own CSS (named without `.module`); each component has an entry and a subpath (`pane-react/Button`); Node gets the same modules without CSS imports through the `node` export condition; CJS stays one file. Environment alone is now 3.6 kB gz JS and 13 kB gz CSS, which is the token sheet.
+- **Check that now catches it:** G-TS1 builds a throwaway Vite app importing one component and fails when its JS passes the budget or its CSS carries another component's styles; red on 0.6.0 (49 kB), green now. The smoke test still installs the tarball and renders on Node (22/22).
