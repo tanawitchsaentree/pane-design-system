@@ -689,3 +689,6 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .state-stage { position: relative; min-block-size: calc(var(--ds-control-xl) + var(--ds-gap-lg) * 2); display: flex; align-items: flex-start; padding: var(--ds-gap-lg); border-radius: var(--ds-corner-media); background: var(--ds-surface-raised); box-shadow: var(--ds-level-shadow-edge); min-inline-size: 0; overflow-wrap: anywhere; }
 .state-stage > * { min-inline-size: 0; max-inline-size: 100%; }
 .state-cell figcaption { font-size: var(--ds-type-caption); color: var(--ds-text-secondary); }
+
+/* the Language chapter's Thai demo: the real components side by side */
+.lang-demo { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: var(--ds-gap-lg); align-items: start; }

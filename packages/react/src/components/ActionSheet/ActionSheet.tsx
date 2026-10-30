@@ -3,6 +3,7 @@ import * as RD from '@radix-ui/react-dialog';
 import { cx } from '../../cx';
 import { Card } from '../Card';
 import styles from './ActionSheet.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface ActionSheetAction {
   /** What the action does, as a verb: Share, Save to Files, Delete. */
@@ -38,7 +39,9 @@ export interface ActionSheetProps {
 
 /** A short list of actions that rises from the bottom over a dimmed scene, with Cancel set apart,
  *  for choosing what to do with one thing on a phone. */
-export const ActionSheet = forwardRef<HTMLElement, ActionSheetProps>(function ActionSheet({ trigger, title, description, actions, cancelLabel = 'Cancel', open, defaultOpen, onOpenChange, preview }, ref) {
+export const ActionSheet = forwardRef<HTMLElement, ActionSheetProps>(function ActionSheet({ trigger, title, description, actions, cancelLabel: cancelLabelIn, open, defaultOpen, onOpenChange, preview }, ref) {
+  const t = useMessages();
+  const cancelLabel = cancelLabelIn ?? t.cancel;
   const Portal = preview ? Fragment : RD.Portal;
   return (
     <RD.Root open={preview ? true : open} defaultOpen={defaultOpen} onOpenChange={onOpenChange} modal={!preview}>
@@ -51,7 +54,7 @@ export const ActionSheet = forwardRef<HTMLElement, ActionSheetProps>(function Ac
               <RD.Title className={styles.title}>{title}</RD.Title>
               {description != null && <RD.Description className={styles.description}>{description}</RD.Description>}
             </div>
-            <div className={styles.list} role="group" aria-label="Actions">
+            <div className={styles.list} role="group" aria-label={t.actions}>
               {actions.map((a) => (
                 <RD.Close key={a.label} className={cx(styles.action, a.tone === 'critical' && styles.critical)} onClick={a.onSelect}>
                   {a.icon != null && <span className={styles.icon} aria-hidden="true">{a.icon}</span>}{a.label}

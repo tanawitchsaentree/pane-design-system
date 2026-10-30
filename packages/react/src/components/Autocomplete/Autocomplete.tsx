@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ComboCore } from '../Combobox/ComboCore';
+import { useMessages } from '../../i18n/context';
 
 export interface AutocompleteProps {
   /** The field's label. */
@@ -31,11 +32,12 @@ export interface AutocompleteProps {
 /** A text field that suggests as you type. The reader may pick a suggestion or keep their own words,
  *  such as a place, a tag or a search; for a value that must come from the list, use Combobox. */
 export function Autocomplete({ label, suggestions, value, defaultValue, onValueChange, placeholder, name, className, disabled, readOnly, invalid, required }: AutocompleteProps) {
+  const t = useMessages();
   const [inner, setInner] = useState(defaultValue ?? '');
   const text = value ?? inner;
   const set = (t: string) => { if (value === undefined) setInner(t); onValueChange?.(t); };
   return (
     <ComboCore disabled={disabled} readOnly={readOnly} invalid={invalid} required={required} component="Autocomplete" label={label} options={suggestions.map((s) => ({ value: s, label: s }))} text={text} onText={set} chosen={[]} placeholder={placeholder}
-      emptyText="Keep typing; any text is fine" name={name} className={className} onChoose={(v) => set(v)} />
+      emptyText={t.keepTyping} name={name} className={className} onChoose={(v) => set(v)} />
   );
 }

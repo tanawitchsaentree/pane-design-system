@@ -160,3 +160,7 @@ export * from './components/RichTextEditor';
 
 export * from './components/Scale';
 export * from './components/RadarChart';
+
+// Language (0.7.0): one catalog for every word a component shows or speaks, English by default, Thai included.
+
+export * from './components/PaneProvider';

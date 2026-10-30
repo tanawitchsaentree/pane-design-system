@@ -2,6 +2,7 @@ import { forwardRef, useState } from 'react';
 import * as RR from '@radix-ui/react-radio-group';
 import { cx } from '../../cx';
 import styles from './Rating.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface RatingProps {
   /** What is being rated, the group's accessible name: Rate this print. */
@@ -27,13 +28,14 @@ const Star = () => <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l
 /** A score from one to five stars. Chosen stars are the loud solid, the rest an etched outline, so the
  *  score reads by shape and count, never by a hue (P1, P6). Arrow keys change it. */
 export const Rating = forwardRef<HTMLDivElement, RatingProps>(function Rating({ label, value, defaultValue, onValueChange, max = 5, readOnly, disabled, className }, ref) {
+  const t = useMessages();
   const stars = Array.from({ length: max }, (_, i) => i + 1);
   const [inner, setInner] = useState(defaultValue ?? 0);
   const current = value ?? inner;
   const set = (n: number) => { if (value === undefined) setInner(n); if (n !== current) onValueChange?.(n); };
   if (readOnly) {
     const v = current;
-    return <div ref={ref} data-component="Rating" role="img" aria-label={`${label}: ${v} out of ${max}`} className={cx(styles.root, styles.readOnly, className)}>{stars.map((n) => <span key={n} className={cx(styles.star, n <= v && styles.on)}><Star /></span>)}</div>;
+    return <div ref={ref} data-component="Rating" role="img" aria-label={t.ratingScore(label, v, max)} className={cx(styles.root, styles.readOnly, className)}>{stars.map((n) => <span key={n} className={cx(styles.star, n <= v && styles.on)}><Star /></span>)}</div>;
   }
   return (
     <RR.Root ref={ref} data-component="Rating" aria-label={label} disabled={disabled} orientation="horizontal" loop={false} value={current ? String(current) : ''}
@@ -46,7 +48,7 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(function Rating({ 
         if (step) set(Math.min(max, Math.max(1, (current || 0) + step)));
       }}>
       {stars.map((n) => (
-        <RR.Item key={n} value={String(n)} aria-label={`${n} out of ${max}`} className={cx(styles.item, styles.star)} data-on={n <= current || undefined}><Star /></RR.Item>
+        <RR.Item key={n} value={String(n)} aria-label={t.ratingStar(n, max)} className={cx(styles.item, styles.star)} data-on={n <= current || undefined}><Star /></RR.Item>
       ))}
     </RR.Root>
   );

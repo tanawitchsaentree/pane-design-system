@@ -2,6 +2,7 @@ import { forwardRef, useState, type KeyboardEvent } from 'react';
 import { ChartFrame, Tip, compact, useWidth } from '../../chart/core';
 import c from '../../chart/Chart.module.css';
 import styles from './Heatmap.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface HeatmapProps {
   /** The chart's title. */
@@ -28,6 +29,7 @@ const LEFT = 48, CELL_GAP = 2;
  *  2px surface gap between cells and a scale from the lowest to the highest value. Arrow keys walk the
  *  cells and the tooltip says the row, the column and the value. */
 export const Heatmap = forwardRef<HTMLElement, HeatmapProps>(function Heatmap({ label, description, rows, columns, values, format = compact, labelEvery = 1, className }, _ref) {
+  const msg = useMessages();
   const [box, width] = useWidth<HTMLDivElement>();
   const [at, setAt] = useState<[number, number] | null>(null);
   const flat = values.flat(); const lo = Math.min(...flat), hi = Math.max(...flat);
@@ -43,7 +45,7 @@ export const Heatmap = forwardRef<HTMLElement, HeatmapProps>(function Heatmap({ 
   return (
     <ChartFrame component="Heatmap" label={label} description={description} className={className} series={[]}
       table={{ head: ['', ...columns], rows: rows.map((r, i) => [r, ...values[i].map((v) => format(v))]) }}>
-      <div ref={box} className={c.plot} tabIndex={0} role="group" aria-roledescription="chart" aria-label={`${label}. ${rows.length} rows by ${columns.length} columns, from ${format(lo)} to ${format(hi)}. Use the arrow keys to read each cell, or show the table.`}
+      <div ref={box} className={c.plot} tabIndex={0} role="group" aria-roledescription={msg.chart} aria-label={msg.heatmapSummary(label, rows.length, columns.length, format(lo), format(hi))}
         onKeyDown={key} onBlur={() => setAt(null)} onPointerLeave={() => setAt(null)}>
         {width > 0 && (
           <svg className={c.svg} width={width} height={H} aria-hidden="true">

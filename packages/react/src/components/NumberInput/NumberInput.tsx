@@ -4,6 +4,7 @@ import { InputGroup } from '../InputGroup';
 import { IconButton } from '../IconButton';
 import { useField } from '../FormField';
 import styles from './NumberInput.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface NumberInputProps extends Omit<InputProps, 'type' | 'size' | 'value' | 'defaultValue' | 'onChange' | 'min' | 'max' | 'step'> {
   /** The number, when you keep it yourself; `null` is an empty field. */
@@ -30,6 +31,7 @@ const clampTo = (n: number, min?: number, max?: number) => Math.min(max ?? Infin
  *  step, Page Up and Page Down jump ten steps, Home and End go to the limits, and a typed number is held
  *  to the limits when the field is left. The steppers keep 44px press areas. */
 export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(function NumberInput({ value, defaultValue, onValueChange, min, max, step = 1, unit, label, className, onKeyDown, onBlur, disabled, ...rest }, ref) {
+  const t = useMessages();
   const [inner, setInner] = useState<number | null>(defaultValue ?? null);
   const current = value !== undefined ? value : inner;
   const [draft, setDraft] = useState<string | null>(null);
@@ -55,8 +57,8 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(functi
   const off = disabled ?? field?.disabled ?? false;
   return (
     <InputGroup data-component="NumberInput" className={className}
-      start={<IconButton variant="ghost" aria-label={`Decrease ${lower}`} tabIndex={-1} disabled={off || atMin} onClick={() => by(-1)}><svg viewBox="0 0 24 24" aria-hidden="true" className={styles.glyph}><path d="M6 12h12" /></svg></IconButton>}
-      end={<span className={styles.end}>{unit && <span className={styles.unit} aria-hidden="true">{unit}</span>}<IconButton variant="ghost" aria-label={`Increase ${lower}`} tabIndex={-1} disabled={off || atMax} onClick={() => by(1)}><svg viewBox="0 0 24 24" aria-hidden="true" className={styles.glyph}><path d="M6 12h12M12 6v12" /></svg></IconButton></span>}>
+      start={<IconButton variant="ghost" aria-label={t.decrease(lower)} tabIndex={-1} disabled={off || atMin} onClick={() => by(-1)}><svg viewBox="0 0 24 24" aria-hidden="true" className={styles.glyph}><path d="M6 12h12" /></svg></IconButton>}
+      end={<span className={styles.end}>{unit && <span className={styles.unit} aria-hidden="true">{unit}</span>}<IconButton variant="ghost" aria-label={t.increase(lower)} tabIndex={-1} disabled={off || atMax} onClick={() => by(1)}><svg viewBox="0 0 24 24" aria-hidden="true" className={styles.glyph}><path d="M6 12h12M12 6v12" /></svg></IconButton></span>}>
       <Input ref={ref} type="text" inputMode={step % 1 === 0 && (min ?? 0) >= 0 ? 'numeric' : 'decimal'} role="spinbutton" disabled={off} aria-label={rest['aria-label'] ?? (field ? undefined : label)}
         aria-valuenow={current ?? undefined} aria-valuemin={min} aria-valuemax={max} aria-valuetext={current !== null && unit ? `${current} ${unit}` : undefined}
         value={draft ?? (current === null ? '' : String(current))}

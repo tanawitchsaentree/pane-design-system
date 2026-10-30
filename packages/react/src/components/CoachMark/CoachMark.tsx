@@ -4,6 +4,7 @@ import { Card } from '../Card';
 import { Button } from '../Button';
 import { cx } from '../../cx';
 import styles from './CoachMark.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface CoachMarkProps {
   /** The thing being pointed out; the mark is anchored to it and does not change it. */
@@ -32,17 +33,18 @@ export interface CoachMarkProps {
  *  It never covers the page with a scrim and never blocks the thing it points at; Esc skips, and focus
  *  moves to the card when it opens and back to the page when the tour ends. */
 export const CoachMark = forwardRef<HTMLDivElement, CoachMarkProps>(function CoachMark({ children, open, title, description, step, total, onNext, onSkip, side = 'bottom', preview }, ref) {
+  const t = useMessages();
   const head = useRef<HTMLParagraphElement>(null);
   useEffect(() => { if (open && !preview) requestAnimationFrame(() => head.current?.focus()); }, [open, preview]);
   const last = step !== undefined && total !== undefined && step >= total;
   const body = (
     <>
-      {step !== undefined && total !== undefined && <span className={styles.count}>{step} of {total}</span>}
+      {step !== undefined && total !== undefined && <span className={styles.count}>{t.of(step, total)}</span>}
       <p ref={head} tabIndex={-1} className={styles.title}>{title}</p>
       {description && <p className={styles.description}>{description}</p>}
       <div className={styles.actions}>
-        {!last && <Button variant="glass" size="sm" onClick={onSkip}>Skip tour</Button>}
-        <Button variant="light" size="sm" onClick={onNext}>{last ? 'Done' : 'Next'}</Button>
+        {!last && <Button variant="glass" size="sm" onClick={onSkip}>{t.skipTour}</Button>}
+        <Button variant="light" size="sm" onClick={onNext}>{last ? t.done : t.next}</Button>
       </div>
     </>
   );

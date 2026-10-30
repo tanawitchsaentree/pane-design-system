@@ -4,6 +4,7 @@ import { cx } from '../../cx';
 import { Input } from '../Input';
 import { InputGroup } from '../InputGroup';
 import styles from './ColorPicker.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface ColorSwatch {
   /** The colour as a hex value, such as #3A6EA5. */
@@ -38,6 +39,7 @@ const norm = (v: string) => { const m = v.trim().match(HEX); if (!m) return null
  *  system owns no hue; this picks one that belongs to the content). Swatches are round radios with names,
  *  the chosen one ringed and checked; a hex field takes any other colour. */
 export const ColorPicker = forwardRef<HTMLDivElement, ColorPickerProps>(function ColorPicker({ label, swatches, value, defaultValue, onValueChange, custom, className, disabled }, ref) {
+  const t = useMessages();
   const [inner, setInner] = useState(defaultValue ?? swatches[0]?.value ?? '');
   const current = norm(value ?? inner) ?? '';
   const [draft, setDraft] = useState<string | null>(null);
@@ -54,7 +56,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, ColorPickerProps>(function
       </RR.Root>
       {custom && (
         <InputGroup start={<span className={styles.preview} style={{ ['--pane-swatch' as string]: norm(draft ?? '') ?? current }} aria-hidden="true" />}>
-          <Input disabled={disabled} aria-label={`${label}, hex value`} value={draft ?? current} spellCheck={false} autoCapitalize="off" className={styles.hex}
+          <Input disabled={disabled} aria-label={t.hexValue(label)} value={draft ?? current} spellCheck={false} autoCapitalize="off" className={styles.hex}
             aria-invalid={draft !== null && !norm(draft) ? true : undefined}
             onChange={(e) => { setDraft(e.target.value); if (norm(e.target.value)) set(e.target.value); }}
             onBlur={() => setDraft(null)} />

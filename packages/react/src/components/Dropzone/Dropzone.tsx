@@ -2,6 +2,7 @@ import { forwardRef, useId, useRef, useState, type ReactNode } from 'react';
 import { cx } from '../../cx';
 import { check } from '../FileUpload/files';
 import styles from './Dropzone.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface DropzoneProps {
   /** Says what to drop, such as Drop photos here. It is the zone's main line. */
@@ -30,10 +31,11 @@ export interface DropzoneProps {
  *  the keyboard and touch get the same thing as a drag. While a file is over it the well lifts into chosen
  *  glass with a ring, by shape and not only by tone (P6). */
 export const Dropzone = forwardRef<HTMLButtonElement, DropzoneProps>(function Dropzone({ label, hint, accept, multiple, maxSize, onFiles, icon, disabled, className, invalid }, ref) {
+  const t = useMessages();
   const id = useId();
   const input = useRef<HTMLInputElement>(null);
   const [over, setOver] = useState(false);
-  const take = (list: FileList | null) => { const { ok, refused } = check(Array.from(list ?? []), accept, maxSize); onFiles?.(multiple ? ok : ok.slice(0, 1), refused.map((r) => r.reason)); };
+  const take = (list: FileList | null) => { const { ok, refused } = check(Array.from(list ?? []), accept, maxSize, t); onFiles?.(multiple ? ok : ok.slice(0, 1), refused.map((r) => r.reason)); };
   return (
     <>
       <input ref={input} type="file" accept={accept} multiple={multiple} disabled={disabled} hidden onChange={(e) => { take(e.target.files); e.target.value = ''; }} />

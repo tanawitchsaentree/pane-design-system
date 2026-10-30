@@ -61,4 +61,8 @@ export const BARREL_MANIFEST = [
     header: `Indicators (0.7.0): a stepped scale on Slider's channel, and the radar profile on the data palette.`,
     components: ['Scale', 'RadarChart'],
   },
+  {
+    header: `Language (0.7.0): one catalog for every word a component shows or speaks, English by default, Thai included.`,
+    components: ['PaneProvider'],
+  },
 ];

@@ -1,6 +1,7 @@
 import { forwardRef, type ReactNode } from 'react';
 import { cx } from '../../cx';
 import styles from './Sidebar.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface SidebarItem { href: string; label: string; icon?: ReactNode; badge?: string }
 export interface SidebarSection { title?: string; items: SidebarItem[] }
@@ -22,7 +23,9 @@ export interface SidebarProps {
 
 /** Navigation that stays beside the content on a wide screen: sections of destinations on a pane, the
  *  current one chosen glass with its label in semibold. On a phone, put the same sections in a Drawer. */
-export const Sidebar = forwardRef<HTMLElement, SidebarProps>(function Sidebar({ sections, current, header, footer, label = 'Main', className }, ref) {
+export const Sidebar = forwardRef<HTMLElement, SidebarProps>(function Sidebar({ sections, current, header, footer, label: labelIn, className }, ref) {
+  const t = useMessages();
+  const label = labelIn ?? t.main;
   return (
     <nav ref={ref} aria-label={label} data-component="Sidebar" className={cx(styles.pane, className)}>
       {header != null && <div className={styles.header}>{header}</div>}

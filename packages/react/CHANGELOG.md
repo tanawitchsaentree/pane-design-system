@@ -4,6 +4,13 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- PaneProvider: new. Sets the words and the locale for every component below it; `en` (default) and `th` ship, and a custom catalog is typed as PaneMessages. th-TH gives the Buddhist year.
+- Calendar: month names, weekdays and its button names follow PaneProvider's catalog and locale.
+- DataGrid: its checkbox names and loading line come from the catalog.
+- Pagination: Previous, Next and Page n come from the catalog.
+- OTPFlow: every line it shows or announces comes from the catalog.
+- MultiSelect: a chip's remove button no longer says Remove twice.
+- TagInput: a tag's remove button no longer says Remove twice.
 - Scale: new. A position on a short ordered scale, the slider channel cut into steps with a bead, a ring to compare with and a band between them; also as plain HTML with pane-scale.css.
 - RadarChart: new. A profile over a few axes as one 2px shape per series with a faint wash, a table view and arrow keys between axes.
 - Button: `loading` keeps the width and focus, shows a spinner, says it is busy and ignores presses.

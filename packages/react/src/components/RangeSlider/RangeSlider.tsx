@@ -3,6 +3,7 @@ import * as RSl from '@radix-ui/react-slider';
 import { cx } from '../../cx';
 import sl from '../Slider/Slider.module.css';
 import styles from './RangeSlider.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface RangeSliderProps {
   /** Visible label for the pair, such as Price; each bead is named from it, Price minimum and Price maximum. */
@@ -36,6 +37,7 @@ export const RangeSlider = forwardRef<HTMLSpanElement, RangeSliderProps>(functio
   { label, value, defaultValue, onValueChange, min = 0, max = 100, step = 1, minGap = 1, format = String, disabled, className },
   ref,
 ) {
+  const t = useMessages();
   const id = useId();
   const [inner, setInner] = useState<[number, number]>(defaultValue ?? [min, max]);
   const current = value ?? inner;
@@ -44,12 +46,12 @@ export const RangeSlider = forwardRef<HTMLSpanElement, RangeSliderProps>(functio
     <div className={cx(sl.root, className)} data-component="RangeSlider">
       <div className={sl.head}>
         <span id={`${id}-label`} className={sl.label}>{label}</span>
-        <output className={cx(sl.value, styles.pair)} aria-hidden="true">{format(current[0])}<span className={styles.to}>to</span>{format(current[1])}</output>
+        <output className={cx(sl.value, styles.pair)} aria-hidden="true">{format(current[0])}<span className={styles.to}>{t.dateRangeTo}</span>{format(current[1])}</output>
       </div>
       <RSl.Root ref={ref} className={sl.slider} value={current} onValueChange={change} min={min} max={max} step={step} minStepsBetweenThumbs={minGap} disabled={disabled}>
         <RSl.Track className={sl.track}><RSl.Range className={sl.range} data-glow="soft" /></RSl.Track>
-        <RSl.Thumb className={sl.thumb} aria-label={`${label} minimum`} aria-valuetext={format(current[0])} />
-        <RSl.Thumb className={sl.thumb} aria-label={`${label} maximum`} aria-valuetext={format(current[1])} />
+        <RSl.Thumb className={sl.thumb} aria-label={t.rangeMinimum(label)} aria-valuetext={format(current[0])} />
+        <RSl.Thumb className={sl.thumb} aria-label={t.rangeMaximum(label)} aria-valuetext={format(current[1])} />
       </RSl.Root>
     </div>
   );

@@ -4,6 +4,7 @@ import { PinInput } from '../PinInput';
 import { Button } from '../Button';
 import { Spinner } from '../Spinner';
 import styles from './OTPFlow.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface OTPFlowProps {
   /** Where the code went, already masked, such as •••• 4821 or m•••@lind.no. It is said in the first line. */
@@ -24,6 +25,7 @@ export interface OTPFlowProps {
  *  filled, the error in words when it is wrong, and a resend button that counts down. Status is said in
  *  text and announced politely, never shown by a colour alone (P6). */
 export const OTPFlow = forwardRef<HTMLDivElement, OTPFlowProps>(function OTPFlow({ destination, length = 6, onVerify, onResend, resendAfter = 30, className }, ref) {
+  const t = useMessages();
   const id = useId();
   const [code, setCode] = useState('');
   const [state, setState] = useState<'idle' | 'checking' | 'wrong' | 'right'>('idle');
@@ -35,11 +37,12 @@ export const OTPFlow = forwardRef<HTMLDivElement, OTPFlowProps>(function OTPFlow
     setState(ok ? 'right' : 'wrong');
     if (!ok) setCode('');
   };
-  const status = state === 'checking' ? 'Checking the code' : state === 'wrong' ? 'That code is not right. Check the latest message and try again.' : state === 'right' ? 'Code accepted' : '';
+  const status = state === 'checking' ? t.otpChecking : state === 'wrong' ? t.otpWrong : state === 'right' ? t.otpAccepted : '';
+  const [leadA, , leadC] = t.otpLead(length, destination);
   return (
     <div ref={ref} data-component="OTPFlow" className={cx(styles.root, className)}>
-      <p id={`${id}-to`} className={styles.lead}>Enter the {length}-digit code we sent to <span className={styles.to}>{destination}</span>.</p>
-      <PinInput aria-label="Verification code" length={length} value={code} invalid={state === 'wrong'} disabled={state === 'checking' || state === 'right'}
+      <p id={`${id}-to`} className={styles.lead}>{leadA}<span className={styles.to}>{destination}</span>{leadC}</p>
+      <PinInput aria-label={t.verificationCode} length={length} value={code} invalid={state === 'wrong'} disabled={state === 'checking' || state === 'right'}
         onValueChange={(v) => { setCode(v); if (state === 'wrong') setState('idle'); }} onComplete={verify} />
       <p className={cx(styles.status, state === 'wrong' && styles.wrong)} role="status">
         {state === 'checking' && <Spinner size="sm" aria-hidden="true" />}
@@ -48,8 +51,8 @@ export const OTPFlow = forwardRef<HTMLDivElement, OTPFlowProps>(function OTPFlow
       </p>
       {onResend && state !== 'right' && (
         <div className={styles.resend}>
-          <Button variant="glass" size="sm" disabled={wait > 0} onClick={() => { onResend(); setWait(resendAfter); setCode(''); setState('idle'); }}>Send a new code</Button>
-          {wait > 0 && <span className={styles.wait} aria-live="off">in {Math.floor(wait / 60)}:{String(wait % 60).padStart(2, '0')}</span>}
+          <Button variant="glass" size="sm" disabled={wait > 0} onClick={() => { onResend(); setWait(resendAfter); setCode(''); setState('idle'); }}>{t.otpSendNew}</Button>
+          {wait > 0 && <span className={styles.wait} aria-live="off">{t.otpIn(`${Math.floor(wait / 60)}:${String(wait % 60).padStart(2, '0')}`)}</span>}
         </div>
       )}
     </div>

@@ -5,6 +5,7 @@ import cb from '../Checkbox/Checkbox.module.css';
 import type { TableColumn, TableSort } from '../Table';
 import t from '../Table/Table.module.css';
 import styles from './DataGrid.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface DataGridProps<Row extends { id: string | number }> {
   /** Says what the grid holds; it names the grid and its scrolling region. */
@@ -50,7 +51,9 @@ const cmp = (a: unknown, b: unknown) => (typeof a === 'number' && typeof b === '
 /** Table's pane and rows as an interactive grid: one tab stop, arrow keys move between cells, Home and End
  *  go to a row's ends, Ctrl with them to the grid's corners, Space toggles a row's checkbox. A chosen row
  *  takes chosen glass and a check, so selection reads by shape (P6). Use Table when nothing is chosen. */
-export const DataGrid = forwardRef(function DataGrid<Row extends { id: string | number }>({ caption, columns, rows, selectable, selected, onSelectedChange, defaultSort, stickyFirst, maxHeight, loading, empty = 'Nothing to show yet', className }: DataGridProps<Row>, ref: React.Ref<HTMLDivElement>) {
+export const DataGrid = forwardRef(function DataGrid<Row extends { id: string | number }>({ caption, columns, rows, selectable, selected, onSelectedChange, defaultSort, stickyFirst, maxHeight, loading, empty: emptyIn, className }: DataGridProps<Row>, ref: React.Ref<HTMLDivElement>) {
+  const m = useMessages();
+  const empty = emptyIn ?? m.nothingToShow;
   const [sort, setSort] = useState<TableSort | undefined>(defaultSort);
   const [inner, setInner] = useState<(string | number)[]>([]);
   const chosen = selected ?? inner;
@@ -93,7 +96,7 @@ export const DataGrid = forwardRef(function DataGrid<Row extends { id: string | 
       <table ref={grid} role="grid" aria-label={caption} aria-rowcount={shown.length + 1} aria-multiselectable={selectable || undefined} className={t.table} onKeyDown={key}>
         <thead>
           <tr role="row" aria-rowindex={1}>
-            {selectable && <th scope="col" role="columnheader" data-cell="0-0" className={cx(t.th, styles.check)} onFocus={() => setPos([0, 0])}><Check label={all ? 'Clear all rows' : 'Choose all rows'} tabIndex={tab(0, 0)} checked={all ? true : some ? 'indeterminate' : false} onChange={() => setChosen(all ? [] : shown.map((r) => r.id))} /></th>}
+            {selectable && <th scope="col" role="columnheader" data-cell="0-0" className={cx(t.th, styles.check)} onFocus={() => setPos([0, 0])}><Check label={all ? m.clearAllRows : m.chooseAllRows} tabIndex={tab(0, 0)} checked={all ? true : some ? 'indeterminate' : false} onChange={() => setChosen(all ? [] : shown.map((r) => r.id))} /></th>}
             {columns.map((c, i) => head(c, i + (selectable ? 1 : 0)))}
           </tr>
         </thead>
@@ -103,7 +106,7 @@ export const DataGrid = forwardRef(function DataGrid<Row extends { id: string | 
             const r = ri + 1; const on = chosen.includes(row.id);
             return (
               <tr key={row.id} role="row" aria-rowindex={r + 1} aria-selected={selectable ? on : undefined} className={cx(t.tr, on && styles.chosen)}>
-                {selectable && <td role="gridcell" data-cell={`${r}-0`} className={cx(t.td, styles.check)} onFocus={() => setPos([r, 0])}><Check label={`Choose ${String((row as Record<string, unknown>)[columns[0].key] ?? `row ${r}`)}`} tabIndex={tab(r, 0)} checked={on} onChange={() => toggle(row.id)} /></td>}
+                {selectable && <td role="gridcell" data-cell={`${r}-0`} className={cx(t.td, styles.check)} onFocus={() => setPos([r, 0])}><Check label={m.chooseItem(String((row as Record<string, unknown>)[columns[0].key] ?? m.row(r)))} tabIndex={tab(r, 0)} checked={on} onChange={() => toggle(row.id)} /></td>}
                 {columns.map((c, ci) => {
                   const i = ci + (selectable ? 1 : 0);
                   return <td key={c.key} role="gridcell" data-cell={`${r}-${i}`} tabIndex={tab(r, i)} onFocus={() => setPos([r, i])} onKeyDown={(e) => { if (e.key === ' ' && selectable) { e.preventDefault(); toggle(row.id); } }}
@@ -114,7 +117,7 @@ export const DataGrid = forwardRef(function DataGrid<Row extends { id: string | 
           })}
         </tbody>
       </table>
-      {loading && <div className={styles.loading} role="status">Loading rows</div>}
+      {loading && <div className={styles.loading} role="status">{m.loadingRows}</div>}
     </div>
   );
 }) as <Row extends { id: string | number }>(p: DataGridProps<Row> & {

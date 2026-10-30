@@ -32,6 +32,7 @@ import { EXTRAS } from './foundation-extras';
 import { AccessibilityFoundation, ContentFoundation, Contributing, Designing, Developing, Migrating } from './guides';
 import { PatternDepthPage } from '../patterns/PatternDepth';
 import { StatesPage } from './states';
+import { Language } from './language';
 import { SCENES } from '../scenes';
 import { PARTS } from './router';
 import meta from './meta.json';
@@ -968,6 +969,7 @@ function ChangelogPage() {
 const BASE_PAGES: Record<string, () => ReactElement> = {
   '/': Overview,
   '/getting-started': GettingStarted,
+  '/getting-started/language': Language,
   '/getting-started/designing': Designing,
   '/getting-started/developing': Developing,
   '/getting-started/contributing': Contributing,

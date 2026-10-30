@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-30T06:51:52.958Z",
-  "passed": 420,
-  "total": 420,
+  "generatedAt": "2026-10-30T07:37:04.762Z",
+  "passed": 423,
+  "total": 423,
   "checks": [
     {
       "component": "Container",
@@ -1442,7 +1442,7 @@
       "component": "IconButton",
       "name": "every button with no visible text, on every page of the book, has an accessible name",
       "ok": true,
-      "detail": "495 pages"
+      "detail": "496 pages"
     },
     {
       "component": "Tabs",
@@ -1471,7 +1471,7 @@
     },
     {
       "component": "Docs page",
-      "name": "G-D3, no literal backtick in rendered text on any of the 495 pages",
+      "name": "G-D3, no literal backtick in rendered text on any of the 496 pages",
       "ok": true
     },
     {
@@ -2342,6 +2342,21 @@
     {
       "component": "RadarChart",
       "name": "arrow keys walk the axes and read every series there",
+      "ok": true
+    },
+    {
+      "component": "PaneProvider",
+      "name": "under the Thai catalog the components speak Thai",
+      "ok": true
+    },
+    {
+      "component": "PaneProvider",
+      "name": "th-TH writes the month in Thai and the year in the Buddhist era",
+      "ok": true
+    },
+    {
+      "component": "PaneProvider",
+      "name": "without a provider the components speak English, as before",
       "ok": true
     }
   ]

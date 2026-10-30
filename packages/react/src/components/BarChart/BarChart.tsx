@@ -2,6 +2,7 @@ import { forwardRef, useState, type KeyboardEvent } from 'react';
 import { ChartFrame, Tip, compact, seriesVar, ticks, useWidth, type ChartSeries } from '../../chart/core';
 import c from '../../chart/Chart.module.css';
 import styles from './BarChart.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface BarChartProps {
   /** The chart's title; it names the figure and the plot. */
@@ -30,6 +31,7 @@ const BAR_MAX = 24, GAP = 2, RADIUS = 4, AXIS = 36, PAD = 8, ROW = 32;
  *  bars, recessive hairline grid and a value at the tip of a single series. One tab stop: arrow keys
  *  walk the categories and the tooltip lists every series at the one in focus. */
 export const BarChart = forwardRef<HTMLElement, BarChartProps>(function BarChart({ label, description, categories, series, layout = 'column', stacked, format = compact, blockSize: plot = 240, className }, _ref) {
+  const t = useMessages();
   const [box, width] = useWidth<HTMLDivElement>();
   const [at, setAt] = useState<number | null>(null);
   const sums = categories.map((_, i) => series.reduce((s, x) => s + Math.max(0, x.values[i] ?? 0), 0));
@@ -77,7 +79,7 @@ export const BarChart = forwardRef<HTMLElement, BarChartProps>(function BarChart
   return (
     <ChartFrame component="BarChart" label={label} description={description} className={className} series={series.map((s) => ({ name: s.name, kind: 'bar' }))}
       table={{ head: ['', ...series.map((s) => s.name)], rows: categories.map((cat, i) => [cat, ...series.map((s) => format(s.values[i] ?? 0))]) }}>
-      <div ref={box} className={c.plot} tabIndex={0} role="group" aria-roledescription="chart" aria-label={`${label}. ${categories.length} categories. Use the arrow keys to read each one, or show the table.`}
+      <div ref={box} className={c.plot} tabIndex={0} role="group" aria-roledescription={t.chart} aria-label={t.barSummary(label, categories.length)}
         onKeyDown={key} onBlur={() => setAt(null)} onPointerLeave={() => setAt(null)}>
         {width > 0 && (
           <svg className={c.svg} width={width} height={col ? H + 20 : H} aria-hidden="true">

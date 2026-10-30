@@ -1,6 +1,7 @@
 import { forwardRef, useEffect, useId, useRef, type FormEvent, type FormHTMLAttributes, type ReactNode } from 'react';
 import { cx } from '../../cx';
 import styles from './Form.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface FormError {
   /** The id of the field that is wrong; the summary links to it and moves focus there. */
@@ -25,7 +26,9 @@ export interface FormProps extends Omit<FormHTMLAttributes<HTMLFormElement>, 'on
 /** A form that lays out its fields in one column with even rhythm, keeps its buttons together at the end,
  *  and on a failed submit puts an error summary at the top that takes focus and links to each field
  *  (GOV.UK error summary). The errors are said in words with the critical mark, never only in red (P6). */
-export const Form = forwardRef<HTMLFormElement, FormProps>(function Form({ onSubmit, errors = [], errorTitle = 'There is a problem', actions, children, className, noValidate = true, ...rest }, ref) {
+export const Form = forwardRef<HTMLFormElement, FormProps>(function Form({ onSubmit, errors = [], errorTitle: errorTitleIn, actions, children, className, noValidate = true, ...rest }, ref) {
+  const t = useMessages();
+  const errorTitle = errorTitleIn ?? t.thereIsAProblem;
   const summary = useRef<HTMLDivElement>(null);
   const id = useId();
   const count = errors.length;

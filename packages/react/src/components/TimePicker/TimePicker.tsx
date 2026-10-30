@@ -1,5 +1,6 @@
 import { forwardRef, useMemo } from 'react';
 import { Select } from '../Select';
+import { useMessages, useLocale } from '../../i18n/context';
 
 export interface TimePickerProps {
   /** Visible label, also the field's accessible name, such as Pick-up time. */
@@ -38,7 +39,10 @@ const hhmm = (n: number) => `${String(Math.floor(n / 60)).padStart(2, '0')}:${St
 /** A time chosen from a list at a fixed step, in Select's groove and sheet: typing the first digits jumps
  *  to them and the times read in the reader's own clock. A list beats a free field for appointments and
  *  pick-ups, where only some times exist; it is Select underneath, so it has no look of its own. */
-export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(function TimePicker({ step = 15, min = '00:00', max = '23:59', locale, placeholder = 'Choose a time', ...rest }, ref) {
+export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(function TimePicker({ step = 15, min = '00:00', max = '23:59', locale: localeIn, placeholder: placeholderIn, ...rest }, ref) {
+  const t = useMessages();
+  const placeholder = placeholderIn ?? t.chooseTime;
+  const locale = localeIn ?? useLocale();
   const options = useMemo(() => {
     const fmt = new Intl.DateTimeFormat(locale, { hour: 'numeric', minute: '2-digit' });
     const out: { value: string; label: string }[] = [];

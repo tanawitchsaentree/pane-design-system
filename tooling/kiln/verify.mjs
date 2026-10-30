@@ -58,6 +58,7 @@ const STEPS = [
   ['barrel', ['node', 'tooling/generate-barrel.mjs', '--check'], { quick: true }],
   ['token-contract', ['node', 'tooling/kiln/token-contract.mjs'], { needs: ['tokens'], quick: true }],
   ['rationale', ['node', 'tooling/kiln/rationale.mjs'], { needs: ['tokens'], quick: true }],
+  ['i18n', ['node', 'tooling/kiln/i18n-lint.mjs'], { quick: true }],
   ['meta', ['node', 'tooling/kiln/meta.mjs'], { quick: true }],
   ['build', ['sh', '-c', `pnpm --filter ${REACT} build && pnpm --filter ${DOCS} build`], { needs: ['tokens', 'meta'], quick: true }],
   // the book typechecks against the built package's types, so it runs after the build (a fresh clone has no dist yet)

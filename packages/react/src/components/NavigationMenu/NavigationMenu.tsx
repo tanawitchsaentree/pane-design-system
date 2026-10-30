@@ -1,6 +1,7 @@
 import { forwardRef, useEffect, useRef, useState } from 'react';
 import { cx } from '../../cx';
 import styles from './NavigationMenu.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface NavigationLink { href: string; label: string; description?: string }
 export interface NavigationGroup { label: string; href?: string; links?: NavigationLink[] }
@@ -17,7 +18,9 @@ export interface NavigationMenuProps {
 /** A website's main navigation with panels: top-level buttons that open a level-4 panel of links with a
  *  line of description each (the disclosure pattern, not a menu, so links stay links). Esc closes the
  *  panel and returns focus; a press outside closes it. */
-export const NavigationMenu = forwardRef<HTMLElement, NavigationMenuProps>(function NavigationMenu({ items, label = 'Main', className }, ref) {
+export const NavigationMenu = forwardRef<HTMLElement, NavigationMenuProps>(function NavigationMenu({ items, label: labelIn, className }, ref) {
+  const t = useMessages();
+  const label = labelIn ?? t.main;
   const [open, setOpen] = useState<number | null>(null);
   const root = useRef<HTMLElement | null>(null);
   const triggers = useRef<Array<HTMLButtonElement | null>>([]);

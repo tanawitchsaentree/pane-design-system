@@ -1,6 +1,7 @@
 import { forwardRef, useId, type ReactNode } from 'react';
 import { cx } from '../../cx';
 import styles from './AppShell.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface AppShellProps {
   /** The top bar, usually a Navbar; it stays at the top. */
@@ -24,10 +25,11 @@ export interface AppShellProps {
  *  works inside a docs stage as well as a whole window, and it adds a skip link to the main content. */
 export const AppShell = forwardRef<HTMLDivElement, AppShellProps>(function AppShell({ header, sidebar, bottomNav, aside, children, label, className }, ref) {
   const id = useId();
+  const t = useMessages();
   return (
     <div ref={ref} data-component="AppShell" className={cx(styles.root, className)}>
       <div className={cx(styles.grid, !!sidebar && styles.hasSide, !!aside && styles.hasAside, !!bottomNav && styles.hasBottom)}>
-        <a href={`#${id}`} className={styles.skip}>Skip to content</a>
+        <a href={`#${id}`} className={styles.skip}>{t.skipToContent}</a>
         {header && <div className={styles.header}>{header}</div>}
         {sidebar && <div className={styles.side}>{sidebar}</div>}
         <main id={id} tabIndex={-1} aria-label={label} className={styles.main}>{children}</main>

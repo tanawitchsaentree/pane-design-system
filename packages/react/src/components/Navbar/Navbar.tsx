@@ -1,6 +1,7 @@
 import { forwardRef, type ReactNode } from 'react';
 import { cx } from '../../cx';
 import styles from './Navbar.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface NavbarLink { href: string; label: string }
 
@@ -23,7 +24,9 @@ export interface NavbarProps {
 
 /** The bar across the top of a page: the brand at the start, the main destinations, and actions at the end,
  *  on a strip of glass that keeps the page readable under it when it sticks. */
-export const Navbar = forwardRef<HTMLElement, NavbarProps>(function Navbar({ brand, links = [], current, actions, sticky = true, label = 'Main', className }, ref) {
+export const Navbar = forwardRef<HTMLElement, NavbarProps>(function Navbar({ brand, links = [], current, actions, sticky = true, label: labelIn, className }, ref) {
+  const t = useMessages();
+  const label = labelIn ?? t.main;
   return (
     <header ref={ref} data-component="Navbar" className={cx(styles.bar, sticky && styles.sticky, className)}>
       <div className={styles.brand}>{brand}</div>

@@ -2,6 +2,7 @@ import { useRef, useState, type ClipboardEvent, type KeyboardEvent } from 'react
 import { cx } from '../../cx';
 import { useField } from '../FormField';
 import styles from './PinInput.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface PinInputProps {
   /** Number of cells, usually 4 or 6. */
@@ -32,6 +33,7 @@ export interface PinInputProps {
 
 /** A short code in separate cells, each a small well. Typing moves on, Backspace moves back, paste fills every cell. */
 export function PinInput({ length = 6, value, defaultValue = '', onValueChange, onComplete, type = 'numeric', invalid, disabled, readOnly, name, className, ...rest }: PinInputProps) {
+  const t = useMessages();
   const field = useField();
   const [inner, setInner] = useState(defaultValue.slice(0, length));
   const code = (value ?? inner).slice(0, length);
@@ -74,7 +76,7 @@ export function PinInput({ length = 6, value, defaultValue = '', onValueChange, 
           inputMode={type === 'numeric' ? 'numeric' : 'text'}
           autoComplete={i === 0 ? 'one-time-code' : 'off'}
           maxLength={1}
-          aria-label={`Character ${i + 1} of ${length}`}
+          aria-label={t.pinCharacter(i + 1, length)}
           aria-invalid={bad || undefined}
           disabled={disabled ?? field?.disabled} readOnly={readOnly} required={field?.required}
           onChange={(e) => {

@@ -53,7 +53,7 @@ export const TagInput = forwardRef<HTMLDivElement, TagInputProps>(function TagIn
     <div ref={ref} data-component="TagInput" data-off={off || undefined} className={cx(styles.root, className)}>
       {!field && <label htmlFor={`${id}-in`} className={styles.label}>{label}</label>}
       <div className={styles.field}>
-        {tags.map((t) => <Chip key={t} onRemove={fixed ? undefined : () => set(tags.filter((x) => x !== t))} removeLabel={`Remove ${t}`}>{t}</Chip>)}
+        {tags.map((t) => <Chip key={t} onRemove={fixed ? undefined : () => set(tags.filter((x) => x !== t))} removeLabel={t}>{t}</Chip>)}
         <input id={field?.id ?? `${id}-in`} className={styles.input} value={text} placeholder={tags.length ? undefined : placeholder} disabled={full || off} readOnly={readOnly} required={required ?? field?.required} aria-invalid={bad || undefined} aria-describedby={[field?.describedBy, hint ? `${id}-h` : undefined].filter(Boolean).join(' ') || undefined}
           onChange={(e) => { if (e.target.value.endsWith(',')) add(e.target.value); else setText(e.target.value); }}
           onPaste={(e) => { const t = e.clipboardData.getData('text'); if (t.includes(',')) { e.preventDefault(); add(text + t); } }}

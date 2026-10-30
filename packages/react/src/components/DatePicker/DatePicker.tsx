@@ -7,6 +7,7 @@ import type { DateRange } from '../Calendar/dates';
 import { useField } from '../FormField';
 import sel from '../Select/Select.module.css';
 import styles from './DatePicker.module.css';
+import { useMessages, useLocale } from '../../i18n/context';
 
 interface Base {
   /** Shown in the field when nothing is chosen, such as Choose a date. */
@@ -58,7 +59,9 @@ export type DatePickerProps = DatePickerSingleProps | DatePickerRangeProps;
  *  words; choosing closes the calendar and puts focus back on the field. In range mode it is a stay: the
  *  first press is the start, the second the end. */
 export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(function DatePicker(props, ref) {
-  const { placeholder = 'Choose a date', min, max, isUnavailable, locale, weekStartsOn, disabled, readOnly, invalid, className } = props;
+  const t = useMessages();
+  const { placeholder = t.chooseDate, min, max, isUnavailable, weekStartsOn, disabled, readOnly, invalid, className } = props;
+  const locale = props.locale ?? useLocale();
   const field = useField();
   const range = props.mode === 'range';
   const [open, setOpen] = useState(false);
@@ -67,8 +70,8 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
   const v1 = !range ? ((props as DatePickerSingleProps).value !== undefined ? (props as DatePickerSingleProps).value ?? null : single) : null;
   const v2 = range ? (props as DatePickerRangeProps).value ?? span : null;
   const fmt = new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'short', year: 'numeric' });
-  const text = !range ? (v1 ? fmt.format(v1) : '') : v2?.start ? `${fmt.format(v2.start)} to ${v2.end ? fmt.format(v2.end) : '…'}` : '';
-  const shared = { min, max, isUnavailable, locale, weekStartsOn, label: props['aria-label'] ?? 'Date' };
+  const text = !range ? (v1 ? fmt.format(v1) : '') : v2?.start ? `${fmt.format(v2.start)} ${t.dateRangeTo} ${v2.end ? fmt.format(v2.end) : '…'}` : '';
+  const shared = { min, max, isUnavailable, locale, weekStartsOn, label: props['aria-label'] ?? t.date };
   return (
     <RP.Root open={open && !readOnly} onOpenChange={(o) => { if (!readOnly) setOpen(o); }}>
       <RP.Trigger asChild>

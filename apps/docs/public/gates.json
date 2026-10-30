@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T06:32:23.772Z",
+  "generatedAt": "2026-10-30T07:21:23.786Z",
   "passed": 51,
   "total": 51,
   "partial": false,
@@ -9,14 +9,14 @@
       "id": "G-P0",
       "name": "every page renders: a <main>, a heading and no uncaught error",
       "ok": true,
-      "detail": "14 pages",
+      "detail": "26 pages",
       "order": 0
     },
     {
       "id": "G-D3",
       "name": "no literal backtick in rendered text",
       "ok": true,
-      "detail": "14 pages",
+      "detail": "26 pages",
       "order": 1
     },
     {
@@ -78,13 +78,15 @@
       "id": "G-C1",
       "name": "every code block has a Copy button you can see",
       "ok": true,
-      "detail": "40 code blocks",
+      "detail": "72 code blocks",
       "order": 11
     },
     {
       "id": "G-C2",
       "name": "Copy puts the whole snippet on the clipboard, including hidden lines",
       "ok": true,
+      "skipped": true,
+      "detail": "skipped: nothing it checks is in the limited routes",
       "order": 12
     },
     {
@@ -141,7 +143,7 @@
       "id": "G-K6",
       "name": "usage depth ≥ 0.5 × the Carbon page for the same component (words and sections)",
       "ok": true,
-      "detail": "Scale 759w/28s (no benchmark) · RadarChart 472w/28s (no benchmark)",
+      "detail": "MultiSelect 367w/27s (no benchmark) · Pagination 857/1654w 28/30s · OTPFlow 454w/28s (no benchmark) · Calendar 540w/41s (no benchmark) · DataGrid 1269/2507w 29/34s · RichTextEditor 375w/28s (no benchmark)",
       "order": 21
     },
     {
@@ -221,29 +223,28 @@
       "id": "G-TODO1",
       "name": "no starter placeholder is left on any page: no TODO( and no seed reason",
       "ok": true,
-      "detail": "14 pages clean",
+      "detail": "26 pages clean",
       "order": 33
     },
     {
       "id": "G-PUB1",
       "name": "an install command names only what can be installed: no bare registry install of an unpublished package",
       "ok": true,
-      "detail": "14 pages, 2 unpublished packages never shown as a registry install",
+      "detail": "26 pages, 2 unpublished packages never shown as a registry install",
       "order": 34
     },
     {
       "id": "G-CL1",
       "name": "every colour value written in the book is a current token value (no stale hex in prose)",
       "ok": true,
-      "detail": "10 values checked",
+      "detail": "33 values checked",
       "order": 35
     },
     {
       "id": "G-NT2",
       "name": "every form control shows its boundary at least 3:1 against what it sits on, in every theme (WCAG 1.4.11)",
       "ok": true,
-      "skipped": true,
-      "detail": "skipped: nothing it checks is in the limited routes",
+      "detail": "72 controls in 2 themes",
       "order": 36
     },
     {
@@ -281,7 +282,7 @@
       "id": "G-S6",
       "name": "nothing in the page column spills out of it: no element crosses into the rail or the margin beside main (folds open)",
       "ok": true,
-      "detail": "14 pages",
+      "detail": "26 pages",
       "order": 41
     },
     {
@@ -295,7 +296,7 @@
       "id": "G-IN1",
       "name": "text inside a control keeps its inset from the control's edge: at least 8px, and half the corner radius on a rounded end",
       "ok": true,
-      "detail": "8 lines of text in controls",
+      "detail": "13 lines of text in controls",
       "order": 43
     },
     {
@@ -309,14 +310,14 @@
       "id": "G-RH1",
       "name": "separate steps stand apart: a demo stage and a tab bar sit at least 24px from the blocks around them; a stage's own code, caption or heading may sit 8px off and its intro 16px",
       "ok": true,
-      "detail": "112 gaps",
+      "detail": "336 gaps",
       "order": 45
     },
     {
       "id": "G-NAV1",
       "name": "every page in routes.json is reachable from the book nav at 375 and 1280px",
       "ok": true,
-      "detail": "156 pages",
+      "detail": "157 pages",
       "order": 46
     },
     {
@@ -330,7 +331,7 @@
       "id": "G-TT1",
       "name": "every control in a live example and in the shell gives a pointer at least 44px each way",
       "ok": true,
-      "detail": "147 controls",
+      "detail": "1672 controls",
       "order": 48
     },
     {

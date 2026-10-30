@@ -1,6 +1,7 @@
 import { forwardRef, type HTMLAttributes } from 'react';
 import { cx } from '../../cx';
 import styles from './Scale.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface ScaleProps extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
   /** What is rated, such as Speed. It is shown at the start of the row and starts the spoken text. */
@@ -27,14 +28,16 @@ const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v
  *  how long a game runs. Steps up to the value are lit; a hollow ring marks a value to compare with, and the
  *  band between them takes the positive or critical mark and an arrow, so better or worse reads by shape and
  *  words as well as colour (P6). It shows a value and takes no input; for choosing one, use Slider or Rating. */
-export const Scale = forwardRef<HTMLDivElement, ScaleProps>(function Scale({ label, value, steps = 5, words, compare, compareLabel = 'the comparison', higherIsBetter = true, bare, className, ...rest }, ref) {
+export const Scale = forwardRef<HTMLDivElement, ScaleProps>(function Scale({ label, value, steps = 5, words, compare, compareLabel: compareLabelIn, higherIsBetter = true, bare, className, ...rest }, ref) {
+  const t = useMessages();
+  const compareLabel = compareLabelIn ?? t.compareDefault;
   const v = clamp(value, 1, steps);
   const at = (x: number) => ((clamp(x, 1, steps) - 1) / Math.max(1, steps - 1)) * 100;
   const word = words?.[Math.round(v) - 1];
   const hasCmp = typeof compare === 'number';
   const up = hasCmp && v > compare!; const down = hasCmp && v < compare!;
   const good = hasCmp && (up === higherIsBetter) && v !== compare;
-  const said = `${label}: ${word ? `${word}, ` : ''}${Math.round(v * 10) / 10} of ${steps}` + (hasCmp ? `, ${up ? 'above' : down ? 'below' : 'level with'} ${compareLabel}` : '');
+  const said = `${label}: ${word ? `${word}, ` : ''}${t.of(Math.round(v * 10) / 10, steps)}` + (hasCmp ? `, ${up ? t.above : down ? t.below : t.levelWith} ${compareLabel}` : '');
   return (
     <div ref={ref} data-component="Scale" role="img" aria-label={said} className={cx(styles.root, bare && styles.bare, className)} {...rest}>
       {!bare && <span className={styles.label} aria-hidden="true">{label}</span>}

@@ -35,7 +35,7 @@
     "react-dom": ">=18"
   },
   "scripts": {
-    "build": "vite build && tsc -p tsconfig.build.json && node ../../tooling/bundle-tokens.mjs",
+    "build": "(test ! -f ../../tooling/kiln/i18n-lint.mjs || node ../../tooling/kiln/i18n-lint.mjs) && vite build && tsc -p tsconfig.build.json && node ../../tooling/bundle-tokens.mjs",
     "typecheck": "tsc --noEmit -p .",
     "barrel:check": "node ../../tooling/generate-barrel.mjs --check",
     "prepack": "pnpm run build"

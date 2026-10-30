@@ -6,6 +6,7 @@ import { Input } from '../Input';
 import { PasswordInput } from '../PasswordInput';
 import { Button } from '../Button';
 import styles from './AuthForm.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface AuthValues { email: string; password?: string; name?: string }
 
@@ -34,17 +35,12 @@ export interface AuthFormProps {
   className?: string;
 }
 
-const TEXT = {
-  'sign-in': { title: 'Sign in', button: 'Sign in', pending: 'Signing in', switch: 'New here?', switchAction: 'Create an account' },
-  'sign-up': { title: 'Create an account', button: 'Create account', pending: 'Creating your account', switch: 'Already have an account?', switchAction: 'Sign in' },
-  reset: { title: 'Reset your password', button: 'Send reset link', pending: 'Sending', switch: 'Remembered it?', switchAction: 'Sign in' },
-} as const;
 
 /** Sign in, sign up and reset, built from Form, FormField, Input and PasswordInput with the autocomplete
  *  names password managers need. Errors go to Form's summary and under each field; the one loud button
  *  is the submit, and other ways in sit under a divider so they never compete with it (P5). */
 export const AuthForm = forwardRef<HTMLFormElement, AuthFormProps>(function AuthForm({ mode = 'sign-in', onSubmit, errors = {}, pending, title, description, passwordHint, onForgot, onSwitch, providers, className }, ref) {
-  const id = useId(); const t = TEXT[mode];
+  const id = useId(); const msg = useMessages(); const t = msg.auth[mode];
   const list: FormError[] = (['name', 'email', 'password'] as const).filter((k) => errors[k]).map((k) => ({ field: `${id}-${k}`, message: errors[k]! }));
   return (
     <div data-component="AuthForm" className={cx(styles.root, className)}>
@@ -54,16 +50,16 @@ export const AuthForm = forwardRef<HTMLFormElement, AuthFormProps>(function Auth
       </div>
       <Form ref={ref} errors={list} onSubmit={(fd) => onSubmit({ email: String(fd.get('email') ?? ''), password: fd.get('password') != null ? String(fd.get('password')) : undefined, name: fd.get('name') != null ? String(fd.get('name')) : undefined })}
         actions={<Button type="submit" variant="light" disabled={pending} className={styles.submit}>{pending ? t.pending : t.button}</Button>}>
-        {mode === 'sign-up' && <FormField id={`${id}-name`} label="Name" error={errors.name}><Input name="name" autoComplete="name" /></FormField>}
-        <FormField id={`${id}-email`} label="Email" error={errors.email}><Input name="email" type="email" autoComplete={mode === 'sign-up' ? 'email' : 'username'} inputMode="email" spellCheck={false} /></FormField>
+        {mode === 'sign-up' && <FormField id={`${id}-name`} label={msg.name} error={errors.name}><Input name="name" autoComplete="name" /></FormField>}
+        <FormField id={`${id}-email`} label={msg.email} error={errors.email}><Input name="email" type="email" autoComplete={mode === 'sign-up' ? 'email' : 'username'} inputMode="email" spellCheck={false} /></FormField>
         {mode !== 'reset' && (
-          <FormField id={`${id}-password`} label="Password" error={errors.password} help={mode === 'sign-up' ? passwordHint : undefined}>
+          <FormField id={`${id}-password`} label={msg.password} error={errors.password} help={mode === 'sign-up' ? passwordHint : undefined}>
             <PasswordInput name="password" autoComplete={mode === 'sign-up' ? 'new-password' : 'current-password'} />
           </FormField>
         )}
-        {mode === 'sign-in' && onForgot && <button type="button" className={styles.link} onClick={onForgot}>Forgot your password?</button>}
+        {mode === 'sign-in' && onForgot && <button type="button" className={styles.link} onClick={onForgot}>{msg.forgotPassword}</button>}
       </Form>
-      {providers && <><div className={styles.or} role="separator"><span>or</span></div><div className={styles.providers}>{providers}</div></>}
+      {providers && <><div className={styles.or} role="separator"><span>{msg.or}</span></div><div className={styles.providers}>{providers}</div></>}
       {onSwitch && <p className={styles.switch}>{t.switch} <button type="button" className={styles.link} onClick={onSwitch}>{t.switchAction}</button></p>}
     </div>
   );

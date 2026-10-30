@@ -2,6 +2,7 @@ import { forwardRef, useState, type KeyboardEvent, type PointerEvent } from 'rea
 import { ChartFrame, Tip, compact, seriesVar, ticks, useWidth, type ChartSeries } from '../../chart/core';
 import c from '../../chart/Chart.module.css';
 import styles from './LineChart.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface LineChartProps {
   /** The chart's title; it names the figure and the plot. */
@@ -30,6 +31,7 @@ const AXIS = 36, PAD = 12, END = 72;
  *  direct label at the end of each line (up to four). A crosshair finds the nearest point under the
  *  pointer, arrow keys walk the points, and the tooltip lists every series there. */
 export const LineChart = forwardRef<HTMLElement, LineChartProps>(function LineChart({ label, description, points, series, area, format = compact, labelEvery, blockSize: plot = 240, className }, _ref) {
+  const t = useMessages();
   const [box, width] = useWidth<HTMLDivElement>();
   const [at, setAt] = useState<number | null>(null);
   const all = series.flatMap((s) => s.values);
@@ -54,7 +56,7 @@ export const LineChart = forwardRef<HTMLElement, LineChartProps>(function LineCh
   return (
     <ChartFrame component="LineChart" label={label} description={description} className={className} series={series.map((s) => ({ name: s.name, kind: 'line' }))}
       table={{ head: ['', ...series.map((s) => s.name)], rows: points.map((p, i) => [p, ...series.map((s) => format(s.values[i] ?? 0))]) }}>
-      <div ref={box} className={c.plot} tabIndex={0} role="group" aria-roledescription="chart" aria-label={`${label}. ${points.length} points from ${points[0]} to ${points[points.length - 1]}. Use the arrow keys to read each point, or show the table.`}
+      <div ref={box} className={c.plot} tabIndex={0} role="group" aria-roledescription={t.chart} aria-label={t.lineSummary(label, points.length, points[0], points[points.length - 1])}
         onKeyDown={key} onBlur={() => setAt(null)} onPointerMove={near} onPointerLeave={() => setAt(null)}>
         {width > 0 && (
           <svg className={c.svg} width={width} height={plot + 20} aria-hidden="true">

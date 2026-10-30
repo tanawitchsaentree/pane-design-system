@@ -1,6 +1,7 @@
 import { forwardRef, useState, type HTMLAttributes, type ReactNode } from 'react';
 import { cx } from '../../cx';
 import styles from './Banner.module.css';
+import { useMessages } from '../../i18n/context';
 
 // A banner is a line written on the pane, not a box placed in it (Banner.why.json, derivation C).
 // No fill, no stripe, no tinted disc: one sheet of glass stays one layer, the tone is a glyph shape,
@@ -33,13 +34,14 @@ const GLYPHS: Record<BannerTone, ReactNode> = {
   warning: <><path d="M12 4.2l8.6 15H3.4z" /><path d="M12 10v4M12 16.8v.01" /></>,
   critical: <><path d="M8.6 3.8h6.8l4.8 4.8v6.8l-4.8 4.8H8.6l-4.8-4.8V8.6z" /><path d="M12 8v5M12 16v.01" /></>,
 };
-const TONE_LABEL: Record<BannerTone, string> = { info: 'Info', positive: 'Success', warning: 'Warning', critical: 'Error' };
 
 /** A message about the pane it sits on: a glyph, a title, optional detail and action, written as a line on the glass. */
 export const Banner = forwardRef<HTMLElement, BannerProps>(function Banner(
   { tone = 'info', title, children, action, onDismiss, live, className, ...rest },
   ref,
 ) {
+  const t = useMessages();
+  const toneLabel = { info: t.info, positive: t.success, warning: t.warning, critical: t.errorTone }[tone];
   const [leaving, setLeaving] = useState(false);
   const role = live === 'assertive' ? 'alert' : live === 'polite' ? 'status' : undefined;
   const reduced = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -50,21 +52,21 @@ export const Banner = forwardRef<HTMLElement, BannerProps>(function Banner(
       data-component="Banner"
       className={cx(styles.root, styles[tone], leaving && styles.leaving, className)}
       role={role}
-      aria-label={role ? undefined : TONE_LABEL[tone]}
+      aria-label={role ? undefined : toneLabel}
       onAnimationEnd={(e) => { if (leaving && e.target === e.currentTarget) onDismiss?.(); }}
       {...rest}
     >
       <div className={styles.line}>
         <svg className={styles.glyph} viewBox="0 0 24 24" aria-hidden="true">{GLYPHS[tone]}</svg>
         <div className={styles.text}>
-          <p className={styles.title}><span className={styles.sr}>{TONE_LABEL[tone]}: </span>{title}</p>
+          <p className={styles.title}><span className={styles.sr}>{toneLabel}: </span>{title}</p>
           {children != null && <div className={styles.detail}>{children}</div>}
         </div>
         {(action != null || onDismiss) && (
           <div className={styles.end}>
             {action}
             {onDismiss && (
-              <button type="button" className={styles.dismiss} aria-label="Dismiss" onClick={dismiss}>
+              <button type="button" className={styles.dismiss} aria-label={t.dismiss} onClick={dismiss}>
                 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" /></svg>
               </button>
             )}

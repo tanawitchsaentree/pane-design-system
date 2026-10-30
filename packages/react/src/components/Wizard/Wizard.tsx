@@ -3,6 +3,7 @@ import { cx } from '../../cx';
 import { Stepper } from '../Stepper';
 import { Button } from '../Button';
 import styles from './Wizard.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface WizardStep {
   /** The step's name, shown in the Stepper and as the heading of its panel. */
@@ -33,7 +34,9 @@ export interface WizardProps {
 /** A task in steps: Stepper on top, one step's panel at a time under a heading that takes focus as it
  *  changes, and Back and Next at the end with the loud one always last. A step can check itself before
  *  the reader moves on; going back never loses what was typed. */
-export const Wizard = forwardRef<HTMLDivElement, WizardProps>(function Wizard({ label, steps, onFinish, finishLabel = 'Finish', onCancel, className }, ref) {
+export const Wizard = forwardRef<HTMLDivElement, WizardProps>(function Wizard({ label, steps, onFinish, finishLabel: finishLabelIn, onCancel, className }, ref) {
+  const t = useMessages();
+  const finishLabel = finishLabelIn ?? t.finish;
   const [at, setAt] = useState(0);
   const [busy, setBusy] = useState(false);
   const head = useRef<HTMLHeadingElement>(null);
@@ -48,18 +51,18 @@ export const Wizard = forwardRef<HTMLDivElement, WizardProps>(function Wizard({ 
   };
   return (
     <section ref={ref} data-component="Wizard" aria-label={label} className={cx(styles.root, className)}>
-      <Stepper steps={steps.map(({ label: l, description }) => ({ label: l, description }))} current={at} label={`${label}, steps`} />
+      <Stepper steps={steps.map(({ label: l, description }) => ({ label: l, description }))} current={at} label={t.steps(label)} />
       {/* every panel stays in the page so what was typed in it survives going back */}
       {steps.map((s, i) => (
         <div key={s.label} className={styles.panel} hidden={i !== at}>
-          <h2 ref={i === at ? head : undefined} tabIndex={-1} className={styles.title}>{s.label}<span className={styles.count}>Step {i + 1} of {steps.length}</span></h2>
+          <h2 ref={i === at ? head : undefined} tabIndex={-1} className={styles.title}>{s.label}<span className={styles.count}>{t.stepOf(i + 1, steps.length)}</span></h2>
           {s.content}
         </div>
       ))}
       <div className={styles.actions}>
-        {onCancel && <Button variant="glass" onClick={onCancel} className={styles.cancel}>Cancel</Button>}
-        {at > 0 && <Button variant="glass" onClick={() => setAt(at - 1)}>Back</Button>}
-        <Button variant="light" onClick={next} disabled={busy}>{last ? finishLabel : 'Next'}</Button>
+        {onCancel && <Button variant="glass" onClick={onCancel} className={styles.cancel}>{t.cancel}</Button>}
+        {at > 0 && <Button variant="glass" onClick={() => setAt(at - 1)}>{t.back}</Button>}
+        <Button variant="light" onClick={next} disabled={busy}>{last ? finishLabel : t.next}</Button>
       </div>
     </section>
   );

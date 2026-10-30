@@ -3,6 +3,7 @@ import { Input, type InputProps } from '../Input';
 import { InputGroup } from '../InputGroup';
 import { IconButton } from '../IconButton';
 import styles from './PasswordInput.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface PasswordInputProps extends Omit<InputProps, 'type' | 'size'> {
   /** `current-password` (default) for signing in; `new-password` when the reader is choosing one, so managers offer a strong one. */
@@ -14,7 +15,9 @@ export interface PasswordInputProps extends Omit<InputProps, 'type' | 'size'> {
 /** A password field with a button at its end that shows and hides what was typed. The button says its
  *  state with aria-pressed and swaps an open eye for a closed one, so the state reads by shape. Showing
  *  never survives a submit: the field goes back to hidden when the form is sent. */
-export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(function PasswordInput({ autoComplete = 'current-password', showLabel = 'Show password', className, ...rest }, ref) {
+export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(function PasswordInput({ autoComplete = 'current-password', showLabel: showLabelIn, className, ...rest }, ref) {
+  const t = useMessages();
+  const showLabel = showLabelIn ?? t.showPassword;
   const [shown, setShown] = useState(false);
   return (
     <InputGroup data-component="PasswordInput" className={className} onSubmitCapture={() => setShown(false)}

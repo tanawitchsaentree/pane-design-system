@@ -2,6 +2,7 @@ import { forwardRef, useRef, useState, type HTMLAttributes } from 'react';
 import { cx } from '../../cx';
 import { Spinner } from '../Spinner';
 import styles from './PullToRefresh.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface PullToRefreshProps extends HTMLAttributes<HTMLDivElement> {
   /** Called when the reader pulls past the threshold or presses the refresh button. Return a promise; the spinner stays until it settles. */
@@ -12,7 +13,9 @@ export interface PullToRefreshProps extends HTMLAttributes<HTMLDivElement> {
 
 /** A scrolling list that refreshes when it is pulled down from the top. Pulling is a gesture, so a
  *  Refresh button is always there too (WCAG 2.5.1); it shows when focused, for keyboards and switches. */
-export const PullToRefresh = forwardRef<HTMLDivElement, PullToRefreshProps>(function PullToRefresh({ onRefresh, label = 'Refresh', className, children, ...rest }, ref) {
+export const PullToRefresh = forwardRef<HTMLDivElement, PullToRefreshProps>(function PullToRefresh({ onRefresh, label: labelIn, className, children, ...rest }, ref) {
+  const t = useMessages();
+  const label = labelIn ?? t.refresh;
   const [pull, setPull] = useState(0);
   const [busy, setBusy] = useState(false);
   const start = useRef<number | null>(null);

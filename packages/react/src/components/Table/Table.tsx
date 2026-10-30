@@ -1,6 +1,7 @@
 import { forwardRef, useState, type HTMLAttributes, type ReactNode } from 'react';
 import { cx } from '../../cx';
 import styles from './Table.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface TableColumn<Row> {
   /** The key the column reads from each row, and its name in `sort`. */
@@ -55,7 +56,9 @@ function compare(a: unknown, b: unknown) {
 /** Rows and columns of data in a real table with a caption, set on a level-2 pane with hairlines between
  *  rows and an opaque header that stays in view. A sortable header is a button that says its order, and
  *  a table wider than its pane scrolls inside a named region that takes focus. */
-export const Table = forwardRef(function Table<Row extends Record<string, unknown>>({ caption, showCaption, columns, rows, density = 'comfortable', defaultSort, sort, onSortChange, maxHeight, empty = 'Nothing to show yet', loading, className, style, ...rest }: TableProps<Row>, ref: React.Ref<HTMLDivElement>) {
+export const Table = forwardRef(function Table<Row extends Record<string, unknown>>({ caption, showCaption, columns, rows, density = 'comfortable', defaultSort, sort, onSortChange, maxHeight, empty: emptyIn, loading, className, style, ...rest }: TableProps<Row>, ref: React.Ref<HTMLDivElement>) {
+  const t = useMessages();
+  const empty = emptyIn ?? t.nothingToShow;
   const [inner, setInner] = useState<TableSort | undefined>(defaultSort);
   const current = sort ?? inner;
   const shown = sort || !current ? rows : [...rows].sort((a, b) => compare(a[current.key], b[current.key]) * (current.direction === 'ascending' ? 1 : -1));
@@ -94,7 +97,7 @@ export const Table = forwardRef(function Table<Row extends Record<string, unknow
           ))}
         </tbody>
       </table>
-      {loading && <div className={styles.loading} role="status">Loading rows</div>}
+      {loading && <div className={styles.loading} role="status">{t.loadingRows}</div>}
     </div>
   );
 }) as <Row extends Record<string, unknown>>(p: TableProps<Row> & {

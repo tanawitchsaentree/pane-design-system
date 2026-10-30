@@ -1,6 +1,7 @@
 import { forwardRef, useId, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
 import { cx } from '../../cx';
 import styles from './KanbanBoard.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface KanbanCard { id: string; title: string; meta?: ReactNode }
 export interface KanbanColumn { id: string; title: string; cards: KanbanCard[] }
@@ -22,6 +23,7 @@ type Pick = { card: string; from: string } | null;
  *  within and across columns, Space drops it and Esc puts it back. Every move is said aloud. A lifted card
  *  rises a little, as an object picked up (P4), and its gap stays open where it will land. */
 export const KanbanBoard = forwardRef<HTMLDivElement, KanbanBoardProps>(function KanbanBoard({ label, columns, onChange, className }, ref) {
+  const t = useMessages();
   const uid = useId();
   const [held, setHeld] = useState<Pick>(null);
   const [before, setBefore] = useState<KanbanColumn[] | null>(null);
@@ -42,11 +44,11 @@ export const KanbanBoard = forwardRef<HTMLDivElement, KanbanBoardProps>(function
     const { c, i } = where(columns, card.id);
     if (e.key === ' ' || e.key === 'Enter') {
       e.preventDefault();
-      if (!held) { setHeld({ card: card.id, from: columns[c].id }); setBefore(columns); setSay(`${card.title} picked up in ${columns[c].title}, position ${i + 1} of ${columns[c].cards.length}. Use the arrow keys to move, Space to drop, Escape to cancel.`); }
-      else { setHeld(null); setBefore(null); setSay(`${card.title} dropped in ${columns[c].title}, position ${i + 1} of ${columns[c].cards.length}.`); }
+      if (!held) { setHeld({ card: card.id, from: columns[c].id }); setBefore(columns); setSay(t.kanbanPicked(card.title, columns[c].title, i + 1, columns[c].cards.length)); }
+      else { setHeld(null); setBefore(null); setSay(t.kanbanDropped(card.title, columns[c].title, i + 1, columns[c].cards.length)); }
       return;
     }
-    if (e.key === 'Escape' && held && before) { e.preventDefault(); onChange(before); setHeld(null); setBefore(null); setSay(`Move cancelled. ${card.title} is back where it was.`); focusCard(card.id); return; }
+    if (e.key === 'Escape' && held && before) { e.preventDefault(); onChange(before); setHeld(null); setBefore(null); setSay(t.kanbanCancelled(card.title)); focusCard(card.id); return; }
     const rtl = getComputedStyle(e.currentTarget).direction === 'rtl';
     const d: Record<string, [number, number]> = { ArrowUp: [0, -1], ArrowDown: [0, 1], ArrowLeft: [rtl ? 1 : -1, 0], ArrowRight: [rtl ? -1 : 1, 0] };
     if (!d[e.key]) return;
@@ -56,7 +58,7 @@ export const KanbanBoard = forwardRef<HTMLDivElement, KanbanBoardProps>(function
       const tc = Math.max(0, Math.min(columns.length - 1, c + dc)); const ti = dc ? Math.min(i, columns[tc].cards.length) : i + di;
       if (tc === c && (ti < 0 || ti >= columns[c].cards.length)) return;
       const next = move(columns, card.id, tc, ti); onChange(next);
-      const pos = where(next, card.id); setSay(`${columns[tc].title}, position ${pos.i + 1} of ${next[tc].cards.length}.`); focusCard(card.id);
+      const pos = where(next, card.id); setSay(t.kanbanMoved(columns[tc].title, pos.i + 1, next[tc].cards.length)); focusCard(card.id);
     } else {
       const tc = Math.max(0, Math.min(columns.length - 1, c + dc)); const target = columns[tc].cards[dc ? Math.min(i, columns[tc].cards.length - 1) : i + di];
       if (target) focusCard(target.id);
@@ -64,8 +66,8 @@ export const KanbanBoard = forwardRef<HTMLDivElement, KanbanBoardProps>(function
   };
   return (
     <div ref={(el) => { box.current = el; if (typeof ref === 'function') ref(el); else if (ref) ref.current = el; }} data-component="KanbanBoard" role="region" aria-label={label} className={cx(styles.root, className)}>
-      <p className={styles.hint} id={`${uid}-hint`}>Press Space on a card to pick it up, then use the arrow keys.</p>
-      <div className={styles.columns} role="group" tabIndex={0} aria-label={`${label}, columns`}>
+      <p className={styles.hint} id={`${uid}-hint`}>{t.kanbanHint}</p>
+      <div className={styles.columns} role="group" tabIndex={0} aria-label={t.columns(label)}>
         {columns.map((col, ci) => (
           <section key={col.id} aria-labelledby={`${uid}-${ci}`} className={cx(styles.column, over === col.id && styles.over)}
             onDragOver={(e) => { e.preventDefault(); setOver(col.id); }} onDragLeave={() => setOver(null)}
@@ -74,7 +76,7 @@ export const KanbanBoard = forwardRef<HTMLDivElement, KanbanBoardProps>(function
             <ul className={styles.list}>
               {col.cards.map((card, i) => (
                 <li key={card.id}>
-                <div data-card={card.id} role="button" tabIndex={0} draggable aria-describedby={`${uid}-hint`} aria-roledescription="draggable card" aria-pressed={held?.card === card.id}
+                <div data-card={card.id} role="button" tabIndex={0} draggable aria-describedby={`${uid}-hint`} aria-roledescription={t.draggableCard} aria-pressed={held?.card === card.id}
                   className={cx(styles.card, held?.card === card.id && styles.held)}
                   onKeyDown={(e) => key(e, card)} onDragStart={(e) => { e.dataTransfer.setData('text/plain', card.id); e.dataTransfer.effectAllowed = 'move'; }}
                   onDrop={(e) => { e.preventDefault(); e.stopPropagation(); setOver(null); const id = e.dataTransfer.getData('text/plain'); if (id && id !== card.id) onChange(move(columns, id, ci, i)); }}>

@@ -1,6 +1,7 @@
 import { forwardRef, useEffect, useState } from 'react';
 import { cx } from '../../cx';
 import styles from './TableOfContents.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface TocItem { id: string; label: string; level?: 2 | 3 }
 
@@ -17,7 +18,9 @@ export interface TableOfContentsProps {
 
 /** The sections of a long page as links ("On this page"), the one in view marked by a lit line beside it
  *  and semibold text, so the reader always sees where they are. Links move focus to the heading. */
-export const TableOfContents = forwardRef<HTMLElement, TableOfContentsProps>(function TableOfContents({ items, label = 'On this page', track = true, className }, ref) {
+export const TableOfContents = forwardRef<HTMLElement, TableOfContentsProps>(function TableOfContents({ items, label: labelIn, track = true, className }, ref) {
+  const t = useMessages();
+  const label = labelIn ?? t.onThisPage;
   const [active, setActive] = useState(items[0]?.id);
   useEffect(() => {
     if (!track || typeof IntersectionObserver === 'undefined') return;

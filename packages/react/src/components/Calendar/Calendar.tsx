@@ -3,6 +3,7 @@ import { cx } from '../../cx';
 import { IconButton } from '../IconButton';
 import { addDays, addMonths, before, day, iso, monthGrid, same, type DateRange } from './dates';
 import styles from './Calendar.module.css';
+import { useMessages, useLocale } from '../../i18n/context';
 
 interface Base {
   /** The month shown first; the month of the value, or this month, by default. */
@@ -48,7 +49,9 @@ export type CalendarProps = CalendarSingleProps | CalendarRangeProps;
  *  End the week's ends, Enter or Space chooses. Today is ringed, the chosen day is the loud solid and a
  *  range is chosen glass between its two solid ends, so each state reads by shape (P6). */
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(function Calendar(props, ref) {
-  const { min, max, isUnavailable, locale, weekStartsOn = 1, label, className } = props;
+  const t = useMessages();
+  const { min, max, isUnavailable, weekStartsOn = 1, label, className } = props;
+  const locale = props.locale ?? useLocale();
   const range = props.mode === 'range';
   const [innerSingle, setSingle] = useState<Date | null>(!range ? (props as CalendarSingleProps).defaultValue ?? null : null);
   const [innerRange, setRange] = useState<DateRange>(range ? (props as CalendarRangeProps).defaultValue ?? { start: null, end: null } : { start: null, end: null });
@@ -92,9 +95,9 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(function Calen
   return (
     <div ref={ref} data-component="Calendar" className={cx(styles.root, className)}>
       <div className={styles.head}>
-        <IconButton variant="ghost" aria-label="Previous month" onClick={() => shift(-1)}><svg viewBox="0 0 24 24" aria-hidden="true" className={styles.chev}><path d="M14.5 6 8.5 12l6 6" /></svg></IconButton>
+        <IconButton variant="ghost" aria-label={t.previousMonth} onClick={() => shift(-1)}><svg viewBox="0 0 24 24" aria-hidden="true" className={styles.chev}><path d="M14.5 6 8.5 12l6 6" /></svg></IconButton>
         <h2 className={styles.title} aria-live="polite">{title}</h2>
-        <IconButton variant="ghost" aria-label="Next month" onClick={() => shift(1)}><svg viewBox="0 0 24 24" aria-hidden="true" className={styles.chev}><path d="M9.5 6l6 6-6 6" /></svg></IconButton>
+        <IconButton variant="ghost" aria-label={t.nextMonth} onClick={() => shift(1)}><svg viewBox="0 0 24 24" aria-hidden="true" className={styles.chev}><path d="M9.5 6l6 6-6 6" /></svg></IconButton>
       </div>
       <table role="grid" aria-label={label ? `${label}, ${title}` : title} className={styles.grid} onKeyDown={key}>
         <thead><tr>{grid[0].map((d) => <th key={d.getDay()} scope="col" abbr={wdLong.format(d)} className={styles.wd}>{wd.format(d)}</th>)}</tr></thead>

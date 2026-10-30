@@ -3,6 +3,7 @@ import { Input, type InputProps } from '../Input';
 import { InputGroup } from '../InputGroup';
 import { IconButton } from '../IconButton';
 import styles from './SearchInput.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface SearchInputProps extends Omit<InputProps, 'type' | 'size' | 'value' | 'defaultValue' | 'onChange'> {
   /** Names the field for screen readers when there is no visible label, such as Search prints. */
@@ -21,7 +22,9 @@ export interface SearchInputProps extends Omit<InputProps, 'type' | 'size' | 'va
 
 /** A search field: a magnifier at its start, a clear button at its end once there is a query. Enter
  *  searches, Esc clears, and clearing puts focus back in the field so the next query can be typed. */
-export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(function SearchInput({ value, defaultValue, onValueChange, onSearch, clearLabel = 'Clear search', className, onKeyDown, ...rest }, ref) {
+export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(function SearchInput({ value, defaultValue, onValueChange, onSearch, clearLabel: clearLabelIn, className, onKeyDown, ...rest }, ref) {
+  const t = useMessages();
+  const clearLabel = clearLabelIn ?? t.clearSearch;
   const [inner, setInner] = useState(defaultValue ?? '');
   const q = value ?? inner;
   const set = (v: string) => { if (value === undefined) setInner(v); onValueChange?.(v); };

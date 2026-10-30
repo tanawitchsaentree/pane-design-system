@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T05:58:43.839Z",
+  "generatedAt": "2026-10-30T07:04:00.403Z",
   "version": "0.7.0",
   "components": {
     "Accordion": {
@@ -124,7 +124,7 @@
               "name": "cancelLabel",
               "type": "string",
               "required": false,
-              "default": "Cancel",
+              "default": null,
               "description": "The label of the button that closes without acting. Defaults to Cancel.",
               "enum": false,
               "options": null
@@ -172,9 +172,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 43159,
+        "jsMin": 47799,
         "cssMin": 4471,
-        "gzip": 16102
+        "gzip": 18097
       }
     },
     "AppShell": {
@@ -255,9 +255,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 861,
+        "jsMin": 5481,
         "cssMin": 1771,
-        "gzip": 1110
+        "gzip": 3052
       }
     },
     "AspectRatio": {
@@ -417,9 +417,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 9286,
+        "jsMin": 13575,
         "cssMin": 14054,
-        "gzip": 5788
+        "gzip": 7566
       }
     },
     "Autocomplete": {
@@ -549,9 +549,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 72322,
+        "jsMin": 76939,
         "cssMin": 5189,
-        "gzip": 27131
+        "gzip": 29074
       }
     },
     "Avatar": {
@@ -770,9 +770,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 1897,
+        "jsMin": 6521,
         "cssMin": 2555,
-        "gzip": 1833
+        "gzip": 3777
       }
     },
     "BarChart": {
@@ -876,9 +876,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 6678,
+        "jsMin": 11255,
         "cssMin": 3924,
-        "gzip": 4000
+        "gzip": 5928
       }
     },
     "BottomNav": {
@@ -911,7 +911,7 @@
               "name": "label",
               "type": "string",
               "required": false,
-              "default": "Main",
+              "default": null,
               "description": "The landmark's name. Defaults to Main.",
               "enum": false,
               "options": null
@@ -955,9 +955,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 838,
+        "jsMin": 5467,
         "cssMin": 2247,
-        "gzip": 1257
+        "gzip": 3206
       }
     },
     "Box": {
@@ -1089,7 +1089,7 @@
               "name": "label",
               "type": "string",
               "required": false,
-              "default": "Breadcrumb",
+              "default": null,
               "description": "The landmark's name. Defaults to Breadcrumb.",
               "enum": false,
               "options": null
@@ -1110,9 +1110,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 738,
+        "jsMin": 5365,
         "cssMin": 1014,
-        "gzip": 860
+        "gzip": 2809
       }
     },
     "Button": {
@@ -1177,9 +1177,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 1444,
+        "jsMin": 6075,
         "cssMin": 4247,
-        "gzip": 1900
+        "gzip": 3847
       }
     },
     "Calendar": {
@@ -1310,9 +1310,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 5720,
+        "jsMin": 10401,
         "cssMin": 5945,
-        "gzip": 3984
+        "gzip": 5943
       }
     },
     "Card": {
@@ -1453,9 +1453,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 3275,
+        "jsMin": 7899,
         "cssMin": 5163,
-        "gzip": 2960
+        "gzip": 4882
       }
     },
     "Center": {
@@ -1678,9 +1678,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 1258,
+        "jsMin": 5882,
         "cssMin": 2380,
-        "gzip": 1453
+        "gzip": 3398
       }
     },
     "CoachMark": {
@@ -1795,9 +1795,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 72765,
+        "jsMin": 77412,
         "cssMin": 7929,
-        "gzip": 27895
+        "gzip": 29890
       }
     },
     "ColorPicker": {
@@ -1889,9 +1889,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 34083,
+        "jsMin": 38715,
         "cssMin": 5498,
-        "gzip": 13176
+        "gzip": 15139
       }
     },
     "Combobox": {
@@ -1960,7 +1960,7 @@
               "name": "emptyText",
               "type": "string",
               "required": false,
-              "default": "No matches",
+              "default": null,
               "description": "Shown when nothing matches what was typed. Defaults to \"No matches\".",
               "enum": false,
               "options": null
@@ -2030,9 +2030,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 72354,
+        "jsMin": 76994,
         "cssMin": 5189,
-        "gzip": 27132
+        "gzip": 29093
       }
     },
     "CommandPalette": {
@@ -2083,7 +2083,7 @@
               "name": "placeholder",
               "type": "string",
               "required": false,
-              "default": "Type a command or search",
+              "default": null,
               "description": "The words in the empty field; Type a command or search by default.",
               "enum": false,
               "options": null
@@ -2092,7 +2092,7 @@
               "name": "empty",
               "type": "string",
               "required": false,
-              "default": "No commands match",
+              "default": null,
               "description": "Shown when nothing matches; No commands match by default.",
               "enum": false,
               "options": null
@@ -2113,9 +2113,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 44956,
+        "jsMin": 49615,
         "cssMin": 7489,
-        "gzip": 17448
+        "gzip": 19411
       }
     },
     "Container": {
@@ -2342,9 +2342,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 20753,
+        "jsMin": 25395,
         "cssMin": 5242,
-        "gzip": 9108
+        "gzip": 11049
       }
     },
     "DatePicker": {
@@ -2505,9 +2505,9 @@
       "variantCount": 4,
       "demoFloor": 7,
       "bundle": {
-        "jsMin": 76692,
+        "jsMin": 81404,
         "cssMin": 13990,
-        "gzip": 30483
+        "gzip": 32451
       }
     },
     "DescriptionList": {
@@ -2982,9 +2982,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 1914,
+        "jsMin": 6504,
         "cssMin": 1944,
-        "gzip": 1760
+        "gzip": 3696
       }
     },
     "Editable": {
@@ -3083,9 +3083,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 1926,
+        "jsMin": 6546,
         "cssMin": 3736,
-        "gzip": 2055
+        "gzip": 3970
       }
     },
     "EmptyState": {
@@ -3390,9 +3390,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 1801,
+        "jsMin": 6426,
         "cssMin": 1613,
-        "gzip": 1508
+        "gzip": 3450
       }
     },
     "Fieldset": {
@@ -3550,9 +3550,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 4875,
+        "jsMin": 9493,
         "cssMin": 8584,
-        "gzip": 3733
+        "gzip": 5666
       }
     },
     "Flex": {
@@ -3676,7 +3676,7 @@
               "name": "errorTitle",
               "type": "string",
               "required": false,
-              "default": "There is a problem",
+              "default": null,
               "description": "The sentence above the error list; There is a problem by default.",
               "enum": false,
               "options": null
@@ -3706,9 +3706,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 1373,
+        "jsMin": 5997,
         "cssMin": 1646,
-        "gzip": 1338
+        "gzip": 3274
       }
     },
     "FormField": {
@@ -3796,9 +3796,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 1670,
+        "jsMin": 6304,
         "cssMin": 1046,
-        "gzip": 1210
+        "gzip": 3151
       }
     },
     "Grid": {
@@ -4006,9 +4006,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 4474,
+        "jsMin": 9023,
         "cssMin": 4485,
-        "gzip": 3217
+        "gzip": 5105
       }
     },
     "HelperText": {
@@ -4045,9 +4045,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 644,
+        "jsMin": 5274,
         "cssMin": 715,
-        "gzip": 770
+        "gzip": 2727
       }
     },
     "Icon": {
@@ -4176,9 +4176,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 1448,
+        "jsMin": 6079,
         "cssMin": 3469,
-        "gzip": 1775
+        "gzip": 3723
       }
     },
     "Image": {
@@ -4383,9 +4383,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 3439,
+        "jsMin": 7865,
         "cssMin": 2521,
-        "gzip": 2384
+        "gzip": 4223
       }
     },
     "Kbd": {
@@ -4431,9 +4431,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 393,
+        "jsMin": 5013,
         "cssMin": 218,
-        "gzip": 394
+        "gzip": 2339
       }
     },
     "LineChart": {
@@ -4532,9 +4532,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5880,
+        "jsMin": 10446,
         "cssMin": 4001,
-        "gzip": 3724
+        "gzip": 5639
       }
     },
     "Link": {
@@ -4580,9 +4580,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 497,
+        "jsMin": 5112,
         "cssMin": 973,
-        "gzip": 750
+        "gzip": 2691
       }
     },
     "List": {
@@ -5033,9 +5033,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 1233,
+        "jsMin": 5854,
         "cssMin": 1282,
-        "gzip": 1215
+        "gzip": 3159
       }
     },
     "MultiSelect": {
@@ -5104,7 +5104,7 @@
               "name": "emptyText",
               "type": "string",
               "required": false,
-              "default": "No matches",
+              "default": null,
               "description": "Shown when nothing matches what was typed.",
               "enum": false,
               "options": null
@@ -5165,9 +5165,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 73855,
+        "jsMin": 78492,
         "cssMin": 7568,
-        "gzip": 28210
+        "gzip": 30162
       }
     },
     "Navbar": {
@@ -5227,7 +5227,7 @@
               "name": "label",
               "type": "string",
               "required": false,
-              "default": "Main",
+              "default": null,
               "description": "The landmark's name. Defaults to Main.",
               "enum": false,
               "options": null
@@ -5248,9 +5248,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 679,
+        "jsMin": 5310,
         "cssMin": 1352,
-        "gzip": 943
+        "gzip": 2897
       }
     },
     "NavigationMenu": {
@@ -5274,7 +5274,7 @@
               "name": "label",
               "type": "string",
               "required": false,
-              "default": "Main",
+              "default": null,
               "description": "The landmark's name. Defaults to Main.",
               "enum": false,
               "options": null
@@ -5295,9 +5295,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 1609,
+        "jsMin": 6237,
         "cssMin": 2186,
-        "gzip": 1617
+        "gzip": 3574
       }
     },
     "NotificationCenter": {
@@ -5339,7 +5339,7 @@
               "name": "label",
               "type": "string",
               "required": false,
-              "default": "Notifications",
+              "default": null,
               "description": "The bell's name for screen readers; it adds the unread count, as Notifications, 3 unread.",
               "enum": false,
               "options": null
@@ -5369,9 +5369,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 74641,
+        "jsMin": 79266,
         "cssMin": 14102,
-        "gzip": 29175
+        "gzip": 31108
       }
     },
     "NumberInput": {
@@ -5472,9 +5472,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 4467,
+        "jsMin": 9112,
         "cssMin": 7488,
-        "gzip": 3742
+        "gzip": 5673
       }
     },
     "OTPFlow": {
@@ -5546,9 +5546,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 4972,
+        "jsMin": 9538,
         "cssMin": 7134,
-        "gzip": 4059
+        "gzip": 5932
       }
     },
     "Pagination": {
@@ -5599,7 +5599,7 @@
               "name": "label",
               "type": "string",
               "required": false,
-              "default": "Pagination",
+              "default": null,
               "description": "The landmark's name. Defaults to Pagination.",
               "enum": false,
               "options": null
@@ -5620,9 +5620,23 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 1360,
+        "jsMin": 5985,
         "cssMin": 1505,
-        "gzip": 1318
+        "gzip": 3276
+      }
+    },
+    "PaneProvider": {
+      "source": "packages/react/src/components/PaneProvider/PaneProvider.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 18556,
+        "cssMin": 0,
+        "gzip": 4512
       }
     },
     "PasswordInput": {
@@ -5649,7 +5663,7 @@
               "name": "showLabel",
               "type": "string",
               "required": false,
-              "default": "Show password",
+              "default": null,
               "description": "The words on the show button for screen readers; Show password by default.",
               "enum": false,
               "options": null
@@ -5673,9 +5687,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 3200,
+        "jsMin": 7844,
         "cssMin": 7284,
-        "gzip": 3157
+        "gzip": 5075
       }
     },
     "PinInput": {
@@ -5809,9 +5823,9 @@
       "variantCount": 4,
       "demoFloor": 7,
       "bundle": {
-        "jsMin": 1961,
+        "jsMin": 6581,
         "cssMin": 2080,
-        "gzip": 1822
+        "gzip": 3748
       }
     },
     "Popover": {
@@ -6039,7 +6053,7 @@
               "name": "label",
               "type": "string",
               "required": false,
-              "default": "Refresh",
+              "default": null,
               "description": "What refreshing does, for the button and the spinner: Refresh messages.",
               "enum": false,
               "options": null
@@ -6051,9 +6065,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 1527,
+        "jsMin": 6170,
         "cssMin": 1394,
-        "gzip": 1398
+        "gzip": 3360
       }
     },
     "RadarChart": {
@@ -6152,9 +6166,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 3856,
+        "jsMin": 8404,
         "cssMin": 4135,
-        "gzip": 2924
+        "gzip": 4835
       }
     },
     "Radio": {
@@ -6542,9 +6556,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 30102,
+        "jsMin": 34752,
         "cssMin": 4084,
-        "gzip": 11979
+        "gzip": 13965
       }
     },
     "Rating": {
@@ -6637,9 +6651,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 29671,
+        "jsMin": 34301,
         "cssMin": 998,
-        "gzip": 11002
+        "gzip": 12981
       }
     },
     "RichTextEditor": {
@@ -6742,9 +6756,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 3395,
+        "jsMin": 8027,
         "cssMin": 3121,
-        "gzip": 2693
+        "gzip": 4608
       }
     },
     "Scale": {
@@ -6804,7 +6818,7 @@
               "name": "compareLabel",
               "type": "string",
               "required": false,
-              "default": "the comparison",
+              "default": null,
               "description": "Names the comparison for screen readers, such as the format average.",
               "enum": false,
               "options": null
@@ -6834,9 +6848,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 1547,
+        "jsMin": 6173,
         "cssMin": 2198,
-        "gzip": 1593
+        "gzip": 3542
       }
     },
     "SearchInput": {
@@ -6896,7 +6910,7 @@
               "name": "clearLabel",
               "type": "string",
               "required": false,
-              "default": "Clear search",
+              "default": null,
               "description": "The words on the clear button for screen readers; Clear search by default.",
               "enum": false,
               "options": null
@@ -6919,9 +6933,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 3510,
+        "jsMin": 8163,
         "cssMin": 7366,
-        "gzip": 3324
+        "gzip": 5262
       }
     },
     "SegmentedControl": {
@@ -7466,7 +7480,7 @@
               "name": "label",
               "type": "string",
               "required": false,
-              "default": "Main",
+              "default": null,
               "description": "The landmark's name. Defaults to Main.",
               "enum": false,
               "options": null
@@ -7487,9 +7501,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 1072,
+        "jsMin": 5703,
         "cssMin": 1977,
-        "gzip": 1257
+        "gzip": 3218
       }
     },
     "Skeleton": {
@@ -7856,7 +7870,7 @@
       "bundle": {
         "jsMin": 1098,
         "cssMin": 4018,
-        "gzip": 1748
+        "gzip": 1749
       }
     },
     "Spinner": {
@@ -7886,7 +7900,7 @@
               "name": "label",
               "type": "string",
               "required": false,
-              "default": "Loading",
+              "default": null,
               "description": "What is loading, read by screen readers. Defaults to \"Loading\".",
               "enum": false,
               "options": null
@@ -7900,9 +7914,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 429,
+        "jsMin": 5060,
         "cssMin": 620,
-        "gzip": 602
+        "gzip": 2559
       }
     },
     "Stack": {
@@ -8050,9 +8064,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 1187,
+        "jsMin": 5807,
         "cssMin": 1427,
-        "gzip": 1167
+        "gzip": 3124
       }
     },
     "Stepper": {
@@ -8097,7 +8111,7 @@
               "name": "label",
               "type": "string",
               "required": false,
-              "default": "Progress",
+              "default": null,
               "description": "The list's name. Defaults to Progress.",
               "enum": false,
               "options": null
@@ -8120,9 +8134,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 1099,
+        "jsMin": 5733,
         "cssMin": 2400,
-        "gzip": 1359
+        "gzip": 3314
       }
     },
     "Switch": {
@@ -8358,9 +8372,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 2022,
+        "jsMin": 6643,
         "cssMin": 2717,
-        "gzip": 1934
+        "gzip": 3869
       }
     },
     "TableOfContents": {
@@ -8384,7 +8398,7 @@
               "name": "label",
               "type": "string",
               "required": false,
-              "default": "On this page",
+              "default": null,
               "description": "The list's name. Defaults to On this page.",
               "enum": false,
               "options": null
@@ -8414,9 +8428,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 1181,
+        "jsMin": 5807,
         "cssMin": 1170,
-        "gzip": 1198
+        "gzip": 3152
       }
     },
     "Tabs": {
@@ -8606,9 +8620,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 3003,
+        "jsMin": 7622,
         "cssMin": 4813,
-        "gzip": 2734
+        "gzip": 4666
       }
     },
     "Text": {
@@ -8835,7 +8849,7 @@
               "name": "placeholder",
               "type": "string",
               "required": false,
-              "default": "Choose a time",
+              "default": null,
               "description": "Shown when nothing is chosen, such as Choose a time.",
               "enum": false,
               "options": null
@@ -8886,9 +8900,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 92657,
+        "jsMin": 97325,
         "cssMin": 5018,
-        "gzip": 33964
+        "gzip": 35932
       }
     },
     "Timeline": {
@@ -9037,9 +9051,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 39156,
+        "jsMin": 43787,
         "cssMin": 2771,
-        "gzip": 13929
+        "gzip": 15890
       }
     },
     "Tooltip": {
@@ -9153,7 +9167,7 @@
               "name": "labels",
               "type": "[string, string]",
               "required": false,
-              "default": "['Available', 'Chosen']",
+              "default": null,
               "description": "Names the two lists, such as Available and Shown on the card.",
               "enum": false,
               "options": null
@@ -9174,9 +9188,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5683,
+        "jsMin": 10337,
         "cssMin": 8501,
-        "gzip": 4364
+        "gzip": 6305
       }
     },
     "TreeView": {
@@ -9431,7 +9445,7 @@
               "name": "finishLabel",
               "type": "string",
               "required": false,
-              "default": "Finish",
+              "default": null,
               "description": "The words on the last button; Finish by default.",
               "enum": false,
               "options": null
@@ -9461,9 +9475,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 3666,
+        "jsMin": 8318,
         "cssMin": 7434,
-        "gzip": 3414
+        "gzip": 5369
       }
     }
   }

@@ -2,6 +2,7 @@ import { type ReactNode } from 'react';
 import * as RT from '@radix-ui/react-toast';
 import { cx } from '../../cx';
 import styles from './Toast.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface ToastProps {
   /** Whether it is showing. It hides itself after `duration` and calls onOpenChange(false). */
@@ -36,7 +37,7 @@ export function Toast({ open, onOpenChange, title, description, action, tone = '
           {description != null && <RT.Description className={styles.description}>{description}</RT.Description>}
         </div>
         {action && <RT.Action altText={action.altText} className={styles.action} onClick={action.onClick}>{action.label}</RT.Action>}
-        <RT.Close className={styles.close} aria-label="Dismiss"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg></RT.Close>
+        <RT.Close className={styles.close} aria-label={useMessages().dismiss}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg></RT.Close>
       </RT.Root>
       <RT.Viewport className={cx(styles.viewport, preview && styles.previewViewport)} />
     </RT.Provider>

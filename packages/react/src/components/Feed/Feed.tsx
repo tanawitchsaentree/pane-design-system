@@ -2,6 +2,7 @@ import { forwardRef, useEffect, useRef, type KeyboardEvent, type ReactNode } fro
 import { cx } from '../../cx';
 import { Spinner } from '../Spinner';
 import styles from './Feed.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface FeedProps<T> {
   /** Names the feed, such as Latest from people you follow. */
@@ -28,6 +29,7 @@ export interface FeedProps<T> {
  *  move between articles, the feed is busy while it loads, and it ends with words instead of a spinner
  *  that never stops. A Load more button stays for anyone who does not scroll. */
 export const Feed = forwardRef(function Feed<T>({ label, items, renderItem, getLabel, getKey, onLoadMore, loading, hasMore = true, className }: FeedProps<T>, ref: React.Ref<HTMLDivElement>) {
+  const t = useMessages();
   const end = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = end.current; if (!el || !onLoadMore || !hasMore) return;
@@ -50,9 +52,9 @@ export const Feed = forwardRef(function Feed<T>({ label, items, renderItem, getL
         ))}
       </div>
       <div ref={end} className={styles.end}>
-        {loading ? <span className={styles.status} role="status"><Spinner size="sm" aria-hidden="true" />Loading more</span>
-          : hasMore ? onLoadMore && <button type="button" className={styles.more} onClick={onLoadMore}>Load more</button>
-          : <span className={styles.status}>You are all caught up</span>}
+        {loading ? <span className={styles.status} role="status"><Spinner size="sm" aria-hidden="true" />{t.loadingMore}</span>
+          : hasMore ? onLoadMore && <button type="button" className={styles.more} onClick={onLoadMore}>{t.loadMore}</button>
+          : <span className={styles.status}>{t.allCaughtUp}</span>}
       </div>
     </div>
   );

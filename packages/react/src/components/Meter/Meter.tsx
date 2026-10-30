@@ -1,6 +1,7 @@
 import { forwardRef, type HTMLAttributes } from 'react';
 import { cx } from '../../cx';
 import styles from './Meter.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface MeterProps extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
   /** Names what is measured, such as Storage; it is shown above the bar and read as the meter's name. */
@@ -23,10 +24,11 @@ export interface MeterProps extends Omit<HTMLAttributes<HTMLDivElement>, 'childr
  *  level instead of a task. When the reading is high its status mark appears beside the value, a glyph
  *  and a word, so the warning never rests on a hue alone (P1, P6). */
 export const Meter = forwardRef<HTMLDivElement, MeterProps>(function Meter({ label, value, min = 0, max = 100, high, critical, valueText, className, ...rest }, ref) {
+  const t = useMessages();
   const pct = Math.min(100, Math.max(0, ((value - min) / (max - min)) * 100));
   const level = critical !== undefined && value >= critical ? 'critical' : high !== undefined && value >= high ? 'warning' : 'normal';
   const text = valueText ?? `${Math.round(pct)}%`;
-  const word = level === 'critical' ? 'Full' : level === 'warning' ? 'Almost full' : undefined;
+  const word = level === 'critical' ? t.full : level === 'warning' ? t.almostFull : undefined;
   return (
     <div ref={ref} data-component="Meter" data-level={level} className={cx(styles.root, className)} {...rest}>
       <div className={styles.head}>

@@ -1,6 +1,7 @@
 import { forwardRef, type ReactNode } from 'react';
 import { cx } from '../../cx';
 import styles from './BottomNav.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface BottomNavItem {
   /** Where it goes. */
@@ -30,13 +31,15 @@ export interface BottomNavProps {
 
 /** A phone's main navigation: three to five destinations in a floating pill at the bottom, the current one
  *  chosen glass with its label in semibold, so it is marked by shape and weight, not only by colour. */
-export const BottomNav = forwardRef<HTMLElement, BottomNavProps>(function BottomNav({ items, current, label = 'Main', position = 'fixed', onNavigate, className }, ref) {
+export const BottomNav = forwardRef<HTMLElement, BottomNavProps>(function BottomNav({ items, current, label: labelIn, position = 'fixed', onNavigate, className }, ref) {
+  const t = useMessages();
+  const label = labelIn ?? t.main;
   return (
     <nav ref={ref} aria-label={label} data-component="BottomNav" className={cx(styles.dock, styles[position], className)}>
       {items.map((it) => (
         <a key={it.href} href={it.href} aria-current={it.href === current ? 'page' : undefined} className={styles.item} onClick={(e) => onNavigate?.(it.href, e)}>
           <span className={styles.icon} aria-hidden="true">{it.icon}{it.badge ? <span className={styles.badge}>{it.badge > 99 ? '99+' : it.badge}</span> : null}</span>
-          <span className={styles.label}>{it.label}{it.badge ? <span className={styles.sr}>, {it.badge} new</span> : null}</span>
+          <span className={styles.label}>{it.label}{it.badge ? <span className={styles.sr}>{t.newCount(it.badge)}</span> : null}</span>
         </a>
       ))}
     </nav>
