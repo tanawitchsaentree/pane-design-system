@@ -14,3 +14,7 @@
 .inner { padding-block-end: var(--ds-gap-xl); font-size: var(--ds-type-body); line-height: var(--ds-type-leading-body); }
 @keyframes open { from { block-size: 0; opacity: 0; } to { block-size: var(--radix-accordion-content-height); opacity: 1; } }
 @keyframes close { from { block-size: var(--radix-accordion-content-height); } to { block-size: 0; opacity: 0; } }
+/* V0 */
+/* the header row washes under a pointer, so the whole row reads as the target (P6) */
+@media (hover: hover) { .trigger:not([data-disabled]):hover { background-image: linear-gradient(var(--ds-surface-quiet), var(--ds-surface-quiet)); } }
+@media (forced-colors: active) { .trigger:focus-visible { outline-color: Highlight; } .chevron { color: CanvasText; } }

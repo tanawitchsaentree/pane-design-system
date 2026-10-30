@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T14:30:39.822Z",
+  "generatedAt": "2026-10-30T14:42:49.507Z",
   "version": "0.7.0",
   "components": {
     "Accordion": {
@@ -72,8 +72,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 27939,
-        "cssMin": 1656,
-        "gzip": 10251
+        "cssMin": 1880,
+        "gzip": 10346
       }
     },
     "ActionSheet": {
@@ -1115,8 +1115,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 5771,
-        "cssMin": 1014,
-        "gzip": 2967
+        "cssMin": 1141,
+        "gzip": 3029
       }
     },
     "Button": {
@@ -1642,8 +1642,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 17460,
-        "cssMin": 2917,
-        "gzip": 7295
+        "cssMin": 3040,
+        "gzip": 7331
       }
     },
     "Chip": {
@@ -1716,8 +1716,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 6288,
-        "cssMin": 2380,
-        "gzip": 3557
+        "cssMin": 2519,
+        "gzip": 3599
       }
     },
     "CoachMark": {
@@ -2436,8 +2436,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 25801,
-        "cssMin": 5680,
-        "gzip": 11321
+        "cssMin": 5803,
+        "gzip": 11353
       }
     },
     "DatePicker": {
@@ -3372,8 +3372,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 584,
-        "cssMin": 1338,
-        "gzip": 921
+        "cssMin": 1438,
+        "gzip": 962
       }
     },
     "Feed": {
@@ -5259,8 +5259,8 @@
       "demoFloor": 6,
       "bundle": {
         "jsMin": 78898,
-        "cssMin": 7941,
-        "gzip": 30427
+        "cssMin": 8080,
+        "gzip": 30465
       }
     },
     "Navbar": {
@@ -6641,8 +6641,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 33268,
-        "cssMin": 2926,
-        "gzip": 12340
+        "cssMin": 3049,
+        "gzip": 12369
       }
     },
     "RadioCards": {
@@ -8598,8 +8598,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 14214,
-        "cssMin": 3866,
-        "gzip": 6438
+        "cssMin": 3989,
+        "gzip": 6467
       }
     },
     "Table": {
@@ -8818,9 +8818,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 29016,
-        "cssMin": 2600,
-        "gzip": 10918
+        "jsMin": 29216,
+        "cssMin": 3112,
+        "gzip": 11105
       }
     },
     "Tag": {
@@ -8980,8 +8980,8 @@
       "demoFloor": 6,
       "bundle": {
         "jsMin": 8028,
-        "cssMin": 4813,
-        "gzip": 4825
+        "cssMin": 4952,
+        "gzip": 4864
       }
     },
     "Text": {
@@ -9111,8 +9111,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 647,
-        "cssMin": 2093,
-        "gzip": 1115
+        "cssMin": 2222,
+        "gzip": 1144
       }
     },
     "TimePicker": {

@@ -6,7 +6,10 @@ import styles from './Tabs.module.css';
 // Behaviour (roving tabindex, Arrow/Home/End, aria-controls wiring) is Radix's, per the stack rule —
 // never hand-rolled. This file only adds the Pane look.
 
-export const TabsRoot = RT.Root;
+/** The tabs and their panels. `orientation="vertical"` stacks the track beside the panel and arrow keys run up and down. */
+export const TabsRoot = forwardRef<ElementRef<typeof RT.Root>, ComponentPropsWithoutRef<typeof RT.Root>>(function TabsRoot({ className, ...rest }, ref) {
+  return <RT.Root ref={ref} className={cx(styles.root, className)} {...rest} />;
+});
 
 // The chosen tab's sheet is one element that slides between tabs, so its place is measured here and
 // handed to CSS. It follows the chosen tab whenever Radix changes it and whenever the list resizes.
@@ -22,6 +25,9 @@ export const TabsList = forwardRef<ElementRef<typeof RT.List>, ComponentPropsWit
       const x = rtl ? a.offsetLeft + a.offsetWidth - el.clientWidth : a.offsetLeft;
       el.style.setProperty('--pane-tx', `${x}px`);
       el.style.setProperty('--pane-tw', `${a.offsetWidth}px`);
+      // a vertical track slides the sheet down instead of across
+      el.style.setProperty('--pane-ty', `${a.offsetTop}px`);
+      el.style.setProperty('--pane-th', `${a.offsetHeight}px`);
       el.dataset.placed = '';
     };
     place();

@@ -23,3 +23,6 @@
 /* a wrong answer rings every circle in the critical mark, like a field (P6) */
 .options[aria-invalid='true'] .circle { outline: var(--ds-width-ring) solid var(--ds-check-ring-invalid); outline-offset: var(--ds-width-hairline); }
 @media (forced-colors: active) { .circle { border: var(--ds-width-hairline) solid ButtonText; } .dot { background: ButtonText; } }
+/* V0 */
+/* under a pointer a soft round wash fills the 44px hit area, so the target shows its size before the press (P6) */
+@media (hover: hover) { .circle:not(:disabled):hover::after { border-radius: var(--ds-corner-round); background: var(--ds-surface-quiet); } }

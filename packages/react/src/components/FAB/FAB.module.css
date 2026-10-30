@@ -13,3 +13,6 @@
 .root:disabled:active { transform: none; }
 @media (forced-colors: active) { .root { border: var(--ds-width-ring) solid ButtonText; } }
 .label { white-space: nowrap; }
+/* V0 */
+/* under a pointer the button rises one step, the same lift as a light Button (P3) */
+@media (hover: hover) { .root:hover:not(:disabled) { transform: translateY(calc(var(--ds-motion-lift) * -1)); } }

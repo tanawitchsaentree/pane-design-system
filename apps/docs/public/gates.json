@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T14:36:26.115Z",
+  "generatedAt": "2026-10-30T14:56:31.089Z",
   "passed": 53,
   "total": 53,
   "partial": false,
@@ -9,14 +9,14 @@
       "id": "G-P0",
       "name": "every page renders: a <main>, a heading and no uncaught error",
       "ok": true,
-      "detail": "13 pages",
+      "detail": "37 pages",
       "order": 0
     },
     {
       "id": "G-D3",
       "name": "no literal backtick in rendered text",
       "ok": true,
-      "detail": "13 pages",
+      "detail": "37 pages",
       "order": 1
     },
     {
@@ -78,15 +78,13 @@
       "id": "G-C1",
       "name": "every code block has a Copy button you can see",
       "ok": true,
-      "detail": "34 code blocks",
+      "detail": "98 code blocks",
       "order": 11
     },
     {
       "id": "G-C2",
       "name": "Copy puts the whole snippet on the clipboard, including hidden lines",
       "ok": true,
-      "skipped": true,
-      "detail": "skipped: nothing it checks is in the limited routes",
       "order": 12
     },
     {
@@ -143,7 +141,7 @@
       "id": "G-K6",
       "name": "usage depth ≥ 0.5 × the Carbon page for the same component (words and sections)",
       "ok": true,
-      "detail": "Toast 455w/31s (no benchmark) · SearchInput 776/827w 28/17s · Input 1534/2580w 30/31s",
+      "detail": "FAB 354w/29s (no benchmark) · Tabs 1681/3081w 33/33s · Chip 1075w/29s (no benchmark) · Breadcrumb 491/817w 27/19s · Accordion 519/1007w 44/18s · Textarea 630w/27s (no benchmark) · Checkbox 889/1378w 29/23s · Radio 853/1333w 28/24s · Switch 590/1076w 28/22s",
       "order": 21
     },
     {
@@ -223,35 +221,35 @@
       "id": "G-TODO1",
       "name": "no starter placeholder is left on any page: no TODO( and no seed reason",
       "ok": true,
-      "detail": "13 pages clean",
+      "detail": "37 pages clean",
       "order": 33
     },
     {
       "id": "G-PUB1",
       "name": "an install command names only what can be installed: no bare registry install of an unpublished package",
       "ok": true,
-      "detail": "13 pages, 2 unpublished packages never shown as a registry install",
+      "detail": "37 pages, 2 unpublished packages never shown as a registry install",
       "order": 34
     },
     {
       "id": "G-PWA1",
       "name": "the book installs as an app and reads offline: a valid manifest with 192 and 512 icons, a service worker that takes control, and a page that loads with the network off",
       "ok": true,
-      "detail": "manifest, icons and worker in place; /components/toast/usage renders offline",
+      "detail": "manifest, icons and worker in place; /components/fab/usage renders offline",
       "order": 35
     },
     {
       "id": "G-CL1",
       "name": "every colour value written in the book is a current token value (no stale hex in prose)",
       "ok": true,
-      "detail": "18 values checked",
+      "detail": "76 values checked",
       "order": 36
     },
     {
       "id": "G-NT2",
       "name": "every form control shows its boundary at least 3:1 against what it sits on, in every theme (WCAG 1.4.11)",
       "ok": true,
-      "detail": "26 controls in 2 themes",
+      "detail": "70 controls in 2 themes",
       "order": 37
     },
     {
@@ -273,8 +271,7 @@
       "id": "G-GL1",
       "name": "glow is declared and measured: in dark only [data-glow] parts give off light, each visibly (near ring vs ground) and within reach; text never glows; in light nothing glows",
       "ok": true,
-      "skipped": true,
-      "detail": "skipped: nothing it checks is in the limited routes",
+      "detail": "18 glowing parts in 2 themes (strong 1.37–1.44:1, soft 1.27–1.33:1)",
       "order": 40
     },
     {
@@ -289,7 +286,7 @@
       "id": "G-S6",
       "name": "nothing in the page column spills out of it: no element crosses into the rail or the margin beside main (folds open)",
       "ok": true,
-      "detail": "13 pages",
+      "detail": "37 pages",
       "order": 42
     },
     {
@@ -310,7 +307,7 @@
       "id": "G-IN1",
       "name": "text inside a control keeps its inset from the control's edge: at least 8px, and half the corner radius on a rounded end",
       "ok": true,
-      "detail": "13 lines of text in controls",
+      "detail": "25 lines of text in controls",
       "order": 45
     },
     {
@@ -324,7 +321,7 @@
       "id": "G-RH1",
       "name": "separate steps stand apart: a demo stage and a tab bar sit at least 24px from the blocks around them; a stage's own code, caption or heading may sit 8px off and its intro 16px",
       "ok": true,
-      "detail": "193 gaps",
+      "detail": "505 gaps",
       "order": 47
     },
     {
@@ -338,14 +335,14 @@
       "id": "G-SM1",
       "name": "following an in-page link (table of contents, heading anchor) lands with its heading clear of the sticky header",
       "ok": true,
-      "detail": "8 links followed",
+      "detail": "20 links followed",
       "order": 49
     },
     {
       "id": "G-TT1",
       "name": "every control in a live example and in the shell gives a pointer at least 44px each way",
       "ok": true,
-      "detail": "613 controls",
+      "detail": "1741 controls",
       "order": 50
     },
     {

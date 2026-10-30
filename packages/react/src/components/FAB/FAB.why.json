@@ -97,6 +97,16 @@
       "p": "P6",
       "axis": "interaction",
       "why": "an off control dims and refuses presses, so it reads as there but not available"
+    },
+    "hover": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "under a pointer the button rises one step like a light Button, so it reads as the thing to press"
+    },
+    "@media hover: hover": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "hover styles apply only on devices that can hover, so a touch screen never shows a stuck wash after a tap"
     }
   },
   "motion": {

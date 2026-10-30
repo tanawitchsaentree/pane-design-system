@@ -52,6 +52,16 @@
       "p": "P6",
       "axis": "interaction",
       "why": "an off control dims and refuses presses, so it reads as there but not available"
+    },
+    "hover": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a pointer gets a wash before the press so the target shows its size; only where the device can hover, so a tap never leaves it stuck"
+    },
+    "@media hover: hover": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "hover styles apply only on devices that can hover, so a touch screen never shows a stuck wash after a tap"
     }
   },
   "motion": {
