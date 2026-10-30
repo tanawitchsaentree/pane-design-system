@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T09:05:11.266Z",
+  "generatedAt": "2026-10-30T09:10:56.014Z",
   "passed": 6,
   "total": 6,
   "partial": true,
@@ -12,23 +12,29 @@
       "order": 2
     },
     {
+      "id": "G-S3",
+      "name": "no two surfaces touch (<8px) or overlap, every page, 375 and 1280px",
+      "ok": true,
+      "order": 4
+    },
+    {
       "id": "G-SH1",
       "name": "the docs chrome is plain and opaque: no blur or see-through surface outside demo stages",
       "ok": true,
       "order": 10
     },
     {
-      "id": "G-SV1",
-      "name": "every promised state is there and visible: each cell of the state matrix differs from its row default and carries its ARIA, in every theme",
+      "id": "G-ST1",
+      "name": "the address holds only what someone chose: a default is never written into the URL, and a stale or unknown value falls back and is dropped",
       "ok": true,
-      "detail": "NO state matrix route in this run",
-      "order": 39
+      "detail": "clean address, stale values dropped",
+      "order": 45
     },
     {
       "id": "G-TT1",
       "name": "every control in a live example and in the shell gives a pointer at least 44px each way",
       "ok": true,
-      "detail": "626 controls",
+      "detail": "313 controls",
       "order": 49
     },
     {
@@ -36,12 +42,6 @@
       "name": "axe finds no WCAG 2.2 AA violations on any page (forced-colors none)",
       "ok": true,
       "order": 50
-    },
-    {
-      "id": "axe-active",
-      "name": "axe finds no WCAG 2.2 AA violations on any page (forced-colors active)",
-      "ok": true,
-      "order": 51
     }
   ]
 }

@@ -748,3 +748,16 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 @media (max-width: 1320px) { .brand-sub { display: none; } }
 .topbar { gap: var(--ds-gap-xl); }
 .topbar-tools { gap: var(--ds-gap-lg); }
+
+/* header, round 3 (user 2026-10-30: uneven spacing, the backdrop dropdown looked off-theme): every tool is
+   one height and one material, the sunken chrome pill, and the tools sit an even 8px apart; the brand
+   group and the tool group are the only two clusters */
+.topbar { --tb-h: calc(var(--ds-control-sm) + var(--ds-space-0-5) * 2); gap: var(--ds-gap-lg); }
+.topbar-tools { gap: var(--ds-gap-md); }
+.tb-search, .tb-version, .tb-news, .tb-iconlink { min-block-size: var(--tb-h); }
+.tb-iconlink { inline-size: var(--tb-h); block-size: var(--tb-h); background: var(--ds-surface-sunken); }
+.tb-news { box-shadow: none; background: var(--ds-surface-sunken); }
+.tb-version { background: var(--ds-surface-sunken); }
+.topbar-scene [data-component='Select'] button { min-block-size: var(--tb-h); padding-inline: var(--ds-gap-lg) var(--ds-gap-md); border-radius: var(--ds-corner-round); background: var(--ds-surface-sunken); box-shadow: none; color: var(--ds-text-secondary); font-size: var(--ds-type-label); }
+.topbar-scene [data-component='Select'] button:hover { color: var(--ds-text-primary); box-shadow: none; }
+.topbar-scene { gap: var(--ds-gap-sm); }
