@@ -763,3 +763,10 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .topbar-scene [data-component='Select'] button { min-block-size: var(--tb-h); padding-inline: var(--ds-gap-lg) var(--ds-gap-md); border-radius: var(--ds-corner-round); background: var(--ds-surface-sunken); box-shadow: none; color: var(--ds-text-secondary); font-size: var(--ds-type-label); }
 .topbar-scene [data-component='Select'] button:hover { color: var(--ds-text-primary); box-shadow: none; }
 .topbar-scene { gap: var(--ds-gap-sm); }
+/* Nested pills in the topbar (G-NC1): the key and the New tag fill the pill's height less an even inset on
+   every side, so their round ends run parallel to the pill's. They were 4px from the end and 7 to 10px from
+   the top, with a 4px corner in a round end. */
+.tb-search { padding-inline-end: var(--ds-gap-xs); }
+.tb-search kbd { block-size: calc(var(--tb-h) - var(--ds-gap-xs) * 2); border-radius: var(--ds-corner-round); padding-inline: var(--ds-gap-md); }
+.tb-news { padding-inline-start: var(--ds-gap-xs); }
+.tb-news-tag { display: inline-grid; place-items: center; block-size: calc(var(--tb-h) - var(--ds-gap-xs) * 2); padding-inline: var(--ds-gap-md); }

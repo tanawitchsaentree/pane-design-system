@@ -4,6 +4,7 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- InputGroup: read only is drawn on the well, so a read-only PasswordInput or field with adornments no longer shows a second pill inside the first.
 - Checkbox: a soft round wash fills the 44px hit area under a pointer.
 - Radio: a soft round wash fills the 44px hit area under a pointer.
 - Switch: a soft wash fills the hit area around the track under a pointer.
