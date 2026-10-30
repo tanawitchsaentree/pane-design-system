@@ -2982,6 +2982,7 @@ export const COMPONENTS: ComponentChapter[] = [
       ex('BadgeTones', 'Neutral is the word alone. The four status tones each add their own glyph.'),
       ex('BadgeDot', 'A neutral status with no tone, such as Draft, can carry a dot. The status tones have their glyph instead.'),
       ex('BadgeCount', 'Inside a button, the count becomes part of the accessible name.'),
+      ex('BadgeProvenance', 'Where the data came from. Live takes the check, sample and synthetic stay neutral with a dot, and stale asks for care.'),
     ],
     whenToUse: ['States such as Live, Draft or Failed.', 'A count next to a label, like “3 new”.'],
     whenNotToUse: [['Categories', 'Tag. Badges are status, tags are topics'], ['Anything clickable', 'Chip or Button'], ['A message that needs explanation', 'Banner']],
