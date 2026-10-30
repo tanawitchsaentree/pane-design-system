@@ -2,7 +2,7 @@
 
 Every entry names the component it touches, so each component page in the book can show its own history. The conformance run fails if a component has no entry.
 
-## 0.7.0 (2026-10-29)
+## 0.7.0 (2026-10-30)
 
 - Box: new. Padding and a corner from the scales, nothing else.
 - Flex: new. A row or column with a gap from the scale and both alignments named.
