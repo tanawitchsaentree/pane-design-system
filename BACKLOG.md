@@ -86,3 +86,6 @@ Not a priority list — order of discovery.
 ## Token sheet split (PEG, 2026-10-30, measured: CSS 27.6 kB gz with tokens.css, 13.7 of it the sheet)
 - Component tokens move into each component's CSS file (arrive only with the component).
 - Separate entries: `pane-react/tokens/core.css` (space, size, radius, type, motion, z) and `pane-react/tokens/colour.css` (ramps, semantic colours, themes, environments), so a product with its own colours loads core only. tokens.css stays as both.
+
+## Variant and sub-state completeness (user, 2026-10-30 evening)
+"ไปสำรวจหาแต่ละ component มันจะมี variant state ย่อยอีกเยอะ … ดูให้ครบ". Audit of all 118 against MUI/Carbon/Ant/HIG/Radix/Fluent running in four groups (A actions+fields, B selection+nav, C overlays+surfaces+layout, D data+charts+patterns); results in the job's tmp/audit/{A,B,C,D}.md, then P1 gaps built wave by wave with gates (G-SV1 state matrix row per new state).
