@@ -133,6 +133,11 @@
       "p": "P6",
       "axis": "interaction",
       "why": "an off control dims and refuses presses, so it reads as there but not available"
+    },
+    "hover": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "under a pointer the field inside keeps no ring of its own; the well is the one shape that answers"
     }
   },
   "motion": {}

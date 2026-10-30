@@ -70,6 +70,11 @@
       "p": "P2",
       "axis": "type",
       "why": "an ellipsis in secondary text where pages are skipped"
+    },
+    "compact": {
+      "p": "P3",
+      "axis": "space",
+      "why": "on a narrow pane the page list gives way to the page in words between Previous and Next, so the bar never spills out"
     }
   },
   "states": {
@@ -102,6 +107,11 @@
       "p": "P3",
       "axis": "depth",
       "why": "the current item does not lighten on hover, because it is already the chosen pane"
+    },
+    "data-compact": {
+      "p": "P3",
+      "axis": "space",
+      "why": "when the whole bar does not fit its space, the numbered pages give way to the page in words between Previous and Next"
     }
   },
   "motion": {

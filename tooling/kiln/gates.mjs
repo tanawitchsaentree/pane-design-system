@@ -1382,7 +1382,9 @@ try {
           const cs = getComputedStyle(el);
           if (cs.visibility === 'hidden' || cs.display === 'contents') return false;
           const bg = cs.backgroundColor; const solid = bg && !/rgba\(.*,\s*0\)$/.test(bg) && bg !== 'transparent';
-          return solid || cs.backgroundImage !== 'none' || (cs.boxShadow !== 'none' && !/inset/.test(cs.boxShadow) ? true : cs.boxShadow !== 'none') || ['Top', 'Right', 'Bottom', 'Left'].every((k) => parseFloat(cs[`border${k}Width`]) > 0); // a one-side rule is a line, not a shape
+          // a shadow draws a shape unless every layer is an inset line along one edge (a divider: inset 0 Npx 0)
+          const lineOnly = cs.boxShadow !== 'none' && cs.boxShadow.split(/,(?![^(]*\))/).every((l) => /inset/.test(l) && /(^|\s)0px\s+-?[\d.]+px\s+0px(\s|$)/.test(l.replace(/rgba?\([^)]*\)/, '').trim()));
+          return solid || cs.backgroundImage !== 'none' || (cs.boxShadow !== 'none' && !lineOnly) || ['Top', 'Right', 'Bottom', 'Left'].every((k) => parseFloat(cs[`border${k}Width`]) > 0); // a one-side rule is a line, not a shape
         };
         const rad = (el) => parseFloat(getComputedStyle(el).borderTopLeftRadius) || 0;
         const name = (el) => el.closest('[data-component]')?.getAttribute('data-component') ?? (el.className && typeof el.className === 'string' ? `.${el.className.split(' ')[0]}` : el.tagName.toLowerCase());

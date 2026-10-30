@@ -4,6 +4,13 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- IconButton: icons are drawn at their size again (a content wrapper had made them 0×0).
+- Pagination: when the whole bar does not fit its space, the numbered pages give way to the page in words between Previous and Next.
+- SegmentedControl: stretched by its container, the segments share the track evenly.
+- List: sets its own body type instead of taking the page's.
+- Sidebar: sets its own body type instead of taking the page's.
+- SplitButton: the menu half keeps a 44px press area.
+- Mesh: the ground colour is also on the box, under the pools.
 - Button: `pressed` makes it a toggle (chosen glass, a ring, aria-pressed); `chevron` draws a chevron that turns while its menu is open; `href` renders it as a link that looks like a button.
 - IconButton: `pressed` and `pressedIcon` make it a toggle, such as Favourite.
 - ButtonGroup: new. Buttons that belong together, apart or joined with a hairline seam and squared inner corners, in a row or stacked.

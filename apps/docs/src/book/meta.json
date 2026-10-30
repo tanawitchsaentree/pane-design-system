@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T16:00:48.008Z",
+  "generatedAt": "2026-10-30T19:43:52.767Z",
   "version": "0.7.0",
   "components": {
     "Accordion": {
@@ -418,8 +418,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 16805,
-        "cssMin": 16729,
-        "gzip": 9182
+        "cssMin": 16838,
+        "gzip": 9199
       }
     },
     "Autocomplete": {
@@ -1208,7 +1208,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": "Makes it a toggle that stays on, such as Bold or Mute: on is chosen glass with a ring and aria-pressed says it. Leave it undefined for an ordinary button.",
+              "description": "Makes it a toggle that stays on, such as Bold or Mute. When on it takes the chosen glass and a ring, and aria-pressed says so. Leave it undefined for an ordinary button.",
               "enum": false,
               "options": null
             },
@@ -1286,7 +1286,7 @@
               "type": "boolean",
               "required": false,
               "default": "false",
-              "description": "Joins the buttons into one piece: the inner corners square off and a hairline of the scene shows between them. Off, they sit apart at the small gap.",
+              "description": "Joins the buttons into one piece, with squared inner corners and a hairline of the scene between them. Off, they sit apart at the small gap.",
               "enum": false,
               "options": null
             },
@@ -1312,8 +1312,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 470,
-        "cssMin": 716,
-        "gzip": 523
+        "cssMin": 760,
+        "gzip": 547
       }
     },
     "Calendar": {
@@ -1445,8 +1445,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 11042,
-        "cssMin": 6270,
-        "gzip": 6257
+        "cssMin": 6277,
+        "gzip": 6260
       }
     },
     "Card": {
@@ -1588,8 +1588,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 8538,
-        "cssMin": 5488,
-        "gzip": 5205
+        "cssMin": 5495,
+        "gzip": 5208
       }
     },
     "Center": {
@@ -2024,8 +2024,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 42018,
-        "cssMin": 10234,
-        "gzip": 17262
+        "cssMin": 10343,
+        "gzip": 17280
       }
     },
     "Combobox": {
@@ -2696,8 +2696,8 @@
       "demoFloor": 7,
       "bundle": {
         "jsMin": 82044,
-        "cssMin": 14391,
-        "gzip": 32766
+        "cssMin": 14398,
+        "gzip": 32772
       }
     },
     "DescriptionList": {
@@ -3274,8 +3274,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 10187,
-        "cssMin": 9741,
-        "gzip": 6518
+        "cssMin": 9850,
+        "gzip": 6534
       }
     },
     "EmptyState": {
@@ -3770,8 +3770,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 12991,
-        "cssMin": 12204,
-        "gzip": 7568
+        "cssMin": 12211,
+        "gzip": 7575
       }
     },
     "Flex": {
@@ -4400,7 +4400,7 @@
               "type": "boolean",
               "required": false,
               "default": null,
-              "description": "Makes it a toggle that stays on, such as Favourite or Mute: on is chosen glass with a ring and aria-pressed says it. Keep the aria-label the same in both states.",
+              "description": "Makes it a toggle that stays on, such as Favourite or Mute. When on it takes the chosen glass and a ring, and aria-pressed says so. Keep the aria-label the same in both states.",
               "enum": false,
               "options": null
             },
@@ -4425,8 +4425,8 @@
       "demoFloor": 6,
       "bundle": {
         "jsMin": 6718,
-        "cssMin": 3794,
-        "gzip": 4047
+        "cssMin": 3801,
+        "gzip": 4050
       }
     },
     "Image": {
@@ -4551,8 +4551,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 8940,
-        "cssMin": 8367,
-        "gzip": 5811
+        "cssMin": 8476,
+        "gzip": 5825
       }
     },
     "InputGroup": {
@@ -4598,8 +4598,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 442,
-        "cssMin": 1505,
-        "gzip": 836
+        "cssMin": 1607,
+        "gzip": 853
       }
     },
     "KanbanBoard": {
@@ -4967,8 +4967,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 1200,
-        "cssMin": 2482,
-        "gzip": 1478
+        "cssMin": 2552,
+        "gzip": 1482
       }
     },
     "Listbox": {
@@ -5859,8 +5859,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 80899,
-        "cssMin": 15826,
-        "gzip": 31960
+        "cssMin": 15833,
+        "gzip": 31961
       }
     },
     "NumberInput": {
@@ -5980,8 +5980,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 10967,
-        "cssMin": 8756,
-        "gzip": 6618
+        "cssMin": 8865,
+        "gzip": 6633
       }
     },
     "OTPFlow": {
@@ -6127,9 +6127,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6541,
-        "cssMin": 1505,
-        "gzip": 3491
+        "jsMin": 6987,
+        "cssMin": 1736,
+        "gzip": 3789
       }
     },
     "PaneProvider": {
@@ -6213,8 +6213,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 9711,
-        "cssMin": 8552,
-        "gzip": 6084
+        "cssMin": 8661,
+        "gzip": 6101
       }
     },
     "PinInput": {
@@ -7495,8 +7495,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 10095,
-        "cssMin": 8655,
-        "gzip": 6238
+        "cssMin": 8764,
+        "gzip": 6254
       }
     },
     "SegmentedControl": {
@@ -7596,8 +7596,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 26071,
-        "cssMin": 1531,
-        "gzip": 9737
+        "cssMin": 1548,
+        "gzip": 9749
       }
     },
     "Select": {
@@ -8110,8 +8110,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 6259,
-        "cssMin": 1977,
-        "gzip": 3433
+        "cssMin": 2047,
+        "gzip": 3448
       }
     },
     "Skeleton": {
@@ -8651,8 +8651,8 @@
       "demoFloor": 7,
       "bundle": {
         "jsMin": 97029,
-        "cssMin": 7999,
-        "gzip": 36221
+        "cssMin": 8091,
+        "gzip": 36242
       }
     },
     "Stack": {

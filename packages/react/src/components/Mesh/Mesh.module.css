@@ -4,6 +4,8 @@
 .root {
   --mesh-a: var(--ds-mesh-a); --mesh-b: var(--ds-mesh-b); --mesh-c: var(--ds-mesh-c); --mesh-d: var(--ds-mesh-d); --mesh-base: var(--ds-mesh-base);
   position: relative; isolation: isolate; border-radius: inherit;
+  /* the ground colour under the pools, also on the box itself so it reads before the paint layer loads */
+  background-color: var(--mesh-base);
 }
 .ember { --mesh-a: var(--ds-mesh-ember-a); --mesh-b: var(--ds-mesh-ember-b); --mesh-c: var(--ds-mesh-ember-c); --mesh-d: var(--ds-mesh-ember-d); --mesh-base: var(--ds-mesh-ember-base); }
 .tide { --mesh-a: var(--ds-mesh-tide-a); --mesh-b: var(--ds-mesh-tide-b); --mesh-c: var(--ds-mesh-tide-c); --mesh-d: var(--ds-mesh-tide-d); --mesh-base: var(--ds-mesh-tide-base); }

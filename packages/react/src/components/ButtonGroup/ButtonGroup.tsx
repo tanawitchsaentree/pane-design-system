@@ -5,7 +5,7 @@ import styles from './ButtonGroup.module.css';
 export interface ButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
   /** Names the group for screen readers, such as Text style or Pages. */
   label: string;
-  /** Joins the buttons into one piece: the inner corners square off and a hairline of the scene shows between them. Off, they sit apart at the small gap. */
+  /** Joins the buttons into one piece, with squared inner corners and a hairline of the scene between them. Off, they sit apart at the small gap. */
   attached?: boolean;
   /** `horizontal` (default) puts them in a row; `vertical` stacks them, for a side toolbar. */
   orientation?: 'horizontal' | 'vertical';

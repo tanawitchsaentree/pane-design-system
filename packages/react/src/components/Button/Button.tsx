@@ -19,7 +19,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   iconEnd?: ReactNode;
   /** Fills the width of its container, for the one action at the foot of a form or a sheet. */
   fullWidth?: boolean;
-  /** Makes it a toggle that stays on, such as Bold or Mute: on is chosen glass with a ring and aria-pressed says it. Leave it undefined for an ordinary button. */
+  /** Makes it a toggle that stays on, such as Bold or Mute. When on it takes the chosen glass and a ring, and aria-pressed says so. Leave it undefined for an ordinary button. */
   pressed?: boolean;
   /** Draws a chevron at the end that turns while a menu it opens is open, for a Menu trigger (a menu button). */
   chevron?: boolean;

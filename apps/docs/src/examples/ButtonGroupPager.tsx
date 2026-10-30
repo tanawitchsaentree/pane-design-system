@@ -1,4 +1,4 @@
-// @example A pager: Previous and Next joined
+// @example A pager, Previous and Next joined
 import { Button, ButtonGroup } from 'pane-react';
 
 export default function ButtonGroupPager() {

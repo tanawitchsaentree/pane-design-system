@@ -39,12 +39,13 @@ export default async function (t) {
     expect(await s.nth(1).evaluate((e) => e === document.activeElement), 'Tab did not reach the chevron');
   });
   await check('SplitButton', 'the chevron opens the menu', async () => {
-    const c = ex().first().locator('[data-component="SplitButton"] button').nth(1);
+    // the Save example, found by its chevron's name: examples load one by one, so "the first" can change under the check
+    const c = ex().locator('[data-component="SplitButton"] button[aria-label="More ways to save"]').first();
     expect((await c.getAttribute('aria-label')) === 'More ways to save', 'the chevron is not named');
     await c.focus(); await page.keyboard.press('Enter');
     await eventually(async () => expect(await page.locator('[role="menu"]').isVisible(), 'no menu'));
     await page.keyboard.press('Escape');
-    await eventually(async () => expect(await c.evaluate((e) => e === document.activeElement), 'focus did not return to the chevron'), 4000);
+    await eventually(async () => { const [ok, at] = await c.evaluate((e) => [e === document.activeElement, `${document.activeElement?.tagName} ${document.activeElement?.getAttribute('aria-label') ?? document.activeElement?.textContent?.slice(0, 24)}`]); expect(ok, `focus did not return to the chevron (it is on ${at})`); }, 4000);
   });
 
   await go('/components/input/code');

@@ -11,3 +11,8 @@
 .edge { padding-inline: var(--ds-gap-lg); }
 .gap { min-inline-size: var(--ds-control-icon-md); text-align: center; color: var(--ds-text-secondary); }
 @media (forced-colors: active) { .step[aria-current='page'] { outline: var(--ds-width-ring) solid Highlight; } }
+/* Narrow (a phone, a card): the numbered pages give way to "4 of 12" between Previous and Next, so the bar
+   never spills out of its pane; the numbers come back once there is room for them. */
+.compact { display: none; padding-inline: var(--ds-gap-md); font-size: var(--ds-type-label); font-variant-numeric: tabular-nums; color: var(--ds-text-secondary); white-space: nowrap; }
+.root[data-compact] .pages { display: none; }
+.root[data-compact] .compact { display: inline; }

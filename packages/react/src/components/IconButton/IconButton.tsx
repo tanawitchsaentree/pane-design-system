@@ -14,7 +14,7 @@ export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
   size?: 'sm' | 'md';
   /** Shows a spinner in place of the content while an action runs. The button keeps its width and focus, says it is busy, and ignores presses until it is done. */
   loading?: boolean;
-  /** Makes it a toggle that stays on, such as Favourite or Mute: on is chosen glass with a ring and aria-pressed says it. Keep the aria-label the same in both states. */
+  /** Makes it a toggle that stays on, such as Favourite or Mute. When on it takes the chosen glass and a ring, and aria-pressed says so. Keep the aria-label the same in both states. */
   pressed?: boolean;
   /** With pressed, the glyph shown while it is on, such as a filled star for an outline one. */
   pressedIcon?: ReactNode;
