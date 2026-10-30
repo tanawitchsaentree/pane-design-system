@@ -1,0 +1,46 @@
+{
+  "identity": false,
+  "identity_reason": "it is the Select groove for its field, a level-4 Card for its popover and Calendar inside, so its look comes from those",
+  "concept": "A field in the Select groove that opens Calendar on a level-4 popover; choosing closes it and puts focus back on the field.",
+  "parts": {
+    "trigger": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the chosen date is set in tabular figures so it does not shift as it changes"
+    },
+    "placeholder": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the empty field shows its placeholder in the secondary tone"
+    },
+    "glyph": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a calendar glyph at the end says the field opens a calendar"
+    },
+    "pop": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the calendar sits on a level-4 popover with the shared popover padding"
+    }
+  },
+  "states": {
+    "data-readonly": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a read-only value drops the groove for a hairline, so it reads as settled but can still be focused and copied"
+    },
+    "aria-invalid=true": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
+    }
+  },
+  "motion": {
+    "@pop": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the calendar popover rises a short distance and settles like every popover"
+    }
+  }
+}

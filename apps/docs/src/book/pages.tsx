@@ -1,5 +1,5 @@
-import { useState, type ReactElement, type ReactNode } from 'react';
-import { Card, Environment, Select, Tag } from 'pane-react';
+import { useRef, useState, type ReactElement, type ReactNode } from 'react';
+import { Button, Card, Environment, Select, Slider, Stack, Switch, Tag } from 'pane-react';
 import decisionsMd from '../../../../system/DECISIONS.md?raw';
 import exceptionsMd from '../../../../system/EXCEPTIONS.md?raw';
 import creditsMd from '../../public/scenes/CREDITS.md?raw';
@@ -8,6 +8,7 @@ import FeedPostSrc from '../examples/FeedPost.tsx?raw';
 import MotionDemo from '../examples/MotionDemo';
 import MotionDemoSrc from '../examples/MotionDemo.tsx?raw';
 import ProfileCard from '../examples/ProfileCard';
+import Showcase from '../examples/Showcase';
 import ProfileCardSrc from '../examples/ProfileCard.tsx?raw';
 import QuickStart from '../examples/QuickStart';
 import QuickStartSrc from '../examples/QuickStart.tsx?raw';
@@ -18,16 +19,21 @@ import SettingsPanelSrc from '../examples/SettingsPanel.tsx?raw';
 import TextOnImage from '../examples/TextOnImage';
 import TextOnImageSrc from '../examples/TextOnImage.tsx?raw';
 import * as Icons from '../icons';
+import { PaletteGrid, RoleTabs, TokenBrowser } from './color-page';
+import { ElevationDemo } from './elevation';
 import { ThemePlayground, GlassPlayground, ContrastPlayground, TypePlayground, SpacingPlayground, GridPlayground, ShapePlayground, MotionPlayground, IconBrowser, TouchTargetPlayground } from './playgrounds';
-import { inline, useScene, Stage, PRINCIPLES, CONCEPT_INTRO, Callout, Code, CopyButton, ConformanceList, EvidenceTable, Example, Link, Markdown, Page, Section, TOKENS, TokenTable, VerifiedTags, useVerify } from './kit';
-import { COMPONENTS } from './components-data';
+import { inline, useScene, Stage, PRINCIPLES, CONCEPT_INTRO, Callout, Code, CodeBlock, CopyButton, ConformanceList, EvidenceTable, Example, Link, Markdown, Page, Section, TOKENS, TokenTable, VerifiedTags, useVerify } from './kit';
+import { CATEGORIES, COMPONENTS } from './components-data';
 import { GridLayoutPage } from './grid-page';
 import { ComponentPage, EVIDENCE_GROUPS, HISTORY, STATUS_LABEL, TABS } from './ComponentPage';
 import { TabRedirect } from './TabRedirect';
 import { PATTERN_DEPTH } from '../patterns/content';
 import { EXTRAS } from './foundation-extras';
 import { AccessibilityFoundation, ContentFoundation, Contributing, Designing, Developing, Migrating } from './guides';
+import { IOSPage } from './ios';
 import { PatternDepthPage } from '../patterns/PatternDepth';
+import { StatesPage } from './states';
+import { Language } from './language';
 import { SCENES } from '../scenes';
 import { PARTS } from './router';
 import meta from './meta.json';
@@ -45,6 +51,54 @@ const tok = (p: string) => TOKENS[p]?.value ?? '—';
 const OPEN_EXCEPTIONS = (exceptionsMd.match(/^### E-\d{3}:.*— OPEN\s*$/gm) ?? []).length;
 
 // ================================ Introduction ================================
+
+/** Layout primitives have no look of their own, so the gallery shows what they do: the columns, the
+ *  centred column and the gaps, drawn on the field. */
+const LAYOUT_THUMB: Record<string, ReactNode> = {
+  Grid: <div className="thumb-grid" aria-hidden="true">{Array.from({ length: 12 }, (_, i) => <span key={i} />)}<b style={{ gridColumn: '1 / span 4' }}>4</b><b style={{ gridColumn: '5 / span 8' }}>8</b><b style={{ gridColumn: '1 / span 12' }}>12</b></div>,
+  Container: <div className="thumb-container" aria-hidden="true"><i /><b>max width</b><i /></div>,
+  Stack: <div className="thumb-stack" aria-hidden="true"><b /><em>gap</em><b /><em>gap</em><b /></div>,
+};
+
+/** The component gallery: a full-screen dialog (native <dialog>, so focus, Esc and the backdrop are the
+ *  browser's) with every component, grouped by family, on its own studio plate at a smaller size. */
+function Gallery() {
+  const ref = useRef<HTMLDialogElement>(null);
+  const byName = Object.fromEntries(COMPONENTS.map((c) => [c.name, c]));
+  let n = 0;
+  return (
+    <>
+      <Button variant="glass" onClick={() => ref.current?.showModal()}>Open the gallery · {COMPONENTS.length} components</Button>
+      <dialog ref={ref} className="gallery-modal" aria-labelledby="gallery-h" onClick={(e) => { if (e.target === e.currentTarget) ref.current?.close(); }}>
+        <div className="gallery-modal-head">
+          <h2 id="gallery-h" className="flush">Every component</h2>
+          <Button variant="glass" size="sm" onClick={() => ref.current?.close()}>Close</Button>
+        </div>
+        {CATEGORIES.map((cat) => (
+          <section key={cat.title} className="gallery-family" aria-labelledby={`gal-${cat.title.replace(/\W+/g, '-')}`}>
+            <div className="gallery-family-head">
+              <h3 id={`gal-${cat.title.replace(/\W+/g, '-')}`} className="flush">{cat.title}</h3>
+              <p className="flush">{cat.blurb}</p>
+            </div>
+            <div className="gallery">
+              {cat.names.map((name) => { const c = byName[name]; n++; return (
+                <div key={c.slug} className={`gallery-cell${LAYOUT_THUMB[name] ? ' is-diagram' : ''}`} data-example-live="" data-surface="">
+                  <div className="gallery-head">
+                    <span className="gallery-no" aria-hidden="true">{String(n).padStart(2, '0')}</span>
+                    <Link to={`/components/${c.slug}`} className="gallery-name" onClick={() => ref.current?.close()}>{c.name}</Link>
+                    <p className="gallery-purpose">{c.purpose}</p>
+                    <code className="gallery-tag">{`<${c.name} />`}</code>
+                  </div>
+                  <Environment brightness="bright" className="gallery-demo">{LAYOUT_THUMB[name] ?? <div className="gallery-scale"><c.hero.Render /></div>}</Environment>
+                </div>
+              ); })}
+            </div>
+          </section>
+        ))}
+      </dialog>
+    </>
+  );
+}
 
 function Overview() {
   return (
@@ -73,8 +127,17 @@ function Overview() {
             </ol>
           </div>
         </div>
-        <Stage className="hero-card"><ProfileCard idPrefix="hero" /></Stage>
       </section>
+
+      <Section id="glance" title="Pane at a glance" wide>
+        <p>Three screens built only from Pane, each using what its parts can do: a mesh that lights the pane, the loud bead, a fill slider, a switch that glows when it is on, a card inside a card, and tabs over chosen glass. Each card names the parts it is made of.</p>
+        <Stage className="showcase-stage"><Showcase /></Stage>
+      </Section>
+
+      <Section id="gallery" title="Every component">
+        <p>Every component on its own studio plate, small, in its main use. The gallery opens over the page, five to a row on a wide screen.</p>
+        <Gallery />
+      </Section>
 
       <Section id="chapters" title="The book" wide>
         <div className="category-grid">
@@ -98,29 +161,75 @@ function Overview() {
   );
 }
 
+function InstallApp() {
+  return (
+    <Page eyebrow="Getting started" title="Install as an app" lede={<p>This book installs on a phone or a laptop like an app, with no store, and reads offline once it has been opened. A product built with Pane can do the same with one command after its build.</p>}>
+      <Section id="book" title="Install this book">
+        <p>On Android, open the book in Chrome and choose Install app when it offers, or open the menu and choose Install app. On an iPhone, open it in Safari, press Share, then Add to Home Screen. On a laptop, Chrome and Edge show an install button at the end of the address bar.</p>
+        <p>The installed book opens full screen with its own icon. Pages you have opened before still load without a network; when you are online it fetches the latest pages first, so it never shows an old version for long.</p>
+      </Section>
+      <Section id="product" title="Make your product installable">
+        <p>Run <code>pane-pwa</code> on the folder you deploy, after your build. It writes the manifest and a service worker into that folder and copies your icons. Give it a 192 and a 512 pixel PNG, and a maskable 512 if you have one, so Android does not crop the plain icon into a circle.</p>
+        <Code label="After your build">{'npx pane-pwa --dist dist --name "Brick Forge" --short "Forge" --icon192 public/icon-192.png --icon512 public/icon-512.png --maskable public/maskable-512.png --theme "#141418"'}</Code>
+        <p>Then add the manifest and the icon to your HTML head, and register the worker once from your app.</p>
+        <Code label="index.html">{'<link rel="manifest" href="/manifest.webmanifest">\n<link rel="apple-touch-icon" href="/icons/icon-192.png">\n<meta name="theme-color" content="#141418">'}</Code>
+        <Code label="main.tsx">{"if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));"}</Code>
+        <p>The site has to be served over HTTPS for a phone to offer the install. Cloudflare Pages, Netlify and Vercel all are, and localhost works while you test.</p>
+      </Section>
+      <Section id="checks" title="What is checked">
+        <p>kiln G-PWA1 loads a page at phone size, reads the manifest, decodes the 192 and 512 icons to check their sizes, looks for a maskable icon and an iPhone icon, waits for the service worker, then turns the network off and reloads the page. The gate fails if any step does.</p>
+      </Section>
+    </Page>
+  );
+}
+
 function GettingStarted() {
   return (
     <Page eyebrow="Getting started" title="Getting started" lede={<p>Install the two packages and load the token stylesheet once. Then wrap the screen in an Environment that matches its backdrop and put your content on Cards.</p>}>
       <Section id="install" title="1 · Install">
+        <p>Pane is not on the npm registry yet, so installing <code>pane-react</code> by name fails with a 404. Install it from the tarball this repo builds, as below; once the packages are published the same import lines work unchanged.</p>
         <p>One package and one import are enough. <code>pane-react</code> carries the tokens inside it, so a React app installs nothing else and loads one stylesheet. It needs React 18 or newer.</p>
-        <Code label="Install">{'npm install pane-react'}</Code>
+        <Code label="Install">{`# in this repo
+pnpm run release:pack
+
+# in your project
+npm install /path/to/pilot-glass/release/pane-react-${meta.version}.tgz`}</Code>
         <Code label="main.tsx">{"import 'pane-react/all.css';\nimport { Environment, Card, Button } from 'pane-react';"}</Code>
         <p>The tokens are also on their own as <code>pane-tokens</code>, for projects that are not React. The React package includes them as <code>pane-react/tokens.css</code> and <code>pane-react/tokens</code>, so you never need both.</p>
         <div className="pkg-grid">
           <div className="panel" data-surface="">
             <p className="flush"><b>pane-tokens</b> <span className="muted">v{meta.version}</span></p>
             <p className="flush muted">{Object.keys(TOKENS).length} tokens as CSS custom properties (<code>pane-tokens/css</code>) and resolved JSON (<code>pane-tokens/json</code>).</p>
-            <Code>{'pnpm add pane-tokens'}</Code>
+            <Code>{`npm install /path/to/release/pane-tokens-${meta.version}.tgz`}</Code>
           </div>
           <div className="panel" data-surface="">
             <p className="flush"><b>pane-react</b> <span className="muted">v{meta.version}</span></p>
             <p className="flush muted">{Object.keys(meta.components).length} components, {(Object.values(meta.components).reduce((n, c) => n + c.bundle.gzip, 0) / 1024).toFixed(1)} kB min+gz all together (measured with esbuild; Tabs carries Radix).</p>
-            <Code>{'pnpm add pane-react'}</Code>
+            <Code>{`npm install /path/to/release/pane-react-${meta.version}.tgz`}</Code>
           </div>
         </div>
       </Section>
       <Section id="other-project" title="Using Pane in another project">
         <p>Nothing is published to a registry (that stays your decision). Three ways to bring Pane into another codebase, from simplest:</p>
+        <h3>For a plain HTML site, one link</h3>
+        <p>A site without React needs only the tokens, and this book serves them. Link the stylesheet and use the <code>--ds-*</code> variables; nothing to install. The pinned address keeps a site on one version until you change it.</p>
+        <Code label="index.html">{`<link rel="stylesheet" href="https://pane-design-system.pages.dev/pane-tokens-${meta.version}.css">
+
+<!-- then, in your own CSS -->
+.card { background: var(--ds-level-2); padding: var(--ds-gap-lg); border-radius: var(--ds-corner-media); color: var(--ds-text-primary); }`}</Code>
+        <p>The theme follows <code>data-theme="light"</code> or <code>"dark"</code> on the <code>html</code> element.</p>
+        <p>A few components also come as plain HTML and one more stylesheet, made from the same tokens so they look the same as the React ones. Scale is the first. Its markup is a label, a track of steps with a dot, an optional ring and band, and a word, and the Scale page shows it on its Code tab.</p>
+        <Code label="index.html">{`<link rel="stylesheet" href="https://pane-design-system.pages.dev/pane-scale.css">
+
+<div class="pane-scale" role="img" aria-label="Speed: Fast, 4 of 5, above the format average">
+  <span class="pane-scale-label" aria-hidden="true">Speed</span>
+  <span class="pane-scale-track" aria-hidden="true" style="--at: 75%; --cmp: 50%">
+    <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i>
+    <b class="pane-scale-band good" style="--from: 50%; --to: 75%"></b>
+    <b class="pane-scale-ring"></b><b class="pane-scale-dot"></b>
+  </span>
+  <span class="pane-scale-word" aria-hidden="true">Fast</span>
+</div>`}</Code>
         <h3>A · Tarballs</h3>
         <Code>{`# in this repo
 pnpm run release:pack            # → release/pane-tokens-${meta.version}.tgz, release/pane-react-${meta.version}.tgz
@@ -224,6 +333,11 @@ function Glass() {
         <p>Move the sliders over the current scene and watch the card. Switch the demo backdrop in the top bar to see why one value has to hold over every photo.</p>
         <GlassPlaygroundWithScene />
       </Section>
+      <Section id="levels" title="Levels of the stack" wide>
+        <p>Glass stacks in four levels. A pane sits on the scene (1). A surface inside a pane is one step lighter in dark and one step deeper in light, with no second blur (2); a Card inside a Card takes this level by itself. An overlay such as a dialog sits on a scrim that halves the scene and everything under it (3). A popover sits on top (4). Each level also floats on a longer shadow than the one below.</p>
+        <p>The step is measured. The median luminance of a band just inside each level's edge is compared with a band just outside it, on whatever is underneath, and neighbouring levels must differ by at least 1.15:1 in both themes on every photo. Under an overlay the scrim must take the scene down to 60 percent of its brightness or less. The check is gate G-EL1, and it runs on the examples below.</p>
+        <ElevationDemo />
+      </Section>
       <Section id="recipe" title="The recipe">
         <div className="table-wrap">
           <table>
@@ -234,7 +348,7 @@ function Glass() {
               <tr><th scope="row">Dim</th><td><code>glass.brightness</code></td><td><code>{tok('glass.brightness')}</code></td><td>The legibility lever. Lowers the backdrop’s light while keeping hue and detail.</td></tr>
               <tr><th scope="row">Tint</th><td><code>surface.glass</code></td><td><code>{tok('surface.glass')}</code></td><td>Almost nothing. 6% white so the pane has a body.</td></tr>
               <tr><th scope="row">Sheen</th><td><code>surface.sheen-top → sheen-bottom</code></td><td><code>{tok('surface.sheen-top')} → {tok('surface.sheen-bottom')}</code></td><td>A top-lit gradient so the pane reads as a surface catching light.</td></tr>
-              <tr><th scope="row">Rim</th><td><code>line.rim-hi / mid / lo</code></td><td><code>{tok('line.rim-hi')}</code></td><td>Takes the place of a border. It is bright at the top left and almost gone in the middle.</td></tr>
+              <tr><th scope="row">Rim</th><td><code>line.rim-hi / mid / lo</code></td><td><code>{tok('line.rim-hi')}</code></td><td>Takes the place of a border. One light falls from above, so it is brightest along the top edge, faint down the sides and a little stronger at the foot.</td></tr>
               <tr><th scope="row">Halo</th><td><code>elevation.halo</code></td><td><code>{tok('elevation.halo')}</code></td><td>A soft dark glow around white text. Counted by WCAG as the text’s background when it is there.</td></tr>
             </tbody>
           </table>
@@ -284,31 +398,68 @@ function Glass() {
 }
 
 function ColorPage() {
-  const prim = Object.entries(TOKENS).filter(([, t]) => t.tier === 'primitive' && t.type === 'color');
   return (
-    <Page eyebrow="Foundations" title="Colour" lede={<p>Pane has very little colour of its own on purpose, because the scene behind the glass supplies it. The palette is white at a handful of opacities plus one graphite for the opaque fallback, one ink for text on white and one blue.</p>}>
+    <Page eyebrow="Foundations" title="Colour" lede={<p>Pane has no hue of its own, because the scene behind the glass supplies the colour. The palette is white at a handful of opacities plus one graphite for the opaque fallback and one ink for text on white. Colour beyond that appears only where it states a status, in the info, positive, warning and critical marks.</p>}>
+      <Section id="palette" title="Palette" wide>
+        <p>Every primitive, one row per family from light to dark. Select a step to copy its variable. The alpha rows are shown on the ground they are used on.</p>
+        <PaletteGrid />
+      </Section>
+      <Section id="roles" title="Roles" wide>
+        <p>Components never use a primitive directly. They go through a role, and each role has a value in each theme. Change a role and every component that uses it follows.</p>
+        <RoleTabs />
+      </Section>
       <Section id="playground" title="Check a pair" wide>
         <p>Pick any two solid colours from the palette to see their contrast and which WCAG levels they meet.</p>
         <ContrastPlayground />
       </Section>
-      <Section id="palette" title="Palette" wide>
-        <ul className="swatches flush">
-          {prim.map(([p, t]) => <li key={p}><span className="chip" style={{ background: `var(${t.css})` }} aria-hidden="true" /><code>{p}</code><span className="muted">{t.value}</span></li>)}
-        </ul>
-      </Section>
-      <Section id="roles" title="Roles">
-        <p>Components never use a primitive directly. They go through a semantic role. Change a role and every component that uses it follows.</p>
-        <TokenTable prefix="text." />
-        <TokenTable prefix="action." />
-        <TokenTable prefix="surface." />
-        <TokenTable prefix="line." />
+      <Section id="gradients" title="Gradients" wide>
+        <p>A gradient is named by how its colour moves. Pane uses three of them in its own material and keeps the fourth, the mesh, for scenes and media, because the world supplies the hue and the glass only shows it (P1).</p>
+        <div className="gradient-kinds">
+          <figure><div className="gradient-swatch linear" /><figcaption><b>Linear.</b> Colour moves along one line. Pane uses it for the sheen on every surface: light at the top, fading toward the foot.</figcaption></figure>
+          <figure><div className="gradient-swatch radial" /><figcaption><b>Radial.</b> Colour moves out from one point. Pane uses it for glows and the bead’s lit top.</figcaption></figure>
+          <figure><div className="gradient-swatch conic" /><figcaption><b>Conic.</b> Colour moves around a centre, like a colour wheel. Pane does not use it.</figcaption></figure>
+          <figure><div className="gradient-swatch mesh" /><figcaption><b>Mesh</b> (freeform). Several pools of colour, each placed on its own, melted into each other. It is not a linear or a radial gradient: the blur between the pools is what makes it one.</figcaption></figure>
+        </div>
+        <h3>How the mesh is made</h3>
+        <p>Four soft radial pools (<code>mesh.a</code> to <code>mesh.d</code>) sit on a pale ground (<code>mesh.base</code>), each at its own spot and size. They are drawn on a layer of their own, larger than the box, and that layer is blurred by <code>mesh-blur</code> (40px) so no pool keeps an edge. The box clips it. CSS has no mesh gradient, so this is the recipe; SwiftUI calls the same thing a MeshGradient and Figma a mesh fill.</p>
+        <CodeBlock label="CSS" code={`.mesh { position: relative; isolation: isolate; overflow: hidden; background-color: var(--ds-mesh-base); }
+.mesh::before {
+  content: ''; position: absolute; inset: -20%; z-index: -1;
+  background:
+    radial-gradient(58% 66% at 14% 14%, var(--ds-mesh-a), transparent 76%),
+    radial-gradient(56% 64% at 90% 26%, var(--ds-mesh-b), transparent 76%),
+    radial-gradient(72% 60% at 60% 96%, var(--ds-mesh-c), transparent 76%),
+    radial-gradient(50% 56% at 4% 92%, var(--ds-mesh-d), transparent 74%);
+  filter: blur(var(--ds-mesh-blur));
+}`} />
+        <h3>Where it goes</h3>
+        <div className="table-wrap"><table>
+          <thead><tr><th scope="col">Use</th><th scope="col">Allowed</th><th scope="col">Why</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">A scene behind glass</th><td>Yes. Pick <b>Aurora (mesh)</b> in Demo backdrop.</td><td>It is the world, and glass is made to show the world.</td></tr>
+            <tr><th scope="row">Media: a cover, an app or folder icon, an illustration</th><td>Yes</td><td>It is content, like a photo.</td></tr>
+            <tr><th scope="row">An ambient shadow under a mesh object</th><td>Yes</td><td>A coloured object lights what is under it in its own colour: the same mesh, blurred, under the object.</td></tr>
+            <tr><th scope="row">A Button, a Switch, a selected tab</th><td>No</td><td>Controls own no hue (P1). The loud action is the lit solid, and in dark it glows white.</td></tr>
+            <tr><th scope="row">Text</th><td>No</td><td>A gradient changes the letter’s contrast along its width, so no part of it can be measured.</td></tr>
+          </tbody>
+        </table></div>
+        <div className="mesh mesh-scene" data-example-live="" data-surface="">
+          <Environment brightness="bright" className="stage-env mesh-scene-env">
+            <Card as="div" className="demo-card">
+              <div className="mesh-tile-wrap"><div className="mesh mesh-tile" role="img" aria-label="Happy Files folder art" /></div>
+              <p className="eyebrow flush">New</p>
+              <h3 className="flush">Happy Files</h3>
+              <p className="flush">88 photos · 24 videos · 9 documents</p>
+            </Card>
+          </Environment>
+        </div>
       </Section>
       <Section id="rules" title="Rules">
         <ul>
           <li><b>Text follows the theme.</b> Dark glass carries white text and light glass carries ink. Secondary text is the same colour at a lower opacity, held at the lowest value that still passed on the bright photos.</li>
-          <li><b>Two solid fills only.</b> The loud solid (<code>surface.light</code>, white in dark and ink in light) for the main action, and blue (<code>action.accent</code>) for promoted ones. Never both for equal actions. <Link to="/foundations/themes">Themes & backdrops</Link> shows both.</li>
-          <li><b>Blue is #0071E3, a deeper blue than Twitter’s.</b> Twitter’s <span data-not-token>#1D9BF0</span> measured about 2.9:1 under white text on its own fill.</li>
-          <li><b>Opaque pairs are computed, glass pairs are measured.</b> White on blue is 4.70:1 by formula; anything on glass is only what the evidence run reads from pixels.</li>
+          <li><b>One loud solid.</b> The loud solid (<code>surface.light</code>, white in dark and ink in light) carries the main action. The accent (<code>action.accent</code>) is the same solid with its own glow, for a promoted action, and the two never sit side by side. <Link to="/foundations/themes">Themes & backdrops</Link> shows both.</li>
+          <li><b>Pane owns no blue.</b> Twitter’s <span data-not-token>#1D9BF0</span> is the colour people expect from a social app, and Pane leaves it out, so the only hues on screen come from the photo and the status marks.</li>
+          <li><b>Opaque pairs are computed, glass pairs are measured.</b> Ink on white is 18.74:1 by formula; anything on glass is only what the evidence run reads from pixels.</li>
         </ul>
       </Section>
     </Page>
@@ -345,12 +496,12 @@ function Themes() {
         <p>A nested region gets fresh token values, but CSS still hands it the colour and text shadow its parent already computed. Cards set both themselves. For plain text in a nested region, set them on the region too.</p>
         <Code label="CSS">{`[data-theme] [data-theme] {\n  color: var(--ds-text-primary);\n  text-shadow: var(--ds-card-text-halo);\n}`}</Code>
       </Section>
-      <Section id="matrix" title="One card, both themes, every scene" wide>
+      <Section id="matrix" title="One card, both themes, every scene" wide fold>
         <p>The same card in each theme over each of the four photos. Look at the night café row first. That is where light glass works hardest, because ink text needs a pale surface and the photo behind is almost black.</p>
         <ThemeMatrixDemo />
       </Section>
-      <Section id="changes" title="What changes between themes" wide>
-        <p>Only these tokens have a second value. Everything else, from spacing to motion to the blue accent, is the same in both themes.</p>
+      <Section id="changes" title="What changes between themes" wide fold>
+        <p>Only these tokens have a second value. Everything else, from spacing to motion to the status colours, is the same in both themes.</p>
         <div className="table-wrap">
           <table className="tokens">
             <thead><tr><th scope="col">Token</th><th scope="col">Dark</th><th scope="col">Light</th><th scope="col">Copy</th></tr></thead>
@@ -367,7 +518,7 @@ function Themes() {
           </table>
         </div>
       </Section>
-      <Section id="bright-dark" title="Bright scenes and dark scenes">
+      <Section id="bright-dark" title="Bright scenes and dark scenes" fold>
         <p>The theme and the scene are two separate things. The theme is the reader’s choice. The scene is whatever photo, video or wallpaper sits behind the glass, and you rarely control it.</p>
         <ul>
           <li><b>Dark theme on a bright scene</b> is the hard case for dark glass. The Environment level decides how far the glass dims, and <code>bright</code> is the safe default.</li>
@@ -377,14 +528,14 @@ function Themes() {
         </ul>
         <Callout tone="caution" title="Text straight on the photo">Neither theme protects text that sits outside a pane. Put it on glass, or on a scrim, in both themes.</Callout>
       </Section>
-      <Section id="solids" title="Solid fills flip">
-        <p>The loud fill in each theme is the opposite of the text colour. Dark theme uses a white button with ink text. Light theme uses an ink button with white text. Code that asks for <code>surface.light</code> gets the right one in each theme, so the name means “the loud solid” and not literally white. Accent blue and the status colours stay the same in both, because their text pairs are worked out on the fill itself.</p>
+      <Section id="solids" title="Solid fills flip" fold>
+        <p>The loud fill in each theme is the opposite of the text colour. Dark theme uses a white button with ink text. Light theme uses an ink button with white text. Code that asks for <code>surface.light</code> gets the right one in each theme, so the name means “the loud solid” and not literally white. The accent follows the same flip, white in dark and ink in light. The status colours stay the same in both, because their text pairs are worked out on the fill itself.</p>
       </Section>
-      <Section id="evidence" title="Measured in both themes" wide>
+      <Section id="evidence" title="Measured in both themes" wide fold>
         <p>Every check in the evidence run is repeated for each theme. The table shows how many text elements failed per theme and scene.</p>
         <EvidenceTable groups={['card', 'controls', 'status']} />
       </Section>
-      <Section id="checklist" title="Before you ship a theme">
+      <Section id="checklist" title="Before you ship a theme" fold>
         <ul>
           <li>Run the evidence pass with the theme on and read the worst pixel for every scene you support.</li>
           <li>Give every new semantic colour a value for both themes, or leave it theme-free on purpose.</li>
@@ -424,7 +575,7 @@ function Typography() {
       </Section>
       <Section id="legibility" title="Legibility on glass">
         <ul>
-          <li><b>Halo.</b> All text on a Card inherits <code>elevation.halo</code>, a 14px soft dark glow plus a 1px drop. Solid-fill controls (light and accent buttons, the selected tab, avatars) reset it. Dark glow around dark text on white would be mud.</li>
+          <li><b>Halo.</b> All text on a Card inherits <code>elevation.halo</code>, a 14px soft dark glow plus a 1px drop. Solid-fill controls (light and accent buttons, avatars, tags) reset it. Dark glow around dark text on white would be mud.</li>
           <li><b>Large text.</b> WCAG lets text ≥24px, or ≥18.66px bold, pass at 3:1. The evidence run applies that per text node from its computed size and weight.</li>
           <li><b>Line length.</b> Prose is capped at <code>type.measure</code> ({tok('type.measure')}).</li>
           <li><b>Uppercase is CSS.</b> Eyebrows and tags are written in normal case and uppercased with <code>text-transform</code>, so screen readers read words.</li>
@@ -501,8 +652,41 @@ function Shape() {
         <TokenTable prefix="elevation." />
         <p>There are only two shadows. <b>float</b> lifts a pane off the scene; <b>lift</b> sits under solid buttons. Glass never stacks shadows on shadows.</p>
       </Section>
+      <Section id="glow" title="Glow: what gives off light">
+        <p>Everything in Pane reflects the one light from above. In the dark theme a few white parts also give off light of their own. Being white is not the test. What the part says is: it is the promoted action, it is on, it is an amount, or it marks now. Text never glows, because a glow blurs the letter. In the light theme nothing glows, and the same parts read by their solid ink.</p>
+        <div className="table-wrap"><table>
+          <thead><tr><th scope="col">Glow</th><th scope="col">Means</th><th scope="col">Where</th><th scope="col">Visible step (measured)</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><code>glow.strong</code></th><td>The promoted action, at most one per pane</td><td>Button accent, IconButton loud</td><td>at least 1.25:1</td></tr>
+            <tr><th scope="row"><code>glow.soft</code></th><td>On, or a lit amount</td><td>Switch when on, a Slider’s filled channel, a meter fill</td><td>at least 1.15:1</td></tr>
+            <tr><th scope="row"><code>glow.mark</code></th><td>Now</td><td>Where a fill slider’s value stops, the current step or day</td><td>at least 1.15:1</td></tr>
+            <tr><th scope="row">none</th><td>It reflects</td><td>Text, icons, rims, chosen glass, beads and knobs, avatars, status colours, disabled parts</td><td>no light at all</td></tr>
+          </tbody>
+        </table></div>
+        <p>Every glow is centred on its part with no offset, because it is emitted rather than cast, and it is white at an opacity, never a hue. It has to be visible and it has to stop. G-GL1 screenshots each glowing part twice, with its glow on and off. The ring 2 to 6px outside must be the step above lighter with the glow on, and by 32px out the two shots must match within 1.03:1, so the light never fogs the pane. The same gate fails any part that glows without declaring <code>data-glow</code>, any text with a light halo in dark, and anything that gives off light in the light theme.</p>
+        <div className="glow-pair">
+          {(['dark', 'light'] as const).map((th) => (
+            <div key={th}>
+              <p className="eyebrow flush">{th} theme</p>
+              <div data-theme={th}><Stage>
+                <Card as="div" className="demo-card">
+                  <Stack gap="lg">
+                    <h3 className="flush">Good evening</h3>
+                    <div className="day-track" role="img" aria-label="Today is Thursday, day 4 of 7">{['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((d, i) => i === 3 ? <span key={i} className="day-now"><span className="day-dot" data-glow="mark" />{d}</span> : <span key={i}>{d}</span>)}</div>
+                    <Slider variant="fill" label="Brightness" defaultValue={60} format={(v) => `${v}%`} />
+                    <Slider label="Volume" defaultValue={40} format={(v) => `${v}%`} />
+                    <Switch label="Night shift" defaultChecked />
+                    <Stack direction="row" gap="md"><Button variant="accent">Go live</Button><Button variant="glass">Later</Button></Stack>
+                  </Stack>
+                </Card>
+              </Stage></div>
+            </div>
+          ))}
+        </div>
+        <TokenTable prefix="glow." />
+      </Section>
       <Section id="rim" title="The rim instead of a border">
-        <p>A 1px gradient ring is drawn with a mask. It is bright where light would hit at the top left, almost invisible along the middle and faint again at the bottom right, and it drifts on hover. In forced-colours mode it is replaced by a real CanvasText border so the pane edge never disappears.</p>
+        <p>A 1px gradient ring is drawn with a mask. One light falls from above, so it is brightest along the top edge, almost invisible down the sides and a little stronger again at the foot, and it drifts on hover. In forced-colours mode it is replaced by a real CanvasText border so the pane edge never disappears.</p>
       </Section>
     </Page>
   );
@@ -697,7 +881,7 @@ function Tokens() {
           <label className="field"><span>Search</span><input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="e.g. glass, accent, 40px" /></label>
           <Select label="Tier" size="md" value={tier || 'all'} onValueChange={(v) => setTier(v === 'all' ? '' : v)} options={[{ value: 'all', label: 'All' }, { value: 'primitive', label: 'Primitive' }, { value: 'semantic', label: 'Semantic' }, { value: 'component', label: 'Component' }]} />
         </div>
-        <TokenTable tier={tier || undefined} query={q} />
+        <TokenBrowser tier={tier || undefined} query={q} />
       </Section>
     </Page>
   );
@@ -808,13 +992,17 @@ function ChangelogPage() {
 const BASE_PAGES: Record<string, () => ReactElement> = {
   '/': Overview,
   '/getting-started': GettingStarted,
+  '/getting-started/language': Language,
   '/getting-started/designing': Designing,
   '/getting-started/developing': Developing,
+  '/getting-started/ios': IOSPage,
   '/getting-started/contributing': Contributing,
   '/getting-started/migrating': Migrating,
   '/foundations/content': ContentFoundation,
   '/foundations/accessibility': AccessibilityFoundation,
   '/principles': Principles,
+  '/getting-started/install-app': InstallApp,
+  '/patterns/states': () => <StatesPage Page={Page} Section={Section} />,
   '/foundations/glass': Glass,
   '/foundations/color': ColorPage,
   '/foundations/themes': Themes,

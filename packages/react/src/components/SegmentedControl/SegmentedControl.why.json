@@ -1,0 +1,104 @@
+{
+  "concept": "A switch between a few modes of the same view on the tab track, the chosen mode as chosen glass, kin to Tabs with its own role.",
+  "default_to_avoid": [
+    {
+      "pattern": "an iOS-style grey segmented control with a white sliding thumb used as the segmented control",
+      "kind": "segmented control, toggle group, mode switch",
+      "why_not": "a white thumb on grey brings the OS look and owns a grey"
+    }
+  ],
+  "references": [
+    {
+      "title": "Apple HIG · Segmented controls",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/segmented-controls"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the track is a well shaded under its lip; the chosen segment is chosen glass that lifts"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the chosen segment is a pane and semibold, never only a colour"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "arrow keys move between segments and a mode is always chosen"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave6/",
+    "section": "segmentedcontrol",
+    "options": [
+      "A tab track with chosen glass",
+      "B white thumb on grey",
+      "C outlined buttons"
+    ],
+    "picked": "A tab track with chosen glass",
+    "by": "agent",
+    "reason": "A is the Tabs family (D-023) so modes and views read as kin. B is the OS look. C reads as separate actions."
+  },
+  "parts": {
+    "track": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the well the segments sit in, the same in every theme and on every scene; a ring round it carries the 3:1 edge its radio segments need"
+    },
+    "segment": {
+      "p": "P6",
+      "axis": "space",
+      "why": "a segment with a 44px press area, the same in every theme and on every scene"
+    },
+    "md": {
+      "p": "P2",
+      "axis": "type",
+      "why": "body-size segments for a view, the same in every theme and on every scene"
+    },
+    "sm": {
+      "p": "P2",
+      "axis": "type",
+      "why": "label-size segments for a toolbar, the same in every theme and on every scene"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the shared focus ring so a keyboard user sees which item has focus"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours mark the current item with the system highlight"
+    },
+    "hover": {
+      "p": "P4",
+      "axis": "colour",
+      "why": "an unchosen segment lightens under the pointer, the same in every theme and on every scene"
+    },
+    "data-state=on": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the chosen segment is chosen glass, semibold, the same in every theme and on every scene"
+    },
+    "data-disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a disabled segment uses the shared disabled opacity"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the tint eases at hover pace, the same in every theme and on every scene"
+    }
+  }
+}

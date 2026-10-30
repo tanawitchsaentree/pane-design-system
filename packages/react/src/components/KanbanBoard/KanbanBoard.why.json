@@ -1,0 +1,148 @@
+{
+  "concept": "Columns of cards that move by drag and by keyboard alike, every move said aloud, a held card lifting a little.",
+  "default_to_avoid": [
+    {
+      "pattern": "a kanban board that only moves cards by mouse drag with coloured column headers",
+      "kind": "kanban board, task board, card board",
+      "why_not": "drag only leaves out the keyboard and screen readers, and coloured headers bring hues; Pane moves by keys too"
+    }
+  ],
+  "references": [
+    {
+      "title": "Atlassian · Pragmatic drag and drop",
+      "url": "https://atlassian.design/components/pragmatic-drag-and-drop/"
+    },
+    {
+      "title": "WAI · Drag and drop",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "Space picks a card up, arrow keys carry it, Space drops and Esc cancels, and each move is said aloud"
+    },
+    {
+      "p": "P4",
+      "axis": "depth",
+      "consequence": "hover lifts a control a little closer",
+      "form": "a held card lifts a little closer with the lift shadow and a ring"
+    },
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "columns are level-2 panes and cards are small lit panes on them"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave10/",
+    "section": "kanbanboard",
+    "options": [
+      "A panes, keys and drag",
+      "B drag only, coloured headers",
+      "C a table with a status column"
+    ],
+    "picked": "A panes, keys and drag",
+    "by": "agent",
+    "reason": "A moves by keyboard as well as pointer (P6). B leaves keys out. C loses the board."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the hint, the columns and the live line stack"
+    },
+    "hint": {
+      "p": "P6",
+      "axis": "type",
+      "why": "a line says how to move cards with the keyboard"
+    },
+    "columns": {
+      "p": "P3",
+      "axis": "space",
+      "why": "columns sit side by side and scroll sideways, and the row takes focus so the keyboard can scroll it"
+    },
+    "column": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "each column is a level-2 pane that holds its cards on the board"
+    },
+    "over": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a column a card is dragged over takes the quiet surface"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the column title is semibold at label size with its count"
+    },
+    "count": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the count is secondary in tabular figures beside the column title"
+    },
+    "list": {
+      "p": "P3",
+      "axis": "space",
+      "why": "cards stack with a small gap and an empty column keeps a drop target"
+    },
+    "card": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a card is a small lit pane lit from above with a 44px height"
+    },
+    "held": {
+      "p": "P4",
+      "axis": "depth",
+      "why": "a held card lifts with the lift shadow and a ring"
+    },
+    "cardTitle": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the card title is at body size and wraps"
+    },
+    "meta": {
+      "p": "P2",
+      "axis": "type",
+      "why": "card details are secondary at caption size under the card title"
+    },
+    "live": {
+      "p": "P6",
+      "axis": "type",
+      "why": "a hidden live line says every pick up, move and drop"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the edges and marks so every part stays findable"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring shows when the part is reached by keyboard"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "a column eases into its over surface as a dragged card arrives"
+    },
+    "box-shadow": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the lift shadow eases in as a card is picked up"
+    },
+    "transform": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "a picked up card rises a short distance on the hover ease"
+    }
+  }
+}

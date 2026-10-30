@@ -1,0 +1,134 @@
+{
+  "concept": "Navigation that stays beside the content on a wide screen: sections on a pane, the current item chosen glass.",
+  "default_to_avoid": [
+    {
+      "pattern": "a dark grey vertical nav with a coloured left border on the active item (admin template sidebar)",
+      "kind": "sidebar, side navigation, nav rail",
+      "why_not": "a coloured border is a hue and a single cue"
+    }
+  ],
+  "references": [
+    {
+      "title": "Carbon · UI shell left panel",
+      "url": "https://carbondesignsystem.com/components/UI-shell-left-panel/usage/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "a tall level-1 pane beside the content, in every theme and on every scene"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the current item is chosen glass, semibold, in every theme and on every scene"
+    },
+    {
+      "p": "P2",
+      "axis": "type",
+      "consequence": "secondary text keeps the lowest opacity that still measured as passing; text halos count only where WCAG allows them",
+      "form": "section titles in the micro caps, the same as the book’s navigation"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave6/",
+    "section": "sidebar",
+    "options": [
+      "A pane with chosen glass",
+      "B grey rail with a coloured border",
+      "C plain list of links"
+    ],
+    "picked": "A pane with chosen glass",
+    "by": "agent",
+    "reason": "A is the book’s own sidebar in the system. B brings a hue. C does not show where the reader is."
+  },
+  "parts": {
+    "pane": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a tall glass pane, 280px wide, the same in every theme and on every scene"
+    },
+    "header": {
+      "p": "P3",
+      "axis": "space",
+      "why": "something at the top such as the product name"
+    },
+    "footer": {
+      "p": "P3",
+      "axis": "space",
+      "why": "something at the foot such as the signed-in person"
+    },
+    "section": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a group of destinations, the same in every theme and on every scene"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the section title in the micro caps, the same in every theme and on every scene"
+    },
+    "list": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the destinations, one under another, the same in every theme and on every scene"
+    },
+    "item": {
+      "p": "P6",
+      "axis": "space",
+      "why": "a 44px destination row, the same in every theme and on every scene"
+    },
+    "icon": {
+      "p": "P2",
+      "axis": "type",
+      "why": "an icon at the icon size, the same in every theme and on every scene"
+    },
+    "label": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the destination wraps onto a second line when long, so no name is cut, the same in every theme"
+    },
+    "badge": {
+      "p": "P2",
+      "axis": "type",
+      "why": "a count or a note in secondary text"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the shared focus ring so a keyboard user sees which item has focus"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours mark the current item with the system highlight"
+    },
+    "hover": {
+      "p": "P4",
+      "axis": "colour",
+      "why": "a row lightens under the pointer, the same in every theme and on every scene"
+    },
+    "aria-current=page": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the current row is chosen glass, the same in every theme and on every scene"
+    },
+    "aria-current": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the current item does not lighten on hover, because it is already the chosen pane"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the tint eases at hover pace, the same in every theme and on every scene"
+    }
+  }
+}

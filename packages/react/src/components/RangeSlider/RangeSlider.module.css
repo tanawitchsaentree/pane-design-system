@@ -1,0 +1,3 @@
+/* The channel, beads and label row are Slider's own; only the pair of values in the label row is new. */
+.pair { display: inline-flex; align-items: baseline; gap: var(--ds-gap-xs); }
+.to { color: var(--ds-text-secondary); }

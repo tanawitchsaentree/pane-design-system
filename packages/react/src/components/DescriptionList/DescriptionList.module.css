@@ -1,0 +1,12 @@
+/* Terms in the secondary tone, details in the primary, each pair its own group so the column layout can
+   stack again in a narrow pane without a media query (container query on the list). */
+.root { display: flex; flex-direction: column; gap: var(--ds-dlist-gap); margin: 0; font-family: var(--ds-type-family); container-type: inline-size; }
+.pair { display: flex; flex-direction: column; gap: var(--ds-gap-xs); min-inline-size: 0; }
+.term { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.detail { margin: 0; font-size: var(--ds-type-body); line-height: var(--ds-type-leading-body); color: var(--ds-text-primary); overflow-wrap: anywhere; }
+.inline .pair { display: grid; grid-template-columns: minmax(0, var(--ds-dlist-term)) minmax(0, 1fr); align-items: baseline; column-gap: var(--ds-dlist-gap); }
+@container (inline-size < 22em) { .inline .pair { grid-template-columns: minmax(0, 1fr); } }
+.dividers { gap: 0; }
+.dividers .pair { padding-block: var(--ds-dlist-gap); border-block-end: var(--ds-width-hairline) solid var(--ds-dlist-divider); }
+.dividers .pair:first-child { padding-block-start: 0; }
+.dividers .pair:last-child { padding-block-end: 0; border-block-end: 0; }

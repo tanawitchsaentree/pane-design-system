@@ -1,5 +1,5 @@
 {
-  "concept": "A switch is a recess cut into the glass with a bead in it. Off, the recess is shaded glass; on, it fills with the one blue and the bead has rolled to the far end.",
+  "concept": "A switch is a recess with a bead in it, lit from above. Off, the recess is shaded glass; on, the track is lit from within, bright in dark and ink in light, and the bead has rolled to the far end.",
   "default_to_avoid": [
     {
       "pattern": "the iOS or Material toggle switch: a flat coloured capsule track with a white disc and a drop shadow",
@@ -20,20 +20,20 @@
     {
       "p": "P1",
       "axis": "depth",
-      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur), never from an opaque tint",
+      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur) inside a smoked body thick enough that a pane reads as a slab of glass, with the scene softened behind it",
       "form": "the track is a recess made by dimming, with shade under its top lip, light on its bottom lip and no opaque fill"
     },
     {
       "p": "P1",
       "axis": "colour",
-      "consequence": "the scene supplies the hue; the system owns almost no colour of its own, only white at opacities, one ink and one blue",
-      "form": "on fills the recess with the one blue, darker at the top where the lip shades it"
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "on lights the track from within, white glass in dark and ink in light, with a mark at its start"
     },
     {
       "p": "P3",
       "axis": "shape",
       "consequence": "controls are full pills because they are held in the hand",
-      "form": "the recess is a full pill and the knob a round bead, lit on its upper left"
+      "form": "the recess is a full pill and the knob a round bead, lit on its top"
     },
     {
       "p": "P6",
@@ -70,7 +70,7 @@
     "knob": {
       "p": "P3",
       "axis": "shape",
-      "why": "a round bead lit on its upper left, sitting in the recess on a short shadow"
+      "why": "a round bead lit on its top, sitting in the recess on a short shadow"
     },
     "label": {
       "p": "P7",
@@ -105,9 +105,9 @@
       "why": "in forced colours the well becomes a system-colour border, so the field keeps its edge without glass"
     },
     "data-state=checked": {
-      "p": "P1",
-      "axis": "colour",
-      "why": "on fills the recess with the one blue, darker at the top where the lip shades it, and the bead rolls to the far end"
+      "p": "P3",
+      "axis": "depth",
+      "why": "on lights the track from within, bright in dark and ink in light, and spills a little light onto the pane; the bead rolls to the far end"
     },
     "disabled": {
       "p": "P6",
@@ -123,6 +123,11 @@
       "p": "P4",
       "axis": "shape",
       "why": "a press squashes the bead along the track toward where it is going, as something pushed"
+    },
+    "aria-invalid=true": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
     }
   },
   "motion": {
@@ -159,5 +164,17 @@
   },
   "kind": [
     "toggle"
-  ]
+  ],
+  "round4": {
+    "lab": "apps/lab/round4/",
+    "section": "all",
+    "options": [
+      "A one light from above",
+      "B chosen as a recess",
+      "C A with a spectral edge"
+    ],
+    "picked": "A one light from above",
+    "by": "agent",
+    "reason": "The user rejected the blue and showed a reference where one light from above lights every atom alike. A reads that straight: the same top rim and sheen on every surface, the white lit solid for the loud action, chosen items as lighter glass. B makes chosen items recesses, which reads as pressed-off rather than chosen. C adds a rainbow edge, a hue the system no longer owns (P1)."
+  }
 }

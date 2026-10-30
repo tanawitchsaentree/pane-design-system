@@ -1,0 +1,18 @@
+/* Columns as level-2 panes that scroll sideways, cards as small lit panes on them; a held card lifts a
+   little with the lift shadow and a ring, and a column a card is dragged over takes the quiet surface. */
+.root { display: flex; flex-direction: column; gap: var(--ds-gap-md); min-inline-size: 0; font-family: var(--ds-type-family); }
+.hint { margin: 0; font-size: var(--ds-type-caption); color: var(--ds-text-secondary); }
+.columns { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(var(--ds-kanban-board-column), 1fr); gap: var(--ds-kanban-board-gap); overflow-x: auto; padding-block-end: var(--ds-gap-sm); }
+.columns:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); border-radius: var(--ds-corner-media); }
+.column { display: flex; flex-direction: column; gap: var(--ds-gap-md); padding: var(--ds-kanban-board-padding); border-radius: var(--ds-corner-media); background: var(--ds-kanban-board-bg); box-shadow: var(--ds-kanban-board-edge); transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
+.over { background: var(--ds-kanban-board-over); }
+.title { display: flex; align-items: center; justify-content: space-between; margin: 0; font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-primary); }
+.count { font-weight: var(--ds-type-weight-regular); color: var(--ds-text-secondary); font-variant-numeric: tabular-nums; }
+.list { display: flex; flex-direction: column; gap: var(--ds-gap-sm); min-block-size: var(--ds-layout-touch); margin: 0; padding: 0; list-style: none; }
+.card { display: flex; flex-direction: column; gap: var(--ds-gap-xs); min-block-size: var(--ds-layout-touch); padding: var(--ds-gap-md) var(--ds-gap-lg); border-radius: var(--ds-corner-inner); background: linear-gradient(180deg, var(--ds-kanban-board-card-top), transparent 60%), var(--ds-kanban-board-card); box-shadow: var(--ds-kanban-board-card-edge); color: var(--ds-text-primary); cursor: grab; outline: 0; transition: transform var(--ds-motion-hover) var(--ds-motion-easing), box-shadow var(--ds-motion-hover) var(--ds-motion-easing); }
+.card:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.held { transform: translateY(calc(var(--ds-motion-lift) * -1)); box-shadow: var(--ds-kanban-board-card-edge), var(--ds-kanban-board-lift), 0 0 0 var(--ds-width-ring) var(--ds-kanban-board-ring); cursor: grabbing; }
+.cardTitle { font-size: var(--ds-type-body); overflow-wrap: anywhere; }
+.meta { font-size: var(--ds-type-caption); color: var(--ds-text-secondary); }
+.live { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (forced-colors: active) { .column, .card { border: var(--ds-width-hairline) solid CanvasText; } .held { outline: var(--ds-width-ring) solid Highlight; } }

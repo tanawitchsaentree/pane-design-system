@@ -1,6 +1,6 @@
-/* A recess carved into the glass with a bead in it (round 2, R-007): shade under the top lip, light on
-   the bottom lip; on fills the recess with the one blue (P1) and shows a mark, and the bead's place says
-   on as well (P6). The bead rolls over the hover duration and a press squashes it toward its travel (P4). */
+/* A recess with a bead in it, lit from above (rounds 2 and 4): off is a shaded recess; on, the track is lit
+   from within, bright in dark and ink in light, with a mark, and the bead's place says on as well (P6).
+   The bead rolls over the hover duration and a press squashes it toward its travel (P4). No blue (D-024). */
 .root { display: flex; align-items: center; justify-content: space-between; gap: var(--ds-gap-lg); min-block-size: var(--ds-switch-hit); font-family: var(--ds-type-family); }
 .text { display: flex; flex-direction: column; }
 .label { font-size: var(--ds-type-body); color: var(--ds-text-primary); cursor: pointer; }
@@ -18,7 +18,7 @@
 .knob {
   position: absolute; inset-block-start: var(--ds-switch-inset-gap); inset-inline-start: var(--ds-switch-inset-gap);
   inline-size: var(--ds-switch-knob); block-size: var(--ds-switch-knob); border-radius: var(--ds-corner-round);
-  background: radial-gradient(circle at 36% 28%, var(--ds-switch-knob-bg) 32%, var(--ds-switch-knob-shade)); box-shadow: var(--ds-switch-knob-shadow);
+  background: radial-gradient(circle at 50% 22%, var(--ds-switch-knob-bg) 32%, var(--ds-switch-knob-shade)); box-shadow: var(--ds-switch-knob-shadow);
   transition: transform var(--ds-motion-hover) var(--ds-motion-easing), inline-size var(--ds-motion-press) var(--ds-motion-easing), inset-inline-start var(--ds-motion-press) var(--ds-motion-easing);
 }
 /* a press squashes the bead along the track, toward where it is going */
@@ -28,4 +28,6 @@
 :global([dir='rtl']) .knob[data-state='checked'] { transform: translateX(calc((var(--ds-switch-width) - var(--ds-switch-knob) - var(--ds-switch-inset-gap) * 2) * -1)); }
 .tick { position: absolute; inset-block: 0; inset-inline-start: calc(var(--ds-switch-inset-gap) * 3); margin-block: auto; inline-size: var(--ds-width-ring); block-size: var(--ds-control-icon-sm); border-radius: var(--ds-corner-round); background: var(--ds-switch-tick); opacity: 0; transition: opacity var(--ds-motion-hover) var(--ds-motion-easing); }
 .track[data-state='checked'] .tick { opacity: 1; }
+/* a wrong answer is ringed in the critical mark, like a field (P6) */
+.track[aria-invalid='true'] { outline: var(--ds-width-ring) solid var(--ds-switch-ring-invalid); outline-offset: var(--ds-width-hairline); }
 @media (forced-colors: active) { .track { border: var(--ds-width-hairline) solid ButtonText; } .track[data-state='checked'] { background: Highlight; } .knob { background: ButtonText; } }

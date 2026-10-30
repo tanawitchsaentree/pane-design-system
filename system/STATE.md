@@ -1,11 +1,13 @@
 # STATE — working memory ของ system นี้
 - **System:** Pane (`pane-tokens`, `pane-react`) — spatial glass จาก anchor A (D-008): กระจกใส + หรี่ฉากหลัง (D-010/D-011) บนรูปถ่ายจริง
-- **Phase ปัจจุบัน:** 0.4.0 (ระงับ release) · 26 components ผ่าน derivation ครบ, `pendingDerivation` ว่าง (D-022, D-023)
-- **งานล่าสุดที่เสร็จ (2026-10-28):** derivation รอบ 2 (Button, Switch, Input family, Select) และรอบ 3 (IconButton, Tabs, Chip, Tag, Badge, Avatar, Slider, Card) · gate ใหม่ G-NT2/G-NR1 ผ่าน · verify ย้ายมาใช้ `tooling/kiln/verify.mjs` เต็มทุก gate (เดิมใช้ `--only`) · conformance ย้ายไป `system/conformance/`
-- **งานถัดไป:** ความลึกหน้า usage (G-K6) ของ Select, Slider, Input, Checkbox, Radio · full verify เขียว · repack 0.4.0 · push main แบบไม่มี kiln · deploy Cloudflare · push kiln 2.1.0
+- **Phase ปัจจุบัน:** 0.7.0 packed ใน `release/` + branch `release-0.7` (ต่อจาก origin/main, ยังไม่ push/deploy — มือ user) · 111 components (wave 1–10) · `release/UPGRADE-0.7.0.md`
+- **งานล่าสุดที่เสร็จ (2026-10-30):** wave 1–10 ครบ code + docs + conformance 410/410; chart palette D-031; install line ชี้ tarball (R-022, G-PUB1)
+- **งานถัดไป:** (BACKLOG, หลัง wave 10) เมนู docs พับได้แบบ MUI · บท Component API · pane-mcp + llms.txt · full-book evidence ทุก scene (R-020) · tone gate ทั้งเล่ม 423/485
 - **Wave ปัจจุบัน:** pilot · **Component ผ่าน QA:** 13/13 (Alpha 1: Environment, Beta 12)
 - **ค้าง/blocked:** — (ดู BACKLOG.md)
 ## Log ย่อ (ใหม่สุดบน ≤15 บรรทัด)
+- 2026-10-30: 0.7.0 — wave 1–10 (83 ตัวใหม่), charts (D-031), G-PUB1; smoke 22/22 จาก tarball
+- 2026-10-29: 0.6.0 — Mesh + pane-mesh CLI, glow (D-027), fill slider (D-026), studio/aurora backdrops, gallery dialog; gates ใหม่ G-IN1 G-ST1 G-RH1 G-GL1 G-SL1 G-S6; ต่อไป: evidence เต็มเล่มทุก scene (R-020), push main, อัปเกรด Brick Forge
 - 2026-10-27 ดึก: ทุก component (15 ตัว รวม Select/Slider ที่เพิ่งมีหน้า) เป็น 4 tab ถึงระดับ Carbon (G-K1–K8 เขียว), Style tab สร้างจาก kiln spec-capture, หนังสือ 101 หน้า: Getting started 5 หน้า, Foundations +Content/Accessibility, Patterns +12 (G-IA1 เขียว), nav แสดง catalog ที่ยังไม่ทำทั้งหมด · contrast ทุกหน้าใหม่ 0 fail, axe 0 · tone 96→ ที่เหลือคือ docstring Select (guard บล็อก) · บั๊กที่เจอระหว่างเขียน: control 32–36px ต่ำกว่า P6, opacity 0.5 ดิบ 4 ที่, Avatar ไม่มี forced-colours, Tabs ไม่มี hover → BACKLOG (แก้ตอน derivation round)
 - 2026-10-27 0.2.0 พร้อมให้ project อื่นติดตั้ง (ยังไม่ publish — มือ user): consumer จริง (Vite + React 19 + TS 7) install จาก tarball → tsc strict 0 error, build ผ่าน, render ใน browser 12 components 0 console error · บั๊กที่จับได้: (1) `import 'pane-tokens/css'` แดงใน tsc ≥6 (TS2882) → ใส่ `types` ให้ CSS exports ทั้งสอง package + smoke check ใหม่ (gate-proof M6, smoke 20/20) (2) drawer เมนูบนมือถือเลื่อนไม่ได้ (`align-self: start` บน fixed box ทำให้สูงเท่าเนื้อหา) → link ล่างจอกดไม่ถึง (3) 4 check ใน conformance ชี้ selector เก่าก่อน D-016/D-017 → แก้ · conformance 74/74
 - 2026-10-27 verify: glass 144,433/144,564 (131 excepted E-001, ทั้งหมดในธีม dark; light 0 fail ที่ 4.5:1) · conformance 73/73 (G-F1/C1/C2/T1/B1/L1/M1 gate-proofed) · tone 36/36 · smoke 19/19 · bug ที่จับได้: halo ขาวสืบทอดเข้า nested theme, Banner 3.57 → surface.well, ตัวอักษรบนรูปเป็น ink ในธีม light (1.38) → overlay pin dark

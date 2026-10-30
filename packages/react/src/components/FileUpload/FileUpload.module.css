@@ -1,0 +1,15 @@
+/* A glass button and a list of chosen files on a level-2 pane, each row with its size and a remove button;
+   a refused file is said in words in the critical mark's row (P6). */
+.root { display: flex; flex-direction: column; gap: var(--ds-file-upload-gap); min-inline-size: 0; font-family: var(--ds-type-family); }
+.head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ds-file-upload-gap) var(--ds-gap-lg); }
+.hint { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.glyph { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); flex: none; fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.list { display: flex; flex-direction: column; margin: 0; padding: var(--ds-gap-xs); list-style: none; border-radius: var(--ds-corner-media); background: var(--ds-file-upload-bg); box-shadow: var(--ds-file-upload-edge); }
+.file { display: flex; align-items: center; gap: var(--ds-gap-lg); min-block-size: var(--ds-file-upload-row); padding-inline-start: var(--ds-gap-lg); color: var(--ds-text-primary); }
+.file:not(:last-child) { border-block-end: var(--ds-width-hairline) solid var(--ds-file-upload-divider); }
+.name { flex: 1; min-inline-size: 0; font-size: var(--ds-type-body); overflow-wrap: anywhere; }
+.size { flex: none; font-size: var(--ds-type-label); color: var(--ds-text-secondary); font-variant-numeric: tabular-nums; }
+.refused { display: flex; flex-direction: column; gap: var(--ds-gap-xs); margin: 0; padding-inline-start: var(--ds-gap-2xl); font-size: var(--ds-type-label); color: var(--ds-text-primary); }
+.refused li::marker { color: var(--ds-file-upload-critical-mark); }
+/* wrong: the choose button takes the critical ring a field takes (P6) */
+.root[data-invalid] .head > button { outline: var(--ds-width-ring) solid var(--ds-file-upload-ring-invalid); outline-offset: var(--ds-width-hairline); }

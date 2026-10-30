@@ -1,5 +1,5 @@
 {
-  "concept": "A slider is a carved channel with a bead in it, the switch's language stretched out. The channel fills with the one blue up to the value, and the thumb is the same lit bead.",
+  "concept": "A slider is a recessed channel with a bead in it, the switch's language stretched out and lit from above. The channel fills with the loud solid up to the value, and the thumb is the same lit bead.",
   "parts": {
     "root": {
       "p": "P7",
@@ -32,14 +32,49 @@
       "why": "a carved channel, shade under its top lip and light on its bottom lip"
     },
     "range": {
-      "p": "P1",
+      "p": "P5",
       "axis": "colour",
-      "why": "the filled part spends the one blue, darker at the top where the lip shades it"
+      "why": "the filled part is the loud solid, white in dark and ink in light, lit at its top"
     },
     "thumb": {
       "p": "P3",
       "axis": "shape",
-      "why": "the switch bead, lit on its upper left, on a short shadow"
+      "why": "the switch bead, lit on its top, on a short shadow"
+    },
+    "fill": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "the fill variant is one held bar: the whole pill is the track and the target"
+    },
+    "fillRange": {
+      "p": "P1",
+      "axis": "depth",
+      "why": "the value is chosen glass, lighter than the well, lit on its top edge, its leading end rounded like the bar"
+    },
+    "fillText": {
+      "p": "P3",
+      "axis": "space",
+      "why": "label and value sit inside the bar at the field's inset, more than the gap between them, so the bar's edge reads as its boundary"
+    },
+    "fillLabel": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the setting's name at the start, primary text"
+    },
+    "fillValue": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the value with its unit at the end, tabular so it does not jitter while dragging"
+    },
+    "fillThumb": {
+      "p": "P5",
+      "axis": "colour",
+      "why": "a thin lit bar just inside the end of the fill: the one loud mark, read rather than grabbed; it takes focus, so it carries the 44px press area"
+    },
+    "fillTrack": {
+      "p": "P1",
+      "axis": "depth",
+      "why": "the track fills the whole well, so a press anywhere on the bar sets the value"
     }
   },
   "states": {
@@ -62,6 +97,16 @@
       "p": "P6",
       "axis": "depth",
       "why": "forced colours drop the carve and the bead, so a real system-colour border keeps the shape"
+    },
+    "focus-within": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the whole bar carries the focus ring, because the marker is too small to ring"
+    },
+    "active": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "while pressed the pointer shows the bar is being held and dragged"
     }
   },
   "motion": {
@@ -91,14 +136,14 @@
     {
       "p": "P1",
       "axis": "depth",
-      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur), never from an opaque tint",
+      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur) inside a smoked body thick enough that a pane reads as a slab of glass, with the scene softened behind it",
       "form": "the channel is carved by dimming, shade under its top lip, light on its bottom lip"
     },
     {
       "p": "P1",
       "axis": "colour",
-      "consequence": "the scene supplies the hue; the system owns almost no colour of its own, only white at opacities, one ink and one blue",
-      "form": "the filled part spends the one blue, darker at the top where the lip shades it"
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "the filled part is the loud solid, white in dark and ink in light, so the value reads without a hue"
     },
     {
       "p": "P3",
@@ -124,5 +169,34 @@
     "picked": "A carved channel and bead",
     "by": "agent",
     "reason": "A is Switch's material, so a settings pane with switches and sliders reads as one family (P1, P3). B adds scale marks that only help stepped values and clutter continuous ones. C's thin handle is hard to grab and breaks the round bead."
+  },
+  "round4": {
+    "lab": "apps/lab/round4/",
+    "section": "all",
+    "options": [
+      "A one light from above",
+      "B chosen as a recess",
+      "C A with a spectral edge"
+    ],
+    "picked": "A one light from above",
+    "by": "agent",
+    "reason": "The user rejected the blue and showed a reference where one light from above lights every atom alike. A reads that straight: the same top rim and sheen on every surface, the white lit solid for the loud action, chosen items as lighter glass. B makes chosen items recesses, which reads as pressed-off rather than chosen. C adds a rainbow edge, a hue the system no longer owns (P1)."
+  },
+  "variants_fill": {
+    "lab": "none (picked from the user's reference, 2026-10-29)",
+    "default_to_avoid": [
+      {
+        "pattern": "a thick progress bar with a round knob at its end and the label outside (Material discrete slider, web range input styled tall)",
+        "why_not": "a knob on a bar the whole hand already holds is a second target, and a label outside costs a row"
+      }
+    ],
+    "options": [
+      "A label and value inside, thin lit marker",
+      "B value only, no marker",
+      "C stepped notches"
+    ],
+    "picked": "A label and value inside, thin lit marker",
+    "by": "agent",
+    "reason": "The user brought the reference and asked for it. A is that reference in Pane's material: well, chosen glass and one lit mark (P1, P5). B hides where the value ends on a soft fill. C suits stepped values only and clutters a continuous one. Round 3's objection to a thin handle (hard to grab) does not apply here, since the whole bar is the target."
   }
 }

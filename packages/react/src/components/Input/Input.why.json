@@ -2,7 +2,7 @@
   "concept": "A field is a groove cut into the glass and read by its two lips, with shade under the top one and light along the bottom one. It is a full pill because it is held.",
   "default_to_avoid": [
     {
-      "pattern": "the borderless grey filled text field or search bar (Material filled text field, iOS search bar, a pale well with a faint ring)",
+      "pattern": "the borderless grey filled text field or search bar (Material filled text field, iOS search bar, a pale well with a faint ring) as the input",
       "why_not": "on a white surface the grey fill disappears; the shipped well measured 1.3:1 in the light theme and the search field vanished on a white page (R-009)"
     }
   ],
@@ -24,7 +24,7 @@
     {
       "p": "P1",
       "axis": "depth",
-      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur), never from an opaque tint",
+      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur) inside a smoked body thick enough that a pane reads as a slab of glass, with the scene softened behind it",
       "form": "the field is a groove whose floor is the surface dimmed and whose edge is shade under the top lip"
     },
     {

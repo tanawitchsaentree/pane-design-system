@@ -21,3 +21,5 @@ apps/*/out/
 ${local_app_data}*
 apps/docs/dist/
 release/
+apps/docs/public/pane-tokens*.css
+apps/docs/public/pane-scale.css

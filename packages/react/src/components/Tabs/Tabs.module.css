@@ -1,6 +1,6 @@
-/* A carved track holding the choices (round 3): the chosen tab is the blue accent sheet resting in the
-   track (D-009 keeps it blue) and slides to the tab the reader picks (P4). Every tab has a 44px press
-   area (P6). The sheet is placed by TabsList; before that the chosen tab draws its own sheet. */
+/* A track holding the choices, lit from above (round 4, D-024): a shallow recess with the top-lit rim; the
+   chosen tab is a lighter pane of glass resting in it and slides to the tab the reader picks (P4). Every
+   tab has a 44px press area (P6). The pane is placed by TabsList; before that the chosen tab draws it. */
 .list {
   position: relative;
   isolation: isolate;
@@ -21,11 +21,13 @@
   inline-size: var(--pane-tw, 0);
   transform: translateX(var(--pane-tx, 0));
   border-radius: var(--ds-tabs-radius);
-  background: linear-gradient(180deg, var(--ds-tabs-gloss), transparent 46%), linear-gradient(180deg, var(--ds-tabs-on-bg), var(--ds-tabs-on-mid) 55%, var(--ds-tabs-on-foot));
+  background: linear-gradient(90deg, transparent 22%, var(--ds-tabs-streak), transparent 78%) top / 100% var(--ds-width-hairline) no-repeat, linear-gradient(180deg, var(--ds-tabs-on-top), var(--ds-tabs-on-foot));
   box-shadow: var(--ds-tabs-on-cast);
   opacity: 0;
 }
 .list[data-placed]::before { opacity: 1; }
+/* the track is a well; its chosen pane carries the streak */
+.list::after { content: none; }
 .list[data-ready]::before { transition: transform var(--ds-motion-hover) var(--ds-motion-easing), inline-size var(--ds-motion-hover) var(--ds-motion-easing); }
 .trigger {
   position: relative;
@@ -47,8 +49,8 @@
 .trigger::after { content: ''; position: absolute; inset-inline-start: 50%; inset-block-start: 50%; inline-size: max(100%, var(--ds-tabs-hit)); block-size: var(--ds-tabs-hit); transform: translate(-50%, -50%); }
 :global([dir='rtl']) .trigger::after { transform: translate(50%, -50%); }
 .trigger:active { transform: scale(var(--ds-motion-press-scale)); }
-.trigger[data-state='active'] { color: var(--ds-tabs-on-fg); text-shadow: none; }
-.list:not([data-placed]) .trigger[data-state='active'] { background: linear-gradient(180deg, var(--ds-tabs-on-bg), var(--ds-tabs-on-mid)); }
+.trigger[data-state='active'] { color: var(--ds-tabs-on-fg); font-weight: var(--ds-type-weight-semibold); }
+.list:not([data-placed]) .trigger[data-state='active'] { background: linear-gradient(180deg, var(--ds-tabs-on-top), var(--ds-tabs-on-foot)); }
 .trigger:focus-visible {
   outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
   outline-offset: var(--ds-focus-ring-width);
@@ -59,6 +61,6 @@
 .content:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
 @media (forced-colors: active) {
   .list { border: var(--ds-width-hairline) solid ButtonText; }
-  .list::before { display: none; }
+  .list::before, .list::after { display: none; }
   .trigger[data-state='active'] { border: var(--ds-focus-ring-width) solid Highlight; text-decoration: underline; }
 }

@@ -26,7 +26,7 @@ try {
   for (const scene of SCENES) {
     await page.goto(`${srv.base}/harness.html?scene=${scene}`, { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts.ready);
-    await docs.goto(`${srv.base}/index.html?scene=${scene}`, { waitUntil: 'networkidle' });
+    await docs.goto(`${srv.base}/index.html?backdrop=${scene}`, { waitUntil: 'networkidle' });
     await docs.evaluate(() => document.fonts.ready);
     out.scenes[scene] = [];
     for (const blur of BLURS) for (const b of LEVELS) {

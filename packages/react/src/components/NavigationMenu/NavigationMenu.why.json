@@ -1,0 +1,134 @@
+{
+  "concept": "A website’s main navigation with panels of described links that open from top-level buttons, at level 4 of the stack.",
+  "default_to_avoid": [
+    {
+      "pattern": "a mega menu that opens on hover with columns of blue links as the navigation menu",
+      "kind": "navigation menu, mega menu, site navigation",
+      "why_not": "hover-only panels never open on touch and close when the pointer crosses a gap; blue links bring a hue"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA APG · Disclosure navigation",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "each panel is a level-4 pane under its button"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "panels open on a press, not on hover, and Esc closes them"
+    },
+    {
+      "p": "P2",
+      "axis": "type",
+      "consequence": "secondary text keeps the lowest opacity that still measured as passing; text halos count only where WCAG allows them",
+      "form": "each link has a line of description so the reader chooses by purpose"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave6/",
+    "section": "navigationmenu",
+    "options": [
+      "A disclosure panels on press",
+      "B hover mega menu",
+      "C one long row of links"
+    ],
+    "picked": "A disclosure panels on press",
+    "by": "agent",
+    "reason": "A works on touch and keyboard (disclosure pattern). B fails both. C runs out of room."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the navigation, positioning its panels, the same in every theme and on every scene"
+    },
+    "bar": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the top-level entries in a row, the same in every theme and on every scene"
+    },
+    "entry": {
+      "p": "P3",
+      "axis": "space",
+      "why": "one entry and its panel, the same in every theme and on every scene"
+    },
+    "top": {
+      "p": "P6",
+      "axis": "space",
+      "why": "a 44px top-level button or link, the same in every theme and on every scene"
+    },
+    "chevron": {
+      "p": "P2",
+      "axis": "type",
+      "why": "a chevron that turns when the panel opens"
+    },
+    "panel": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a level-4 panel of links, the same in every theme and on every scene"
+    },
+    "links": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the panel’s links in a column, the same in every theme and on every scene"
+    },
+    "link": {
+      "p": "P6",
+      "axis": "space",
+      "why": "a described link with room to hit, the same in every theme and on every scene"
+    },
+    "linkLabel": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the link name in semibold, the same in every theme and on every scene"
+    },
+    "description": {
+      "p": "P2",
+      "axis": "type",
+      "why": "a line in secondary text saying what the page is for"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the shared focus ring so a keyboard user sees which item has focus"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours mark the current item with the system highlight"
+    },
+    "hover": {
+      "p": "P4",
+      "axis": "colour",
+      "why": "an entry lightens under the pointer, the same in every theme and on every scene"
+    },
+    "aria-expanded=true": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "an open entry stays lit, the same in every theme and on every scene"
+    }
+  },
+  "motion": {
+    "rotate": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the chevron turns at hover pace, the same in every theme and on every scene"
+    },
+    "@pop": {
+      "p": "P3",
+      "axis": "motion",
+      "why": "the panel drops a short way and settles"
+    }
+  }
+}

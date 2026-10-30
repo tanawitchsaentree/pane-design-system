@@ -1,0 +1,92 @@
+{
+  "concept": "The place where content will be when there is none yet: a glyph in a small well, a title, one sentence and the way out.",
+  "default_to_avoid": [
+    {
+      "pattern": "an empty state with a large colourful illustration and a cheerful headline",
+      "kind": "empty state, zero state, blank slate",
+      "why_not": "an illustration owns colours of its own and a cheerful line says nothing; Pane names the missing thing and how to fill it"
+    }
+  ],
+  "references": [
+    {
+      "title": "NN/g · Designing empty states",
+      "url": "https://www.nngroup.com/articles/empty-state-interface-design/"
+    },
+    {
+      "title": "Carbon · Empty states pattern",
+      "url": "https://carbondesignsystem.com/patterns/empty-states-pattern/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the glyph sits in a well carved like a field, a recess where the content will land"
+    },
+    {
+      "p": "P4",
+      "axis": "colour",
+      "consequence": "colour changes ease at the same pace as movement so the two read as one event",
+      "form": "it brings no colour of its own, so the way out is the one loud thing on the pane"
+    },
+    {
+      "p": "P2",
+      "axis": "type",
+      "consequence": "secondary text keeps the lowest opacity that still measured as passing; text halos count only where WCAG allows them",
+      "form": "the title is the title size and the sentence keeps a reading measure so it reads as one short thought"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave7/",
+    "section": "emptystate",
+    "options": [
+      "A glyph in a well, title, way out",
+      "B large illustration",
+      "C text only"
+    ],
+    "picked": "A glyph in a well, title, way out",
+    "by": "agent",
+    "reason": "A is a recess like Skeleton (P3) and leaves the action as the loud thing. B brings colour. C gives the eye nowhere to land."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the parts stack centred with even gaps and padding so the empty pane looks intended"
+    },
+    "sm": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the small size trims the padding so it fits inside a card or a list without dominating"
+    },
+    "well": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the glyph sits in a round well carved like a field, a recess where content will land"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the title is semibold at the title size and is a heading at the level the page needs"
+    },
+    "description": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the sentence is secondary and held to a reading measure so it stays one short block"
+    },
+    "actions": {
+      "p": "P5",
+      "axis": "space",
+      "why": "the way out sits apart from the text with room so the one loud button is clear"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "in forced colours the system draws the edges and the fill so the parts stay findable"
+    }
+  },
+  "motion": {}
+}

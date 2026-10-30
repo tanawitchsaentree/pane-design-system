@@ -21,7 +21,7 @@ export const TABS: Depth = {
   overview: (
     <>
       <p>Tabs switch between a few views of the same thing. A profile has Posts, Replies and Media. A player has Up next and Lyrics. Everything under the tabs belongs to one object, and the tabs only change which part of it is showing. The reader stays on the same screen, and the address does not change.</p>
-      <p>The tabs sit in one carved track, a recess in the pane with shade under its top lip and light on its bottom lip. The chosen tab is the blue accent sheet resting in the track, with white text. The other tabs are text alone, with no ring and no fill, because a row of rings reads as a row of buttons. When the reader picks a tab, the sheet slides to it over 420ms, so selection changes position and shape as well as colour (P4, P6). The panel rises 8px and settles over 640ms when it changes, like a new sheet placed on the pane (P3, P4).</p>
+      <p>The tabs sit in one track, a shallow recess in the pane with the same rim of light as every surface, brightest along its top edge. The chosen tab is a lighter pane of glass resting in the track, lit at its top, with semibold text. The other tabs are text alone, with no ring and no fill, because a row of rings reads as a row of buttons. When the reader picks a tab, the lighter pane slides to it over 420ms, so selection changes position, shape and weight as well as brightness (P4, P6). The panel rises 8px and settles over 640ms when it changes, like a new sheet placed on the pane (P3, P4).</p>
       <p>Tabs keep the reader in one place, so the address does not change when a tab does. If people need to share or bookmark a view, such as a profile’s Media tab, the app can mirror the value in the URL query and read it back on load. Keep that a choice the app makes, because most tab changes are a glance and do not deserve a history entry.</p>
       <p>Keyboard behaviour comes from Radix and is tested in a real browser. The whole list is one tab stop. Arrow keys move between tabs and select as they go, and Home and End jump to the ends. Pane writes none of that logic, which is why it can promise it works.</p>
     </>
@@ -38,13 +38,13 @@ export const TABS: Depth = {
     { situation: 'More than five sections', to: '/components/stack', label: 'A list of links in a Stack' },
     { situation: 'Picking one value in a form', to: '/reference/status', label: 'SegmentedControl or Radio (planned)' },
   ],
-  variants: { na: 'Tabs has one look. The blue sheet and the plain text are states of the same tab, so there is no variant prop.' },
+  variants: { na: 'Tabs has one look. The lighter pane and the plain text are states of the same tab, so there is no variant prop.' },
   anatomy: {
     render: <Card as="div" className="demo-card"><Set labels={['Posts', 'Replies', 'Media']} /></Card>,
     parts: [
-      { part: 'Track', selector: '[role="tablist"]', what: 'The tablist, named by aria-label. A carved recess with a 4px inset that holds two to five tabs on one line.' },
-      { part: 'Selected tab', selector: '[role="tab"][aria-selected="true"]', what: 'The blue accent sheet with a white gloss on top, white text and no halo. It slides to whichever tab is chosen.' },
-      { part: 'Other tabs', selector: '[role="tab"][aria-selected="false"]', what: 'Text in the track with no ring and no fill, so the blue sheet is the only mark.' },
+      { part: 'Track', selector: '[role="tablist"]', what: 'The tablist, named by aria-label. A shallow recess with a 4px inset and a rim of light brightest along its top edge, holding two to five tabs on one line.' },
+      { part: 'Selected tab', selector: '[role="tab"][aria-selected="true"]', what: 'A lighter pane of glass lit at its top, with a short shadow and semibold text. It slides to whichever tab is chosen.' },
+      { part: 'Other tabs', selector: '[role="tab"][aria-selected="false"]', what: 'Text in the track with no ring and no fill, so the lighter pane is the only mark.' },
       { part: 'Panel', selector: '[role="tabpanel"]', what: 'The tabpanel, labelled by its tab. It rises 8px and settles when it appears.' },
     ],
   },
@@ -52,8 +52,8 @@ export const TABS: Depth = {
   emphasis: {
     text: (
       <>
-        <p>Tabs and the pane title work as a pair. The title names the object, such as Mara Lind, and the tabs name its parts. When a pane has tabs, keep its title short and leave out a subtitle that repeats the selected tab, because the blue sheet already says where the reader is.</p>
-        <p>The selected tab is the only blue sheet on most panes, so a pane with tabs should not also carry an accent Button. The two would compete for the one blue the system owns.</p>
+        <p>Tabs and the pane title work as a pair. The title names the object, such as Mara Lind, and the tabs name its parts. When a pane has tabs, keep its title short and leave out a subtitle that repeats the selected tab, because the lighter pane already says where the reader is.</p>
+        <p>The selected tab already marks the pane, so a pane with tabs should not also carry an accent Button. A glowing solid beside the chosen tab pulls the eye away from where the reader is.</p>
         <p>Tabs sit below the pane’s title and above its content. They are a way to read the pane, never its loud action. The pane’s main Button, if it has one, stays at the foot.</p>
       </>
     ),
@@ -61,7 +61,7 @@ export const TABS: Depth = {
       do: <Profile><Set labels={['Posts', 'Media']} /><div className="demo-row"><Button>Follow</Button></div></Profile>,
       doNote: 'Tabs to read the profile, and the loud action at the foot.',
       dont: <Profile><Set labels={['Posts', 'Media']} /><div className="demo-row"><Button variant="accent">Follow</Button></div></Profile>,
-      dontNote: 'An accent Button next to the blue selected tab. Two blue marks compete.',
+      dontNote: 'An accent Button next to the selected tab. The glow and the chosen pane compete.',
     },
   },
   placement: {
@@ -108,7 +108,7 @@ export const TABS: Depth = {
   behaviours: {
     states: [
       ['Unselected', 'A white label in the carved track, with no ring and no fill.', 'Quiet, so the chosen sheet is the only mark (P5).'],
-      ['Selected', 'The blue accent sheet behind a white label, no halo.', 'A filled shape against bare text, so colour is never the only cue (P6).'],
+      ['Selected', 'A lighter pane of glass behind a semibold label.', 'A filled shape and a heavier weight against bare text, so brightness is never the only cue (P6).'],
       ['Selection change', 'The sheet slides to the new tab over 420ms. It does not animate on first load.', 'Motion answers the reader’s choice (P4).'],
       ['Hover', 'No change of its own beyond the pointer cursor.', 'A gap against P4, which asks every control to answer the pointer. Listed under Limitations.'],
       ['Pressed', 'Shrinks slightly over 200ms.', 'A press is a reply (P4).'],

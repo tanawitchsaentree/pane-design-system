@@ -1,0 +1,13 @@
+/* A number said large on the pane: label in the label size, value in the headline size, change below it
+   with an arrow, a mark colour and its words (P1, P6). It brings no pane of its own; put it in a Card. */
+.root { display: flex; flex-direction: column; gap: var(--ds-stat-gap); min-inline-size: 0; font-family: var(--ds-type-family); }
+.label { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.value { font-size: var(--ds-stat-value); font-weight: var(--ds-type-weight-semibold); line-height: var(--ds-type-leading-tight); letter-spacing: var(--ds-type-tracking-display); color: var(--ds-text-primary); overflow-wrap: anywhere; }
+.foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ds-stat-gap) var(--ds-gap-md); font-size: var(--ds-type-label); }
+.change { display: inline-flex; align-items: center; gap: var(--ds-gap-xs); color: var(--ds-text-primary); font-weight: var(--ds-type-weight-medium); font-variant-numeric: tabular-nums; }
+.arrow { inline-size: var(--ds-stat-glyph); block-size: var(--ds-stat-glyph); flex: none; fill: none; stroke: var(--ds-stat-neutral-mark); stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.down { transform: rotate(180deg); }
+.positive .arrow { stroke: var(--ds-stat-positive-mark); }
+.negative .arrow { stroke: var(--ds-stat-negative-mark); }
+.caption { color: var(--ds-text-secondary); }
+@media (forced-colors: active) { .arrow { stroke: CanvasText; } }

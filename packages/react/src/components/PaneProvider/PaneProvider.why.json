@@ -1,0 +1,8 @@
+{
+  "identity": false,
+  "identity_reason": "it draws nothing; it only sets the words and the locale every other component reads, so it has no look to derive",
+  "concept": "Sets the language of every Pane component below it: the words they show and speak, and the locale their dates and numbers use.",
+  "parts": {},
+  "states": {},
+  "motion": {}
+}

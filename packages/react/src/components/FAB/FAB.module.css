@@ -1,0 +1,15 @@
+/* The loud bead at thumb reach (P5): white in dark with the strong glow, ink in light, a step larger than an
+   IconButton, and it shrinks a little on press (P4). */
+.root { display: inline-flex; align-items: center; justify-content: center; gap: var(--ds-gap-md); z-index: var(--ds-overlay-z-fab); block-size: var(--ds-fab-size); min-inline-size: var(--ds-fab-size); padding-inline: 0; border: 0; border-radius: var(--ds-corner-round); background: radial-gradient(circle at 50% 30%, var(--ds-fab-top) 40%, var(--ds-fab-foot)); color: var(--ds-fab-fg); box-shadow: var(--ds-fab-glow); font-family: var(--ds-type-family); font-size: var(--ds-type-body); font-weight: var(--ds-type-weight-semibold); cursor: pointer; transition: transform var(--ds-motion-press) var(--ds-motion-easing); }
+.fixed { position: fixed; inset-block-end: var(--ds-fab-inset); inset-inline-end: var(--ds-fab-inset); }
+.contained { position: absolute; inset-block-end: var(--ds-fab-inset); inset-inline-end: var(--ds-fab-inset); }
+.extended { padding-inline: var(--ds-gap-xl) var(--ds-gap-inset); }
+.icon { display: inline-grid; inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); }
+.icon > svg { inline-size: 100%; block-size: 100%; }
+.root:active { transform: scale(var(--ds-motion-press-scale)); }
+.root:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+/* off: the button dims and refuses presses */
+.root:disabled { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
+.root:disabled:active { transform: none; }
+@media (forced-colors: active) { .root { border: var(--ds-width-ring) solid ButtonText; } }
+.label { white-space: nowrap; }

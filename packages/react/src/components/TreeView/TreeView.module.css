@@ -1,0 +1,17 @@
+/* Rows indented by level, a chevron that turns as a node opens, the chosen row in Sidebar's chosen pane
+   (R-013: one chosen look for every list of places). */
+.root, .group { margin: 0; padding: 0; list-style: none; font-family: var(--ds-type-family); }
+.item { outline: 0; }
+.item:focus-visible > .row { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: calc(var(--ds-focus-ring-width) * -1); }
+.row { padding-inline-start: calc(var(--ds-tree-view-indent) * var(--pane-level, 0) + var(--ds-tree-view-padding)); display: flex; align-items: center; gap: var(--ds-tree-view-gap); min-block-size: var(--ds-tree-view-row); padding-inline-end: var(--ds-tree-view-padding); border-radius: var(--ds-tree-view-radius); color: var(--ds-text-primary); font-size: var(--ds-type-body); cursor: pointer; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
+.row:hover { background: var(--ds-tree-view-hover); }
+.chosen, .chosen:hover { background: linear-gradient(180deg, var(--ds-tree-view-chosen-top), var(--ds-tree-view-chosen-foot)); box-shadow: var(--ds-tree-view-chosen-cast); font-weight: var(--ds-type-weight-semibold); }
+.chevron { display: inline-grid; place-items: center; flex: none; inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); transition: transform var(--ds-motion-hover) var(--ds-motion-easing); }
+.chevron svg { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); fill: none; stroke: var(--ds-text-secondary); stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+:global([dir='rtl']) .chevron svg { transform: scaleX(-1); }
+.open { transform: rotate(90deg); }
+:global([dir='rtl']) .open { transform: rotate(-90deg); }
+.icon { display: inline-grid; place-items: center; flex: none; color: var(--ds-text-secondary); }
+.icon svg { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); }
+.label { min-inline-size: 0; overflow-wrap: anywhere; }
+@media (forced-colors: active) { .chosen { outline: var(--ds-width-ring) solid Highlight; } .chevron svg { stroke: CanvasText; } }

@@ -64,7 +64,10 @@
       "dark",
       "light"
     ],
+    "sceneParam": "backdrop",
     "scenes": [
+      "studio",
+      "aurora",
       "room",
       "forest",
       "night",
@@ -115,10 +118,23 @@
     "topicsDir": "../kiln/marketplace/plugins/kiln/skills/docs-engine/benchmarks/topics",
     "history": [
       "/reference/decisions"
-    ]
+    ],
+    "treeShake": {
+      "package": "pane-react",
+      "probe": "Environment",
+      "maxJsGz": 8000,
+      "tokensCss": "pane-react/tokens.css"
+    }
   },
   "autonomy": {
     "picks": "agent",
     "$comment": "2026-10-28: questions were asked once; the agent picks each derivation, logs it in system/REVIEW.md, the user reviews at the milestone"
-  }
+  },
+  "consumers": [
+    {
+      "path": "../../lego builder",
+      "vendor": "vendor",
+      "name": "Brick Forge"
+    }
+  ]
 }

@@ -1,6 +1,7 @@
 import { createContext, forwardRef, useContext, useId, useRef, type ReactNode } from 'react';
 import * as RR from '@radix-ui/react-radio-group';
 import { cx } from '../../cx';
+import { useField } from '../FormField';
 import styles from './Radio.module.css';
 
 // Behaviour (role radiogroup, one tab stop, arrow keys move and select) is Radix's, per the stack rule.
@@ -18,6 +19,8 @@ export interface RadioGroupProps {
   onValueChange?: (value: string) => void;
   /** Name for form submission. */
   name?: string;
+  /** Marks the answer as wrong with a critical ring and aria-invalid. Inside a FormField, its `error` sets this for you. */
+  invalid?: boolean;
   /** Turns the control off, so it cannot be focused or changed. Inside a FormField, its `disabled` sets this for you. */
   disabled?: boolean;
   /** Marks the answer as required for form submission and for assistive tech. */
@@ -35,7 +38,8 @@ const ARROWS = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 const GroupContext = createContext<{ arrowAt: { current: number }; choose: (v: string) => void } | null>(null);
 
 /** One answer from a short list, every option visible at once. */
-export function RadioGroup({ label, help, className, children, ...rest }: RadioGroupProps) {
+export function RadioGroup({ label, help, className, children, invalid, ...rest }: RadioGroupProps) {
+  const bad = invalid ?? useField()?.invalid ?? false;
   const id = useId();
   const arrowAt = useRef(0);
   const root = useRef<HTMLDivElement>(null);
@@ -46,7 +50,7 @@ export function RadioGroup({ label, help, className, children, ...rest }: RadioG
       <span id={`${id}-l`} className={styles.legend}>{label}</span>
       {help != null && <span id={`${id}-h`} className={styles.help}>{help}</span>}
       <GroupContext.Provider value={{ arrowAt, choose }}>
-        <RR.Root ref={root} onKeyDown={(e) => { if (ARROWS.includes(e.key)) arrowAt.current = Date.now(); }} aria-labelledby={`${id}-l`} aria-describedby={help != null ? `${id}-h` : undefined} className={styles.options} {...rest}>{children}</RR.Root>
+        <RR.Root ref={root} onKeyDown={(e) => { if (ARROWS.includes(e.key)) arrowAt.current = Date.now(); }} aria-labelledby={`${id}-l`} aria-describedby={help != null ? `${id}-h` : undefined} className={styles.options} aria-invalid={bad || undefined} {...rest}>{children}</RR.Root>
       </GroupContext.Provider>
     </div>
   );

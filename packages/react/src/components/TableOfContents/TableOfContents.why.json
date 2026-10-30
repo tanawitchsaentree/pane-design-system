@@ -1,0 +1,94 @@
+{
+  "concept": "The sections of a long page as links, the one in view raised as the chosen pane and set semibold, the same mark as Sidebar.",
+  "default_to_avoid": [
+    {
+      "pattern": "a list of grey links with a blue active link (docs table of contents)",
+      "kind": "table of contents, on this page, anchor navigation, toc",
+      "why_not": "blue is a hue; grey alone does not say where the reader is"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI · Page structure",
+      "url": "https://www.w3.org/WAI/tutorials/page-structure/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the section in view is semibold with a lit line, a mark and a weight"
+    },
+    {
+      "p": "P5",
+      "axis": "colour",
+      "consequence": "one solid fill exists, the loud solid (white in dark, ink in light); a promoted action is the same solid glowing with its own light, and a pane uses one of them",
+      "form": "the lit line is the loud solid, the one mark in the list"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "a link moves focus to its heading as well as scrolling"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave6/",
+    "section": "tableofcontents",
+    "options": "['A lit line and weight', 'B blue active link', 'C numbered list', 'D chosen pane and weight']",
+    "picked": "D chosen pane and weight",
+    "by": "agent",
+    "reason": "D marks by shape and weight with the same chosen pane as Sidebar. A is the habitual accent stripe (G-X1). B brings blue. C adds numbers the sections do not have."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the title and the links, the same in every theme and on every scene"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the list’s name in the micro caps, the same in every theme and on every scene"
+    },
+    "list": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the links in a plain column with no rail, the same in every theme and every scene"
+    },
+    "link": {
+      "p": "P2",
+      "axis": "type",
+      "why": "a section link in the label size, the same in every theme and on every scene"
+    },
+    "sub": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a sub-section, indented one step, the same in every theme and on every scene"
+    }
+  },
+  "states": {
+    "hover": {
+      "p": "P4",
+      "axis": "colour",
+      "why": "a link darkens under the pointer, the same in every theme and on every scene"
+    },
+    "aria-current=location": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the section in view is raised as Sidebar’s chosen pane and set semibold, a shape and a weight"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the shared focus ring, the same in every theme and on every scene"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours outline the section in view in the highlight colour"
+    }
+  },
+  "motion": {}
+}

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Wave 10: patterns, three ways each</title>
+<style>
+  body { margin: 0; padding: 48px; background: #0B0B0D; color: #fff; font: 15px/1.5 system-ui, sans-serif; }
+  section { margin-block-end: 36px; } .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .pane { padding: 16px; border-radius: 22px; background: linear-gradient(180deg, #2a2b30, #1c1d21); box-shadow: inset 0 1px 0 #fff2; }
+  .well { display: inline-flex; gap: 4px; padding: 4px; border-radius: 99px; background: #0000005a; box-shadow: inset 0 2px 4px #0008; }
+  .s { padding: 6px 14px; border-radius: 99px; } .on { background: linear-gradient(180deg,#ffffff38,#ffffff14); font-weight: 600; }
+  figcaption { margin-top: 8px; color: #ffffffcc; font-size: 13px; }
+</style></head><body>
+<h1>Wave 10 derivations (Pane)</h1>
+<section><div class="row">
+ <figure><div class="pane"><div style="padding:10px;border-radius:12px;box-shadow:inset 0 0 0 2px #FF6B6B">⬣ <b>There is a problem</b><br><u>Enter an email address</u></div></div><figcaption><b>Form A · error summary at the top (picked)</b>; B inline errors only; C toast</figcaption></figure>
+ <figure><div class="pane"><div style="border-radius:16px;background:#2a2b30;padding:8px">⌕ Open settings<div class="s on" style="margin-top:6px">Open settings <span style="float:right;opacity:.7">⌘ ,</span></div></div></div><figcaption><b>CommandPalette A · level-3 pane near the top (picked)</b>; B full-screen overlay; C dropdown</figcaption></figure>
+ <figure><div class="pane"><div style="display:flex;gap:8px"><div style="flex:1;padding:6px;border-radius:12px;background:#ffffff14">To do<div style="margin-top:6px;padding:6px;border-radius:9px;background:#ffffff1f">Lofoten A3</div></div><div style="flex:1;padding:6px;border-radius:12px;background:#ffffff14">Printing</div></div></div><figcaption><b>KanbanBoard A · panes, keys and drag (picked)</b>; B drag only; C table</figcaption></figure>
+ <figure><div class="pane"><span style="box-shadow:0 0 0 2px #fff8;border-radius:8px;padding:4px 8px">Filter</span><div style="margin-top:10px;padding:8px;border-radius:12px;background:#2a2b30">1 of 3 · <b>Filter by place</b></div></div><figcaption><b>CoachMark A · anchored card, no scrim (picked)</b>; B spotlight; C slideshow</figcaption></figure>
+ <figure><div class="pane"><b>B</b> <i>I</i> • 1. 🔗<div style="margin-top:6px;height:40px;border-radius:12px;background:#0000005a;box-shadow:inset 0 2px 4px #0008"></div></div><figcaption><b>RichTextEditor A · few tools over the groove (picked)</b>; B full ribbon; C markdown only</figcaption></figure>
+</div></section>
+<p>AppShell, AuthForm, Wizard, SettingsLayout, Feed and NotificationCenter are compositions (identity false).</p>
+</body></html>

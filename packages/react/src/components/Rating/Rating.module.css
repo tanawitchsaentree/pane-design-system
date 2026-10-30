@@ -1,0 +1,10 @@
+/* Stars in the loud solid when chosen and an etched outline when not (P1: no hue; P6: count and shape). */
+.root { display: inline-flex; flex-wrap: wrap; max-inline-size: 100%; gap: var(--ds-gap-xs); }
+.item { display: inline-grid; flex: none; place-items: center; inline-size: var(--ds-layout-touch); block-size: var(--ds-layout-touch); padding: 0; border: 0; border-radius: var(--ds-corner-round); background: transparent; color: inherit; cursor: pointer; }
+.item:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: calc(var(--ds-focus-ring-width) * -2); }
+.star svg { inline-size: var(--ds-rating-star); block-size: var(--ds-rating-star); fill: transparent; stroke: var(--ds-rating-off); stroke-width: var(--ds-width-ring); stroke-linejoin: round; transition: fill var(--ds-motion-press) var(--ds-motion-easing); }
+.on svg, .item[data-on] svg, .item[data-state='checked'] svg { fill: var(--ds-rating-on); stroke: var(--ds-rating-on); }
+.readOnly .star { display: inline-grid; }
+/* off: the stars dim and refuse presses; the score still shows */
+.item[data-disabled] { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
+@media (forced-colors: active) { .on svg, .item[data-on] svg { fill: CanvasText; stroke: CanvasText; } .star svg { stroke: CanvasText; } }

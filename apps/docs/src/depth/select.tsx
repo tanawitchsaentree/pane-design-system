@@ -99,7 +99,7 @@ export const SELECT: Depth = {
       ['Focus', 'The shared 2px ring with its dark halo.', 'Visible on any scene (P2).'],
       ['Open', 'The list opens below on an opaque sheet; the chevron turns.', 'A reading surface stays ordinary (P7).'],
       ['Highlighted row', 'A lens lit along its top edge; a glint follows the pointer.', 'The row nests the sheet corner (P3).'],
-      ['Chosen option', 'A check at the start of the row in the accent, and a heavier weight.', 'Selection has a shape (P6).'],
+      ['Chosen option', 'A check at the start of the row in the text colour, and a heavier weight.', 'Selection has a shape (P6).'],
       ['Disabled', 'Native disabled, half opacity, cannot open.', 'Write the reason nearby (P6).'],
       ['Placeholder', 'The prompt in the secondary text colour until a value is chosen.', 'The empty state reads as a question (P7).'],
       ['Disabled option', 'Half opacity, skipped by the arrow keys and cannot be picked.', 'The reason belongs in its label (P6).'],
@@ -135,7 +135,7 @@ export const SLIDER: Depth = {
   overview: (
     <>
       <p>A slider sets a value along a range where the feel matters more than the exact number, such as volume, a blur amount or a corner radius. The label sits above the track with the current value at the other end, formatted with its unit.</p>
-      <p>The slider is the Switch’s material stretched out. The track is a 10px channel carved into the glass, and it fills with the accent blue up to the value. The thumb is the Switch’s lit bead, a 24px white bead with a shadow, so it reads as an object on both dark and light glass. The channel is thin, but the press area around it is 44px tall, so a finger lands on it easily (P6).</p>
+      <p>The slider is the Switch’s material stretched out. The track is a 10px channel carved into the glass, and it fills with the loud solid up to the value, white in the dark theme and ink in the light theme. The thumb is the Switch’s lit bead, a 24px white bead with a shadow, so it reads as an object on both dark and light glass. The channel is thin, but the press area around it is 44px tall, so a finger lands on it easily (P6).</p>
       <p>Radix supplies the behaviour. Arrow keys move one step, Page Up and Page Down move a larger step, Home and End jump to the ends, and the formatted value is what a screen reader speaks. Shift with an arrow key moves ten steps at once, the same as Page Up and Page Down. In a left-to-right layout Up and Right raise the value and Down and Left lower it.</p>
       <p>The value changes on every step of a drag, and <code>onValueChange</code> fires each time. An app that saves to a server or redraws something heavy should wait until the reader stops moving before it acts. Pane does not expose a separate callback for the moment the reader lets go.</p>
       <p>The slider has no <code>name</code> prop, so it does not send its value with a native form. Read the value through <code>onValueChange</code> and keep it in the form’s own state. It is horizontal only. There are no tick marks, no labels at the two ends and no second thumb for a range; those are not built.</p>
@@ -147,17 +147,20 @@ export const SLIDER: Depth = {
     { situation: 'A few named levels', to: '/components/select', label: 'Select' },
     { situation: 'A range with two ends', to: '/reference/status', label: 'RangeSlider (planned, wave 8)' },
   ],
-  variants: { na: 'Slider has one look. Its states are covered under Behaviours.' },
+  variants: {
+    channel: { purpose: 'The default. A thin carved channel with a lit bead, the label and value above it. For forms, players and any pane where the slider sits among other content.', pairing: 'Beside Switches, Inputs and text in a settings pane; the bead is the Switch’s, so they read as one family.' },
+    fill: { purpose: 'A 56px bar the hand holds whole, with the label and value inside it and the value drawn as chosen glass. For quick settings stacked in a panel, such as brightness, volume or a timer.', pairing: 'Stacked with other fill sliders, 8px apart, in a panel of its own. Do not mix it with channel sliders on one pane.' },
+  },
   anatomy: {
     render: <OnCard><Slider label="Volume" defaultValue={60} format={(v) => `${v}%`} /></OnCard>,
     parts: [
       { part: 'Label and value', selector: '[data-component="Slider"] > *:first-child', what: 'The setting’s name and the current value with its unit.' },
       { part: 'Channel', selector: '[data-component="Slider"] [class*="track"]', what: 'A 10px channel carved into the glass, with shade under its top lip and light on its bottom lip.' },
-      { part: 'Range', selector: '[data-component="Slider"] [class*="range"]', what: 'The channel filled with the accent blue up to the value, still carved.' },
       { part: 'Thumb', selector: '[role="slider"]', what: 'The Switch’s lit bead, 24px, white with a shadow, on a 44px press area.' },
+      { part: 'Range', selector: '[data-component="Slider"] [class*="range"]', what: 'The channel filled with the loud solid up to the value, white in dark and ink in light.' },
     ],
   },
-  sizes: { na: 'Slider has one size. Its channel is 10px, its thumb 24px and its press area 44px tall.' },
+  sizes: { na: 'Slider has one size per variant. The channel is 10px with a 24px thumb on a 44px press area; the fill bar is 56px tall and is its own press area.' },
   emphasis: { na: 'A slider carries no emphasis. It is a setting and sits with the content it changes.' },
   placement: {
     rows: [
@@ -192,7 +195,20 @@ export const SLIDER: Depth = {
     loading: <p>A slider has no loading state. If the value it sets takes time to apply, keep the thumb where the reader left it and show the result when it is ready.</p>,
     focus: <p>Focus stays on the thumb while the value changes.</p>,
   },
-  deepDive: { na: 'Slider has no variant prop, so there is nothing to compare.' },
+  deepDive: {
+    channel: {
+      purpose: <p>The channel slider is a setting among other content. Its label sits above, its value at the end of the label row, and a 10px channel carved into the glass fills with the loud solid up to the bead. It takes little height, so it fits a form or a player.</p>,
+      context: <OnCard><h3 className="flush">Northern Lights</h3><Slider label="Volume" defaultValue={60} format={(v) => `${v}%`} /></OnCard>,
+      practices: ['Use it where the slider is one control among others.', 'Give it the full width of its column so each pixel of travel moves the value a little.', 'Keep the label short; a long one wraps above the channel.'],
+      pair: { do: <OnCard><Slider label="Volume" defaultValue={60} format={(v) => `${v}%`} /></OnCard>, doNote: 'One channel slider under the content it changes.', dont: <OnCard><Slider variant="fill" label="Volume" defaultValue={60} format={(v) => `${v}%`} /><p className="flush">Track 3 of 12 · Northern Lights</p></OnCard>, dontNote: 'A fill bar inside a player crowds the content it belongs to.' },
+    },
+    fill: {
+      purpose: <p>The fill slider is the control itself, the way quick settings work on a phone or a headset. The whole bar is the target: a press anywhere sets the value and a drag moves it. The empty part is the tab track’s deep well, the value is chosen glass lit on its top edge, and a thin lit bar just inside the fill marks where it stops. The label and value live inside the bar, so a stack of settings takes one row each.</p>,
+      context: <OnCard><Stack gap="sm"><Slider variant="fill" label="Brightness" defaultValue={50} format={(v) => `${v}%`} /><Slider variant="fill" label="Timer" min={0} max={12} defaultValue={8} format={(v) => (v === 0 ? 'Off' : `${v}h`)} /></Stack></OnCard>,
+      practices: ['Stack fill sliders 8px apart in a panel of their own, one setting per bar.', 'Keep the label to one or two words; it ellipsizes before it touches the value.', 'Always pass format so the value carries its unit, such as 50% or 8h.', 'Use it for values set by feel. An exact number still wants a number field.'],
+      pair: { do: <OnCard><Stack gap="sm"><Slider variant="fill" label="Brightness" defaultValue={50} format={(v) => `${v}%`} /><Slider variant="fill" label="Warmth" defaultValue={30} format={(v) => `${v}%`} /></Stack></OnCard>, doNote: 'Related settings stacked, each with its unit.', dont: <OnCard><Stack gap="sm"><Slider variant="fill" label="Brightness" defaultValue={50} format={(v) => `${v}%`} /><Slider label="Warmth" defaultValue={30} format={(v) => `${v}%`} /></Stack></OnCard>, dontNote: 'A fill bar and a channel slider on one pane read as two systems.' },
+    },
+  },
   modifiers: [
     { name: 'Range and step', rules: <p>Set <code>min</code>, <code>max</code> and <code>step</code> to the values that make sense, such as 0 to 40 in steps of 2 for a radius.</p>, pair: { do: <OnCard><Slider label="Corner radius" min={0} max={40} step={2} defaultValue={18} format={(v) => `${v}px`} /></OnCard>, doNote: 'A range that matches the setting.', dont: <OnCard><Slider label="Corner radius" min={0} max={1000} defaultValue={18} format={(v) => `${v}px`} /></OnCard>, dontNote: 'A huge range where every useful value sits in the first few pixels.' } },
   ],

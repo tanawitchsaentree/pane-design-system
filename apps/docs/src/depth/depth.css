@@ -2,11 +2,12 @@
    Plain docs chrome (D-016): the glass appears only inside the stages. */
 /* wrappers inside .prose own the same rhythm as .prose itself (container-owned spacing) */
 .prose > [data-registry], .deep-dive, .modifier { display: flex; flex-direction: column; gap: var(--ds-gap-lg); }
-.live-demo { display: flex; flex-direction: column; gap: var(--ds-gap-md); margin-block-start: var(--ds-gap-xl); }
+.live-demo { display: flex; flex-direction: column; gap: var(--ds-gap-3xl); margin-block-start: var(--ds-gap-3xl); }
+.live-demo-result { display: flex; flex-direction: column; gap: var(--ds-gap-lg); }
 .live-demo-controls { display: flex; flex-wrap: wrap; gap: var(--ds-gap-lg); align-items: end; }
 .live-demo-stage .example-live { justify-content: center; }
 
-.tab-nav { display: flex; gap: var(--ds-gap-xs); margin-block-start: var(--ds-gap-2xl); border-block-end: var(--ds-width-hairline) solid var(--ds-line-divider); overflow-x: auto; }
+.tab-nav { display: flex; gap: var(--ds-gap-xs); margin-block-start: var(--ds-gap-section); border-block-end: var(--ds-width-hairline) solid var(--ds-line-divider); overflow-x: auto; }
 .tab-link { padding: var(--ds-gap-md) var(--ds-gap-lg); font-weight: var(--ds-type-weight-semibold); text-decoration: none; color: var(--ds-text-secondary); border-block-end: var(--ds-focus-ring-width) solid transparent; margin-block-end: calc(var(--ds-width-hairline) * -1); white-space: nowrap; }
 main a.tab-link { color: var(--ds-text-secondary); text-decoration: none; }
 main a.tab-link[aria-current='page'] { color: var(--ds-text-primary); border-block-end-color: var(--ds-text-primary); }
@@ -20,10 +21,11 @@ main a.tab-link:hover { color: var(--ds-text-primary); }
 .anatomy-mark { position: absolute; transform: translate(-50%, -50%); inline-size: var(--ds-gap-2xl); block-size: var(--ds-gap-2xl); border-radius: var(--ds-radius-pill); display: grid; place-items: center; font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); background: var(--ds-surface-light); color: var(--ds-text-on-light); box-shadow: var(--ds-elevation-lift); text-shadow: none; pointer-events: none; }
 [dir='rtl'] .anatomy-mark { transform: translate(50%, -50%); }
 .anatomy-lead { position: absolute; overflow: visible; pointer-events: none; }
+.anatomy-lead circle { fill: var(--ds-text-primary); }
 .anatomy-lead path { fill: none; stroke: var(--ds-text-primary); stroke-width: var(--ds-width-hairline); opacity: 0.8; }
 .anatomy-legend { margin: 0; padding-inline-start: var(--ds-gap-2xl); display: grid; gap: var(--ds-gap-sm); }
 
-.in-context-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: var(--ds-gap-2xl); margin-block: var(--ds-gap-xl); }
+.in-context-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: var(--ds-gap-2xl); margin-block: var(--ds-gap-3xl); }
 .in-context { margin: 0; display: flex; flex-direction: column; gap: var(--ds-gap-md); }
 .in-context figcaption { font-size: var(--ds-type-label); }
 .narrow-stage .example-live, .narrow-stage { max-inline-size: 360px; }
@@ -32,10 +34,10 @@ main a.tab-link:hover { color: var(--ds-text-primary); }
 .deep-dive, .modifier { margin-block-start: var(--ds-gap-section); }
 .deep-dive h4 { margin-block: var(--ds-gap-xl) var(--ds-gap-sm); }
 
-.spec-subjects { margin-block: var(--ds-gap-xl); }
+.spec-subjects { display: flex; flex-direction: column; gap: var(--ds-gap-2xl); margin-block: var(--ds-gap-3xl); }
 .spec-row { gap: var(--ds-gap-xl); }
 .spec-cell { display: inline-flex; }
-.redlines { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: var(--ds-gap-2xl); margin-block: var(--ds-gap-xl); }
+.redlines { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: var(--ds-gap-2xl); margin-block: var(--ds-gap-3xl); }
 .redline { margin: 0; display: flex; flex-direction: column; gap: var(--ds-gap-md); }
 .redline-host { position: relative; display: inline-flex; padding-block: var(--ds-gap-2xl); padding-inline: var(--ds-gap-2xl) var(--ds-gap-section); }
 .rl { position: absolute; font-size: var(--ds-type-caption, var(--ds-type-label)); font-family: ui-monospace, 'SF Mono', Menlo, monospace; color: var(--ds-text-primary); }
@@ -44,3 +46,22 @@ main a.tab-link:hover { color: var(--ds-text-primary); }
 /* loading placeholders for the patterns (surface.placeholder tokens), the size of the text they stand for */
 .placeholder-line { display: block; block-size: var(--ds-type-body); border-radius: var(--ds-radius-pill); background: linear-gradient(90deg, var(--ds-surface-placeholder-lo), var(--ds-surface-placeholder-hi)); }
 .indent { padding-inline-start: var(--ds-gap-2xl); }
+
+/* Use the width (2026-10-29: usage pages ran to 18 screens with everything stacked): text beside its
+   example, the do/don't pair under both, and the content cases three across. Stacks again on narrow screens. */
+@media (min-width: 1100px) {
+  .deep-dive { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); grid-template-areas: 'text media' 'pair pair'; column-gap: var(--ds-gap-3xl); row-gap: var(--ds-gap-xl); align-items: start; }
+  .deep-dive > .dd-text { grid-area: text; display: flex; flex-direction: column; gap: var(--ds-gap-md); }
+  .deep-dive > .dd-media { grid-area: media; margin: 0; }
+  .deep-dive > .dd-pair { grid-area: pair; }
+  .modifier { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr); column-gap: var(--ds-gap-3xl); align-items: start; }
+  .modifier > .dd-text { display: flex; flex-direction: column; gap: var(--ds-gap-md); }
+  .trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--ds-gap-2xl); align-items: start; }
+  .trio > div { display: flex; flex-direction: column; gap: var(--ds-gap-md); min-inline-size: 0; }
+}
+/* a demo, a table or a code block is its own step: it stands 24px from the text around it, where
+   running text stays 12px apart (G-RH1). Headings and short intros still lead into it. */
+:is(.prose, .prose > [data-registry], .deep-dive, .modifier) > :is([data-example-live], :has([data-example-live]), table, :has(> table), .codeblock) { margin-block: calc(var(--ds-gap-3xl) - var(--ds-gap-lg)); }
+:is(.prose, .prose > [data-registry], .deep-dive, .modifier) > :is(h2, h3, h4) + :is([data-example-live], :has([data-example-live]), table, :has(> table), .codeblock) { margin-block-start: 0; }
+/* inside a trio cell the heading and its note stay tight, the stage under them stands off by 16px */
+.trio > div > p + [data-example-live] { margin-block-start: var(--ds-gap-md); }

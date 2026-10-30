@@ -1,0 +1,7 @@
+/* A 2px line with round joins, a faint wash under a single series, and an 8px end dot ringed in the
+   surface so it stays legible where lines cross (dataviz mark specs). */
+.line { fill: none; stroke-width: var(--ds-viz-line); stroke-linecap: round; stroke-linejoin: round; }
+.area { opacity: var(--ds-viz-wash); }
+.dot { stroke: var(--ds-viz-ring); stroke-width: var(--ds-viz-line); }
+.live { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (forced-colors: active) { .line, .dot, .area { forced-color-adjust: none; } }

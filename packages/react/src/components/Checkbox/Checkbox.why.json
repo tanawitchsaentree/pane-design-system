@@ -24,14 +24,14 @@
     {
       "p": "P1",
       "axis": "depth",
-      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur), never from an opaque tint",
+      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur) inside a smoked body thick enough that a pane reads as a slab of glass, with the scene softened behind it",
       "form": "a field on glass reads by dimming what is behind it, never by an opaque white or grey box"
     },
     {
       "p": "P1",
       "axis": "colour",
-      "consequence": "the scene supplies the hue; the system owns almost no colour of its own, only white at opacities, one ink and one blue",
-      "form": "selection is white or ink with a mark, and the one blue is used at most on the switch track"
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "selection is white or ink with a mark, and no hue is spent on it"
     },
     {
       "p": "P3",
@@ -153,6 +153,11 @@
       "p": "P2",
       "axis": "interaction",
       "why": "keyboard focus draws the shared 2px ring with its halo, visible on any part of any scene"
+    },
+    "aria-invalid=true": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
     }
   },
   "motion": {

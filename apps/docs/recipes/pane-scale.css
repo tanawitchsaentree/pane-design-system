@@ -1,0 +1,28 @@
+/* Pane Scale for plain HTML (no React). Load pane-tokens first, then this file.
+   <div class="pane-scale" role="img" aria-label="Speed: Fast, 4 of 5, above the format average">
+     <span class="pane-scale-label" aria-hidden="true">Speed</span>
+     <span class="pane-scale-track" aria-hidden="true" style="--steps: 5; --at: 75%; --cmp: 50%">
+       <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i>
+       <b class="pane-scale-band good" style="--from: 50%; --to: 75%"></b>
+       <b class="pane-scale-ring"></b><b class="pane-scale-dot"></b>
+     </span>
+     <span class="pane-scale-word" aria-hidden="true">Fast</span>
+   </div>
+   --at and --cmp are (value - 1) / (steps - 1) as a percentage; leave out the band and ring when there is
+   nothing to compare. The same tokens as pane-react's Scale, so the two look the same. */
+.pane-scale { display: grid; grid-template-columns: minmax(0, var(--ds-scale-label)) minmax(var(--ds-scale-min), 1fr) minmax(0, var(--ds-scale-word)); align-items: center; gap: var(--ds-scale-gap); font-family: var(--ds-type-family); }
+.pane-scale-label { font-size: var(--ds-type-label); color: var(--ds-text-primary); }
+.pane-scale-word { justify-self: end; font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-medium); color: var(--ds-text-primary); text-align: end; }
+.pane-scale-track { position: relative; display: flex; align-items: center; gap: var(--ds-scale-step-gap); block-size: var(--ds-scale-hit); }
+.pane-scale-track > i { flex: 1; block-size: var(--ds-scale-track); background: var(--ds-scale-off); box-shadow: var(--ds-scale-carve); }
+.pane-scale-track > i:first-child { border-start-start-radius: var(--ds-corner-round); border-end-start-radius: var(--ds-corner-round); }
+.pane-scale-track > i:last-of-type { border-start-end-radius: var(--ds-corner-round); border-end-end-radius: var(--ds-corner-round); }
+.pane-scale-track > i.on { background: var(--ds-scale-on); }
+.pane-scale-band { position: absolute; inset-block-start: 50%; inset-inline-start: var(--from); inline-size: calc(var(--to) - var(--from)); block-size: var(--ds-scale-track); transform: translateY(-50%); border-radius: var(--ds-corner-round); }
+.pane-scale-band.good { background: var(--ds-scale-good); }
+.pane-scale-band.bad { background: var(--ds-scale-bad); }
+.pane-scale-ring, .pane-scale-dot { position: absolute; inset-block-start: 50%; inline-size: var(--ds-scale-bead); block-size: var(--ds-scale-bead); border-radius: var(--ds-corner-round); transform: translate(-50%, -50%); }
+.pane-scale-ring { inset-inline-start: var(--cmp); box-sizing: border-box; border: var(--ds-width-ring) solid var(--ds-scale-ring); }
+.pane-scale-dot { inset-inline-start: var(--at); background: var(--ds-scale-bead-bg); box-shadow: var(--ds-scale-bead-shadow); }
+[dir='rtl'] .pane-scale-ring, [dir='rtl'] .pane-scale-dot { transform: translate(50%, -50%); }
+@media (forced-colors: active) { .pane-scale-track > i { background: GrayText; } .pane-scale-track > i.on, .pane-scale-dot { background: CanvasText; forced-color-adjust: none; } }

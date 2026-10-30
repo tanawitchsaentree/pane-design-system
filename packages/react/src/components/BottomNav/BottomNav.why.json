@@ -1,0 +1,124 @@
+{
+  "concept": "A phone’s main navigation in a floating pill dock at thumb reach, the current destination as chosen glass with a semibold label.",
+  "default_to_avoid": [
+    {
+      "pattern": "a full-width white tab bar pinned to the bottom with a coloured active icon (iOS tab bar, Material bottom navigation)",
+      "kind": "bottom navigation, tab bar, bottom nav, dock",
+      "why_not": "a coloured active icon is a hue and the only cue; a full-width white bar ignores the glass"
+    }
+  ],
+  "references": [
+    {
+      "title": "Apple HIG · Tab bars",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "a floating level-1 pill over the content, clear of the screen edge"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the current destination is chosen glass with a semibold label, marked by shape and weight"
+    },
+    {
+      "p": "P6",
+      "axis": "space",
+      "consequence": "every target is at least 44px in its smaller dimension or has a 44px hit area",
+      "form": "every destination is at least 64 by 52px, at thumb reach"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave6/",
+    "section": "bottomnav",
+    "options": [
+      "A floating pill dock",
+      "B full-width tab bar",
+      "C icon-only dock"
+    ],
+    "picked": "A floating pill dock",
+    "by": "agent",
+    "reason": "A is the dock from the reference, glass with a chosen pane. B is the OS bar. C drops the labels readers need."
+  },
+  "parts": {
+    "dock": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a level-1 glass pill holding the destinations, the same in every theme and on every scene"
+    },
+    "fixed": {
+      "p": "P6",
+      "axis": "space",
+      "why": "floats at the bottom centre of the viewport"
+    },
+    "contained": {
+      "p": "P6",
+      "axis": "space",
+      "why": "sits in its parent for a panel or a demo"
+    },
+    "item": {
+      "p": "P6",
+      "axis": "space",
+      "why": "a destination with its icon over its label, a large target"
+    },
+    "icon": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the icon at the icon size, the same in every theme and on every scene"
+    },
+    "label": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the destination’s one word in the micro size"
+    },
+    "badge": {
+      "p": "P5",
+      "axis": "colour",
+      "why": "a count as a small loud mark, the same in every theme and on every scene"
+    },
+    "sr": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the count in words for a screen reader"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the shared focus ring so a keyboard user sees which item has focus"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours mark the current item with the system highlight"
+    },
+    "hover": {
+      "p": "P4",
+      "axis": "colour",
+      "why": "a destination lightens under the pointer, the same in every theme and on every scene"
+    },
+    "aria-current=page": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the current destination is chosen glass with a semibold label"
+    },
+    "aria-current": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the current destination does not lighten on hover, because it is already the chosen pane"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the tint eases at hover pace, the same in every theme and on every scene"
+    }
+  }
+}

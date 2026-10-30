@@ -2,6 +2,154 @@
 
 Every entry names the component it touches, so each component page in the book can show its own history. The conformance run fails if a component has no entry.
 
+## 0.7.0 (2026-10-30)
+
+- PaneProvider: new. Sets the words and the locale for every component below it; `en` (default) and `th` ship, and a custom catalog is typed as PaneMessages. th-TH gives the Buddhist year.
+- Calendar: month names, weekdays and its button names follow PaneProvider's catalog and locale.
+- DataGrid: its checkbox names and loading line come from the catalog.
+- Pagination: Previous, Next and Page n come from the catalog.
+- OTPFlow: every line it shows or announces comes from the catalog.
+- MultiSelect: a chip's remove button no longer says Remove twice.
+- TagInput: a tag's remove button no longer says Remove twice.
+- Scale: new. A position on a short ordered scale, the slider channel cut into steps with a bead, a ring to compare with and a band between them; also as plain HTML with pane-scale.css.
+- RadarChart: new. A profile over a few axes as one 2px shape per series with a faint wash, a table view and arrow keys between axes.
+- Button: `loading` keeps the width and focus, shows a spinner, says it is busy and ignores presses.
+- IconButton: `loading`, as Button's.
+- Checkbox: `invalid`, a critical ring and aria-invalid; FormField's error sets it.
+- Radio: RadioGroup takes `invalid`, ringing every circle.
+- Switch: `invalid`, as Checkbox's.
+- RadioCards: `invalid` and `disabled` for the whole group.
+- Listbox: `disabled` and `invalid`; FormField sets both.
+- SegmentedControl: `disabled`.
+- ColorPicker: `disabled`, for the swatches and the hex field.
+- Rating: `disabled`.
+- Chip: `disabled` dims the pill and turns off both of its buttons.
+- FAB: a disabled FAB dims and refuses presses.
+- Select: `readOnly` and `invalid`; FormField's disabled and required now reach it.
+- Combobox: `disabled`, `readOnly`, `invalid` and `required`.
+- Autocomplete: `disabled`, `readOnly`, `invalid` and `required`.
+- MultiSelect: `disabled`, `readOnly`, `invalid` and `required`; read-only chips have no remove button.
+- TagInput: `disabled`, `readOnly`, `invalid` and `required`.
+- DatePicker: `readOnly` and `invalid`; FormField's required reaches it.
+- TimePicker: `readOnly`.
+- PinInput: `readOnly`; FormField's required reaches every cell.
+- RichTextEditor: `readOnly` and `invalid`; FormField's disabled and required reach it.
+- NumberInput: FormField's disabled now turns off the steppers too.
+- InputGroup: a disabled field dims the whole well once.
+- Editable: disabled text is set in the secondary tone.
+- Table: `loading` and `empty`.
+- DataGrid: `empty`.
+- FileUpload: `invalid`.
+- Dropzone: `invalid`.
+- Box: new. Padding and a corner from the scales, nothing else.
+- Flex: new. A row or column with a gap from the scale and both alignments named.
+- Center: new. Content in the middle of the space it is given.
+- Spacer: new. A fixed step from the gap scale, or the free space in a row.
+- Divider: new. A hairline groove etched into the glass, shade over light; horizontal or vertical, optionally inset.
+- AspectRatio: new. square, photo, video, portrait or wide at any width.
+- VisuallyHidden: new. Text for screen readers only; `focusable` brings a skip link back into view.
+- Text: new. Text at a step of the type scale (reading, body, label, caption, micro) in one of two tones and three weights; `truncate` for one line.
+- Heading: new. The level from the outline, the size from the scale.
+- Icon: new. A glyph at 16 or 18px in the text colour; decorative unless it has a `label`.
+- Link: new. Found by its underline in the text colour (no hue); `standalone` and `external`.
+- Spinner: new. A lit arc turning in a groove, with a status role and a label; still under reduced motion.
+- Skeleton: new. Text lines, a block or a circle carved into the glass, breathing slowly.
+- Kbd: new. A key as a small keycap lit from above.
+- Listbox: new. Options kept on the page in a recess, one or several (`multiple`), with checks.
+- Combobox: new. A groove that filters a long list as you type, on the WAI-ARIA combobox pattern.
+- Autocomplete: new. Suggestions with free text.
+- MultiSelect: new. Several values from a long list, each a removable Chip.
+- Menu: new. Actions from a button in Select’s sheet, grouped, the critical one last.
+- ContextMenu: new. The Menu sheet on a right click, a long press or the menu key.
+- RadioCards: new. One choice as level-2 cards, chosen glass with a check.
+- Rating: new. Stars in the loud solid and outlines; `readOnly` reads as “4 out of 5”.
+- TagInput: new. Free-form tags as chips; Enter or a comma adds, Backspace removes.
+- SegmentedControl: new. Two to five views of the same content on a short glass track; one tab stop, arrows move.
+- BottomNav: new. The dock of three to five places at the foot of a phone screen, the current one raised.
+- Navbar: new. The header with the brand, the main sections and one or two actions; sticky by default.
+- Sidebar: new. Grouped destinations in a column, with counts and an optional header and footer.
+- Breadcrumb: new. The path to the page, the current step announced and never a link.
+- Pagination: new. Previous, the pages around the current one and Next, with an ellipsis for the gaps.
+- Stepper: new. Done, current and upcoming steps of one task, horizontal or vertical.
+- Accordion: new. Sections opened by their headings, one at a time or several.
+- NavigationMenu: new. Site sections in a row, some opening a panel of links; Esc returns focus.
+- TableOfContents: new. The sections of a long page, tracking the one in view.
+- Progress: new. How far a task has come, in the slider's channel with the loud fill; with no value it travels.
+- Meter: new. A reading inside a range; a high one adds a triangle and Almost full, a full one a diamond and Full.
+- Stat: new. One number said large, with its change as an arrow and words, and a sentiment apart from its direction.
+- EmptyState: new. A glyph in a carved well, a title, one sentence and the way out.
+- Timeline: new. Events on a hairline rail; done, current and upcoming dots differ by shape.
+- DescriptionList: new. Term and detail pairs in a real dl, stacked or inline, with optional dividers.
+- List: new. Rows of one kind, inset on a level-2 pane or plain; ListItem rows can be links or buttons.
+- Table: new. A captioned table with a sticky opaque header, sortable headers with aria-sort and two densities.
+- PasswordInput: new. Input's groove with a show button that says its state; it hides again on submit.
+- SearchInput: new. A search landmark with a magnifier and a clear button; Enter searches and Esc clears.
+- NumberInput: new. A spinbutton with minus and plus in one groove, held to its limits when the field is left.
+- RangeSlider: new. Slider's channel with two beads, each named for its end; the two never cross.
+- Editable: new. Text that turns into the groove where it stands; Enter saves and Esc puts the words back.
+- FileUpload: new. A button and a list of chosen files with sizes and remove buttons; refusals are said in words.
+- Dropzone: new. A large carved well that takes dragged files and is a button for the chooser.
+- ColorPicker: new. Named swatches as radios, with an optional hex field, for the content's own colours.
+- OTPFlow: new. PinInput with where the code went, the check, the error in words and a resend countdown.
+- Calendar: new. A month of round 44px days in a grid; today ringed, the chosen day the loud solid, a range a band of chosen glass.
+- DatePicker: new. Select's groove opening Calendar on a level-4 popover; single days or a stay, focus back on the field.
+- TimePicker: new. Times at a fixed step in the reader's clock, on Select's groove and sheet.
+- TreeView: new. Nested rows with a turning chevron and the chosen pane; the WAI-ARIA tree keys and type-ahead.
+- Carousel: new. Slides that snap and never move by themselves, with buttons and dots.
+- VirtualList: new. Draws only the rows in view, each with its place in the whole list.
+- TransferList: new. Two Listboxes with move buttons that say how many they move.
+- DataGrid: new. Table as a grid with one tab stop, cell keys, chosen rows and a sticky name column.
+- BarChart: new. Thin bars from one baseline in the data palette (D-031), with a legend, labels and a table view.
+- LineChart: new. 2px lines with end labels and a crosshair; never a second axis.
+- Sparkline: new. A small trend in the secondary tone, with its trend said in words.
+- Heatmap: new. One hue from faint to full with a 2px gap and a scale.
+- Form: new. One column of fields with an error summary that takes focus after a failed submit and links to each field.
+- Wizard: new. Stepper, one panel at a time under a heading that takes focus, Back and the loud Next last.
+- AuthForm: new. Sign in, sign up and reset with the autocomplete names password managers need.
+- CommandPalette: new. ⌘K opens a level-3 pane with grouped commands; focus stays in the field.
+- NotificationCenter: new. A bell with the unread count and notices grouped by day; unread says New.
+- CoachMark: new. A level-4 card anchored to one thing, with Next and Skip tour and no scrim.
+- KanbanBoard: new. Cards that move by drag and by keyboard, every move said aloud.
+- Feed: new. A WAI-ARIA feed that loads more near the end and says when it is done.
+- AppShell: new. Header, sidebar or bottom bar by its own width, and a skip link.
+- SettingsLayout: new. Groups of rows with a name, a sentence and the control at the end.
+- RichTextEditor: new. A few marks over Input's groove, each saying when it is on; paste arrives plain.
+- CommandPalette and CoachMark have a preview prop for docs, like the wave 4 overlays.
+- Dialog: new. A level-3 pane over a scrim (D-025) on Radix Dialog; `actions`, `size`, `Dialog.Close`, `preview` for documentation.
+- Sheet: new. A level-3 pane from the bottom, start or end; a grabber drags a bottom sheet closed.
+- Drawer: new. A Sheet from the start or end edge.
+- ActionSheet: new. Actions for one item from the bottom, Cancel set apart, the critical action last.
+- Popover: new. A level-4 pane next to its trigger without a scrim.
+- Tooltip: new. A few words on hover, focus and tap.
+- Toast: new. A level-4 pane at the top end with a status mark, announced politely, pausing under the pointer.
+- Snackbar: new. One line with Undo at the bottom of a phone screen.
+- FAB: new. The loud bead at thumb reach, glowing strong in dark.
+- PullToRefresh: new. Pull a list down to refresh it, with a Refresh button for keyboards (WCAG 2.5.1).
+- Image: new. A picture with a corner from the scale that fades in over the carve and stays a quiet recess if it fails.
+
+## 0.6.0 (2026-10-29)
+
+- Mesh: new (D-029). A mesh gradient for covers, icons, illustrations and scenes, never a control's fill. Presets `aurora`, `ember`, `tide`, `dusk`; your own colours through `colors` and `base`, or the `--ds-mesh-*` variables; `rotate` turns the light; `glow` adds an ambient shadow in the mesh's colours; `label` names it as an image.
+- Mesh: `npx pane-mesh --from brand.png` (or `--colors`) writes the `--ds-mesh-*` variables from a brand image and warns when a mesh would look flat. PNG only.
+- Glow in dark (D-027): `glow.strong`, `glow.soft`, `glow.mark`. Button `accent` and IconButton `loud` glow strong, Switch on and the Slider's filled channel soft, the fill slider's marker as a mark. Nothing glows in light, and text never glows.
+- Slider: new `variant="fill"`, a 56px bar held whole with its label and value inside (D-026). Both variants keep a width of their own (at least 240px) and never resize with their value text. The fill bar is a groove with the field's edge, so a full bar still shows where it ends in light.
+- InputGroup: text at the end keeps the field's full inset; only a lone round button sits close to the curve.
+- Select: disabled uses the `opacity.disabled` token.
+- Field edges: a 1px edge all round carries the 3:1 instead of a thick white bottom lip.
+- Tokens: `size.control-xl`, `size.slider-min`, `slider.fill-*`, `slider.min-width`, `slider.range-glow`, `glow.*`, `mesh.*`, `mesh-ember.*`, `mesh-tide.*`, `mesh-dusk.*`, `mesh-blur`, `mesh-glow-opacity`, `studio.*`, `color.ink.950`.
+
+## 0.5.0 (2026-10-29)
+
+- Thick smoked glass (D-025). A pane is a slab: a smoked body, a faint edge all round, shade at its foot, a short streak where light catches its top edge, and a long soft shadow. The loud solid is a warm off-white with a bloom.
+- Levels. `Card` takes `level` 1 to 4 (pane, surface inside a pane, overlay, popover); a Card inside a Card is level 2 by itself, with no second blur and an inner corner. Use `--ds-card-scrim` under an overlay. Each level is measured at least 1.15:1 from what is under it.
+- IconButton: new `loud` variant, a white bead. Slider: the thumb is a capsule and the track is thinner. Tabs: the track is a well and the chosen tab is grey glass.
+- The book: a palette with full ramps (50 to 950) and roles in tabs on the Colour page; a grouped, searchable token reference; long sections fold behind their headings, so no page is longer than about ten screens.
+- One light from above on every part (D-024, R-012). Every surface, control and track carries a rim brightest along its top edge, a sheen on its upper half and a short soft shadow; recesses are the inverse.
+- No blue. `Button` `accent` is the loud solid glowing with its own light (white in dark, ink in light). Tabs, Switch, Slider and the Select check are monochrome: a chosen tab is a lighter pane of glass, a switch that is on is a lit track, the slider fills with the loud solid.
+- Chip: chosen is a lighter pane with a check, the same chosen glass as Tabs.
+- Button `glass`, IconButton and Chip rest on a short soft shadow and are lit from above.
+- Tokens: `action.accent` and friends now resolve to the loud solid; new `surface.lit-*`, `elevation.track`, `elevation.loud-glow`, `elevation.quiet-cast`, `elevation.chosen-cast`, `elevation.on-glow`; `line.rim-*` describe a rim lit from above.
+
 ## 0.4.0 (2026-10-28)
 
 - IconButton: a small round pane with Button's material (gloss, rim, pointer glint); quiet, so it no longer lifts on hover. A 44px press area around both sizes.

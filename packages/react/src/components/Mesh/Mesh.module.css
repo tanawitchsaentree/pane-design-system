@@ -1,0 +1,27 @@
+/* A mesh (D-029): four soft radial pools on a pale ground, drawn on a layer larger than the box and
+   blurred until no pool keeps an edge; the box clips it. Each pool's colour, place and size is a
+   variable, so a product can bring its own colours or move the light without touching this file. */
+.root {
+  --mesh-a: var(--ds-mesh-a); --mesh-b: var(--ds-mesh-b); --mesh-c: var(--ds-mesh-c); --mesh-d: var(--ds-mesh-d); --mesh-base: var(--ds-mesh-base);
+  position: relative; isolation: isolate; border-radius: inherit;
+}
+.ember { --mesh-a: var(--ds-mesh-ember-a); --mesh-b: var(--ds-mesh-ember-b); --mesh-c: var(--ds-mesh-ember-c); --mesh-d: var(--ds-mesh-ember-d); --mesh-base: var(--ds-mesh-ember-base); }
+.tide { --mesh-a: var(--ds-mesh-tide-a); --mesh-b: var(--ds-mesh-tide-b); --mesh-c: var(--ds-mesh-tide-c); --mesh-d: var(--ds-mesh-tide-d); --mesh-base: var(--ds-mesh-tide-base); }
+.dusk { --mesh-a: var(--ds-mesh-dusk-a); --mesh-b: var(--ds-mesh-dusk-b); --mesh-c: var(--ds-mesh-dusk-c); --mesh-d: var(--ds-mesh-dusk-d); --mesh-base: var(--ds-mesh-dusk-base); }
+.paint { position: absolute; inset: 0; z-index: -1; overflow: hidden; border-radius: inherit; background-color: var(--mesh-base); pointer-events: none; }
+.paint::before {
+  content: ''; position: absolute; inset: -20%;
+  background:
+    radial-gradient(var(--mesh-a-size, 58% 66%) at var(--mesh-a-at, 14% 14%), var(--mesh-a), transparent 76%),
+    radial-gradient(var(--mesh-b-size, 56% 64%) at var(--mesh-b-at, 90% 26%), var(--mesh-b), transparent 76%),
+    radial-gradient(var(--mesh-c-size, 72% 60%) at var(--mesh-c-at, 60% 96%), var(--mesh-c), transparent 76%),
+    radial-gradient(var(--mesh-d-size, 50% 56%) at var(--mesh-d-at, 4% 92%), var(--mesh-d), transparent 74%);
+  filter: blur(var(--mesh-blur, var(--ds-mesh-blur))); transform: rotate(var(--mesh-rotate, 0deg));
+}
+/* the light a mesh object casts: its own pools, blurred and set a little below it */
+.glow {
+  position: absolute; inset: 30% 8% -14%; z-index: -2; border-radius: inherit; pointer-events: none; opacity: var(--ds-mesh-glow-opacity);
+  background: radial-gradient(60% 60% at 35% 40%, var(--mesh-a), transparent 72%), radial-gradient(60% 60% at 65% 70%, var(--mesh-c), transparent 72%);
+  filter: blur(var(--mesh-blur, var(--ds-mesh-blur)));
+}
+@media (forced-colors: active) { .paint, .glow { display: none; } .root { background: Canvas; } }

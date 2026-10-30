@@ -1,0 +1,19 @@
+{
+  "identity": false,
+  "identity_reason": "it is Input inside InputGroup with a magnifier at its start and an IconButton to clear, composed from those parts",
+  "concept": "A search field with a magnifier at its start and a clear button once there is a query; Enter searches and Esc clears.",
+  "parts": {
+    "glyph": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the magnifier and the cross sit in the secondary tone so the query is read first"
+    },
+    "input": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the browser cancel button is removed so the clear button is the one way to clear"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

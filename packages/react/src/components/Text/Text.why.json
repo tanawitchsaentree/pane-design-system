@@ -1,0 +1,69 @@
+{
+  "identity": false,
+  "identity_reason": "text takes its size, tone and weight from the type scale, so it has no form of its own to derive",
+  "concept": "Text at a step of the type scale in one of the two text tones, so no screen sets a size or an opacity by hand.",
+  "parts": {
+    "root": {
+      "p": "P2",
+      "axis": "type",
+      "why": "sets the family and no margin so text sits on the rhythm of its container"
+    },
+    "reading": {
+      "p": "P7",
+      "axis": "type",
+      "why": "the 16px reading size with long-form leading and the measure for paragraphs"
+    },
+    "body": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the 15px default size for interface text and short paragraphs"
+    },
+    "label": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the 14px size for labels next to controls and in rows"
+    },
+    "caption": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the 13px size for captions and supporting details under content"
+    },
+    "micro": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the 11px size, tracked out, for the smallest labels and counts"
+    },
+    "primary": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the primary text colour, which flips with the theme against the glass"
+    },
+    "secondary": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the secondary tone, the lowest opacity that still measured as passing"
+    },
+    "regular": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the regular weight for running text and most labels in the interface"
+    },
+    "medium": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the medium weight to lift a label without making it a heading"
+    },
+    "semibold": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the semibold weight for names and the one emphasis in a row"
+    },
+    "truncate": {
+      "p": "P2",
+      "axis": "type",
+      "why": "cuts a single line with an ellipsis where the space cannot grow"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

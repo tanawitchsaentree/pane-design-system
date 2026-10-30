@@ -14,7 +14,7 @@ export const CHIP: Depth = {
   overview: (
     <>
       <p>A chip is a small control for a choice that stays visible. There are two kinds. A filter chip turns a filter on and off, such as Photos or Videos above a gallery, and several can be on at once. An input chip holds a value the reader added, such as a recipient, and has its own remove button.</p>
-      <p>A filter chip is a native button with <code>aria-pressed</code>. An unselected chip is a small glass pane with a white gloss and the pane’s rim of light, something to press. A selected chip is pressed into the glass, a carved recess with a check mark and semibold text, so selection changes shape and weight as well as colour (P6). Because the chosen state sinks instead of turning loud, three filters on add no loud marks to the pane (P5).</p>
+      <p>A filter chip is a native button with <code>aria-pressed</code>. An unselected chip is a small glass pane lit from above, with the pane’s rim of light brightest along its top edge, something to press. A selected chip is a lighter pane of glass with a check mark and semibold text, the same chosen glass as Tabs. In the light theme it is a slightly darker tinted glass, because a white chip on white glass would differ only by its check. Selection changes shape and weight as well as brightness (P6). Because the chosen state stays glass instead of turning solid, three filters on add no loud marks to the pane (P5).</p>
       <p>An input chip keeps its label as plain text and puts removal on a separate button named Remove followed by the label. The two are separate tab stops, so a keyboard user can read the value without removing it by accident.</p>
     </>
   ),
@@ -33,7 +33,7 @@ export const CHIP: Depth = {
   anatomy: {
     render: <OnCard><Chip defaultSelected>Photos</Chip></OnCard>,
     parts: [
-      { part: 'Pane', selector: '[data-component="Chip"]', what: '32px tall, full round. Off, quiet glass with a white gloss and the rim of light. On, a carved recess with shade under its top lip and light on its bottom lip.' },
+      { part: 'Pane', selector: '[data-component="Chip"]', what: '32px tall, full round. Off, quiet glass lit at its top with the rim of light. On, a lighter pane of glass with a short shadow, or a slightly darker tint in the light theme.' },
       { part: 'Check mark', selector: '[data-component="Chip"] svg', what: 'A 16px check shown when a filter chip is selected, so selection has a shape.' },
       { part: 'Label', selector: '[data-component="Chip"] button', what: 'The chip’s accessible name. 14px medium when off, semibold when on. The button has a 44px tall press area.' },
     ],
@@ -41,12 +41,12 @@ export const CHIP: Depth = {
   },
   sizes: { na: 'Chip has one size, 32px tall. The chip and its remove button each keep a 44px tall press area.' },
   emphasis: {
-    text: <p>Chips are quiet in both states. Off, a chip is a small glass pane. On, it sinks into the glass. Neither looks like the pane’s white Button, so a selected filter is never mistaken for the main action. Keep chips apart from that action all the same, so the reader knows which marks filter and which one acts.</p>,
+    text: <p>Chips are quiet in both states. Off, a chip is a small glass pane. On, it becomes a lighter pane of glass. Neither looks like the pane’s solid Button, so a selected filter is never mistaken for the main action. Keep chips apart from that action all the same, so the reader knows which marks filter and which one acts.</p>,
     pair: {
       do: <Card as="div" className="demo-card"><Stack direction="row" gap="sm"><Chip defaultSelected>Photos</Chip><Chip>Videos</Chip></Stack><p className="flush muted">24 results</p></Card>,
       doNote: 'Filters above the results, apart from any action.',
       dont: <OnCard><Chip defaultSelected>Photos</Chip><Chip defaultSelected>Videos</Chip><Chip defaultSelected>Albums</Chip><Chip defaultSelected>Prints</Chip></OnCard>,
-      dontNote: 'Every filter on. The whole row sinks and filters nothing.',
+      dontNote: 'Every filter on. The whole row lights up and filters nothing.',
     },
   },
   placement: {
@@ -72,8 +72,8 @@ export const CHIP: Depth = {
   },
   behaviours: {
     states: [
-      ['Off', 'A small glass pane with gloss and the rim of light.', 'Something to press (P3).'],
-      ['On', 'Pressed into a carved recess, semibold, check mark, aria-pressed true.', 'Depth, weight and shape change together, and nothing turns loud (P5, P6).'],
+      ['Off', 'A small glass pane lit from above with the rim of light.', 'Something to press (P3).'],
+      ['On', 'A lighter pane of glass, semibold, check mark, aria-pressed true.', 'Brightness, weight and shape change together, and nothing turns loud (P5, P6).'],
       ['Pressed', 'Shrinks to 97% over 200ms.', 'A press is a reply (P4).'],
       ['Focus', 'The shared 2px ring with its dark halo.', 'Visible on any scene (P2).'],
       ['Forced colours', 'Rim and carve drop, a ButtonText border draws each chip and the selected border takes Highlight.', 'Never colour alone (P6).'],

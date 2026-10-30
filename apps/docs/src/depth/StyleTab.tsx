@@ -86,20 +86,23 @@ export function StyleTab({ name, kinds, sizes, backdrops }: { name: string; kind
         </div>
       </section>
 
-      <section className="book-section wide" aria-labelledby="s2-h">
-        <div className="prose">
-          <h2 id="s2-h" className="flush">Typography</h2>
+      <section className="book-section folded wide" aria-labelledby="s2-h">
+        <details className="fold">
+          <summary><h2 id="s2-h" className="flush">Typography</h2></summary>
+          <div className="prose">
           <Table caption={`${name} type per size`} head={['Size', 'Font size', 'Weight', 'Line height']}
             rows={(sizes.length ? sizeKeys : [kindKeys[0] ?? {}]).map((p) => { const v = find(keyOf(p), 'dark')?.states.default ?? {}; return [p.size ?? 'default', v['font-size'], v['font-weight'], v['line-height']]; })} />
-        </div>
+          </div>
+        </details>
       </section>
 
-      <section className="book-section wide" aria-labelledby="s3-h">
-        <div className="prose">
-          <h2 id="s3-h" className="flush">Structure and spacing</h2>
+      <section className="book-section folded wide" aria-labelledby="s3-h">
+        <details className="fold">
+          <summary><h2 id="s3-h" className="flush">Structure and spacing</h2></summary>
+          <div className="prose">
           <p>Measured from the DOM per size. The redline shows the same numbers on the live component.</p>
-          <Table caption={`${name} structure per size`} head={['Size', 'Height', 'Inline padding', 'Gap', 'Radius', 'Icon']}
-            rows={(sizes.length ? sizeKeys : [kindKeys[0] ?? {}]).map((p) => { const v = find(keyOf(p), 'dark')?.states.default ?? {}; return [p.size ?? 'default', v['min-height']?.value && v['min-height'].value !== '0px' ? v['min-height'] : v.height, v['padding-inline-start'], v['column-gap'], v['border-top-left-radius'], v['icon-size']]; })} />
+          <Table caption={`${name} structure per size`} head={['Size', 'Height', 'Width', 'Inline padding', 'Gap', 'Radius', 'Icon']}
+            rows={(sizes.length ? sizeKeys : [kindKeys[0] ?? {}]).map((p) => { const v = find(keyOf(p), 'dark')?.states.default ?? {}; return [p.size ?? 'default', v['min-height']?.value && !['0px', 'auto'].includes(v['min-height'].value) ? v['min-height'] : v.height ?? v['block-size'], v['inline-size'], v['padding-inline-start'], v['column-gap'], v['border-top-left-radius'], v['icon-size']]; })} />
           {subject && <div className="redlines">{(sizes.length ? sizeKeys : [kindKeys[0] ?? {}]).map((p) => { const v = find(keyOf(p), 'dark')?.states.default ?? {}; return (
             <figure key={keyOf(p)} className="redline" data-example="">
               <Stage backdrop="field"><div className="redline-host">{subject.bare ? subject.render(p) : <OnPane>{subject.render(p)}</OnPane>}
@@ -109,26 +112,31 @@ export function StyleTab({ name, kinds, sizes, backdrops }: { name: string; kind
               <figcaption>{p.size ?? name}: height {v['min-height']?.value !== '0px' ? v['min-height']?.value : v.height?.value}, padding {v['padding-inline-start']?.value}, radius {v['border-top-left-radius']?.value}</figcaption>
             </figure>
           ); })}</div>}
-        </div>
+          </div>
+        </details>
       </section>
 
-      <section className="book-section wide" aria-labelledby="s4-h">
-        <div className="prose">
-          <h2 id="s4-h" className="flush">Motion</h2>
+      <section className="book-section folded wide" aria-labelledby="s4-h">
+        <details className="fold">
+          <summary><h2 id="s4-h" className="flush">Motion</h2></summary>
+          <div className="prose">
           {spec && Object.keys(spec.motion).length ? (
             <div className="table-wrap" data-spec=""><table><caption>{name} transitions, read with motion on</caption>
               <thead><tr><th scope="col">Property</th><th scope="col">Duration</th><th scope="col">Easing</th></tr></thead>
               <tbody>{Object.entries(spec.motion).map(([prop, m]) => <tr key={prop}><th scope="row"><code>{prop}</code></th><V c={m.duration} /><V c={m.easing} /></tr>)}</tbody></table></div>
           ) : <p className="muted">{name} has no transitions of its own.</p>}
           <p className="muted small">Under reduced motion every duration token is zero, so all of these become instant.</p>
-        </div>
+          </div>
+        </details>
       </section>
 
-      <section id="backdrops" className="book-section wide" aria-labelledby="s5-h">
-        <div className="prose">
-          <h2 id="s5-h" className="flush">On bright and dark backdrops</h2>
+      <section id="backdrops" className="book-section folded wide" aria-labelledby="s5-h">
+        <details className="fold">
+          <summary><h2 id="s5-h" className="flush">On bright and dark backdrops</h2></summary>
+          <div className="prose">
           {backdrops}
-        </div>
+          </div>
+        </details>
       </section>
     </>
   );

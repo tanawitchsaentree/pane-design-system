@@ -1,0 +1,123 @@
+{
+  "concept": "A small level-4 card anchored to one thing, with Next and Skip tour, a ring round the thing and no scrim.",
+  "default_to_avoid": [
+    {
+      "pattern": "a coach mark tour that darkens the whole page with a spotlight hole",
+      "kind": "coach mark, onboarding tour, product tour, hint",
+      "why_not": "a dark curtain with a hole blocks the page and moves focus away; Pane points without covering anything"
+    }
+  ],
+  "references": [
+    {
+      "title": "NN/g · Onboarding tutorials",
+      "url": "https://www.nngroup.com/articles/onboarding-tutorials/"
+    },
+    {
+      "title": "Apple HIG · Onboarding",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/onboarding"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the mark is a level-4 card like a popover and adds no scrim"
+    },
+    {
+      "p": "P4",
+      "axis": "interaction",
+      "consequence": "nothing moves on its own; every motion answers something the reader did",
+      "form": "it opens only on a first visit or after a change and never comes back once skipped"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "focus moves to the card when it opens and Esc skips the tour"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave10/",
+    "section": "coachmark",
+    "options": [
+      "A anchored card, no scrim",
+      "B spotlight over a dark page",
+      "C a modal slideshow"
+    ],
+    "picked": "A anchored card, no scrim",
+    "by": "agent",
+    "reason": "A points without blocking (P3). B covers the page. C teaches out of context."
+  },
+  "parts": {
+    "anchor": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the anchor wraps the thing without changing its layout"
+    },
+    "card": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the card is a level-4 pane at a popover width"
+    },
+    "count": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the step count is secondary in tabular figures"
+    },
+    "title": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the title takes focus when the mark opens"
+    },
+    "description": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the sentence is secondary at label size and says why the thing helps"
+    },
+    "actions": {
+      "p": "P5",
+      "axis": "space",
+      "why": "Skip tour and the loud Next sit together at the end"
+    },
+    "arrow": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "the arrow points from the card to the thing in the card tone"
+    },
+    "previewWrap": {
+      "p": "P3",
+      "axis": "space",
+      "why": "in a preview the thing and its card stack in place so docs can show them together"
+    },
+    "preview": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "in a preview the card sits in the page without rising or floating"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the edges and marks so every part stays findable"
+    },
+    "data-coached": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the thing pointed at is ringed while its mark is open"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring shows when the part is reached by keyboard"
+    }
+  },
+  "motion": {
+    "@rise": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the card rises a short distance and settles as it appears"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+/* The list of options shared by Listbox, Combobox, Autocomplete and MultiSelect: rows in the menu sheet
+   (Select's list, D-017) whose highlight nests the sheet's corner (R-008), the chosen row a lighter pane with
+   a check. On the page, Listbox draws the same rows in a recess. */
+.root { display: flex; flex-direction: column; gap: var(--ds-listbox-gap); min-inline-size: 0; font-family: var(--ds-type-family); }
+.label { font-size: var(--ds-type-label); color: var(--ds-text-primary); }
+.list { display: flex; flex-direction: column; gap: var(--ds-space-px); padding: var(--ds-listbox-inset); border-radius: var(--ds-listbox-radius); background: var(--ds-listbox-well); box-shadow: var(--ds-listbox-groove); outline: 0; }
+.list:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.sheet { display: flex; flex-direction: column; gap: var(--ds-space-px); padding: var(--ds-listbox-inset); border-radius: var(--ds-listbox-radius); background: var(--ds-listbox-sheet); box-shadow: var(--ds-listbox-shadow), inset 0 0 0 var(--ds-width-hairline) var(--ds-listbox-ring); color: var(--ds-text-primary); font-family: var(--ds-type-family); max-block-size: var(--ds-listbox-max); overflow-y: auto; min-inline-size: var(--radix-popover-trigger-width); z-index: var(--ds-overlay-z-pop); animation: sheet-in var(--ds-motion-hover) var(--ds-motion-easing); }
+.option { display: flex; align-items: center; gap: var(--ds-gap-md); min-block-size: var(--ds-listbox-row); padding-inline: var(--ds-gap-md) var(--ds-gap-xl); border-radius: calc(var(--ds-listbox-radius) - var(--ds-listbox-inset)); cursor: pointer; user-select: none; color: var(--ds-text-primary); font-size: var(--ds-type-body); }
+.active { background: var(--ds-listbox-highlight); box-shadow: var(--ds-listbox-lens); }
+.option[aria-selected='true'] { font-weight: var(--ds-type-weight-semibold); }
+.option[aria-disabled='true'] { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
+.check { display: inline-flex; flex: none; inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); }
+.check svg { inline-size: 100%; block-size: 100%; fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.text { display: flex; flex-direction: column; min-inline-size: 0; }
+.optionLabel { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.description { font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-regular); color: var(--ds-text-secondary); }
+.empty { padding: var(--ds-gap-lg) var(--ds-gap-xl); color: var(--ds-text-secondary); font-size: var(--ds-type-label); }
+@keyframes sheet-in { from { opacity: 0; translate: 0 calc(var(--ds-motion-lift) * -2); } }
+/* off: the recess dims and refuses presses; wrong: the critical ring a field takes (P6) */
+.list[aria-disabled='true'] { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
+.list[aria-invalid='true'] { outline: var(--ds-width-ring) solid var(--ds-listbox-ring-invalid); outline-offset: var(--ds-width-hairline); }
+@media (forced-colors: active) { .list, .sheet { border: var(--ds-width-hairline) solid ButtonText; } .active { outline: var(--ds-width-ring) solid Highlight; } }

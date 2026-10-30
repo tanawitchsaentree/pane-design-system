@@ -1,0 +1,128 @@
+{
+  "concept": "Nested rows that open and close, indented by level, with a turning chevron and the chosen row in the Sidebar chosen pane.",
+  "default_to_avoid": [
+    {
+      "pattern": "a tree view with plus and minus boxes and dotted connector lines",
+      "kind": "tree view, tree, folder tree, outline",
+      "why_not": "plus boxes and dotted lines are the old file manager look and add ink; Pane uses indent and a turning chevron"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA tree view pattern",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/"
+    },
+    {
+      "title": "Apple HIG · Outline views",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/outline-views"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the chevron points right when closed and down when open, and the chosen row is chosen glass"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "the arrow keys open, close and move between rows and typing a letter finds the next row"
+    },
+    {
+      "p": "P3",
+      "axis": "space",
+      "consequence": "padding inside a pane is larger than the gap between items in it, so the edge reads as the object's boundary",
+      "form": "each level is indented by one step, so nesting reads by position without lines"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave9/",
+    "section": "treeview",
+    "options": [
+      "A indent and chevron",
+      "B plus boxes and dotted lines",
+      "C nested cards"
+    ],
+    "picked": "A indent and chevron",
+    "by": "agent",
+    "reason": "A says nesting by indent and state by shape (P3, P6). B adds ink. C stacks panes in panes."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the tree is a plain list with no bullets or padding of its own"
+    },
+    "group": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a node children sit in a nested group with the same spacing"
+    },
+    "item": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "each item takes focus itself and draws its ring on its row"
+    },
+    "row": {
+      "p": "P6",
+      "axis": "space",
+      "why": "each row is at least 44px tall with the chevron, icon and label in a line"
+    },
+    "chosen": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the chosen row is the Sidebar chosen pane in semibold"
+    },
+    "chevron": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a node with children has a chevron that turns as it opens"
+    },
+    "open": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "an open node turns its chevron a quarter turn to point down"
+    },
+    "icon": {
+      "p": "P2",
+      "axis": "colour",
+      "why": "the icon is secondary so the label is read first"
+    },
+    "label": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the label wraps anywhere so long names never spill"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the edges and marks so every part stays findable"
+    },
+    "hover": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a row takes the quiet surface under the pointer"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the row of the focused item shows the ring inside its edges"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the hover surface fades in on the hover ease"
+    },
+    "transform": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the chevron turns on the hover ease as the node opens"
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "concept": "A field that narrows a long list as the reader types, for choosing one value that must come from the list.",
+  "default_to_avoid": [
+    {
+      "pattern": "a native datalist or a plain text input with a dropdown of all options (jQuery autocomplete) as the combobox",
+      "kind": "combobox, filterable select, searchable select",
+      "why_not": "a datalist ignores the system’s look and keyboard, and an unfiltered dropdown of hundreds is a scroll hunt"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA APG · Combobox",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the field is Input’s groove; the list opens under it as Select’s sheet, one family"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "focus stays in the field while arrow keys move the highlight and Enter chooses"
+    },
+    {
+      "p": "P2",
+      "axis": "type",
+      "consequence": "secondary text keeps the lowest opacity that still measured as passing; text halos count only where WCAG allows them",
+      "form": "matches are filtered by the typed text; an empty result says so in words"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave5/",
+    "section": "combobox",
+    "options": [
+      "A groove with a filtering sheet",
+      "B native datalist",
+      "C select plus a search box inside the menu"
+    ],
+    "picked": "A groove with a filtering sheet",
+    "by": "agent",
+    "reason": "A keeps typing and choosing in one field (WAI-ARIA combobox). B cannot be styled or reached the same way. C moves focus into the popup and loses the field."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the label above the field, the same gap as every field"
+    },
+    "label": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the field’s label in the label size, its accessible name"
+    },
+    "field": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a groove like Input with the field’s 3:1 edge, wrapping when it holds chips"
+    },
+    "input": {
+      "p": "P6",
+      "axis": "space",
+      "why": "the typing space, a 44px target that never shrinks below a short word"
+    },
+    "chevron": {
+      "p": "P2",
+      "axis": "type",
+      "why": "a chevron in secondary text that says a list opens from here"
+    }
+  },
+  "states": {
+    "focus-within": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the field shows the focus ring while its input has focus"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours outline the field, the same in every theme and on every scene"
+    },
+    "disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "an off control dims and refuses presses, so it reads as there but not available"
+    },
+    "aria-invalid=true": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
+    }
+  },
+  "motion": {}
+}

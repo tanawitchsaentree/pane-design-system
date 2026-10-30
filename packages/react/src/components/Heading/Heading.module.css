@@ -1,0 +1,6 @@
+/* A heading: the level from the outline, the size from the scale. */
+.root { margin: 0; font-family: var(--ds-type-family); font-weight: var(--ds-type-weight-semibold); line-height: var(--ds-type-leading-tight); color: var(--ds-text-primary); }
+.display { font-size: var(--ds-type-display); letter-spacing: var(--ds-type-tracking-display); }
+.headline { font-size: var(--ds-type-headline); }
+.title { font-size: var(--ds-type-title); }
+.emphasis { font-size: var(--ds-type-emphasis); }

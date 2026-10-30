@@ -1,0 +1,8 @@
+/* Rings and spokes are recessive hairlines; each series is a 2px outline over a faint wash of its own data
+   colour, so overlapping shapes stay readable (dataviz: thin marks, area at a wash, never a solid block). */
+.ring { fill: none; stroke: var(--ds-viz-grid); stroke-width: var(--ds-width-hairline); }
+.spoke { stroke: var(--ds-viz-grid); stroke-width: var(--ds-width-hairline); }
+.shape { fill-opacity: var(--ds-viz-wash); stroke-width: var(--ds-viz-line); stroke-linejoin: round; }
+.dot { stroke: var(--ds-viz-ring); stroke-width: var(--ds-viz-line); }
+.live { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (forced-colors: active) { .shape, .dot { forced-color-adjust: none; } .ring, .spoke { stroke: GrayText; } }

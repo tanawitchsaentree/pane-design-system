@@ -7,6 +7,14 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="341x341" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- installable (PWA): manifest from scripts/pwa.mjs, the bar colour follows the theme -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#141418" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Pane" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <script>
       // Runs before the first paint: the theme is known up front so nothing flips after load, and the
       // demo backdrop photo is requested at once so demo stages are ready when they scroll into view.

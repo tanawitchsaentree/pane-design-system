@@ -1,0 +1,107 @@
+{
+  "concept": "Events in order along a hairline rail, each a dot with its time, title and story; where you are reads by the dot shape.",
+  "default_to_avoid": [
+    {
+      "pattern": "a Timeline with coloured icon circles on a thick vertical line",
+      "kind": "timeline, activity log, history, order tracking",
+      "why_not": "coloured circles carry the state by hue and a thick line is louder than the events; Pane uses solid, ringed and hollow dots on a hairline"
+    }
+  ],
+  "references": [
+    {
+      "title": "Atlassian · Activity and history",
+      "url": "https://atlassian.design/"
+    },
+    {
+      "title": "WAI-ARIA aria-current",
+      "url": "https://www.w3.org/TR/wai-aria-1.2/#aria-current"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "past dots are solid, the current one is ringed and future ones are hollow, so the state reads by shape"
+    },
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "every dot is the loud solid or an outline in the text tone, so no state needs a hue"
+    },
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the rail is a hairline in the divider tone, the same line that separates rows across the system"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave7/",
+    "section": "timeline",
+    "options": [
+      "A dots on a hairline rail",
+      "B coloured icon circles",
+      "C cards on a line"
+    ],
+    "picked": "A dots on a hairline rail",
+    "by": "agent",
+    "reason": "A carries every state by shape (P6) without hue (P1). B brings hues. C stacks panes inside panes."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the events stack as an ordered list so their order is read as well as seen"
+    },
+    "item": {
+      "p": "P3",
+      "axis": "space",
+      "why": "each event is a two-column row, the dot column and the text column, with room under it"
+    },
+    "dot": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a past event is a solid dot in the loud solid, aligned with the first line of text"
+    },
+    "current": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the current event is ringed and in dark gives off a faint light, so it reads as now"
+    },
+    "upcoming": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a future event is a hollow dot and its title drops to the secondary tone"
+    },
+    "body": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the time, title and story stack tightly so each event reads as one block"
+    },
+    "time": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the time is at caption size in tabular figures and the secondary tone above the title"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the title is semibold at body size because it says what happened"
+    },
+    "description": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the story is secondary at label size so it supports the title without competing"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "in forced colours the system draws the edges and the fill so the parts stay findable"
+    }
+  },
+  "motion": {}
+}

@@ -89,6 +89,50 @@
         "p": "P3",
         "why": "the card is the pane itself, so its glass fill, sheen, rim, float shadow, panel corner and inset padding all map from the material and depth roles and every pane is the same object"
       }
+    },
+    "level1": {
+      "$type": "color",
+      "$value": "{level.1}"
+    },
+    "level2": {
+      "$type": "color",
+      "$value": "{level.2}"
+    },
+    "level3": {
+      "$type": "color",
+      "$value": "{level.3}"
+    },
+    "level4": {
+      "$type": "color",
+      "$value": "{level.4}"
+    },
+    "shadow-1": {
+      "$type": "shadow",
+      "$value": "{level-shadow.1}"
+    },
+    "shadow-2": {
+      "$type": "shadow",
+      "$value": "{level-shadow.2}"
+    },
+    "shadow-3": {
+      "$type": "shadow",
+      "$value": "{level-shadow.3}"
+    },
+    "shadow-4": {
+      "$type": "shadow",
+      "$value": "{level-shadow.4}"
+    },
+    "edge": {
+      "$type": "shadow",
+      "$value": "{level-shadow.edge}"
+    },
+    "streak": {
+      "$type": "color",
+      "$value": "{level.streak}"
+    },
+    "scrim": {
+      "$type": "color",
+      "$value": "{level.scrim}"
     }
   },
   "avatar": {
@@ -134,7 +178,7 @@
   "button": {
     "light-bg": {
       "$type": "color",
-      "$value": "{surface.light}"
+      "$value": "{action.loud-foot}"
     },
     "light-fg": {
       "$type": "color",
@@ -142,7 +186,7 @@
     },
     "accent-bg": {
       "$type": "color",
-      "$value": "{action.accent}"
+      "$value": "{action.loud-foot}"
     },
     "accent-bg-hover": {
       "$type": "color",
@@ -203,7 +247,7 @@
     },
     "accent-foot": {
       "$type": "color",
-      "$value": "{action.accent-foot}"
+      "$value": "{action.loud-foot}"
     },
     "gloss": {
       "$type": "color",
@@ -219,7 +263,7 @@
     },
     "light-top": {
       "$type": "color",
-      "$value": "{action.solid-top}"
+      "$value": "{action.loud-top}"
     },
     "light-foot": {
       "$type": "color",
@@ -255,19 +299,43 @@
     },
     "accent-cast": {
       "$type": "shadow",
-      "$value": "{elevation.cast-accent}"
+      "$value": "{level-shadow.bloom}"
     },
     "accent-cast-hover": {
       "$type": "shadow",
-      "$value": "{elevation.cast-accent-hover}"
+      "$value": "{level-shadow.bloom}"
     },
     "accent-cast-press": {
       "$type": "shadow",
-      "$value": "{elevation.cast-accent-press}"
+      "$value": "{elevation.cast-press}"
     },
     "hit": {
       "$type": "dimension",
       "$value": "{layout.touch}"
+    },
+    "accent-top": {
+      "$type": "color",
+      "$value": "{action.loud-top}"
+    },
+    "glass-top": {
+      "$type": "color",
+      "$value": "{level.sheen}"
+    },
+    "glass-foot": {
+      "$type": "color",
+      "$value": "{level.3}"
+    },
+    "glass-cast": {
+      "$type": "shadow",
+      "$value": "{level-shadow.2}"
+    },
+    "edge": {
+      "$type": "shadow",
+      "$value": "{level-shadow.edge}"
+    },
+    "streak": {
+      "$type": "color",
+      "$value": "{level.streak}"
     }
   },
   "icon-button": {
@@ -335,6 +403,42 @@
     "rim-lo": {
       "$type": "color",
       "$value": "{line.rim-lo}"
+    },
+    "glass-top": {
+      "$type": "color",
+      "$value": "{level.sheen}"
+    },
+    "glass-foot": {
+      "$type": "color",
+      "$value": "{level.3}"
+    },
+    "cast": {
+      "$type": "shadow",
+      "$value": "{level-shadow.2}"
+    },
+    "edge": {
+      "$type": "shadow",
+      "$value": "{level-shadow.edge}"
+    },
+    "streak": {
+      "$type": "color",
+      "$value": "{level.streak}"
+    },
+    "loud-top": {
+      "$type": "color",
+      "$value": "{action.loud-top}"
+    },
+    "loud-foot": {
+      "$type": "color",
+      "$value": "{action.loud-foot}"
+    },
+    "loud-fg": {
+      "$type": "color",
+      "$value": "{text.on-light}"
+    },
+    "bloom": {
+      "$type": "shadow",
+      "$value": "{level-shadow.bloom}"
     }
   },
   "tabs": {
@@ -354,13 +458,9 @@
       "$type": "color",
       "$value": "{text.primary}"
     },
-    "on-bg": {
-      "$type": "color",
-      "$value": "{action.accent}"
-    },
     "on-fg": {
       "$type": "color",
-      "$value": "{text.on-accent}"
+      "$value": "{text.primary}"
     },
     "radius": {
       "$type": "dimension",
@@ -381,35 +481,47 @@
     },
     "track-bg": {
       "$type": "color",
-      "$value": "{surface.carve}"
+      "$value": "{surface.well-deep}"
     },
     "carve": {
       "$type": "shadow",
-      "$value": "{elevation.carve}"
+      "$value": "{level-shadow.well}"
     },
     "inset": {
       "$type": "dimension",
       "$value": "{gap.xs}"
     },
-    "on-mid": {
-      "$type": "color",
-      "$value": "{action.accent-hover}"
-    },
     "on-foot": {
       "$type": "color",
-      "$value": "{action.accent-foot}"
-    },
-    "gloss": {
-      "$type": "color",
-      "$value": "{action.gloss}"
+      "$value": "{surface.chosen-foot}"
     },
     "on-cast": {
       "$type": "shadow",
-      "$value": "{elevation.cast-accent-press}"
+      "$value": "{level-shadow.2}"
     },
     "off-fg": {
       "$type": "color",
       "$value": "{text.primary}"
+    },
+    "on-top": {
+      "$type": "color",
+      "$value": "{surface.chosen-top}"
+    },
+    "rim-hi": {
+      "$type": "color",
+      "$value": "{line.rim-hi}"
+    },
+    "rim-mid": {
+      "$type": "color",
+      "$value": "{line.rim-mid}"
+    },
+    "rim-lo": {
+      "$type": "color",
+      "$value": "{line.rim-lo}"
+    },
+    "streak": {
+      "$type": "color",
+      "$value": "{level.streak}"
     }
   },
   "tag": {
@@ -612,10 +724,6 @@
       "$type": "color",
       "$value": "{text.primary}"
     },
-    "on-bg": {
-      "$type": "color",
-      "$value": "{surface.carve}"
-    },
     "on-fg": {
       "$type": "color",
       "$value": "{text.primary}"
@@ -653,14 +761,6 @@
       "$type": "dimension",
       "$value": "{layout.touch}"
     },
-    "gloss": {
-      "$type": "color",
-      "$value": "{action.gloss-quiet}"
-    },
-    "carve": {
-      "$type": "shadow",
-      "$value": "{elevation.carve}"
-    },
     "rim-hi": {
       "$type": "color",
       "$value": "{line.rim-hi}"
@@ -672,6 +772,38 @@
     "rim-lo": {
       "$type": "color",
       "$value": "{line.rim-lo}"
+    },
+    "top": {
+      "$type": "color",
+      "$value": "{level.sheen}"
+    },
+    "foot": {
+      "$type": "color",
+      "$value": "{level.3}"
+    },
+    "cast": {
+      "$type": "shadow",
+      "$value": "{level-shadow.2}"
+    },
+    "on-top": {
+      "$type": "color",
+      "$value": "{surface.chosen-tint-top}"
+    },
+    "on-foot": {
+      "$type": "color",
+      "$value": "{surface.chosen-tint-foot}"
+    },
+    "on-cast": {
+      "$type": "shadow",
+      "$value": "{level-shadow.2}"
+    },
+    "edge": {
+      "$type": "shadow",
+      "$value": "{level-shadow.edge}"
+    },
+    "streak": {
+      "$type": "color",
+      "$value": "{level.streak}"
     }
   },
   "banner": {
@@ -781,7 +913,7 @@
     },
     "item-check": {
       "$type": "color",
-      "$value": "{action.accent}"
+      "$value": "{text.primary}"
     },
     "gap": {
       "$type": "dimension",
@@ -824,7 +956,7 @@
   "slider": {
     "track": {
       "$type": "dimension",
-      "$value": "{control.mark}"
+      "$value": "{width.bar}"
     },
     "track-bg": {
       "$type": "color",
@@ -832,7 +964,7 @@
     },
     "range-bg": {
       "$type": "color",
-      "$value": "{action.accent}"
+      "$value": "{action.loud-foot}"
     },
     "thumb": {
       "$type": "dimension",
@@ -865,19 +997,208 @@
     },
     "carve": {
       "$type": "shadow",
-      "$value": "{elevation.carve}"
+      "$value": "{elevation.track}"
     },
     "range-top": {
       "$type": "color",
-      "$value": "{action.accent-hover}"
+      "$value": "{action.loud-top}"
     },
     "range-carve": {
       "$type": "shadow",
-      "$value": "{elevation.carve-on}"
+      "$value": "{elevation.cast-press}"
     },
     "thumb-shade": {
       "$type": "color",
       "$value": "{surface.knob-shade}"
+    },
+    "thumb-width": {
+      "$type": "dimension",
+      "$value": "{control.sm}"
+    },
+    "fill-height": {
+      "$value": "{control.xl}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3",
+            "P6"
+          ],
+          "why": "the bar is the target: 56px holds the label and value inside it and clears the 44px touch size"
+        }
+      }
+    },
+    "fill-radius": {
+      "$value": "{corner.round}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "held in the hand, so a full pill like every other control"
+        }
+      }
+    },
+    "fill-padding": {
+      "$value": "{gap.inset}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "label and value keep the field's inset from the curved ends"
+        }
+      }
+    },
+    "fill-bg": {
+      "$value": "{surface.carve}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the empty part is the same carve as a field, so in light the bar reads as a recess in the white pane and the white fill stands out from it"
+        }
+      }
+    },
+    "fill-carve": {
+      "$value": "{elevation.groove}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the bar is a groove like a field: shade under its top lip and the field's 3:1 edge all round"
+        }
+      }
+    },
+    "fill-top": {
+      "$value": "{surface.chosen-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P5"
+          ],
+          "why": "the filled part is chosen glass, lighter than the well, lit from above"
+        }
+      }
+    },
+    "fill-foot": {
+      "$value": "{surface.chosen-foot}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the chosen glass fades toward its foot, one light from above"
+        }
+      }
+    },
+    "fill-rim": {
+      "$value": "{line.rim-hi}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the filled glass catches the light on its top edge"
+        }
+      }
+    },
+    "fill-marker": {
+      "$value": "{action.loud-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "a thin bar in the loud solid (white in dark, ink in light) marks where the value ends, the one loud mark on the control"
+        }
+      }
+    },
+    "fill-marker-width": {
+      "$value": "{width.bar}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a 4px bar: a mark to read, while the whole control is the thing to grab"
+        }
+      }
+    },
+    "fill-marker-height": {
+      "$value": "{control.check}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the marker stands about half the bar's height"
+        }
+      }
+    },
+    "fill-marker-inset": {
+      "$value": "{gap.lg}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the marker sits just inside the end of the fill so it never touches the curve"
+        }
+      }
+    },
+    "range-glow": {
+      "$value": "{glow.soft}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P5"
+          ],
+          "why": "the filled channel is a lit value, so in dark it gives off a soft light; in light it does not"
+        }
+      }
+    },
+    "fill-marker-glow": {
+      "$value": "{glow.mark}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P5"
+          ],
+          "why": "the marker says where the value is now, so in dark it glows a little; in light it does not"
+        }
+      }
+    },
+    "min-width": {
+      "$value": "{control.slider-min}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6",
+            "P4"
+          ],
+          "why": "240px of travel at least, and the width never follows the value text, so nothing around it moves while dragging"
+        }
+      }
     }
   },
   "input": {
@@ -1004,6 +1325,18 @@
     "carve": {
       "$type": "shadow",
       "$value": "{elevation.carve}"
+    },
+    "ring-invalid": {
+      "$value": "{status.critical-mark}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a wrong answer is ringed in the critical mark, the same ring a field takes, and the words in FormField say what is wrong"
+        }
+      }
     }
   },
   "switch": {
@@ -1041,7 +1374,7 @@
     },
     "on-bg": {
       "$type": "color",
-      "$value": "{action.accent}"
+      "$value": "{action.loud-top}"
     },
     "knob-bg": {
       "$type": "color",
@@ -1049,7 +1382,7 @@
     },
     "tick": {
       "$type": "color",
-      "$value": "{text.on-accent}"
+      "$value": "{text.on-light}"
     },
     "inset": {
       "$type": "shadow",
@@ -1074,15 +1407,27 @@
     },
     "on-carve": {
       "$type": "shadow",
-      "$value": "{elevation.carve-on}"
+      "$value": "{elevation.on-glow}"
     },
     "on-top": {
       "$type": "color",
-      "$value": "{action.accent-hover}"
+      "$value": "{action.loud-foot}"
     },
     "knob-shade": {
       "$type": "color",
       "$value": "{surface.knob-shade}"
+    },
+    "ring-invalid": {
+      "$value": "{status.critical-mark}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a wrong answer is ringed in the critical mark, the same ring a field takes, and the words in FormField say what is wrong"
+        }
+      }
     }
   },
   "field": {
@@ -1117,6 +1462,2661 @@
           "P6"
         ],
         "why": "labels sit above their field and look like labels, help reads as secondary, and an error carries a glyph and a spoken word as well as colour"
+      }
+    }
+  },
+  "divider": {
+    "shade": {
+      "$value": "{line.divider}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the upper lip of the groove, in shade"
+        }
+      }
+    },
+    "light": {
+      "$value": "{line.rim-lo}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the lower lip of the groove, catching the light from above"
+        }
+      }
+    },
+    "width": {
+      "$value": "{width.hairline}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "each lip is one hairline, the thinnest recess the glass can show"
+        }
+      }
+    },
+    "inset": {
+      "$value": "{gap.inset}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "an inset divider stops at the content inset, in line with the text"
+        }
+      }
+    },
+    "min": {
+      "$value": "{control.icon-md}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a vertical divider is at least as tall as an icon, so it still reads between two small items"
+        }
+      }
+    }
+  },
+  "link": {
+    "offset": {
+      "$value": "{gap.xs}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P2"
+          ],
+          "why": "the underline sits a little below the baseline so it never cuts through descenders"
+        }
+      }
+    },
+    "underline": {
+      "$value": "{line.ring}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the underline at rest is a quiet line in the text colour, the only thing that marks a link since the system owns no hue"
+        }
+      }
+    }
+  },
+  "spinner": {
+    "width": {
+      "$value": "{width.ring}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the groove and its arc are two pixels, readable at the small size"
+        }
+      }
+    },
+    "track": {
+      "$value": "{line.divider}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the groove the arc turns in, a quiet recess"
+        }
+      }
+    },
+    "arc": {
+      "$value": "{action.loud-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "the arc is the loud solid, white in dark and ink in light, the one thing moving on the pane"
+        }
+      }
+    }
+  },
+  "skeleton": {
+    "bg": {
+      "$value": "{surface.carve}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a skeleton is pressed into the glass where the content will land, the same carve as a field"
+        }
+      }
+    },
+    "carve": {
+      "$value": "{elevation.well}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "shade under its top lip, so it reads as a recess and not as a grey block"
+        }
+      }
+    },
+    "gap": {
+      "$value": "{gap.md}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "lines of a text skeleton are as far apart as lines of body text"
+        }
+      }
+    },
+    "line": {
+      "$value": "{type.body}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a text line is as tall as the body type it stands in for"
+        }
+      }
+    },
+    "dim": {
+      "$value": "{opacity.faint}",
+      "$type": "number",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P4"
+          ],
+          "why": "the faintest point of its slow breath, still visible as a recess on bright scenes"
+        }
+      }
+    }
+  },
+  "kbd": {
+    "size": {
+      "$value": "{control.kbd}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P2"
+          ],
+          "why": "one keycap height for every key, so a shortcut lines up inside a sentence"
+        }
+      }
+    },
+    "padding": {
+      "$value": "{gap.md}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "room either side of the key, so even a single character clears the cap’s edge by 8px"
+        }
+      }
+    },
+    "radius": {
+      "$value": "{corner.mark}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a small corner, the radius of the smallest marks"
+        }
+      }
+    },
+    "top": {
+      "$value": "{surface.lit-quiet-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the keycap is lit at its top edge by the one light from above"
+        }
+      }
+    },
+    "foot": {
+      "$value": "{surface.lit-quiet-foot}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "and darker toward its foot, like every raised slab on a pane"
+        }
+      }
+    },
+    "cap": {
+      "$value": "{elevation.quiet-cast}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a short soft shadow under the cap so it stands on the pane"
+        }
+      }
+    }
+  },
+  "image": {
+    "placeholder": {
+      "$value": "{surface.carve}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "before an image arrives its space is the carve of the glass, never a white box"
+        }
+      }
+    },
+    "carve": {
+      "$value": "{elevation.well}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "an image that failed stays a recess, quiet, with its alt text available"
+        }
+      }
+    },
+    "loading-opacity": {
+      "$value": "{opacity.faint}",
+      "$type": "number",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P4"
+          ],
+          "why": "an image fades in from this point as it loads, so it arrives rather than pops"
+        }
+      }
+    }
+  },
+  "fab": {
+    "size": {
+      "$value": "{control.fab}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6",
+            "P5"
+          ],
+          "why": "a step bigger than an IconButton so the one main action is easy to hit with a thumb"
+        }
+      }
+    },
+    "top": {
+      "$value": "{action.loud-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "the loud solid lit at its top, the same bead as a loud IconButton"
+        }
+      }
+    },
+    "foot": {
+      "$value": "{action.loud-foot}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "and the loud solid toward its foot, so every overlay reads as one family"
+        }
+      }
+    },
+    "fg": {
+      "$value": "{text.on-accent}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "the glyph on the loud solid, ink in dark and white in light"
+        }
+      }
+    },
+    "glow": {
+      "$value": "{glow.strong}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "in dark it shines with its own light, the one strong glow on the screen"
+        }
+      }
+    },
+    "inset": {
+      "$value": "{gap.inset}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "floats 22px from the bottom end, at thumb reach and clear of the edge gestures"
+        }
+      }
+    }
+  },
+  "overlay": {
+    "gap": {
+      "$value": "{gap.lg}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the gap between the title, the body and the actions of an overlay"
+        }
+      }
+    },
+    "margin": {
+      "$value": "{gap.2xl}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "an overlay always keeps 16px from the screen edge so it reads as a pane, not the page"
+        }
+      }
+    },
+    "row": {
+      "$value": "{control.lg}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "an action row in an action sheet is a full 44px target"
+        }
+      }
+    },
+    "blur": {
+      "$value": "{glass.blur}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "overlays blur what is under them like every pane, so they read as glass"
+        }
+      }
+    },
+    "scrim": {
+      "$value": "{level.scrim}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P3"
+          ],
+          "why": "the scrim dims the scene under a level-3 overlay so the overlay reads as above everything"
+        }
+      }
+    },
+    "grabber-color": {
+      "$value": "{line.ring}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the grabber is a quiet bar, visible but never the loudest thing on the sheet"
+        }
+      }
+    },
+    "tip-bg": {
+      "$value": "{level.4}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a tooltip is the top of the stack, level 4, the same body as a popover"
+        }
+      }
+    },
+    "tip-shadow": {
+      "$value": "{level-shadow.4}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "and the level-4 shadow, so it floats over everything"
+        }
+      }
+    },
+    "toast-bg": {
+      "$value": "{level.4}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a toast floats at level 4 over whatever is on screen"
+        }
+      }
+    },
+    "toast-shadow": {
+      "$value": "{level-shadow.4}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "with the level-4 shadow, the longest one, so every overlay reads as one family"
+        }
+      }
+    },
+    "z": {
+      "$value": "{layer.overlay}",
+      "$type": "number",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "dialogs and sheets sit above the page and its sticky header"
+        }
+      }
+    },
+    "z-pop": {
+      "$value": "{layer.toast}",
+      "$type": "number",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "popovers, tooltips and toasts sit above dialogs, the top of the stack"
+        }
+      }
+    },
+    "z-fab": {
+      "$value": "{layer.sticky}",
+      "$type": "number",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a floating action sits over the content but under every overlay"
+        }
+      }
+    }
+  },
+  "listbox": {
+    "gap": {
+      "$value": "{gap.sm}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "label and field sit close, the same gap as every field in Pane"
+        }
+      }
+    },
+    "inset": {
+      "$value": "{gap.sm}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the rows sit this far inside the sheet, and their corners nest the sheet’s by this much"
+        }
+      }
+    },
+    "radius": {
+      "$value": "{corner.inner}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the sheet has the inner corner; its rows nest it"
+        }
+      }
+    },
+    "row": {
+      "$value": "{control.lg}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "every option row is a 44px target, easy to hit on a phone"
+        }
+      }
+    },
+    "sheet": {
+      "$value": "{surface.raised}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P7"
+          ],
+          "why": "the popup list is an opaque sheet so its options read on any scene"
+        }
+      }
+    },
+    "ring": {
+      "$value": "{line.divider}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a quiet edge round the sheet so it stands off the page"
+        }
+      }
+    },
+    "shadow": {
+      "$value": "{elevation.float}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the sheet floats over the page on the float shadow"
+        }
+      }
+    },
+    "highlight": {
+      "$value": "{surface.quiet}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the highlighted row is a lighter pane inside the sheet"
+        }
+      }
+    },
+    "lens": {
+      "$value": "{elevation.lens}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "lit on its top edge like a lens, the one light from above"
+        }
+      }
+    },
+    "well": {
+      "$value": "{surface.carve}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "fields and the on-page list are recesses carved into the glass"
+        }
+      }
+    },
+    "groove": {
+      "$value": "{elevation.groove}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3",
+            "P6"
+          ],
+          "why": "the field’s groove with its 3:1 edge, the same as Input"
+        }
+      }
+    },
+    "field": {
+      "$value": "{control.lg}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a field is at least 44px tall and grows as chips wrap"
+        }
+      }
+    },
+    "field-radius": {
+      "$value": "{corner.media}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a field that may wrap to several lines takes the media corner, not a full pill"
+        }
+      }
+    },
+    "padding": {
+      "$value": "{gap.lg}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "text and chips keep the field’s inset from its edge"
+        }
+      }
+    },
+    "input-min": {
+      "$value": "{control.input-min}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P2"
+          ],
+          "why": "the typing space never shrinks below a short word"
+        }
+      }
+    },
+    "max": {
+      "$value": "{control.listbox-max}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a popup list stops at about seven rows"
+        }
+      }
+    },
+    "menu-min": {
+      "$value": "{control.menu-min}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a menu is at least wide enough for a short label and a shortcut"
+        }
+      }
+    },
+    "ring-invalid": {
+      "$value": "{status.critical-mark}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a wrong answer is ringed in the critical mark, the same ring a field takes, and the words in FormField say what is wrong"
+        }
+      }
+    }
+  },
+  "radio-cards": {
+    "min": {
+      "$value": "{control.radio-card-min}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "cards wrap to a new row before they get narrower than their title"
+        }
+      }
+    },
+    "bg": {
+      "$value": "{level.2}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a radio card is a surface inside a pane, level 2"
+        }
+      }
+    },
+    "hover": {
+      "$value": "{surface.quiet}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P4"
+          ],
+          "why": "a card lightens a little under the pointer at hover pace"
+        }
+      }
+    },
+    "edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "each card has the faint edge all round of every slab"
+        }
+      }
+    },
+    "on-top": {
+      "$value": "{surface.chosen-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the chosen card is chosen glass, lit at its top"
+        }
+      }
+    },
+    "on-foot": {
+      "$value": "{surface.chosen-foot}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "and toward its foot, like a chosen tab"
+        }
+      }
+    },
+    "on-edge": {
+      "$value": "{elevation.chosen-cast}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the chosen card lifts on the chosen cast, so it reads as picked up"
+        }
+      }
+    },
+    "mark": {
+      "$value": "{action.loud-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5",
+            "P6"
+          ],
+          "why": "the check mark is the loud solid, a shape that says chosen without a hue"
+        }
+      }
+    },
+    "mark-fg": {
+      "$value": "{text.on-accent}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "the check on the loud solid, ink in dark and white in light"
+        }
+      }
+    },
+    "ring": {
+      "$value": "{elevation.control-ring}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a ring round each card, because a card that is a radio button needs a 3:1 edge"
+        }
+      }
+    },
+    "ring-invalid": {
+      "$value": "{status.critical-mark}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a wrong answer is ringed in the critical mark, the same ring a field takes, and the words in FormField say what is wrong"
+        }
+      }
+    }
+  },
+  "rating": {
+    "star": {
+      "$value": "{control.star}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "one star size for every rating, readable at a glance in a row"
+        }
+      }
+    },
+    "on": {
+      "$value": "{action.loud-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5",
+            "P1"
+          ],
+          "why": "chosen stars are the loud solid, so the score reads without a gold hue"
+        }
+      }
+    },
+    "off": {
+      "$value": "{line.edge}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "empty stars are an outline at the 3:1 edge opacity, still countable"
+        }
+      }
+    },
+    "ring-invalid": {
+      "$value": "{status.critical-mark}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a wrong answer is ringed in the critical mark, the same ring a field takes, and the words in FormField say what is wrong"
+        }
+      }
+    }
+  },
+  "nav": {
+    "gap": {
+      "$value": "{gap.xs}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "segments and destinations sit close inside their track"
+        }
+      }
+    },
+    "inset": {
+      "$value": "{gap.xs}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the chosen pane sits this far inside the track, nesting its corner"
+        }
+      }
+    },
+    "track": {
+      "$value": "{surface.well-deep}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a segmented control’s track is the same well as the tab track"
+        }
+      }
+    },
+    "carve": {
+      "$value": "{level-shadow.well}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "shade under the track’s top lip, a recess"
+        }
+      }
+    },
+    "on-top": {
+      "$value": "{surface.chosen-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the chosen segment, destination or page is chosen glass lit at its top"
+        }
+      }
+    },
+    "on-foot": {
+      "$value": "{surface.chosen-foot}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "and toward its foot, the same as a chosen tab"
+        }
+      }
+    },
+    "on-cast": {
+      "$value": "{elevation.chosen-cast}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the chosen pane lifts a little on the chosen cast"
+        }
+      }
+    },
+    "segment-min": {
+      "$value": "{control.segment-min}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "no segment gets narrower than a short word"
+        }
+      }
+    },
+    "dock": {
+      "$value": "{level.1}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "bars and docks are level-1 glass over the page"
+        }
+      }
+    },
+    "dock-shadow": {
+      "$value": "{level-shadow.1}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a floating dock carries the level-1 shadow, the same for every part of the family"
+        }
+      }
+    },
+    "dock-inset": {
+      "$value": "{gap.inset}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the bottom dock floats clear of the screen edge and its gestures"
+        }
+      }
+    },
+    "blur": {
+      "$value": "{glass.blur}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "bars blur the page under them like every pane"
+        }
+      }
+    },
+    "bar": {
+      "$value": "{control.nav-bar}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the top bar is tall enough for 44px targets"
+        }
+      }
+    },
+    "bar-edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the faint edge all round of every slab"
+        }
+      }
+    },
+    "item-height": {
+      "$value": "{control.nav-item}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a destination is taller than 44px with its icon and label"
+        }
+      }
+    },
+    "item-min": {
+      "$value": "{control.nav-item-min}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a destination is at least 64px wide, the same for every part of the family"
+        }
+      }
+    },
+    "sidebar": {
+      "$value": "{control.sidebar}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a sidebar is as wide as the book’s own, so labels fit on one line"
+        }
+      }
+    },
+    "badge": {
+      "$value": "{control.badge}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P2"
+          ],
+          "why": "a count on a destination is the badge size"
+        }
+      }
+    },
+    "badge-bg": {
+      "$value": "{action.loud-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "a count is a small loud mark, the only solid in the dock"
+        }
+      }
+    },
+    "badge-fg": {
+      "$value": "{text.on-accent}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "its number on the loud solid, the same for every part of the family"
+        }
+      }
+    },
+    "panel": {
+      "$value": "{control.nav-panel}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a navigation panel is one column of described links"
+        }
+      }
+    },
+    "panel-bg": {
+      "$value": "{level.4}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a navigation panel is level 4, the top of the stack"
+        }
+      }
+    },
+    "panel-shadow": {
+      "$value": "{level-shadow.4}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "with the level-4 shadow, the same for every part of the family"
+        }
+      }
+    },
+    "ring": {
+      "$value": "{elevation.control-ring}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a ring round the track, because its segments are radio buttons and need a 3:1 edge"
+        }
+      }
+    }
+  },
+  "stepper": {
+    "groove": {
+      "$value": "{line.divider}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "steps are joined by a quiet groove, the same for every part of the family"
+        }
+      }
+    },
+    "lit": {
+      "$value": "{line.edge}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the groove is lit up to the current step, at the edge opacity"
+        }
+      }
+    },
+    "current": {
+      "$value": "{action.loud-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "the current step is the loud solid with its number"
+        }
+      }
+    },
+    "current-fg": {
+      "$value": "{text.on-accent}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "its number on the loud solid, the same for every part of the family"
+        }
+      }
+    },
+    "glow": {
+      "$value": "{glow.mark}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P5"
+          ],
+          "why": "in dark the current step glows as a mark that says now (D-027)"
+        }
+      }
+    }
+  },
+  "progress": {
+    "gap": {
+      "$value": "{gap.sm}",
+      "$type": "dimension"
+    },
+    "min": {
+      "$value": "{control.slider-min}",
+      "$type": "dimension"
+    },
+    "track": {
+      "$value": "{control.dot}",
+      "$type": "dimension"
+    },
+    "track-sm": {
+      "$value": "{width.bar}",
+      "$type": "dimension"
+    },
+    "bg": {
+      "$value": "{surface.carve}",
+      "$type": "color"
+    },
+    "carve": {
+      "$value": "{elevation.track}",
+      "$type": "shadow"
+    },
+    "fill-top": {
+      "$value": "{action.loud-top}",
+      "$type": "color"
+    },
+    "fill-foot": {
+      "$value": "{action.loud-foot}",
+      "$type": "color"
+    },
+    "glow": {
+      "$value": "{glow.soft}",
+      "$type": "shadow"
+    },
+    "travel": {
+      "$value": "{motion.breathe}",
+      "$type": "duration"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1",
+          "P3"
+        ],
+        "why": "a task is the slider channel carved into the pane with the loud solid filling it, so progress has no hue"
+      }
+    }
+  },
+  "meter": {
+    "gap": {
+      "$value": "{gap.sm}",
+      "$type": "dimension"
+    },
+    "min": {
+      "$value": "{control.slider-min}",
+      "$type": "dimension"
+    },
+    "track": {
+      "$value": "{control.dot}",
+      "$type": "dimension"
+    },
+    "bg": {
+      "$value": "{surface.carve}",
+      "$type": "color"
+    },
+    "carve": {
+      "$value": "{elevation.track}",
+      "$type": "shadow"
+    },
+    "fill-top": {
+      "$value": "{action.loud-top}",
+      "$type": "color"
+    },
+    "fill-foot": {
+      "$value": "{action.loud-foot}",
+      "$type": "color"
+    },
+    "glyph": {
+      "$value": "{control.icon-sm}",
+      "$type": "dimension"
+    },
+    "warning-mark": {
+      "$value": "{status.warning-mark}",
+      "$type": "color"
+    },
+    "critical-mark": {
+      "$value": "{status.critical-mark}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1",
+          "P6"
+        ],
+        "why": "a reading uses the Progress channel and a status glyph and word, so a high level never rests on a hue"
+      }
+    }
+  },
+  "stat": {
+    "gap": {
+      "$value": "{gap.xs}",
+      "$type": "dimension"
+    },
+    "value": {
+      "$value": "{type.headline}",
+      "$type": "dimension"
+    },
+    "glyph": {
+      "$value": "{control.icon-sm}",
+      "$type": "dimension"
+    },
+    "positive-mark": {
+      "$value": "{status.positive-mark}",
+      "$type": "color"
+    },
+    "negative-mark": {
+      "$value": "{status.critical-mark}",
+      "$type": "color"
+    },
+    "neutral-mark": {
+      "$value": "{text.secondary}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P2",
+          "P6"
+        ],
+        "why": "one number said large with its change shown by an arrow and words, colour only on the arrow"
+      }
+    }
+  },
+  "empty-state": {
+    "gap": {
+      "$value": "{gap.md}",
+      "$type": "dimension"
+    },
+    "padding": {
+      "$value": "{gap.inset}",
+      "$type": "dimension"
+    },
+    "padding-sm": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "well": {
+      "$value": "{control.xl}",
+      "$type": "dimension"
+    },
+    "well-bg": {
+      "$value": "{surface.carve}",
+      "$type": "color"
+    },
+    "well-carve": {
+      "$value": "{elevation.well}",
+      "$type": "shadow"
+    },
+    "icon": {
+      "$value": "{control.check}",
+      "$type": "dimension"
+    },
+    "title": {
+      "$value": "{type.title}",
+      "$type": "dimension"
+    },
+    "measure": {
+      "$value": "{type.measure}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P4"
+        ],
+        "why": "a glyph in a carved well with a title and the way out, quiet so the action is the loud thing"
+      }
+    }
+  },
+  "timeline": {
+    "dot": {
+      "$value": "{control.mark}",
+      "$type": "dimension"
+    },
+    "dot-offset": {
+      "$value": "{gap.xs}",
+      "$type": "dimension"
+    },
+    "gap": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "step": {
+      "$value": "{gap.xl}",
+      "$type": "dimension"
+    },
+    "rail": {
+      "$value": "{width.hairline}",
+      "$type": "dimension"
+    },
+    "rail-color": {
+      "$value": "{line.divider}",
+      "$type": "color"
+    },
+    "done": {
+      "$value": "{action.loud-top}",
+      "$type": "color"
+    },
+    "current-ring": {
+      "$value": "{line.ring}",
+      "$type": "color"
+    },
+    "upcoming": {
+      "$value": "{text.secondary}",
+      "$type": "color"
+    },
+    "glow": {
+      "$value": "{glow.mark}",
+      "$type": "shadow"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P6",
+          "P1"
+        ],
+        "why": "events on a hairline rail whose dots say past, now and next by shape, without hue"
+      }
+    }
+  },
+  "dlist": {
+    "gap": {
+      "$value": "{gap.md}",
+      "$type": "dimension"
+    },
+    "term": {
+      "$value": "{control.menu-min}",
+      "$type": "dimension"
+    },
+    "divider": {
+      "$value": "{line.divider}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P2"
+        ],
+        "why": "term and detail told apart by tone and size with space between pairs instead of borders"
+      }
+    }
+  },
+  "list": {
+    "inset": {
+      "$value": "{gap.xs}",
+      "$type": "dimension"
+    },
+    "padding": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "padding-block": {
+      "$value": "{gap.md}",
+      "$type": "dimension"
+    },
+    "gap": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "row": {
+      "$value": "{control.lg}",
+      "$type": "dimension"
+    },
+    "radius": {
+      "$value": "{corner.inner}",
+      "$type": "dimension"
+    },
+    "bg": {
+      "$value": "{level.2}",
+      "$type": "color"
+    },
+    "edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow"
+    },
+    "divider": {
+      "$value": "{line.divider}",
+      "$type": "color"
+    },
+    "highlight": {
+      "$value": "{surface.quiet}",
+      "$type": "color"
+    },
+    "icon": {
+      "$value": "{control.icon-md}",
+      "$type": "dimension"
+    },
+    "chevron": {
+      "$value": "{control.icon-sm}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P2"
+        ],
+        "why": "rows on one level-2 pane with hairlines from the text column, pressable rows lit like menu rows"
+      }
+    }
+  },
+  "table": {
+    "cell-inline": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "cell-block": {
+      "$value": "{gap.md}",
+      "$type": "dimension"
+    },
+    "cell-block-compact": {
+      "$value": "{gap.xs}",
+      "$type": "dimension"
+    },
+    "row": {
+      "$value": "{control.lg}",
+      "$type": "dimension"
+    },
+    "hit": {
+      "$value": "{layout.touch}",
+      "$type": "dimension"
+    },
+    "head-bg": {
+      "$value": "{surface.raised}",
+      "$type": "color"
+    },
+    "bg": {
+      "$value": "{level.2}",
+      "$type": "color"
+    },
+    "edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow"
+    },
+    "divider": {
+      "$value": "{line.divider}",
+      "$type": "color"
+    },
+    "highlight": {
+      "$value": "{surface.quiet}",
+      "$type": "color"
+    },
+    "glyph": {
+      "$value": "{control.icon-sm}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P2"
+        ],
+        "why": "data on a level-2 pane with an opaque sheet-tone header and hairlines between rows, numbers at the end"
+      }
+    },
+    "scrim": {
+      "$value": "{level.scrim}",
+      "$type": "color"
+    }
+  },
+  "editable": {
+    "height": {
+      "$value": "{control.lg}",
+      "$type": "dimension"
+    },
+    "padding": {
+      "$value": "{gap.sm}",
+      "$type": "dimension"
+    },
+    "radius": {
+      "$value": "{corner.inner}",
+      "$type": "dimension"
+    },
+    "hover": {
+      "$value": "{surface.quiet}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P4",
+          "P6"
+        ],
+        "why": "text that becomes the Input groove where it stands, at the same height, with a 44px press area"
+      }
+    }
+  },
+  "file-upload": {
+    "gap": {
+      "$value": "{gap.md}",
+      "$type": "dimension"
+    },
+    "bg": {
+      "$value": "{level.2}",
+      "$type": "color"
+    },
+    "edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow"
+    },
+    "row": {
+      "$value": "{control.lg}",
+      "$type": "dimension"
+    },
+    "divider": {
+      "$value": "{line.divider}",
+      "$type": "color"
+    },
+    "critical-mark": {
+      "$value": "{status.critical-mark}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P6"
+        ],
+        "why": "a glass button and chosen files on one level-2 pane, refusals said in words"
+      }
+    },
+    "ring-invalid": {
+      "$value": "{status.critical-mark}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a wrong answer is ringed in the critical mark, the same ring a field takes, and the words in FormField say what is wrong"
+        }
+      }
+    }
+  },
+  "dropzone": {
+    "gap": {
+      "$value": "{gap.md}",
+      "$type": "dimension"
+    },
+    "min": {
+      "$value": "{control.menu-min}",
+      "$type": "dimension"
+    },
+    "padding": {
+      "$value": "{gap.inset}",
+      "$type": "dimension"
+    },
+    "bg": {
+      "$value": "{surface.carve}",
+      "$type": "color"
+    },
+    "groove": {
+      "$value": "{elevation.groove}",
+      "$type": "shadow"
+    },
+    "ring-hover": {
+      "$value": "{line.ring}",
+      "$type": "color"
+    },
+    "over-top": {
+      "$value": "{surface.chosen-top}",
+      "$type": "color"
+    },
+    "over-foot": {
+      "$value": "{surface.chosen-foot}",
+      "$type": "color"
+    },
+    "over-ring": {
+      "$value": "{line.ring}",
+      "$type": "color"
+    },
+    "over-cast": {
+      "$value": "{elevation.chosen-cast}",
+      "$type": "shadow"
+    },
+    "well": {
+      "$value": "{control.xl}",
+      "$type": "dimension"
+    },
+    "well-bg": {
+      "$value": "{surface.carve}",
+      "$type": "color"
+    },
+    "well-carve": {
+      "$value": "{elevation.well}",
+      "$type": "shadow"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P6"
+        ],
+        "why": "a large groove carved into the pane that lifts into chosen glass with a ring while a file is over it"
+      }
+    },
+    "ring-invalid": {
+      "$value": "{status.critical-mark}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a wrong answer is ringed in the critical mark, the same ring a field takes, and the words in FormField say what is wrong"
+        }
+      }
+    }
+  },
+  "color-picker": {
+    "gap": {
+      "$value": "{gap.sm}",
+      "$type": "dimension"
+    },
+    "hit": {
+      "$value": "{layout.touch}",
+      "$type": "dimension"
+    },
+    "swatch": {
+      "$value": "{control.sm}",
+      "$type": "dimension"
+    },
+    "rim": {
+      "$value": "{line.edge}",
+      "$type": "color"
+    },
+    "ring": {
+      "$value": "{action.loud-top}",
+      "$type": "color"
+    },
+    "check-bg": {
+      "$value": "{action.loud-top}",
+      "$type": "color"
+    },
+    "check-fg": {
+      "$value": "{text.on-accent}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1",
+          "P6"
+        ],
+        "why": "round swatches in the colours of the content, the chosen one ringed and checked in the loud solid"
+      }
+    },
+    "edge": {
+      "$value": "{elevation.control-ring}",
+      "$type": "shadow"
+    },
+    "ring-invalid": {
+      "$value": "{status.critical-mark}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a wrong answer is ringed in the critical mark, the same ring a field takes, and the words in FormField say what is wrong"
+        }
+      }
+    }
+  },
+  "otp-flow": {
+    "gap": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "status": {
+      "$value": "{control.check}",
+      "$type": "dimension"
+    },
+    "critical-mark": {
+      "$value": "{status.critical-mark}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P6"
+        ],
+        "why": "PinInput with its status said in words and the critical mark as a shape beside a wrong code"
+      }
+    }
+  },
+  "calendar": {
+    "gap": {
+      "$value": "{gap.md}",
+      "$type": "dimension"
+    },
+    "head": {
+      "$value": "{control.sm}",
+      "$type": "dimension"
+    },
+    "day": {
+      "$value": "{layout.touch}",
+      "$type": "dimension"
+    },
+    "band": {
+      "$value": "{surface.chosen-foot}",
+      "$type": "color"
+    },
+    "hover": {
+      "$value": "{surface.quiet}",
+      "$type": "color"
+    },
+    "today-ring": {
+      "$value": "{line.ring}",
+      "$type": "color"
+    },
+    "chosen-top": {
+      "$value": "{action.loud-top}",
+      "$type": "color"
+    },
+    "chosen-foot": {
+      "$value": "{action.loud-foot}",
+      "$type": "color"
+    },
+    "chosen-fg": {
+      "$value": "{text.on-accent}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P5",
+          "P6"
+        ],
+        "why": "round 44px days, today ringed, the chosen day the loud solid and a range a band of chosen glass"
+      }
+    }
+  },
+  "date-picker": {
+    "padding": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3"
+        ],
+        "why": "Calendar on a level-4 popover under the Select groove, so a date is one more choice in the family"
+      }
+    }
+  },
+  "tree-view": {
+    "gap": {
+      "$value": "{gap.sm}",
+      "$type": "dimension"
+    },
+    "row": {
+      "$value": "{control.lg}",
+      "$type": "dimension"
+    },
+    "padding": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "radius": {
+      "$value": "{corner.inner}",
+      "$type": "dimension"
+    },
+    "indent": {
+      "$value": "{gap.inset}",
+      "$type": "dimension"
+    },
+    "hover": {
+      "$value": "{surface.quiet}",
+      "$type": "color"
+    },
+    "chosen-top": {
+      "$value": "{surface.chosen-top}",
+      "$type": "color"
+    },
+    "chosen-foot": {
+      "$value": "{surface.chosen-foot}",
+      "$type": "color"
+    },
+    "chosen-cast": {
+      "$value": "{elevation.chosen-cast}",
+      "$type": "shadow"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P6"
+        ],
+        "why": "rows indented by level with a turning chevron and the chosen row in the Sidebar chosen pane"
+      }
+    }
+  },
+  "carousel": {
+    "gap": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "dot": {
+      "$value": "{control.dot}",
+      "$type": "dimension"
+    },
+    "dot-gap": {
+      "$value": "{gap.sm}",
+      "$type": "dimension"
+    },
+    "dot-off": {
+      "$value": "{line.ring}",
+      "$type": "color"
+    },
+    "dot-on": {
+      "$value": "{action.loud-top}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P4",
+          "P6"
+        ],
+        "why": "slides that move only when the reader moves them, with dots where the current one is longer and glows faintly in dark"
+      }
+    }
+  },
+  "virtual-list": {
+    "bg": {
+      "$value": "{level.2}",
+      "$type": "color"
+    },
+    "edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow"
+    },
+    "padding": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "divider": {
+      "$value": "{line.divider}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3"
+        ],
+        "why": "one scrolling level-2 pane with hairline rows, as tall as all its rows"
+      }
+    }
+  },
+  "transfer-list": {
+    "gap": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3"
+        ],
+        "why": "two Listbox recesses with the move buttons between them"
+      }
+    }
+  },
+  "data-grid": {
+    "check": {
+      "$value": "{layout.touch}",
+      "$type": "dimension"
+    },
+    "chosen-top": {
+      "$value": "{surface.chosen-top}",
+      "$type": "color"
+    },
+    "chosen-foot": {
+      "$value": "{surface.chosen-foot}",
+      "$type": "color"
+    },
+    "stick-bg": {
+      "$value": "{surface.raised}",
+      "$type": "color"
+    },
+    "scrim": {
+      "$value": "{level.scrim}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P6"
+        ],
+        "why": "Table plus a checkbox column, chosen glass on chosen rows and a sticky name column on the sheet tone"
+      }
+    }
+  },
+  "viz": {
+    "gap": {
+      "$value": "{gap.md}",
+      "$type": "dimension"
+    },
+    "toggle": {
+      "$value": "{control.sm}",
+      "$type": "dimension"
+    },
+    "key": {
+      "$value": "{control.mark}",
+      "$type": "dimension"
+    },
+    "key-radius": {
+      "$value": "{corner.mark}",
+      "$type": "dimension"
+    },
+    "line": {
+      "$value": "{width.ring}",
+      "$type": "dimension"
+    },
+    "grid": {
+      "$value": "{line.divider}",
+      "$type": "color"
+    },
+    "axis": {
+      "$value": "{line.ring}",
+      "$type": "color"
+    },
+    "muted": {
+      "$value": "{text.secondary}",
+      "$type": "color"
+    },
+    "ring": {
+      "$value": "{surface.raised}",
+      "$type": "color"
+    },
+    "tip-bg": {
+      "$value": "{surface.raised}",
+      "$type": "color"
+    },
+    "tip-shadow": {
+      "$value": "{elevation.float}",
+      "$type": "shadow"
+    },
+    "dim": {
+      "$value": "{opacity.faint}",
+      "$type": "number"
+    },
+    "wash": {
+      "$value": "{opacity.wash}",
+      "$type": "number"
+    },
+    "spark-min": {
+      "$value": "{control.xl}",
+      "$type": "dimension"
+    },
+    "ramp": {
+      "$value": "{control.slider-min}",
+      "$type": "dimension"
+    },
+    "series-1": {
+      "$value": "{data.series-1}",
+      "$type": "color"
+    },
+    "series-2": {
+      "$value": "{data.series-2}",
+      "$type": "color"
+    },
+    "series-3": {
+      "$value": "{data.series-3}",
+      "$type": "color"
+    },
+    "series-4": {
+      "$value": "{data.series-4}",
+      "$type": "color"
+    },
+    "series-5": {
+      "$value": "{data.series-5}",
+      "$type": "color"
+    },
+    "series-6": {
+      "$value": "{data.series-6}",
+      "$type": "color"
+    },
+    "series-7": {
+      "$value": "{data.series-7}",
+      "$type": "color"
+    },
+    "series-8": {
+      "$value": "{data.series-8}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P1",
+          "P6"
+        ],
+        "why": "marks carry the data palette, every word wears a text tone, grid and axes are recessive hairlines and a table view is one press away"
+      }
+    }
+  },
+  "app-shell": {
+    "aside": {
+      "$value": "{overlay.side}",
+      "$type": "dimension"
+    },
+    "gap": {
+      "$value": "{gap.2xl}",
+      "$type": "dimension"
+    },
+    "side": {
+      "$value": "{layout.sidebar}",
+      "$type": "dimension"
+    },
+    "skip-bg": {
+      "$value": "{action.loud-top}",
+      "$type": "color"
+    },
+    "skip-fg": {
+      "$value": "{text.on-accent}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3"
+        ],
+        "why": "the frame of an app: header, a sidebar beside the content when wide and a bottom bar when narrow, measured by its own width"
+      }
+    },
+    "scroll-margin": {
+      "$value": "{gap.page}",
+      "$type": "dimension"
+    }
+  },
+  "auth-form": {
+    "divider": {
+      "$value": "{line.divider}",
+      "$type": "color"
+    },
+    "gap": {
+      "$value": "{gap.2xl}",
+      "$type": "dimension"
+    },
+    "measure": {
+      "$value": "{overlay.toast}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P5"
+        ],
+        "why": "sign in and sign up as one column with the one loud submit at full width and other ways in under a hairline"
+      }
+    }
+  },
+  "coach-mark": {
+    "arrow": {
+      "$value": "{level.4}",
+      "$type": "color"
+    },
+    "ring": {
+      "$value": "{line.ring}",
+      "$type": "color"
+    },
+    "glow": {
+      "$value": "{glow.soft}",
+      "$type": "shadow"
+    },
+    "padding": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "width": {
+      "$value": "{overlay.pop}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P6"
+        ],
+        "why": "a small level-4 card anchored to one thing with a ring round it and no scrim"
+      }
+    }
+  },
+  "command-palette": {
+    "divider": {
+      "$value": "{line.divider}",
+      "$type": "color"
+    },
+    "field": {
+      "$value": "{control.xl}",
+      "$type": "dimension"
+    },
+    "highlight": {
+      "$value": "{surface.quiet}",
+      "$type": "color"
+    },
+    "lens": {
+      "$value": "{elevation.lens}",
+      "$type": "shadow"
+    },
+    "max": {
+      "$value": "{overlay.md}",
+      "$type": "dimension"
+    },
+    "padding": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "row": {
+      "$value": "{control.lg}",
+      "$type": "dimension"
+    },
+    "top": {
+      "$value": "{gap.page}",
+      "$type": "dimension"
+    },
+    "width": {
+      "$value": "{overlay.lg}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P6"
+        ],
+        "why": "a level-3 pane over the scrim with a field and grouped rows lit like menu rows"
+      }
+    },
+    "field-bg": {
+      "$value": "{surface.carve}",
+      "$type": "color"
+    },
+    "groove": {
+      "$value": "{elevation.groove}",
+      "$type": "shadow"
+    }
+  },
+  "feed": {
+    "gap": {
+      "$value": "{gap.2xl}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3"
+        ],
+        "why": "articles at the section rhythm that bring their own Cards"
+      }
+    }
+  },
+  "form": {
+    "critical": {
+      "$value": "{status.critical-mark}",
+      "$type": "color"
+    },
+    "gap": {
+      "$value": "{gap.2xl}",
+      "$type": "dimension"
+    },
+    "measure": {
+      "$value": "{type.measure}",
+      "$type": "dimension"
+    },
+    "summary-bg": {
+      "$value": "{level.2}",
+      "$type": "color"
+    },
+    "summary-padding": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P6"
+        ],
+        "why": "one column at the field rhythm and an error summary with the critical ring that takes focus"
+      }
+    }
+  },
+  "kanban-board": {
+    "bg": {
+      "$value": "{level.2}",
+      "$type": "color"
+    },
+    "card": {
+      "$value": "{surface.quiet}",
+      "$type": "color"
+    },
+    "card-top": {
+      "$value": "{surface.lit-quiet-top}",
+      "$type": "color"
+    },
+    "card-edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow"
+    },
+    "column": {
+      "$value": "{control.slider-min}",
+      "$type": "dimension"
+    },
+    "edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow"
+    },
+    "gap": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "lift": {
+      "$value": "{elevation.lift}",
+      "$type": "shadow"
+    },
+    "over": {
+      "$value": "{surface.quiet}",
+      "$type": "color"
+    },
+    "padding": {
+      "$value": "{gap.md}",
+      "$type": "dimension"
+    },
+    "ring": {
+      "$value": "{line.ring}",
+      "$type": "color"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P4"
+        ],
+        "why": "columns as level-2 panes and cards as small lit panes that lift a little when picked up"
+      }
+    }
+  },
+  "notification-center": {
+    "dot": {
+      "$value": "{action.loud-top}",
+      "$type": "color"
+    },
+    "dot-fg": {
+      "$value": "{text.on-accent}",
+      "$type": "color"
+    },
+    "highlight": {
+      "$value": "{surface.quiet}",
+      "$type": "color"
+    },
+    "max": {
+      "$value": "{overlay.md}",
+      "$type": "dimension"
+    },
+    "padding": {
+      "$value": "{gap.md}",
+      "$type": "dimension"
+    },
+    "width": {
+      "$value": "{overlay.toast}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P6"
+        ],
+        "why": "notices grouped by day where unread carries a dot and the word New"
+      }
+    }
+  },
+  "rich-text-editor": {
+    "bg": {
+      "$value": "{surface.carve}",
+      "$type": "color"
+    },
+    "groove": {
+      "$value": "{elevation.groove}",
+      "$type": "shadow"
+    },
+    "hover": {
+      "$value": "{surface.quiet}",
+      "$type": "color"
+    },
+    "on-top": {
+      "$value": "{surface.chosen-top}",
+      "$type": "color"
+    },
+    "on-foot": {
+      "$value": "{surface.chosen-foot}",
+      "$type": "color"
+    },
+    "padding": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "tool": {
+      "$value": "{layout.touch}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P2",
+          "P6"
+        ],
+        "why": "a row of quiet tools over the Input groove, a mark that is on taking chosen glass"
+      }
+    }
+  },
+  "settings-layout": {
+    "bg": {
+      "$value": "{level.2}",
+      "$type": "color"
+    },
+    "divider": {
+      "$value": "{line.divider}",
+      "$type": "color"
+    },
+    "edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow"
+    },
+    "gap": {
+      "$value": "{gap.section}",
+      "$type": "dimension"
+    },
+    "measure": {
+      "$value": "{layout.container-sm}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3"
+        ],
+        "why": "groups as inset level-2 panes with the control at the end of each row"
+      }
+    }
+  },
+  "wizard": {
+    "gap": {
+      "$value": "{gap.section}",
+      "$type": "dimension"
+    },
+    "panel-gap": {
+      "$value": "{gap.2xl}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P5"
+        ],
+        "why": "Stepper, one panel at a time and the loud button last"
+      }
+    }
+  },
+  "number-input": {
+    "min": {
+      "$value": "{control.xl}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P6"
+        ],
+        "why": "the number keeps room for a few digits between its steppers, so the field never shrinks to a sliver"
+      }
+    }
+  },
+  "scale": {
+    "label": {
+      "$value": "{control.scale-label}",
+      "$type": "dimension"
+    },
+    "word": {
+      "$value": "{control.scale-word}",
+      "$type": "dimension"
+    },
+    "min": {
+      "$value": "{control.xl}",
+      "$type": "dimension"
+    },
+    "gap": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "step-gap": {
+      "$value": "{width.ring}",
+      "$type": "dimension"
+    },
+    "hit": {
+      "$value": "{control.check}",
+      "$type": "dimension"
+    },
+    "track": {
+      "$value": "{control.dot}",
+      "$type": "dimension"
+    },
+    "off": {
+      "$value": "{surface.carve}",
+      "$type": "color"
+    },
+    "carve": {
+      "$value": "{elevation.track}",
+      "$type": "shadow"
+    },
+    "on": {
+      "$value": "{line.ring}",
+      "$type": "color"
+    },
+    "good": {
+      "$value": "{status.positive-mark}",
+      "$type": "color"
+    },
+    "bad": {
+      "$value": "{status.critical-mark}",
+      "$type": "color"
+    },
+    "ring": {
+      "$value": "{line.edge}",
+      "$type": "color"
+    },
+    "bead": {
+      "$value": "{control.icon-sm}",
+      "$type": "dimension"
+    },
+    "bead-bg": {
+      "$value": "{surface.knob}",
+      "$type": "color"
+    },
+    "bead-shadow": {
+      "$value": "{elevation.bead}",
+      "$type": "shadow"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P6"
+        ],
+        "why": "Slider's channel cut into steps with Slider's bead at the value, a hollow ring to compare and a mark-coloured band between them"
       }
     }
   }

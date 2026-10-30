@@ -1,0 +1,132 @@
+{
+  "concept": "A position on a short ordered scale: a channel cut into steps with a bead at the value, a ring to compare with and a band between them.",
+  "default_to_avoid": [
+    {
+      "pattern": "a Scale drawn as a gold progress bar with a red or green number beside it",
+      "kind": "scale, level indicator, rank track, segmented meter",
+      "why_not": "a coloured bar says better or worse by hue alone and hides the steps; Pane shows the steps, a bead and an arrow with words"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA img role and accessible names",
+      "url": "https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/"
+    },
+    {
+      "title": "Carbon · Data visualization, bullet charts",
+      "url": "https://carbondesignsystem.com/data-visualization/chart-types/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the steps are the slider channel carved into the pane and the bead is the slider bead lit from above"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the value is a solid bead, the comparison a hollow ring, and an arrow points the way the value moved"
+    },
+    {
+      "p": "P6",
+      "axis": "colour",
+      "consequence": "status is spoken in text as well as shown in colour",
+      "form": "the band between ring and bead takes the positive or critical mark, and the word at the end says the level"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave11/",
+    "section": "scale",
+    "options": [
+      "A stepped channel, bead and ring",
+      "B gold progress bar",
+      "C five dots"
+    ],
+    "picked": "A stepped channel, bead and ring",
+    "by": "agent",
+    "reason": "A shows the steps and both positions by shape (P6) on the slider material (P3). B rests on hue. C cannot show a value between steps or a comparison."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the label, the channel and the word share one row in three columns"
+    },
+    "bare": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a bare scale is only the channel, for a table cell or a row that already names it"
+    },
+    "label": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the label is at label size in the primary tone and wraps instead of spilling"
+    },
+    "word": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the word for the level is medium weight at the end of the row with its arrow"
+    },
+    "track": {
+      "p": "P6",
+      "axis": "space",
+      "why": "the steps sit in one row on a line the bead and the ring share"
+    },
+    "step": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "each step is a piece of the slider channel carved into the pane"
+    },
+    "on": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "steps up to the value are lit so the level reads before the bead is found"
+    },
+    "band": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "the band between the ring and the bead shows how far the value moved"
+    },
+    "good": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a move the right way takes the positive mark"
+    },
+    "bad": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a move the wrong way takes the critical mark"
+    },
+    "ring": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the comparison is a hollow ring so it never reads as the value"
+    },
+    "dot": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the value is the slider bead lit from above; it is too small to glow, so it reads by shape alone"
+    },
+    "arrow": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "an arrow beside the word points up or down the way the value moved"
+    },
+    "down": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a fall turns the same arrow over so up and down are one glyph"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the steps, the bead and the ring so the position stays findable"
+    }
+  },
+  "motion": {}
+}

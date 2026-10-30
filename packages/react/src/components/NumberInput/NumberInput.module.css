@@ -1,0 +1,6 @@
+/* One groove holding minus, the number and plus; the number is centred in tabular figures so it does not
+   jump as it steps, and the unit sits quietly before the plus (P2). */
+.input { min-inline-size: var(--ds-number-input-min); text-align: center; font-variant-numeric: tabular-nums; }
+.end { display: inline-flex; align-items: center; gap: var(--ds-gap-xs); }
+.unit { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.glyph { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; }

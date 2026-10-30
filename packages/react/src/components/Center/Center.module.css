@@ -1,0 +1,3 @@
+/* Content in the middle of the space it is given, both ways. */
+.root { display: grid; place-items: center; text-align: center; }
+.inline { display: inline-grid; }

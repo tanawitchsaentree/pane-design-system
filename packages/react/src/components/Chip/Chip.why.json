@@ -1,15 +1,15 @@
 {
-  "concept": "A chip is a small glass pane you press. On, it is pressed into the glass, a carved recess with a check, so many chosen chips add no loud marks to the pane.",
+  "concept": "A chip is a small glass pane lit from above. Chosen, it is a lighter pane with a check and a heavier weight, the same chosen glass as Tabs, so chosen chips add no loud marks to a pane.",
   "parts": {
     "root": {
       "p": "P3",
       "axis": "depth",
-      "why": "a small glass pane with gloss and the pane rim, something to press"
+      "why": "a small glass pane lit from above, with the top-lit rim, on a short soft shadow"
     },
     "on": {
-      "p": "P4",
+      "p": "P6",
       "axis": "shape",
-      "why": "chosen is pressed into the glass, a carved recess with a heavier weight"
+      "why": "chosen is a lighter pane with a check and a heavier weight, the same chosen glass as Tabs"
     },
     "toggle": {
       "p": "P6",
@@ -47,6 +47,11 @@
       "p": "P6",
       "axis": "depth",
       "why": "forced colours drop the rim and the carve, so a real system-colour border keeps the shape"
+    },
+    "data-disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "an off control dims and refuses presses, so it reads as there but not available"
     }
   },
   "motion": {
@@ -93,7 +98,7 @@
       "p": "P4",
       "axis": "shape",
       "consequence": "a pressed control shrinks slightly, as something pushed",
-      "form": "chosen is pressed into the glass, a carved recess, as something pushed"
+      "form": "chosen becomes a lighter pane, as something brought forward"
     },
     {
       "p": "P6",
@@ -104,7 +109,7 @@
     {
       "p": "P3",
       "axis": "depth",
-      "consequence": "a soft shadow below and a rim of light on the top-left edge say where the pane floats",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip",
       "form": "off is a small pane with the pane rim, so it reads as something to press"
     },
     {
@@ -125,5 +130,17 @@
     "picked": "C pressed into the glass",
     "by": "agent",
     "reason": "A and B make each chosen chip the loud solid, so three chosen filters put three loud marks on a pane (P5). C keeps chips quiet: off is a small pane to press, on is pressed into a carved recess with a check (P4, P6). The first C, rings, was too faint and was replaced in the lab before the pick."
+  },
+  "round4": {
+    "lab": "apps/lab/round4/",
+    "section": "all",
+    "options": [
+      "A one light from above",
+      "B chosen as a recess",
+      "C A with a spectral edge"
+    ],
+    "picked": "A one light from above",
+    "by": "agent",
+    "reason": "The user rejected the blue and showed a reference where one light from above lights every atom alike. A reads that straight: the same top rim and sheen on every surface, the white lit solid for the loud action, chosen items as lighter glass. B makes chosen items recesses, which reads as pressed-off rather than chosen. C adds a rainbow edge, a hue the system no longer owns (P1)."
   }
 }

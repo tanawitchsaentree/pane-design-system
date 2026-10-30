@@ -1,0 +1,65 @@
+{
+  "identity": false,
+  "identity_reason": "it is a layout that places Navbar, Sidebar, BottomNav and the content, so every visible part comes from those",
+  "concept": "The frame of an app: header on top, a sidebar beside the content when wide, a bottom bar instead when narrow, and a skip link.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the shell measures its own width so it works in a stage as well as a window"
+    },
+    "grid": {
+      "p": "P3",
+      "axis": "space",
+      "why": "one column when narrow with the areas stacked in reading order"
+    },
+    "hasSide": {
+      "p": "P3",
+      "axis": "space",
+      "why": "with a sidebar the grid adds its column once the shell is wide enough"
+    },
+    "hasAside": {
+      "p": "P3",
+      "axis": "space",
+      "why": "with an aside the grid adds a third column on a very wide shell"
+    },
+    "header": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the header stays at the top while the content scrolls"
+    },
+    "side": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the sidebar is hidden when narrow and sticks beside the content when wide"
+    },
+    "main": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the main landmark takes focus from the skip link without a ring of its own"
+    },
+    "aside": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the aside drops under the content when narrow and sticks beside it when wide"
+    },
+    "bottom": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the bottom bar floats at the foot when narrow and hides once the sidebar shows"
+    },
+    "skip": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the skip link is the first stop and appears only while it has focus"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring shows when the part is reached by keyboard"
+    }
+  },
+  "motion": {}
+}

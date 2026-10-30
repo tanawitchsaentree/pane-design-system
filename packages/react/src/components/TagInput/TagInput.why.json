@@ -1,0 +1,103 @@
+{
+  "concept": "Free-form tags typed into one groove, each becoming a removable chip, for labels the reader makes up.",
+  "default_to_avoid": [
+    {
+      "pattern": "a comma-separated text field (tags: a, b, c) or a field with blue pills as the tag input",
+      "kind": "tag input, tags field, token field, chips input",
+      "why_not": "a comma list cannot be edited one tag at a time; blue pills bring a hue"
+    }
+  ],
+  "references": [
+    {
+      "title": "Carbon · Tag",
+      "url": "https://carbondesignsystem.com/components/tag/usage/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the field is Input’s groove; tags are Chips inside it, the system’s removable value"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "Enter or a comma adds, Backspace removes the last, each chip has a remove button with its own name"
+    },
+    {
+      "p": "P2",
+      "axis": "type",
+      "consequence": "secondary text keeps the lowest opacity that still measured as passing; text halos count only where WCAG allows them",
+      "form": "a hint under the field says how to add a tag"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave5/",
+    "section": "taginput",
+    "options": [
+      "A chips in a groove",
+      "B comma-separated text",
+      "C blue pills"
+    ],
+    "picked": "A chips in a groove",
+    "by": "agent",
+    "reason": "A uses Chip, editable one tag at a time. B is one string to edit. C brings a hue."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the label, field and hint with the field gap"
+    },
+    "label": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the field’s label, its accessible name, the same in every theme and on every scene"
+    },
+    "field": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a groove holding chips and the text, wrapping as it fills"
+    },
+    "input": {
+      "p": "P6",
+      "axis": "space",
+      "why": "the typing space, a 44px target, the same in every theme and on every scene"
+    },
+    "hint": {
+      "p": "P2",
+      "axis": "type",
+      "why": "how to add a tag, in secondary text"
+    }
+  },
+  "states": {
+    "focus-within": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the field shows the focus ring while typing"
+    },
+    "disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the input is disabled when the maximum is reached"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours outline the field, the same in every theme and on every scene"
+    },
+    "aria-invalid=true": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
+    },
+    "data-off": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "an off field dims its whole groove and refuses typing, so it reads as not available"
+    }
+  },
+  "motion": {}
+}

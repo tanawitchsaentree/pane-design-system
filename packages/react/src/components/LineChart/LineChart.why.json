@@ -1,0 +1,82 @@
+{
+  "concept": "Lines 2px wide with round joins, an end dot with a surface ring, direct end labels and a crosshair tooltip.",
+  "default_to_avoid": [
+    {
+      "pattern": "a line chart with thick smoothed curves, dots on every point and a second y axis",
+      "kind": "line chart, trend chart, area chart",
+      "why_not": "smoothing invents values, dots on every point are noise and a second axis misleads"
+    }
+  ],
+  "references": [
+    {
+      "title": "Carbon · Data visualization",
+      "url": "https://carbondesignsystem.com/data-visualization/getting-started/"
+    },
+    {
+      "title": "WAI · Complex images",
+      "url": "https://www.w3.org/WAI/tutorials/images/complex/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "marks carry the data palette, which belongs to the content like a scene or a photo, and the frame around them owns no hue (D-031)"
+    },
+    {
+      "p": "P6",
+      "axis": "colour",
+      "consequence": "status is spoken in text as well as shown in colour",
+      "form": "every value is also in direct labels, a tooltip and a table view, so nothing is read by colour alone"
+    },
+    {
+      "p": "P2",
+      "axis": "type",
+      "consequence": "secondary text keeps the lowest opacity that still measured as passing; text halos count only where WCAG allows them",
+      "form": "every word on the chart is in a text tone, never in a series colour"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave9/",
+    "section": "linechart",
+    "options": [
+      "A thin lines, end labels",
+      "B smoothed curves with dots",
+      "C dual axis"
+    ],
+    "picked": "A thin lines, end labels",
+    "by": "agent",
+    "reason": "A follows the mark specs and labels ends (dataviz). B invents values. C is the first chart mistake."
+  },
+  "parts": {
+    "line": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "each line is 2px in its series colour with round joins"
+    },
+    "area": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "a single series may carry a faint wash of its own colour"
+    },
+    "dot": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the end dot or the dot at the crosshair carries a surface ring"
+    },
+    "live": {
+      "p": "P6",
+      "axis": "type",
+      "why": "a hidden live line says the value in focus so a screen reader hears what the tooltip shows"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the lines keep their data colours so series stay apart"
+    }
+  },
+  "motion": {}
+}

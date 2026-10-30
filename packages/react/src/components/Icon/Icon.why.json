@@ -1,0 +1,30 @@
+{
+  "identity": false,
+  "identity_reason": "an icon is a glyph at one of two sizes in the text colour, so it has no form of its own",
+  "concept": "A glyph at one of the two icon sizes, in the colour of the text beside it, decorative unless it is named.",
+  "parts": {
+    "root": {
+      "p": "P2",
+      "axis": "type",
+      "why": "sits on the text line and inherits the text colour so it reads with its label"
+    },
+    "sm": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the 16px icon step for dense rows and inline with small text"
+    },
+    "md": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the 18px icon step, the default beside body text and in buttons"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "in forced colours the glyph takes the system text colour so it never disappears"
+    }
+  },
+  "motion": {}
+}

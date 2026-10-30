@@ -19,7 +19,7 @@ const out = { generatedAt: new Date().toISOString(), browser: `chromium ${browse
 try {
   for (const scene of SCENES) {
     const page = await browser.newPage({ viewport: { width: 1640, height: 1000 }, deviceScaleFactor: 1 });
-    await page.goto(`${srv.base}/index.html?scene=${scene}${ROUND ? `&round=${ROUND}` : ''}`, { waitUntil: 'networkidle' });
+    await page.goto(`${srv.base}/index.html?backdrop=${scene}${ROUND ? `&round=${ROUND}` : ''}`, { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts.ready);
     const r = await measurePageText(page, out.threshold);
     const groups = {};

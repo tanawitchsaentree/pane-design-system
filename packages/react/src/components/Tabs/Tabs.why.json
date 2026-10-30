@@ -1,10 +1,10 @@
 {
-  "concept": "Tabs are a carved track holding the choices; the chosen one is the blue accent sheet resting in the track (D-009 keeps it blue), and it slides to the tab the reader picks.",
+  "concept": "Tabs are a track holding the choices, lit from above; the chosen one is a lighter pane of glass resting in the track, and it slides to the tab the reader picks.",
   "parts": {
     "list": {
-      "p": "P1",
+      "p": "P3",
       "axis": "depth",
-      "why": "one carved track holding the choices, shade under its top lip and light on its bottom lip"
+      "why": "a shallow track lit from above, with the top-lit rim and a shade under its top edge"
     },
     "trigger": {
       "p": "P5",
@@ -29,9 +29,9 @@
       "why": "the sheet only animates after its first placement, so it never flies in on load"
     },
     "data-state=active": {
-      "p": "P1",
-      "axis": "colour",
-      "why": "the chosen tab is the blue accent sheet (D-009) with white text"
+      "p": "P6",
+      "axis": "shape",
+      "why": "the chosen tab is a lighter pane resting in the track, with a heavier weight, so choice is a raised object as well as a word"
     },
     "active": {
       "p": "P4",
@@ -91,14 +91,14 @@
     {
       "p": "P1",
       "axis": "depth",
-      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur), never from an opaque tint",
+      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur) inside a smoked body thick enough that a pane reads as a slab of glass, with the scene softened behind it",
       "form": "the tabs sit in one recess carved by dimming, so they read as one control"
     },
     {
       "p": "P1",
       "axis": "colour",
-      "consequence": "the scene supplies the hue; the system owns almost no colour of its own, only white at opacities, one ink and one blue",
-      "form": "the chosen tab spends the one blue, as D-009 locked, and the others are text"
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "the chosen tab is a lighter pane of glass; the system spends no hue on choice"
     },
     {
       "p": "P3",
@@ -131,5 +131,18 @@
     "by": "agent",
     "supersedes": "D-009 unselected tabs as rings",
     "reason": "A holds the choices in one carved track (P1 depth) and keeps D-009's blue for the chosen tab as the accent sheet from Button. The unselected rings D-009 named are dropped, because a row of rings reads as a row of buttons; this is logged for review. B has no edge at rest and its lens is faint in light. C is the underlined bar every web app has."
+  },
+  "round4": {
+    "lab": "apps/lab/round4/",
+    "section": "all",
+    "options": [
+      "A one light from above",
+      "B chosen as a recess",
+      "C A with a spectral edge"
+    ],
+    "picked": "A one light from above",
+    "by": "agent",
+    "reason": "The user rejected the blue and showed a reference where one light from above lights every atom alike. A reads that straight: the same top rim and sheen on every surface, the white lit solid for the loud action, chosen items as lighter glass. B makes chosen items recesses, which reads as pressed-off rather than chosen. C adds a rainbow edge, a hue the system no longer owns (P1).",
+    "supersedes": "D-009 chosen tab in blue"
   }
 }

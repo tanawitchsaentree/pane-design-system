@@ -1,0 +1,60 @@
+{
+  "identity": false,
+  "identity_reason": "it is Form, FormField, Input, PasswordInput and Button arranged for signing in, so its look comes from those",
+  "concept": "Sign in, sign up and reset as one column with the right autocomplete names, the one loud submit and other ways in under a divider.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the column is held to a narrow measure and fills it on a phone"
+    },
+    "head": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the heading and its line stack with a small gap"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the heading is the headline size with display tracking"
+    },
+    "description": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the line under the heading is secondary at body size"
+    },
+    "submit": {
+      "p": "P5",
+      "axis": "space",
+      "why": "the submit is the one loud button and fills the width of the column"
+    },
+    "link": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "text links are underlined buttons with a 44px press area"
+    },
+    "or": {
+      "p": "P5",
+      "axis": "space",
+      "why": "other ways in sit under a hairline with the word or so they never compete with the submit"
+    },
+    "providers": {
+      "p": "P3",
+      "axis": "space",
+      "why": "provider buttons stack at full width with an even gap"
+    },
+    "switch": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the line that switches mode is secondary and centred under the form"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring shows when the part is reached by keyboard"
+    }
+  },
+  "motion": {}
+}

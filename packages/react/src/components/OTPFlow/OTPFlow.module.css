@@ -1,0 +1,10 @@
+/* PinInput with the words around it: where the code went, what happened, when a new one can be sent. A
+   wrong code adds the critical mark's diamond to the sentence, so the error reads by shape and words (P6). */
+.root { display: flex; flex-direction: column; align-items: flex-start; gap: var(--ds-otp-flow-gap); font-family: var(--ds-type-family); }
+.lead { margin: 0; font-size: var(--ds-type-body); line-height: var(--ds-type-leading-body); color: var(--ds-text-secondary); }
+.to { color: var(--ds-text-primary); font-weight: var(--ds-type-weight-medium); white-space: nowrap; }
+.status { display: flex; align-items: center; gap: var(--ds-gap-sm); min-block-size: var(--ds-otp-flow-status); margin: 0; font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.wrong { color: var(--ds-text-primary); }
+.glyph { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); flex: none; fill: var(--ds-otp-flow-critical-mark); }
+.resend { display: flex; align-items: center; gap: var(--ds-gap-md); }
+.wait { font-size: var(--ds-type-label); color: var(--ds-text-secondary); font-variant-numeric: tabular-nums; }

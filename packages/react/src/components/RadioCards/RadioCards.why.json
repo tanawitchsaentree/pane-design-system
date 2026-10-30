@@ -1,0 +1,144 @@
+{
+  "concept": "One choice from a few options that each need a sentence, drawn as small panes, the chosen one chosen glass with a check.",
+  "default_to_avoid": [
+    {
+      "pattern": "big bordered boxes with a coloured border on the selected one (pricing cards) as the radio cards",
+      "kind": "radio cards, choice cards, option cards, plan picker",
+      "why_not": "a coloured border is a hue and a single cue; the choice must be a shape and a mark too"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA APG · Radio group",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "each card is a level-2 surface inside the pane; the chosen one lifts as chosen glass"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the chosen card carries a check in its corner, a mark and not only a colour"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "arrow keys move between cards and choose, like any radio group"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave5/",
+    "section": "radiocards",
+    "options": [
+      "A level-2 cards, chosen glass with a check",
+      "B bordered boxes, coloured border",
+      "C radio dots with text"
+    ],
+    "picked": "A level-2 cards, chosen glass with a check",
+    "by": "agent",
+    "reason": "A uses the stack and adds a mark (P6). B is a colour cue only. C works but loses the room a plan or a speed needs."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the question above the cards, the same in every theme and on every scene"
+    },
+    "legend": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the question in the label size, the group’s name"
+    },
+    "grid": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the cards in a grid that wraps before a card gets narrower than its title"
+    },
+    "c2": {
+      "p": "P3",
+      "axis": "space",
+      "why": "two cards per row when there are two or four choices"
+    },
+    "c3": {
+      "p": "P3",
+      "axis": "space",
+      "why": "three cards per row when there are three or six choices"
+    },
+    "card": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a level-2 surface with the faint edge, a 44px-plus target"
+    },
+    "head": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the title and the mark on one line"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the option’s name in the body size, semibold"
+    },
+    "mark": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a ring that fills with the loud solid and a check when chosen"
+    },
+    "check": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the check inside the mark, the same in every theme and on every scene"
+    },
+    "description": {
+      "p": "P2",
+      "axis": "type",
+      "why": "a line or two in secondary text that helps the reader choose"
+    }
+  },
+  "states": {
+    "hover": {
+      "p": "P4",
+      "axis": "colour",
+      "why": "a card lightens under the pointer at hover pace"
+    },
+    "data-state=checked": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the chosen card is chosen glass with its mark filled"
+    },
+    "data-disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a disabled card uses the shared disabled opacity"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the shared focus ring round the focused card"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours outline the cards and the chosen one"
+    },
+    "aria-invalid=true": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the card tint eases at hover pace, the same in every theme and on every scene"
+    }
+  }
+}

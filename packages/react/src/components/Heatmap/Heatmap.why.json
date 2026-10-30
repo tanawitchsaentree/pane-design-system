@@ -1,0 +1,93 @@
+{
+  "concept": "A grid of cells in one hue from faint to full by value, with a 2px gap and a scale that says which end is more.",
+  "default_to_avoid": [
+    {
+      "pattern": "a heatmap in a rainbow scale from blue through green to red",
+      "kind": "heatmap, matrix, calendar heatmap",
+      "why_not": "a rainbow has no order a reader can see and fails colour blindness; Pane uses one hue from faint to full"
+    }
+  ],
+  "references": [
+    {
+      "title": "Carbon · Data visualization",
+      "url": "https://carbondesignsystem.com/data-visualization/getting-started/"
+    },
+    {
+      "title": "WAI · Complex images",
+      "url": "https://www.w3.org/WAI/tutorials/images/complex/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "marks carry the data palette, which belongs to the content like a scene or a photo, and the frame around them owns no hue (D-031)"
+    },
+    {
+      "p": "P6",
+      "axis": "colour",
+      "consequence": "status is spoken in text as well as shown in colour",
+      "form": "every value is also in direct labels, a tooltip and a table view, so nothing is read by colour alone"
+    },
+    {
+      "p": "P2",
+      "axis": "type",
+      "consequence": "secondary text keeps the lowest opacity that still measured as passing; text halos count only where WCAG allows them",
+      "form": "every word on the chart is in a text tone, never in a series colour"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave9/",
+    "section": "heatmap",
+    "options": [
+      "A one hue, faint to full",
+      "B rainbow scale",
+      "C numbers in every cell"
+    ],
+    "picked": "A one hue, faint to full",
+    "by": "agent",
+    "reason": "A is sequential, one hue light to dark (dataviz). B has no visible order. C is a table, which the table view already is."
+  },
+  "parts": {
+    "cell": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "each cell is the first data hue at a strength set by its value"
+    },
+    "scale": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the scale under the grid gives the lowest and highest values in the secondary tone"
+    },
+    "ramp": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "the ramp shows the hue from faint to full and turns in RTL"
+    },
+    "live": {
+      "p": "P6",
+      "axis": "type",
+      "why": "a hidden live line says the value in focus so a screen reader hears what the tooltip shows"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the cells keep their shade so the grid still reads"
+    },
+    "data-on": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the cell in focus is outlined in the primary tone"
+    }
+  },
+  "motion": {
+    "opacity": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "a cell eases to its new strength when the data changes"
+    }
+  }
+}

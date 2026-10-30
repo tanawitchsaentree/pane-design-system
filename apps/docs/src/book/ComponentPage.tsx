@@ -99,8 +99,11 @@ function LiveDemo({ c, m }: { c: ComponentChapter; m: Meta }) {
           : <Select label="Variant" size="sm" value="default" onValueChange={() => {}} options={[{ value: 'default', label: `${c.name} has one variant` }]} />}</div>
         {dims.slice(1).map(([k, opts]) => <div key={k} data-selector={k}><Select label={k[0].toUpperCase() + k.slice(1)} size="sm" value={picked[k]} onValueChange={(v) => setPicked({ ...picked, [k]: v })} options={opts.map((o) => ({ value: o, label: o }))} /></div>)}
       </div>
+      {/* the stage and its code are one unit, held tighter than the steps above them */}
+      <div className="live-demo-result">
       <div data-theme={theme} className="live-demo-stage"><Stage>{!subject ? <c.hero.Render /> : subject.bare ? subject.render(picked) : <OnPane>{subject.render(picked)}</OnPane>}</Stage></div>
       {subject && <CodeBlock code={subject.code(picked)} label="TSX" />}
+      </div>
     </div>
   );
 }
@@ -213,8 +216,8 @@ export function ComponentPage({ c, tab }: { c: ComponentChapter; tab: Tab }) {
       {tab === 'style' && (
         <>
           <StyleTab name={c.name} kinds={m.kinds} sizes={m.sizes} backdrops={<Backdrops c={c} />} />
-          <Section id="why" title="Why it looks and moves like this"><Reasons name={c.name} /></Section>
-          <Section id="css" title="CSS API" wide>
+          <Section id="why" title="Why it looks and moves like this" fold><Reasons name={c.name} /></Section>
+          <Section id="css" title="CSS API" wide fold>
             <p className="muted">Custom properties this component reads, parsed from its CSS module at build time, with the CSS property each one drives.</p>
             <TokensUsed component={c.name} />
           </Section>
@@ -224,10 +227,18 @@ export function ComponentPage({ c, tab }: { c: ComponentChapter; tab: Tab }) {
       {tab === 'code' && (
         <>
           <Section id="import" title="Import and use">
-            <Code label="Install">{'pnpm add pane-tokens pane-react'}</Code>
+            <Code label="Install">{'npm install /path/to/release/pane-react-<version>.tgz   # not on npm yet; see Getting started'}</Code>
             <Code label="Import">{c.importLine}</Code>
             <Code label="Usage">{c.usage}</Code>
           </Section>
+          {c.html && (
+            <Section id="without-react" title="Without React">
+              <p>A site without React uses the same tokens and this stylesheet, and writes the markup itself. It looks the same as the component.</p>
+              <Code label="head">{`<link rel="stylesheet" href="https://pane-design-system.pages.dev/pane-tokens.css">\n<link rel="stylesheet" href="${c.html.css}">`}</Code>
+              <Code label="HTML">{c.html.snippet}</Code>
+              <p>{c.html.note}</p>
+            </Section>
+          )}
           <Section id="hero" title="In use" wide>
             <p>{c.hero.intro}</p>
             <Example title={c.hero.title} code={c.hero.code} plain={c.hero.plain} backdrop={c.hero.backdrop}><c.hero.Render /></Example>

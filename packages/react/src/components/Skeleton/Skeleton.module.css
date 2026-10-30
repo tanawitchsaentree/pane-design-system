@@ -1,0 +1,9 @@
+/* A recess where content will land: the same carve as a field, breathing slowly (P4 settle, not flash). */
+.root { display: block; background: var(--ds-skeleton-bg); box-shadow: var(--ds-skeleton-carve); animation: breathe var(--ds-motion-breathe) var(--ds-motion-easing-inout) infinite alternate; }
+.stack { display: flex; flex-direction: column; gap: var(--ds-skeleton-gap); inline-size: 100%; }
+.text { block-size: var(--ds-skeleton-line); border-radius: var(--ds-corner-round); inline-size: 100%; }
+.last { inline-size: 62%; }
+.block { inline-size: 100%; block-size: 100%; min-block-size: var(--ds-skeleton-line); border-radius: var(--ds-corner-media); }
+.circle { inline-size: var(--ds-control-avatar-md); block-size: var(--ds-control-avatar-md); border-radius: var(--ds-corner-round); }
+@keyframes breathe { from { opacity: var(--ds-skeleton-dim); } }
+@media (forced-colors: active) { .root { background: GrayText; } }

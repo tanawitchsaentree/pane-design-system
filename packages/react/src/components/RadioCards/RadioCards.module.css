@@ -1,0 +1,22 @@
+/* Radio buttons as small panes inside a pane (level 2, R-013): the chosen one is chosen glass with a check
+   in its corner, so the choice is a mark and a shape, never only a colour (P6). */
+.root { display: flex; flex-direction: column; gap: var(--ds-gap-md); font-family: var(--ds-type-family); }
+.legend { font-size: var(--ds-type-label); color: var(--ds-text-primary); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--ds-radio-cards-min)), 1fr)); gap: var(--ds-gap-md); }
+.c2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.c3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.card { display: flex; flex-direction: column; gap: var(--ds-gap-xs); padding: var(--ds-gap-xl); border: 0; border-radius: var(--ds-corner-media); background: var(--ds-radio-cards-bg); box-shadow: var(--ds-radio-cards-edge), var(--ds-radio-cards-ring); color: var(--ds-text-primary); font: inherit; text-align: start; cursor: pointer; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
+.card:hover:not([data-disabled]) { background: var(--ds-radio-cards-hover); }
+.card[data-state='checked'] { background: linear-gradient(180deg, var(--ds-radio-cards-on-top), var(--ds-radio-cards-on-foot)); box-shadow: var(--ds-radio-cards-on-edge), var(--ds-radio-cards-ring); }
+.card[data-disabled] { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
+.card:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.head { display: flex; align-items: center; justify-content: space-between; gap: var(--ds-gap-md); }
+.title { font-size: var(--ds-type-body); font-weight: var(--ds-type-weight-semibold); }
+.mark { display: inline-grid; place-items: center; flex: none; inline-size: var(--ds-control-check); block-size: var(--ds-control-check); border-radius: var(--ds-corner-round); background: var(--ds-check-bg); box-shadow: var(--ds-check-carve); }
+.card[data-state='checked'] .mark { background: var(--ds-radio-cards-mark); box-shadow: none; color: var(--ds-radio-cards-mark-fg); }
+.check { display: inline-grid; inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); }
+.check svg { inline-size: 100%; block-size: 100%; fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.description { font-size: var(--ds-type-label); line-height: var(--ds-type-leading-body); color: var(--ds-text-secondary); }
+/* a wrong answer rings every card in the critical mark, like a field (P6) */
+.grid[aria-invalid='true'] .card { outline: var(--ds-width-ring) solid var(--ds-radio-cards-ring-invalid); outline-offset: var(--ds-width-hairline); }
+@media (forced-colors: active) { .card { border: var(--ds-width-hairline) solid ButtonText; } .card[data-state='checked'] { outline: var(--ds-width-ring) solid Highlight; } }

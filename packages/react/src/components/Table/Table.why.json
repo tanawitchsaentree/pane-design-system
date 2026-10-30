@@ -1,0 +1,158 @@
+{
+  "concept": "Rows and columns of data in a real table with a caption, on a level-2 pane with an opaque header that stays in view.",
+  "default_to_avoid": [
+    {
+      "pattern": "a Table with a coloured header row, zebra stripes and vertical borders",
+      "kind": "table, data table, simple table",
+      "why_not": "a coloured header and stripes add hue and lines that compete with the data; Pane uses an opaque sheet-tone header and row hairlines"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI · Tables tutorial",
+      "url": "https://www.w3.org/WAI/tutorials/tables/"
+    },
+    {
+      "title": "Carbon · Data table",
+      "url": "https://carbondesignsystem.com/components/data-table/usage/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the table is one level-2 pane and its header takes the opaque sheet tone so rows can scroll under it"
+    },
+    {
+      "p": "P2",
+      "axis": "type",
+      "consequence": "secondary text keeps the lowest opacity that still measured as passing; text halos count only where WCAG allows them",
+      "form": "headers are secondary at label size and numbers are set at the end in tabular figures"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "a sortable header is a button that fills its 44px header cell and says its order with aria-sort"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave7/",
+    "section": "table",
+    "options": [
+      "A pane with an opaque header",
+      "B coloured header, stripes",
+      "C borders on every cell"
+    ],
+    "picked": "A pane with an opaque header",
+    "by": "agent",
+    "reason": "A keeps the data the loudest thing (P3, P2). B brings hue. C draws a grid around every value."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the table sits on a level-2 pane that scrolls in both directions as a named focusable region"
+    },
+    "table": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the table fills the pane and keeps separate borders so the sticky header keeps its line"
+    },
+    "caption": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the caption names the table above it at label size when it is shown"
+    },
+    "hidden": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a hidden caption is still read so every table has a name for screen readers"
+    },
+    "th": {
+      "p": "P2",
+      "axis": "type",
+      "why": "headers are secondary at label size on the opaque sheet tone and stay in view"
+    },
+    "td": {
+      "p": "P3",
+      "axis": "space",
+      "why": "cells share one padding and a hairline under each row in the divider tone"
+    },
+    "tr": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a row lights under the pointer so the eye can follow it across many columns"
+    },
+    "comfortable": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the comfortable density gives every row at least a 44px height"
+    },
+    "compact": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the compact density trims the cell padding for dense data read with a pointer"
+    },
+    "end": {
+      "p": "P2",
+      "axis": "type",
+      "why": "numbers are set at the end in tabular figures so their digits line up"
+    },
+    "sort": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the sort button fills its header cell so the whole header is the press area"
+    },
+    "glyph": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the sort arrow is faint until its column is sorted, then it points the way"
+    },
+    "on": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the sorted column shows its arrow at full strength in the primary tone"
+    },
+    "desc": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a descending sort turns the same arrow over so one glyph shows both orders"
+    },
+    "empty": {
+      "p": "P6",
+      "axis": "type",
+      "why": "a table with no rows says so in one quiet line across the body instead of showing a blank grid"
+    },
+    "loading": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "while rows load they stay under a scrim that says so, so the reader keeps their place"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "in forced colours the system draws the edges and the fill so the parts stay findable"
+    },
+    "hover": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a row takes the quiet surface under the pointer so it can be followed across columns"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the scrolling region and each sort button show the focus ring when reached by keyboard"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the row highlight fades in on the hover ease instead of flashing"
+    }
+  }
+}

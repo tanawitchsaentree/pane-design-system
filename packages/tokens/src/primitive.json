@@ -20,6 +20,9 @@
       "20": {
         "$value": "#FFFFFF33"
       },
+      "25": {
+        "$value": "#FFFFFF40"
+      },
       "26": {
         "$value": "#FFFFFF42"
       },
@@ -29,20 +32,32 @@
       "30": {
         "$value": "#FFFFFF4D"
       },
+      "40": {
+        "$value": "#FFFFFF66"
+      },
       "42": {
         "$value": "#FFFFFF6B"
       },
       "45": {
         "$value": "#FFFFFF73"
       },
+      "50": {
+        "$value": "#FFFFFF80"
+      },
       "55": {
         "$value": "#FFFFFF8C"
+      },
+      "56": {
+        "$value": "#FFFFFF8F"
       },
       "62": {
         "$value": "#FFFFFF9E"
       },
       "70": {
         "$value": "#FFFFFFB3"
+      },
+      "78": {
+        "$value": "#FFFFFFC7"
       },
       "85": {
         "$value": "#FFFFFFD9",
@@ -55,26 +70,62 @@
         "$value": "#FFFFFFEB",
         "$description": "white at .92. secondary text (D-012: .85 measured 3.3-3.79:1 on the book over sunlit photos)"
       },
+      "95": {
+        "$value": "#FFFFFFF2"
+      },
+      "03": {
+        "$value": "#FFFFFF08"
+      },
+      "05": {
+        "$value": "#FFFFFF0D"
+      },
       "06": {
         "$value": "#FFFFFF0F"
       },
       "08": {
         "$value": "#FFFFFF14"
       },
-      "03": {
-        "$value": "#FFFFFF08"
-      },
       "$extensions": {
         "kiln.why": {
           "p": "P1",
           "why": "white at fixed opacities makes glass, rims, rings and dividers, so each one reads as light on top of the scene and the scene stays visible under it"
         }
-      },
-      "05": {
-        "$value": "#FFFFFF0D"
       }
     },
     "graphite": {
+      "50": {
+        "$value": "#F6F6FB"
+      },
+      "100": {
+        "$value": "#EAEBEF"
+      },
+      "150": {
+        "$value": "#DDDDE2"
+      },
+      "200": {
+        "$value": "#D0D0D5"
+      },
+      "300": {
+        "$value": "#B7B7BB"
+      },
+      "400": {
+        "$value": "#98989C"
+      },
+      "500": {
+        "$value": "#7A7A7E"
+      },
+      "600": {
+        "$value": "#5D5D61"
+      },
+      "700": {
+        "$value": "#444548"
+      },
+      "750": {
+        "$value": "#353539"
+      },
+      "800": {
+        "$value": "#2B2B2E"
+      },
       "850": {
         "$value": "#25252C",
         "$description": "sunken well (code) on a solid dark page"
@@ -94,10 +145,10 @@
       "$extensions": {
         "kiln.why": {
           "p": [
-            "P6",
+            "P1",
             "P7"
           ],
-          "why": "opaque greys for the two places glass is wrong, the reduced-transparency fallback and ordinary reading surfaces such as docs and settings"
+          "why": "one neutral ramp from near-white to near-black, slightly cool so it sits with the ink, for opaque reading surfaces, the reduced-transparency fallback and diagrams; steps light to dark so neighbours read apart"
         }
       }
     },
@@ -105,6 +156,10 @@
       "700": {
         "$value": "#26282D",
         "$description": "the lit top of the ink solid in the light theme (R-010)"
+      },
+      "950": {
+        "$value": "#050506",
+        "$description": "the studio's ground in dark: deep enough that a level-1 pane steps at least 1.15:1 off it (G-EL1; #111214 gave 1.09, #0A0A0C 1.13)"
       },
       "900": {
         "$value": "#111214"
@@ -117,9 +172,24 @@
       }
     },
     "blue": {
+      "50": {
+        "$value": "#F0F8FF"
+      },
+      "100": {
+        "$value": "#DFEEFF"
+      },
+      "200": {
+        "$value": "#C1DDFF"
+      },
+      "300": {
+        "$value": "#9CC7FF"
+      },
       "400": {
         "$value": "#4DA3FF",
         "$description": "blue bright enough to read as a small mark on dark glass"
+      },
+      "500": {
+        "$value": "#4592F6"
       },
       "600": {
         "$value": "#0071E3"
@@ -130,6 +200,12 @@
       "800": {
         "$value": "#0052A8",
         "$description": "the foot of the accent sheet, where its own shade falls (R-010)"
+      },
+      "900": {
+        "$value": "#132B4C"
+      },
+      "950": {
+        "$value": "#0F1B2B"
       },
       "$extensions": {
         "kiln.why": {
@@ -170,13 +246,40 @@
       }
     },
     "green": {
+      "50": {
+        "$value": "#F2F9F3"
+      },
+      "100": {
+        "$value": "#E3F2E5"
+      },
+      "200": {
+        "$value": "#C7E3CC"
+      },
+      "300": {
+        "$value": "#A6D1AD"
+      },
       "400": {
         "$value": "#3FCB77",
         "$description": "green bright enough to read as a small mark on dark glass"
       },
+      "500": {
+        "$value": "#57A76A"
+      },
       "600": {
         "$value": "#13803C",
         "$description": "white text 5.02:1"
+      },
+      "700": {
+        "$value": "#286A3B"
+      },
+      "800": {
+        "$value": "#204D2C"
+      },
+      "900": {
+        "$value": "#18321E"
+      },
+      "950": {
+        "$value": "#121E14"
       },
       "$extensions": {
         "kiln.why": {
@@ -186,13 +289,40 @@
       }
     },
     "amber": {
+      "50": {
+        "$value": "#FCF6ED"
+      },
+      "100": {
+        "$value": "#F7EBD9"
+      },
+      "200": {
+        "$value": "#EDD8B5"
+      },
+      "300": {
+        "$value": "#E0BF88"
+      },
       "400": {
         "$value": "#F5B000",
         "$description": "ink text 9.90:1"
       },
+      "500": {
+        "$value": "#BF8600"
+      },
+      "600": {
+        "$value": "#A26700"
+      },
       "700": {
         "$value": "#9A6400",
         "$description": "amber dark enough to read as a small mark on light glass"
+      },
+      "800": {
+        "$value": "#5B3B00"
+      },
+      "900": {
+        "$value": "#3A2802"
+      },
+      "950": {
+        "$value": "#221909"
       },
       "$extensions": {
         "kiln.why": {
@@ -202,13 +332,40 @@
       }
     },
     "red": {
+      "50": {
+        "$value": "#FFF3F1"
+      },
+      "100": {
+        "$value": "#FFE5E0"
+      },
+      "200": {
+        "$value": "#FFCDC4"
+      },
+      "300": {
+        "$value": "#FBAEA0"
+      },
       "400": {
         "$value": "#FF6B5E",
         "$description": "red bright enough to read as a small mark on dark glass"
       },
+      "500": {
+        "$value": "#E56452"
+      },
       "600": {
         "$value": "#C42B1C",
         "$description": "white text 5.66:1"
+      },
+      "700": {
+        "$value": "#9A3226"
+      },
+      "800": {
+        "$value": "#70271E"
+      },
+      "900": {
+        "$value": "#471C16"
+      },
+      "950": {
+        "$value": "#291410"
       },
       "$extensions": {
         "kiln.why": {
@@ -218,8 +375,20 @@
       }
     },
     "ink-a": {
+      "10": {
+        "$value": "#1112141A"
+      },
+      "12": {
+        "$value": "#1112141F"
+      },
       "14": {
         "$value": "#11121424"
+      },
+      "16": {
+        "$value": "#11121429"
+      },
+      "20": {
+        "$value": "#11121433"
       },
       "25": {
         "$value": "#11121440"
@@ -227,11 +396,41 @@
       "30": {
         "$value": "#1112144D"
       },
+      "40": {
+        "$value": "#11121466"
+      },
+      "50": {
+        "$value": "#11121480"
+      },
       "56": {
         "$value": "#1112148F"
       },
+      "62": {
+        "$value": "#1112149E"
+      },
+      "70": {
+        "$value": "#111214B3"
+      },
       "78": {
         "$value": "#111214C7"
+      },
+      "85": {
+        "$value": "#111214D9"
+      },
+      "90": {
+        "$value": "#111214E6"
+      },
+      "95": {
+        "$value": "#111214F2"
+      },
+      "03": {
+        "$value": "#11121408"
+      },
+      "05": {
+        "$value": "#1112140D"
+      },
+      "06": {
+        "$value": "#1112140F"
       },
       "08": {
         "$value": "#11121414"
@@ -241,9 +440,6 @@
           "p": "P1",
           "why": "ink at fixed opacities builds the light theme the same way white builds the dark one, with rings, dividers and secondary text over a lifted scene"
         }
-      },
-      "06": {
-        "$value": "#1112140F"
       }
     },
     "paper": {
@@ -259,6 +455,10 @@
         "$value": "#E9E9EE",
         "$description": "sunken well (code) on a solid light page"
       },
+      "150": {
+        "$value": "#ECEDF0",
+        "$description": "the shaded foot of the white loud solid, lit from above (R-012)"
+      },
       "$extensions": {
         "kiln.why": {
           "p": [
@@ -272,7 +472,7 @@
     "$extensions": {
       "kiln.why": {
         "p": "P1",
-        "why": "the system owns almost no colour because the scene behind the glass supplies the hue; white is the base every translucent layer is made of"
+        "why": "the system owns no hue of its own because the scene behind the glass supplies the hue; white is the base every translucent layer is made of"
       }
     },
     "blue-a": {
@@ -305,6 +505,248 @@
           "why": "the bright accent blue at a fixed opacity, the one colour a diagram may use, strong enough to separate a part from the dark ground at 3:1"
         }
       }
+    },
+    "smoke": {
+      "1": {
+        "$value": "#141518C7",
+        "$description": "level 1, a pane: smoked body at 78%"
+      },
+      "2": {
+        "$value": "#FFFFFF12",
+        "$description": "level 2, a surface nested in a pane: +7% white, no second blur"
+      },
+      "3": {
+        "$value": "#1D1E22EB",
+        "$description": "level 3, an overlay such as a dialog: 92%"
+      },
+      "4": {
+        "$value": "#36373DF7",
+        "$description": "level 4, a popover or menu: 96%"
+      },
+      "1-light": {
+        "$value": "#F7F7F9C7"
+      },
+      "2-light": {
+        "$value": "#1112141F"
+      },
+      "3-light": {
+        "$value": "#EBECEFF0"
+      },
+      "4-light": {
+        "$value": "#FFFFFFFA"
+      },
+      "scrim": {
+        "$value": "#00000080",
+        "$description": "under an overlay, the scene and panes dim to half"
+      },
+      "scrim-light": {
+        "$value": "#1112144D"
+      },
+      "$extensions": {
+        "kiln.why": {
+          "p": "P3",
+          "why": "smoked glass bodies for each level of the stack, a measured step apart so a pane, a surface inside it, an overlay and a popover read as four layers (R-013)"
+        }
+      }
+    },
+    "loud": {
+      "top": {
+        "$value": "#F4F3F0"
+      },
+      "foot": {
+        "$value": "#E6E4E0"
+      },
+      "$extensions": {
+        "kiln.why": {
+          "p": "P5",
+          "why": "the loud solid is a warm off-white, lit at its top, so it reads as lit glass rather than a white hole"
+        }
+      }
+    },
+    "chosen": {
+      "top": {
+        "$value": "#4A4B4F"
+      },
+      "foot": {
+        "$value": "#333438"
+      },
+      "top-light": {
+        "$value": "#FFFFFF"
+      },
+      "foot-light": {
+        "$value": "#ECEDF0"
+      },
+      "$extensions": {
+        "kiln.why": {
+          "p": "P6",
+          "why": "a chosen item is a lighter pane of grey glass in dark and white in light, resting in its track"
+        }
+      }
+    },
+    "mesh": {
+      "$type": "color",
+      "base": {
+        "$value": "#ECE7F1",
+        "$description": "aurora mesh: the pale ground the colour pools sit in"
+      },
+      "peach": {
+        "$value": "#F7B27C",
+        "$description": "aurora mesh: warm pool, top left"
+      },
+      "coral": {
+        "$value": "#F2837B",
+        "$description": "aurora mesh: coral pool, top right"
+      },
+      "violet": {
+        "$value": "#5F5BF2",
+        "$description": "aurora mesh: violet pool, low"
+      },
+      "lilac": {
+        "$value": "#B9A3F5",
+        "$description": "aurora mesh: lilac pool, bottom left"
+      }
+    },
+    "mesh-ember": {
+      "$type": "color",
+      "base": {
+        "$value": "#F3E6DF",
+        "$description": "ember mesh: base"
+      },
+      "a": {
+        "$value": "#F5B04C",
+        "$description": "ember mesh: a"
+      },
+      "b": {
+        "$value": "#EE6F7A",
+        "$description": "ember mesh: b"
+      },
+      "c": {
+        "$value": "#6B2E63",
+        "$description": "ember mesh: c"
+      },
+      "d": {
+        "$value": "#D9849C",
+        "$description": "ember mesh: d"
+      }
+    },
+    "mesh-tide": {
+      "$type": "color",
+      "base": {
+        "$value": "#E3EEF2",
+        "$description": "tide mesh: base"
+      },
+      "a": {
+        "$value": "#7FE0D1",
+        "$description": "tide mesh: a"
+      },
+      "b": {
+        "$value": "#7FBCF5",
+        "$description": "tide mesh: b"
+      },
+      "c": {
+        "$value": "#2B3A9E",
+        "$description": "tide mesh: c"
+      },
+      "d": {
+        "$value": "#9CC8E8",
+        "$description": "tide mesh: d"
+      }
+    },
+    "mesh-dusk": {
+      "$type": "color",
+      "base": {
+        "$value": "#E8E4F0",
+        "$description": "dusk mesh: base"
+      },
+      "a": {
+        "$value": "#C9A9F2",
+        "$description": "dusk mesh: a"
+      },
+      "b": {
+        "$value": "#F09AB3",
+        "$description": "dusk mesh: b"
+      },
+      "c": {
+        "$value": "#1E2A5C",
+        "$description": "dusk mesh: c"
+      },
+      "d": {
+        "$value": "#8C7BD6",
+        "$description": "dusk mesh: d"
+      }
+    },
+    "data": {
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": "P1",
+          "why": "data colours belong to the content a chart shows, like a scene or a photo; the interface around the chart still owns no hue (D-031)"
+        }
+      },
+      "light-1": {
+        "$value": "#2A78D6",
+        "$description": "data slot 1, blue, stepped for the light surface; order is the CVD-safety mechanism (validated adjacent pairs)"
+      },
+      "dark-1": {
+        "$value": "#3987E5",
+        "$description": "data slot 1, blue, stepped for the dark surface; same hue as light-1"
+      },
+      "light-2": {
+        "$value": "#EB6834",
+        "$description": "data slot 2, orange, stepped for the light surface; order is the CVD-safety mechanism (validated adjacent pairs)"
+      },
+      "dark-2": {
+        "$value": "#D95926",
+        "$description": "data slot 2, orange, stepped for the dark surface; same hue as light-2"
+      },
+      "light-3": {
+        "$value": "#1BAF7A",
+        "$description": "data slot 3, aqua, stepped for the light surface; order is the CVD-safety mechanism (validated adjacent pairs)"
+      },
+      "dark-3": {
+        "$value": "#199E70",
+        "$description": "data slot 3, aqua, stepped for the dark surface; same hue as light-3"
+      },
+      "light-4": {
+        "$value": "#EDA100",
+        "$description": "data slot 4, yellow, stepped for the light surface; order is the CVD-safety mechanism (validated adjacent pairs)"
+      },
+      "dark-4": {
+        "$value": "#C98500",
+        "$description": "data slot 4, yellow, stepped for the dark surface; same hue as light-4"
+      },
+      "light-5": {
+        "$value": "#E87BA4",
+        "$description": "data slot 5, magenta, stepped for the light surface; order is the CVD-safety mechanism (validated adjacent pairs)"
+      },
+      "dark-5": {
+        "$value": "#D55181",
+        "$description": "data slot 5, magenta, stepped for the dark surface; same hue as light-5"
+      },
+      "light-6": {
+        "$value": "#008300",
+        "$description": "data slot 6, green, stepped for the light surface; order is the CVD-safety mechanism (validated adjacent pairs)"
+      },
+      "dark-6": {
+        "$value": "#008300",
+        "$description": "data slot 6, green, stepped for the dark surface; same hue as light-6"
+      },
+      "light-7": {
+        "$value": "#6250D6",
+        "$description": "data slot 7, violet, stepped for the light surface; order is the CVD-safety mechanism (validated adjacent pairs)"
+      },
+      "dark-7": {
+        "$value": "#9085E9",
+        "$description": "data slot 7, violet, stepped for the dark surface; same hue as light-7"
+      },
+      "light-8": {
+        "$value": "#E34948",
+        "$description": "data slot 8, red, stepped for the light surface; order is the CVD-safety mechanism (validated adjacent pairs)"
+      },
+      "dark-8": {
+        "$value": "#E66767",
+        "$description": "data slot 8, red, stepped for the dark surface; same hue as light-8"
+      }
     }
   },
   "blur": {
@@ -320,6 +762,10 @@
         "p": "P2",
         "why": "64px is the blur where small bright spots in the photos average out enough for text to pass; 20px is for small scrims that must keep detail"
       }
+    },
+    "mesh": {
+      "$value": "40px",
+      "$description": "melts the mesh's pools into each other: wide enough that no pool keeps an edge"
     }
   },
   "saturate": {
@@ -442,6 +888,10 @@
     "control-lg": {
       "$value": "44px"
     },
+    "control-xl": {
+      "$value": "56px",
+      "$description": "a control the hand holds as a whole bar, such as a fill slider: 56px"
+    },
     "icon-sm": {
       "$value": "16px"
     },
@@ -480,6 +930,10 @@
       "$value": "180px",
       "$description": "narrowest a dropdown list may be"
     },
+    "slider-min": {
+      "$value": "240px",
+      "$description": "the shortest a slider may get: enough travel to set a value by feel, and a width that does not follow its value text"
+    },
     "$extensions": {
       "kiln.why": {
         "p": "P6",
@@ -494,6 +948,86 @@
     },
     "mark": {
       "$value": "10px"
+    },
+    "kbd": {
+      "$value": "22px",
+      "$description": "a keycap: the height of a caption line with a little room"
+    },
+    "overlay-md": {
+      "$value": "480px",
+      "$description": "a dialog's width: a comfortable measure for a question and its answer"
+    },
+    "overlay-lg": {
+      "$value": "640px",
+      "$description": "a wide dialog or a bottom sheet on a tablet: a short form fits"
+    },
+    "overlay-side": {
+      "$value": "360px",
+      "$description": "a side drawer: the width of a phone, for navigation and filters"
+    },
+    "overlay-pop": {
+      "$value": "320px",
+      "$description": "a popover: wide enough for a sentence and two controls"
+    },
+    "overlay-tip": {
+      "$value": "240px",
+      "$description": "a tooltip: a few words, never a paragraph"
+    },
+    "overlay-toast": {
+      "$value": "400px",
+      "$description": "the toast column at the top end"
+    },
+    "grabber": {
+      "$value": "36px",
+      "$description": "the grabber on a bottom sheet: wide enough to find with a thumb"
+    },
+    "fab": {
+      "$value": "56px",
+      "$description": "a floating action button: a step larger than an IconButton, at thumb reach"
+    },
+    "listbox-max": {
+      "$value": "320px",
+      "$description": "a popup list stops at about seven rows and scrolls, so it never covers the page"
+    },
+    "input-min": {
+      "$value": "96px",
+      "$description": "the text part of a field that holds chips never gets narrower than a short word"
+    },
+    "radio-card-min": {
+      "$value": "200px",
+      "$description": "a radio card is never narrower than a short title and a line of detail"
+    },
+    "star": {
+      "$value": "22px",
+      "$description": "a rating star: big enough to read the score at a glance"
+    },
+    "nav-bar": {
+      "$value": "60px",
+      "$description": "a top bar: a 44px row with room above and below"
+    },
+    "nav-item": {
+      "$value": "52px",
+      "$description": "a bottom-nav destination: icon and label stacked"
+    },
+    "nav-item-min": {
+      "$value": "64px",
+      "$description": "the narrowest a bottom-nav destination gets"
+    },
+    "nav-panel": {
+      "$value": "320px",
+      "$description": "a navigation panel: a column of links with a line each"
+    },
+    "segment-min": {
+      "$value": "72px",
+      "$description": "the narrowest segment of a segmented control"
+    },
+    "scale-label": {
+      "$value": "112px",
+      "$description": "the label column of a Scale row: room for a two-word axis name, the same in every row so tracks line up"
+    },
+    "scale-word": {
+      "$value": "96px",
+      "$description": "the word column of a Scale row, the width of a short level word"
     }
   },
   "radius": {
@@ -651,10 +1185,11 @@
       }
     },
     "well": {
-      "$value": "inset 0 1px 2px #0000004D"
+      "$value": "inset 0 0 0 1px #FFFFFF0D, inset 0 2px 6px #000000B3",
+      "$description": "a recessed track holding its choices"
     },
     "well-light": {
-      "$value": "inset 0 1px 2px #00000024"
+      "$value": "inset 0 0 0 1px #11121414, inset 0 2px 6px #11121426"
     },
     "cast": {
       "$value": "0 1px 2px #00000040, 0 10px 22px -10px #00000080",
@@ -695,11 +1230,11 @@
       "$value": "inset 0 2px 3px #00143C73, inset 0 0 0 1px #003C8C80"
     },
     "groove": {
-      "$value": "inset 0 2px 4px #0000008C, inset 0 -2px 0 #FFFFFFCC, inset 0 0 0 1px #FFFFFF38",
-      "$description": "a field is a groove in the glass; its lit bottom lip is the 3:1 edge"
+      "$value": "inset 0 2px 4px #0000008C, inset 0 -1px 0 #FFFFFF33, inset 0 0 0 1px #FFFFFF8F",
+      "$description": "a field is a groove in the glass: shade under its top lip, a faint light on its bottom lip, and an edge all round that carries the 3:1 boundary"
     },
     "groove-light": {
-      "$value": "inset 0 2px 4px #1112144D, inset 0 -2px 0 #FFFFFF, inset 0 0 0 1px #1112148F"
+      "$value": "inset 0 2px 4px #1112144D, inset 0 -1px 0 #FFFFFF99, inset 0 0 0 1px #1112148F"
     },
     "lens": {
       "$value": "inset 0 1px 0 #FFFFFF29, inset 0 0 0 1px #FFFFFF0D",
@@ -718,6 +1253,106 @@
     "portrait": {
       "$value": "inset 0 0 0 1px #FFFFFF47, inset 0 1px 0 #FFFFFF73, inset 0 -8px 14px -10px #0000008C",
       "$description": "a portrait behind a lens: a rim of light, brightest at the top, and shade at the foot"
+    },
+    "track": {
+      "$value": "inset 0 1px 3px #00000080",
+      "$description": "a track is a shallow recess: light from above leaves a shade under its top edge"
+    },
+    "track-light": {
+      "$value": "inset 0 1px 3px #1112142E"
+    },
+    "loud-glow": {
+      "$value": "0 0 0 1px #FFFFFF4D, 0 8px 26px -6px #FFFFFF61, 0 2px 6px #00000059",
+      "$description": "the promoted solid glows with its own light onto the pane"
+    },
+    "loud-glow-light": {
+      "$value": "inset 0 1px 0 #FFFFFF38, 0 10px 22px -8px #1112148C"
+    },
+    "quiet-cast": {
+      "$value": "0 6px 14px -8px #00000099",
+      "$description": "a quiet glass object resting on the pane"
+    },
+    "quiet-cast-light": {
+      "$value": "0 6px 14px -8px #1112144D"
+    },
+    "chosen-cast": {
+      "$value": "0 4px 10px -4px #00000099",
+      "$description": "a chosen pane resting in its track"
+    },
+    "chosen-cast-light": {
+      "$value": "0 4px 10px -4px #1112144D"
+    },
+    "on-glow": {
+      "$value": "inset 0 1px 2px #00000040, 0 0 6px #FFFFFF59, 0 0 18px #FFFFFF40",
+      "$description": "a switch that is on is lit, and its light spills a little onto the pane"
+    },
+    "on-glow-light": {
+      "$value": "inset 0 1px 2px #00000066"
+    },
+    "level-1": {
+      "$value": "0 14px 30px -10px #000000BF, 0 2px 6px #00000080",
+      "$description": "a pane floats well off the scene"
+    },
+    "level-1-light": {
+      "$value": "0 14px 30px -12px #11121440, 0 2px 6px #11121414"
+    },
+    "level-2": {
+      "$value": "0 6px 14px -8px #000000A6",
+      "$description": "a nested surface rests on its pane"
+    },
+    "level-2-light": {
+      "$value": "0 6px 14px -8px #11121426"
+    },
+    "level-3": {
+      "$value": "0 30px 80px -20px #000000E6, 0 8px 24px #00000080",
+      "$description": "an overlay floats highest, over a dimmed scene"
+    },
+    "level-3-light": {
+      "$value": "0 30px 80px -24px #11121459, 0 8px 24px #1112141F"
+    },
+    "level-4": {
+      "$value": "0 18px 40px -12px #000000D9, 0 4px 12px #00000073"
+    },
+    "level-4-light": {
+      "$value": "0 18px 40px -12px #1112144D, 0 4px 12px #1112141A"
+    },
+    "edge": {
+      "$value": "inset 0 0 0 1px #FFFFFF13, inset 0 -10px 18px -12px #00000099",
+      "$description": "a slab of glass: a faint edge all round and shade gathering at its foot"
+    },
+    "edge-light": {
+      "$value": "inset 0 0 0 1px #11121414, inset 0 -10px 18px -12px #1112140F"
+    },
+    "bloom": {
+      "$value": "0 0 0 1px #FFFFFF80, 0 0 10px #FFFFFF59, 0 8px 30px -4px #FFFFFF59, 0 4px 12px #00000066",
+      "$description": "the loud solid blooms with its own light"
+    },
+    "bloom-light": {
+      "$value": "inset 0 1px 0 #FFFFFF38, 0 10px 22px -8px #1112148C"
+    },
+    "glow-soft": {
+      "$value": "0 0 6px #FFFFFF59, 0 0 18px #FFFFFF40",
+      "$description": "emitted light around a lit value or a powered part in dark: centred, no offset, back to the ground within ~3× its blur"
+    },
+    "glow-soft-light": {
+      "$value": "0 0 0 0 #FFFFFF00",
+      "$description": "light theme: nothing emits; the same part reads by its solid ink"
+    },
+    "glow-mark": {
+      "$value": "0 0 3px #FFFFFF80, 0 0 10px 1px #FFFFFF59",
+      "$description": "emitted light around a small mark that says now (a current-step dot, a value marker); relatively wider because the mark is small"
+    },
+    "glow-mark-light": {
+      "$value": "0 0 0 0 #FFFFFF00",
+      "$description": "light theme: no glow"
+    },
+    "ring": {
+      "$value": "inset 0 0 0 1px #FFFFFF8F",
+      "$description": "the groove ring alone: a hairline all round that carries a 3:1 boundary on dark glass"
+    },
+    "ring-light": {
+      "$value": "inset 0 0 0 1px #111214B3",
+      "$description": "the light-theme groove ring alone: an ink hairline all round that carries a 3:1 boundary on pale glass"
     }
   },
   "duration": {
@@ -739,6 +1374,14 @@
         "p": "P4",
         "why": "200ms for a reply to a press, 420ms for hover and small changes, 640ms for arriving and scene changes, so motion settles instead of snapping"
       }
+    },
+    "spin": {
+      "$value": "900ms",
+      "$description": "one turn of a spinner: steady, not frantic"
+    },
+    "breathe": {
+      "$value": "1400ms",
+      "$description": "half a breath of a skeleton: slow enough to read as waiting, not flashing"
     }
   },
   "easing": {
@@ -923,6 +1566,48 @@
         "p": "P6",
         "why": "one fixed half opacity, so every disabled control fades by the same amount and reads as the same state everywhere"
       }
+    },
+    "ambient": {
+      "$value": 0.55,
+      "$description": "how strongly a mesh object lights what is under it"
+    },
+    "dim": {
+      "$value": 0.55,
+      "$description": "how far a skeleton fades at the bottom of its breath"
+    },
+    "wash": {
+      "$value": 0.1,
+      "$description": "the wash under a single line series, a tint that never reads as a solid block"
+    }
+  },
+  "ratio": {
+    "$type": "number",
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3"
+        ],
+        "why": "the raw proportions behind the named aspect ratios, one place to change a shape"
+      }
+    },
+    "square": {
+      "$value": "1 / 1"
+    },
+    "photo": {
+      "$value": "4 / 3"
+    },
+    "video": {
+      "$value": "16 / 9"
+    },
+    "portrait": {
+      "$value": "3 / 4"
+    },
+    "wide": {
+      "$value": "21 / 9"
+    },
+    "sheet-max": {
+      "$value": "85dvh",
+      "$description": "a bottom sheet stops short of the top so the screen behind still shows"
     }
   }
 }

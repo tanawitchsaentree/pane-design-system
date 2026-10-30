@@ -1,0 +1,112 @@
+{
+  "concept": "One number that matters said large, its label above it and its change below with an arrow, a mark colour and words.",
+  "default_to_avoid": [
+    {
+      "pattern": "a Stat tile with a green or red percentage badge and no arrow",
+      "kind": "stat, KPI, metric, number tile",
+      "why_not": "a coloured badge says up or down only by hue and adds a second pane; Pane says it with an arrow and words"
+    }
+  ],
+  "references": [
+    {
+      "title": "Carbon · Data visualization, KPI",
+      "url": "https://carbondesignsystem.com/data-visualization/dashboards/"
+    },
+    {
+      "title": "GOV.UK · Performance data",
+      "url": "https://design-system.service.gov.uk/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P2",
+      "axis": "type",
+      "consequence": "secondary text keeps the lowest opacity that still measured as passing; text halos count only where WCAG allows them",
+      "form": "the number takes the headline size and display tracking while the label and the change stay at label size"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the change carries an arrow that points up or down and words read aloud, so it reads without its colour"
+    },
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "only the arrow takes a status mark colour, and the number and its words stay in the text tones"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave7/",
+    "section": "stat",
+    "options": [
+      "A large number, arrow and mark",
+      "B coloured badge for the change",
+      "C sparkline under the number"
+    ],
+    "picked": "A large number, arrow and mark",
+    "by": "agent",
+    "reason": "A says the change by shape and words (P6) with colour only on the arrow (P1). B rests on a hue and adds a pane. C belongs to Charts in wave 9."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the label, number and change stack tightly so they read as one statement"
+    },
+    "label": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the label is secondary at label size because the number is what is read first"
+    },
+    "value": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the number is the headline size with tight tracking in proportional figures, which read better large"
+    },
+    "foot": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the change and its caption share a row and wrap together on a narrow card"
+    },
+    "change": {
+      "p": "P6",
+      "axis": "type",
+      "why": "the change is primary and medium weight so it reads as news under the number"
+    },
+    "arrow": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the arrow shows the direction by shape and takes the mark colour of its sentiment"
+    },
+    "down": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a fall turns the same arrow over so up and down are one glyph in two directions"
+    },
+    "positive": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "good news colours the arrow with the positive mark from the status scale and nothing else"
+    },
+    "negative": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "bad news colours the arrow with the critical mark from the status scale and nothing else"
+    },
+    "caption": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the caption is secondary and says what the change is measured against"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "in forced colours the system draws the edges and the fill so the parts stay findable"
+    }
+  },
+  "motion": {}
+}

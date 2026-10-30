@@ -1,0 +1,94 @@
+{
+  "concept": "A link in the text colour found by its underline, because Pane owns no hue and a link must still be told apart from text.",
+  "default_to_avoid": [
+    {
+      "pattern": "a blue underlined link (the browser default, Material link)",
+      "kind": "link, anchor, hyperlink",
+      "why_not": "blue is a hue the system does not own (D-024); an underline does the finding without one"
+    }
+  ],
+  "references": [
+    {
+      "title": "WCAG 2.2 · 1.4.1 Use of Color",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "the link is the text colour with a quiet underline; the underline, not a hue, says it is a link"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "a focus ring on the link like every control, on any backdrop"
+    },
+    {
+      "p": "P2",
+      "axis": "type",
+      "consequence": "secondary text keeps the lowest opacity that still measured as passing; text halos count only where WCAG allows them",
+      "form": "the underline sits below the baseline so descenders stay readable"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave2/",
+    "section": "link",
+    "options": [
+      "A underline in text colour",
+      "B blue text",
+      "C pill chip link"
+    ],
+    "picked": "A underline in text colour",
+    "by": "agent",
+    "reason": "A finds the link without a hue (P1) and meets 1.4.1 by its underline. B brings back the blue the user rejected (R-012). C makes a sentence full of buttons."
+  },
+  "parts": {
+    "root": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "the text colour with an underline offset below the baseline so descenders stay clear"
+    },
+    "inline": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "in a sentence the underline is always there, quiet, so the link is found without a hue"
+    },
+    "standalone": {
+      "p": "P2",
+      "axis": "type",
+      "why": "on its own line the weight marks it, the underline arrives on hover, and the line is a 44px target"
+    },
+    "sr": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "words for a screen reader that the link opens a new tab, never shown"
+    }
+  },
+  "states": {
+    "hover": {
+      "p": "P4",
+      "axis": "colour",
+      "why": "the underline darkens and thickens at hover pace, an answer to the pointer"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the shared focus ring so a keyboard user sees where they are"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours use the system link colour, the same in every theme and on every scene"
+    }
+  },
+  "motion": {
+    "text-decoration-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the underline colour eases at hover pace with the pointer"
+    }
+  }
+}

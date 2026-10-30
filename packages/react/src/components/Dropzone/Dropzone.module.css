@@ -1,0 +1,14 @@
+/* A large recess carved into the pane, the field's groove at the size of a drop target; a file over it
+   lifts it into chosen glass with a ring (P3 depth, P6 shape). No dashed border: a dash is a print idiom. */
+.root { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--ds-dropzone-gap); box-sizing: border-box; inline-size: 100%; min-block-size: var(--ds-dropzone-min); padding: var(--ds-dropzone-padding); border: 0; border-radius: var(--ds-corner-media); background: var(--ds-dropzone-bg); box-shadow: var(--ds-dropzone-groove); color: var(--ds-text-primary); font-family: var(--ds-type-family); text-align: center; cursor: pointer; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing), box-shadow var(--ds-motion-hover) var(--ds-motion-easing); }
+.root:hover:not(:disabled) { box-shadow: var(--ds-dropzone-groove), inset 0 0 0 var(--ds-width-hairline) var(--ds-dropzone-ring-hover); }
+.root[data-over] { background: linear-gradient(180deg, var(--ds-dropzone-over-top), var(--ds-dropzone-over-foot)); box-shadow: inset 0 0 0 var(--ds-width-ring) var(--ds-dropzone-over-ring), var(--ds-dropzone-over-cast); }
+.root:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.root:disabled { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
+.well { display: inline-grid; place-items: center; inline-size: var(--ds-dropzone-well); block-size: var(--ds-dropzone-well); border-radius: var(--ds-corner-round); background: var(--ds-dropzone-well-bg); box-shadow: var(--ds-dropzone-well-carve); color: var(--ds-text-secondary); }
+.well svg { inline-size: var(--ds-control-check); block-size: var(--ds-control-check); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.label { font-size: var(--ds-type-body); font-weight: var(--ds-type-weight-semibold); }
+.hint { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+/* wrong: the groove takes the critical ring a field takes (P6) */
+.root[aria-invalid='true'] { box-shadow: var(--ds-dropzone-groove), inset 0 0 0 var(--ds-width-ring) var(--ds-dropzone-ring-invalid); }
+@media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid ButtonText; } .root[data-over] { border: var(--ds-width-ring) solid Highlight; } }

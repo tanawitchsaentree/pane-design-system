@@ -1,0 +1,14 @@
+/* A groove like Input (R-009) holding chips and the text being typed, wrapping as it fills. */
+.root { display: flex; flex-direction: column; gap: var(--ds-listbox-gap); min-inline-size: 0; font-family: var(--ds-type-family); }
+.label { font-size: var(--ds-type-label); color: var(--ds-text-primary); }
+.field { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ds-gap-sm); min-block-size: var(--ds-listbox-field); padding-inline: var(--ds-listbox-padding); padding-block: var(--ds-gap-xs); border-radius: var(--ds-listbox-field-radius); background: var(--ds-listbox-well); box-shadow: var(--ds-listbox-groove); color: var(--ds-text-primary); }
+.field:focus-within { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.input { flex: 1; min-inline-size: var(--ds-listbox-input-min); min-block-size: var(--ds-layout-touch); border: 0; background: transparent; color: inherit; font: inherit; font-size: var(--ds-type-body); outline: 0; }
+.input::placeholder { color: var(--ds-text-secondary); }
+.input:disabled { cursor: not-allowed; }
+.hint { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+/* states, as Input's: off dims, read-only drops the groove for a hairline, wrong takes the critical ring (P6) */
+.field:has(input[aria-invalid='true']) { box-shadow: var(--ds-listbox-groove), inset 0 0 0 var(--ds-width-ring) var(--ds-input-ring-invalid); }
+.field:has(input:read-only:not(:disabled)) { background: transparent; box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring-readonly); }
+.root[data-off] .field { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
+@media (forced-colors: active) { .field { border: var(--ds-width-hairline) solid ButtonText; } }

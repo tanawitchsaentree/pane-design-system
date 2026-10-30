@@ -1,0 +1,17 @@
+/* The text keeps its own size and place; editing swaps it for Input's groove at the same height, so the
+   line does not jump (P4: nothing moves that the reader did not move). */
+.root { display: flex; min-inline-size: 0; font-family: var(--ds-type-family); }
+.text { display: inline-flex; align-items: center; gap: var(--ds-gap-md); max-inline-size: 100%; min-block-size: var(--ds-editable-height); padding-inline: var(--ds-editable-padding); margin-inline: calc(var(--ds-editable-padding) * -1); border: 0; border-radius: var(--ds-editable-radius); background: transparent; color: var(--ds-text-primary); font: inherit; text-align: start; cursor: text; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
+.text:hover:not(:disabled) { background: var(--ds-editable-hover); }
+.text:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.text:disabled { cursor: default; }
+.text > span { overflow-wrap: anywhere; }
+.placeholder { color: var(--ds-text-secondary); }
+.pencil { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); flex: none; fill: none; stroke: var(--ds-text-secondary); stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; opacity: 0; transition: opacity var(--ds-motion-hover) var(--ds-motion-easing); }
+.text:hover .pencil, .text:focus-visible .pencil { opacity: 1; }
+.body .text, .body .field { font-size: var(--ds-type-body); }
+.title .text, .title .field { font-size: var(--ds-type-title); font-weight: var(--ds-type-weight-semibold); }
+.field { flex: 1; }
+@media (hover: none) { .pencil { opacity: 1; } }
+.text:disabled { color: var(--ds-text-secondary); }
+@media (forced-colors: active) { .pencil { stroke: CanvasText; } }

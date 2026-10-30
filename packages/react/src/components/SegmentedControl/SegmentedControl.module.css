@@ -1,0 +1,12 @@
+/* The tab track (a well, shaded under its lip) with the chosen mode as chosen glass lit at its top, the
+   same family as Tabs, so a mode switch and a view switch read as kin but each keeps its own role. */
+.track { display: inline-flex; gap: var(--ds-nav-gap); padding: var(--ds-nav-inset); border-radius: var(--ds-corner-round); background: var(--ds-nav-track); box-shadow: var(--ds-nav-ring), var(--ds-nav-carve); font-family: var(--ds-type-family); }
+.segment { position: relative; display: inline-grid; place-items: center; min-inline-size: var(--ds-nav-segment-min); padding-inline: var(--ds-gap-xl); border: 0; border-radius: var(--ds-corner-round); background: transparent; color: var(--ds-text-primary); font: inherit; font-weight: var(--ds-type-weight-medium); cursor: pointer; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
+.md .segment { min-block-size: var(--ds-control-sm); font-size: var(--ds-type-body); }
+.sm .segment { min-block-size: var(--ds-control-icon-md); font-size: var(--ds-type-label); padding-inline: var(--ds-gap-lg); }
+.segment::after { content: ''; position: absolute; inset-inline: 0; inset-block-start: 50%; block-size: var(--ds-layout-touch); translate: 0 -50%; }
+.segment:hover:not([data-state='on']):not([data-disabled]) { background: var(--ds-surface-quiet); }
+.segment[data-state='on'] { background: linear-gradient(180deg, var(--ds-nav-on-top), var(--ds-nav-on-foot)); box-shadow: var(--ds-nav-ring), var(--ds-nav-on-cast); font-weight: var(--ds-type-weight-semibold); }
+.segment[data-disabled] { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
+.segment:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+@media (forced-colors: active) { .track { border: var(--ds-width-hairline) solid ButtonText; } .segment[data-state='on'] { outline: var(--ds-width-ring) solid Highlight; } }

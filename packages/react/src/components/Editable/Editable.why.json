@@ -1,0 +1,128 @@
+{
+  "concept": "Text that turns into a field where it stands: the text is a button with a pencil, and editing swaps it for the groove at the same height.",
+  "default_to_avoid": [
+    {
+      "pattern": "an editable that shows a separate edit button and opens the field in a dialog",
+      "kind": "inline edit, editable text, click to edit",
+      "why_not": "a separate dialog moves the reader away from what they were editing; Pane edits in place at the same height"
+    }
+  ],
+  "references": [
+    {
+      "title": "Atlassian · Inline edit",
+      "url": "https://atlassian.design/components/inline-edit/"
+    },
+    {
+      "title": "NN/g · Inline editing",
+      "url": "https://www.nngroup.com/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P4",
+      "axis": "space",
+      "consequence": "movement distances are small (a 2px lift, an 8 to 16px rise) so the layout never appears to move",
+      "form": "editing swaps the text for the groove at the same height and place, so the line does not move"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "Enter saves, Esc puts the words back and focus returns to the text, so the keyboard does everything a pointer can"
+    },
+    {
+      "p": "P4",
+      "axis": "motion",
+      "consequence": "long ease-out curves (420 to 640ms) for arriving and hovering, a shorter one (200ms) for pressing because a press is a reply; under reduced motion every duration is zero at the token level",
+      "form": "the pencil fades in on hover and focus on the long ease instead of appearing at once"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave8/",
+    "section": "editable",
+    "options": [
+      "A text button with a pencil",
+      "B separate edit button",
+      "C always a field"
+    ],
+    "picked": "A text button with a pencil",
+    "by": "agent",
+    "reason": "A edits where the text is (P4) and is all keyboard (P6). B adds a control per value. C makes every value look like a form."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the wrapper holds either the text or the field in the same place"
+    },
+    "text": {
+      "p": "P6",
+      "axis": "space",
+      "why": "the text is a button at least 44px tall whose padding hangs into the margin so the words stay aligned"
+    },
+    "placeholder": {
+      "p": "P2",
+      "axis": "type",
+      "why": "an empty value shows its placeholder in the secondary tone"
+    },
+    "pencil": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the pencil says the text can be edited and shows on hover, on focus and always on touch"
+    },
+    "body": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the body size edits ordinary text at body size in both modes"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the title size edits a heading at the title size and weight in both modes"
+    },
+    "field": {
+      "p": "P4",
+      "axis": "space",
+      "why": "the field takes the full row so the groove matches the width the text had room for"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the edges and marks so every part stays findable"
+    },
+    "@media hover: none": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "on touch screens the pencil is always shown because there is no hover"
+    },
+    "hover": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "under the pointer the text takes the quiet surface to show it can be pressed"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring and the pencil show when the text is reached by keyboard"
+    },
+    "disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "disabled text keeps a plain cursor and no pencil so it reads as fixed"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the hover surface fades in on the hover ease"
+    },
+    "opacity": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the pencil fades in on the hover ease instead of popping"
+    }
+  }
+}

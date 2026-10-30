@@ -1,0 +1,133 @@
+{
+  "concept": "Slides in a row that snap, with previous and next buttons and dots; it never moves by itself.",
+  "default_to_avoid": [
+    {
+      "pattern": "a carousel that auto-plays and loops with arrows overlaid on the slides",
+      "kind": "carousel, slider, slideshow, gallery",
+      "why_not": "auto-play moves what the reader did not move and arrows over a photo fight the image; Pane waits and puts controls under it"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA carousel pattern",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/"
+    },
+    {
+      "title": "NN/g · Carousels",
+      "url": "https://www.nngroup.com/articles/designing-effective-carousels/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P4",
+      "axis": "interaction",
+      "consequence": "nothing moves on its own; every motion answers something the reader did",
+      "form": "nothing advances on its own; buttons, a swipe or a scroll move the slides"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the current dot is longer than the rest and in the loud solid, so where you are reads by shape"
+    },
+    {
+      "p": "P5",
+      "axis": "space",
+      "consequence": "the loud action sits apart from secondary ones, never between them",
+      "form": "the buttons and dots sit under the slides, apart from the content"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave9/",
+    "section": "carousel",
+    "options": [
+      "A snap row, controls under",
+      "B auto-play with overlay arrows",
+      "C fade between slides"
+    ],
+    "picked": "A snap row, controls under",
+    "by": "agent",
+    "reason": "A moves only when the reader moves it (P4) and keeps the photo clear. B moves by itself. C hides how many slides there are."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the slides and the controls stack and the wrapper measures its own width"
+    },
+    "track": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the slides scroll and snap in one row and the row takes focus for the keyboard"
+    },
+    "v2": {
+      "p": "P3",
+      "axis": "space",
+      "why": "two slides show at once when the carousel is wide enough"
+    },
+    "v3": {
+      "p": "P3",
+      "axis": "space",
+      "why": "three slides show at once when the carousel is wide enough"
+    },
+    "slide": {
+      "p": "P3",
+      "axis": "space",
+      "why": "each slide snaps to the start of the row"
+    },
+    "controls": {
+      "p": "P5",
+      "axis": "space",
+      "why": "the buttons and dots sit centred under the slides"
+    },
+    "chev": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the chevrons point back and forward and flip in RTL"
+    },
+    "dots": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "one dot per slide says how many there are"
+    },
+    "dot": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a dot is a small round mark in the ring tone"
+    },
+    "on": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the current dot is three times as long and in the loud solid, so where you are reads by shape"
+    },
+    "count": {
+      "p": "P6",
+      "axis": "type",
+      "why": "a hidden line announces which slide is shown after each move"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the edges and marks so every part stays findable"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the slide row shows the focus ring when reached by keyboard"
+    }
+  },
+  "motion": {
+    "inline-size": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the current dot grows on the hover ease"
+    },
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the dot colour changes at the same pace as its length"
+    }
+  }
+}

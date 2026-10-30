@@ -102,3 +102,51 @@
 ### D-023: รอบ derivation ที่ 3: แปดตัวที่สร้างก่อนมี derivation (supersedes ส่วนของ D-009 เรื่องแท็บที่ไม่เลือก)
 - **วันที่:** 2026-10-28 · **Phase:** 5 · **เลือกโดย:** agent (`system/REVIEW.md` Round 3) ยกเว้น Card ที่ user เลือกไว้แล้วใน anchor round (D-008)
 - **เลือก:** IconButton = A pane กลมเล็ก (วัสดุเดียวกับ Button B); Tabs = A รางที่แกะลงในกระจก แท็บที่เลือกเป็นแผ่นฟ้า accent ที่เลื่อนไปหาแท็บที่เลือก (ยังเป็นสีฟ้าตาม D-009) แท็บที่ไม่เลือกเป็นตัวอักษร ไม่มี ring; Chip = C ปกติเป็น pane เล็ก เลือกแล้วยุบลงในกระจกพร้อมเครื่องหมายถูก; Tag = B สลักลงในกระจก; Badge = A glyph กับคำ ไม่มีพื้น (ภาษาเดียวกับ Banner D-018); Avatar = A รูปหลังเลนส์ ไม่มี ring ขาว; Slider = A รางแกะเติมฟ้าถึงค่า กับลูกปัดแบบ Switch / **เพราะ:** user ต้องการให้ทุก component ผ่าน concept funnel ("ไม่ผ่าน concept funnel หรอวะ") และ release ถูกบล็อกจนกว่า pendingDerivation จะว่าง / **ตัวเลือกที่ตัดทิ้ง:** ดูตารางใน REVIEW; Chip A/B ทำให้ chip ที่เลือกเป็น loud solid หลายอันบน pane เดียว (ผิด P5); ring ของแท็บที่ไม่เลือกใน D-009 อ่านเป็นแถวปุ่ม / **กระทบ:** `pendingDerivation` ว่าง; press area 44px บน Button, IconButton, Chip, Tabs, Select และ Slider; Input `sm` เป็นข้อยกเว้น E-002; lab: `apps/lab/round3/index.html`
+
+### D-024: แสงเดียวจากด้านบน ไม่มีสีฟ้า (supersedes สีฟ้าใน D-008/D-009 และใน P1/P5)
+- **วันที่:** 2026-10-29 · **Phase:** 5 · **เลือกโดย:** agent ตาม reference ที่ user ส่งมา (`apps/lab/round4/`, REVIEW Round 4)
+- **เลือก:** A "one light from above": ทุก surface, control และ track มี rim สว่างที่สุดตามขอบบน sheen ครึ่งบน และเงาสั้นด้านล่าง ส่วน recess กลับด้านกัน; ปุ่มหลักคือสีทึบขาว (ink ในธีม light) และ accent คือสีทึบเดียวกันที่เรืองแสงของตัวเอง; ของที่ถูกเลือกเป็นแผ่นกระจกที่สว่างกว่า; switch ที่เปิดเป็นรางที่สว่างจากข้างใน; slider เติมด้วยสีทึบ; ระบบไม่มี hue ของตัวเอง สีใช้เฉพาะบอกสถานะหรือใน diagram / **เพราะ:** user: "accent สีฟ้า?? คือเหี้ยอะไรวะ", "toggle เหี้ยไรของมึง", "มึงดูเขาวางขอบเงาเหมือนมีแสงตกด้านบน ทุก element ย่อยๆสวยมากๆ … มันคือความ craft ระดับ atom" / **ตัวเลือกที่ตัดทิ้ง:** B ของที่เลือกเป็นหลุม (อ่านเป็นปิดมากกว่าเลือก), C ขอบรุ้ง (เป็น hue ที่ระบบไม่มีแล้ว) / **กระทบ:** P1, P3 depth, P5 colour เขียนใหม่ใน CONCEPT; `action.accent` ชี้ไปที่ loud solid; Tabs, Switch, Slider, Chip, Button, IconButton, Card ใช้ rim ทิศบน; Brick Forge อัปเดตเป็น 0.5.0
+
+### D-025: กระจกควันหนาพร้อมเส้นแสงที่ขอบบน และระดับความลึก 4 ชั้น (round 5)
+- **วันที่:** 2026-10-29 · **Phase:** 5 · **เลือกโดย:** agent ตาม reference ที่ user ส่ง ("แบบนี้ดูเป็น glass กว่าเยอะ", "ดูเอาซะ แล้วเตรียมแก้เลย") lab `apps/lab/round5/`
+- **เลือก:** pane เป็นแผ่นกระจกควันหนา (body 78%) มีขอบบางรอบชิ้น เงาที่ฐาน และเส้นแสงสั้นตรงกลางขอบบน; ปุ่มหลักเป็นสีขาวอุ่นมี bloom; ปุ่มรองเป็นแผ่นกระจก; ตัวที่เลือกเป็นกระจกเทา; IconButton มี `loud` (ลูกปัดขาว); thumb ของ Slider เป็นแคปซูล; ระดับ 1–4 (pane, ของซ้อนใน pane, overlay, popover) ห่างกันอย่างน้อย 1.15:1 วัดจาก pixel และ scrim หรี่ฉากเหลือ ≤60% (gate G-EL1); Card ที่ซ้อนอยู่ใน Card เป็นระดับ 2 เองและใช้มุม inner / **เพราะ:** user: "พอใช้จริงดูเรื่อง modal หรือพวก กระจกซ้อนกันด้วย ให้มีระดับที่มองเห็นได้ง่ายไม่ใช่ ใส จางแม่งหมด … หาสูตรคำนวน ตรวจด้วยตา" / **กระทบ:** P1 depth เขียนใหม่ (smoked body แทน "never from an opaque tint"); Card ได้ prop `level`
+
+### D-026: Slider มี variant `fill` (แถบที่จับได้ทั้งแท่ง)
+- **วันที่:** 2026-10-29 · **Phase:** 5 · **เลือกโดย:** agent ตาม reference ที่ user ส่ง ("ถ้าโอเคเอาไปเลย")
+- **เลือก:** `<Slider variant="fill">` แถบสูง 56px ทรง pill ทั้งแท่งเป็นพื้นที่กด ชื่อกับค่าอยู่ข้างในที่ระยะ inset ของ field ส่วนว่างเป็นหลุมลึกแบบ track ของ Tabs ส่วนที่เติมเป็นกระจกเลือก (chosen glass) มีแสงที่ขอบบน และมีเส้นบาง 4px สี loud solid อยู่ในปลายส่วนที่เติม 12px เพื่อบอกจุดที่ค่าหยุด
+- **ทำไมเป็น variant ไม่ใช่ component ใหม่:** พฤติกรรม, role, props, keyboard เหมือน Slider ทุกอย่าง (Radix ตัวเดียวกัน) ต่างแค่ anatomy กับที่ใช้ แยกเป็น component จะทำให้มี API ซ้ำสองชุด
+- **ที่ใช้:** quick settings ที่ซ้อนกันใน panel เช่น ความสว่าง เสียง ตั้งเวลา บ้านอัจฉริยะ ตัวเล่นสื่อแบบ control center; `channel` ยังเป็นค่าเริ่มต้นสำหรับฟอร์มและ player
+- **ไม่เลือก:** B ค่าอย่างเดียวไม่มีเส้นบอกตำแหน่ง (ขอบของส่วนที่เติมนุ่มเกินจะอ่านค่า), C มีขีดแบ่งขั้น (เหมาะกับค่าเป็นขั้นเท่านั้น) — ไม่ได้ render เป็น lab แยก เพราะ user ส่ง reference มาเองและสั่งให้ทำ
+- **ตรวจ:** G-TT1 (marker มี press area 44px), G-IN1, G-RH1, G-K2/K3 (มี deep dive ของทั้งสอง variant), evidence ข้อความ 0 fail บนหน้า slider ทุก scene, คีย์บอร์ด/คลิก/ลาก ทดสอบด้วย playwright
+
+### D-027: แสงเรือง (glow) ใน dark mode มีนิยาม ไม่ใช่ทุกสีขาว
+- **วันที่:** 2026-10-29 · **Phase:** 5 · **เลือกโดย:** agent ตาม reference ที่ user ส่ง ("ส่วนที่เป็นสีขาวจะเรืองแสง ... แต่ไม่ใช่ทุกขาว ต้องหาทางนิยาม")
+- **เลือก:** สามระดับ: `glow.strong` = action ที่ถูกโปรโมต (Button accent, IconButton loud), `glow.soft` = สิ่งที่เปิดอยู่หรือเป็นปริมาณ (Switch on, ช่องที่เติมของ Slider), `glow.mark` = จุดที่บอก "ตอนนี้" (marker ของ fill slider, วันปัจจุบัน) ไม่เรือง = ข้อความ ไอคอน ขอบ กระจกที่ถูกเลือก ของที่จับ (bead, knob) avatar สีสถานะ และ disabled; ใน light ไม่มีอะไรเรือง
+- **ค่า:** วัดจาก pixel แบบเปิด glow เทียบปิด glow ที่วงแหวน 2–6px นอกขอบ: strong ≥1.25:1 (วัดได้ 1.49–1.54), soft ≥1.15 (1.23–1.34), mark ≥1.15 (1.21) และที่ 32px ต้องกลับเป็นพื้นเดิม (≤1.03:1); แสงอยู่ตรงกลาง ไม่มี offset
+- **เปลี่ยนจากเดิม:** bloom เดิมมีเงาดำและ offset ลงล่างจนวัดได้แค่ 1.18–1.20 จึงเพิ่มแสงตรงกลาง; Switch on-glow เดิม 1.12 ปรับให้เท่า glow.soft; ช่องของ Slider เดิมไม่เรืองและ track ตัดแสงทิ้ง (overflow hidden) ตอนนี้เรือง soft
+- **ตรวจ:** G-GL1 (kiln) ตรวจว่ามีแค่ส่วนที่ประกาศ `data-glow` เท่านั้นที่เรืองใน dark, ข้อความไม่เรือง, light ไม่มีอะไรเรือง, และวัดค่าตามข้างบน
+
+### D-028: พื้น studio ใน dark เข้มขึ้นเป็น #050506
+- **วันที่:** 2026-10-29 · **เลือกโดย:** agent (user: "ตัดสินไม่ได้")
+- **ปัญหา:** pane ระดับ 1 บน studio เดิม (#111214) ต่างจากพื้นแค่ 1.09:1 ต่ำกว่าเกณฑ์ 1.15 ของ G-EL1
+- **ทางเลือก:** ทำ pane ให้สว่างขึ้น (กระทบวัสดุที่ user อนุมัติใน round 5 ทุกฉาก) หรือทำพื้น studio ให้เข้มขึ้น (กระทบแค่ฉากโชว์ของ docs) — เลือกพื้น เพราะ studio เป็นแค่ฉากนำเสนอ ส่วน pane คือระบบ
+- **วัด:** #0A0A0C ได้ 1.13, #050506 ผ่าน; demo ระดับความลึกกลับมาอยู่บน studio เหมือน demo อื่น; G-GL1 ยังผ่าน (strong 1.49–1.55, soft 1.22–1.33, mark 1.21)
+
+### D-029: mesh gradient (Aurora) เป็น scene และ media เท่านั้น
+- **วันที่:** 2026-10-29 · **เลือกโดย:** agent ตาม reference ("ไม่ใช่ linear หรือ radial ถ้าทำได้ทำ แล้วหาหมวดหมู่")
+- **หมวด:** mesh gradient (freeform gradient; SwiftUI MeshGradient, Figma mesh fill) + ambient shadow (เงาสีเดียวกับวัตถุ)
+- **ทำอย่างไร:** radial 4 วง (mesh.a–d) บนพื้น mesh.base วาดบน layer ที่ใหญ่กว่ากล่อง แล้ว blur ด้วย mesh-blur 40px ให้ขอบแต่ละวงละลายเข้าหากัน
+- **ใช้ได้:** scene หลังกระจก (Demo backdrop: Aurora), media (cover, icon, illustration), ambient shadow ใต้วัตถุ mesh — **ใช้ไม่ได้:** fill ของ control (Button, Switch, tab) และข้อความ ตาม P1 (ระบบไม่มี hue ของตัวเอง)
+- **ตรวจ:** Aurora อยู่ในรายการ scene ของ evidence แล้ว; ข้อความบนหน้า slider usage และ color ผ่าน 10,680/10,680 ทุก scene
+
+### D-030: Mesh เป็น component ที่ ship ได้ มี preset และ CLI
+- **วันที่:** 2026-10-29 · **เลือกโดย:** agent (user: "upgrade ซะ มีตัวที่ติดตั้งไปแล้ว")
+- **ตัดสิน:** `<Mesh preset>` มี preset aurora, ember, tide, dusk; product ที่ติดตั้งแล้วทำสีของตัวเองได้ด้วย CLI `pane-mesh` ซึ่งสร้างชุด token mesh ใหม่จากสีที่ให้ไป ส่วนกฎการใช้ยังเป็นไปตาม D-029 คือใช้ได้แค่ scene และ media
+- **ออกเป็น:** 0.6.0 (release/UPGRADE-0.6.0.md บอกขั้นตอนอัปเกรดให้ตัวที่ติดตั้งไปแล้ว)
+
+### D-031: สีข้อมูลของ chart เป็น content ไม่ใช่ interface
+- **วันที่:** 2026-10-29 · **เลือกโดย:** agent (wave 9 Charts; ตามกฎ "ถามตอนต้นแล้วตัดสินเอง" user review ตอนจบ milestone)
+- **ปัญหา:** P1 บอกว่าระบบไม่มี hue ของตัวเอง แต่ chart ที่มีหลาย series ต้องใช้ hue บอก identity ถ้าใช้แค่ขาว/เทาจะแยกเกิน 2 series ไม่ได้
+- **ตัดสิน:** hue ของ chart เป็นของ content แบบเดียวกับ scene, mesh และ swatch ของ ColorPicker ใช้ได้เฉพาะ mark (bar, line, dot, cell) ส่วนข้อความ legend, label, tick และ tooltip ใช้ text tone เสมอ และ control รอบ chart ยังไม่มี hue
+- **ค่า:** categorical 8 ช่องตามลำดับของ dataviz reference palette, dark/light แยก step (`color.data.*` → `data.series-1..8` → `viz.series-*`); sequential ใช้ hue ช่อง 1 จางไปเข้ม
+- **วัด:** validate_palette ผ่านทุก hard gate บน surface ของ Pane (light #f2f2f4, dark #1c1d21): CVD ΔE ต่ำสุด 9.1 / 8.4, normal ΔE 19.6 / 19.3; light มี 4 ช่องต่ำกว่า 3:1 จึงต้องมี legend, direct label และ table view ทุก chart (ChartFrame บังคับ)

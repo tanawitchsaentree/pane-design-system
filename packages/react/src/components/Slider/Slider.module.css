@@ -1,17 +1,21 @@
 /* A carved channel with a bead in it (round 3, Slider A), the switch's language stretched out: the
-   channel fills with the one blue up to the value and the thumb is the switch's lit bead. The row keeps a
+   channel fills with the loud solid up to the value and the thumb is the switch's lit bead. The row keeps a
    44px hit area (WCAG 2.5.8, P6) while the channel is thin. */
-.root { display: flex; flex-direction: column; gap: var(--ds-slider-gap); min-inline-size: 0; font-family: var(--ds-type-family); }
+/* a slider takes the width it is given and never less than 240px: a shrink-to-fit parent (a centred
+   stage, an inline pane) would otherwise size it to its label and value text, so it was a stub and its
+   pane resized as the value grew from 2% to 100% (R-018) */
+.root { display: flex; flex-direction: column; gap: var(--ds-slider-gap); inline-size: 100%; min-inline-size: var(--ds-slider-min-width); font-family: var(--ds-type-family); }
 .head { display: flex; justify-content: space-between; gap: var(--ds-gap-md); font-size: var(--ds-type-label); }
 .label { color: var(--ds-text-primary); }
 .value { color: var(--ds-text-secondary); font-variant-numeric: tabular-nums; }
 .slider { position: relative; display: flex; align-items: center; block-size: var(--ds-slider-hit); margin-block: calc((var(--ds-slider-thumb) - var(--ds-slider-hit)) / 2); touch-action: none; user-select: none; cursor: pointer; }
 .slider[data-disabled] { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
-.track { position: relative; flex: 1; block-size: var(--ds-slider-track); border-radius: var(--ds-corner-round); background: var(--ds-slider-track-bg); box-shadow: var(--ds-slider-carve); overflow: hidden; }
-.range { position: absolute; block-size: 100%; background: linear-gradient(180deg, var(--ds-slider-range-top), var(--ds-slider-range-bg)); box-shadow: var(--ds-slider-range-carve); }
+.track { position: relative; flex: 1; block-size: var(--ds-slider-track); border-radius: var(--ds-corner-round); background: var(--ds-slider-track-bg); box-shadow: var(--ds-slider-carve); }
+/* the filled channel is a lit value: in dark it gives off a soft light (glow.soft), so the channel is not clipped */
+.range { position: absolute; block-size: 100%; border-radius: inherit; background: linear-gradient(180deg, var(--ds-slider-range-top), var(--ds-slider-range-bg)); box-shadow: var(--ds-slider-range-carve), var(--ds-slider-range-glow); }
 .thumb {
-  display: block; inline-size: var(--ds-slider-thumb); block-size: var(--ds-slider-thumb); border-radius: var(--ds-corner-round);
-  background: radial-gradient(circle at 36% 28%, var(--ds-slider-thumb-bg) 32%, var(--ds-slider-thumb-shade)); box-shadow: var(--ds-slider-thumb-shadow);
+  display: block; inline-size: var(--ds-slider-thumb-width); block-size: var(--ds-slider-thumb); border-radius: var(--ds-corner-round);
+  background: radial-gradient(circle at 50% 22%, var(--ds-slider-thumb-bg) 32%, var(--ds-slider-thumb-shade)); box-shadow: var(--ds-slider-thumb-shadow);
   transition: transform var(--ds-motion-hover) var(--ds-motion-easing);
 }
 .thumb { position: relative; }
@@ -20,3 +24,43 @@
 .thumb:hover { transform: scale(1.08); }
 .thumb:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
 @media (forced-colors: active) { .track { border: var(--ds-width-hairline) solid ButtonText; } .range { background: Highlight; } .thumb { border: var(--ds-width-ring) solid ButtonText; } }
+
+/* Fill (D-026): the whole pill is the track and the target. The empty part is the tab track's deep
+   well; the value is chosen glass lit on its top edge; a thin lit bar just inside the fill's end marks
+   where the value stops. Label and value sit inside at the field's inset, over both. */
+.fill {
+  position: relative; display: flex; align-items: center; isolation: isolate; overflow: hidden;
+  block-size: var(--ds-slider-fill-height); inline-size: 100%; min-inline-size: var(--ds-slider-min-width); border-radius: var(--ds-slider-fill-radius);
+  background: var(--ds-slider-fill-bg); box-shadow: var(--ds-slider-fill-carve);
+  font-family: var(--ds-type-family); touch-action: none; user-select: none; cursor: grab;
+}
+.fill:active { cursor: grabbing; }
+.fill[data-disabled] { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
+.fill:focus-within { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+/* the track sits a hairline inside the bar, so the groove's 3:1 edge shows all round even when it is full (G-NT2) */
+.fillTrack { position: absolute; inset: var(--ds-width-hairline); border-radius: inherit; }
+.fillRange {
+  position: absolute; block-size: 100%; border-radius: var(--ds-slider-fill-radius);
+  background: linear-gradient(180deg, var(--ds-slider-fill-top), var(--ds-slider-fill-foot));
+  box-shadow: inset 0 var(--ds-width-hairline) 0 var(--ds-slider-fill-rim);
+}
+.fillText {
+  position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; gap: var(--ds-gap-lg);
+  inline-size: 100%; padding-inline: var(--ds-slider-fill-padding); pointer-events: none;
+  font-size: var(--ds-type-body); color: var(--ds-text-primary);
+}
+.fillLabel { min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* the value ends clear of where the marker stands at 100%, so the two never overlap */
+.fillValue { flex: none; font-variant-numeric: tabular-nums; margin-inline-end: calc(var(--ds-slider-fill-marker-inset) + var(--ds-slider-fill-marker-width)); }
+.fillThumb {
+  display: block; inline-size: var(--ds-slider-fill-marker-width); block-size: var(--ds-slider-fill-marker-height);
+  border-radius: var(--ds-corner-round); background: var(--ds-slider-fill-marker);
+  transform: translateX(calc(var(--ds-slider-fill-marker-inset) * -1)); outline: 0;
+  box-shadow: var(--ds-slider-fill-marker-glow);
+}
+[dir='rtl'] .fillThumb { transform: translateX(var(--ds-slider-fill-marker-inset)); }
+@media (forced-colors: active) { .fill { border: var(--ds-width-hairline) solid ButtonText; } .fillRange { background: Highlight; } .fillThumb { background: ButtonText; } }
+/* the marker is what takes focus, so it carries a 44px press area like the bead; the bar around it is
+   the larger target for a pointer */
+.fillThumb { position: relative; }
+.fillThumb::after { content: ''; position: absolute; inset-inline-start: 50%; inset-block-start: 50%; inline-size: var(--ds-slider-hit); block-size: var(--ds-slider-hit); transform: translate(-50%, -50%); }

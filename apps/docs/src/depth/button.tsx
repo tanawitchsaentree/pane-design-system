@@ -24,8 +24,8 @@ export const BUTTON: Depth = {
       <p>A button starts something on the spot. Following a person, saving a draft, sending a message and opening a player are all buttons, because each one changes state where the reader already is. Moving somewhere else is a link, even when it looks important. The test is what happens after the press. If the address bar changes, it was a link.</p>
       <p>On a pane the button is the part people reach for, so it carries most of the hierarchy. A pane should hold one loud button and as many quiet ones as it needs. That rule, from P5, decides more layouts than any spacing value does. When two actions feel equally important, the pane usually has two jobs and should be split into two panes.</p>
       <p>A button keeps no state of its own. Follow that turns into Following after the press is two buttons in turn, swapped by the app, each with its own label. When the control has to show on or off and keep showing it, such as a filter or a favourite, use a Chip, which carries <code>aria-pressed</code> and a check mark. A Button that changes colour to say it is on leaves screen reader users guessing.</p>
-      <p>Pane has three weights. <code>light</code> is the solid pill that inverts with the theme. <code>accent</code> is the one blue in the system, kept for an action the product promotes. <code>glass</code> is the quiet fill for everything else.</p>
-      <p>Each button is a small pane on the big one. Its fill is a sheet with a white gloss across its top and a shade at its foot, and it carries the pane’s own rim of light, brightest at the top left (P3). Under the pointer a soft glint sits where the pointer is and follows it, the way visionOS lights what you look at, and it is gone when the pointer leaves (P4). The loud kinds rest on a shadow of their own, and under the accent that shadow is blue, its own light falling on the glass.</p>
+      <p>Pane has three weights. <code>light</code> is the solid pill that inverts with the theme, white in the dark theme and ink in the light theme. <code>accent</code> is the same solid glowing with its own light, kept for an action the product promotes. <code>glass</code> is the quiet fill for everything else.</p>
+      <p>Each button is a small pane on the big one, lit by the one light that falls from above on every part. Its fill is lit at the top and shaded at its foot. It carries the pane’s own rim of light, brightest along the top edge, faint down the sides and a little stronger at the foot (P3). Under the pointer a soft glint sits where the pointer is and follows it, the way visionOS lights what you look at, and it is gone when the pointer leaves (P4). The light button rests on its own shadow. The accent glows with its own light instead, and glass casts only a short soft shadow.</p>
       <p>There are two heights, 44px for anything a thumb will press and 32px for rows where several actions share a line.</p>
     </>
   ),
@@ -44,18 +44,18 @@ export const BUTTON: Depth = {
   ],
   variants: {
     light: { purpose: 'The one main action of a pane. White with ink text in the dark theme and ink with white text in the light theme, so it stays the loudest mark on the pane in both.', pairing: 'At most one per pane. Pair it with any number of glass buttons. Never beside accent.' },
-    accent: { purpose: 'An action the product promotes on purpose, such as Get verified or Go live. It is the only place the system spends its blue.', pairing: 'Replaces light on that pane rather than joining it. Glass buttons sit beside it as usual.' },
+    accent: { purpose: 'An action the product promotes on purpose, such as Get verified or Go live. It is the light solid glowing with its own light, the one glow the system makes.', pairing: 'Replaces light on that pane rather than joining it. Glass buttons sit beside it as usual.' },
     glass: { purpose: 'Every secondary action. A translucent pill that reads as an object on the pane without competing with the loud one.', pairing: 'As many as the pane needs, beside one light or one accent, or alone when no action leads.' },
   },
   anatomy: {
     render: <OnPane><Button><IconShare className="btn-icon" />Share profile</Button></OnPane>,
     parts: [
-      { part: 'Container', selector: '[data-component="Button"]', what: 'A full pill (corner.round) because a control is held, with the pane’s hairline rim brightest at the top left and a white gloss over the top half of the fill. Under a pointer a soft glint sits where the pointer is. Height comes from the size, width from the label plus padding.' },
+      { part: 'Container', selector: '[data-component="Button"]', what: 'A full pill (corner.round) because a control is held, with the pane’s hairline rim brightest along the top edge and a fill lit at its top and shaded at its foot. Under a pointer a soft glint sits where the pointer is. Height comes from the size, width from the label plus padding.' },
       { part: 'Leading icon', selector: '[data-component="Button"] svg', what: 'Optional and decorative. 16px, inherits the label colour, sits one gap (8px, gap.md) before the label.' },
       { part: 'Label', selector: '[data-component="Button"]', what: 'Semibold, 15px at md and 14px at sm. Solid fills drop the text halo because they already contrast with their own fill.' },
-      { part: 'Shadow', selector: '[data-component="Button"]', what: 'light casts elevation.cast and accent casts elevation.cast-accent, which is blue. Glass casts none, since a quiet object does not rise off the pane.' },
+      { part: 'Shadow', selector: '[data-component="Button"]', what: 'light casts elevation.cast, so it rests on its own shadow. accent casts elevation.loud-glow, a soft white glow in the dark theme and a soft ink shadow in the light theme. Glass casts elevation.quiet-cast, a short soft shadow, and does not lift.' },
     ],
-    perVariant: 'All three variants share the rim, gloss and glint. Glass has no shadow and does not lift.',
+    perVariant: 'All three variants share the rim, the top-lit fill and the glint. Glass keeps a short shadow and does not lift.',
   },
   sizes: {
     md: { use: 'The default for every action a finger might press, including every action on a phone. 44px tall, which is P6\'s minimum target.', pairs: 'Body text at 15px, Select md and Tabs. Two md buttons sit 8px apart.' },
@@ -103,7 +103,7 @@ export const BUTTON: Depth = {
     ],
     avoid: [
       { title: 'light + light', why: 'Two loud buttons give the reader a choice with no answer. Make one of them glass.', render: <OnPane><Button>Save</Button><Button>Publish</Button></OnPane> },
-      { title: 'light + accent', why: 'Accent replaces light. Shown together they compete and the blue looks like a mistake.', render: <OnPane><Button>Follow</Button><Button variant="accent">Subscribe</Button></OnPane> },
+      { title: 'light + accent', why: 'Accent replaces light. Shown together they are two loud solids, and the glow looks like a mistake.', render: <OnPane><Button>Follow</Button><Button variant="accent">Subscribe</Button></OnPane> },
       { title: 'Four or more in a row', why: 'Past three the reader scans instead of choosing. Keep the main one and move the rest behind More.', render: <OnPane><Button size="sm">Save</Button><Button size="sm" variant="glass">Copy</Button><Button size="sm" variant="glass">Move</Button><Button size="sm" variant="glass">Rename</Button><Button size="sm" variant="glass">Archive</Button></OnPane> },
     ],
   },
@@ -163,9 +163,9 @@ export const BUTTON: Depth = {
       },
     },
     accent: {
-      purpose: <p>Accent is the only blue mark the system makes. It exists for one promoted action, such as Get verified or Go live, where the product wants the action to stand out from the ordinary main action. Blue is scarce in Pane. So it reads as deliberate, and used often it stops reading as anything. The accent is a sheet of blue running from the accent at its top to a deeper blue at its foot, with a white gloss across the top half, and the shadow it casts is blue, so the pane under it looks lit by it. White text is measured against the lightest part of the fill behind the label.</p>,
-      context: <Card as="section" aria-label="Verification" className="demo-card"><div className="component-head"><h3 className="flush">Get the blue check</h3><Tag>New</Tag></div><p className="flush muted">Verified accounts show up first in search and in replies.</p><Foot><Button variant="accent">Get verified</Button><Button variant="glass">Not now</Button></Foot></Card>,
-      practices: ['Use at most one accent button on a screen, and not on every screen.', 'Let accent replace light on its pane. Never show the two together.', 'Keep accent away from destructive actions. Blue reads as encouragement.'],
+      purpose: <p>Accent is the only glow the system makes. It exists for one promoted action, such as Get verified or Go live, where the product wants the action to stand out from the ordinary main action. Glow is scarce in Pane. So it reads as deliberate, and used often it stops reading as anything. The accent is the same solid as light, lit at its top and shaded at its foot, and it carries its own light. In the dark theme that light is a soft white glow around the pill. In the light theme the ink pill casts a soft shadow instead. The label is ink in the dark theme and white in the light theme, the same pairs the light button uses.</p>,
+      context: <Card as="section" aria-label="Verification" className="demo-card"><div className="component-head"><h3 className="flush">Verify your account</h3><Tag>New</Tag></div><p className="flush muted">Verified accounts show up first in search and in replies.</p><Foot><Button variant="accent">Get verified</Button><Button variant="glass">Not now</Button></Foot></Card>,
+      practices: ['Use at most one accent button on a screen, and not on every screen.', 'Let accent replace light on its pane. Never show the two together.', 'Keep accent away from destructive actions. Its glow reads as encouragement.'],
       pair: {
         do: <Card as="div" className="demo-card"><Foot><Button variant="accent">Go live</Button><Button variant="glass">Schedule</Button></Foot></Card>,
         doNote: 'One promoted action with a quiet alternative.',

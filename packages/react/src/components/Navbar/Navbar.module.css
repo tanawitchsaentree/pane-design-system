@@ -1,0 +1,12 @@
+/* A strip of glass across the top (level 1, D-025) that blurs the page when it sticks over it; the current
+   page is marked by an underline and weight, not by colour (P6). */
+.bar { display: flex; align-items: center; gap: var(--ds-gap-2xl); min-block-size: var(--ds-nav-bar); padding-inline: var(--ds-gap-2xl); border-radius: var(--ds-corner-inner); background: var(--ds-nav-dock); box-shadow: var(--ds-nav-bar-edge); -webkit-backdrop-filter: blur(var(--ds-nav-blur)); backdrop-filter: blur(var(--ds-nav-blur)); color: var(--ds-text-primary); font-family: var(--ds-type-family); }
+.sticky { position: sticky; inset-block-start: 0; z-index: var(--ds-overlay-z-fab); }
+.brand { display: flex; align-items: center; gap: var(--ds-gap-md); font-weight: var(--ds-type-weight-semibold); }
+.nav { display: flex; gap: var(--ds-gap-xs); flex: 1; overflow-x: auto; }
+.link { display: inline-flex; align-items: center; min-block-size: var(--ds-layout-touch); padding-inline: var(--ds-gap-lg); border-radius: var(--ds-corner-round); color: var(--ds-text-primary); text-decoration: none; white-space: nowrap; text-decoration-thickness: var(--ds-width-ring); text-underline-offset: var(--ds-gap-sm); }
+.link:hover { background: var(--ds-surface-quiet); }
+.link[aria-current='page'] { font-weight: var(--ds-type-weight-semibold); text-decoration-line: underline; }
+.link:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.actions { display: flex; align-items: center; gap: var(--ds-gap-md); margin-inline-start: auto; }
+@media (forced-colors: active) { .bar { border-block-end: var(--ds-width-hairline) solid CanvasText; } }

@@ -1,0 +1,23 @@
+/* A bell with a count, and a popover of notices grouped by day; an unread row is semibold with a dot and
+   the word New, so unread reads by mark and word (P6). */
+.pop { padding: 0; inline-size: min(calc(100vw - var(--ds-overlay-margin) * 2), var(--ds-notification-center-width)); }
+.panel { display: flex; flex-direction: column; gap: var(--ds-gap-md); max-block-size: var(--ds-notification-center-max); overflow-y: auto; padding: var(--ds-notification-center-padding); font-family: var(--ds-type-family); }
+.head { display: flex; align-items: center; justify-content: space-between; gap: var(--ds-gap-md); }
+.title { margin: 0; font-size: var(--ds-type-emphasis); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-primary); }
+.group { display: flex; flex-direction: column; gap: var(--ds-gap-xs); }
+.heading { margin: 0; padding-inline: var(--ds-gap-md); font-size: var(--ds-type-caption); font-weight: var(--ds-type-weight-medium); color: var(--ds-text-secondary); }
+.list { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.row { display: flex; align-items: flex-start; gap: var(--ds-gap-md); inline-size: 100%; min-block-size: var(--ds-layout-touch); padding: var(--ds-gap-md); border: 0; border-radius: var(--ds-corner-inner); background: transparent; color: var(--ds-text-primary); font: inherit; text-align: start; cursor: pointer; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
+.row:hover { background: var(--ds-notification-center-highlight); }
+.row:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: calc(var(--ds-focus-ring-width) * -1); }
+.leading { flex: none; }
+.text { display: flex; flex-direction: column; gap: var(--ds-gap-xs); flex: 1; min-inline-size: 0; }
+.line { font-size: var(--ds-type-label); overflow-wrap: anywhere; }
+.unread .line { font-weight: var(--ds-type-weight-semibold); }
+.body { font-size: var(--ds-type-label); color: var(--ds-text-secondary); overflow-wrap: anywhere; }
+.time { font-size: var(--ds-type-caption); color: var(--ds-text-secondary); }
+.new { color: var(--ds-text-primary); font-weight: var(--ds-type-weight-medium); }
+.dot { flex: none; inline-size: var(--ds-control-dot); block-size: var(--ds-control-dot); margin-block-start: var(--ds-gap-sm); border-radius: var(--ds-corner-round); background: var(--ds-notification-center-dot); }
+.bell { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.badge { position: absolute; inset-block-start: 0; inset-inline-end: 0; display: inline-grid; place-items: center; min-inline-size: var(--ds-control-badge); block-size: var(--ds-control-badge); padding-inline: var(--ds-gap-xs); border-radius: var(--ds-corner-round); background: var(--ds-notification-center-dot); color: var(--ds-notification-center-dot-fg); font-size: var(--ds-type-micro); font-weight: var(--ds-type-weight-semibold); pointer-events: none; }
+@media (forced-colors: active) { .dot, .badge { background: Highlight; color: HighlightText; } }

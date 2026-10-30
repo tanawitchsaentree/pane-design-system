@@ -1,0 +1,123 @@
+{
+  "concept": "Choosing a colour for the reader's own content as round named swatches, the chosen one ringed and checked, with a hex field for any other.",
+  "default_to_avoid": [
+    {
+      "pattern": "a color picker with a large saturation square and a rainbow hue strip",
+      "kind": "color picker, colour picker, swatch picker",
+      "why_not": "a saturation square is a tool for artists and hides names; Pane offers named swatches and a hex field"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA radio group pattern",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/"
+    },
+    {
+      "title": "Apple HIG · Color wells",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/color-wells"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "the swatch colours belong to the content being coloured and the picker itself stays without hue"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the chosen swatch is ringed in the loud solid and carries a check, so the choice reads by shape"
+    },
+    {
+      "p": "P6",
+      "axis": "space",
+      "consequence": "every target is at least 44px in its smaller dimension or has a 44px hit area",
+      "form": "each swatch sits in a 44px press area even though the colour itself is smaller"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave8/",
+    "section": "colorpicker",
+    "options": [
+      "A named swatches with hex",
+      "B saturation square",
+      "C native colour input"
+    ],
+    "picked": "A named swatches with hex",
+    "by": "agent",
+    "reason": "A names every colour (P6) and keeps the picker without hue (P1). B hides names behind a square. C looks different on every platform."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the swatches, the hex field and the name stack with a small gap"
+    },
+    "swatches": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the swatches wrap in rows with the same gap between them"
+    },
+    "item": {
+      "p": "P6",
+      "axis": "space",
+      "why": "each swatch is a 44px round radio filled with its colour and ringed so a pale colour still has an edge"
+    },
+    "check": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the chosen swatch carries a check in a small loud disc at its centre"
+    },
+    "preview": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the hex field starts with a disc of the typed colour with the same rim"
+    },
+    "hex": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the hex value is uppercase in tabular figures so it reads as a code"
+    },
+    "name": {
+      "p": "P6",
+      "axis": "type",
+      "why": "the name of the chosen colour is shown and announced so it is never chosen by sight alone"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the swatches keep their own colour and gain a system edge"
+    },
+    "data-state=checked": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the chosen swatch is ringed in the loud solid"
+    },
+    "active": {
+      "p": "P4",
+      "axis": "shape",
+      "why": "a pressed swatch shrinks slightly as something pushed"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring shows on the swatch reached by the arrow keys"
+    },
+    "data-disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "an off control dims and refuses presses, so it reads as there but not available"
+    }
+  },
+  "motion": {
+    "transform": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the press shrink uses the short press ease because a press is a reply"
+    }
+  }
+}

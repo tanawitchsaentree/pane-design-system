@@ -1,6 +1,6 @@
-/* A small glass pane you press (round 3, Chip C): gloss and the pane rim when off; chosen is pressed into
-   the glass, a carved recess with a check and a heavier weight, so chosen chips add no loud marks to a
-   pane (P5). Each button inside keeps a 44px press area (P6). */
+/* A small glass pane lit from above (round 4, D-024): off is quiet glass with the top-lit rim; chosen is a
+   lighter pane with a check and a heavier weight, the same chosen glass as Tabs, so chosen chips add no
+   loud marks to a pane (P5). Each button inside keeps a 44px press area (P6). */
 .root {
   position: relative;
   isolation: isolate;
@@ -8,29 +8,29 @@
   align-items: center;
   min-block-size: var(--ds-chip-height);
   border-radius: var(--ds-chip-radius);
-  background: linear-gradient(180deg, var(--ds-chip-gloss), transparent 50%), var(--ds-chip-bg);
+  background: linear-gradient(180deg, var(--ds-chip-top), transparent 55%), var(--ds-chip-foot);
+  box-shadow: var(--ds-chip-edge), var(--ds-chip-cast);
   color: var(--ds-chip-fg);
   font-family: var(--ds-type-family);
   font-size: var(--ds-type-label);
   font-weight: var(--ds-type-weight-medium);
   transition: box-shadow var(--ds-motion-hover) var(--ds-motion-easing), background-color var(--ds-motion-hover) var(--ds-motion-easing);
 }
-/* the pane rim, brightest at the top left */
+/* the streak: light catching the curve of the top edge, brightest at its centre (round 5) */
 .root::before {
   content: '';
   position: absolute;
+  z-index: 1;
   inset: 0;
   border-radius: inherit;
-  padding: var(--ds-width-hairline);
+  border-block-start: var(--ds-width-hairline) solid var(--ds-chip-streak);
   pointer-events: none;
-  background: linear-gradient(150deg, var(--ds-chip-rim-hi), var(--ds-chip-rim-lo) 38%, var(--ds-chip-rim-lo) 70%, var(--ds-chip-rim-mid));
-  /* mask keeps only the padding ring; the keyword is the mask alpha source, not a design colour */
-  -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  /* the pill's own top border, faded toward the sides, so the streak follows the curve at a short
+     pill's ends instead of floating above them (R-021) */
+  -webkit-mask-image: linear-gradient(90deg, transparent 22%, black 50%, transparent 78%);
+  mask-image: linear-gradient(90deg, transparent 22%, black 50%, transparent 78%);
 }
-.on { background: var(--ds-chip-on-bg); color: var(--ds-chip-on-fg); box-shadow: var(--ds-chip-carve); font-weight: var(--ds-type-weight-semibold); }
-.on::before { display: none; }
+.on { background: linear-gradient(180deg, var(--ds-chip-on-top), var(--ds-chip-on-foot)); color: var(--ds-chip-on-fg); box-shadow: var(--ds-chip-edge), var(--ds-chip-on-cast); font-weight: var(--ds-type-weight-semibold); }
 .toggle, .remove {
   position: relative;
   display: inline-flex;
@@ -57,6 +57,9 @@
   box-shadow: 0 0 0 calc(var(--ds-focus-ring-width) * 2 + var(--ds-focus-ring-halo-width)) var(--ds-focus-ring-halo);
 }
 .toggle:active, .remove:active { transform: scale(var(--ds-motion-press-scale)); }
+/* off: the pill dims and its buttons refuse presses */
+.root[data-disabled] { opacity: var(--ds-opacity-disabled); }
+.root[data-disabled] .toggle, .root[data-disabled] .remove { cursor: not-allowed; }
 @media (forced-colors: active) {
   .root { border: var(--ds-width-hairline) solid ButtonText; }
   .root::before { display: none; }

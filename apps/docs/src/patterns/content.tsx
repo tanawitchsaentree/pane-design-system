@@ -36,7 +36,7 @@ export const PATTERN_DEPTH: Record<string, PatternDepth> = {
     example: { title: 'A profile with its actions', render: <Pane title="Mara Lind"><p className="flush muted">Landscape photographer · Bergen</p><Row><Button>Follow</Button><Button variant="glass">Message</Button><IconButton aria-label="Share profile" variant="glass"><IconShare /></IconButton><IconButton aria-label="More options" variant="glass"><IconMore /></IconButton></Row></Pane> },
     variations: [
       { title: 'No main action', text: 'A pane of equal options, such as sharing a post, uses glass only.', render: <Pane title="Share post"><Row><Button variant="glass">Copy link</Button><Button variant="glass">Email</Button></Row></Pane> },
-      { title: 'A promoted action', text: 'Accent replaces light when the product wants this action to stand out, and the pane then has no light button.', render: <Pane title="Get the blue check"><Row><Button variant="accent">Get verified</Button><Button variant="glass">Not now</Button></Row></Pane> },
+      { title: 'A promoted action', text: 'Accent replaces light when the product wants this action to stand out, and the pane then has no light button.', render: <Pane title="Verify your account"><Row><Button variant="accent">Get verified</Button><Button variant="glass">Not now</Button></Row></Pane> },
     ],
     pairs: [
       { do: <Pane><Row><Button>Save</Button><Button variant="glass">Cancel</Button></Row></Pane>, doNote: 'One loud, one quiet, loud first.', dont: <Pane><Row><Button variant="glass">Cancel</Button><Button>Save</Button><Button variant="accent">Publish</Button></Row></Pane>, dontNote: 'Two loud actions, and the way out comes first.' },

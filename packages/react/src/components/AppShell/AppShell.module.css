@@ -1,0 +1,21 @@
+/* A grid that measures its own width: header across the top, sidebar and aside beside the content when
+   wide, a bottom bar instead of the sidebar when narrow (container queries, no media queries). */
+.root { position: relative; inline-size: 100%; container-type: inline-size; min-block-size: 100%; font-family: var(--ds-type-family); }
+.grid { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: 'header' 'main' 'aside' 'bottom'; gap: var(--ds-app-shell-gap); min-block-size: 100%; }
+.header { grid-area: header; position: sticky; inset-block-start: 0; z-index: 2; }
+.side { grid-area: side; display: none; }
+.main { grid-area: main; min-inline-size: 0; outline: 0; scroll-margin-block-start: calc(var(--ds-app-shell-scroll-margin) + var(--ds-gap-lg)); }
+.aside { grid-area: aside; min-inline-size: 0; }
+.bottom { grid-area: bottom; position: sticky; inset-block-end: var(--ds-gap-md); z-index: 2; display: flex; justify-content: center; }
+@container (inline-size >= 48em) {
+  .hasSide { grid-template-columns: var(--ds-app-shell-side) minmax(0, 1fr); grid-template-areas: 'header header' 'side main' 'side aside'; }
+  .hasSide .side { display: block; position: sticky; inset-block-start: var(--ds-app-shell-gap); align-self: start; }
+  .hasSide .bottom { display: none; }
+}
+@container (inline-size >= 72em) {
+  .hasSide.hasAside { grid-template-columns: var(--ds-app-shell-side) minmax(0, 1fr) var(--ds-app-shell-aside); grid-template-areas: 'header header header' 'side main aside'; }
+  .hasAside .aside { align-self: start; position: sticky; inset-block-start: var(--ds-app-shell-gap); }
+}
+.skip { position: absolute; inset-inline-start: var(--ds-gap-md); inset-block-start: var(--ds-gap-md); z-index: 3; display: inline-flex; align-items: center; min-block-size: var(--ds-layout-touch); padding-inline: var(--ds-gap-lg); border-radius: var(--ds-corner-round); background: var(--ds-app-shell-skip-bg); color: var(--ds-app-shell-skip-fg); font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); clip-path: inset(50%); white-space: nowrap; }
+/* hidden until it has focus, then it sits in the shell's top corner, the first stop for the keyboard */
+.skip:focus-visible { clip-path: none; outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }

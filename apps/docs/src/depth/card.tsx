@@ -14,7 +14,7 @@ export const CARD: Depth = {
   overview: (
     <>
       <p>A card is a pane of glass. It holds a group of things that belong together, such as a profile, a post or a settings section, and it is the surface every other Pane component sits on. Text in Pane is only measured readable on a card, so anything a person has to read goes on one.</p>
-      <p>The glass dims and blurs the scene behind it by the amount measured for the backdrop, set by the nearest Environment. It has no border. A rim of light on the top-left edge and a soft shadow below say where it floats (P3). Gaps between cards are wide enough to see the scene through, because the scene is part of the interface (P1).</p>
+      <p>The glass dims and blurs the scene behind it by the amount measured for the backdrop, set by the nearest Environment. It has no border. One light falls from above, so a rim of light runs brightest along the top edge, faint down the sides and a little stronger at the foot, and a soft shadow below says where it floats (P3). Gaps between cards are wide enough to see the scene through, because the scene is part of the interface (P1).</p>
       <p>Cards are not buttons. A whole card that opens something on click hides its action from keyboard and screen reader users and leaves no room for a second action. Put a Button or a link inside the card instead.</p>
     </>
   ),
@@ -39,7 +39,7 @@ export const CARD: Depth = {
       { part: 'Glass', selector: '[data-component="Card"]', what: 'Tint, 64px blur, saturation lift and the Environment’s dimming. Legibility comes from dimming, never from an opaque fill (P1).' },
       { part: 'Cover', selector: '[data-component="Card"] > div', what: 'Optional CardCover. Full bleed to the card’s edges and decorative, so meaning stays in the text.' },
       { part: 'Content', selector: '[data-component="Card"] h3', what: 'Padding inside is larger than the gaps between items, so the edge reads as the object’s boundary (P3).' },
-      { part: 'Rim and shadow', selector: '[data-component="Card"]', what: 'A 1px light rim brightest at the top-left, and the float shadow below.' },
+      { part: 'Rim and shadow', selector: '[data-component="Card"]', what: 'A 1px light rim brightest along the top edge, faint down the sides and a little stronger at the foot, with the float shadow below.' },
     ],
     perVariant: 'Inset keeps the content and padding but drops the glass, rim and shadow, and adds a divider above.',
   },
@@ -82,7 +82,7 @@ export const CARD: Depth = {
   },
   behaviours: {
     states: [
-      ['Rest', 'Rim light at the top-left.', 'Light catching an edge (P3).'],
+      ['Rest', 'Rim light along the top edge.', 'Light catching an edge (P3).'],
       ['Hover', 'The rim light drifts toward the centre over 640ms. The card does not move.', 'Nothing moves on its own; the light answers the pointer (P4).'],
       ['Environment change', 'The dimming glides over 640ms.', 'The world changes, the interface does not jump (P1).'],
       ['Reduced transparency', 'Opaque graphite, no blur.', 'Structure survives without glass (P6).'],

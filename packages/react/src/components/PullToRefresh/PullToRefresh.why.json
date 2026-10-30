@@ -1,0 +1,89 @@
+{
+  "concept": "A list that refreshes when pulled down from the top, with a spinner in the gap it leaves and a button for anyone who cannot drag.",
+  "default_to_avoid": [
+    {
+      "pattern": "a refresh icon in the corner of a list, or a pull to refresh gesture with no alternative",
+      "kind": "pull to refresh, refresh control",
+      "why_not": "a gesture alone fails WCAG 2.5.1; a corner button alone ignores how phones work"
+    }
+  ],
+  "references": [
+    {
+      "title": "WCAG 2.2 · 2.5.1 Pointer Gestures",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/pointer-gestures.html"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P4",
+      "axis": "motion",
+      "consequence": "long ease-out curves (420 to 640ms) for arriving and hovering, a shorter one (200ms) for pressing because a press is a reply; under reduced motion every duration is zero at the token level",
+      "form": "the list follows the finger at half its speed and settles back when the refresh is done"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "a Refresh button is always in the tree and shows when focused"
+    },
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the spinner sits in the gap the list leaves, a lit arc in a groove"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave4/",
+    "section": "pulltorefresh",
+    "options": [
+      "A pull with a focusable button",
+      "B corner refresh icon",
+      "C automatic refresh only"
+    ],
+    "picked": "A pull with a focusable button",
+    "by": "agent",
+    "reason": "A works for touch and for keyboards (P6). B ignores the gesture people expect. C gives the reader no control."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the scrolling list, contained so the page behind does not bounce"
+    },
+    "indicator": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the gap the list leaves while pulled, holding the spinner"
+    },
+    "pulling": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "faint while the pull is short of the threshold"
+    },
+    "ready": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "full once the pull is past the threshold or the refresh is running"
+    },
+    "button": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a Refresh button kept for keyboards and switches, shown when focused"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the Refresh button shows itself with a focus ring"
+    }
+  },
+  "motion": {
+    "block-size": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the gap eases back at press pace, the same in every theme and on every scene"
+    }
+  }
+}

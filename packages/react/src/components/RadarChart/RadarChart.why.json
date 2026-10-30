@@ -1,0 +1,87 @@
+{
+  "concept": "A profile over a few axes as one 2px shape per series with a faint wash, on recessive rings and spokes, with a table view.",
+  "default_to_avoid": [
+    {
+      "pattern": "a radar chart with thick saturated filled polygons and a coloured web of gridlines",
+      "kind": "radar chart, spider chart, star plot",
+      "why_not": "saturated fills hide each other and a coloured web shouts over the data; Pane draws thin outlines and a faint wash on a quiet grid"
+    }
+  ],
+  "references": [
+    {
+      "title": "Carbon · Radar chart",
+      "url": "https://carbondesignsystem.com/data-visualization/chart-types/"
+    },
+    {
+      "title": "WAI · Complex images",
+      "url": "https://www.w3.org/WAI/tutorials/images/complex/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "each shape carries its data colour from the palette that belongs to the content (D-031)"
+    },
+    {
+      "p": "P6",
+      "axis": "colour",
+      "consequence": "status is spoken in text as well as shown in colour",
+      "form": "every value is also in the table view and read aloud axis by axis, so nothing is read by colour alone"
+    },
+    {
+      "p": "P2",
+      "axis": "type",
+      "consequence": "secondary text keeps the lowest opacity that still measured as passing; text halos count only where WCAG allows them",
+      "form": "axis names and values wear the text tones, never a series colour"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave11/",
+    "section": "radarchart",
+    "options": [
+      "A thin outlines with a wash",
+      "B saturated fills",
+      "C bars per axis"
+    ],
+    "picked": "A thin outlines with a wash",
+    "by": "agent",
+    "reason": "A keeps overlapping shapes readable (dataviz). B hides one behind another. C loses the profile at a glance."
+  },
+  "parts": {
+    "ring": {
+      "p": "P2",
+      "axis": "colour",
+      "why": "rings are recessive hairlines in the grid tone"
+    },
+    "spoke": {
+      "p": "P2",
+      "axis": "colour",
+      "why": "spokes are hairlines in the grid tone from the centre to each axis"
+    },
+    "shape": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "each series is a 2px outline over a faint wash of its own data colour"
+    },
+    "dot": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the axis in focus marks each series with a dot ringed in the surface"
+    },
+    "live": {
+      "p": "P6",
+      "axis": "type",
+      "why": "a hidden live line says every value on the axis in focus"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the shapes keep their data colours so series stay apart"
+    }
+  },
+  "motion": {}
+}

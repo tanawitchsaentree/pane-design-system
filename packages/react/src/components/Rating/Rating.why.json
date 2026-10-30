@@ -1,0 +1,109 @@
+{
+  "concept": "A score from one to five stars, the chosen ones in the loud solid and the rest an outline, read by count and shape.",
+  "default_to_avoid": [
+    {
+      "pattern": "gold filled stars on grey (the common star rating)",
+      "kind": "rating, star rating, review score",
+      "why_not": "gold is a hue the system does not own, and a grey empty star can vanish on glass"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA APG · Radio group",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "chosen stars are the loud solid, white in dark and ink in light, never gold"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "empty stars stay an outline at the 3:1 edge, so the count reads without colour"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "each star is a radio in a 44px press area; arrow keys change the score"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave5/",
+    "section": "rating",
+    "options": [
+      "A loud solid stars and outlines",
+      "B gold stars",
+      "C a number out of five"
+    ],
+    "picked": "A loud solid stars and outlines",
+    "by": "agent",
+    "reason": "A keeps the system’s one solid (P1, P5). B brings a hue. C loses the glance the stars give."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the stars in a row with a small gap"
+    },
+    "item": {
+      "p": "P6",
+      "axis": "space",
+      "why": "each star is a radio with a 44px press area"
+    },
+    "star": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the star outline at the edge opacity, the same in every theme and on every scene"
+    },
+    "on": {
+      "p": "P5",
+      "axis": "colour",
+      "why": "a chosen star filled with the loud solid"
+    },
+    "readOnly": {
+      "p": "P2",
+      "axis": "type",
+      "why": "a shown score that is read as a whole, such as 4 out of 5"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring inside the focused star’s press area"
+    },
+    "data-state=checked": {
+      "p": "P5",
+      "axis": "colour",
+      "why": "the checked star is filled, the same in every theme and on every scene"
+    },
+    "data-on": {
+      "p": "P5",
+      "axis": "colour",
+      "why": "every star up to the score is filled"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours fill chosen stars with the system text colour"
+    },
+    "data-disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "an off control dims and refuses presses, so it reads as there but not available"
+    }
+  },
+  "motion": {
+    "fill": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "a star fills at press pace, the same in every theme and on every scene"
+    }
+  }
+}

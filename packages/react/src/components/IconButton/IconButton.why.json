@@ -30,6 +30,26 @@
       "p": "P5",
       "axis": "shape",
       "why": "the glyph alone for dense rows, so quiet actions stay text-like"
+    },
+    "loud": {
+      "p": "P5",
+      "axis": "depth",
+      "why": "a white bead with its own bloom, the one main action in a toolbar or dock"
+    },
+    "content": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the label stays in place unseen while loading so the button keeps its width and nothing jumps"
+    },
+    "loading": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a busy button keeps focus, says it is busy and ignores presses until the action is done"
+    },
+    "spinner": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the spinner sits over the hidden label so the reader sees the action is still running"
     }
   },
   "states": {
@@ -99,7 +119,7 @@
     {
       "p": "P3",
       "axis": "depth",
-      "consequence": "a soft shadow below and a rim of light on the top-left edge say where the pane floats",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip",
       "form": "the disc carries the pane rim, brightest at the top left, and the loud kind rests on its own shadow"
     },
     {

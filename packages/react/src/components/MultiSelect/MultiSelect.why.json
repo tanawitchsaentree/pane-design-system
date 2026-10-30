@@ -1,0 +1,8 @@
+{
+  "identity": false,
+  "identity_reason": "a multi-select is the Combobox field holding chips, so its form is the Combobox’s and Chip’s together",
+  "concept": "Several values chosen from a long list, each a removable chip in the Combobox field.",
+  "parts": {},
+  "states": {},
+  "motion": {}
+}

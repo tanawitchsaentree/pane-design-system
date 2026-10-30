@@ -1,0 +1,18 @@
+/* Level 3 of the stack (D-025): a scrim dims the scene under it and the dialog rises onto it and settles
+   (P3 motion, P4). Centred, a fixed measure wide, scrolling inside itself when it is tall. */
+.scrim { position: fixed; inset: 0; z-index: var(--ds-overlay-z); background: var(--ds-overlay-scrim); animation: fade var(--ds-motion-enter) var(--ds-motion-easing) both; }
+.dialog {
+  position: fixed; z-index: var(--ds-overlay-z); inset: 0; margin: auto; block-size: fit-content;
+  display: flex; flex-direction: column; gap: var(--ds-overlay-gap); inline-size: min(calc(100vw - var(--ds-overlay-margin) * 2), var(--ds-overlay-md));
+  max-block-size: calc(100dvh - var(--ds-overlay-margin) * 2); overflow-y: auto; animation: rise var(--ds-motion-enter) var(--ds-motion-easing) both;
+}
+.lg { inline-size: min(calc(100vw - var(--ds-overlay-margin) * 2), var(--ds-overlay-lg)); }
+.title { margin: 0; font-size: var(--ds-type-title); font-weight: var(--ds-type-weight-semibold); line-height: var(--ds-type-leading-tight); color: var(--ds-text-primary); }
+.description { margin: 0; font-size: var(--ds-type-body); line-height: var(--ds-type-leading-body); color: var(--ds-text-secondary); }
+.body { display: flex; flex-direction: column; gap: var(--ds-overlay-gap); }
+.actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--ds-gap-md); padding-block-start: var(--ds-gap-md); }
+.dialog:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+@keyframes fade { from { opacity: 0; } }
+@keyframes rise { from { opacity: 0; translate: 0 var(--ds-motion-rise); } }
+@media (forced-colors: active) { .dialog { border: var(--ds-width-hairline) solid CanvasText; } }
+.preview { position: relative; inset: auto; margin: 0; animation: none; z-index: auto; inline-size: 100%; max-inline-size: var(--ds-overlay-md); }

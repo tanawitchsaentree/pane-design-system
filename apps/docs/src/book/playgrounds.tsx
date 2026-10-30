@@ -101,7 +101,7 @@ export function GlassPlayground({ scene }: { scene: string }) {
 export function ContrastPlayground() {
   const solids = Object.entries(TOKENS).filter(([p, t]) => t.type === 'color' && t.tier === 'primitive' && alphaOf(String(t.value)) === 1);
   const [fg, setFg] = useState('color.white');
-  const [bg, setBg] = useState('color.blue.600');
+  const [bg, setBg] = useState('color.ink.900');
   const r = Math.round(ratio(hex(String(TOKENS[fg].value)), hex(String(TOKENS[bg].value))) * 100) / 100;
   return (
     <Playground
@@ -111,11 +111,13 @@ export function ContrastPlayground() {
         <Select label="Fill" value={bg} options={solids.map(([p]) => [p, p])} onChange={setBg} />
       </>}
       preview={
-        <div className="pg-swatch" style={{ background: `var(${TOKENS[bg].css})`, color: `var(${TOKENS[fg].css})` }}>
-          <span className="pg-swatch-big">Aa</span>
-          <span>{r}:1</span>
-          <Stack direction="row" gap="xs"><Badge tone={r >= 4.5 ? 'positive' : 'critical'}>{r >= 4.5 ? 'AA text' : 'Fails AA text'}</Badge><Badge tone={r >= 3 ? 'positive' : 'critical'}>{r >= 3 ? 'AA large / UI' : 'Fails 3:1'}</Badge></Stack>
-        </div>
+        <Stack gap="md">
+          <div className="pg-swatch" style={{ background: `var(${TOKENS[bg].css})`, color: `var(${TOKENS[fg].css})` }}>
+            <span className="pg-swatch-big">Aa</span>
+            <span>{r}:1</span>
+          </div>
+          <Card as="div" className="demo-card"><Stack direction="row" gap="md"><Badge tone={r >= 4.5 ? 'positive' : 'critical'}>{r >= 4.5 ? 'AA text' : 'Fails AA text'}</Badge><Badge tone={r >= 3 ? 'positive' : 'critical'}>{r >= 3 ? 'AA large / UI' : 'Fails 3:1'}</Badge></Stack></Card>
+        </Stack>
       }
       note={<p className="flush">Opaque pairs like these can be computed. Anything on glass depends on the scene and is measured instead.</p>}
       code={`color: var(${TOKENS[fg].css});\nbackground: var(${TOKENS[bg].css});\n/* ${r}:1 */`}

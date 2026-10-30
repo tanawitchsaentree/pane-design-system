@@ -1,0 +1,118 @@
+{
+  "concept": "A reading inside a known range, such as storage used, in the Progress channel with a status glyph and word once the reading runs high.",
+  "default_to_avoid": [
+    {
+      "pattern": "a Meter that turns its bar from green to amber to red as it fills",
+      "kind": "meter, gauge, usage bar, storage bar",
+      "why_not": "a traffic-light bar says the news only by hue; Pane says it with a glyph and a word beside the amount"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA meter role",
+      "url": "https://www.w3.org/TR/wai-aria-1.2/#meter"
+    },
+    {
+      "title": "Atlassian · Progress bar and meters",
+      "url": "https://atlassian.design/components/progress-bar/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "the fill stays the loud solid at every level and only the status glyph carries the warning or critical mark colour"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "a high reading adds a triangle and Almost full, a full one a diamond and Full, so the level reads by shape and word"
+    },
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the channel is the same carve as Progress and the slider track, so the family reads as one"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave7/",
+    "section": "meter",
+    "options": [
+      "A loud fill, status glyph and word",
+      "B traffic-light fill",
+      "C segmented blocks"
+    ],
+    "picked": "A loud fill, status glyph and word",
+    "by": "agent",
+    "reason": "A keeps the fill without hue and puts the news in a glyph and a word (P1, P6). B rests on hue alone. C quantises a reading that is continuous."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the label row and the channel stack with a small gap so they read as one reading"
+    },
+    "head": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the label and the reading share one row so the reading sits at the end of the line"
+    },
+    "label": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the label is in the label size and primary tone because it names what is measured"
+    },
+    "value": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the reading is secondary in tabular figures and holds the status word when there is one"
+    },
+    "status": {
+      "p": "P6",
+      "axis": "type",
+      "why": "the status word is primary and medium weight so a warning is read before the number"
+    },
+    "glyph": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the status glyph is a small shape that says the level without needing its colour"
+    },
+    "warning": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a high reading fills its triangle with the warning mark colour from the status scale"
+    },
+    "critical": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a full reading fills its diamond with the critical mark colour from the status scale"
+    },
+    "track": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the channel is carved into the pane like the Progress channel, shaded under its lip"
+    },
+    "fill": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "the fill is the loud solid at every level so a warning never rests on a hue"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "in forced colours the system draws the edges and the fill so the parts stay findable"
+    }
+  },
+  "motion": {
+    "inline-size": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the fill settles on the long ease when the reading changes instead of jumping"
+    }
+  }
+}

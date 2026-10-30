@@ -1,0 +1,19 @@
+{
+  "identity": false,
+  "identity_reason": "centring places content and draws nothing, so it has no form of its own to derive",
+  "concept": "Content in the middle of the space it is given, both ways, for empty states, icons in tiles and spinners over cards.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "puts content in the middle both ways wherever the component is used in a screen"
+    },
+    "inline": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the same, inside a line of text wherever the component is used in a screen"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

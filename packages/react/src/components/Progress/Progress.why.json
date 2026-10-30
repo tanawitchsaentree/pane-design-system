@@ -1,0 +1,123 @@
+{
+  "concept": "How far a task has come, as the slider channel carved into the pane with the loud solid filling it from the leading edge.",
+  "default_to_avoid": [
+    {
+      "pattern": "a Progress bar in the brand blue with a striped animated fill",
+      "kind": "progress bar, loading bar, upload bar",
+      "why_not": "blue is a hue in a control and stripes move across the whole bar; Pane keeps controls without hue and motion slow"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA progressbar role",
+      "url": "https://www.w3.org/TR/wai-aria-1.2/#progressbar"
+    },
+    {
+      "title": "Carbon · Progress bar",
+      "url": "https://carbondesignsystem.com/components/progress-bar/usage/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "the fill is the loud solid that a chosen value uses everywhere, white in dark and ink in light, with no hue"
+    },
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the channel is the same carve as the slider track, shaded under its top lip, so it reads as a groove in the pane"
+    },
+    {
+      "p": "P4",
+      "axis": "motion",
+      "consequence": "long ease-out curves (420 to 640ms) for arriving and hovering, a shorter one (200ms) for pressing because a press is a reply; under reduced motion every duration is zero at the token level",
+      "form": "the fill grows on the long ease when the value changes and an unknown task travels slowly; under reduced motion it stands still"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave7/",
+    "section": "progress",
+    "options": [
+      "A carved channel, loud fill",
+      "B blue bar with stripes",
+      "C a ring that fills"
+    ],
+    "picked": "A carved channel, loud fill",
+    "by": "agent",
+    "reason": "A shares the slider channel (P3) and has no hue (P1). B brings a hue and busy motion. C hides the amount in a small circle."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the label row and the channel stack with a small gap so they read as one thing"
+    },
+    "head": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the label and the amount share a row so the amount sits at the end where the eye finishes"
+    },
+    "label": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the label is in the label size and primary tone because it names the task"
+    },
+    "value": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the amount is secondary and set in tabular figures so it does not jitter while it counts"
+    },
+    "track": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the channel is carved into the pane like the slider track, shaded under its lip"
+    },
+    "md": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the default channel is a little thicker than the slider so it reads from across a page"
+    },
+    "sm": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the thin channel fits inside a card row or a list row without crowding its text"
+    },
+    "fill": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "the fill is the loud solid lit from above and glows softly in dark like a slider range"
+    },
+    "unknown": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "an unknown amount shows a third of the channel travelling slowly from start to end"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "in forced colours the system draws the edges and the fill so the parts stay findable"
+    },
+    "@media prefers-reduced-motion: reduce": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "under reduced motion the travelling fill stops and fills the channel faintly instead of moving"
+    }
+  },
+  "motion": {
+    "@travel": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the travelling fill moves along the inline axis, so it runs right to left in RTL"
+    },
+    "inline-size": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the fill grows on the long settle ease when the amount changes instead of jumping"
+    }
+  }
+}

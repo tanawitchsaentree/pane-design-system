@@ -1,0 +1,7 @@
+/* A scrolling level-2 pane; rows sit at their own offsets inside a list as tall as all of them, so the
+   scrollbar tells the truth about the length (P3: one pane, no nested blur). */
+.root { position: relative; overflow-y: auto; overscroll-behavior: contain; border-radius: var(--ds-corner-media); background: var(--ds-virtual-list-bg); box-shadow: var(--ds-virtual-list-edge); font-family: var(--ds-type-family); }
+.root:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.list { position: relative; margin: 0; padding: 0; list-style: none; }
+.row { position: absolute; inset-inline: 0; display: flex; align-items: center; box-sizing: border-box; padding-inline: var(--ds-virtual-list-padding); border-block-end: var(--ds-width-hairline) solid var(--ds-virtual-list-divider); color: var(--ds-text-primary); font-size: var(--ds-type-body); }
+@media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid CanvasText; } }

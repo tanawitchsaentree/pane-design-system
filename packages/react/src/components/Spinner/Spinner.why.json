@@ -1,0 +1,84 @@
+{
+  "concept": "A short lit arc turning in a groove: the light model at its smallest, saying something is happening while the reader waits.",
+  "default_to_avoid": [
+    {
+      "pattern": "a grey ring spinner with a coloured quarter (Material circular progress, the browser throbber)",
+      "kind": "spinner, loader, progress ring, throbber",
+      "why_not": "a coloured arc gives the system a hue; a plain grey ring has no light"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA · status role",
+      "url": "https://www.w3.org/TR/wai-aria-1.2/#status"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the ring is a groove and the arc is light travelling in it, shaded and lit like every recess"
+    },
+    {
+      "p": "P5",
+      "axis": "colour",
+      "consequence": "one solid fill exists, the loud solid (white in dark, ink in light); a promoted action is the same solid glowing with its own light, and a pane uses one of them",
+      "form": "the arc is the loud solid, white in dark and ink in light, the one moving mark"
+    },
+    {
+      "p": "P4",
+      "axis": "motion",
+      "consequence": "long ease-out curves (420 to 640ms) for arriving and hovering, a shorter one (200ms) for pressing because a press is a reply; under reduced motion every duration is zero at the token level",
+      "form": "it turns at one steady pace and stands still under reduced motion, where the label still says loading"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave2/",
+    "section": "spinner",
+    "options": [
+      "A lit arc in a groove",
+      "B three bouncing dots",
+      "C pulsing disc"
+    ],
+    "picked": "A lit arc in a groove",
+    "by": "agent",
+    "reason": "A is the light model: a recess with light moving in it (P3). B bounces, which P4 rules out. C flashes the whole mark and reads as an alert."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the groove the arc travels in, a quiet ring recessed into the glass"
+    },
+    "sm": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the 16px size that sits inside a button or a row of text"
+    },
+    "md": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the 24px default size for a pane or a card that is loading"
+    },
+    "arc": {
+      "p": "P5",
+      "axis": "colour",
+      "why": "the lit quarter in the loud solid, the one moving thing on the pane"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours draw the arc in the system text colour"
+    }
+  },
+  "motion": {
+    "@spin": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "one steady turn, zero under reduced motion at the token level"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+/* Round 44px steps; the current page is chosen glass in semibold (P6), Previous and Next at the ends, an
+   ellipsis where pages are skipped. */
+.root { display: flex; align-items: center; gap: var(--ds-gap-xs); font-family: var(--ds-type-family); }
+.pages { display: flex; align-items: center; gap: var(--ds-gap-xs); margin: 0; padding: 0; list-style: none; }
+.step { display: inline-flex; align-items: center; justify-content: center; gap: var(--ds-gap-xs); min-inline-size: var(--ds-layout-touch); min-block-size: var(--ds-layout-touch); padding-inline: var(--ds-gap-md); border: 0; border-radius: var(--ds-corner-round); background: transparent; color: var(--ds-text-primary); font: inherit; font-size: var(--ds-type-body); font-variant-numeric: tabular-nums; cursor: pointer; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
+.step:hover:not(:disabled):not([aria-current]) { background: var(--ds-surface-quiet); }
+.step[aria-current='page'] { background: linear-gradient(180deg, var(--ds-nav-on-top), var(--ds-nav-on-foot)); box-shadow: var(--ds-nav-on-cast); font-weight: var(--ds-type-weight-semibold); }
+.step:disabled { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
+.step:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.step svg { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.edge { padding-inline: var(--ds-gap-lg); }
+.gap { min-inline-size: var(--ds-control-icon-md); text-align: center; color: var(--ds-text-secondary); }
+@media (forced-colors: active) { .step[aria-current='page'] { outline: var(--ds-width-ring) solid Highlight; } }

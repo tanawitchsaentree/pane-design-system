@@ -1,0 +1,9 @@
+/* A picture with a corner from the scale; it fades in over the carve and shows the carve if it fails. */
+.root { display: block; max-inline-size: 100%; background: var(--ds-image-placeholder); color: transparent; transition: opacity var(--ds-motion-enter) var(--ds-motion-easing); }
+.root[data-state='loading'] { opacity: var(--ds-image-loading-opacity); }
+.root[data-state='error'] { box-shadow: var(--ds-image-carve); }
+.media { border-radius: var(--ds-corner-media); }
+.inner { border-radius: var(--ds-corner-inner); }
+.none { border-radius: 0; }
+.cover { object-fit: cover; }
+.contain { object-fit: contain; }

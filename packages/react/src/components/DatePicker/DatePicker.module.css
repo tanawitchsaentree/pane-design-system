@@ -1,0 +1,10 @@
+/* Select's groove for the field and a level-4 popover for the calendar, so a date reads as one more choice
+   in the family (R-013). Only the calendar glyph and the popover's padding are its own. */
+.trigger { font-variant-numeric: tabular-nums; }
+.placeholder { color: var(--ds-text-secondary); }
+.glyph { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); flex: none; fill: none; stroke: var(--ds-text-secondary); stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.pop { z-index: var(--ds-overlay-z-pop); padding: var(--ds-date-picker-padding); animation: pop var(--ds-motion-hover) var(--ds-motion-easing) both; }
+@keyframes pop { from { opacity: 0; transform: translateY(calc(var(--ds-motion-rise) * -1)); } }
+/* read-only and wrong, as Select's: a hairline instead of the groove, or the critical ring (P6) */
+.trigger[data-readonly] { background: transparent; box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring-readonly); cursor: default; }
+.trigger[aria-invalid='true'] { box-shadow: var(--ds-select-groove), inset 0 0 0 var(--ds-width-ring) var(--ds-input-ring-invalid); }

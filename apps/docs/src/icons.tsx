@@ -22,3 +22,12 @@ export const IconVerified = ({ label = 'Verified', ...p }: P & { label?: string 
   </svg>
 );
 export const IconChevronDown = (p: P) => <svg {...base} strokeWidth={2} {...p}><path d="M7 10l5 5 5-5" /></svg>;
+export const IconPlay = (p: P) => <svg {...base} {...p}><path d="M8 5.5v13l10.5-6.5z" fill="currentColor" /></svg>;
+export const IconPause = (p: P) => <svg {...base} {...p}><path d="M9 5.5v13M15 5.5v13" strokeWidth={2.4} /></svg>;
+export const IconPrev = (p: P) => <svg {...base} {...p}><path d="M6 6v12M18 6l-9 6 9 6z" /></svg>;
+export const IconNext = (p: P) => <svg {...base} {...p}><path d="M18 6v12M6 6l9 6-9 6z" /></svg>;
+export const IconHome = (p: P) => <svg {...base} {...p}><path d="M4 11l8-6.5 8 6.5M6.5 9.5V19h11V9.5" /><path d="M10 19v-5h4v5" /></svg>;
+export const IconSearch = (p: P) => <svg {...base} {...p}><circle cx="11" cy="11" r="6" /><path d="M20 20l-4.5-4.5" /></svg>;
+export const IconUser = (p: P) => <svg {...base} {...p}><circle cx="12" cy="8.5" r="3.5" /><path d="M5 19.5c1.2-3.3 3.8-5 7-5s5.8 1.7 7 5" /></svg>;
+export const IconImage = (p: P) => <svg {...base} {...p}><rect x="4" y="5" width="16" height="14" rx="2.5" /><circle cx="9" cy="10" r="1.6" /><path d="M5 17l4.5-4 3.5 3 2.5-2 3.5 3" /></svg>;
+export const IconInbox = (p: P) => <svg {...base} {...p}><path d="M4 13l2.5-7h11L20 13v5.5H4z" /><path d="M4 13h4.5l1 2h5l1-2H20" /></svg>;

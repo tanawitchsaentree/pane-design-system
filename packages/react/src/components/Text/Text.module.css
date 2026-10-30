@@ -1,0 +1,13 @@
+/* Text at a step of the type scale, in one of two tones. */
+.root { margin: 0; font-family: var(--ds-type-family); }
+.reading { font-size: var(--ds-type-reading); line-height: var(--ds-type-leading-reading); max-inline-size: var(--ds-type-measure); }
+.body { font-size: var(--ds-type-body); line-height: var(--ds-type-leading-body); }
+.label { font-size: var(--ds-type-label); line-height: var(--ds-type-leading-body); }
+.caption { font-size: var(--ds-type-caption); line-height: var(--ds-type-leading-body); }
+.micro { font-size: var(--ds-type-micro); line-height: var(--ds-type-leading-body); letter-spacing: var(--ds-type-tracking-caps); }
+.primary { color: var(--ds-text-primary); }
+.secondary { color: var(--ds-text-secondary); }
+.regular { font-weight: var(--ds-type-weight-regular); }
+.medium { font-weight: var(--ds-type-weight-medium); }
+.semibold { font-weight: var(--ds-type-weight-semibold); }
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-inline-size: 0; }

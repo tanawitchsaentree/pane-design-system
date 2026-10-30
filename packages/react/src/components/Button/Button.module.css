@@ -1,5 +1,6 @@
-/* A small pane on the big one (round 2, R-010): a sheet lit at its top and shaded at its foot, the
-   pane's own rim, a glint under the pointer, and a shadow that is blue under the accent. */
+/* A small pane on the big one, lit from above (rounds 2 and 4, D-024): a sheet lit at its top and shaded
+   at its foot, the top-lit rim, a glint under the pointer. Loud is the white solid (ink in light); the
+   promoted accent is the same solid glowing with its own light. There is no blue. */
 .root {
   position: relative;
   isolation: isolate;
@@ -18,20 +19,19 @@
     transform var(--ds-motion-hover) var(--ds-motion-easing),
     box-shadow var(--ds-motion-hover) var(--ds-motion-easing);
 }
-/* the pane's rim, brightest at the top left */
+/* the streak: light catching the curve of the top edge, brightest at its centre (round 5) */
 .root::before {
   content: '';
   position: absolute;
-  inset: 0;
   z-index: 1;
+  inset: 0;
   border-radius: inherit;
-  padding: var(--ds-width-hairline);
+  border-block-start: var(--ds-width-hairline) solid var(--ds-button-streak);
   pointer-events: none;
-  background: linear-gradient(150deg, var(--ds-button-rim-hi), var(--ds-button-rim-lo) 38%, var(--ds-button-rim-lo) 70%, var(--ds-button-rim-mid));
-  /* mask keeps only the padding ring; the keyword is the mask alpha source, not a design colour */
-  -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  /* the pill's own top border, faded toward the sides, so the streak follows the curve at a short
+     pill's ends instead of floating above them (R-021) */
+  -webkit-mask-image: linear-gradient(90deg, transparent 22%, black 50%, transparent 78%);
+  mask-image: linear-gradient(90deg, transparent 22%, black 50%, transparent 78%);
 }
 /* the glint: light where the pointer is, gone when it leaves */
 .root::after {
@@ -59,13 +59,14 @@
 }
 .light::after { background: radial-gradient(calc(var(--ds-button-height-md) * 2) circle at var(--pane-gx, 50%) var(--pane-gy, 0%), var(--ds-button-glint-solid), transparent 70%); }
 .accent {
-  background: linear-gradient(180deg, var(--ds-button-gloss), transparent 46%), linear-gradient(180deg, var(--ds-button-accent-bg), var(--ds-button-accent-mid) 55%, var(--ds-button-accent-foot));
+  background: linear-gradient(180deg, var(--ds-button-accent-top), var(--ds-button-accent-bg) 40%, var(--ds-button-accent-foot));
   color: var(--ds-button-accent-fg);
   box-shadow: var(--ds-button-accent-cast);
 }
 .glass {
-  background: linear-gradient(180deg, var(--ds-button-gloss-quiet), transparent 50%), var(--ds-button-glass-bg);
+  background: linear-gradient(180deg, var(--ds-button-glass-top), transparent 55%), var(--ds-button-glass-foot);
   color: var(--ds-button-glass-fg);
+  box-shadow: var(--ds-button-edge), var(--ds-button-glass-cast);
 }
 /* only the loud kinds lift with a shadow (P5); every kind shows the glint */
 .light:hover:not(:disabled), .accent:hover:not(:disabled) { transform: translateY(calc(var(--ds-motion-lift) * -1)); }
@@ -79,4 +80,10 @@
   box-shadow: 0 0 0 calc(var(--ds-focus-ring-width) * 2 + var(--ds-focus-ring-halo-width)) var(--ds-focus-ring-halo);
 }
 .root:disabled { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
+/* loading keeps the button's size: the content stays in place unseen and a spinner sits on top (P4) */
+.content { display: inline-flex; align-items: center; justify-content: center; gap: inherit; }
+.loading { cursor: progress; }
+/* opacity, not visibility, so the label still names the button while it is hidden */
+.loading .content { opacity: 0; }
+.spinner { position: absolute; inset: 0; display: grid; place-items: center; color: currentColor; }
 @media (forced-colors: active) { .root { border: var(--ds-focus-ring-width) solid ButtonText; } .root::before, .root::after { display: none; } }

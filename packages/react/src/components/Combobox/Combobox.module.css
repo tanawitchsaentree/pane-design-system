@@ -1,0 +1,14 @@
+/* A groove like Input (R-009) that you type into; the list opens under it as the menu sheet. */
+.root { display: flex; flex-direction: column; gap: var(--ds-listbox-gap); min-inline-size: 0; font-family: var(--ds-type-family); }
+.label { font-size: var(--ds-type-label); color: var(--ds-text-primary); }
+.field { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ds-gap-sm); min-block-size: var(--ds-listbox-field); padding-inline: var(--ds-listbox-padding); padding-block: var(--ds-gap-xs); border-radius: var(--ds-listbox-field-radius); background: var(--ds-listbox-well); box-shadow: var(--ds-listbox-groove); color: var(--ds-text-primary); }
+.field:focus-within { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.input { flex: 1; min-inline-size: var(--ds-listbox-input-min); min-block-size: var(--ds-layout-touch); border: 0; background: transparent; color: inherit; font: inherit; font-size: var(--ds-type-body); outline: 0; }
+.input::placeholder { color: var(--ds-text-secondary); }
+.chevron { display: inline-flex; flex: none; inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); color: var(--ds-text-secondary); }
+.chevron svg { inline-size: 100%; block-size: 100%; fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+/* states, as Input's: off dims, read-only drops the groove for a hairline, wrong takes the critical ring (P6) */
+.field:has(input:disabled) { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
+.field:has(input:read-only:not(:disabled)) { background: transparent; box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring-readonly); }
+.field:has(input[aria-invalid='true']) { box-shadow: var(--ds-listbox-groove), inset 0 0 0 var(--ds-width-ring) var(--ds-input-ring-invalid); }
+@media (forced-colors: active) { .field { border: var(--ds-width-hairline) solid ButtonText; } }

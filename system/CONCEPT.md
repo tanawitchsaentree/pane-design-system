@@ -10,7 +10,7 @@ only works on one wallpaper, or glass where people simply need to read.
 
 ### P1 The scene is part of the interface
 What is behind a pane belongs to the experience, so glass shows it instead of covering it.
-**Therefore** space: panes leave the scene visible around them; gaps between panes are wide enough to see the world through. shape: not affected, because silhouette is set by P3. depth: legibility comes from dimming and blurring the backdrop (brightness, blur), never from an opaque tint. colour: the scene supplies the hue; the system owns almost no colour of its own, only white at opacities, one ink and one blue. type: white on dark glass and ink on light glass, because the text colour must contrast with the dimmed or lifted scene behind it. motion: a changed scene crossfades slowly so the world changes, the interface does not jump. interaction: not affected.
+**Therefore** space: panes leave the scene visible around them; gaps between panes are wide enough to see the world through. shape: not affected, because silhouette is set by P3. depth: legibility comes from dimming and blurring the backdrop (brightness, blur) inside a smoked body thick enough that a pane reads as a slab of glass, with the scene softened behind it. colour: the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram. type: white on dark glass and ink on light glass, because the text colour must contrast with the dimmed or lifted scene behind it. motion: a changed scene crossfades slowly so the world changes, the interface does not jump. interaction: not affected.
 
 ### P2 Measured, not predicted
 Contrast over a photograph depends on the photograph, so every value that decides legibility comes from measuring real pixels.
@@ -18,7 +18,7 @@ Contrast over a photograph depends on the photograph, so every value that decide
 
 ### P3 Panes are objects in space
 A pane is a physical sheet with an edge, a weight and a place in a stack.
-**Therefore** space: padding inside a pane is larger than the gap between items in it, so the edge reads as the object's boundary. shape: corners are continuous and nest, so an inner surface's radius is the outer radius minus the padding between them and a pane inside a pane reads as inside it; controls are full pills because they are held in the hand. depth: a soft shadow below and a rim of light on the top-left edge say where the pane floats; a nested surface adds no second blur, because one sheet of glass is one layer. colour: the rim and sheen are white at low opacity, like light catching an edge. type: not affected. motion: panes enter by rising a short distance and settling, as an object placed in space would. interaction: the whole pane is never a hidden button; actions sit on it as separate objects.
+**Therefore** space: padding inside a pane is larger than the gap between items in it, so the edge reads as the object's boundary. shape: corners are continuous and nest, so an inner surface's radius is the outer radius minus the padding between them and a pane inside a pane reads as inside it; controls are full pills because they are held in the hand. depth: light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer. colour: the rim and sheen are white at low opacity, like light catching an edge. type: not affected. motion: panes enter by rising a short distance and settling, as an object placed in space would. interaction: the whole pane is never a hidden button; actions sit on it as separate objects.
 
 ### P4 Things settle
 Objects have weight, so they arrive, respond and come to rest instead of snapping.
@@ -26,7 +26,7 @@ Objects have weight, so they arrive, respond and come to rest instead of snappin
 
 ### P5 One loud thing per pane
 A reader should never have to choose between two equal calls to action.
-**Therefore** space: the loud action sits apart from secondary ones, never between them. shape: the loud action is a solid pill; everything else is a quiet pill or text. depth: the solid fill sits on top of the glass and is the only opaque mark on a pane. colour: two solid fills exist, the loud solid (white in dark, ink in light) and blue for a promoted action, and a pane uses one of them. type: the loud action uses the heaviest weight on the pane after the title. motion: only the loud action lifts with a shadow. interaction: the loud action is the default focus when a pane opens.
+**Therefore** space: the loud action sits apart from secondary ones, never between them. shape: the loud action is a solid pill; everything else is a quiet pill or text. depth: the solid fill sits on top of the glass and is the only opaque mark on a pane. colour: one solid fill exists, the loud solid (white in dark, ink in light); a promoted action is the same solid glowing with its own light, and a pane uses one of them. type: the loud action uses the heaviest weight on the pane after the title. motion: only the loud action lifts with a shadow. interaction: the loud action is the default focus when a pane opens.
 
 ### P6 Reachable by anyone
 Glass is a mood, never the carrier of meaning, so everything works without it and without sight of it.
@@ -35,3 +35,15 @@ Glass is a mood, never the carrier of meaning, so everything works without it an
 ### P7 Reading surfaces stay ordinary
 Where people read or configure (documentation, settings, forms), the scene would only compete with the words.
 **Therefore** space: reading lines are about 70 characters with generous line height. shape: reading layouts use plain rectangles and hairlines, no floating panes. depth: opaque page, raised and sunken surfaces; no blur. colour: neutral greys from the same ink and white the glass uses. type: 16px reading size at 1.6 line height. motion: none beyond the controls' own. interaction: links look like links and labels look like labels, never alike.
+
+## Light
+
+One light falls from above (D-024). Every surface reflects it: a rim brightest on the top edge, a sheen at the top, shade at the foot. In the dark theme a few white parts also **give off** light of their own (D-027). The test is what the part says, not that it is white:
+
+- **Glows strong — it is the promoted action.** The accent Button and the loud IconButton: the one thing on a pane that shines on purpose (P5). At most one per pane.
+- **Glows soft — it is on, or it is a lit amount.** A Switch that is on, a Slider's filled channel, a progress or meter fill. Power and quantity read as light.
+- **Glows as a mark — it says now.** The marker where a fill slider's value stops, the current step or day in a tracker, a live indicator. Small, so its glow is a little wider than the mark.
+- **Never glows — it reflects.** Text and icons (glow blurs a letter), edges and rims, chosen glass (a selected tab, a picked segment), objects the hand holds (a slider bead, a switch knob), identity (an avatar), status colours (a glow would bleed the hue), anything disabled.
+- **In the light theme nothing glows.** The same parts read by their solid ink; light only falls, it is not emitted.
+
+**Therefore** depth: a glow is centred on its part with no offset, because it is emitted, not cast, and it is gone within 32px so it never fogs the pane. colour: glow is white at opacity, never a hue. interaction: glowing marks state, never hover; hover still lifts. The glow tokens (glow.strong, glow.soft, glow.mark) are the only ones allowed to emit, and G-GL1 measures each from pixels, glow on against glow off.

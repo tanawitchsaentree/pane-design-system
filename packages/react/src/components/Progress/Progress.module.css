@@ -1,0 +1,19 @@
+/* The slider's channel carved into the pane, filled with the loud solid lit from above (P1: no hue). */
+.root { display: flex; flex-direction: column; gap: var(--ds-progress-gap); min-inline-size: min(100%, var(--ds-progress-min)); font-family: var(--ds-type-family); }
+.head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--ds-progress-gap); }
+.label { font-size: var(--ds-type-label); color: var(--ds-text-primary); }
+.value { font-size: var(--ds-type-label); color: var(--ds-text-secondary); font-variant-numeric: tabular-nums; }
+.track { position: relative; border-radius: var(--ds-corner-round); background: var(--ds-progress-bg); box-shadow: var(--ds-progress-carve); }
+.md { block-size: var(--ds-progress-track); }
+.sm { block-size: var(--ds-progress-track-sm); }
+/* the filled part grows from the leading edge, so it fills from the right in RTL */
+.fill { position: absolute; inset-block: 0; inset-inline-start: 0; border-radius: inherit; background: linear-gradient(180deg, var(--ds-progress-fill-top), var(--ds-progress-fill-foot)); box-shadow: var(--ds-progress-glow); transition: inline-size var(--ds-motion-enter) var(--ds-motion-easing); }
+/* not known: a third of the channel travels from start to end, slowly, clipped to the channel; a known
+   fill stays inside the channel by itself, so its soft glow is not clipped */
+.unknown { overflow: hidden; }
+.unknown .fill { box-shadow: none; }
+.unknown .fill { inline-size: 34%; animation: travel var(--ds-progress-travel) var(--ds-motion-easing-inout) infinite; }
+/* travels along the inline axis, so it runs right to left in RTL with no extra rule */
+@keyframes travel { from { inset-inline-start: -34%; } to { inset-inline-start: 100%; } }
+@media (prefers-reduced-motion: reduce) { .unknown .fill { animation: none; inline-size: 100%; opacity: var(--ds-opacity-faint); } }
+@media (forced-colors: active) { .track { border: var(--ds-width-hairline) solid CanvasText; } .fill { background: Highlight; } }

@@ -1,0 +1,121 @@
+{
+  "identity": false,
+  "identity_reason": "it is a Popover and an IconButton with rows lit like menu rows, so only the unread mark is its own",
+  "concept": "A bell that opens notices grouped by day, unread ones with a dot and the word New, and a count on the bell.",
+  "parts": {
+    "pop": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the popover is wider than the default so a notice fits on two lines"
+    },
+    "panel": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the heading and the groups stack and scroll inside the popover"
+    },
+    "head": {
+      "p": "P5",
+      "axis": "space",
+      "why": "the heading and Mark all as read share a row"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the heading is semibold at the emphasis size"
+    },
+    "group": {
+      "p": "P3",
+      "axis": "space",
+      "why": "each day stacks its heading and its rows"
+    },
+    "heading": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the day heading is secondary at caption size"
+    },
+    "list": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the rows stack with no gap so their highlights touch"
+    },
+    "row": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "each notice is a 44px button lit under the pointer like a menu row"
+    },
+    "leading": {
+      "p": "P3",
+      "axis": "space",
+      "why": "an avatar or glyph keeps its own size at the row start"
+    },
+    "text": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the title, body and time stack and take the free width"
+    },
+    "line": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the title is at label size and wraps instead of spilling"
+    },
+    "unread": {
+      "p": "P6",
+      "axis": "type",
+      "why": "an unread notice sets its title semibold so it stands out by weight"
+    },
+    "body": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the body is secondary at label size under the title of the notice"
+    },
+    "time": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the time is secondary at caption size at the foot of the notice"
+    },
+    "new": {
+      "p": "P6",
+      "axis": "type",
+      "why": "an unread notice adds the word New before its time"
+    },
+    "dot": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "an unread notice carries a dot in the loud solid beside the word New"
+    },
+    "bell": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the bell is drawn with the ring stroke at icon size"
+    },
+    "badge": {
+      "p": "P6",
+      "axis": "type",
+      "why": "the count sits on the bell in the loud solid and caps at 9 plus"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the edges and marks so every part stays findable"
+    },
+    "hover": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a notice takes the quiet surface under the pointer"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring shows when the part is reached by keyboard"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the row highlight fades in on the hover ease instead of flashing"
+    }
+  }
+}

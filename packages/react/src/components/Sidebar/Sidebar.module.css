@@ -1,0 +1,17 @@
+/* A tall pane beside the content (level 1); the current item is chosen glass with a semibold label, and
+   sections are headed in the micro caps, the same as the book's own navigation. */
+.pane { display: flex; flex-direction: column; gap: var(--ds-gap-xl); inline-size: var(--ds-nav-sidebar); max-inline-size: 100%; padding: var(--ds-gap-lg); border-radius: var(--ds-corner-inner); background: var(--ds-nav-dock); box-shadow: var(--ds-nav-bar-edge); -webkit-backdrop-filter: blur(var(--ds-nav-blur)); backdrop-filter: blur(var(--ds-nav-blur)); color: var(--ds-text-primary); font-family: var(--ds-type-family); }
+.header, .footer { padding-inline: var(--ds-gap-md); }
+.footer { margin-block-start: auto; }
+.section { display: flex; flex-direction: column; gap: var(--ds-gap-xs); }
+.title { margin: 0; padding-inline: var(--ds-gap-md); font-size: var(--ds-type-micro); font-weight: var(--ds-type-weight-semibold); letter-spacing: var(--ds-type-tracking-caps); text-transform: uppercase; color: var(--ds-text-secondary); }
+.list { display: flex; flex-direction: column; gap: var(--ds-space-px); margin: 0; padding: 0; list-style: none; }
+.item { display: flex; align-items: center; gap: var(--ds-gap-md); min-block-size: var(--ds-layout-touch); padding-block: var(--ds-gap-xs); padding-inline: var(--ds-gap-md); border-radius: calc(var(--ds-corner-inner) - var(--ds-gap-lg)); color: var(--ds-text-primary); text-decoration: none; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
+.item:hover:not([aria-current]) { background: var(--ds-surface-quiet); }
+.item[aria-current='page'] { background: linear-gradient(180deg, var(--ds-nav-on-top), var(--ds-nav-on-foot)); box-shadow: var(--ds-nav-on-cast); font-weight: var(--ds-type-weight-semibold); }
+.item:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: calc(var(--ds-focus-ring-width) * -1); }
+.icon { display: inline-grid; flex: none; inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); }
+.icon > svg { inline-size: 100%; block-size: 100%; }
+.label { flex: 1; min-inline-size: 0; overflow-wrap: anywhere; }
+.badge { flex: none; font-size: var(--ds-type-micro); color: var(--ds-text-secondary); }
+@media (forced-colors: active) { .pane { border: var(--ds-width-hairline) solid CanvasText; } .item[aria-current='page'] { outline: var(--ds-width-ring) solid Highlight; } }

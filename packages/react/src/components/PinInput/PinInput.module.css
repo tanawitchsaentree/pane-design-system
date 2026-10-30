@@ -10,5 +10,6 @@
 :global([data-pane-card='glass']) .cell { text-shadow: none; }
 .cell[aria-invalid='true'] { box-shadow: var(--ds-input-groove), inset 0 0 0 var(--ds-width-ring) var(--ds-input-ring-invalid); }
 .cell:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.cell:read-only:not(:disabled) { background: transparent; box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring-readonly); }
 .cell:disabled { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
 @media (forced-colors: active) { .cell { border: var(--ds-width-hairline) solid FieldText; } }

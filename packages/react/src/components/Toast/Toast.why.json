@@ -1,0 +1,164 @@
+{
+  "concept": "A short message about something that just happened, in a level-4 pane at the top end, announced politely and leaving by itself.",
+  "default_to_avoid": [
+    {
+      "pattern": "a coloured banner toast with a filled background per status (green success, red error)",
+      "kind": "toast, notification, alert message",
+      "why_not": "a full green or red fill gives the system hues it does not own and shouts"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA · status role",
+      "url": "https://www.w3.org/TR/wai-aria-1.2/#status"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P5",
+      "axis": "colour",
+      "consequence": "one solid fill exists, the loud solid (white in dark, ink in light); a promoted action is the same solid glowing with its own light, and a pane uses one of them",
+      "form": "the status is a small mark beside the title; the pane itself stays glass"
+    },
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "a level-4 pane, the top of the stack, with the longest shadow"
+    },
+    {
+      "p": "P4",
+      "axis": "motion",
+      "consequence": "long ease-out curves (420 to 640ms) for arriving and hovering, a shorter one (200ms) for pressing because a press is a reply; under reduced motion every duration is zero at the token level",
+      "form": "it rises a short way, settles, pauses under the pointer and fades out"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave4/",
+    "section": "toast",
+    "options": [
+      "A level-4 pane with a status mark",
+      "B colour-filled banner",
+      "C bar across the top"
+    ],
+    "picked": "A level-4 pane with a status mark",
+    "by": "agent",
+    "reason": "A keeps colour to the mark (P5). B fills the pane with a hue. C covers the navigation."
+  },
+  "parts": {
+    "viewport": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the column at the top end where toasts stack, one gap apart"
+    },
+    "toast": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a level-4 pane, blurred, with the longest shadow"
+    },
+    "mark": {
+      "p": "P5",
+      "axis": "colour",
+      "why": "a small dot in the status colour, the only colour on the toast"
+    },
+    "info": {
+      "p": "P5",
+      "axis": "colour",
+      "why": "neutral information takes the secondary text colour, the same in every theme and on every scene"
+    },
+    "positive": {
+      "p": "P5",
+      "axis": "colour",
+      "why": "a success takes the positive mark colour, the same in every theme and on every scene"
+    },
+    "critical": {
+      "p": "P5",
+      "axis": "colour",
+      "why": "a failure takes the critical mark colour, the same in every theme and on every scene"
+    },
+    "text": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the title and description stacked, taking the free width"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "what happened, in the body size, semibold, the same in every theme and on every scene"
+    },
+    "description": {
+      "p": "P2",
+      "axis": "type",
+      "why": "one more sentence in secondary text, the same in every theme and on every scene"
+    },
+    "action": {
+      "p": "P6",
+      "axis": "space",
+      "why": "one action with a 44px target, the same in every theme and on every scene"
+    },
+    "close": {
+      "p": "P6",
+      "axis": "space",
+      "why": "a dismiss button with a 44px target, the same in every theme and on every scene"
+    },
+    "previewViewport": {
+      "p": "P3",
+      "axis": "space",
+      "why": "in a preview the toast sits in place in its parent instead of the top end of the screen"
+    }
+  },
+  "states": {
+    "data-state=open": {
+      "p": "P3",
+      "axis": "motion",
+      "why": "an open toast rises and settles, the same in every theme and on every scene"
+    },
+    "data-state=closed": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "a closing toast fades out, the same in every theme and on every scene"
+    },
+    "data-swipe=move": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "it follows the finger while swiped, the same in every theme and on every scene"
+    },
+    "data-swipe=end": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "a swiped toast fades out, the same in every theme and on every scene"
+    },
+    "hover": {
+      "p": "P4",
+      "axis": "colour",
+      "why": "a button tints under the pointer, the same in every theme and on every scene"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring on the action and the close"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours outline the pane, the same in every theme and on every scene"
+    },
+    "empty": {
+      "p": "P3",
+      "axis": "space",
+      "why": "an empty region takes no room and catches no presses, so it never blocks the page under it"
+    }
+  },
+  "motion": {
+    "@rise": {
+      "p": "P3",
+      "axis": "motion",
+      "why": "rises a short way from the top and settles"
+    },
+    "@fade": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "fades out when it leaves, the same in every theme and on every scene"
+    }
+  }
+}

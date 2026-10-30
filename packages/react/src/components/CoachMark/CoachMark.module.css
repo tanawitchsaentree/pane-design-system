@@ -1,0 +1,15 @@
+/* A small level-4 card with an arrow to the thing it points at, and a ring round that thing while the
+   card is open; no scrim, so the page stays usable (P3: one pane, nothing hidden behind a curtain). */
+.anchor { display: inline-flex; border-radius: var(--ds-corner-inner); }
+.anchor[data-coached] { box-shadow: 0 0 0 var(--ds-width-ring) var(--ds-coach-mark-ring), var(--ds-coach-mark-glow); }
+.card { z-index: var(--ds-overlay-z-pop); display: flex; flex-direction: column; gap: var(--ds-gap-sm); inline-size: min(calc(100vw - var(--ds-overlay-margin) * 2), var(--ds-coach-mark-width)); padding: var(--ds-coach-mark-padding); font-family: var(--ds-type-family); animation: rise var(--ds-motion-enter) var(--ds-motion-easing) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(var(--ds-motion-rise)); } }
+.previewWrap { display: inline-flex; flex-direction: column; align-items: flex-start; gap: var(--ds-gap-lg); max-inline-size: 100%; }
+.preview { z-index: auto; animation: none; }
+.count { font-size: var(--ds-type-caption); color: var(--ds-text-secondary); font-variant-numeric: tabular-nums; }
+.title { margin: 0; font-size: var(--ds-type-body); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-primary); outline: 0; }
+.title:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-width-ring); border-radius: var(--ds-corner-mark); }
+.description { margin: 0; font-size: var(--ds-type-label); line-height: var(--ds-type-leading-body); color: var(--ds-text-secondary); }
+.actions { display: flex; justify-content: flex-end; gap: var(--ds-gap-md); padding-block-start: var(--ds-gap-xs); }
+.arrow { fill: var(--ds-coach-mark-arrow); }
+@media (forced-colors: active) { .anchor[data-coached] { outline: var(--ds-width-ring) solid Highlight; } }

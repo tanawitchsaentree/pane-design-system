@@ -1,0 +1,104 @@
+{
+  "identity": false,
+  "identity_reason": "a flex row has no form of its own",
+  "concept": "A row or column with a gap from the scale and both alignments named, so the ends of a row are placed by the system and never by margins.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a row or column whose spacing is a gap, never a margin"
+    },
+    "row": {
+      "p": "P3",
+      "axis": "space",
+      "why": "items side by side, so the layout reads the same everywhere it is used"
+    },
+    "column": {
+      "p": "P3",
+      "axis": "space",
+      "why": "items one under another, so the layout reads the same everywhere it is used"
+    },
+    "wrap": {
+      "p": "P3",
+      "axis": "space",
+      "why": "items move to a new line rather than overflow"
+    },
+    "g-none": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the none gap from the scale, so the layout reads the same everywhere it is used"
+    },
+    "g-xs": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the xs gap from the scale, so the layout reads the same everywhere it is used"
+    },
+    "g-sm": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the sm gap from the scale, so the layout reads the same everywhere it is used"
+    },
+    "g-md": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the md gap from the scale, so the layout reads the same everywhere it is used"
+    },
+    "g-lg": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the lg gap from the scale, so the layout reads the same everywhere it is used"
+    },
+    "g-xl": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the xl gap from the scale, so the layout reads the same everywhere it is used"
+    },
+    "j-start": {
+      "p": "P3",
+      "axis": "space",
+      "why": "main-axis start, so the layout reads the same everywhere it is used"
+    },
+    "j-center": {
+      "p": "P3",
+      "axis": "space",
+      "why": "main-axis center, so the layout reads the same everywhere it is used"
+    },
+    "j-end": {
+      "p": "P3",
+      "axis": "space",
+      "why": "main-axis end, so the layout reads the same everywhere it is used"
+    },
+    "j-between": {
+      "p": "P3",
+      "axis": "space",
+      "why": "main-axis between, so the layout reads the same everywhere it is used"
+    },
+    "a-stretch": {
+      "p": "P3",
+      "axis": "space",
+      "why": "cross-axis stretch, so the layout reads the same everywhere it is used"
+    },
+    "a-start": {
+      "p": "P3",
+      "axis": "space",
+      "why": "cross-axis start, so the layout reads the same everywhere it is used"
+    },
+    "a-center": {
+      "p": "P3",
+      "axis": "space",
+      "why": "cross-axis center, so the layout reads the same everywhere it is used"
+    },
+    "a-end": {
+      "p": "P3",
+      "axis": "space",
+      "why": "cross-axis end, so the layout reads the same everywhere it is used"
+    },
+    "a-baseline": {
+      "p": "P3",
+      "axis": "space",
+      "why": "cross-axis baseline, so the layout reads the same everywhere it is used"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

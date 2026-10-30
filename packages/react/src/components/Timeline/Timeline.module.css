@@ -1,0 +1,18 @@
+/* A hairline rail with a dot per event; the rail runs from dot to dot and stops at the last one. The dot
+   column is wide enough for the current dot's ring, so the ring never spills past the list's edge. */
+.root { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; font-family: var(--ds-type-family); }
+.item { --col: calc(var(--ds-timeline-dot) + var(--ds-width-ring) * 8); position: relative; display: grid; grid-template-columns: var(--col) minmax(0, 1fr); column-gap: var(--ds-timeline-gap); padding-block-end: var(--ds-timeline-step); }
+.item:last-child { padding-block-end: 0; }
+/* the rail: from under this dot to the next one */
+.item:not(:last-child)::before { content: ''; position: absolute; inset-block: calc(var(--ds-timeline-dot-offset) + var(--ds-timeline-dot) + var(--ds-gap-xs)) 0; inset-inline-start: calc((var(--col) - var(--ds-timeline-rail)) / 2); inline-size: var(--ds-timeline-rail); background: var(--ds-timeline-rail-color); }
+.dot { box-sizing: border-box; justify-self: center; margin-block-start: var(--ds-timeline-dot-offset); inline-size: var(--ds-timeline-dot); block-size: var(--ds-timeline-dot); border-radius: var(--ds-corner-round); background: var(--ds-timeline-done); }
+.current .dot { background: var(--ds-timeline-done); outline: var(--ds-width-ring) solid var(--ds-timeline-current-ring); outline-offset: calc(var(--ds-width-ring) * 3); box-shadow: var(--ds-timeline-glow); }
+/* the ring stands clear of the dot so its light shows between them; the rail starts below the ring */
+.current:not(:last-child)::before { inset-block-start: calc(var(--ds-timeline-dot-offset) + var(--ds-timeline-dot) + var(--ds-width-ring) * 4 + var(--ds-gap-xs)); }
+.upcoming .dot { background: transparent; border: var(--ds-width-ring) solid var(--ds-timeline-upcoming); }
+.body { display: flex; flex-direction: column; gap: var(--ds-gap-xs); min-inline-size: 0; }
+.time { font-size: var(--ds-type-caption); color: var(--ds-text-secondary); font-variant-numeric: tabular-nums; }
+.title { font-size: var(--ds-type-body); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-primary); }
+.upcoming .title { font-weight: var(--ds-type-weight-medium); color: var(--ds-text-secondary); }
+.description { font-size: var(--ds-type-label); line-height: var(--ds-type-leading-body); color: var(--ds-text-secondary); }
+@media (forced-colors: active) { .dot { background: CanvasText; } .upcoming .dot { background: Canvas; border-color: CanvasText; } .item::before { background: CanvasText; } }

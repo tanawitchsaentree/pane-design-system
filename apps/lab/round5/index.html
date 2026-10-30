@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Round 5 · thick smoked glass with a specular streak · Pane</title>
+<style>
+  /* Lab only. The user's reference (OpenGlass-style): near-black smoked glass, a faint edge all round, a
+     short specular streak at the centre of each top edge, deep soft shadows; loud is a warm off-white
+     solid with a bloom; the slider thumb is a capsule. 0 is Pane 0.5.0, A is the reference read straight. */
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, 'SF Pro Text', Inter, system-ui, sans-serif; color: #fff; background: #08090a; -webkit-font-smoothing: antialiased; }
+  h1 { font-size: 22px; margin: 22px 32px 4px; } p.lede { margin: 0 32px 16px; color: rgba(255,255,255,.6); font-size: 14px; }
+  .sheet { margin: 0 24px 28px; border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); display: grid; grid-template-columns: repeat(4, 1fr); }
+  .cell { position: relative; min-height: 300px; padding: 22px; border-right: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06);
+    background: radial-gradient(120% 90% at 0% 0%, #26282c 0%, #121315 45%, #0e0f11 100%); display: flex; flex-direction: column; }
+  .cell b { font-size: 16px; } .cell small { display: block; color: rgba(255,255,255,.55); font-size: 12.5px; margin-top: 4px; }
+  .demo { flex: 1; display: grid; place-items: center; }
+  .tag { margin: 0 24px 8px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.5); }
+  svg.i { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---------- the material, A ---------- */
+  .A .glass { position: relative; isolation: isolate; background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.015) 55%), rgba(20,21,24,.86);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.075), inset 0 -10px 18px -12px rgba(0,0,0,.6), 0 14px 30px -10px rgba(0,0,0,.75), 0 2px 6px rgba(0,0,0,.5); }
+  /* the streak: a short bright line at the centre of the top edge, fading to the corners */
+  .A .glass::after { content: ''; position: absolute; top: 0; left: 18%; right: 18%; height: 1px; border-radius: 1px; pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.6) 30%, rgba(255,255,255,1) 50%, rgba(255,255,255,.6) 70%, transparent); box-shadow: 0 0 6px 1px rgba(255,255,255,.25); }
+  .A .well { background: rgba(6,6,8,.72); box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), inset 0 2px 6px rgba(0,0,0,.7); }
+  .A .loud { background: linear-gradient(180deg, #F4F3F0, #E6E4E0); color: #141416; box-shadow: 0 0 0 1px rgba(255,255,255,.5), 0 10px 32px -6px rgba(255,255,255,.35), 0 4px 12px rgba(0,0,0,.5); }
+  .A .chosen { position: relative; background: linear-gradient(180deg, #4A4B4F, #333438); box-shadow: inset 0 0 0 1px rgba(255,255,255,.08), 0 6px 14px -6px rgba(0,0,0,.8); }
+  .A .chosen::after { content: ''; position: absolute; top: 0; left: 22%; right: 22%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent); }
+  .A .bead { background: radial-gradient(circle at 50% 30%, #fff 0 40%, #E3E2DF 100%); box-shadow: 0 0 0 1px rgba(255,255,255,.4), 0 10px 26px -6px rgba(255,255,255,.35), 0 4px 10px rgba(0,0,0,.55); color: #141416; }
+
+  /* ---------- 0 · Pane 0.5.0 (approximated with its own values) ---------- */
+  .Z .glass { position: relative; background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.05)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.12), 0 6px 14px -8px rgba(0,0,0,.6); }
+  .Z .glass::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.06) 38%, rgba(255,255,255,.06) 70%, rgba(255,255,255,.14));
+    -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+  .Z .well { background: rgba(0,0,0,.35); box-shadow: inset 0 1px 3px rgba(0,0,0,.5); }
+  .Z .loud { background: linear-gradient(180deg, #fff, #ECEDF0); color: #111214; box-shadow: 0 0 0 1px rgba(255,255,255,.3), 0 8px 26px -6px rgba(255,255,255,.38), 0 2px 6px rgba(0,0,0,.35); }
+  .Z .chosen { background: linear-gradient(180deg, rgba(255,255,255,.3), rgba(255,255,255,.12)); box-shadow: inset 0 1px 0 rgba(255,255,255,.62), 0 4px 10px -4px rgba(0,0,0,.6); }
+  .Z .bead { background: radial-gradient(circle at 50% 22%, #fff 32%, #E9E9EE); box-shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 12px -4px rgba(0,0,0,.5); color: #111214; }
+
+  /* ---------- shapes (shared) ---------- */
+  .btn { border: 0; border-radius: 999px; font-family: inherit; font-size: 17px; font-weight: 650; line-height: 1; color: #fff; min-height: 52px; padding: 0 26px; cursor: pointer; }
+  .text { background: transparent; box-shadow: none; }
+  .ib { border: 0; width: 52px; height: 52px; border-radius: 999px; display: grid; place-items: center; color: rgba(255,255,255,.75); background: transparent; }
+  .seg { display: inline-flex; padding: 5px; border-radius: 999px; gap: 2px; }
+  .seg button { border: 0; background: transparent; color: rgba(255,255,255,.85); font-family: inherit; font-size: 18px; font-weight: 600; line-height: 1; min-height: 44px; padding: 0 20px; border-radius: 999px; }
+  .seg button.chosen { color: #fff; }
+  .sw { position: relative; width: 72px; height: 40px; border-radius: 999px; }
+  .A .sw.on { background: linear-gradient(180deg, #D9D8D5, #EDECE9); box-shadow: inset 0 1px 3px rgba(0,0,0,.35), 0 0 18px -4px rgba(255,255,255,.3); }
+  .Z .sw.on { background: linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.9)); box-shadow: inset 0 1px 2px rgba(0,0,0,.25), 0 0 14px -2px rgba(255,255,255,.35); width: 52px; height: 30px; }
+  .sw .k { position: absolute; top: 4px; right: 4px; width: 32px; height: 32px; border-radius: 999px; }
+  .Z .sw .k { width: 24px; height: 24px; top: 3px; right: 3px; }
+  .sl { position: relative; width: 100%; height: 30px; display: flex; align-items: center; }
+  .sl .t { flex: 1; height: 5px; border-radius: 999px; background: rgba(0,0,0,.6); box-shadow: inset 0 1px 2px rgba(0,0,0,.8); overflow: hidden; position: relative; }
+  .sl .r { position: absolute; inset: 0 32% 0 0; background: linear-gradient(180deg, #fff, #DDDCD9); border-radius: 999px; }
+  .A .sl .th { position: absolute; left: 68%; top: 50%; width: 42px; height: 26px; margin: -13px 0 0 -21px; border-radius: 999px; }
+  .Z .sl .th { position: absolute; left: 68%; top: 50%; width: 24px; height: 24px; margin: -12px 0 0 -12px; border-radius: 999px; }
+  .Z .sl .t { height: 10px; }
+  .bar { display: inline-flex; align-items: center; gap: 18px; padding: 8px 18px; border-radius: 999px; min-height: 60px; color: rgba(255,255,255,.75); }
+  .bar .on { width: 50px; height: 50px; border-radius: 999px; display: grid; place-items: center; margin: 0 -6px; }
+  .menu { border: 0; border-radius: 999px; min-height: 58px; padding: 0 26px; font-family: inherit; font-size: 18px; font-weight: 650; line-height: 1; color: #fff; display: inline-flex; align-items: center; gap: 12px; }
+</style>
+</head>
+<body>
+<h1>Round 5 · thick smoked glass with a specular streak</h1>
+<p class="lede">The same eight atoms twice: Pane 0.5.0 as it is, then A, the user's reference read straight with Pane's names. Nothing in the library has changed yet.</p>
+<div id="root"></div>
+<script>
+const I = { f: '<svg class="i" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>', s: '<svg class="i" viewBox="0 0 24 24"><path d="M12 4l1.6 4.8L18 10l-4.4 1.6L12 16l-1.6-4.4L6 10l4.4-1.2z"/></svg>', d: '<svg class="i" viewBox="0 0 24 24"><circle cx="6" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="18" cy="12" r="1"/></svg>', g: '<svg class="i" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg>', c: '<svg class="i" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="m6 9 6 6 6-6"/></svg>' };
+const cells = [
+  ['Button', 'Loud, quiet glass, text.', `<div><div style="display:flex;gap:14px"><button class="btn loud">Create surface</button><button class="btn glass">Preview</button></div><div style="text-align:center;margin-top:14px"><button class="btn text">Cancel</button></div></div>`],
+  ['IconButton', 'Bare glyphs and one loud bead.', `<div style="display:flex;gap:18px;align-items:center"><span class="ib">${I.f}</span><span class="ib bead">${I.s}</span><span class="ib">${I.d}</span></div>`],
+  ['Segmented', 'A recessed track, a chosen glass pill.', `<div class="seg well"><button>Quiet</button><button class="chosen">Balanced</button><button>Vivid</button></div>`],
+  ['Switch', 'On is a light track with a white knob.', `<div style="display:flex;gap:18px;align-items:center;width:100%;justify-content:space-between"><span><b style="font-size:17px">Spectral highlights</b><small>Adds edge dispersion to premium surfaces.</small></span><span class="sw on"><span class="k bead"></span></span></div>`],
+  ['Slider', 'A thin white fill and a capsule thumb.', `<div style="width:100%"><div style="display:flex;justify-content:space-between;font-weight:650;margin-bottom:12px"><span>Refraction</span><span style="opacity:.8">68%</span></div><div class="sl"><div class="t"><div class="r"></div></div><div class="th bead"></div></div></div>`],
+  ['Toolbar', 'Related commands in one glass capsule.', `<div class="bar glass">${I.g}${I.s}${I.f}</div>`],
+  ['Dock', 'The active item is the loud bead.', `<div class="bar glass">${I.g}<span class="on bead">${I.s}</span>${I.f}</div>`],
+  ['Menu', 'A glass trigger with a chevron.', `<button class="menu glass">Actions ${I.c}</button>`],
+];
+const sheet = (cls, label) => `<p class="tag">${label}</p><div class="sheet ${cls}">${cells.map(([t, d, h]) => `<div class="cell"><b>${t}</b><small>${d}</small><div class="demo">${h}</div></div>`).join('')}</div>`;
+document.getElementById('root').innerHTML = sheet('Z', '0 · Pane 0.5.0') + sheet('A', 'A · the reference read straight');
+</script>
+</body>
+</html>

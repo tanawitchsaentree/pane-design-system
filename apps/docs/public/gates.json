@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-28T16:50:11.213Z",
-  "passed": 42,
-  "total": 42,
+  "generatedAt": "2026-10-30T08:01:19.379Z",
+  "passed": 52,
+  "total": 52,
   "partial": false,
   "advisory": {},
   "results": [
@@ -9,227 +9,349 @@
       "id": "G-P0",
       "name": "every page renders: a <main>, a heading and no uncaught error",
       "ok": true,
-      "detail": "146 pages"
+      "detail": "5 pages",
+      "order": 0
     },
     {
       "id": "G-D3",
       "name": "no literal backtick in rendered text",
       "ok": true,
-      "detail": "146 pages"
+      "detail": "5 pages",
+      "order": 1
     },
     {
       "id": "G-S1",
       "name": "a chapter opens as a new page at the top with its heading focused (375/768/1280px)",
-      "ok": true
+      "ok": true,
+      "order": 2
     },
     {
       "id": "G-S2",
       "name": "on narrow screens Esc closes the menu and returns focus to the Menu button",
-      "ok": true
+      "ok": true,
+      "order": 3
     },
     {
       "id": "G-S3",
       "name": "no two surfaces touch (<8px) or overlap, every page, 375 and 1280px",
-      "ok": true
+      "ok": true,
+      "order": 4
     },
     {
       "id": "G-S5",
       "name": "a new chapter is fully visible on its first painted frame with motion on",
-      "ok": true
+      "ok": true,
+      "order": 5
     },
     {
       "id": "G-R1",
       "name": "long-form text is readable: ≥16px, line height ≥1.5, lines ≤ 80 characters",
-      "ok": true
+      "ok": true,
+      "order": 6
     },
     {
       "id": "G-A1",
       "name": "in the nav, what you can press looks different from what you cannot, and reacts to hover",
       "ok": true,
-      "detail": "differ in fontSize, fontWeight, textTransform, color, letterSpacing"
+      "detail": "differ in fontSize, fontWeight, textTransform, color, letterSpacing",
+      "order": 7
     },
     {
       "id": "G-PF1",
       "name": "the first painted frame is the final page: right theme, all content, no layout shift",
-      "ok": true
+      "ok": true,
+      "order": 8
     },
     {
       "id": "G-PF2",
       "name": "page weight: no image over 300 kB, no page over 1.5 MB transferred (gzip counted)",
-      "ok": true
+      "ok": true,
+      "order": 9
     },
     {
       "id": "G-SH1",
       "name": "the docs chrome is plain and opaque: no blur or see-through surface outside demo stages",
-      "ok": true
+      "ok": true,
+      "order": 10
     },
     {
       "id": "G-C1",
       "name": "every code block has a Copy button you can see",
       "ok": true,
-      "detail": "333 code blocks"
+      "detail": "16 code blocks",
+      "order": 11
     },
     {
       "id": "G-C2",
       "name": "Copy puts the whole snippet on the clipboard, including hidden lines",
-      "ok": true
+      "ok": true,
+      "skipped": true,
+      "detail": "skipped: nothing it checks is in the limited routes",
+      "order": 12
     },
     {
       "id": "G-F1",
       "name": "every foundation page has a playground whose first control changes its preview",
       "ok": true,
-      "detail": "12 pages"
+      "skipped": true,
+      "detail": "skipped: nothing it checks is in the limited routes",
+      "order": 13
     },
     {
       "id": "G-N1",
       "name": "every select, slider, checkbox and radio on the docs is one of the system's own components, never a browser control",
-      "ok": true
+      "ok": true,
+      "order": 14
     },
     {
       "id": "G-T1",
       "name": "the theme control switches tokens and the evidence covers every theme",
-      "ok": true
+      "ok": true,
+      "order": 15
     },
     {
       "id": "G-K1",
       "name": "every component has its tab routes and a shared header with status, last updated and a live demo with theme and variant selectors",
-      "ok": true
+      "ok": true,
+      "order": 16
     },
     {
       "id": "G-K2",
       "name": "every Usage section U1–U14 is present, or says why it does not apply",
-      "ok": true
+      "ok": true,
+      "order": 17
     },
     {
       "id": "G-K3",
       "name": "the variants and sizes tables have one row per option the props declare",
-      "ok": true
+      "ok": true,
+      "order": 18
     },
     {
       "id": "G-K4",
       "name": "every variant option has a deep dive with a live in-context example and a live do/don't",
-      "ok": true
+      "ok": true,
+      "order": 19
     },
     {
       "id": "G-K5",
       "name": "the Style tab is generated: every spec cell names its token and value",
-      "ok": true
+      "ok": true,
+      "order": 20
     },
     {
       "id": "G-K6",
       "name": "usage depth ≥ 0.5 × the Carbon page for the same component (words and sections)",
       "ok": true,
-      "detail": "Container 480w/24s (no benchmark) · Grid 502w/25s (no benchmark) · Stack 481w/25s (no benchmark) · Environment 604w/26s (no benchmark) · Card 1203/2181w 35/44s · Avatar 838w/30s (no benchmark) · Button 2931/5260w 43/36s · IconButton 1056w/29s (no benchmark) · Tabs 1656/3081w 33/33s · Tag 1005/1910w 31/27s · Badge 1187w/34s (no benchmark) · Chip 1036w/29s (no benchmark) · Select 1952/3259w 32/44s · Slider 1040/1592w 29/22s · Input 1534/2580w 30/31s · Textarea 630w/27s (no benchmark) · Checkbox 889/1378w 29/23s · Radio 853/1333w 28/24s · Switch 575/1076w 28/22s · FormField 433w/26s (no benchmark) · Label 368w/25s (no benchmark) · HelperText 571w/27s (no benchmark) · Fieldset 345w/25s (no benchmark) · InputGroup 371w/25s (no benchmark) · PinInput 444w/25s (no benchmark) · Banner 1729/2507w 47/34s"
+      "detail": "Button 3002/5260w 43/36s",
+      "order": 21
     },
     {
       "id": "G-K7",
       "name": "every component cites at least two external references",
-      "ok": true
+      "ok": true,
+      "order": 22
     },
     {
       "id": "G-K8",
       "name": "every component shows a live RTL render and a live overflow render that is not clipped",
-      "ok": true
+      "ok": true,
+      "order": 23
     },
     {
       "id": "G-B1",
       "name": "every component is shown in every theme over a dark and a bright scene",
-      "ok": true
+      "ok": true,
+      "order": 24
     },
     {
       "id": "G-L1",
       "name": "every component states status, its own change history, limitations and the app's accessibility duties",
-      "ok": true
+      "ok": true,
+      "order": 25
     },
     {
       "id": "demo-floor",
       "name": "each component has at least variant dimensions + 3 live demos",
-      "ok": true
+      "ok": true,
+      "order": 26
     },
     {
       "id": "G-W1",
       "name": "reasons are on the page: token tables have a filled Why column and every component page explains its parts, states and motion",
       "ok": true,
-      "detail": "758 token rows with reasons"
+      "skipped": true,
+      "detail": "skipped: nothing it checks is in the limited routes",
+      "order": 27
     },
     {
       "id": "G-X1",
       "name": "no habitual pattern (accent stripe, tinted icon disc with bold title and muted body) unless the derivation names and justifies it",
-      "ok": true
+      "ok": true,
+      "order": 28
     },
     {
       "id": "G-NT1",
       "name": "diagram parts stand at least 3:1 off their ground, in every theme (WCAG 1.4.11)",
       "ok": true,
-      "detail": "2 diagrams"
+      "skipped": true,
+      "detail": "skipped: nothing it checks is in the limited routes",
+      "order": 29
     },
     {
       "id": "G-BT1",
       "name": "every topic the reference systems cover on a page is covered on ours, or declined with a reason",
       "ok": true,
-      "detail": "126 topics across 12 pages"
+      "detail": "126 topics across 12 pages",
+      "order": 30
     },
     {
       "id": "G-M1",
       "name": "the accessibility matrix lists every component and no cell is blank",
-      "ok": true
+      "ok": true,
+      "skipped": true,
+      "detail": "skipped: nothing it checks is in the limited routes",
+      "order": 31
     },
     {
       "id": "G-IA1",
       "name": "the nav shows the whole catalog (planned items marked) and the required parts and pages",
-      "ok": true
+      "ok": true,
+      "order": 32
     },
     {
       "id": "G-TODO1",
       "name": "no starter placeholder is left on any page: no TODO( and no seed reason",
       "ok": true,
-      "detail": "146 pages clean"
+      "detail": "5 pages clean",
+      "order": 33
+    },
+    {
+      "id": "G-PUB1",
+      "name": "an install command names only what can be installed: no bare registry install of an unpublished package",
+      "ok": true,
+      "detail": "5 pages, 2 unpublished packages never shown as a registry install",
+      "order": 34
+    },
+    {
+      "id": "G-PWA1",
+      "name": "the book installs as an app and reads offline: a valid manifest with 192 and 512 icons, a service worker that takes control, and a page that loads with the network off",
+      "ok": true,
+      "detail": "manifest, icons and worker in place; /components/button/usage renders offline",
+      "order": 35
     },
     {
       "id": "G-CL1",
       "name": "every colour value written in the book is a current token value (no stale hex in prose)",
       "ok": true,
-      "detail": "408 values checked"
+      "detail": "20 values checked",
+      "order": 36
     },
     {
       "id": "G-NT2",
       "name": "every form control shows its boundary at least 3:1 against what it sits on, in every theme (WCAG 1.4.11)",
       "ok": true,
-      "detail": "188 controls in 2 themes"
+      "skipped": true,
+      "detail": "skipped: nothing it checks is in the limited routes",
+      "order": 37
+    },
+    {
+      "id": "G-EL1",
+      "name": "stacked glass reads as levels: each level differs from what is under it by a measured step, and a scrim dims the scene under an overlay",
+      "ok": true,
+      "skipped": true,
+      "detail": "skipped: nothing it checks is in the limited routes",
+      "order": 38
+    },
+    {
+      "id": "G-SV1",
+      "name": "every promised state is there and visible: each cell of the state matrix differs from its row default and carries its ARIA, in every theme",
+      "ok": true,
+      "detail": "NO state matrix route in this run",
+      "order": 39
+    },
+    {
+      "id": "G-GL1",
+      "name": "glow is declared and measured: in dark only [data-glow] parts give off light, each visibly (near ring vs ground) and within reach; text never glows; in light nothing glows",
+      "ok": true,
+      "detail": "4 glowing parts in 2 themes (strong 1.49–1.55:1)",
+      "order": 40
+    },
+    {
+      "id": "G-SL1",
+      "name": "a slider has room to travel and holds still: at least 200px long, and neither it nor its pane changes size between its lowest and highest value",
+      "ok": true,
+      "skipped": true,
+      "detail": "skipped: nothing it checks is in the limited routes",
+      "order": 41
+    },
+    {
+      "id": "G-S6",
+      "name": "nothing in the page column spills out of it: no element crosses into the rail or the margin beside main (folds open)",
+      "ok": true,
+      "detail": "5 pages",
+      "order": 42
     },
     {
       "id": "G-NR1",
       "name": "a highlighted row inside a rounded flyout nests its corner: inner radius = outer radius − inset",
       "ok": true,
-      "detail": "2 flyouts"
+      "detail": "no flyout triggers on any Code page",
+      "order": 43
+    },
+    {
+      "id": "G-IN1",
+      "name": "text inside a control keeps its inset from the control's edge: at least 8px, and half the corner radius on a rounded end",
+      "ok": true,
+      "detail": "15 lines of text in controls",
+      "order": 44
+    },
+    {
+      "id": "G-ST1",
+      "name": "the address holds only what someone chose: a default is never written into the URL, and a stale or unknown value falls back and is dropped",
+      "ok": true,
+      "detail": "clean address, stale values dropped",
+      "order": 45
+    },
+    {
+      "id": "G-RH1",
+      "name": "separate steps stand apart: a demo stage and a tab bar sit at least 24px from the blocks around them; a stage's own code, caption or heading may sit 8px off and its intro 16px",
+      "ok": true,
+      "detail": "90 gaps",
+      "order": 46
     },
     {
       "id": "G-NAV1",
       "name": "every page in routes.json is reachable from the book nav at 375 and 1280px",
       "ok": true,
-      "detail": "68 pages"
+      "detail": "159 pages",
+      "order": 47
     },
     {
       "id": "G-SM1",
       "name": "following an in-page link (table of contents, heading anchor) lands with its heading clear of the sticky header",
       "ok": true,
-      "detail": "134 links followed"
+      "detail": "4 links followed",
+      "order": 48
     },
     {
       "id": "G-TT1",
       "name": "every control in a live example and in the shell gives a pointer at least 44px each way",
       "ok": true,
-      "detail": "2161 controls"
+      "detail": "128 controls",
+      "order": 49
     },
     {
       "id": "axe-none",
       "name": "axe finds no WCAG 2.2 AA violations on any page (forced-colors none)",
-      "ok": true
+      "ok": true,
+      "order": 50
     },
     {
       "id": "axe-active",
       "name": "axe finds no WCAG 2.2 AA violations on any page (forced-colors active)",
-      "ok": true
+      "ok": true,
+      "order": 51
     }
   ]
 }

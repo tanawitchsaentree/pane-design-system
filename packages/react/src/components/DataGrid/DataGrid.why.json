@@ -1,0 +1,55 @@
+{
+  "identity": false,
+  "identity_reason": "it is Table for its pane, header and rows and Checkbox for its marks, so only choosing and cell focus are new",
+  "concept": "Table as an interactive grid with one tab stop, arrow keys between cells and chosen glass with a check on chosen rows.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the grid is Table pane and holds the loading cover over its rows"
+    },
+    "check": {
+      "p": "P6",
+      "axis": "space",
+      "why": "the checkbox column is a 44px press area wide so every row can be chosen by touch"
+    },
+    "cell": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the cell the keyboard is in shows the focus ring inside its edges"
+    },
+    "chosen": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a chosen row takes chosen glass as well as its checked box"
+    },
+    "stick": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the name column stays in view on the opaque sheet tone while the grid scrolls sideways"
+    },
+    "loading": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "while rows load the old rows stay under a scrim so the reader keeps their place"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the edges and marks so every part stays findable"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focused cell shows the ring when reached by the arrow keys"
+    },
+    "hover": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a chosen row keeps its chosen glass under the pointer"
+    }
+  },
+  "motion": {}
+}

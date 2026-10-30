@@ -1,7 +1,7 @@
 /* The group is the well; the input inside drops its own surface so the adornments sit in the same recess. */
 .root {
   display: flex; align-items: center; gap: var(--ds-gap-sm); min-inline-size: 0;
-  padding-inline: var(--ds-input-padding) var(--ds-gap-xs); border-radius: var(--ds-input-radius);
+  padding-inline: var(--ds-input-padding); border-radius: var(--ds-input-radius);
   background: var(--ds-input-bg); box-shadow: var(--ds-input-groove);
   color: var(--ds-input-placeholder); font-family: var(--ds-type-family); font-size: var(--ds-type-body);
 }
@@ -9,7 +9,14 @@
 .root:focus-within { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
 .root:has([aria-invalid='true']) { box-shadow: var(--ds-input-groove), inset 0 0 0 var(--ds-width-ring) var(--ds-input-ring-invalid); }
 .field { flex: 1; min-inline-size: 0; }
+/* text at either end (a unit, a currency) keeps the field's full inset from the curve; only a round
+   button may sit close to the edge, since its own shape follows the curve */
+.root:has(> .end > button:only-child) { padding-inline-end: var(--ds-gap-xs); }
+.root:has(> .start > button:only-child) { padding-inline-start: var(--ds-gap-xs); }
 .field :global([data-component='Input']), :global([data-pane-card='glass']) .field :global([data-component='Input']) { padding-inline: 0; background: transparent; box-shadow: none; outline: 0; }
 .start, .end { display: inline-flex; align-items: center; flex: none; }
 .start svg, .end svg { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); }
+/* off: the whole well dims once, adornments included, and the field inside is not dimmed twice */
+.root:has(input:disabled) { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
+.root:has(input:disabled) .field :global([data-component='Input']) { opacity: 1; }
 @media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid FieldText; } }

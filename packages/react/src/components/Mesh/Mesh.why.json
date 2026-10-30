@@ -1,0 +1,94 @@
+{
+  "concept": "A mesh is a piece of the world, not a control: colour pooled in four places and melted together, used as a scene, as media or as the light a coloured object casts. The system still owns no hue; a product brings its own colours to it.",
+  "default_to_avoid": [
+    {
+      "pattern": "a two-stop linear brand gradient used as a fake mesh on a button or a hero (the 2020s SaaS gradient)",
+      "why_not": "a linear sweep has one direction and no depth, and on a control it gives the system a hue of its own, which P1 rules out",
+      "kind": "mesh gradient, freeform gradient, aurora background"
+    }
+  ],
+  "references": [
+    {
+      "title": "SwiftUI · MeshGradient",
+      "url": "https://developer.apple.com/documentation/swiftui/meshgradient"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "the mesh is a scene or media, so its hue is the world's; a product sets its own colours through four variables and Pane ships presets, never a fill for a control"
+    },
+    {
+      "p": "P1",
+      "axis": "depth",
+      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur) inside a smoked body thick enough that a pane reads as a slab of glass, with the scene softened behind it",
+      "form": "the pools are blurred on their own layer until no edge is left, so glass over a mesh softens a field of colour and has nothing sharp to fight"
+    },
+    {
+      "p": "P3",
+      "axis": "shape",
+      "consequence": "corners are continuous and nest, so an inner surface's radius is the outer radius minus the padding between them and a pane inside a pane reads as inside it; controls are full pills because they are held in the hand",
+      "form": "a mesh takes the corner of whatever it fills (a cover, an icon, a stage) and its ambient light follows that corner"
+    },
+    {
+      "p": "P4",
+      "axis": "motion",
+      "consequence": "long ease-out curves (420 to 640ms) for arriving and hovering, a shorter one (200ms) for pressing because a press is a reply; under reduced motion every duration is zero at the token level",
+      "form": "a mesh does not drift on its own; things settle, so it is still unless the product animates it"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/mesh/",
+    "section": "mesh",
+    "options": [
+      "A pools melted",
+      "B pools, no blur",
+      "C conic, blurred"
+    ],
+    "picked": "A pools melted",
+    "by": "agent",
+    "reason": "A is the reference read straight: colour placed where the light is and melted, which is what makes it a mesh (P1 depth). B keeps a ring on every pool and reads as spotlights. C swirls around one centre and cannot put a colour where the light comes from (P3 depth: one light from above)."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "the box the mesh fills; it holds the content placed on the mesh and takes the corner it is given"
+    },
+    "paint": {
+      "p": "P1",
+      "axis": "depth",
+      "why": "the clipped layer that holds the blurred pools, so the blur never leaks past the corner"
+    },
+    "glow": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the ambient light under a mesh object: the same pools, blurred and lowered, the colour of the object lighting what is under it"
+    },
+    "ember": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "a warm preset: amber and rose over a plum low point"
+    },
+    "tide": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "a cool preset: aqua and sky over an indigo low point"
+    },
+    "dusk": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "an evening preset: lilac and rose over a deep navy low point"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours drop the pools and keep a plain canvas, so content on a mesh stays readable"
+    }
+  },
+  "motion": {}
+}

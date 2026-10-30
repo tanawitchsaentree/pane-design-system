@@ -1,0 +1,139 @@
+{
+  "concept": "A list that stays on the page for choosing one or several options that should all be visible, the rows of Select’s sheet set in a recess.",
+  "default_to_avoid": [
+    {
+      "pattern": "a native multi-select box (select multiple) with grey highlighted rows as the listbox",
+      "kind": "listbox, list box, select list",
+      "why_not": "the native multiple select needs a modifier key to choose several and draws in the OS look"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA APG · Listbox",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the list is a recess carved into the glass, the same groove as a field, so it reads as something to choose in"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "a chosen row is a lighter pane and carries a check, never only a colour"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "arrow keys move, Space or Enter choose, typing jumps to a row"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave5/",
+    "section": "listbox",
+    "options": [
+      "A rows in a recess with checks",
+      "B native multiple select",
+      "C a column of checkboxes"
+    ],
+    "picked": "A rows in a recess with checks",
+    "by": "agent",
+    "reason": "A is Select’s list on the page (D-017), one family. B needs Ctrl to choose several and looks like the OS. C works but loses the single focus stop and typeahead."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the label and the list, the same gap as every field"
+    },
+    "label": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the list’s name in the label size, its accessible name"
+    },
+    "list": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "an on-page list is a recess carved into the glass, like a field"
+    },
+    "sheet": {
+      "p": "P7",
+      "axis": "depth",
+      "why": "a popup list is an opaque sheet so its options read on any scene"
+    },
+    "option": {
+      "p": "P6",
+      "axis": "space",
+      "why": "each option is a 44px row whose corner nests the sheet’s"
+    },
+    "active": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the highlighted row is a lighter pane lit on its top edge"
+    },
+    "check": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a chosen row carries a check, a mark rather than a colour"
+    },
+    "text": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the label and its optional second line, stacked"
+    },
+    "optionLabel": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the option’s label on one line, cut with an ellipsis if it must"
+    },
+    "description": {
+      "p": "P2",
+      "axis": "type",
+      "why": "a second line in secondary text that helps the reader choose"
+    },
+    "empty": {
+      "p": "P2",
+      "axis": "type",
+      "why": "a line in secondary text when nothing matches what was typed"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the shared focus ring so a keyboard user sees which field or row is active"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours draw the edges and the highlight with system colours"
+    },
+    "aria-selected=true": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a chosen row is semibold and carries its check"
+    },
+    "aria-disabled=true": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a disabled row uses the shared disabled opacity and cannot be chosen"
+    },
+    "aria-invalid=true": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
+    }
+  },
+  "motion": {
+    "@sheet-in": {
+      "p": "P3",
+      "axis": "motion",
+      "why": "a popup sheet drops a short way and settles at hover pace"
+    }
+  }
+}

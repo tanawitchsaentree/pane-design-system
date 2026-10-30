@@ -12,39 +12,41 @@
   line-height: var(--ds-type-leading-body);
 }
 
-/* A floating pane: environment-tinted glass, specular rim, soft shadow, no hard border (D-008/D-009). */
+/* A slab of smoked glass (round 5, D-025): a body thick enough to read as an object, the scene dimmed and
+   blurred behind it, a faint edge all round, shade at its foot, a short streak where light catches the
+   curve of the top edge, and a long soft shadow. Levels step the stack: 1 a pane, 2 a surface inside a
+   pane (a Card inside a Card is level 2 by itself), 3 an overlay, 4 a popover (R-013). */
 .glass {
+  --level-bg: var(--ds-card-level1);
+  --level-shadow: var(--ds-card-shadow-1);
   padding: 0 var(--ds-card-padding) var(--ds-card-padding);
   padding-block-start: var(--ds-card-padding);
   border-radius: var(--ds-card-radius);
-  /* clear tint + a soft top sheen; the scene behind is dimmed (brightness), not greyed (D-010) */
-  background: linear-gradient(180deg, var(--ds-card-sheen-top), var(--ds-card-sheen-bottom) 40%), var(--ds-card-bg);
+  background: linear-gradient(180deg, var(--ds-card-sheen-top), var(--ds-card-sheen-bottom) 55%), var(--level-bg);
   -webkit-backdrop-filter: blur(var(--ds-card-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-card-brightness));
   backdrop-filter: blur(var(--ds-card-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-card-brightness));
-  box-shadow: var(--ds-card-shadow);
+  box-shadow: var(--ds-card-edge), var(--level-shadow);
   overflow: hidden;
   transition:
     backdrop-filter var(--ds-motion-scene) var(--ds-motion-easing-inout),
     -webkit-backdrop-filter var(--ds-motion-scene) var(--ds-motion-easing-inout);
 }
+/* the streak: light catching the curve of the top edge, brightest at its centre */
 .glass::before {
   content: '';
   position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: var(--ds-card-rim-width);
+  inset-block-start: 0;
+  inset-inline: 18%;
+  block-size: var(--ds-card-rim-width);
   pointer-events: none;
-  background: linear-gradient(150deg, var(--ds-card-rim-hi), var(--ds-card-rim-lo) 38%, var(--ds-card-rim-lo) 70%, var(--ds-card-rim-mid));
-  background-size: 200% 200%;
-  background-position: 0% 0%;
-  transition: background-position var(--ds-motion-enter) var(--ds-motion-easing);
-  /* mask keeps only the padding ring; the keyword is the mask's alpha source, not a design colour */
-  -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  background: linear-gradient(90deg, transparent, var(--ds-card-streak), transparent);
 }
-/* the specular rim drifts as if the light moved — slow, never a flash */
-.glass:hover::before { background-position: 60% 60%; }
+/* a pane inside a pane is the next level: no second blur (P3), one step lighter, a shorter shadow */
+.glass .glass:not(.l3):not(.l4), .l2 { border-radius: var(--ds-card-inner-radius); --level-bg: var(--ds-card-level2); --level-shadow: var(--ds-card-shadow-2); -webkit-backdrop-filter: none; backdrop-filter: none; }
+.l3 { --level-bg: var(--ds-card-level3); --level-shadow: var(--ds-card-shadow-3); }
+.l4 { --level-bg: var(--ds-card-level4); --level-shadow: var(--ds-card-shadow-4); }
+@media (prefers-reduced-transparency: reduce) { .glass, .glass .glass { background: var(--ds-surface-solid); } }
+:global([data-material='solid']) .glass { background: var(--ds-surface-solid); }
 /* the cover is the first child: pull it to the edges instead of padding it */
 .glass:has(> .cover:first-child) { padding-block-start: 0; }
 

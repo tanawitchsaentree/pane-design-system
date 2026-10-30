@@ -1,6 +1,7 @@
 import { forwardRef, useState, type ButtonHTMLAttributes, type ReactNode } from 'react';
 import { cx } from '../../cx';
 import styles from './Chip.module.css';
+import { useMessages } from '../../i18n/context';
 
 export interface ChipProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'> {
   /** The chip's label, which is also its accessible name. */
@@ -22,18 +23,20 @@ export interface ChipProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>,
  * so Space and Enter work without custom key handling.
  */
 export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
-  { children, selected, defaultSelected = false, onSelectedChange, onRemove, removeLabel, className, onClick, ...rest },
+  { children, selected, defaultSelected = false, onSelectedChange, onRemove, removeLabel, className, onClick, disabled, ...rest },
   ref,
 ) {
   const [inner, setInner] = useState(defaultSelected);
   const on = selected ?? inner;
-  const label = removeLabel ?? (typeof children === 'string' ? children : 'item');
+  const t = useMessages();
+  const label = removeLabel ?? (typeof children === 'string' ? children : t.item);
   return (
-    <span data-component="Chip" className={cx(styles.root, on && styles.on, onRemove && styles.removable, className)}>
+    <span data-component="Chip" data-disabled={disabled || undefined} className={cx(styles.root, on && styles.on, onRemove && styles.removable, className)}>
       <button
         ref={ref}
         type="button"
         className={styles.toggle}
+        disabled={disabled}
         aria-pressed={onRemove ? undefined : on}
         onClick={(e) => {
           onClick?.(e);
@@ -49,7 +52,7 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
         {children}
       </button>
       {onRemove && (
-        <button type="button" className={styles.remove} aria-label={`Remove ${label}`} onClick={onRemove}>
+        <button type="button" className={styles.remove} aria-label={t.removeItem(label)} onClick={onRemove} disabled={disabled}>
           <svg className={styles.icon} viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
         </button>
       )}

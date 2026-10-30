@@ -49,7 +49,19 @@ export function Page({ eyebrow, title, lede, children }: { eyebrow: string; titl
   );
 }
 
-export function Section({ id, title, children, wide }: { id: string; title: string; children: ReactNode; wide?: boolean }) {
+export function Section({ id, title, children, wide, fold }: { id: string; title: string; children: ReactNode; wide?: boolean; fold?: boolean }) {
+  // fold: a long secondary section starts closed behind its heading, so a page reads in a few screens;
+  // the content stays in the page (search, print, and the depth gate all see it) and opens on click or
+  // when a link points at it
+  if (fold) return (
+    <section id={id} className={`book-section folded${wide ? ' wide' : ''}`} aria-labelledby={`${id}-h`}>
+      <details className="fold">
+        <summary><h2 id={`${id}-h`} className="flush">{title}</h2></summary>
+        {/* a details element does not lay its content out as flex, so the rhythm lives on this wrapper */}
+        <div className="prose">{children}</div>
+      </details>
+    </section>
+  );
   return (
     <section id={id} className={`book-section${wide ? ' wide' : ''}`} aria-labelledby={`${id}-h`}>
       <div className="prose">
@@ -58,6 +70,13 @@ export function Section({ id, title, children, wide }: { id: string; title: stri
       </div>
     </section>
   );
+}
+
+// a link to a folded section opens it before the browser scrolls to it
+if (typeof window !== 'undefined') {
+  const openTarget = () => { const el = location.hash ? document.getElementById(location.hash.slice(1)) : null; const d = el?.querySelector(':scope > details.fold'); if (d && !d.hasAttribute('open')) d.setAttribute('open', ''); };
+  window.addEventListener('hashchange', openTarget);
+  document.addEventListener('click', (e) => { const a = (e.target as Element)?.closest?.('a[href^="#"]'); if (a) setTimeout(openTarget, 0); });
 }
 
 export function Callout({ tone = 'note', title, children }: { tone?: 'note' | 'rule' | 'caution'; title: string; children: ReactNode }) {
@@ -98,9 +117,12 @@ export function Stage({ children, plain, className = '', backdrop }: { children:
   const chosen = useScene();
   // diagrams pass backdrop="field": the subject is structure, so a photo would only compete with it
   const field = backdrop === 'field' || (backdrop !== 'scene' && chosen === 'field');
-  const scene = field ? 'field' : chosen;
+  // the studio and the aurora are drawn in CSS, not photos; a diagram that asks for a scene still gets one
+  const drawn = !field && (chosen === 'studio' || chosen === 'aurora') && backdrop !== 'scene';
+  const studio = drawn && chosen === 'studio';
+  const scene = field ? 'field' : drawn ? chosen : chosen === 'studio' || chosen === 'aurora' ? 'room' : chosen;
   return (
-    <div className={`example-live${plain ? ' plain' : ''}${field ? ' stage-field' : ''} ${className}`} data-example-live="" data-surface="" style={field ? undefined : { backgroundImage: `url(/scenes/${scene}.webp)` }}>
+    <div className={`example-live${plain ? ' plain' : ''}${field ? ' stage-field' : ''}${studio ? ' stage-studio' : ''}${drawn && !studio ? ' stage-aurora mesh' : ''} ${className}`} data-example-live="" data-surface="" style={field || drawn ? undefined : { backgroundImage: `url(/scenes/${scene}.webp)` }}>
       <Environment brightness={sceneById(scene).brightness} className="stage-env">{children}</Environment>
     </div>
   );
@@ -111,8 +133,11 @@ export function Example({ title, code, children, plain, backdrop }: { title: str
   const body = code.replace(/^\/\/ @example.*\n/m, '').trim();
   return (
     <figure className="example" data-example="">
-      <Stage plain={plain} backdrop={backdrop}>{children}</Stage>
-      <figcaption className="example-bar"><span className="example-title">{title}</span></figcaption>
+      {/* the caption sits in the stage's top-left corner, like a label on a studio plate */}
+      <div className="example-plate">
+        <figcaption className="example-bar"><span className="example-title">{title}</span></figcaption>
+        <Stage plain={plain} backdrop={backdrop}>{children}</Stage>
+      </div>
       <CodeBlock code={body} label="TSX" />
     </figure>
   );

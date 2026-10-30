@@ -117,6 +117,16 @@
       "p": "P2",
       "axis": "type",
       "why": "the trigger drops the card text halo because its groove already gives the label its ground"
+    },
+    "data-readonly": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a read-only value drops the groove for a hairline, so it reads as settled but can still be focused and copied"
+    },
+    "aria-invalid=true": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
     }
   },
   "motion": {
@@ -143,7 +153,7 @@
   ],
   "default_to_avoid": [
     {
-      "pattern": "the Radix or Material dropdown: a padded card with pill-shaped rows whose corner does not follow the card's, a check at the far end",
+      "pattern": "the Radix or Material dropdown: a padded card with pill-shaped rows whose corner does not follow the card's, a check at the far end as the select",
       "why_not": "the highlighted row's corner bulged against the flyout's (24px corner, 4px inset, 18px rows on 32px), so the two curves fought; the closed trigger measured 2.65:1 in light (R-008)"
     }
   ],
@@ -171,7 +181,7 @@
     {
       "p": "P3",
       "axis": "depth",
-      "consequence": "a soft shadow below and a rim of light on the top-left edge say where the pane floats",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip",
       "form": "the highlighted row is a lens with light on its top edge, never a flat grey block"
     },
     {
@@ -189,7 +199,7 @@
     {
       "p": "P1",
       "axis": "depth",
-      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur), never from an opaque tint",
+      "consequence": "legibility comes from dimming and blurring the backdrop (brightness, blur) inside a smoked body thick enough that a pane reads as a slab of glass, with the scene softened behind it",
       "form": "the closed trigger is the same groove as Input, so a form reads as one family"
     }
   ],

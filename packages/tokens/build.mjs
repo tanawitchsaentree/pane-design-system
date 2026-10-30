@@ -221,3 +221,82 @@ writeFileSync(path.join(ROOT, 'build', 'scss', '_tokens.scss'),
 writeFileSync(path.join(ROOT, 'build', 'json', 'tokens.json'), JSON.stringify(json, null, 2) + '\n');
 const count = (tier) => [...tokens.values()].filter((t) => t.tier === tier).length;
 console.log(`✓ ${tokens.size} tokens → css, json, js+d.ts, scss; themes: dark, ${THEMES.join(', ')}; breakpoints: ${BPS.join(', ')}; (${TIERS.map((t) => `${count(t)} ${t}`).join(', ')}), ${glassSurfaces.length} glass surface(s) with fallback, environments: ${ENVS.join(', ') || 'none'}`);
+
+// ---- Swift (X10 · Native): every token as a static property on `enum PaneTokens`, for PaneKit ----
+// Colours carry both themes and resolve at draw time (UIColor trait provider on iOS, NSColor appearance
+// on macOS); dimensions are points (px → pt one to one, em kept as a multiple of the font size, dvh as a
+// fraction of the screen height); shadows become PaneShadow lists; curves become PaneCurve.
+const resolveTheme = (p, th, seen = []) => {
+  const t = tokens.get(p);
+  const raw = th && t.theme?.[th] ? t.theme[th] : t.raw;
+  const m = typeof raw === 'string' && raw.match(REF);
+  if (!m) return raw;
+  if (seen.includes(m[1])) throw new Error(`cycle: ${[...seen, m[1]].join(' -> ')}`);
+  return resolveTheme(m[1], th, [...seen, m[1]]);
+};
+const swiftName = (p) => p.split(/[.\-_]/).filter(Boolean).map((s, i) => (i === 0 ? s.toLowerCase() : s[0].toUpperCase() + s.slice(1))).join('').replace(/^(\d)/, '_$1');
+const hexRGBA = (h) => { const s = String(h).replace('#', ''); const n = (i) => parseInt(s.slice(i, i + 2), 16) / 255; return [n(0), n(2), n(4), s.length >= 8 ? n(6) : 1].map((x) => +x.toFixed(4)); };
+const swColor = (hex) => { const [r, g, b, a] = hexRGBA(hex); return `PaneRGBA(${r}, ${g}, ${b}, ${a})`; };
+const swDim = (v) => { const s = String(v).trim(); const m = s.match(/^(-?[\d.]+)(px|em|rem|dvh|vh|%)?$/); if (!m) return null; return { n: +m[1], unit: m[2] ?? '' }; };
+const swShadow = (v) => String(v).split(/,(?![^(]*\))/).map((part) => {
+  const inset = /\binset\b/.test(part); const toks = part.replace('inset', '').trim().split(/\s+/);
+  const color = toks.find((x) => x.startsWith('#')) ?? '#00000000'; const nums = toks.filter((x) => !x.startsWith('#')).map((x) => parseFloat(x) || 0);
+  const [x = 0, y = 0, blur = 0, spread = 0] = nums;
+  return `PaneShadow(x: ${x}, y: ${y}, blur: ${blur}, spread: ${spread}, color: ${swColor(color)}, inset: ${inset})`;
+});
+const WEIGHT = (w) => { const n = +w; return n < 350 ? '.light' : n < 450 ? '.regular' : n < 575 ? '.medium' : n < 675 ? '.semibold' : '.bold'; };
+const swiftLines = []; const names = new Set();
+for (const p of tokens.keys()) {
+  const t = tokens.get(p); let name = swiftName(p); while (names.has(name)) name += '_'; names.add(name);
+  const dark = resolveTheme(p, null); const light = resolveTheme(p, 'light');
+  const doc = `  /// ${p}${t.description ? ` — ${String(t.description).replace(/\s+/g, ' ').slice(0, 140)}` : ''}`;
+  let line = null;
+  if (t.type === 'color') line = `  public static let ${name} = PaneDynamicColor(dark: ${swColor(dark)}, light: ${swColor(light)})`;
+  else if (t.type === 'dimension') { const d = swDim(dark), l = swDim(light); if (d) line = d.unit === 'em' || d.unit === 'rem' ? `  /// em: multiply by the font size\n  public static let ${name}: CGFloat = ${d.n}` : d.unit === 'dvh' || d.unit === 'vh' ? `  /// fraction of the screen height\n  public static let ${name}: CGFloat = ${d.n / 100}` : d.unit === '%' ? `  /// fraction of the container\n  public static let ${name}: CGFloat = ${d.n / 100}` : (l && l.n !== d.n ? `  public static let ${name} = PaneDynamicMetric(dark: ${d.n}, light: ${l.n})` : `  public static let ${name}: CGFloat = ${d.n}`); }
+  else if (t.type === 'number') {
+    const v = String(dark).trim(); const ratio = v.match(/^([\d.]+)\s*\/\s*([\d.]+)$/); const vh = v.match(/^([\d.]+)(dvh|vh)$/);
+    line = ratio ? `  /// width ÷ height\n  public static let ${name}: Double = ${+(ratio[1] / ratio[2]).toFixed(6)}` : vh ? `  /// fraction of the screen height\n  public static let ${name}: Double = ${vh[1] / 100}` : `  public static let ${name}: Double = ${+v}`;
+  }
+  else if (t.type === 'duration') line = `  public static let ${name}: TimeInterval = ${parseFloat(dark) / (String(dark).endsWith('ms') ? 1000 : 1)}`;
+  else if (t.type === 'fontWeight') line = `  public static let ${name}: Font.Weight = ${WEIGHT(dark)}`;
+  else if (t.type === 'fontFamily') line = `  public static let ${name}: String = ${JSON.stringify(String(dark).split(',')[0].trim().replace(/['"]/g, ''))}`;
+  else if (t.type === 'cubicBezier') { const v = Array.isArray(dark) ? dark : String(dark).match(/[\d.]+/g).map(Number); line = `  public static let ${name} = PaneCurve(${v.join(', ')})`; }
+  else if (t.type === 'shadow') line = `  public static let ${name} = PaneDynamicShadow(dark: [${swShadow(dark).join(', ')}], light: [${swShadow(light).join(', ')}])`;
+  if (line) swiftLines.push(doc, line);
+}
+const swift = `// GENERATED by packages/tokens/build.mjs — do not hand-edit. ${tokens.size} tokens, dark and light.
+import SwiftUI
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
+
+public struct PaneRGBA: Sendable, Equatable { public let r, g, b, a: Double; public init(_ r: Double, _ g: Double, _ b: Double, _ a: Double) { self.r = r; self.g = g; self.b = b; self.a = a }
+  public var color: Color { Color(.sRGB, red: r, green: g, blue: b, opacity: a) } }
+/// A colour with a value per theme that follows the system appearance (or a forced \`.preferredColorScheme\`).
+public struct PaneDynamicColor: Sendable { public let dark: PaneRGBA; public let light: PaneRGBA
+  public func resolve(_ scheme: ColorScheme) -> Color { (scheme == .dark ? dark : light).color }
+  public var color: Color {
+    #if canImport(UIKit)
+    return Color(UIColor { $0.userInterfaceStyle == .light ? UIColor(red: light.r, green: light.g, blue: light.b, alpha: light.a) : UIColor(red: dark.r, green: dark.g, blue: dark.b, alpha: dark.a) })
+    #elseif canImport(AppKit)
+    return Color(NSColor(name: nil) { $0.bestMatch(from: [.aqua, .darkAqua]) == .aqua ? NSColor(srgbRed: light.r, green: light.g, blue: light.b, alpha: light.a) : NSColor(srgbRed: dark.r, green: dark.g, blue: dark.b, alpha: dark.a) })
+    #else
+    return dark.color
+    #endif
+  } }
+public struct PaneDynamicMetric: Sendable { public let dark: CGFloat; public let light: CGFloat; public func resolve(_ scheme: ColorScheme) -> CGFloat { scheme == .dark ? dark : light } }
+public struct PaneShadow: Sendable { public let x, y, blur, spread: CGFloat; public let color: PaneRGBA; public let inset: Bool
+  public init(x: CGFloat, y: CGFloat, blur: CGFloat, spread: CGFloat, color: PaneRGBA, inset: Bool) { self.x = x; self.y = y; self.blur = blur; self.spread = spread; self.color = color; self.inset = inset } }
+public struct PaneDynamicShadow: Sendable { public let dark: [PaneShadow]; public let light: [PaneShadow]; public func resolve(_ scheme: ColorScheme) -> [PaneShadow] { scheme == .dark ? dark : light } }
+public struct PaneCurve: Sendable { public let x1, y1, x2, y2: Double; public init(_ x1: Double, _ y1: Double, _ x2: Double, _ y2: Double) { self.x1 = x1; self.y1 = y1; self.x2 = x2; self.y2 = y2 }
+  public func animation(_ duration: TimeInterval) -> Animation { .timingCurve(x1, y1, x2, y2, duration: duration) } }
+
+public enum PaneTokens {
+${swiftLines.join('\n')}
+}
+`;
+mkdirSync(path.join(ROOT, 'build', 'swift'), { recursive: true });
+writeFileSync(path.join(ROOT, 'build', 'swift', 'PaneTokens.swift'), swift);
+console.log(`✓ swift: ${names.size} tokens → build/swift/PaneTokens.swift`);

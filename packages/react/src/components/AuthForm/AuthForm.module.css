@@ -1,0 +1,15 @@
+/* The heading, Form's column and the one loud submit at full width; other ways in sit under a hairline
+   with the word or, and text links are underlined so they read as links (P7 links look like links). */
+.root { display: flex; flex-direction: column; gap: var(--ds-auth-form-gap); inline-size: 100%; max-inline-size: var(--ds-auth-form-measure); font-family: var(--ds-type-family); }
+.head { display: flex; flex-direction: column; gap: var(--ds-gap-sm); }
+.title { margin: 0; font-size: var(--ds-type-headline); font-weight: var(--ds-type-weight-semibold); line-height: var(--ds-type-leading-tight); letter-spacing: var(--ds-type-tracking-display); color: var(--ds-text-primary); }
+.description { margin: 0; font-size: var(--ds-type-body); line-height: var(--ds-type-leading-body); color: var(--ds-text-secondary); }
+.submit { inline-size: 100%; }
+.link { position: relative; align-self: flex-start; padding: 0; border: 0; background: transparent; color: var(--ds-text-primary); font: inherit; font-size: var(--ds-type-label); text-decoration: underline; text-underline-offset: var(--ds-gap-xs); cursor: pointer; }
+.link::after { content: ''; position: absolute; inset-inline: 0; inset-block-start: 50%; block-size: var(--ds-layout-touch); transform: translateY(-50%); }
+.link:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-width-ring); border-radius: var(--ds-corner-mark); }
+.or { display: flex; align-items: center; gap: var(--ds-gap-md); font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.or::before, .or::after { content: ''; flex: 1; block-size: var(--ds-width-hairline); background: var(--ds-auth-form-divider); }
+.providers { display: flex; flex-direction: column; gap: var(--ds-gap-md); }
+.providers > * { inline-size: 100%; }
+.switch { margin: 0; font-size: var(--ds-type-label); color: var(--ds-text-secondary); text-align: center; }

@@ -1,0 +1,11 @@
+/* Links in the text colour with their underline, a quiet chevron between them, the current page in
+   semibold and not a link; on a narrow screen the trail wraps. */
+.root { font-family: var(--ds-type-family); font-size: var(--ds-type-label); }
+.list { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ds-gap-xs); margin: 0; padding: 0; list-style: none; }
+.crumb { display: inline-flex; align-items: center; gap: var(--ds-gap-xs); min-inline-size: 0; }
+.sep { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); fill: none; stroke: var(--ds-text-secondary); stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.link { display: inline-flex; align-items: center; min-block-size: var(--ds-layout-touch); color: var(--ds-text-primary); text-decoration-line: underline; text-decoration-color: var(--ds-line-ring); text-underline-offset: var(--ds-gap-xs); }
+.link:hover { text-decoration-color: currentColor; }
+.link:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); border-radius: var(--ds-corner-mark); }
+.current { font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+

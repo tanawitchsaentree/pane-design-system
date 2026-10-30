@@ -1,0 +1,9 @@
+/* A link found by its underline, in the text colour: the system owns no blue (P1, D-024). */
+.root { color: var(--ds-text-primary); text-decoration-thickness: var(--ds-width-hairline); text-underline-offset: var(--ds-link-offset); border-radius: var(--ds-corner-mark); transition: text-decoration-color var(--ds-motion-hover) var(--ds-motion-easing); }
+.inline { text-decoration-line: underline; text-decoration-color: var(--ds-link-underline); }
+.inline:hover { text-decoration-color: currentColor; text-decoration-thickness: var(--ds-width-ring); }
+.standalone { display: inline-flex; align-items: center; min-block-size: var(--ds-layout-touch); font-weight: var(--ds-type-weight-semibold); text-decoration-line: underline; text-decoration-color: transparent; }
+.standalone:hover { text-decoration-color: currentColor; }
+.root:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.sr { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (forced-colors: active) { .root { color: LinkText; } }

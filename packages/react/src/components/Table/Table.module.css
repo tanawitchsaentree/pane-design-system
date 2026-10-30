@@ -1,0 +1,27 @@
+/* A real table on a level-2 pane: an opaque header row (the sheet tone, so it stays readable over the rows
+   that scroll under it), hairlines between rows, numbers set at the end in tabular figures. */
+.root { overflow: auto; border-radius: var(--ds-corner-media); background: var(--ds-table-bg); box-shadow: var(--ds-table-edge); font-family: var(--ds-type-family); }
+.root:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.table { inline-size: 100%; border-collapse: separate; border-spacing: 0; font-size: var(--ds-type-body); color: var(--ds-text-primary); }
+.caption { padding: var(--ds-table-cell-block) var(--ds-table-cell-inline); caption-side: top; text-align: start; font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-primary); }
+.hidden { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.th { position: sticky; inset-block-start: 0; z-index: 1; box-sizing: border-box; block-size: var(--ds-table-hit); padding: 0 var(--ds-table-cell-inline); background: var(--ds-table-head-bg); border-block-end: var(--ds-width-hairline) solid var(--ds-table-divider); font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-secondary); text-align: start; vertical-align: middle; white-space: nowrap; }
+.td { padding: var(--ds-table-cell-block) var(--ds-table-cell-inline); border-block-end: var(--ds-width-hairline) solid var(--ds-table-divider); vertical-align: middle; }
+.tr:last-child .td { border-block-end: 0; }
+.comfortable .td { block-size: var(--ds-table-row); box-sizing: border-box; }
+.compact .td { padding-block: var(--ds-table-cell-block-compact); }
+.tr { transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
+.tr:hover { background: var(--ds-table-highlight); }
+.end { text-align: end; font-variant-numeric: tabular-nums; }
+/* the sort button fills its header cell, so the whole header is the 44px press area */
+.sort { display: inline-flex; align-items: center; gap: var(--ds-gap-xs); min-block-size: var(--ds-table-hit); padding: 0; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.end .sort { flex-direction: row-reverse; }
+.sort:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); border-radius: var(--ds-corner-mark); }
+.glyph { inline-size: var(--ds-table-glyph); block-size: var(--ds-table-glyph); flex: none; fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; opacity: var(--ds-opacity-faint); }
+.on { opacity: 1; color: var(--ds-text-primary); }
+.desc { transform: rotate(180deg); }
+/* no rows: one quiet line across the body; loading: the rows stay under a scrim that says so */
+.root { position: relative; }
+.empty { padding: var(--ds-table-cell-block) var(--ds-table-cell-inline); color: var(--ds-text-secondary); text-align: center; }
+.loading { position: absolute; inset: 0; display: grid; place-items: center; background: var(--ds-table-scrim); color: var(--ds-text-primary); font-size: var(--ds-type-label); }
+@media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid CanvasText; } .th, .td { border-color: CanvasText; } }

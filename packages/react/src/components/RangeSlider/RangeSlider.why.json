@@ -1,0 +1,19 @@
+{
+  "identity": false,
+  "identity_reason": "it is the Slider channel and beads with a second bead, so it takes every part of its look from Slider",
+  "concept": "Slider with two beads for a range such as a price from and to, the fill running between them and each bead named for its end.",
+  "parts": {
+    "pair": {
+      "p": "P2",
+      "axis": "type",
+      "why": "both ends are shown in the label row with the word to between them"
+    },
+    "to": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the word between the two ends is secondary so the numbers stand out"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

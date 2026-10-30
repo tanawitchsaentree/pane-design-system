@@ -1,0 +1,29 @@
+{
+  "identity": false,
+  "identity_reason": "it is Input inside InputGroup with two IconButtons, so its groove, focus and press come from those parts",
+  "concept": "A number field with minus and plus inside one groove; it is a spinbutton for the keyboard and holds typed numbers to its limits.",
+  "parts": {
+    "input": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the number is centred in tabular figures so it does not jump as it steps"
+    },
+    "end": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the unit and the plus sit together at the end with a small gap between them"
+    },
+    "unit": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the unit is in the secondary tone at label size so the number leads"
+    },
+    "glyph": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "minus and plus are drawn with the ring stroke so they read at a glance"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

@@ -1,0 +1,9 @@
+/* Stepper, the step's panel under a heading that takes focus, and the actions at the end with the loud
+   button last and Cancel apart at the start (P5: the loud action sits apart from the others). */
+.root { display: flex; flex-direction: column; gap: var(--ds-wizard-gap); min-inline-size: 0; font-family: var(--ds-type-family); }
+.panel { display: flex; flex-direction: column; gap: var(--ds-wizard-panel-gap); }
+.title { display: flex; flex-direction: column; gap: var(--ds-gap-xs); margin: 0; font-size: var(--ds-type-title); font-weight: var(--ds-type-weight-semibold); line-height: var(--ds-type-leading-tight); color: var(--ds-text-primary); outline: 0; }
+.title:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); border-radius: var(--ds-corner-mark); }
+.count { order: -1; font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-regular); color: var(--ds-text-secondary); }
+.actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--ds-gap-md); }
+.cancel { margin-inline-end: auto; }

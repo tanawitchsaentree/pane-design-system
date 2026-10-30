@@ -1,0 +1,63 @@
+{
+  "concept": "A key the reader presses, drawn as a small keycap lit from above, the same raised slab as every surface in Pane.",
+  "default_to_avoid": [
+    {
+      "pattern": "a grey monospace box with a 1px border (GitHub kbd, the browser kbd)",
+      "kind": "kbd, keyboard key, shortcut, keycap",
+      "why_not": "a bordered grey box owns a colour and a border Pane does not use; monospace reads as code"
+    }
+  ],
+  "references": [
+    {
+      "title": "MDN · kbd element",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "a keycap is a raised slab lit at its top with a short soft shadow under it"
+    },
+    {
+      "p": "P3",
+      "axis": "colour",
+      "consequence": "the rim and sheen are white at low opacity, like light catching an edge",
+      "form": "its rim and sheen are white at low opacity, the same light as every surface"
+    },
+    {
+      "p": "P2",
+      "axis": "type",
+      "consequence": "secondary text keeps the lowest opacity that still measured as passing; text halos count only where WCAG allows them",
+      "form": "the key is printed in the caption size of the interface face, not monospace"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave2/",
+    "section": "kbd",
+    "options": [
+      "A lit keycap",
+      "B bordered box",
+      "C plain bold text"
+    ],
+    "picked": "A lit keycap",
+    "by": "agent",
+    "reason": "A is a small Pane slab, lit from above (P3). B brings a border and a grey. C cannot be told apart from emphasis."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a small raised slab lit at its top with a short shadow, printed with the key in the caption size"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours draw an outline so the key keeps its shape"
+    }
+  },
+  "motion": {}
+}

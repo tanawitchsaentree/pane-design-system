@@ -1,0 +1,60 @@
+{
+  "identity": false,
+  "identity_reason": "it is a glass Button and an inset List with IconButtons, so its look comes from those parts and only the refusal line is new",
+  "concept": "A button that opens the file chooser and the list of chosen files, each with its size and a remove button; refusals are said in words.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the button row, the refusals and the list stack with an even gap"
+    },
+    "head": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the button and its hint share one row and wrap on a narrow pane"
+    },
+    "hint": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the hint is secondary at label size and says what is accepted"
+    },
+    "glyph": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the upload arrow, file and cross are drawn with the ring stroke at icon size"
+    },
+    "list": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "chosen files sit on one level-2 pane like an inset list"
+    },
+    "file": {
+      "p": "P6",
+      "axis": "space",
+      "why": "each file row keeps a 44px height with its name, size and remove button"
+    },
+    "name": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the file name is primary at body size and wraps instead of spilling"
+    },
+    "size": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the size is secondary in tabular figures at the end of the row"
+    },
+    "refused": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a refused file is listed with its reason in words and only the bullet takes the critical mark"
+    }
+  },
+  "states": {
+    "data-invalid": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
+    }
+  },
+  "motion": {}
+}

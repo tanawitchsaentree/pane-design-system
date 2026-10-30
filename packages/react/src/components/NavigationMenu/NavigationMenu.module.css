@@ -1,0 +1,19 @@
+/* Top-level entries in a row; a group opens a level-4 panel (D-025) of links, each with a line of
+   description, so the reader chooses by what the page is for, not only by its name. */
+.root { position: relative; font-family: var(--ds-type-family); }
+.bar { display: flex; flex-wrap: wrap; gap: var(--ds-gap-xs); margin: 0; padding: 0; list-style: none; }
+.entry { position: relative; }
+.top { display: inline-flex; align-items: center; gap: var(--ds-gap-xs); min-block-size: var(--ds-layout-touch); padding-inline: var(--ds-gap-lg); border: 0; border-radius: var(--ds-corner-round); background: transparent; color: var(--ds-text-primary); font: inherit; font-size: var(--ds-type-body); font-weight: var(--ds-type-weight-medium); text-decoration: none; cursor: pointer; }
+.top:hover, .top[aria-expanded='true'] { background: var(--ds-surface-quiet); }
+.top:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.chevron { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; transition: rotate var(--ds-motion-hover) var(--ds-motion-easing); }
+.top[aria-expanded='true'] .chevron { rotate: 180deg; }
+.panel { position: absolute; inset-block-start: calc(100% + var(--ds-gap-sm)); inset-inline-start: 0; z-index: var(--ds-overlay-z-pop); inline-size: var(--ds-nav-panel); padding: var(--ds-listbox-inset); border-radius: var(--ds-corner-inner); background: var(--ds-nav-panel-bg); box-shadow: var(--ds-nav-panel-shadow); -webkit-backdrop-filter: blur(var(--ds-nav-blur)); backdrop-filter: blur(var(--ds-nav-blur)); animation: pop var(--ds-motion-hover) var(--ds-motion-easing); }
+.links { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.link { display: flex; flex-direction: column; gap: var(--ds-space-0-5); padding: var(--ds-gap-md) var(--ds-gap-lg); border-radius: calc(var(--ds-corner-inner) - var(--ds-listbox-inset)); color: var(--ds-text-primary); text-decoration: none; }
+.link:hover { background: var(--ds-surface-quiet); }
+.link:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: calc(var(--ds-focus-ring-width) * -1); }
+.linkLabel { font-weight: var(--ds-type-weight-semibold); }
+.description { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+@keyframes pop { from { opacity: 0; translate: 0 calc(var(--ds-motion-lift) * -2); } }
+@media (forced-colors: active) { .panel { border: var(--ds-width-hairline) solid CanvasText; } }

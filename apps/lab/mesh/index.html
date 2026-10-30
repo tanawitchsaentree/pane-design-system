@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Mesh: three ways to pool colour</title>
+<style>
+  body { margin: 0; padding: 48px; background: #0B0B0D; color: #fff; font: 15px/1.5 system-ui, sans-serif; }
+  h1 { font-size: 20px; } .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  figure { margin: 0; } figcaption { margin-top: 12px; color: #ffffffcc; }
+  .box { position: relative; height: 260px; border-radius: 28px; overflow: hidden; isolation: isolate; background: #ECE7F1; }
+  .a::before, .c::before { content: ''; position: absolute; inset: -20%; z-index: -1; filter: blur(40px); }
+  .a::before { background: radial-gradient(58% 66% at 14% 14%, #F7B27C, transparent 76%), radial-gradient(56% 64% at 90% 26%, #F2837B, transparent 76%), radial-gradient(72% 60% at 60% 96%, #5F5BF2, transparent 76%), radial-gradient(50% 56% at 4% 92%, #B9A3F5, transparent 74%); }
+  .b { background: radial-gradient(58% 66% at 14% 14%, #F7B27C, transparent 76%), radial-gradient(56% 64% at 90% 26%, #F2837B, transparent 76%), radial-gradient(72% 60% at 60% 96%, #5F5BF2, transparent 76%), #ECE7F1; }
+  .c::before { background: conic-gradient(from 210deg at 45% 55%, #F7B27C, #F2837B, #5F5BF2, #B9A3F5, #F7B27C); }
+</style></head><body>
+<h1>Mesh: three ways to pool colour (Pane, D-029)</h1>
+<div class="row">
+  <figure><div class="box a"></div><figcaption><b>A · pools melted (picked)</b> four radial pools on their own layer, blurred 40px. No pool keeps an edge; reads as a mesh.</figcaption></figure>
+  <figure><div class="box b"></div><figcaption><b>B · pools, no blur</b> the same pools stacked as plain radial gradients. Each keeps a visible ring; reads as spotlights.</figcaption></figure>
+  <figure><div class="box c"></div><figcaption><b>C · conic, blurred</b> a colour wheel blurred. Flows, but every preset swirls around one centre, so it cannot place a colour where the light is.</figcaption></figure>
+</div>
+</body></html>

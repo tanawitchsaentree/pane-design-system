@@ -1,0 +1,4 @@
+/* The magnifier and the cross are drawn with the ring stroke in the secondary tone, quieter than the query (P2). */
+.glyph { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; color: var(--ds-text-secondary); }
+/* the browser's own cancel button is replaced by the clear button, so there is one way to clear */
+.input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }

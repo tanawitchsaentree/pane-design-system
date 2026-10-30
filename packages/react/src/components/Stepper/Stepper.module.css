@@ -1,0 +1,24 @@
+/* Marks on a groove (the Divider's etched line), the groove lit up to the current step; done is a check,
+   current the loud solid with its number, upcoming an outline (P6: a mark and a shape for every state). */
+.root { display: flex; gap: var(--ds-gap-md); margin: 0; padding: 0; list-style: none; font-family: var(--ds-type-family); counter-reset: none; }
+.horizontal { flex-direction: row; }
+.vertical { flex-direction: column; }
+.step { position: relative; display: flex; gap: var(--ds-gap-md); flex: 1; min-inline-size: 0; }
+.horizontal .step { flex-direction: column; }
+.vertical .step { flex-direction: row; padding-block-end: var(--ds-gap-xl); }
+/* the groove to the next step */
+.step:not(:last-child)::after { content: ''; position: absolute; background: var(--ds-stepper-groove); }
+.horizontal .step:not(:last-child)::after { inset-block-start: calc(var(--ds-control-check) / 2 - var(--ds-width-hairline)); inset-inline-start: calc(var(--ds-control-check) + var(--ds-gap-sm)); inset-inline-end: calc(var(--ds-gap-sm) * -1 + var(--ds-gap-xs)); block-size: var(--ds-width-ring); border-radius: var(--ds-corner-round); }
+.vertical .step:not(:last-child)::after { inset-inline-start: calc(var(--ds-control-check) / 2 - var(--ds-width-hairline)); inset-block-start: calc(var(--ds-control-check) + var(--ds-gap-xs)); inset-block-end: var(--ds-gap-xs); inline-size: var(--ds-width-ring); border-radius: var(--ds-corner-round); }
+.done:not(:last-child)::after { background: var(--ds-stepper-lit); }
+.mark { display: inline-grid; place-items: center; flex: none; inline-size: var(--ds-control-check); block-size: var(--ds-control-check); border-radius: var(--ds-corner-round); font-size: var(--ds-type-micro); font-weight: var(--ds-type-weight-semibold); font-variant-numeric: tabular-nums; }
+.mark svg { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.done .mark { background: linear-gradient(180deg, var(--ds-nav-on-top), var(--ds-nav-on-foot)); color: var(--ds-text-primary); }
+.current .mark { background: var(--ds-stepper-current); color: var(--ds-stepper-current-fg); box-shadow: var(--ds-stepper-glow); }
+.upcoming .mark { box-shadow: inset 0 0 0 var(--ds-width-ring) var(--ds-line-edge); color: var(--ds-text-secondary); }
+.text { display: flex; flex-direction: column; gap: var(--ds-space-0-5); min-inline-size: 0; }
+.label { font-size: var(--ds-type-label); color: var(--ds-text-primary); }
+.current .label { font-weight: var(--ds-type-weight-semibold); }
+.description { font-size: var(--ds-type-caption); color: var(--ds-text-secondary); }
+.sr { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (forced-colors: active) { .mark { border: var(--ds-width-hairline) solid CanvasText; } .current .mark { background: Highlight; color: HighlightText; } }

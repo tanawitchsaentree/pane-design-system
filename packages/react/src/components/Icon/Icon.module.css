@@ -1,0 +1,6 @@
+/* A glyph at one of two sizes, in the text colour. */
+.root { display: inline-grid; place-items: center; flex: none; color: inherit; line-height: 0; }
+.root > svg { inline-size: 100%; block-size: 100%; }
+.sm { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); }
+.md { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); }
+@media (forced-colors: active) { .root { color: CanvasText; } }

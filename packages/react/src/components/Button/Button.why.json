@@ -1,5 +1,5 @@
 {
-  "concept": "A button is a small pane held on the big one. Its fill is a sheet lit at its top and shaded at its foot, it carries the pane's own rim, a glint sits where the pointer is, and under the accent its shadow is blue. One loud kind per pane.",
+  "concept": "A button is a small pane lit from above. Its fill is a sheet lit at its top and shaded at its foot, it carries the top-lit rim, and a glint sits where the pointer is. Loud is the white solid (ink in light); the promoted accent is the same solid glowing with its own light. One loud kind per pane.",
   "parts": {
     "root": {
       "p": "P3",
@@ -23,18 +23,33 @@
     },
     "accent": {
       "p": "P5",
-      "axis": "colour",
-      "why": "the blue sheet for a promoted action, never beside a loud solid; its shadow is blue, its own light falling on the pane"
+      "axis": "depth",
+      "why": "the promoted action is the loud solid glowing with its own light onto the pane, never beside another loud solid"
     },
     "glass": {
-      "p": "P5",
+      "p": "P3",
       "axis": "depth",
-      "why": "the quiet button is glass with a white gloss and no shadow, so only the loud kind lifts"
+      "why": "quiet glass lit from above, brighter at its top, resting on a short soft shadow; it does not lift"
     },
     "hit": {
       "p": "P6",
       "axis": "space",
       "why": "a press area at least 44px each way, so the small size is still easy to hit"
+    },
+    "content": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the label stays in place unseen while loading so the button keeps its width and nothing jumps"
+    },
+    "loading": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a busy button keeps focus, says it is busy and ignores presses until the action is done"
+    },
+    "spinner": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the spinner sits over the hidden label so the reader sees the action is still running"
     }
   },
   "states": {
@@ -105,7 +120,7 @@
     {
       "p": "P3",
       "axis": "depth",
-      "consequence": "a soft shadow below and a rim of light on the top-left edge say where the pane floats",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip",
       "form": "a button is a pane at a smaller scale, so it carries the same top-left rim and rests on a shadow of its own"
     },
     {
@@ -124,7 +139,7 @@
       "p": "P5",
       "axis": "motion",
       "consequence": "only the loud action lifts with a shadow",
-      "form": "only loud and accent cast a shadow and lift on hover; under the accent that shadow is blue, its own light falling on the pane"
+      "form": "only loud and accent lift on hover; the accent also glows with its own light, the only glow on a pane"
     },
     {
       "p": "P4",
@@ -150,5 +165,17 @@
     "by": "agent",
     "reason": "B is the only one that takes P3 at its word: the button carries the pane's own rim and sheen, so it reads as a smaller sheet of the same material instead of a sticker. A has the sheet but no rim and no answer to the pointer (P4 interaction). C breaks P5 (the loud fill must be opaque) and measured white text at 2.6:1 on light glass, against P2.",
     "section": "button"
+  },
+  "round4": {
+    "lab": "apps/lab/round4/",
+    "section": "all",
+    "options": [
+      "A one light from above",
+      "B chosen as a recess",
+      "C A with a spectral edge"
+    ],
+    "picked": "A one light from above",
+    "by": "agent",
+    "reason": "The user rejected the blue and showed a reference where one light from above lights every atom alike. A reads that straight: the same top rim and sheen on every surface, the white lit solid for the loud action, chosen items as lighter glass. B makes chosen items recesses, which reads as pressed-off rather than chosen. C adds a rainbow edge, a hue the system no longer owns (P1)."
   }
 }

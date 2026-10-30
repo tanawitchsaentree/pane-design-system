@@ -1,0 +1,133 @@
+{
+  "concept": "A row of quiet tools over the Input groove for short formatted text, each tool saying whether its mark is on.",
+  "default_to_avoid": [
+    {
+      "pattern": "a rich text editor with a full word processor ribbon of fonts, colours and sizes",
+      "kind": "rich text editor, WYSIWYG, text editor",
+      "why_not": "a ribbon of fonts and colours lets text leave the system type and hues; Pane offers the few marks that matter"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA toolbar pattern",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/"
+    },
+    {
+      "title": "GOV.UK · Textarea",
+      "url": "https://design-system.service.gov.uk/components/textarea/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P2",
+      "axis": "type",
+      "consequence": "secondary text keeps the lowest opacity that still measured as passing; text halos count only where WCAG allows them",
+      "form": "the text stays in the system type, and pasted text arrives plain so it takes the field type"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "a mark that is on takes chosen glass and aria-pressed, so state reads by more than tone"
+    },
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the text sits in the Input groove like every field"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave10/",
+    "section": "richtexteditor",
+    "options": [
+      "A few tools over the groove",
+      "B full ribbon",
+      "C markdown only"
+    ],
+    "picked": "A few tools over the groove",
+    "by": "agent",
+    "reason": "A keeps the system type (P2) and the field family (P3). B lets text leave the system. C asks readers to learn syntax."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the toolbar and the field stack with a small gap"
+    },
+    "toolbar": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the toolbar is one tab stop with arrow keys between its tools"
+    },
+    "tool": {
+      "p": "P6",
+      "axis": "space",
+      "why": "each tool is a 44px square button so it can be pressed by touch"
+    },
+    "on": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a mark that is on takes chosen glass"
+    },
+    "glyph": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "each tool glyph is drawn with the ring stroke"
+    },
+    "box": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the text sits in the Input groove at body size"
+    },
+    "disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a disabled editor dims its text and refuses edits"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the edges and marks so every part stays findable"
+    },
+    "hover": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a tool takes the quiet surface under the pointer"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring shows when the part is reached by keyboard"
+    },
+    "data-placeholder": {
+      "p": "P2",
+      "axis": "type",
+      "why": "an empty editor shows its placeholder in the secondary tone"
+    },
+    "disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a disabled tool keeps no hover so it does not invite a press"
+    },
+    "aria-readonly=true": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a read-only value drops the groove for a hairline, so it reads as settled but can still be focused and copied"
+    },
+    "aria-invalid=true": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the tool surface fades in on the hover ease"
+    }
+  }
+}

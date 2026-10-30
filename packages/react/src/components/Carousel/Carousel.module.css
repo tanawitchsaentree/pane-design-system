@@ -1,0 +1,16 @@
+/* A row of slides that snaps, with glass buttons and dots under it; the current dot is longer, like
+   the page dots on a home screen (P6 shape, not tone alone). */
+.root { display: flex; flex-direction: column; gap: var(--ds-carousel-gap); min-inline-size: 0; container-type: inline-size; font-family: var(--ds-type-family); }
+.track { display: grid; grid-auto-flow: column; grid-auto-columns: 100%; gap: var(--ds-carousel-gap); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; border-radius: var(--ds-corner-media); }
+.track::-webkit-scrollbar { display: none; }
+.track:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+@container (inline-size > 36em) { .v2 { grid-auto-columns: calc((100% - var(--ds-carousel-gap)) / 2); } .v3 { grid-auto-columns: calc((100% - var(--ds-carousel-gap) * 2) / 3); } }
+.slide { min-inline-size: 0; scroll-snap-align: start; }
+.controls { display: flex; align-items: center; justify-content: center; gap: var(--ds-gap-md); }
+.chev { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+:global([dir='rtl']) .chev { transform: scaleX(-1); }
+.dots { display: flex; align-items: center; gap: var(--ds-carousel-dot-gap); }
+.dot { inline-size: var(--ds-carousel-dot); block-size: var(--ds-carousel-dot); border-radius: var(--ds-corner-round); background: var(--ds-carousel-dot-off); transition: inline-size var(--ds-motion-hover) var(--ds-motion-easing), background-color var(--ds-motion-hover) var(--ds-motion-easing); }
+.on { inline-size: calc(var(--ds-carousel-dot) * 3); background: var(--ds-carousel-dot-on); }
+.count { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (forced-colors: active) { .dot { background: CanvasText; } .on { background: Highlight; } }

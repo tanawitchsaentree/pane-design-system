@@ -1,0 +1,153 @@
+{
+  "concept": "Every action in reach of the keyboard: a level-3 pane over the scrim with a field and grouped commands.",
+  "default_to_avoid": [
+    {
+      "pattern": "a command palette as a full-screen dark overlay with a huge search field",
+      "kind": "command palette, command menu, quick open",
+      "why_not": "a full-screen overlay hides where the reader was; Pane opens a pane near the top over a scrim"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA combobox pattern",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/"
+    },
+    {
+      "title": "Apple HIG · Searching",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/searching"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the palette is a level-3 pane over the scrim like Dialog, near the top of the screen"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "focus stays in the field while arrow keys move the highlight, Enter runs and Esc closes"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the highlighted row takes the menu lens so it reads by shape as well as tone"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave10/",
+    "section": "commandpalette",
+    "options": [
+      "A level-3 pane near the top",
+      "B full-screen overlay",
+      "C dropdown from a search bar"
+    ],
+    "picked": "A level-3 pane near the top",
+    "by": "agent",
+    "reason": "A keeps the page in view behind the scrim (P3). B hides it. C cannot be opened from anywhere."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the palette is a level-3 pane centred near the top and capped in height"
+    },
+    "hidden": {
+      "p": "P6",
+      "axis": "type",
+      "why": "the dialog has a hidden title so it is announced as the command palette"
+    },
+    "field": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the field row holds the magnifier over the groove, inset from the pane edge"
+    },
+    "glyph": {
+      "p": "P2",
+      "axis": "colour",
+      "why": "the magnifier is in the secondary tone so the typed query leads"
+    },
+    "input": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the query sits in the Input groove at the emphasis size so it reads as a field"
+    },
+    "list": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the commands scroll inside the pane with a small inset"
+    },
+    "group": {
+      "p": "P3",
+      "axis": "space",
+      "why": "groups are separated by a small gap so each heading starts a block"
+    },
+    "heading": {
+      "p": "P2",
+      "axis": "type",
+      "why": "group headings are secondary at caption size so the commands are read first"
+    },
+    "row": {
+      "p": "P6",
+      "axis": "space",
+      "why": "each command is a 44px row with its icon, label and keys"
+    },
+    "on": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the highlighted command takes the quiet surface and the menu lens"
+    },
+    "icon": {
+      "p": "P2",
+      "axis": "colour",
+      "why": "command icons are in the secondary tone so each label is read first"
+    },
+    "label": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the command label is at body size and wraps"
+    },
+    "keys": {
+      "p": "P2",
+      "axis": "type",
+      "why": "shortcut keys are shown as Kbd at the row end"
+    },
+    "empty": {
+      "p": "P6",
+      "axis": "type",
+      "why": "when nothing matches the palette says so in words"
+    },
+    "foot": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the foot lists the keys in the secondary tone at caption size"
+    },
+    "preview": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "in a preview the palette sits in place in its parent without the scrim, for docs only"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the edges and marks so every part stays findable"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the field shows the focus ring when the palette opens from the keyboard"
+    }
+  },
+  "motion": {
+    "@drop": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the palette drops in a short distance and settles on the hover ease"
+    }
+  }
+}

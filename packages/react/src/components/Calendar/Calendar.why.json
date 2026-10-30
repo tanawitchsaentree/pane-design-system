@@ -1,0 +1,158 @@
+{
+  "concept": "A month of round 44px days in a real grid: today ringed, the chosen day the loud solid, a range a band of chosen glass.",
+  "default_to_avoid": [
+    {
+      "pattern": "a calendar with square day cells, a blue chosen day and a light blue range",
+      "kind": "calendar, date grid, month view",
+      "why_not": "square cells and a blue choice bring a hue and a grid of lines; Pane uses round days and the loud solid"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA date picker dialog example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/"
+    },
+    {
+      "title": "Apple HIG · Date pickers",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/pickers"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P5",
+      "axis": "colour",
+      "consequence": "one solid fill exists, the loud solid (white in dark, ink in light); a promoted action is the same solid glowing with its own light, and a pane uses one of them",
+      "form": "the chosen day is the one loud solid in the month and a range runs between two of them"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "today is ringed, the chosen day filled and a range banded, so each state reads by shape"
+    },
+    {
+      "p": "P6",
+      "axis": "space",
+      "consequence": "every target is at least 44px in its smaller dimension or has a 44px hit area",
+      "form": "every day is a 44px round target even in a dense month"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave9/",
+    "section": "calendar",
+    "options": [
+      "A round days, loud solid",
+      "B square cells, blue",
+      "C list of dates"
+    ],
+    "picked": "A round days, loud solid",
+    "by": "agent",
+    "reason": "A keeps the one solid for the choice (P5) and every state by shape (P6). B brings a hue and a grid of lines. C hides the shape of the month."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the header and the month stack with a small gap and never pass the column"
+    },
+    "head": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the month name sits between the previous and next buttons"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the month name is semibold at body size and announced when it changes"
+    },
+    "chev": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the chevrons point back and forward and flip in RTL"
+    },
+    "grid": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the month is a real table so rows and columns are read as weeks and days"
+    },
+    "wd": {
+      "p": "P2",
+      "axis": "type",
+      "why": "weekday names are short and secondary at caption size with their full names for readers"
+    },
+    "cell": {
+      "p": "P3",
+      "axis": "space",
+      "why": "each cell holds one day and carries the range band when it is inside a range"
+    },
+    "mid": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a day inside a range sits on a band of chosen glass"
+    },
+    "start": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the band starts at the centre of the first day"
+    },
+    "end": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the band stops at the centre of the last day"
+    },
+    "day": {
+      "p": "P6",
+      "axis": "space",
+      "why": "each day is a round 44px button in tabular figures"
+    },
+    "out": {
+      "p": "P2",
+      "axis": "type",
+      "why": "days from the next and previous month are secondary"
+    },
+    "today": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "today is ringed with a hairline and set semibold"
+    },
+    "chosen": {
+      "p": "P5",
+      "axis": "colour",
+      "why": "the chosen day and the ends of a range are the loud solid"
+    },
+    "off": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "an unavailable day is struck through and dimmed but stays in place"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the edges and marks so every part stays findable"
+    },
+    "hover": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a day takes the quiet surface under the pointer"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the day in focus shows the ring inside its circle"
+    },
+    "aria-disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "an unavailable day keeps no hover so it does not invite a press"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the hover surface fades in on the hover ease"
+    }
+  }
+}

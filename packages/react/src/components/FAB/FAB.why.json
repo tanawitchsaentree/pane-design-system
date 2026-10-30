@@ -1,0 +1,109 @@
+{
+  "concept": "The one primary action of a phone screen, floating at thumb reach: the loud white bead, a step bigger than an IconButton.",
+  "default_to_avoid": [
+    {
+      "pattern": "a coloured circle with a white plus (Material FAB in the brand colour)",
+      "kind": "floating action button, FAB, fab",
+      "why_not": "a brand-coloured disc brings a hue; Pane’s loud action is the lit solid"
+    }
+  ],
+  "references": [
+    {
+      "title": "Material 3 · FAB",
+      "url": "https://m3.material.io/components/floating-action-button/overview"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P5",
+      "axis": "colour",
+      "consequence": "one solid fill exists, the loud solid (white in dark, ink in light); a promoted action is the same solid glowing with its own light, and a pane uses one of them",
+      "form": "the FAB is the loud solid, the one solid fill on the screen, glowing in dark"
+    },
+    {
+      "p": "P6",
+      "axis": "space",
+      "consequence": "every target is at least 44px in its smaller dimension or has a 44px hit area",
+      "form": "56px at the bottom end, the largest control, at thumb reach"
+    },
+    {
+      "p": "P4",
+      "axis": "shape",
+      "consequence": "a pressed control shrinks slightly, as something pushed",
+      "form": "a press shrinks it slightly, as something pushed"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave4/",
+    "section": "fab",
+    "options": [
+      "A loud bead at the bottom end",
+      "B brand-colour disc",
+      "C pill in the toolbar"
+    ],
+    "picked": "A loud bead at the bottom end",
+    "by": "agent",
+    "reason": "A is the loud solid (P5) at thumb reach (P6). B brings a hue. C loses the floating reach."
+  },
+  "parts": {
+    "root": {
+      "p": "P5",
+      "axis": "colour",
+      "why": "the loud bead lit from above, glowing strong in dark"
+    },
+    "fixed": {
+      "p": "P6",
+      "axis": "space",
+      "why": "floats over the viewport at the bottom end, at thumb reach"
+    },
+    "contained": {
+      "p": "P6",
+      "axis": "space",
+      "why": "floats in its own container, for a panel or a demo"
+    },
+    "extended": {
+      "p": "P6",
+      "axis": "space",
+      "why": "with its label beside the icon on a wide screen or a first visit"
+    },
+    "icon": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the glyph at the icon size, the same in every theme and on every scene"
+    },
+    "label": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the label in the body size, semibold, the same in every theme and on every scene"
+    }
+  },
+  "states": {
+    "active": {
+      "p": "P4",
+      "axis": "shape",
+      "why": "a press shrinks it slightly, the same in every theme and on every scene"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the shared focus ring, the same in every theme and on every scene"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours outline the bead, the same in every theme and on every scene"
+    },
+    "disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "an off control dims and refuses presses, so it reads as there but not available"
+    }
+  },
+  "motion": {
+    "transform": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the press shrink at press pace, the same in every theme and on every scene"
+    }
+  }
+}

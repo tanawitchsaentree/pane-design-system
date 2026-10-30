@@ -20,7 +20,7 @@
     {
       "p": "P3",
       "axis": "depth",
-      "consequence": "a soft shadow below and a rim of light on the top-left edge say where the pane floats",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip",
       "form": "a message that needs attention is its own object with its own shadow and rim, placed relative to the pane it is about"
     },
     {
@@ -32,7 +32,7 @@
     {
       "p": "P1",
       "axis": "colour",
-      "consequence": "the scene supplies the hue; the system owns almost no colour of its own",
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
       "form": "no tinted fill or stripe; the tone colour appears only on a small glyph"
     },
     {

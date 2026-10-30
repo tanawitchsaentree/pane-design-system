@@ -1,0 +1,124 @@
+{
+  "concept": "Sections that open and close under real headings, separated by the etched groove, with a chevron that turns and content that settles in.",
+  "default_to_avoid": [
+    {
+      "pattern": "grey header bars with a plus sign and a border round each panel (Bootstrap accordion)",
+      "kind": "accordion, collapsible, expander, disclosure group",
+      "why_not": "grey bars and borders box every section and read as a table"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA APG · Accordion",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/accordion/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the etched groove of Divider between sections, nothing boxed"
+    },
+    {
+      "p": "P4",
+      "axis": "motion",
+      "consequence": "long ease-out curves (420 to 640ms) for arriving and hovering, a shorter one (200ms) for pressing because a press is a reply; under reduced motion every duration is zero at the token level",
+      "form": "content eases open at entry pace and opens at once under reduced motion"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "each title is a heading and a 44px button that says whether it is open"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave6/",
+    "section": "accordion",
+    "options": [
+      "A grooves between headings",
+      "B grey header bars",
+      "C cards per section"
+    ],
+    "picked": "A grooves between headings",
+    "by": "agent",
+    "reason": "A keeps the page a page. B boxes it. C makes each answer a separate object."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the sections one under another, the same in every theme and on every scene"
+    },
+    "item": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a section with the groove above it, the same in every theme and on every scene"
+    },
+    "heading": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the section title is a real heading, the same in every theme and on every scene"
+    },
+    "trigger": {
+      "p": "P6",
+      "axis": "space",
+      "why": "the heading’s button, a 44px row, the same in every theme and on every scene"
+    },
+    "chevron": {
+      "p": "P2",
+      "axis": "type",
+      "why": "a chevron that turns when the section opens"
+    },
+    "content": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the content that eases open, the same in every theme and on every scene"
+    },
+    "inner": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the content in the body size, the same in every theme and on every scene"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the shared focus ring on the heading, the same in every theme and on every scene"
+    },
+    "data-disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a disabled section uses the disabled opacity, the same in every theme and on every scene"
+    },
+    "data-state=open": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "an open section’s chevron turns and its content shows"
+    },
+    "data-state=closed": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "a closing section eases shut, the same in every theme and on every scene"
+    }
+  },
+  "motion": {
+    "rotate": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the chevron turns at hover pace, the same in every theme and on every scene"
+    },
+    "@open": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the content eases open, the same in every theme and on every scene"
+    },
+    "@close": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the content eases shut, the same in every theme and on every scene"
+    }
+  }
+}

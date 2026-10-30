@@ -29,11 +29,13 @@ export function App() {
   const path = useRoute();
   const evidence = validEvidence(verifyFile<Evidence>('evidence'));
   const conformance = validConformance(verifyFile<Conformance>('conformance'));
-  const [scene, setScene] = useState(sceneById(new URLSearchParams(location.search).get('scene') ?? 'room').id);
+  const [scene, setScene] = useState(sceneById(new URLSearchParams(location.search).get('backdrop') ?? 'studio').id);
   const [q, setQ] = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
   // Theme: system follows prefers-color-scheme; the choice is stored; ?theme= overrides (tests).
-  const [themePref, setThemePref] = useState<'system' | 'light' | 'dark'>(() => (new URLSearchParams(location.search).get('theme') as 'light' | 'dark' | null) ?? ((localStorage.getItem('pane-theme') as 'system' | 'light' | 'dark' | null) ?? 'system'));
+  // a value the book no longer knows (an old link, a typo) falls back instead of being trusted
+  const asPref = (v: string | null) => (v === 'system' || v === 'light' || v === 'dark' ? v : null);
+  const [themePref, setThemePref] = useState<'system' | 'light' | 'dark'>(() => asPref(new URLSearchParams(location.search).get('theme')) ?? asPref(localStorage.getItem('pane-theme')) ?? 'system');
   const [systemLight, setSystemLight] = useState(() => matchMedia('(prefers-color-scheme: light)').matches);
   useEffect(() => {
     const mq = matchMedia('(prefers-color-scheme: light)');
@@ -66,7 +68,11 @@ export function App() {
 
   useEffect(() => {
     const u = new URL(location.href);
-    u.searchParams.set('scene', scene);
+    // the address names a backdrop only when someone picked one; the old ?scene= (written on every
+    // page before studio was the default) is dropped so a saved link does not bring the room back
+    u.searchParams.delete('scene');
+    if (!asPref(u.searchParams.get('theme'))) u.searchParams.delete('theme');
+    if (scene === 'studio') u.searchParams.delete('backdrop'); else u.searchParams.set('backdrop', scene);
     history.replaceState(null, '', u);
   }, [scene]);
   useEffect(() => {

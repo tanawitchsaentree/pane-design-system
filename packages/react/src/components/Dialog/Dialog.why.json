@@ -1,0 +1,114 @@
+{
+  "concept": "A pane that rises over a dimmed scene at level 3 of the stack and holds the reader until they answer, the overlay step of the light model.",
+  "default_to_avoid": [
+    {
+      "pattern": "a centred white modal box on a black 50% backdrop (Bootstrap modal, Material dialog)",
+      "kind": "dialog, modal, alert dialog",
+      "why_not": "a flat white box on black ignores the stack: it has no level, no glass and no light"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA APG · Dialog (modal)",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the dialog is level 3: its own body and longer shadow, above the scrim, and the scrim dims the scene under it"
+    },
+    {
+      "p": "P3",
+      "axis": "motion",
+      "consequence": "panes enter by rising a short distance and settling, as an object placed in space would",
+      "form": "it rises a short way and settles as it opens, the scrim fades"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "focus moves into it, stays in it and returns to the trigger; Esc closes it"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/wave4/",
+    "section": "dialog",
+    "options": [
+      "A level-3 pane over a scrim",
+      "B full-screen sheet",
+      "C inline expanding panel"
+    ],
+    "picked": "A level-3 pane over a scrim",
+    "by": "agent",
+    "reason": "A uses the measured levels (D-025): a scrim and a lighter pane that rises. B hides the context the question is about. C does not hold focus and is not a dialog."
+  },
+  "parts": {
+    "scrim": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the scrim dims and softens the scene so the dialog reads as above it"
+    },
+    "dialog": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a level-3 pane centred in the viewport, one measure wide, scrolling inside itself"
+    },
+    "lg": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a wider dialog for a short form, still with a margin to the screen edge"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the title in the title size, the accessible name of the dialog"
+    },
+    "description": {
+      "p": "P2",
+      "axis": "type",
+      "why": "one or two sentences in secondary text, the accessible description"
+    },
+    "body": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the content between the description and the actions, on the overlay gap"
+    },
+    "actions": {
+      "p": "P5",
+      "axis": "space",
+      "why": "actions at the foot, the loud one last at the end, apart from the others"
+    },
+    "preview": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "drawn in place for documentation: open, not modal, without the scrim, never in a product flow"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the shared focus ring on the pane or control so a keyboard user sees where they are"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "forced colours draw an outline so the overlay keeps its edge without the glass"
+    }
+  },
+  "motion": {
+    "@fade": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the scrim fades in at entry pace, zero under reduced motion"
+    },
+    "@rise": {
+      "p": "P3",
+      "axis": "motion",
+      "why": "the dialog rises a short way and settles, zero under reduced motion"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "identity": false,
+  "identity_reason": "a ratio box has no look; it only fixes a proportion",
+  "concept": "A named shape at any width, filled by its one child, so media keeps its proportions and the page never jumps when an image arrives.",
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "holds a named shape at any width so media never jumps when it loads"
+    },
+    "square": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "the square proportion from the aspect scale wherever the component is used in a screen"
+    },
+    "photo": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "the photo proportion from the aspect scale wherever the component is used in a screen"
+    },
+    "video": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "the video proportion from the aspect scale wherever the component is used in a screen"
+    },
+    "portrait": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "the portrait proportion from the aspect scale wherever the component is used in a screen"
+    },
+    "wide": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "the wide proportion from the aspect scale wherever the component is used in a screen"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

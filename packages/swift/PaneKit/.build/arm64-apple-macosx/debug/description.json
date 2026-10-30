@@ -1,0 +1,436 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.PaneKit-arm64-apple-macosx-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/sources",
+      "importPath" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Button.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Card.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Choices.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Display.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Fields.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Lists.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Navigation.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Overlays.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Slider.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Environment.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Glass.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Identities.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Messages.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Shadows.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Type.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/PaneTokens.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "PaneKit",
+      "moduleOutputPath" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/Modules/PaneKit.swiftmodule",
+      "objects" : [
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Button.swift.o",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Card.swift.o",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Choices.swift.o",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Display.swift.o",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Fields.swift.o",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Lists.swift.o",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Navigation.swift.o",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Overlays.swift.o",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Slider.swift.o",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Environment.swift.o",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Glass.swift.o",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Identities.swift.o",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Messages.swift.o",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Shadows.swift.o",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Type.swift.o",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/PaneTokens.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j12",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/include/PaneKit-Swift.h",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "panekit"
+      ],
+      "outputFileMapPath" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Button.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Card.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Choices.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Display.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Fields.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Lists.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Navigation.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Overlays.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Slider.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Environment.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Glass.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Identities.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Messages.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Shadows.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/Type.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/PaneTokens.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/Modules/PaneKit.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Button.swift",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Card.swift",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Choices.swift",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Display.swift",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Fields.swift",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Lists.swift",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Navigation.swift",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Overlays.swift",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Slider.swift",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Environment.swift",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Glass.swift",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Identities.swift",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Messages.swift",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Shadows.swift",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Type.swift",
+        "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/PaneTokens.swift"
+      ],
+      "tempsPath" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "PaneKit" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "PaneKit",
+      "-package-name",
+      "panekit",
+      "-c",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Button.swift",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Card.swift",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Choices.swift",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Display.swift",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Fields.swift",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Lists.swift",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Navigation.swift",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Overlays.swift",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Slider.swift",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Environment.swift",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Glass.swift",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Identities.swift",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Messages.swift",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Shadows.swift",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Type.swift",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/PaneTokens.swift",
+      "-I",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j12",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/include/PaneKit-Swift.h",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "panekit",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "PaneKit" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Button.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Card.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Choices.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Display.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Fields.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Lists.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Navigation.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Overlays.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Components/Slider.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Environment.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Glass.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Identities.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Messages.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Shadows.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/Foundation/Type.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/Sources/PaneKit/PaneTokens.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/PaneKit.build/sources"
+    },
+    "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/tanawitch.saentree/Downloads/ds/pilot-glass/packages/swift/PaneKit/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+    }
+  }
+}

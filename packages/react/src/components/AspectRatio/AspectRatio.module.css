@@ -1,0 +1,9 @@
+/* A named shape at any width; the child fills it and an image covers it. */
+.root { position: relative; inline-size: 100%; overflow: hidden; border-radius: inherit; }
+.root > * { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; }
+.root > img, .root > video { object-fit: cover; }
+.square { aspect-ratio: var(--ds-aspect-square); }
+.photo { aspect-ratio: var(--ds-aspect-photo); }
+.video { aspect-ratio: var(--ds-aspect-video); }
+.portrait { aspect-ratio: var(--ds-aspect-portrait); }
+.wide { aspect-ratio: var(--ds-aspect-wide); }

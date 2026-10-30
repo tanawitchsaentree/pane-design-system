@@ -1,0 +1,16 @@
+/* Round swatches set in the glass with a hairline rim so a pale colour still has an edge; the chosen one
+   is ringed and carries a check, so the choice reads by shape (P6). The swatch colours are content. */
+.root { display: flex; flex-direction: column; gap: var(--ds-color-picker-gap); min-inline-size: 0; font-family: var(--ds-type-family); }
+.swatches { display: flex; flex-wrap: wrap; gap: var(--ds-color-picker-gap); }
+.item { position: relative; display: inline-grid; place-items: center; inline-size: var(--ds-color-picker-hit); block-size: var(--ds-color-picker-hit); padding: 0; border: 0; border-radius: var(--ds-corner-round); background: var(--pane-swatch); box-shadow: var(--ds-color-picker-edge); color: var(--ds-text-primary); cursor: pointer; transition: transform var(--ds-motion-press) var(--ds-motion-easing); }
+.item[data-state='checked'] { box-shadow: var(--ds-color-picker-edge), inset 0 0 0 calc(var(--ds-width-ring) * 2) var(--ds-color-picker-ring); }
+.item:active { transform: scale(var(--ds-motion-press-scale)); }
+.item:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.check { position: absolute; display: inline-grid; place-items: center; inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); border-radius: var(--ds-corner-round); background: var(--ds-color-picker-check-bg); color: var(--ds-color-picker-check-fg); }
+.check svg { inline-size: 100%; block-size: 100%; fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.preview { background: var(--pane-swatch); inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); border-radius: var(--ds-corner-round); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-color-picker-rim); }
+.hex { font-variant-numeric: tabular-nums; text-transform: uppercase; }
+.name { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+/* off: the swatches dim and refuse presses */
+.item[data-disabled] { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
+@media (forced-colors: active) { .item { forced-color-adjust: none; border: var(--ds-width-hairline) solid CanvasText; } .item[data-state='checked'] { outline: var(--ds-width-ring) solid Highlight; } }
