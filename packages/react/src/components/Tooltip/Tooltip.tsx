@@ -6,11 +6,11 @@ import styles from './Tooltip.module.css';
 export interface TooltipProps {
   /** The control it describes. It must be focusable, such as an IconButton. */
   children: ReactElement;
-  /** A few words: what the control does or what a mark means. */
+  /** A few words on what the control does or what a mark means. */
   content: ReactNode;
   /** Which side it appears on. Defaults to top. */
   side?: 'top' | 'right' | 'bottom' | 'left';
-  /** Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow. */
+  /** Draws it in place, open and not modal, inside its parent, for documentation, previews and screenshots, never in a product flow. */
   preview?: boolean;
 }
 

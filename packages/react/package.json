@@ -44,7 +44,7 @@
     "react-dom": ">=18"
   },
   "scripts": {
-    "build": "(test ! -f ../../tooling/kiln/i18n-lint.mjs || node ../../tooling/kiln/i18n-lint.mjs) && vite build && PANE_NODE=1 vite build && rm -rf dist/node/*.css dist/node/css && vite build -c vite.cjs.config.ts && rm -f dist/cjs-unused.css && tsc -p tsconfig.build.json && node ../../tooling/bundle-tokens.mjs",
+    "build": "(test ! -f ../../tooling/kiln/i18n-lint.mjs || node ../../tooling/kiln/i18n-lint.mjs) && vite build && PANE_NODE=1 vite build && rm -rf dist/node/*.css dist/node/css && vite build -c vite.cjs.config.ts && rm -f dist/cjs-unused.css && tsc -p tsconfig.build.json && node ../../tooling/bundle-tokens.mjs && node ../../tooling/pane-knowledge.mjs",
     "typecheck": "tsc --noEmit -p .",
     "barrel:check": "node ../../tooling/generate-barrel.mjs --check",
     "prepack": "pnpm run build"
@@ -87,6 +87,7 @@
   },
   "bin": {
     "pane-mesh": "./bin/pane-mesh.mjs",
-    "pane-pwa": "./bin/pane-pwa.mjs"
+    "pane-pwa": "./bin/pane-pwa.mjs",
+    "pane-mcp": "./bin/pane-mcp.mjs"
   }
 }

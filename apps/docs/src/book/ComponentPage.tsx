@@ -108,7 +108,7 @@ function LiveDemo({ c, m }: { c: ComponentChapter; m: Meta }) {
   );
 }
 
-function GeneratedProps({ m, inherits }: { m: Meta; inherits?: string }) {
+export function GeneratedProps({ m, inherits }: { m: Meta; inherits?: string }) {
   return (
     <>
       {m.exports.map((e) => (

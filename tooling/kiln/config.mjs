@@ -23,6 +23,9 @@ export function docsConfig() {
   const file = path.join(ROOT, 'system', 'kiln.config.json');
   const sys = existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')).docs ?? {} : {};
   const c = { ...DEFAULTS, ...sys, contrast: { ...DEFAULTS.contrast, ...(sys.contrast ?? {}) }, tone: { ...DEFAULTS.tone, ...(sys.tone ?? {}) } };
+  // KILN_DIST measures a snapshot of the build (so long runs do not block rebuilds); KILN_SCENES picks scenes
+  if (process.env.KILN_DIST) c.dist = process.env.KILN_DIST;
+  if (process.env.KILN_SCENES) c.scenes = process.env.KILN_SCENES.split(',').map((x) => x.trim()).filter(Boolean);
   const abs = (p) => (p ? path.resolve(ROOT, p) : null);
   return { ...c, abs, root: ROOT };
 }

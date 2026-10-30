@@ -5,7 +5,7 @@ import styles from './Rating.module.css';
 import { useMessages } from '../../i18n/context';
 
 export interface RatingProps {
-  /** What is being rated, the group's accessible name: Rate this print. */
+  /** What is being rated, read as the group's accessible name, such as Rate this print. */
   label: string;
   /** The rating, 1 to `max`. */
   value?: number;

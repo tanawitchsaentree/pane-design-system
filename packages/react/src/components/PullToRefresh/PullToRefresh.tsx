@@ -7,7 +7,7 @@ import { useMessages } from '../../i18n/context';
 export interface PullToRefreshProps extends HTMLAttributes<HTMLDivElement> {
   /** Called when the reader pulls past the threshold or presses the refresh button. Return a promise; the spinner stays until it settles. */
   onRefresh: () => Promise<unknown> | void;
-  /** What refreshing does, for the button and the spinner: Refresh messages. */
+  /** What refreshing does, for the button and the spinner, such as Refresh messages. */
   label?: string;
 }
 

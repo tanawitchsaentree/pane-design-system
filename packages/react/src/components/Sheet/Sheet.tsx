@@ -30,7 +30,7 @@ export interface SheetProps {
   hideTitle?: boolean;
   /** Extra class on the root. */
   className?: string;
-  /** Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow. */
+  /** Draws it in place, open and not modal, inside its parent, for documentation, previews and screenshots, never in a product flow. */
   preview?: boolean;
 }
 

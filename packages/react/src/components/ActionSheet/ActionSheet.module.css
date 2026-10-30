@@ -10,7 +10,7 @@
 .action, .cancel { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; text-align: center; min-inline-size: 0; gap: var(--ds-gap-md); min-block-size: var(--ds-overlay-row); padding-inline: var(--ds-gap-inset); border: 0; background: transparent; color: var(--ds-text-primary); font-family: var(--ds-type-family); font-size: var(--ds-type-emphasis); cursor: pointer; box-shadow: inset 0 var(--ds-width-hairline) 0 var(--ds-line-divider); transition: background-color var(--ds-motion-press) var(--ds-motion-easing); }
 .action:hover, .cancel:hover { background: var(--ds-surface-quiet); }
 .action:focus-visible, .cancel:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: calc(var(--ds-focus-ring-width) * -1); }
-.critical { color: var(--ds-status-critical-mark); font-weight: var(--ds-type-weight-semibold); }
+.critical { color: var(--ds-text-critical); font-weight: var(--ds-type-weight-semibold); }
 .icon { display: inline-grid; inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); }
 .icon > svg { inline-size: 100%; block-size: 100%; }
 .cancelPane { padding: 0; overflow: hidden; }

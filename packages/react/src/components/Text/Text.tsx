@@ -11,7 +11,7 @@ export interface TextProps extends HTMLAttributes<HTMLElement> {
   tone?: 'primary' | 'secondary';
   /** `regular` (default), `medium` or `semibold`. */
   weight?: 'regular' | 'medium' | 'semibold';
-  /** The element: p (default), span, div, small or strong. */
+  /** The element to render, p (default), span, div, small or strong. */
   as?: 'p' | 'span' | 'div' | 'small' | 'strong';
   /** Cuts the text to one line with an ellipsis. Keep the full text in a title or nearby. */
   truncate?: boolean;

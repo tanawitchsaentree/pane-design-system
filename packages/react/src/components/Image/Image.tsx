@@ -3,7 +3,7 @@ import { cx } from '../../cx';
 import styles from './Image.module.css';
 
 export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
-  /** Required: what the image shows, or "" when it only decorates. */
+  /** Says what the image shows, or "" when it only decorates. */
   alt: string;
   /** The corner: `media` (default) inside a pane, `inner` for a full-bleed card image, `none`. */
   radius?: 'media' | 'inner' | 'none';

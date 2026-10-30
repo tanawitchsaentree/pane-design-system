@@ -26,6 +26,10 @@
           "title": "Language"
         },
         {
+          "path": "/getting-started/ai",
+          "title": "MCP and llms.txt"
+        },
+        {
           "path": "/getting-started/designing",
           "title": "Designing"
         },
@@ -1236,6 +1240,463 @@
             "code",
             "accessibility"
           ]
+        }
+      ]
+    },
+    {
+      "title": "Component API",
+      "pages": [
+        {
+          "path": "/api/container",
+          "title": "Container"
+        },
+        {
+          "path": "/api/grid",
+          "title": "Grid"
+        },
+        {
+          "path": "/api/stack",
+          "title": "Stack"
+        },
+        {
+          "path": "/api/box",
+          "title": "Box"
+        },
+        {
+          "path": "/api/flex",
+          "title": "Flex"
+        },
+        {
+          "path": "/api/center",
+          "title": "Center"
+        },
+        {
+          "path": "/api/spacer",
+          "title": "Spacer"
+        },
+        {
+          "path": "/api/divider",
+          "title": "Divider"
+        },
+        {
+          "path": "/api/aspect-ratio",
+          "title": "AspectRatio"
+        },
+        {
+          "path": "/api/visually-hidden",
+          "title": "VisuallyHidden"
+        },
+        {
+          "path": "/api/text",
+          "title": "Text"
+        },
+        {
+          "path": "/api/heading",
+          "title": "Heading"
+        },
+        {
+          "path": "/api/icon",
+          "title": "Icon"
+        },
+        {
+          "path": "/api/link",
+          "title": "Link"
+        },
+        {
+          "path": "/api/spinner",
+          "title": "Spinner"
+        },
+        {
+          "path": "/api/skeleton",
+          "title": "Skeleton"
+        },
+        {
+          "path": "/api/kbd",
+          "title": "Kbd"
+        },
+        {
+          "path": "/api/image",
+          "title": "Image"
+        },
+        {
+          "path": "/api/dialog",
+          "title": "Dialog"
+        },
+        {
+          "path": "/api/sheet",
+          "title": "Sheet"
+        },
+        {
+          "path": "/api/drawer",
+          "title": "Drawer"
+        },
+        {
+          "path": "/api/action-sheet",
+          "title": "ActionSheet"
+        },
+        {
+          "path": "/api/popover",
+          "title": "Popover"
+        },
+        {
+          "path": "/api/tooltip",
+          "title": "Tooltip"
+        },
+        {
+          "path": "/api/toast",
+          "title": "Toast"
+        },
+        {
+          "path": "/api/snackbar",
+          "title": "Snackbar"
+        },
+        {
+          "path": "/api/fab",
+          "title": "FAB"
+        },
+        {
+          "path": "/api/pull-to-refresh",
+          "title": "PullToRefresh"
+        },
+        {
+          "path": "/api/environment",
+          "title": "Environment"
+        },
+        {
+          "path": "/api/card",
+          "title": "Card"
+        },
+        {
+          "path": "/api/avatar",
+          "title": "Avatar"
+        },
+        {
+          "path": "/api/button",
+          "title": "Button"
+        },
+        {
+          "path": "/api/icon-button",
+          "title": "IconButton"
+        },
+        {
+          "path": "/api/tabs",
+          "title": "Tabs"
+        },
+        {
+          "path": "/api/tag",
+          "title": "Tag"
+        },
+        {
+          "path": "/api/mesh",
+          "title": "Mesh"
+        },
+        {
+          "path": "/api/badge",
+          "title": "Badge"
+        },
+        {
+          "path": "/api/chip",
+          "title": "Chip"
+        },
+        {
+          "path": "/api/select",
+          "title": "Select"
+        },
+        {
+          "path": "/api/listbox",
+          "title": "Listbox"
+        },
+        {
+          "path": "/api/combobox",
+          "title": "Combobox"
+        },
+        {
+          "path": "/api/autocomplete",
+          "title": "Autocomplete"
+        },
+        {
+          "path": "/api/multi-select",
+          "title": "MultiSelect"
+        },
+        {
+          "path": "/api/menu",
+          "title": "Menu"
+        },
+        {
+          "path": "/api/context-menu",
+          "title": "ContextMenu"
+        },
+        {
+          "path": "/api/radio-cards",
+          "title": "RadioCards"
+        },
+        {
+          "path": "/api/rating",
+          "title": "Rating"
+        },
+        {
+          "path": "/api/tag-input",
+          "title": "TagInput"
+        },
+        {
+          "path": "/api/segmented-control",
+          "title": "SegmentedControl"
+        },
+        {
+          "path": "/api/navbar",
+          "title": "Navbar"
+        },
+        {
+          "path": "/api/navigation-menu",
+          "title": "NavigationMenu"
+        },
+        {
+          "path": "/api/sidebar",
+          "title": "Sidebar"
+        },
+        {
+          "path": "/api/bottom-nav",
+          "title": "BottomNav"
+        },
+        {
+          "path": "/api/breadcrumb",
+          "title": "Breadcrumb"
+        },
+        {
+          "path": "/api/pagination",
+          "title": "Pagination"
+        },
+        {
+          "path": "/api/stepper",
+          "title": "Stepper"
+        },
+        {
+          "path": "/api/accordion",
+          "title": "Accordion"
+        },
+        {
+          "path": "/api/table-of-contents",
+          "title": "TableOfContents"
+        },
+        {
+          "path": "/api/progress",
+          "title": "Progress"
+        },
+        {
+          "path": "/api/meter",
+          "title": "Meter"
+        },
+        {
+          "path": "/api/stat",
+          "title": "Stat"
+        },
+        {
+          "path": "/api/empty-state",
+          "title": "EmptyState"
+        },
+        {
+          "path": "/api/timeline",
+          "title": "Timeline"
+        },
+        {
+          "path": "/api/description-list",
+          "title": "DescriptionList"
+        },
+        {
+          "path": "/api/list",
+          "title": "List"
+        },
+        {
+          "path": "/api/table",
+          "title": "Table"
+        },
+        {
+          "path": "/api/password-input",
+          "title": "PasswordInput"
+        },
+        {
+          "path": "/api/search-input",
+          "title": "SearchInput"
+        },
+        {
+          "path": "/api/number-input",
+          "title": "NumberInput"
+        },
+        {
+          "path": "/api/range-slider",
+          "title": "RangeSlider"
+        },
+        {
+          "path": "/api/editable",
+          "title": "Editable"
+        },
+        {
+          "path": "/api/file-upload",
+          "title": "FileUpload"
+        },
+        {
+          "path": "/api/dropzone",
+          "title": "Dropzone"
+        },
+        {
+          "path": "/api/color-picker",
+          "title": "ColorPicker"
+        },
+        {
+          "path": "/api/otp-flow",
+          "title": "OTPFlow"
+        },
+        {
+          "path": "/api/calendar",
+          "title": "Calendar"
+        },
+        {
+          "path": "/api/date-picker",
+          "title": "DatePicker"
+        },
+        {
+          "path": "/api/time-picker",
+          "title": "TimePicker"
+        },
+        {
+          "path": "/api/tree-view",
+          "title": "TreeView"
+        },
+        {
+          "path": "/api/carousel",
+          "title": "Carousel"
+        },
+        {
+          "path": "/api/virtual-list",
+          "title": "VirtualList"
+        },
+        {
+          "path": "/api/transfer-list",
+          "title": "TransferList"
+        },
+        {
+          "path": "/api/data-grid",
+          "title": "DataGrid"
+        },
+        {
+          "path": "/api/bar-chart",
+          "title": "BarChart"
+        },
+        {
+          "path": "/api/line-chart",
+          "title": "LineChart"
+        },
+        {
+          "path": "/api/sparkline",
+          "title": "Sparkline"
+        },
+        {
+          "path": "/api/heatmap",
+          "title": "Heatmap"
+        },
+        {
+          "path": "/api/scale",
+          "title": "Scale"
+        },
+        {
+          "path": "/api/radar-chart",
+          "title": "RadarChart"
+        },
+        {
+          "path": "/api/form",
+          "title": "Form"
+        },
+        {
+          "path": "/api/wizard",
+          "title": "Wizard"
+        },
+        {
+          "path": "/api/auth-form",
+          "title": "AuthForm"
+        },
+        {
+          "path": "/api/command-palette",
+          "title": "CommandPalette"
+        },
+        {
+          "path": "/api/notification-center",
+          "title": "NotificationCenter"
+        },
+        {
+          "path": "/api/coach-mark",
+          "title": "CoachMark"
+        },
+        {
+          "path": "/api/kanban-board",
+          "title": "KanbanBoard"
+        },
+        {
+          "path": "/api/feed",
+          "title": "Feed"
+        },
+        {
+          "path": "/api/app-shell",
+          "title": "AppShell"
+        },
+        {
+          "path": "/api/settings-layout",
+          "title": "SettingsLayout"
+        },
+        {
+          "path": "/api/rich-text-editor",
+          "title": "RichTextEditor"
+        },
+        {
+          "path": "/api/slider",
+          "title": "Slider"
+        },
+        {
+          "path": "/api/input",
+          "title": "Input"
+        },
+        {
+          "path": "/api/textarea",
+          "title": "Textarea"
+        },
+        {
+          "path": "/api/checkbox",
+          "title": "Checkbox"
+        },
+        {
+          "path": "/api/radio",
+          "title": "Radio"
+        },
+        {
+          "path": "/api/switch",
+          "title": "Switch"
+        },
+        {
+          "path": "/api/form-field",
+          "title": "FormField"
+        },
+        {
+          "path": "/api/label",
+          "title": "Label"
+        },
+        {
+          "path": "/api/helper-text",
+          "title": "HelperText"
+        },
+        {
+          "path": "/api/fieldset",
+          "title": "Fieldset"
+        },
+        {
+          "path": "/api/input-group",
+          "title": "InputGroup"
+        },
+        {
+          "path": "/api/pin-input",
+          "title": "PinInput"
+        },
+        {
+          "path": "/api/banner",
+          "title": "Banner"
         }
       ]
     },

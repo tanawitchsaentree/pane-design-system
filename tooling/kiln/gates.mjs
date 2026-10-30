@@ -194,7 +194,7 @@ try {
     const bad = [];
     for (const pg of COMPONENTS.slice(0, 3)) {
       const fading = await p2.evaluate(async (n) => {
-        const link = [...document.querySelectorAll('nav[data-book-nav] a')].find((a) => a.textContent.trim() === n);
+        const link = [...document.querySelectorAll('nav[data-book-nav] a')].find((a) => a.textContent.trim() === n || a.firstChild?.textContent?.trim() === n); // a link may carry a New badge after its name
         if (!link) return -1;
         link.click();
         while (document.getElementById('page-title')?.textContent !== n) await new Promise(requestAnimationFrame);

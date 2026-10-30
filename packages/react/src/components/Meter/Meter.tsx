@@ -12,9 +12,9 @@ export interface MeterProps extends Omit<HTMLAttributes<HTMLDivElement>, 'childr
   min?: number;
   /** The top of the range; 100 by default. */
   max?: number;
-  /** From this amount up the reading is high: a warning mark and the word Almost full join the value. */
+  /** From this amount up the reading is high, with a warning mark and the word Almost full join the value. */
   high?: number;
-  /** From this amount up the reading is critical: the critical mark and the word Full. */
+  /** From this amount up the reading is critical, with the critical mark and the word Full. */
   critical?: number;
   /** The amount in words, such as 41 of 50 GB, shown at the end of the label row and read aloud. */
   valueText?: string;

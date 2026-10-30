@@ -358,7 +358,7 @@
       "$type": "color"
     },
     "danger-fg": {
-      "$value": "{status.critical-mark}",
+      "$value": "{text.critical}",
       "$type": "color"
     }
   },

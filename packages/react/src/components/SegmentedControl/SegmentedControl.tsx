@@ -6,7 +6,7 @@ import styles from './SegmentedControl.module.css';
 export interface SegmentedOption { value: string; label: string; disabled?: boolean }
 
 export interface SegmentedControlProps {
-  /** The setting it switches, its accessible name: View, Units. */
+  /** The setting it switches, read as its accessible name, such as View or Units. */
   label: string;
   /** Two to five modes. */
   options: SegmentedOption[];

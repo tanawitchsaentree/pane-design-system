@@ -12,7 +12,7 @@ export interface NavbarProps {
   links?: NavbarLink[];
   /** The href of the current page among `links`. */
   current?: string;
-  /** Actions at the end: search, an avatar, a Sign in button. */
+  /** Actions at the end, such as search, an avatar or a Sign in button. */
   actions?: ReactNode;
   /** Sticks to the top while the page scrolls. Defaults to true. */
   sticky?: boolean;

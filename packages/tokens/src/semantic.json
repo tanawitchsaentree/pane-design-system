@@ -348,6 +348,18 @@
         "p": "P2",
         "why": "text colours flip with the theme because they contrast with a dimmed or lifted scene; secondary keeps the lowest opacity that still measured as passing"
       }
+    },
+    "critical": {
+      "$value": "{color.red.300}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.red.700}"
+        },
+        "kiln.why": {
+          "p": "P6",
+          "why": "words that name a destructive action, a step lighter than the critical mark in dark and darker in light, so they clear 4.5:1 on glass over any scene"
+        }
+      }
     }
   },
   "action": {

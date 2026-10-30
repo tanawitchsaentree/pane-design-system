@@ -8,7 +8,7 @@ export interface SnackbarProps {
   open: boolean;
   /** Called when it opens or closes. */
   onOpenChange: (open: boolean) => void;
-  /** One short line: Message archived. */
+  /** One short line, such as Message archived. */
   message: ReactNode;
   /** One action, usually Undo. `altText` says how to undo without the snackbar, for screen readers. */
   action?: { label: string; altText: string; onClick: () => void };
@@ -16,7 +16,7 @@ export interface SnackbarProps {
   duration?: number;
   /** Extra class on the root. */
   className?: string;
-  /** Draws it in place, open and not modal, inside its parent: for documentation, previews and screenshots, never in a product flow. */
+  /** Draws it in place, open and not modal, inside its parent, for documentation, previews and screenshots, never in a product flow. */
   preview?: boolean;
 }
 

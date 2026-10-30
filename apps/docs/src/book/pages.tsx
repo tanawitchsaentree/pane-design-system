@@ -33,6 +33,7 @@ import { AccessibilityFoundation, ContentFoundation, Contributing, Designing, De
 import { IOSPage } from './ios';
 import { PatternDepthPage } from '../patterns/PatternDepth';
 import { StatesPage } from './states';
+import { ApiPage } from './ApiPage';
 import { Language } from './language';
 import { SCENES } from '../scenes';
 import { PARTS } from './router';
@@ -178,6 +179,22 @@ function InstallApp() {
       </Section>
       <Section id="checks" title="What is checked">
         <p>kiln G-PWA1 loads a page at phone size, reads the manifest, decodes the 192 and 512 icons to check their sizes, looks for a maskable icon and an iPhone icon, waits for the service worker, then turns the network off and reloads the page. The gate fails if any step does.</p>
+      </Section>
+    </Page>
+  );
+}
+
+function AiPage() {
+  return (
+    <Page eyebrow="Getting started" title="MCP and llms.txt" lede={<p>An AI assistant working in your project can look Pane up instead of guessing which component fits, how to import it, what every prop does and which tokens a theme can change. There are two ways in, built from the same generated data, so they always agree with this book.</p>}>
+      <Section id="mcp" title="MCP server">
+        <p>pane-mcp is a Model Context Protocol server that ships inside pane-react. Add it once to Claude Code, Cursor or any client that speaks MCP. It runs on your machine and needs no account.</p>
+        <Code label="Claude Code">{'claude mcp add pane -- npx pane-mcp'}</Code>
+        <Code label="mcp.json">{'{ "mcpServers": { "pane": { "command": "npx", "args": ["pane-mcp"] } } }'}</Code>
+        <p>It answers five questions. list_components names every component with its idea in a line. search_components finds one for a need, such as a date range or an upload. get_component returns the import, every prop with its type and default, the component tokens and the links to its pages. search_tokens finds tokens by name or value with their dark and light values, and how_to_install says how to install Pane in a React app or a plain HTML site.</p>
+      </Section>
+      <Section id="llms" title="llms.txt">
+        <p>Some tools read a site instead of calling a server. For them the book publishes <a href="/llms.txt">llms.txt</a>, an index of every chapter, and <a href="/llms-full.txt">llms-full.txt</a>, with every component's import, props and tokens in one file. Point an assistant at either address.</p>
       </Section>
     </Page>
   );
@@ -1002,6 +1019,7 @@ const BASE_PAGES: Record<string, () => ReactElement> = {
   '/foundations/accessibility': AccessibilityFoundation,
   '/principles': Principles,
   '/getting-started/install-app': InstallApp,
+  '/getting-started/ai': AiPage,
   '/patterns/states': () => <StatesPage Page={Page} Section={Section} />,
   '/foundations/glass': Glass,
   '/foundations/color': ColorPage,
@@ -1017,6 +1035,7 @@ const BASE_PAGES: Record<string, () => ReactElement> = {
     [`/components/${c.slug}`, () => <TabRedirect to={`/components/${c.slug}/usage`} />] as const,
     ...TABS.map((t) => [`/components/${c.slug}/${t}`, () => <ComponentPage c={c} tab={t} />] as const),
   ])),
+  ...Object.fromEntries(COMPONENTS.map((c) => [`/api/${c.slug}`, () => <ApiPage c={c} />] as const)),
   ...Object.fromEntries(Object.entries(PATTERN_DEPTH).map(([path, p]) => [path, () => <PatternDepthPage p={p} />])),
   ...PATTERNS,
   '/accessibility': Accessibility,
