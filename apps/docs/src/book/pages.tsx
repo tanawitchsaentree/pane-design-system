@@ -216,6 +216,8 @@ pnpm run release:pack
 npm install /path/to/pilot-glass/release/pane-react-${meta.version}.tgz`}</Code>
         <Code label="main.tsx">{"import 'pane-react/all.css';\nimport { Environment, Card, Button } from 'pane-react';"}</Code>
         <p>The tokens are also on their own as <code>pane-tokens</code>, for projects that are not React. The React package includes them as <code>pane-react/tokens.css</code> and <code>pane-react/tokens</code>, so you never need both.</p>
+        <p>If a page uses only a few components, it can load less CSS. Import <code>pane-react/tokens/core.css</code> and <code>pane-react/tokens/colour.css</code> in place of <code>pane-react/tokens.css</code>, and import components from <code>pane-react</code> or <code>pane-react/Button</code> through a bundler such as Vite or Next.js. Each component then brings its own component tokens along with its styles, so a page with only a Button pays for the Button tokens and nothing else. The core sheet holds spacing, sizes, corners, type, motion, layers and layout. The colour sheet holds colours, shadows, themes and environments, and a product with its own palette can skip it and define those colour tokens itself. The split relies on the per-component styles, so keep <code>tokens.css</code> if you link <code>pane-react/styles.css</code>. The <code>all.css</code> file already contains every token.</p>
+        <Code label="main.tsx, split tokens">{"import 'pane-react/tokens/core.css';\nimport 'pane-react/tokens/colour.css';\nimport { Button } from 'pane-react/Button';"}</Code>
         <div className="pkg-grid">
           <div className="panel" data-surface="">
             <p className="flush"><b>pane-tokens</b> <span className="muted">v{meta.version}</span></p>

@@ -9,6 +9,14 @@
       "types": "./css.d.ts",
       "default": "./build/css/tokens.css"
     },
+    "./css/core": {
+      "types": "./css.d.ts",
+      "default": "./build/css/core.css"
+    },
+    "./css/colour": {
+      "types": "./css.d.ts",
+      "default": "./build/css/colour.css"
+    },
     "./json": "./build/json/tokens.json",
     "./js": {
       "types": "./build/js/tokens.d.ts",
