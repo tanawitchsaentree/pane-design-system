@@ -41,6 +41,10 @@ export interface TableProps<Row extends Record<string, unknown>> extends Omit<HT
   onSortChange?: (sort: TableSort) => void;
   /** Keeps the header row in view while the body scrolls inside a region of this height, such as 20rem. */
   maxHeight?: string;
+  /** What the body says when there are no rows, such as No prints match these filters; Nothing to show yet by default. */
+  empty?: ReactNode;
+  /** Shown over the body while rows load; the rows stay so the reader keeps their place, and the table says it is busy. */
+  loading?: boolean;
 }
 
 function compare(a: unknown, b: unknown) {
@@ -51,7 +55,7 @@ function compare(a: unknown, b: unknown) {
 /** Rows and columns of data in a real table with a caption, set on a level-2 pane with hairlines between
  *  rows and an opaque header that stays in view. A sortable header is a button that says its order, and
  *  a table wider than its pane scrolls inside a named region that takes focus. */
-export const Table = forwardRef(function Table<Row extends Record<string, unknown>>({ caption, showCaption, columns, rows, density = 'comfortable', defaultSort, sort, onSortChange, maxHeight, className, style, ...rest }: TableProps<Row>, ref: React.Ref<HTMLDivElement>) {
+export const Table = forwardRef(function Table<Row extends Record<string, unknown>>({ caption, showCaption, columns, rows, density = 'comfortable', defaultSort, sort, onSortChange, maxHeight, empty = 'Nothing to show yet', loading, className, style, ...rest }: TableProps<Row>, ref: React.Ref<HTMLDivElement>) {
   const [inner, setInner] = useState<TableSort | undefined>(defaultSort);
   const current = sort ?? inner;
   const shown = sort || !current ? rows : [...rows].sort((a, b) => compare(a[current.key], b[current.key]) * (current.direction === 'ascending' ? 1 : -1));
@@ -61,7 +65,7 @@ export const Table = forwardRef(function Table<Row extends Record<string, unknow
     onSortChange?.(next);
   };
   return (
-    <div ref={ref} data-component="Table" role="region" aria-label={caption} tabIndex={0} className={cx(styles.root, styles[density], maxHeight && styles.scroll, className)} style={maxHeight ? { ...style, maxBlockSize: maxHeight } : style} {...rest}>
+    <div ref={ref} data-component="Table" role="region" aria-label={caption} aria-busy={loading || undefined} tabIndex={0} className={cx(styles.root, styles[density], maxHeight && styles.scroll, className)} style={maxHeight ? { ...style, maxBlockSize: maxHeight } : style} {...rest}>
       <table className={styles.table}>
         <caption className={showCaption ? styles.caption : styles.hidden}>{caption}</caption>
         <thead>
@@ -82,6 +86,7 @@ export const Table = forwardRef(function Table<Row extends Record<string, unknow
           </tr>
         </thead>
         <tbody>
+          {shown.length === 0 && <tr><td colSpan={columns.length} className={styles.empty}>{empty}</td></tr>}
           {shown.map((r, i) => (
             <tr key={String(r.id ?? i)} className={styles.tr}>
               {columns.map((c) => <td key={c.key} className={cx(styles.td, c.align === 'end' && styles.end)}>{c.render ? c.render(r) : (r[c.key] as ReactNode)}</td>)}
@@ -89,6 +94,7 @@ export const Table = forwardRef(function Table<Row extends Record<string, unknow
           ))}
         </tbody>
       </table>
+      {loading && <div className={styles.loading} role="status">Loading rows</div>}
     </div>
   );
 }) as <Row extends Record<string, unknown>>(p: TableProps<Row> & {

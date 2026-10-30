@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-30T03:39:40.387Z",
-  "passed": 410,
+  "generatedAt": "2026-10-30T05:40:50.918Z",
+  "passed": 407,
   "total": 410,
   "checks": [
     {
@@ -193,13 +193,13 @@
       "component": "Button",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "2 props"
+      "detail": "3 props"
     },
     {
       "component": "IconButton",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "3 props"
+      "detail": "4 props"
     },
     {
       "component": "Tabs",
@@ -235,31 +235,31 @@
       "component": "Select",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "11 props"
+      "detail": "13 props"
     },
     {
       "component": "Listbox",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "7 props"
+      "detail": "9 props"
     },
     {
       "component": "Combobox",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "9 props"
+      "detail": "13 props"
     },
     {
       "component": "Autocomplete",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "8 props"
+      "detail": "12 props"
     },
     {
       "component": "MultiSelect",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "8 props"
+      "detail": "12 props"
     },
     {
       "component": "Menu",
@@ -277,25 +277,25 @@
       "component": "RadioCards",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "7 props"
+      "detail": "9 props"
     },
     {
       "component": "Rating",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "7 props"
+      "detail": "8 props"
     },
     {
       "component": "TagInput",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "8 props"
+      "detail": "12 props"
     },
     {
       "component": "SegmentedControl",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "7 props"
+      "detail": "8 props"
     },
     {
       "component": "Navbar",
@@ -397,7 +397,7 @@
       "component": "Table",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "10 props"
+      "detail": "12 props"
     },
     {
       "component": "PasswordInput",
@@ -433,19 +433,19 @@
       "component": "FileUpload",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "10 props"
+      "detail": "11 props"
     },
     {
       "component": "Dropzone",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "9 props"
+      "detail": "10 props"
     },
     {
       "component": "ColorPicker",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "7 props"
+      "detail": "8 props"
     },
     {
       "component": "OTPFlow",
@@ -463,13 +463,13 @@
       "component": "DatePicker",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "13 props"
+      "detail": "15 props"
     },
     {
       "component": "TimePicker",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "13 props"
+      "detail": "14 props"
     },
     {
       "component": "TreeView",
@@ -499,7 +499,7 @@
       "component": "DataGrid",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "12 props"
+      "detail": "13 props"
     },
     {
       "component": "BarChart",
@@ -589,7 +589,7 @@
       "component": "RichTextEditor",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "7 props"
+      "detail": "9 props"
     },
     {
       "component": "Slider",
@@ -613,19 +613,19 @@
       "component": "Checkbox",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "10 props"
+      "detail": "11 props"
     },
     {
       "component": "Radio",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "14 props"
+      "detail": "15 props"
     },
     {
       "component": "Switch",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "8 props"
+      "detail": "9 props"
     },
     {
       "component": "FormField",
@@ -661,7 +661,7 @@
       "component": "PinInput",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "11 props"
+      "detail": "12 props"
     },
     {
       "component": "Banner",
@@ -857,15 +857,15 @@
     },
     {
       "component": "Button",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
       "ok": true,
-      "detail": "5 demos"
+      "detail": "6 demos"
     },
     {
       "component": "IconButton",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
       "ok": true,
-      "detail": "5 demos"
+      "detail": "6 demos"
     },
     {
       "component": "Tabs",
@@ -899,33 +899,33 @@
     },
     {
       "component": "Select",
+      "name": "demo floor met (≥ variant dimensions + 3 = 7)",
+      "ok": true,
+      "detail": "7 demos"
+    },
+    {
+      "component": "Listbox",
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos"
     },
     {
-      "component": "Listbox",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
       "component": "Combobox",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
       "ok": true,
-      "detail": "3 demos"
+      "detail": "6 demos"
     },
     {
       "component": "Autocomplete",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
       "ok": true,
-      "detail": "3 demos"
+      "detail": "6 demos"
     },
     {
       "component": "MultiSelect",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
       "ok": true,
-      "detail": "3 demos"
+      "detail": "6 demos"
     },
     {
       "component": "Menu",
@@ -941,27 +941,27 @@
     },
     {
       "component": "RadioCards",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
-      "detail": "4 demos"
+      "detail": "5 demos"
     },
     {
       "component": "Rating",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
-      "detail": "4 demos"
+      "detail": "5 demos"
     },
     {
       "component": "TagInput",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
       "ok": true,
-      "detail": "3 demos"
+      "detail": "6 demos"
     },
     {
       "component": "SegmentedControl",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
-      "detail": "4 demos"
+      "detail": "5 demos"
     },
     {
       "component": "Navbar",
@@ -1061,9 +1061,9 @@
     },
     {
       "component": "Table",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
-      "detail": "4 demos"
+      "detail": "5 demos"
     },
     {
       "component": "PasswordInput",
@@ -1097,21 +1097,21 @@
     },
     {
       "component": "FileUpload",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
-      "detail": "4 demos"
+      "detail": "5 demos"
     },
     {
       "component": "Dropzone",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
-      "detail": "4 demos"
+      "detail": "5 demos"
     },
     {
       "component": "ColorPicker",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
-      "detail": "3 demos"
+      "detail": "4 demos"
     },
     {
       "component": "OTPFlow",
@@ -1127,15 +1127,15 @@
     },
     {
       "component": "DatePicker",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "name": "demo floor met (≥ variant dimensions + 3 = 7)",
       "ok": true,
-      "detail": "5 demos"
+      "detail": "7 demos"
     },
     {
       "component": "TimePicker",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
-      "detail": "4 demos"
+      "detail": "5 demos"
     },
     {
       "component": "TreeView",
@@ -1253,9 +1253,9 @@
     },
     {
       "component": "RichTextEditor",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
       "ok": true,
-      "detail": "4 demos"
+      "detail": "6 demos"
     },
     {
       "component": "Slider",
@@ -1277,9 +1277,9 @@
     },
     {
       "component": "Checkbox",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": false,
+      "detail": "4 demos across the tabs"
     },
     {
       "component": "Radio",
@@ -1289,9 +1289,9 @@
     },
     {
       "component": "Switch",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": false,
+      "detail": "4 demos across the tabs"
     },
     {
       "component": "FormField",
@@ -1325,15 +1325,15 @@
     },
     {
       "component": "PinInput",
-      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
-      "ok": true,
-      "detail": "6 demos"
+      "name": "demo floor met (≥ variant dimensions + 3 = 7)",
+      "ok": false,
+      "detail": "6 demos across the tabs"
     },
     {
       "component": "Banner",
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
-      "detail": "8 demos"
+      "detail": "11 demos"
     },
     {
       "component": "Environment",
@@ -1418,7 +1418,7 @@
       "component": "IconButton",
       "name": "every button with no visible text, on every page of the book, has an accessible name",
       "ok": true,
-      "detail": "486 pages"
+      "detail": "487 pages"
     },
     {
       "component": "Tabs",
@@ -1447,7 +1447,7 @@
     },
     {
       "component": "Docs page",
-      "name": "G-D3, no literal backtick in rendered text on any of the 486 pages",
+      "name": "G-D3, no literal backtick in rendered text on any of the 487 pages",
       "ok": true
     },
     {

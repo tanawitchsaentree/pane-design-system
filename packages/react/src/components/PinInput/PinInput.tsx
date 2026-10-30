@@ -22,6 +22,8 @@ export interface PinInputProps {
   invalid?: boolean;
   /** Turns the control off, so it cannot be focused or changed. Inside a FormField, its `disabled` sets this for you. */
   disabled?: boolean;
+  /** Shows the code without letting it change; the cells can still be focused and read. */
+  readOnly?: boolean;
   /** Name for form submission; the code is submitted as one value. */
   name?: string;
   /** Extra class on the outer element. */
@@ -29,13 +31,14 @@ export interface PinInputProps {
 }
 
 /** A short code in separate cells, each a small well. Typing moves on, Backspace moves back, paste fills every cell. */
-export function PinInput({ length = 6, value, defaultValue = '', onValueChange, onComplete, type = 'numeric', invalid, disabled, name, className, ...rest }: PinInputProps) {
+export function PinInput({ length = 6, value, defaultValue = '', onValueChange, onComplete, type = 'numeric', invalid, disabled, readOnly, name, className, ...rest }: PinInputProps) {
   const field = useField();
   const [inner, setInner] = useState(defaultValue.slice(0, length));
   const code = (value ?? inner).slice(0, length);
   const cells = useRef<Array<HTMLInputElement | null>>([]);
   const ok = (ch: string) => (type === 'numeric' ? /^\d$/.test(ch) : /^[\p{L}\p{N}]$/u.test(ch));
   const set = (next: string) => {
+    if (readOnly) return;
     if (value === undefined) setInner(next);
     onValueChange?.(next);
     if (next.length === length && !next.includes(' ')) onComplete?.(next);
@@ -73,7 +76,7 @@ export function PinInput({ length = 6, value, defaultValue = '', onValueChange, 
           maxLength={1}
           aria-label={`Character ${i + 1} of ${length}`}
           aria-invalid={bad || undefined}
-          disabled={disabled ?? field?.disabled}
+          disabled={disabled ?? field?.disabled} readOnly={readOnly} required={field?.required}
           onChange={(e) => {
             const ch = e.target.value.slice(-1);
             if (ch && !ok(ch)) return;

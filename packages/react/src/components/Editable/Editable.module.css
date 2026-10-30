@@ -13,4 +13,5 @@
 .title .text, .title .field { font-size: var(--ds-type-title); font-weight: var(--ds-type-weight-semibold); }
 .field { flex: 1; }
 @media (hover: none) { .pencil { opacity: 1; } }
+.text:disabled { color: var(--ds-text-secondary); }
 @media (forced-colors: active) { .pencil { stroke: CanvasText; } }

@@ -16,4 +16,7 @@
 .field :global([data-component='Input']), :global([data-pane-card='glass']) .field :global([data-component='Input']) { padding-inline: 0; background: transparent; box-shadow: none; outline: 0; }
 .start, .end { display: inline-flex; align-items: center; flex: none; }
 .start svg, .end svg { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); }
+/* off: the whole well dims once, adornments included, and the field inside is not dimmed twice */
+.root:has(input:disabled) { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
+.root:has(input:disabled) .field :global([data-component='Input']) { opacity: 1; }
 @media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid FieldText; } }

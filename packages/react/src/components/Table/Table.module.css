@@ -20,4 +20,8 @@
 .glyph { inline-size: var(--ds-table-glyph); block-size: var(--ds-table-glyph); flex: none; fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; opacity: var(--ds-opacity-faint); }
 .on { opacity: 1; color: var(--ds-text-primary); }
 .desc { transform: rotate(180deg); }
+/* no rows: one quiet line across the body; loading: the rows stay under a scrim that says so */
+.root { position: relative; }
+.empty { padding: var(--ds-table-cell-block) var(--ds-table-cell-inline); color: var(--ds-text-secondary); text-align: center; }
+.loading { position: absolute; inset: 0; display: grid; place-items: center; background: var(--ds-table-scrim); color: var(--ds-text-primary); font-size: var(--ds-type-label); }
 @media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid CanvasText; } .th, .td { border-color: CanvasText; } }

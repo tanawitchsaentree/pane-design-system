@@ -47,6 +47,11 @@
       "p": "P6",
       "axis": "depth",
       "why": "forced colours drop the rim and the carve, so a real system-colour border keeps the shape"
+    },
+    "data-disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "an off control dims and refuses presses, so it reads as there but not available"
     }
   },
   "motion": {

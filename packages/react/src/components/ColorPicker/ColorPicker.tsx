@@ -27,6 +27,8 @@ export interface ColorPickerProps {
   custom?: boolean;
   /** Extra class on the wrapper. */
   className?: string;
+  /** Turns the whole control off, so it cannot be focused or changed and reads as dimmed. Inside a FormField, its `disabled` sets this for you. */
+  disabled?: boolean;
 }
 
 const HEX = /^#?([0-9a-f]{3}|[0-9a-f]{6})$/i;
@@ -35,7 +37,7 @@ const norm = (v: string) => { const m = v.trim().match(HEX); if (!m) return null
 /** Choosing a colour for the reader's own content, a tag or an album, never for the interface (P1: the
  *  system owns no hue; this picks one that belongs to the content). Swatches are round radios with names,
  *  the chosen one ringed and checked; a hex field takes any other colour. */
-export const ColorPicker = forwardRef<HTMLDivElement, ColorPickerProps>(function ColorPicker({ label, swatches, value, defaultValue, onValueChange, custom, className }, ref) {
+export const ColorPicker = forwardRef<HTMLDivElement, ColorPickerProps>(function ColorPicker({ label, swatches, value, defaultValue, onValueChange, custom, className, disabled }, ref) {
   const [inner, setInner] = useState(defaultValue ?? swatches[0]?.value ?? '');
   const current = norm(value ?? inner) ?? '';
   const [draft, setDraft] = useState<string | null>(null);
@@ -43,7 +45,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, ColorPickerProps>(function
   const named = swatches.find((s) => norm(s.value) === current);
   return (
     <div ref={ref} data-component="ColorPicker" data-not-token="" className={cx(styles.root, className)}>
-      <RR.Root aria-label={label} value={named ? norm(named.value)! : ''} onValueChange={set} orientation="horizontal" className={styles.swatches}>
+      <RR.Root aria-label={label} disabled={disabled} value={named ? norm(named.value)! : ''} onValueChange={set} orientation="horizontal" className={styles.swatches}>
         {swatches.map((s) => (
           <RR.Item key={s.value} value={norm(s.value)!} aria-label={s.name} title={s.name} className={styles.item} style={{ ['--pane-swatch' as string]: s.value }}>
             <RR.Indicator className={styles.check}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></RR.Indicator>
@@ -52,7 +54,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, ColorPickerProps>(function
       </RR.Root>
       {custom && (
         <InputGroup start={<span className={styles.preview} style={{ ['--pane-swatch' as string]: norm(draft ?? '') ?? current }} aria-hidden="true" />}>
-          <Input aria-label={`${label}, hex value`} value={draft ?? current} spellCheck={false} autoCapitalize="off" className={styles.hex}
+          <Input disabled={disabled} aria-label={`${label}, hex value`} value={draft ?? current} spellCheck={false} autoCapitalize="off" className={styles.hex}
             aria-invalid={draft !== null && !norm(draft) ? true : undefined}
             onChange={(e) => { setDraft(e.target.value); if (norm(e.target.value)) set(e.target.value); }}
             onBlur={() => setDraft(null)} />

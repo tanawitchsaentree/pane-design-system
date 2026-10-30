@@ -20,4 +20,6 @@
 .text { display: flex; flex-direction: column; justify-content: center; min-block-size: var(--ds-check-hit); }
 .label { font-size: var(--ds-type-body); color: var(--ds-text-primary); cursor: pointer; }
 .description { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+/* a wrong answer is ringed in the critical mark, like a field; the words come from FormField (P6) */
+.box[aria-invalid='true'] { outline: var(--ds-width-ring) solid var(--ds-check-ring-invalid); outline-offset: var(--ds-width-hairline); }
 @media (forced-colors: active) { .box { border: var(--ds-width-hairline) solid ButtonText; } .check, .dash { stroke: ButtonText; } }

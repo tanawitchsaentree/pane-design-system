@@ -4,6 +4,34 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- Button: `loading` keeps the width and focus, shows a spinner, says it is busy and ignores presses.
+- IconButton: `loading`, as Button's.
+- Checkbox: `invalid`, a critical ring and aria-invalid; FormField's error sets it.
+- Radio: RadioGroup takes `invalid`, ringing every circle.
+- Switch: `invalid`, as Checkbox's.
+- RadioCards: `invalid` and `disabled` for the whole group.
+- Listbox: `disabled` and `invalid`; FormField sets both.
+- SegmentedControl: `disabled`.
+- ColorPicker: `disabled`, for the swatches and the hex field.
+- Rating: `disabled`.
+- Chip: `disabled` dims the pill and turns off both of its buttons.
+- FAB: a disabled FAB dims and refuses presses.
+- Select: `readOnly` and `invalid`; FormField's disabled and required now reach it.
+- Combobox: `disabled`, `readOnly`, `invalid` and `required`.
+- Autocomplete: `disabled`, `readOnly`, `invalid` and `required`.
+- MultiSelect: `disabled`, `readOnly`, `invalid` and `required`; read-only chips have no remove button.
+- TagInput: `disabled`, `readOnly`, `invalid` and `required`.
+- DatePicker: `readOnly` and `invalid`; FormField's required reaches it.
+- TimePicker: `readOnly`.
+- PinInput: `readOnly`; FormField's required reaches every cell.
+- RichTextEditor: `readOnly` and `invalid`; FormField's disabled and required reach it.
+- NumberInput: FormField's disabled now turns off the steppers too.
+- InputGroup: a disabled field dims the whole well once.
+- Editable: disabled text is set in the secondary tone.
+- Table: `loading` and `empty`.
+- DataGrid: `empty`.
+- FileUpload: `invalid`.
+- Dropzone: `invalid`.
 - Box: new. Padding and a corner from the scales, nothing else.
 - Flex: new. A row or column with a gap from the scale and both alignments named.
 - Center: new. Content in the middle of the space it is given.

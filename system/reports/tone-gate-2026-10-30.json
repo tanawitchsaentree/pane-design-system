@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T03:18:29.436Z",
+  "generatedAt": "2026-10-30T05:20:24.537Z",
   "lint": "/Users/tanawitch.saentree/Downloads/human-tone-folder/.claude/skills/human-tone/scripts/lint.py",
   "excluded": [
     "/reference/decisions"
@@ -7,7 +7,7 @@
   "pages": {
     "/": {
       "ok": false,
-      "words": 1116,
+      "words": 1118,
       "hard": 6,
       "report": {
         "hard": [
@@ -213,19 +213,19 @@
     },
     "/getting-started": {
       "ok": true,
-      "words": 568,
+      "words": 622,
       "hard": 0,
       "report": {
         "hard": [],
         "warn": [
           {
-            "line": 15,
+            "line": 18,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Every verify run installs exactly these tarballs into an empty project and impor"
           },
           {
-            "line": 22,
+            "line": 25,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Every token with tier, type, reference and resolved value. For build tools and F"
@@ -241,6 +241,12 @@
             "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
             "code": "rhythm",
             "text": "It defines every code custom property, the three environment blocks, and the fal"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "An ES module with code (resolved values) and code (var() references), typed by c"
           }
         ],
         "pass": true,
@@ -1007,11 +1013,17 @@
     },
     "/components/container/accessibility": {
       "ok": true,
-      "words": 313,
+      "words": 345,
       "hard": 0,
       "report": {
         "hard": [],
         "warn": [
+          {
+            "line": 0,
+            "rule": "emoji or symbol decoration (4 in the document)",
+            "code": "formatting",
+            "text": ""
+          },
           {
             "line": 8,
             "rule": "one contrast found: verify it passes the strawman test",
@@ -1091,7 +1103,7 @@
     },
     "/components/grid/accessibility": {
       "ok": true,
-      "words": 336,
+      "words": 389,
       "hard": 0,
       "report": {
         "hard": [],
@@ -1104,6 +1116,12 @@
           },
           {
             "line": 0,
+            "rule": "emoji or symbol decoration (6 in the document)",
+            "code": "formatting",
+            "text": ""
+          },
+          {
+            "line": 0,
             "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
             "code": "rhythm",
             "text": "Use full span on small screens unless the content truly fits in a narrow column."
@@ -1112,7 +1130,13 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "#Change history\nFirst release with 4, 8 and 12 columns and per breakpoint spans "
+            "text": "PASS 15.07:1\nPASS 12.12:1\nPASS 21.00:1\nPASS 15.07:1\nPASS 12.12:1\nPASS 21.00:1\nPA"
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with '4'",
+            "code": "anaphora",
+            "text": ""
           }
         ],
         "pass": true,
@@ -1199,11 +1223,18 @@
     },
     "/components/stack/accessibility": {
       "ok": true,
-      "words": 312,
+      "words": 347,
       "hard": 0,
       "report": {
         "hard": [],
-        "warn": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "PASS 15.07:1\nPASS 12.12:1\nPASS 21.00:1\nPASS 15.07:1\nPASS 12.12:1\nPASS 21.00:1\nPA"
+          }
+        ],
         "pass": true,
         "profile": []
       }
@@ -1289,7 +1320,7 @@
     },
     "/components/box/accessibility": {
       "ok": false,
-      "words": 226,
+      "words": 252,
       "hard": 1,
       "report": {
         "hard": [
@@ -1392,7 +1423,7 @@
     },
     "/components/flex/accessibility": {
       "ok": true,
-      "words": 226,
+      "words": 253,
       "hard": 0,
       "report": {
         "hard": [],
@@ -1476,7 +1507,7 @@
     },
     "/components/center/accessibility": {
       "ok": true,
-      "words": 202,
+      "words": 224,
       "hard": 0,
       "report": {
         "hard": [],
@@ -1581,7 +1612,7 @@
     },
     "/components/spacer/accessibility": {
       "ok": false,
-      "words": 215,
+      "words": 233,
       "hard": 1,
       "report": {
         "hard": [
@@ -1679,7 +1710,7 @@
     },
     "/components/divider/accessibility": {
       "ok": true,
-      "words": 207,
+      "words": 231,
       "hard": 0,
       "report": {
         "hard": [],
@@ -1763,7 +1794,7 @@
     },
     "/components/aspect-ratio/accessibility": {
       "ok": true,
-      "words": 199,
+      "words": 219,
       "hard": 0,
       "report": {
         "hard": [],
@@ -1833,7 +1864,7 @@
     },
     "/components/visually-hidden/accessibility": {
       "ok": true,
-      "words": 214,
+      "words": 239,
       "hard": 0,
       "report": {
         "hard": [],
@@ -1943,7 +1974,7 @@
     },
     "/components/text/accessibility": {
       "ok": true,
-      "words": 226,
+      "words": 253,
       "hard": 0,
       "report": {
         "hard": [],
@@ -2035,7 +2066,7 @@
     },
     "/components/heading/accessibility": {
       "ok": true,
-      "words": 213,
+      "words": 237,
       "hard": 0,
       "report": {
         "hard": [],
@@ -2119,7 +2150,7 @@
     },
     "/components/icon/accessibility": {
       "ok": true,
-      "words": 217,
+      "words": 241,
       "hard": 0,
       "report": {
         "hard": [],
@@ -2216,7 +2247,7 @@
     },
     "/components/link/accessibility": {
       "ok": true,
-      "words": 212,
+      "words": 238,
       "hard": 0,
       "report": {
         "hard": [],
@@ -2287,7 +2318,7 @@
     },
     "/components/spinner/accessibility": {
       "ok": true,
-      "words": 214,
+      "words": 233,
       "hard": 0,
       "report": {
         "hard": [],
@@ -2365,7 +2396,7 @@
     },
     "/components/skeleton/accessibility": {
       "ok": true,
-      "words": 215,
+      "words": 233,
       "hard": 0,
       "report": {
         "hard": [],
@@ -2443,7 +2474,7 @@
     },
     "/components/kbd/accessibility": {
       "ok": true,
-      "words": 210,
+      "words": 232,
       "hard": 0,
       "report": {
         "hard": [],
@@ -2534,7 +2565,7 @@
     },
     "/components/image/accessibility": {
       "ok": true,
-      "words": 224,
+      "words": 251,
       "hard": 0,
       "report": {
         "hard": [],
@@ -2704,7 +2735,7 @@
     },
     "/components/dialog/accessibility": {
       "ok": true,
-      "words": 219,
+      "words": 246,
       "hard": 0,
       "report": {
         "hard": [],
@@ -2826,7 +2857,7 @@
     },
     "/components/sheet/accessibility": {
       "ok": false,
-      "words": 224,
+      "words": 251,
       "hard": 1,
       "report": {
         "hard": [
@@ -2949,7 +2980,7 @@
     },
     "/components/drawer/accessibility": {
       "ok": true,
-      "words": 204,
+      "words": 231,
       "hard": 0,
       "report": {
         "hard": [],
@@ -3039,7 +3070,7 @@
     },
     "/components/action-sheet/accessibility": {
       "ok": true,
-      "words": 218,
+      "words": 245,
       "hard": 0,
       "report": {
         "hard": [],
@@ -3173,7 +3204,7 @@
     },
     "/components/popover/accessibility": {
       "ok": true,
-      "words": 210,
+      "words": 236,
       "hard": 0,
       "report": {
         "hard": [],
@@ -3331,7 +3362,7 @@
     },
     "/components/tooltip/accessibility": {
       "ok": true,
-      "words": 204,
+      "words": 222,
       "hard": 0,
       "report": {
         "hard": [],
@@ -3349,7 +3380,7 @@
             "text": "See the Accessibility tab for focus, keys and what it announces."
           },
           {
-            "line": 18,
+            "line": 20,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. A few words on hover, focus and tap."
@@ -3458,7 +3489,7 @@
     },
     "/components/toast/accessibility": {
       "ok": true,
-      "words": 216,
+      "words": 239,
       "hard": 0,
       "report": {
         "hard": [],
@@ -3561,7 +3592,7 @@
     },
     "/components/snackbar/accessibility": {
       "ok": true,
-      "words": 214,
+      "words": 235,
       "hard": 0,
       "report": {
         "hard": [],
@@ -3645,7 +3676,7 @@
     },
     "/components/fab/accessibility": {
       "ok": true,
-      "words": 206,
+      "words": 235,
       "hard": 0,
       "report": {
         "hard": [],
@@ -3743,7 +3774,7 @@
     },
     "/components/pull-to-refresh/accessibility": {
       "ok": true,
-      "words": 219,
+      "words": 244,
       "hard": 0,
       "report": {
         "hard": [],
@@ -3826,11 +3857,17 @@
     },
     "/components/environment/accessibility": {
       "ok": true,
-      "words": 378,
+      "words": 443,
       "hard": 0,
       "report": {
         "hard": [],
         "warn": [
+          {
+            "line": 0,
+            "rule": "emoji or symbol decoration (3 in the document)",
+            "code": "formatting",
+            "text": ""
+          },
           {
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
@@ -3911,13 +3948,19 @@
     },
     "/components/card/accessibility": {
       "ok": true,
-      "words": 364,
+      "words": 399,
       "hard": 0,
       "report": {
         "hard": [],
         "warn": [
           {
-            "line": 58,
+            "line": 16,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "PASS glass card blurs, saturates and dims what is behind it. blur(64px) saturate"
+          },
+          {
+            "line": 61,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "First release with glass, inset and solid variants and a cover slot. Glass dims "
@@ -3926,7 +3969,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "Nesting glass inside glass doubles the blur cost, so the inset variant adds no s"
+            "text": "PASS 13.31:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 13.31:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
           }
         ],
         "pass": true,
@@ -4000,7 +4043,7 @@
     },
     "/components/avatar/accessibility": {
       "ok": true,
-      "words": 350,
+      "words": 384,
       "hard": 0,
       "report": {
         "hard": [],
@@ -4009,7 +4052,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "#Change history\na portrait behind a lens with the pane's rim of light; the white"
+            "text": "PASS 13.31:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 13.31:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
           }
         ],
         "pass": true,
@@ -4078,7 +4121,7 @@
     },
     "/components/button/code": {
       "ok": true,
-      "words": 257,
+      "words": 298,
       "hard": 0,
       "report": {
         "hard": [],
@@ -4090,7 +4133,7 @@
             "text": "#Variants, states and compositions"
           },
           {
-            "line": 9,
+            "line": 11,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Light, accent and glass buttons"
@@ -4108,22 +4151,22 @@
     },
     "/components/button/accessibility": {
       "ok": true,
-      "words": 408,
+      "words": 496,
       "hard": 0,
       "report": {
         "hard": [],
         "warn": [
           {
-            "line": 67,
+            "line": 75,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "First release with light, accent and glass variants and the soft hover lift."
           },
           {
             "line": 0,
-            "rule": "anaphora: 3 sentences open with 'no'",
-            "code": "anaphora",
-            "text": ""
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "PASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
           }
         ],
         "pass": true,
@@ -4180,7 +4223,7 @@
     },
     "/components/icon-button/code": {
       "ok": true,
-      "words": 251,
+      "words": 292,
       "hard": 0,
       "report": {
         "hard": [],
@@ -4204,12 +4247,12 @@
     },
     "/components/icon-button/accessibility": {
       "ok": false,
-      "words": 408,
+      "words": 454,
       "hard": 1,
       "report": {
         "hard": [
           {
-            "line": 62,
+            "line": 66,
             "rule": "label colon in prose",
             "code": "label_colon",
             "text": "new code variant, a white bead. Slider: the thumb is a capsule and the track is "
@@ -4220,7 +4263,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "The press area is 44px each way, wider than the 36px and 32px discs, so two icon"
+            "text": "PASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
           }
         ],
         "pass": false,
@@ -4319,7 +4362,7 @@
     },
     "/components/tabs/accessibility": {
       "ok": true,
-      "words": 385,
+      "words": 488,
       "hard": 0,
       "report": {
         "hard": [],
@@ -4334,13 +4377,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "PASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
-          },
-          {
-            "line": 0,
-            "rule": "anaphora: 3 sentences open with 'no'",
-            "code": "anaphora",
-            "text": ""
+            "text": "Normal text needs 4.5 to 1 and large text needs 3 to 1."
           }
         ],
         "pass": true,
@@ -4421,7 +4458,7 @@
     },
     "/components/tag/accessibility": {
       "ok": true,
-      "words": 381,
+      "words": 408,
       "hard": 0,
       "report": {
         "hard": [],
@@ -4597,13 +4634,13 @@
     },
     "/components/mesh/accessibility": {
       "ok": true,
-      "words": 313,
+      "words": 345,
       "hard": 0,
       "report": {
         "hard": [],
         "warn": [
           {
-            "line": 23,
+            "line": 26,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new (D-029). A mesh gradient for covers, icons, illustrations and scenes, never "
@@ -4687,7 +4724,7 @@
     },
     "/components/badge/accessibility": {
       "ok": true,
-      "words": 348,
+      "words": 373,
       "hard": 0,
       "report": {
         "hard": [],
@@ -4697,6 +4734,12 @@
             "rule": "one contrast found: verify it passes the strawman test",
             "code": "negation",
             "text": "Put the status in the text, not only in the colour or the dot."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "PASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
           }
         ],
         "pass": true,
@@ -4783,7 +4826,7 @@
     },
     "/components/chip/accessibility": {
       "ok": true,
-      "words": 384,
+      "words": 449,
       "hard": 0,
       "report": {
         "hard": [],
@@ -4855,7 +4898,7 @@
     },
     "/components/select/code": {
       "ok": true,
-      "words": 276,
+      "words": 331,
       "hard": 0,
       "report": {
         "hard": [],
@@ -4879,7 +4922,7 @@
     },
     "/components/select/accessibility": {
       "ok": true,
-      "words": 439,
+      "words": 500,
       "hard": 0,
       "report": {
         "hard": [],
@@ -4901,12 +4944,6 @@
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
             "text": "PASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
-          },
-          {
-            "line": 0,
-            "rule": "anaphora: 3 sentences open with 'no'",
-            "code": "anaphora",
-            "text": ""
           }
         ],
         "pass": true,
@@ -4970,7 +5007,7 @@
     },
     "/components/listbox/code": {
       "ok": true,
-      "words": 159,
+      "words": 228,
       "hard": 0,
       "report": {
         "hard": [],
@@ -4988,7 +5025,7 @@
     },
     "/components/listbox/accessibility": {
       "ok": true,
-      "words": 213,
+      "words": 246,
       "hard": 0,
       "report": {
         "hard": [],
@@ -5061,7 +5098,7 @@
     },
     "/components/combobox/code": {
       "ok": true,
-      "words": 171,
+      "words": 266,
       "hard": 0,
       "report": {
         "hard": [],
@@ -5085,7 +5122,7 @@
     },
     "/components/combobox/accessibility": {
       "ok": true,
-      "words": 213,
+      "words": 250,
       "hard": 0,
       "report": {
         "hard": [],
@@ -5095,6 +5132,12 @@
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "See the Accessibility tab for keys, roles and what it announces."
+          },
+          {
+            "line": 20,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "code, code, code and code."
           },
           {
             "line": 0,
@@ -5151,7 +5194,7 @@
     },
     "/components/autocomplete/code": {
       "ok": true,
-      "words": 155,
+      "words": 248,
       "hard": 0,
       "report": {
         "hard": [],
@@ -5169,7 +5212,7 @@
     },
     "/components/autocomplete/accessibility": {
       "ok": true,
-      "words": 198,
+      "words": 227,
       "hard": 0,
       "report": {
         "hard": [],
@@ -5179,6 +5222,12 @@
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "See the Accessibility tab for keys, roles and what it announces."
+          },
+          {
+            "line": 20,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "code, code, code and code."
           },
           {
             "line": 0,
@@ -5228,7 +5277,7 @@
     },
     "/components/multi-select/code": {
       "ok": true,
-      "words": 143,
+      "words": 232,
       "hard": 0,
       "report": {
         "hard": [],
@@ -5252,7 +5301,7 @@
     },
     "/components/multi-select/accessibility": {
       "ok": true,
-      "words": 207,
+      "words": 247,
       "hard": 0,
       "report": {
         "hard": [],
@@ -5262,6 +5311,12 @@
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "See the Accessibility tab for keys, roles and what it announces."
+          },
+          {
+            "line": 20,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "code, code, code and code; read-only chips have no remove button."
           },
           {
             "line": 0,
@@ -5367,7 +5422,7 @@
     },
     "/components/menu/accessibility": {
       "ok": true,
-      "words": 204,
+      "words": 230,
       "hard": 0,
       "report": {
         "hard": [],
@@ -5458,7 +5513,7 @@
     },
     "/components/context-menu/accessibility": {
       "ok": true,
-      "words": 215,
+      "words": 239,
       "hard": 0,
       "report": {
         "hard": [],
@@ -5531,7 +5586,7 @@
     },
     "/components/radio-cards/code": {
       "ok": true,
-      "words": 160,
+      "words": 219,
       "hard": 0,
       "report": {
         "hard": [],
@@ -5554,11 +5609,18 @@
       }
     },
     "/components/radio-cards/accessibility": {
-      "ok": true,
-      "words": 207,
-      "hard": 0,
+      "ok": false,
+      "words": 244,
+      "hard": 1,
       "report": {
-        "hard": [],
+        "hard": [
+          {
+            "line": 13,
+            "rule": "label colon in prose",
+            "code": "label_colon",
+            "text": "PASS a radio group: arrow keys choose and the chosen card carries a check"
+          }
+        ],
         "warn": [
           {
             "line": 5,
@@ -5573,7 +5635,7 @@
             "text": "#What you still have to do\nGive it a label that names what is chosen; the compon"
           }
         ],
-        "pass": true,
+        "pass": false,
         "profile": []
       }
     },
@@ -5628,12 +5690,12 @@
     },
     "/components/rating/code": {
       "ok": false,
-      "words": 166,
+      "words": 202,
       "hard": 1,
       "report": {
         "hard": [
           {
-            "line": 17,
+            "line": 19,
             "rule": "label colon in prose",
             "code": "label_colon",
             "text": "What is being rated, the group's accessible name: Rate this print."
@@ -5653,7 +5715,7 @@
     },
     "/components/rating/accessibility": {
       "ok": true,
-      "words": 207,
+      "words": 237,
       "hard": 0,
       "report": {
         "hard": [],
@@ -5726,7 +5788,7 @@
     },
     "/components/tag-input/code": {
       "ok": true,
-      "words": 145,
+      "words": 238,
       "hard": 0,
       "report": {
         "hard": [],
@@ -5744,7 +5806,7 @@
     },
     "/components/tag-input/accessibility": {
       "ok": true,
-      "words": 205,
+      "words": 237,
       "hard": 0,
       "report": {
         "hard": [],
@@ -5754,6 +5816,12 @@
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "See the Accessibility tab for keys, roles and what it announces."
+          },
+          {
+            "line": 20,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "code, code, code and code."
           },
           {
             "line": 0,
@@ -5816,12 +5884,12 @@
     },
     "/components/segmented-control/code": {
       "ok": false,
-      "words": 175,
+      "words": 211,
       "hard": 1,
       "report": {
         "hard": [
           {
-            "line": 17,
+            "line": 19,
             "rule": "label colon in prose",
             "code": "label_colon",
             "text": "The setting it switches, its accessible name: View, Units."
@@ -5841,7 +5909,7 @@
     },
     "/components/segmented-control/accessibility": {
       "ok": true,
-      "words": 239,
+      "words": 268,
       "hard": 0,
       "report": {
         "hard": [],
@@ -5857,12 +5925,6 @@
             "rule": "suspect word: navigate",
             "code": "lexicon",
             "text": "Give it a label that names what it navigates when a page has more than one; the "
-          },
-          {
-            "line": 0,
-            "rule": "anaphora: 3 sentences open with 'no'",
-            "code": "anaphora",
-            "text": ""
           }
         ],
         "pass": true,
@@ -5938,7 +6000,7 @@
     },
     "/components/navbar/accessibility": {
       "ok": true,
-      "words": 222,
+      "words": 245,
       "hard": 0,
       "report": {
         "hard": [],
@@ -6029,7 +6091,7 @@
     },
     "/components/navigation-menu/accessibility": {
       "ok": true,
-      "words": 236,
+      "words": 265,
       "hard": 0,
       "report": {
         "hard": [],
@@ -6113,7 +6175,7 @@
     },
     "/components/sidebar/accessibility": {
       "ok": true,
-      "words": 215,
+      "words": 238,
       "hard": 0,
       "report": {
         "hard": [],
@@ -6203,7 +6265,7 @@
     },
     "/components/bottom-nav/accessibility": {
       "ok": true,
-      "words": 221,
+      "words": 244,
       "hard": 0,
       "report": {
         "hard": [],
@@ -6287,7 +6349,7 @@
     },
     "/components/breadcrumb/accessibility": {
       "ok": true,
-      "words": 218,
+      "words": 244,
       "hard": 0,
       "report": {
         "hard": [],
@@ -6383,7 +6445,7 @@
     },
     "/components/pagination/accessibility": {
       "ok": true,
-      "words": 233,
+      "words": 258,
       "hard": 0,
       "report": {
         "hard": [],
@@ -6485,7 +6547,7 @@
     },
     "/components/stepper/accessibility": {
       "ok": true,
-      "words": 214,
+      "words": 239,
       "hard": 0,
       "report": {
         "hard": [],
@@ -6503,7 +6565,7 @@
             "text": "Give it a label that names what it navigates when a page has more than one; the "
           },
           {
-            "line": 18,
+            "line": 20,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. Done, current and upcoming steps of one task, horizontal or vertical."
@@ -6581,7 +6643,7 @@
     },
     "/components/accordion/accessibility": {
       "ok": true,
-      "words": 226,
+      "words": 255,
       "hard": 0,
       "report": {
         "hard": [],
@@ -6665,7 +6727,7 @@
     },
     "/components/table-of-contents/accessibility": {
       "ok": true,
-      "words": 216,
+      "words": 237,
       "hard": 0,
       "report": {
         "hard": [],
@@ -6779,7 +6841,7 @@
     },
     "/components/progress/accessibility": {
       "ok": true,
-      "words": 220,
+      "words": 257,
       "hard": 0,
       "report": {
         "hard": [],
@@ -6893,11 +6955,18 @@
     },
     "/components/meter/accessibility": {
       "ok": true,
-      "words": 225,
+      "words": 264,
       "hard": 0,
       "report": {
         "hard": [],
-        "warn": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Screen reader passes with VoiceOver and NVDA have not been recorded yet, which i"
+          }
+        ],
         "pass": true,
         "profile": []
       }
@@ -6982,11 +7051,18 @@
     },
     "/components/stat/accessibility": {
       "ok": true,
-      "words": 220,
+      "words": 246,
       "hard": 0,
       "report": {
         "hard": [],
-        "warn": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Screen reader passes with VoiceOver and NVDA have not been recorded yet, which i"
+          }
+        ],
         "pass": true,
         "profile": []
       }
@@ -7053,11 +7129,18 @@
     },
     "/components/empty-state/accessibility": {
       "ok": true,
-      "words": 212,
+      "words": 242,
       "hard": 0,
       "report": {
         "hard": [],
-        "warn": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Screen reader passes with VoiceOver and NVDA have not been recorded yet, which i"
+          }
+        ],
         "pass": true,
         "profile": []
       }
@@ -7117,16 +7200,22 @@
     },
     "/components/timeline/accessibility": {
       "ok": true,
-      "words": 215,
+      "words": 243,
       "hard": 0,
       "report": {
         "hard": [],
         "warn": [
           {
-            "line": 21,
+            "line": 23,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. Events on a hairline rail; done, current and upcoming dots differ by shape."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Screen reader passes with VoiceOver and NVDA have not been recorded yet, which i"
           }
         ],
         "pass": true,
@@ -7208,11 +7297,18 @@
     },
     "/components/description-list/accessibility": {
       "ok": true,
-      "words": 211,
+      "words": 235,
       "hard": 0,
       "report": {
         "hard": [],
-        "warn": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Screen reader passes with VoiceOver and NVDA have not been recorded yet, which i"
+          }
+        ],
         "pass": true,
         "profile": []
       }
@@ -7279,7 +7375,7 @@
     },
     "/components/list/accessibility": {
       "ok": true,
-      "words": 226,
+      "words": 263,
       "hard": 0,
       "report": {
         "hard": [],
@@ -7338,7 +7434,7 @@
     },
     "/components/table/code": {
       "ok": true,
-      "words": 261,
+      "words": 319,
       "hard": 0,
       "report": {
         "hard": [],
@@ -7354,6 +7450,12 @@
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "#Variants, states and compositions"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Shown over the body while rows load; the rows stay so the reader keeps their pla"
           }
         ],
         "pass": true,
@@ -7362,7 +7464,7 @@
     },
     "/components/table/accessibility": {
       "ok": true,
-      "words": 224,
+      "words": 284,
       "hard": 0,
       "report": {
         "hard": [],
@@ -7439,7 +7541,7 @@
     },
     "/components/password-input/accessibility": {
       "ok": true,
-      "words": 229,
+      "words": 278,
       "hard": 0,
       "report": {
         "hard": [],
@@ -7535,7 +7637,7 @@
     },
     "/components/search-input/accessibility": {
       "ok": true,
-      "words": 228,
+      "words": 289,
       "hard": 0,
       "report": {
         "hard": [],
@@ -7618,7 +7720,7 @@
     },
     "/components/number-input/accessibility": {
       "ok": true,
-      "words": 237,
+      "words": 320,
       "hard": 0,
       "report": {
         "hard": [],
@@ -7634,12 +7736,6 @@
             "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
             "code": "rhythm",
             "text": "#What you still have to do\nGive it a label that names the amount and say the lim"
-          },
-          {
-            "line": 0,
-            "rule": "anaphora: 3 sentences open with 'no'",
-            "code": "anaphora",
-            "text": ""
           }
         ],
         "pass": true,
@@ -7714,7 +7810,7 @@
     },
     "/components/range-slider/accessibility": {
       "ok": true,
-      "words": 221,
+      "words": 266,
       "hard": 0,
       "report": {
         "hard": [],
@@ -7798,7 +7894,7 @@
     },
     "/components/editable/accessibility": {
       "ok": true,
-      "words": 223,
+      "words": 268,
       "hard": 0,
       "report": {
         "hard": [],
@@ -7876,7 +7972,7 @@
     },
     "/components/file-upload/code": {
       "ok": true,
-      "words": 215,
+      "words": 248,
       "hard": 0,
       "report": {
         "hard": [],
@@ -7894,7 +7990,7 @@
     },
     "/components/file-upload/accessibility": {
       "ok": true,
-      "words": 222,
+      "words": 269,
       "hard": 0,
       "report": {
         "hard": [],
@@ -7960,7 +8056,7 @@
     },
     "/components/dropzone/code": {
       "ok": true,
-      "words": 208,
+      "words": 241,
       "hard": 0,
       "report": {
         "hard": [],
@@ -7978,7 +8074,7 @@
     },
     "/components/dropzone/accessibility": {
       "ok": true,
-      "words": 213,
+      "words": 259,
       "hard": 0,
       "report": {
         "hard": [],
@@ -8044,7 +8140,7 @@
     },
     "/components/color-picker/code": {
       "ok": true,
-      "words": 173,
+      "words": 209,
       "hard": 0,
       "report": {
         "hard": [],
@@ -8068,7 +8164,7 @@
     },
     "/components/color-picker/accessibility": {
       "ok": true,
-      "words": 217,
+      "words": 265,
       "hard": 0,
       "report": {
         "hard": [],
@@ -8145,7 +8241,7 @@
     },
     "/components/otp-flow/accessibility": {
       "ok": true,
-      "words": 226,
+      "words": 277,
       "hard": 0,
       "report": {
         "hard": [],
@@ -8241,7 +8337,7 @@
     },
     "/components/calendar/accessibility": {
       "ok": true,
-      "words": 232,
+      "words": 308,
       "hard": 0,
       "report": {
         "hard": [],
@@ -8349,7 +8445,7 @@
     },
     "/components/date-picker/code": {
       "ok": true,
-      "words": 296,
+      "words": 349,
       "hard": 0,
       "report": {
         "hard": [],
@@ -8373,7 +8469,7 @@
     },
     "/components/date-picker/accessibility": {
       "ok": true,
-      "words": 227,
+      "words": 284,
       "hard": 0,
       "report": {
         "hard": [],
@@ -8445,7 +8541,7 @@
     },
     "/components/time-picker/code": {
       "ok": true,
-      "words": 239,
+      "words": 265,
       "hard": 0,
       "report": {
         "hard": [],
@@ -8463,7 +8559,7 @@
     },
     "/components/time-picker/accessibility": {
       "ok": true,
-      "words": 212,
+      "words": 239,
       "hard": 0,
       "report": {
         "hard": [],
@@ -8565,7 +8661,7 @@
     },
     "/components/tree-view/accessibility": {
       "ok": true,
-      "words": 227,
+      "words": 278,
       "hard": 0,
       "report": {
         "hard": [],
@@ -8575,6 +8671,18 @@
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "See the Accessibility tab for keys, roles and what it announces."
+          },
+          {
+            "line": 10,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "PASS arrow keys open, close and move between rows"
+          },
+          {
+            "line": 19,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "PASS arrow keys open, close and move between rows"
           },
           {
             "line": 0,
@@ -8642,7 +8750,7 @@
     },
     "/components/carousel/accessibility": {
       "ok": true,
-      "words": 212,
+      "words": 246,
       "hard": 0,
       "report": {
         "hard": [],
@@ -8719,7 +8827,7 @@
     },
     "/components/virtual-list/accessibility": {
       "ok": true,
-      "words": 207,
+      "words": 243,
       "hard": 0,
       "report": {
         "hard": [],
@@ -8790,7 +8898,7 @@
     },
     "/components/transfer-list/accessibility": {
       "ok": true,
-      "words": 210,
+      "words": 240,
       "hard": 0,
       "report": {
         "hard": [],
@@ -8910,7 +9018,7 @@
     },
     "/components/data-grid/code": {
       "ok": true,
-      "words": 242,
+      "words": 264,
       "hard": 0,
       "report": {
         "hard": [],
@@ -8940,7 +9048,7 @@
     },
     "/components/data-grid/accessibility": {
       "ok": true,
-      "words": 220,
+      "words": 269,
       "hard": 0,
       "report": {
         "hard": [],
@@ -9023,7 +9131,7 @@
     },
     "/components/bar-chart/accessibility": {
       "ok": true,
-      "words": 226,
+      "words": 269,
       "hard": 0,
       "report": {
         "hard": [],
@@ -9106,7 +9214,7 @@
     },
     "/components/line-chart/accessibility": {
       "ok": true,
-      "words": 212,
+      "words": 254,
       "hard": 0,
       "report": {
         "hard": [],
@@ -9190,7 +9298,7 @@
     },
     "/components/sparkline/accessibility": {
       "ok": true,
-      "words": 204,
+      "words": 234,
       "hard": 0,
       "report": {
         "hard": [],
@@ -9261,7 +9369,7 @@
     },
     "/components/heatmap/accessibility": {
       "ok": true,
-      "words": 211,
+      "words": 245,
       "hard": 0,
       "report": {
         "hard": [],
@@ -9357,7 +9465,7 @@
     },
     "/components/form/accessibility": {
       "ok": true,
-      "words": 267,
+      "words": 280,
       "hard": 0,
       "report": {
         "hard": [],
@@ -9441,7 +9549,7 @@
     },
     "/components/wizard/accessibility": {
       "ok": true,
-      "words": 265,
+      "words": 278,
       "hard": 0,
       "report": {
         "hard": [],
@@ -9453,7 +9561,7 @@
             "text": "See the Accessibility tab for keys, roles and what it announces."
           },
           {
-            "line": 26,
+            "line": 27,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. Stepper, one panel at a time under a heading that takes focus, Back and the"
@@ -9531,7 +9639,7 @@
     },
     "/components/auth-form/accessibility": {
       "ok": true,
-      "words": 238,
+      "words": 251,
       "hard": 0,
       "report": {
         "hard": [],
@@ -9699,7 +9807,7 @@
     },
     "/components/notification-center/accessibility": {
       "ok": true,
-      "words": 234,
+      "words": 247,
       "hard": 0,
       "report": {
         "hard": [],
@@ -9789,7 +9897,7 @@
     },
     "/components/coach-mark/accessibility": {
       "ok": true,
-      "words": 237,
+      "words": 250,
       "hard": 0,
       "report": {
         "hard": [],
@@ -9873,7 +9981,7 @@
     },
     "/components/kanban-board/accessibility": {
       "ok": true,
-      "words": 254,
+      "words": 267,
       "hard": 0,
       "report": {
         "hard": [],
@@ -9944,7 +10052,7 @@
     },
     "/components/feed/accessibility": {
       "ok": true,
-      "words": 246,
+      "words": 259,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10034,7 +10142,7 @@
     },
     "/components/app-shell/accessibility": {
       "ok": true,
-      "words": 244,
+      "words": 257,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10111,7 +10219,7 @@
     },
     "/components/settings-layout/accessibility": {
       "ok": true,
-      "words": 220,
+      "words": 233,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10195,7 +10303,7 @@
     },
     "/components/rich-text-editor/code": {
       "ok": true,
-      "words": 188,
+      "words": 245,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10213,10 +10321,16 @@
             "text": "#Variants, states and compositions"
           },
           {
-            "line": 18,
+            "line": 22,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "The HTML it starts with. Only paragraphs, bold, italic, lists and links are kept"
+          },
+          {
+            "line": 27,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Shows the text without letting it change; it can be focused, read and selected, "
           }
         ],
         "pass": true,
@@ -10225,7 +10339,7 @@
     },
     "/components/rich-text-editor/accessibility": {
       "ok": true,
-      "words": 242,
+      "words": 267,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10358,7 +10472,7 @@
     },
     "/components/slider/accessibility": {
       "ok": true,
-      "words": 457,
+      "words": 505,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10370,6 +10484,24 @@
             "text": "Radix slider role with arrow keys, Page Up, Page Down, Home and End."
           },
           {
+            "line": 15,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "PASS arrow keys, Home and End change the value"
+          },
+          {
+            "line": 17,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "PASS arrow keys, Home and End change the value"
+          },
+          {
+            "line": 24,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "PASS arrow keys, Home and End change the value"
+          },
+          {
             "line": 0,
             "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
             "code": "rhythm",
@@ -10379,13 +10511,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "A range with two thumbs is planned for wave 8."
-          },
-          {
-            "line": 0,
-            "rule": "anaphora: 3 sentences open with 'no'",
-            "code": "anaphora",
-            "text": ""
+            "text": "PASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
           }
         ],
         "pass": true,
@@ -10478,11 +10604,18 @@
     },
     "/components/input/accessibility": {
       "ok": true,
-      "words": 285,
+      "words": 325,
       "hard": 0,
       "report": {
         "hard": [],
-        "warn": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "#Change history\nFirst release, part of the W3 form family drawn as a well in the"
+          }
+        ],
         "pass": true,
         "profile": []
       }
@@ -10555,7 +10688,7 @@
     },
     "/components/textarea/accessibility": {
       "ok": true,
-      "words": 243,
+      "words": 263,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10601,7 +10734,7 @@
     },
     "/components/checkbox/code": {
       "ok": true,
-      "words": 222,
+      "words": 243,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10619,7 +10752,7 @@
     },
     "/components/checkbox/accessibility": {
       "ok": true,
-      "words": 264,
+      "words": 328,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10665,7 +10798,7 @@
     },
     "/components/radio/code": {
       "ok": true,
-      "words": 244,
+      "words": 264,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10683,7 +10816,7 @@
     },
     "/components/radio/accessibility": {
       "ok": true,
-      "words": 277,
+      "words": 314,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10729,7 +10862,7 @@
     },
     "/components/switch/code": {
       "ok": true,
-      "words": 188,
+      "words": 209,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10747,7 +10880,7 @@
     },
     "/components/switch/accessibility": {
       "ok": true,
-      "words": 259,
+      "words": 284,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10836,7 +10969,7 @@
     },
     "/components/form-field/accessibility": {
       "ok": true,
-      "words": 244,
+      "words": 293,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10926,7 +11059,7 @@
     },
     "/components/label/accessibility": {
       "ok": true,
-      "words": 217,
+      "words": 254,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10997,7 +11130,7 @@
     },
     "/components/helper-text/accessibility": {
       "ok": true,
-      "words": 232,
+      "words": 267,
       "hard": 0,
       "report": {
         "hard": [],
@@ -11074,7 +11207,7 @@
     },
     "/components/fieldset/accessibility": {
       "ok": true,
-      "words": 211,
+      "words": 235,
       "hard": 0,
       "report": {
         "hard": [],
@@ -11145,7 +11278,7 @@
     },
     "/components/input-group/accessibility": {
       "ok": true,
-      "words": 241,
+      "words": 278,
       "hard": 0,
       "report": {
         "hard": [],
@@ -11204,7 +11337,7 @@
     },
     "/components/pin-input/code": {
       "ok": true,
-      "words": 272,
+      "words": 288,
       "hard": 0,
       "report": {
         "hard": [],
@@ -11228,7 +11361,7 @@
     },
     "/components/pin-input/accessibility": {
       "ok": true,
-      "words": 256,
+      "words": 299,
       "hard": 0,
       "report": {
         "hard": [],
@@ -11287,7 +11420,7 @@
     },
     "/components/banner/code": {
       "ok": true,
-      "words": 406,
+      "words": 436,
       "hard": 0,
       "report": {
         "hard": [],
@@ -11311,7 +11444,7 @@
     },
     "/components/banner/accessibility": {
       "ok": true,
-      "words": 406,
+      "words": 452,
       "hard": 0,
       "report": {
         "hard": [],
@@ -11320,7 +11453,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "Dismiss state is not remembered across visits."
+            "text": "PASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
           }
         ],
         "pass": true,
@@ -11357,6 +11490,24 @@
             "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
             "code": "rhythm",
             "text": "The reader must answer before going on, so the question has to sit in front of e"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/patterns/states": {
+      "ok": true,
+      "words": 333,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'enter'",
+            "code": "anaphora",
+            "text": ""
           }
         ],
         "pass": true,
@@ -11587,7 +11738,7 @@
     },
     "/accessibility": {
       "ok": true,
-      "words": 762,
+      "words": 1105,
       "hard": 0,
       "report": {
         "hard": [],
@@ -11599,28 +11750,40 @@
             "text": "Reduced transparency. Opaque graphite, no blur, no dimming (emulated via the Chr"
           },
           {
-            "line": 175,
+            "line": 26,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "PASS glass card blurs, saturates and dims what is behind it. blur(64px) saturate"
+          },
+          {
+            "line": 204,
             "rule": "suspect word: genuinely",
             "code": "lexicon",
             "text": "A genuinely dark backdrop, so the dim and mid levels are uncalibrated."
           },
           {
             "line": 0,
-            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
-            "code": "rhythm",
-            "text": "4 props\nPASS props table is generated from TS and every own prop is documented ("
-          },
-          {
-            "line": 0,
-            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
-            "code": "rhythm",
-            "text": "no props of its own (pass-through only)\nPASS props table is generated from TS an"
+            "rule": "emoji or symbol decoration (3 in the document)",
+            "code": "formatting",
+            "text": ""
           },
           {
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
             "text": "Repeat one viewport at a time down the whole page, in normal, reduced-transparen"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "4 demos\nPASS non-decorative avatars are role=\"img\" named after the person\nPASS d"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "no props of its own (pass-through only)\nPASS demo floor met (≥ variant dimension"
           },
           {
             "line": 0,
@@ -11646,12 +11809,12 @@
     },
     "/reference/changelog": {
       "ok": false,
-      "words": 2411,
+      "words": 2573,
       "hard": 1,
       "report": {
         "hard": [
           {
-            "line": 96,
+            "line": 118,
             "rule": "label colon in prose",
             "code": "label_colon",
             "text": "new code variant, a white bead. Slider: the thumb is a capsule and the track is "
@@ -11659,55 +11822,79 @@
         ],
         "warn": [
           {
-            "line": 33,
+            "line": 15,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "code, code, code and code."
+          },
+          {
+            "line": 16,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "code, code, code and code."
+          },
+          {
+            "line": 17,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "code, code, code and code; read-only chips have no remove button."
+          },
+          {
+            "line": 18,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "code, code, code and code."
+          },
+          {
+            "line": 55,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. Done, current and upcoming steps of one task, horizontal or vertical."
           },
           {
-            "line": 41,
+            "line": 63,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. Events on a hairline rail; done, current and upcoming dots differ by shape."
           },
           {
-            "line": 67,
+            "line": 89,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. Stepper, one panel at a time under a heading that takes focus, Back and the"
           },
           {
-            "line": 82,
+            "line": 104,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. A few words on hover, focus and tap."
           },
           {
-            "line": 89,
+            "line": 111,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new (D-029). A mesh gradient for covers, icons, illustrations and scenes, never "
           },
           {
-            "line": 107,
+            "line": 129,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "removed code, code, code, code, code, code, code, code, code; added the etch, po"
           },
           {
-            "line": 111,
+            "line": 133,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code, code, code, code, code, code, code, code, code, code, code, an"
           },
           {
-            "line": 137,
+            "line": 159,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "First release with glass, inset and solid variants and a cover slot. Glass dims "
           },
           {
-            "line": 140,
+            "line": 162,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "First release with light, accent and glass variants and the soft hover lift."

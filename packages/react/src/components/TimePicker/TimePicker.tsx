@@ -24,6 +24,8 @@ export interface TimePickerProps {
   placeholder?: string;
   /** Turns the field off. */
   disabled?: boolean;
+  /** Shows the value without letting it change. It can still be focused and read, and it does not open. */
+  readOnly?: boolean;
   /** Name for form submission; the value is sent as HH:MM. */
   name?: string;
   /** Extra class on the wrapper. */

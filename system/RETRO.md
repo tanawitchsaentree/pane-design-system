@@ -151,3 +151,11 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **Step that produced it:** the install section was written from the shape of a published library, before the release path (tarballs) existed, and never re-read against it.
 - **What changed in that step:** every install line is the tarball path, and step 1 says Pane is not on npm yet. kiln rule 17: an install line is a promise.
 - **Check that now catches it:** G-PUB1 fails any page that shows a registry install of a package not listed in kiln.config `published`.
+
+### R-023: states were promised in prose and missing in code
+- **Date:** 2026-10-30
+- **User said:** "เช็ค form, table, state, variant ห้ามขาด"
+- **What was wrong:** a typecheck of a matrix of every interactive component in every state found readOnly missing on nine fields, invalid on seven choice and file controls, loading on Button, IconButton and Table, disabled on Listbox, Rating, SegmentedControl, ColorPicker and Chip, and FormField's disabled and required not reaching Select, DatePicker, PinInput, RichTextEditor and NumberInput's steppers. Chip and FAB took `disabled` and drew nothing.
+- **Step that produced it:** each component was derived and documented on its own; no step listed the states a family must have, so a state a page described could be absent and no gate asked.
+- **What changed in that step:** the state matrix (`/patterns/states`) is the list: each family's states are rows, written once, and a new component joins its family's row.
+- **Check that now catches it:** G-SV1 shoots every cell in one fixed, opaque dock (so equal cells rasterise equally) and fails a cell that matches its row default or lacks its ARIA; proven by removing Checkbox's invalid ring (0 px differ, red) and putting it back.

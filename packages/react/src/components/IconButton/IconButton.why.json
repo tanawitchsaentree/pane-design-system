@@ -35,6 +35,21 @@
       "p": "P5",
       "axis": "depth",
       "why": "a white bead with its own bloom, the one main action in a toolbar or dock"
+    },
+    "content": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the label stays in place unseen while loading so the button keeps its width and nothing jumps"
+    },
+    "loading": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a busy button keeps focus, says it is busy and ignores presses until the action is done"
+    },
+    "spinner": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the spinner sits over the hidden label so the reader sees the action is still running"
     }
   },
   "states": {

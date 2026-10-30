@@ -17,4 +17,6 @@
 .check { display: inline-grid; inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); }
 .check svg { inline-size: 100%; block-size: 100%; fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
 .description { font-size: var(--ds-type-label); line-height: var(--ds-type-leading-body); color: var(--ds-text-secondary); }
+/* a wrong answer rings every card in the critical mark, like a field (P6) */
+.grid[aria-invalid='true'] .card { outline: var(--ds-width-ring) solid var(--ds-radio-cards-ring-invalid); outline-offset: var(--ds-width-hairline); }
 @media (forced-colors: active) { .card { border: var(--ds-width-hairline) solid ButtonText; } .card[data-state='checked'] { outline: var(--ds-width-ring) solid Highlight; } }

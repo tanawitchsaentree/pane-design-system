@@ -20,22 +20,30 @@ export interface MultiSelectProps {
   emptyText?: string;
   /** Extra class on the root. */
   className?: string;
+  /** Turns the field off. Inside a FormField, its `disabled` sets this for you. */
+  disabled?: boolean;
+  /** Shows the value without letting it change; it can still be focused and read. */
+  readOnly?: boolean;
+  /** Marks the value as wrong. Inside a FormField, its `error` sets this for you. */
+  invalid?: boolean;
+  /** Says the field must be filled. Inside a FormField, its `required` sets this for you. */
+  required?: boolean;
 }
 
 /** Choose several values from a long list: a field that filters as you type, each chosen value a chip in
  *  the field that can be removed. Backspace in an empty field removes the last chip. */
-export function MultiSelect({ label, options, value, defaultValue, onValueChange, placeholder, emptyText = 'No matches', className }: MultiSelectProps) {
+export function MultiSelect({ label, options, value, defaultValue, onValueChange, placeholder, emptyText = 'No matches', className, disabled, readOnly, invalid, required }: MultiSelectProps) {
   const [inner, setInner] = useState<string[]>(defaultValue ?? []);
   const chosen = value ?? inner;
   const [text, setText] = useState('');
   const set = (next: string[]) => { if (value === undefined) setInner(next); onValueChange?.(next); };
   const toggle = (v: string) => { set(chosen.includes(v) ? chosen.filter((x) => x !== v) : [...chosen, v]); setText(''); };
   const chips = chosen.map((v) => options.find((o) => o.value === v)).filter(Boolean).map((o) => (
-    <Chip key={o!.value} onRemove={() => toggle(o!.value)} removeLabel={`Remove ${o!.label}`}>{o!.label}</Chip>
+    <Chip key={o!.value} onRemove={readOnly || disabled ? undefined : () => toggle(o!.value)} removeLabel={`Remove ${o!.label}`}>{o!.label}</Chip>
   ));
   return (
     <div onKeyDown={(e) => { if (e.key === 'Backspace' && !text && chosen.length && (e.target as HTMLElement).tagName === 'INPUT') set(chosen.slice(0, -1)); }}>
-      <ComboCore component="MultiSelect" label={label} options={options} text={text} onText={setText} chosen={chosen} onChoose={toggle} placeholder={chosen.length ? undefined : placeholder} before={chips} emptyText={emptyText} className={className} />
+      <ComboCore disabled={disabled} readOnly={readOnly} invalid={invalid} required={required} component="MultiSelect" label={label} options={options} text={text} onText={setText} chosen={chosen} onChoose={toggle} placeholder={chosen.length ? undefined : placeholder} before={chips} emptyText={emptyText} className={className} />
     </div>
   );
 }

@@ -80,4 +80,10 @@
   box-shadow: 0 0 0 calc(var(--ds-focus-ring-width) * 2 + var(--ds-focus-ring-halo-width)) var(--ds-focus-ring-halo);
 }
 .root:disabled { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
+/* loading keeps the button's size: the content stays in place unseen and a spinner sits on top (P4) */
+.content { display: inline-flex; align-items: center; justify-content: center; gap: inherit; }
+.loading { cursor: progress; }
+/* opacity, not visibility, so the label still names the button while it is hidden */
+.loading .content { opacity: 0; }
+.spinner { position: absolute; inset: 0; display: grid; place-items: center; color: currentColor; }
 @media (forced-colors: active) { .root { border: var(--ds-focus-ring-width) solid ButtonText; } .root::before, .root::after { display: none; } }

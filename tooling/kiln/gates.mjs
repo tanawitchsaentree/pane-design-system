@@ -17,6 +17,7 @@
 //   non-text     G-NT2 form-control edges ≥3:1 in every theme · G-NR1 flyout rows nest the flyout's corner
 //   inset        G-IN1 text inside a control ≥8px (and ≥ half the end radius) from the control's edge
 //   travel       G-SL1 a slider ≥200px long, and it and its pane keep their size from Home to End
+//   states       G-SV1 every promised state is present, visible and announced (state matrix)
 //   glow         G-GL1 only [data-glow] parts emit light in dark, visibly and within reach; text never; nothing in light
 //   rhythm       G-RH1 a stage and a tab bar ≥24px from neighbouring blocks (own code/caption/heading ≥8, intro ≥16)
 //   address      G-ST1 no default written into the URL; stale or unknown values fall back and are dropped
@@ -1017,6 +1018,71 @@ try {
     expect(routesSeen > 0, 'NO ELEVATION DEMO FOUND ([data-level-sample])');
     fail(bad, 'levels too close');
     return `${n} levels and scrims in ${C.themes.length} themes`;
+  });
+
+  await gate('G-SV1', 'every promised state is there and visible: each cell of the state matrix differs from its row default and carries its ARIA, in every theme', async () => {
+    // Pane, 2026-10-30, user: "เช็ค form, table, state, variant ห้ามขาด". A typecheck of the matrix found
+    // readOnly missing on 9 fields, invalid on 7 choices, loading on Button and Table. This keeps them:
+    // every cell must look different from its row's first cell and say its state to assistive tech.
+    const route = C.statesRoute ?? '/patterns/states';
+    if (!ROUTES.includes(route)) return 'NO state matrix route in this run';
+    const { PNG } = await import('pngjs');
+    const ARIA = {
+      disabled: ':disabled, [aria-disabled="true"], [data-disabled]', invalid: '[aria-invalid="true"], [data-invalid]',
+      readonly: '[readonly], [aria-readonly="true"], [data-readonly]', required: '[required], [aria-required="true"]',
+      checked: '[data-state="checked"], [data-state="on"], [aria-checked="true"], [aria-selected="true"], [aria-pressed="true"]',
+      indeterminate: '[data-state="indeterminate"], [aria-checked="mixed"]', selected: '[data-state="checked"], [data-state="on"], [aria-selected="true"], [aria-pressed="true"], [data-state="active"]',
+      loading: '[aria-busy="true"]', sorted: '[aria-sort="ascending"], [aria-sort="descending"]',
+    };
+    const bad = []; let n = 0;
+    for (const theme of C.themes) {
+      await go(route, { theme });
+      const cells = await page.evaluate(() => [...document.querySelectorAll('[data-state-cell]')].map((f) => { const [c, s] = f.getAttribute('data-state-cell').split('|'); const b = f.querySelector('.state-stage, :scope > div')?.getBoundingClientRect(); return { c, s, box: b && { x: b.x + scrollX, y: b.y + scrollY, width: b.width, height: b.height } }; }));
+      const rows = {};
+      for (const x of cells) (rows[x.c] ??= []).push(x);
+      for (const [comp, list] of Object.entries(rows)) {
+        // each cell's stage is lifted into one fixed, opaque box at the same place on screen, shot there and
+        // put back: two cells that look the same then rasterise the same, whatever sits behind the page
+        const shot = async (x) => {
+          const box = await page.evaluate(([c, st]) => {
+            const stage = document.querySelector(`[data-state-cell="${c}|${st}"] .state-stage`);
+            let dock = document.getElementById('kiln-sv-dock');
+            if (!dock) { dock = document.createElement('div'); dock.id = 'kiln-sv-dock'; Object.assign(dock.style, { position: 'fixed', left: '0px', top: '0px', zIndex: 2147483647, padding: '12px', background: getComputedStyle(stage).backgroundColor, width: `${stage.getBoundingClientRect().width}px`, boxSizing: 'content-box' }); document.body.append(dock); }
+            dock.style.width = `${Math.round(stage.getBoundingClientRect().width)}px`;
+            const mark = document.createComment('sv'); stage.before(mark); dock.append(stage); window.__svBack = () => { mark.replaceWith(stage); };
+            const b = dock.getBoundingClientRect(); return { x: 0, y: 0, width: Math.ceil(b.width), height: Math.ceil(b.height) };
+          }, [comp, x.s]);
+          await page.mouse.move(1200, 880); await page.waitForTimeout(40);
+          const png = PNG.sync.read(await page.screenshot({ clip: box }));
+          await page.evaluate(() => window.__svBack?.());
+          return png;
+        };
+        const base = await shot(list[0]);
+        for (const x of list.slice(1)) {
+          n++;
+          // the ARIA: every state word in the cell name that has a rule must be met inside the cell
+          for (const word of Object.keys(ARIA)) if (x.s.split(' ').includes(word)) {
+            const ok = await page.evaluate(([c, s, sel]) => !!document.querySelector(`[data-state-cell="${c}|${s}"]`)?.querySelector(sel), [comp, x.s, ARIA[word]]);
+            if (!ok) bad.push(`${theme} ${comp} ${x.s}: no ${word} attribute in the cell`);
+          }
+          const img = await shot(x);
+          // content inside a stage can still sit a pixel apart from its row's default, so the two are lined
+          // up at the best whole-pixel shift within 2px before the changed pixels are counted
+          let diff = Math.abs(img.width - base.width) + Math.abs(img.height - base.height) > 2 ? 1e9 : Infinity;
+          if (diff === Infinity) for (let oy = -2; oy <= 2; oy++) for (let ox = -2; ox <= 2; ox++) {
+            let d = 0;
+            for (let y = 3; y < Math.min(img.height, base.height) - 3; y++) for (let i = 3; i < Math.min(img.width, base.width) - 3; i++) {
+              const a = (y * img.width + i) * 4, b = ((y + oy) * base.width + i + ox) * 4;
+              if (Math.max(Math.abs(img.data[a] - base.data[b]), Math.abs(img.data[a + 1] - base.data[b + 1]), Math.abs(img.data[a + 2] - base.data[b + 2])) > 12) d++;
+            }
+            diff = Math.min(diff, d);
+          }
+          if (diff < 8) bad.push(`${theme} ${comp} ${x.s}: looks the same as ${list[0].s} (${diff} px differ)`);
+        }
+      }
+    }
+    fail(bad, 'state cells missing or invisible');
+    return `${n} state cells differ from their default and carry their ARIA`;
   });
 
   await gate('G-GL1', 'glow is declared and measured: in dark only [data-glow] parts give off light, each visibly (near ring vs ground) and within reach; text never glows; in light nothing glows', async () => {

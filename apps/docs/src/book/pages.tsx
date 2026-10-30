@@ -31,6 +31,7 @@ import { PATTERN_DEPTH } from '../patterns/content';
 import { EXTRAS } from './foundation-extras';
 import { AccessibilityFoundation, ContentFoundation, Contributing, Designing, Developing, Migrating } from './guides';
 import { PatternDepthPage } from '../patterns/PatternDepth';
+import { StatesPage } from './states';
 import { SCENES } from '../scenes';
 import { PARTS } from './router';
 import meta from './meta.json';
@@ -962,6 +963,7 @@ const BASE_PAGES: Record<string, () => ReactElement> = {
   '/foundations/content': ContentFoundation,
   '/foundations/accessibility': AccessibilityFoundation,
   '/principles': Principles,
+  '/patterns/states': () => <StatesPage Page={Page} Section={Section} />,
   '/foundations/glass': Glass,
   '/foundations/color': ColorPage,
   '/foundations/themes': Themes,

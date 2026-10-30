@@ -57,6 +57,9 @@
   box-shadow: 0 0 0 calc(var(--ds-focus-ring-width) * 2 + var(--ds-focus-ring-halo-width)) var(--ds-focus-ring-halo);
 }
 .toggle:active, .remove:active { transform: scale(var(--ds-motion-press-scale)); }
+/* off: the pill dims and its buttons refuse presses */
+.root[data-disabled] { opacity: var(--ds-opacity-disabled); }
+.root[data-disabled] .toggle, .root[data-disabled] .remove { cursor: not-allowed; }
 @media (forced-colors: active) {
   .root { border: var(--ds-width-hairline) solid ButtonText; }
   .root::before { display: none; }

@@ -122,6 +122,11 @@
       "p": "P6",
       "axis": "interaction",
       "why": "a disabled row uses the shared disabled opacity and cannot be chosen"
+    },
+    "aria-invalid=true": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
     }
   },
   "motion": {

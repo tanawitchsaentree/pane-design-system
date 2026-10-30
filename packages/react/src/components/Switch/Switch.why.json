@@ -123,6 +123,11 @@
       "p": "P4",
       "axis": "shape",
       "why": "a press squashes the bead along the track toward where it is going, as something pushed"
+    },
+    "aria-invalid=true": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
     }
   },
   "motion": {

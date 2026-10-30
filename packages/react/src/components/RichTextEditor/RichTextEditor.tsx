@@ -16,6 +16,10 @@ export interface RichTextEditorProps {
   rows?: number;
   /** Turns editing off; the text stays readable. */
   disabled?: boolean;
+  /** Shows the text without letting it change; it can be focused, read and selected, and the toolbar is hidden. */
+  readOnly?: boolean;
+  /** Marks the text as wrong. Inside a FormField, its `error` sets this for you. */
+  invalid?: boolean;
   /** Extra class on the wrapper. */
   className?: string;
 }
@@ -32,9 +36,10 @@ const TOOLS: { cmd: Mark | 'link'; label: string; keys: string; path: string }[]
 /** A text field for short formatted text, a description or a comment: a toolbar of the few marks that
  *  matter, then Input's groove holding the text. The toolbar is one tab stop with arrow keys between its
  *  buttons, and each button says whether its mark is on (aria-pressed), so state reads by more than tone. */
-export const RichTextEditor = forwardRef<HTMLDivElement, RichTextEditorProps>(function RichTextEditor({ defaultValue = '', onChange, placeholder, rows = 5, disabled, className, ...rest }, ref) {
+export const RichTextEditor = forwardRef<HTMLDivElement, RichTextEditorProps>(function RichTextEditor({ defaultValue = '', onChange, placeholder, rows = 5, disabled, readOnly, invalid, className, ...rest }, ref) {
   const id = useId();
   const field = useField();
+  const off = disabled ?? field?.disabled ?? false;
   const box = useRef<HTMLDivElement>(null);
   const [on, setOn] = useState<Record<string, boolean>>({});
   const [empty, setEmpty] = useState(!defaultValue);
@@ -52,18 +57,18 @@ export const RichTextEditor = forwardRef<HTMLDivElement, RichTextEditorProps>(fu
     changed();
   };
   return (
-    <div ref={ref} data-component="RichTextEditor" className={cx(styles.root, disabled && styles.disabled, className)}>
-      <div role="toolbar" aria-label="Formatting" aria-controls={`${id}-box`} className={styles.toolbar}
+    <div ref={ref} data-component="RichTextEditor" className={cx(styles.root, off && styles.disabled, className)}>
+      {!readOnly && <div role="toolbar" aria-label="Formatting" aria-controls={`${id}-box`} className={styles.toolbar}
         onKeyDown={(e) => { const n = TOOLS.length; const m: Record<string, number> = { ArrowRight: 1, ArrowLeft: -1 }; if (m[e.key]) { e.preventDefault(); const t = (tool + m[e.key] + n) % n; setTool(t); (e.currentTarget.children[t] as HTMLElement)?.focus(); } }}>
         {TOOLS.map((t, i) => (
-          <button key={t.cmd} type="button" tabIndex={i === tool ? 0 : -1} disabled={disabled} aria-pressed={t.cmd === 'link' ? undefined : !!on[t.cmd]} aria-label={t.label} title={t.keys ? `${t.label} (${t.keys})` : t.label}
+          <button key={t.cmd} type="button" tabIndex={i === tool ? 0 : -1} disabled={off} aria-pressed={t.cmd === 'link' ? undefined : !!on[t.cmd]} aria-label={t.label} title={t.keys ? `${t.label} (${t.keys})` : t.label}
             className={cx(styles.tool, on[t.cmd] && styles.on)} onMouseDown={(e) => e.preventDefault()} onClick={() => { setTool(i); run(t.cmd); }}>
             <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.glyph}><path d={t.path} /></svg>
           </button>
         ))}
-      </div>
+      </div>}
       <div ref={box} id={`${id}-box`} role="textbox" aria-multiline="true" aria-label={rest['aria-label']} aria-labelledby={rest['aria-label'] || !field ? undefined : `${field.id}-label`}
-        aria-describedby={field?.describedBy} aria-disabled={disabled || undefined} contentEditable={!disabled} suppressContentEditableWarning
+        aria-describedby={field?.describedBy} aria-disabled={off || undefined} aria-required={field?.required || undefined} aria-readonly={readOnly || undefined} aria-invalid={(invalid ?? field?.invalid) || undefined} tabIndex={readOnly ? 0 : undefined} contentEditable={!off && !readOnly} suppressContentEditableWarning
         data-placeholder={empty ? placeholder : undefined} className={styles.box} style={{ minBlockSize: `calc(${rows} * var(--ds-type-leading-body) * 1em + var(--ds-rich-text-editor-padding) * 2)` }}
         onInput={changed}
         onKeyDown={(e) => { if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); run('link'); } }}

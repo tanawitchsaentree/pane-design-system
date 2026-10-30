@@ -11,3 +11,5 @@
 .size { flex: none; font-size: var(--ds-type-label); color: var(--ds-text-secondary); font-variant-numeric: tabular-nums; }
 .refused { display: flex; flex-direction: column; gap: var(--ds-gap-xs); margin: 0; padding-inline-start: var(--ds-gap-2xl); font-size: var(--ds-type-label); color: var(--ds-text-primary); }
 .refused li::marker { color: var(--ds-file-upload-critical-mark); }
+/* wrong: the choose button takes the critical ring a field takes (P6) */
+.root[data-invalid] .head > button { outline: var(--ds-width-ring) solid var(--ds-file-upload-ring-invalid); outline-offset: var(--ds-width-hairline); }

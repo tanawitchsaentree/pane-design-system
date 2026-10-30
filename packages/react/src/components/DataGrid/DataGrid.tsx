@@ -27,6 +27,8 @@ export interface DataGridProps<Row extends { id: string | number }> {
   maxHeight?: string;
   /** Shown over the body while new rows load; the rows stay so the reader keeps their place. */
   loading?: boolean;
+  /** What the body says when there are no rows, such as No prints match these filters; Nothing to show yet by default. */
+  empty?: ReactNode;
   /** Extra class on the wrapper. */
   className?: string;
 }
@@ -48,7 +50,7 @@ const cmp = (a: unknown, b: unknown) => (typeof a === 'number' && typeof b === '
 /** Table's pane and rows as an interactive grid: one tab stop, arrow keys move between cells, Home and End
  *  go to a row's ends, Ctrl with them to the grid's corners, Space toggles a row's checkbox. A chosen row
  *  takes chosen glass and a check, so selection reads by shape (P6). Use Table when nothing is chosen. */
-export const DataGrid = forwardRef(function DataGrid<Row extends { id: string | number }>({ caption, columns, rows, selectable, selected, onSelectedChange, defaultSort, stickyFirst, maxHeight, loading, className }: DataGridProps<Row>, ref: React.Ref<HTMLDivElement>) {
+export const DataGrid = forwardRef(function DataGrid<Row extends { id: string | number }>({ caption, columns, rows, selectable, selected, onSelectedChange, defaultSort, stickyFirst, maxHeight, loading, empty = 'Nothing to show yet', className }: DataGridProps<Row>, ref: React.Ref<HTMLDivElement>) {
   const [sort, setSort] = useState<TableSort | undefined>(defaultSort);
   const [inner, setInner] = useState<(string | number)[]>([]);
   const chosen = selected ?? inner;
@@ -96,6 +98,7 @@ export const DataGrid = forwardRef(function DataGrid<Row extends { id: string | 
           </tr>
         </thead>
         <tbody>
+          {shown.length === 0 && <tr role="row"><td role="gridcell" colSpan={cols} className={t.empty}>{empty}</td></tr>}
           {shown.map((row, ri) => {
             const r = ri + 1; const on = chosen.includes(row.id);
             return (

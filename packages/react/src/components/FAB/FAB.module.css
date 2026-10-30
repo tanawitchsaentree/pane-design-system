@@ -8,5 +8,8 @@
 .icon > svg { inline-size: 100%; block-size: 100%; }
 .root:active { transform: scale(var(--ds-motion-press-scale)); }
 .root:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+/* off: the button dims and refuses presses */
+.root:disabled { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
+.root:disabled:active { transform: none; }
 @media (forced-colors: active) { .root { border: var(--ds-width-ring) solid ButtonText; } }
 .label { white-space: nowrap; }

@@ -9,4 +9,6 @@
 .well svg { inline-size: var(--ds-control-check); block-size: var(--ds-control-check); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
 .label { font-size: var(--ds-type-body); font-weight: var(--ds-type-weight-semibold); }
 .hint { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+/* wrong: the groove takes the critical ring a field takes (P6) */
+.root[aria-invalid='true'] { box-shadow: var(--ds-dropzone-groove), inset 0 0 0 var(--ds-width-ring) var(--ds-dropzone-ring-invalid); }
 @media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid ButtonText; } .root[data-over] { border: var(--ds-width-ring) solid Highlight; } }

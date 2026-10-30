@@ -25,6 +25,10 @@ interface Base {
   'aria-label'?: string;
   /** Turns the field off. Inside a FormField, its `disabled` sets this for you. */
   disabled?: boolean;
+  /** Shows the value without letting it change. It can still be focused and read, and it does not open. */
+  readOnly?: boolean;
+  /** Marks the date as wrong. Inside a FormField, its `error` sets this for you. */
+  invalid?: boolean;
   /** Extra class on the field. */
   className?: string;
 }
@@ -54,7 +58,7 @@ export type DatePickerProps = DatePickerSingleProps | DatePickerRangeProps;
  *  words; choosing closes the calendar and puts focus back on the field. In range mode it is a stay: the
  *  first press is the start, the second the end. */
 export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(function DatePicker(props, ref) {
-  const { placeholder = 'Choose a date', min, max, isUnavailable, locale, weekStartsOn, disabled, className } = props;
+  const { placeholder = 'Choose a date', min, max, isUnavailable, locale, weekStartsOn, disabled, readOnly, invalid, className } = props;
   const field = useField();
   const range = props.mode === 'range';
   const [open, setOpen] = useState(false);
@@ -66,10 +70,10 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
   const text = !range ? (v1 ? fmt.format(v1) : '') : v2?.start ? `${fmt.format(v2.start)} to ${v2.end ? fmt.format(v2.end) : '…'}` : '';
   const shared = { min, max, isUnavailable, locale, weekStartsOn, label: props['aria-label'] ?? 'Date' };
   return (
-    <RP.Root open={open} onOpenChange={setOpen}>
+    <RP.Root open={open && !readOnly} onOpenChange={(o) => { if (!readOnly) setOpen(o); }}>
       <RP.Trigger asChild>
-        <button ref={ref} type="button" data-component="DatePicker" id={field?.id} aria-describedby={field?.describedBy} aria-label={props['aria-label']} aria-haspopup="dialog"
-          disabled={disabled ?? field?.disabled} aria-invalid={field?.invalid || undefined} className={cx(sel.trigger, sel.md, styles.trigger, className)}>
+        <button ref={ref} type="button" data-component="DatePicker" id={field?.id} aria-describedby={field?.describedBy} aria-label={props['aria-label']} role="combobox" aria-expanded={open && !readOnly} aria-haspopup="dialog"
+          disabled={disabled ?? field?.disabled} aria-invalid={(invalid ?? field?.invalid) || undefined} aria-required={field?.required || undefined} aria-readonly={readOnly || undefined} data-readonly={readOnly || undefined} className={cx(sel.trigger, sel.md, styles.trigger, className)}>
           <span className={cx(!text && styles.placeholder)}>{text || placeholder}</span>
           <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.glyph}><rect x="4" y="5.5" width="16" height="14" rx="3" /><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4" /></svg>
         </button>

@@ -52,11 +52,12 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(functi
   const lower = label.toLowerCase();
   // inside a FormField the visible label names the field; on its own, `label` does
   const field = useField();
+  const off = disabled ?? field?.disabled ?? false;
   return (
     <InputGroup data-component="NumberInput" className={className}
-      start={<IconButton variant="ghost" aria-label={`Decrease ${lower}`} tabIndex={-1} disabled={disabled || atMin} onClick={() => by(-1)}><svg viewBox="0 0 24 24" aria-hidden="true" className={styles.glyph}><path d="M6 12h12" /></svg></IconButton>}
-      end={<span className={styles.end}>{unit && <span className={styles.unit} aria-hidden="true">{unit}</span>}<IconButton variant="ghost" aria-label={`Increase ${lower}`} tabIndex={-1} disabled={disabled || atMax} onClick={() => by(1)}><svg viewBox="0 0 24 24" aria-hidden="true" className={styles.glyph}><path d="M6 12h12M12 6v12" /></svg></IconButton></span>}>
-      <Input ref={ref} type="text" inputMode={step % 1 === 0 && (min ?? 0) >= 0 ? 'numeric' : 'decimal'} role="spinbutton" disabled={disabled} aria-label={rest['aria-label'] ?? (field ? undefined : label)}
+      start={<IconButton variant="ghost" aria-label={`Decrease ${lower}`} tabIndex={-1} disabled={off || atMin} onClick={() => by(-1)}><svg viewBox="0 0 24 24" aria-hidden="true" className={styles.glyph}><path d="M6 12h12" /></svg></IconButton>}
+      end={<span className={styles.end}>{unit && <span className={styles.unit} aria-hidden="true">{unit}</span>}<IconButton variant="ghost" aria-label={`Increase ${lower}`} tabIndex={-1} disabled={off || atMax} onClick={() => by(1)}><svg viewBox="0 0 24 24" aria-hidden="true" className={styles.glyph}><path d="M6 12h12M12 6v12" /></svg></IconButton></span>}>
+      <Input ref={ref} type="text" inputMode={step % 1 === 0 && (min ?? 0) >= 0 ? 'numeric' : 'decimal'} role="spinbutton" disabled={off} aria-label={rest['aria-label'] ?? (field ? undefined : label)}
         aria-valuenow={current ?? undefined} aria-valuemin={min} aria-valuemax={max} aria-valuetext={current !== null && unit ? `${current} ${unit}` : undefined}
         value={draft ?? (current === null ? '' : String(current))}
         onChange={(e) => setDraft(e.target.value.replace(/[^\d.,-]/g, '').replace(',', '.'))}

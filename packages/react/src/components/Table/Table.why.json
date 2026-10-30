@@ -119,6 +119,16 @@
       "p": "P6",
       "axis": "shape",
       "why": "a descending sort turns the same arrow over so one glyph shows both orders"
+    },
+    "empty": {
+      "p": "P6",
+      "axis": "type",
+      "why": "a table with no rows says so in one quiet line across the body instead of showing a blank grid"
+    },
+    "loading": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "while rows load they stay under a scrim that says so, so the reader keeps their place"
     }
   },
   "states": {

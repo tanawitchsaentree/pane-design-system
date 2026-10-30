@@ -49,6 +49,12 @@
       "why": "a refused file is listed with its reason in words and only the bullet takes the critical mark"
     }
   },
-  "states": {},
+  "states": {
+    "data-invalid": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
+    }
+  },
   "motion": {}
 }

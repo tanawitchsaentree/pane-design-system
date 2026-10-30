@@ -1325,6 +1325,18 @@
     "carve": {
       "$type": "shadow",
       "$value": "{elevation.carve}"
+    },
+    "ring-invalid": {
+      "$value": "{status.critical-mark}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a wrong answer is ringed in the critical mark, the same ring a field takes, and the words in FormField say what is wrong"
+        }
+      }
     }
   },
   "switch": {
@@ -1404,6 +1416,18 @@
     "knob-shade": {
       "$type": "color",
       "$value": "{surface.knob-shade}"
+    },
+    "ring-invalid": {
+      "$value": "{status.critical-mark}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a wrong answer is ringed in the critical mark, the same ring a field takes, and the words in FormField say what is wrong"
+        }
+      }
     }
   },
   "field": {
@@ -2181,6 +2205,18 @@
           "why": "a menu is at least wide enough for a short label and a shortcut"
         }
       }
+    },
+    "ring-invalid": {
+      "$value": "{status.critical-mark}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a wrong answer is ringed in the critical mark, the same ring a field takes, and the words in FormField say what is wrong"
+        }
+      }
     }
   },
   "radio-cards": {
@@ -2304,6 +2340,18 @@
           "why": "a ring round each card, because a card that is a radio button needs a 3:1 edge"
         }
       }
+    },
+    "ring-invalid": {
+      "$value": "{status.critical-mark}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a wrong answer is ringed in the critical mark, the same ring a field takes, and the words in FormField say what is wrong"
+        }
+      }
     }
   },
   "rating": {
@@ -2341,6 +2389,18 @@
             "P6"
           ],
           "why": "empty stars are an outline at the 3:1 edge opacity, still countable"
+        }
+      }
+    },
+    "ring-invalid": {
+      "$value": "{status.critical-mark}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a wrong answer is ringed in the critical mark, the same ring a field takes, and the words in FormField say what is wrong"
         }
       }
     }
@@ -3066,6 +3126,10 @@
         ],
         "why": "data on a level-2 pane with an opaque sheet-tone header and hairlines between rows, numbers at the end"
       }
+    },
+    "scrim": {
+      "$value": "{level.scrim}",
+      "$type": "color"
     }
   },
   "editable": {
@@ -3127,6 +3191,18 @@
           "P6"
         ],
         "why": "a glass button and chosen files on one level-2 pane, refusals said in words"
+      }
+    },
+    "ring-invalid": {
+      "$value": "{status.critical-mark}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a wrong answer is ringed in the critical mark, the same ring a field takes, and the words in FormField say what is wrong"
+        }
       }
     }
   },
@@ -3191,6 +3267,18 @@
         ],
         "why": "a large groove carved into the pane that lifts into chosen glass with a ring while a file is over it"
       }
+    },
+    "ring-invalid": {
+      "$value": "{status.critical-mark}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a wrong answer is ringed in the critical mark, the same ring a field takes, and the words in FormField say what is wrong"
+        }
+      }
     }
   },
   "color-picker": {
@@ -3234,6 +3322,18 @@
     "edge": {
       "$value": "{elevation.control-ring}",
       "$type": "shadow"
+    },
+    "ring-invalid": {
+      "$value": "{status.critical-mark}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a wrong answer is ringed in the critical mark, the same ring a field takes, and the words in FormField say what is wrong"
+        }
+      }
     }
   },
   "otp-flow": {

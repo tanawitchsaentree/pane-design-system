@@ -26,12 +26,14 @@ export interface FileUploadProps {
   disabled?: boolean;
   /** Extra class on the wrapper. */
   className?: string;
+  /** Marks the answer as wrong with a critical ring and aria-invalid. Inside a FormField, its `error` sets this for you. */
+  invalid?: boolean;
 }
 
 /** A button that opens the system file chooser and a list of what was chosen, each file with its size and
  *  its own remove button. A refused file is listed with the reason in words, never only a red mark. For a
  *  large target that also takes dragged files, use Dropzone. */
-export const FileUpload = forwardRef<HTMLDivElement, FileUploadProps>(function FileUpload({ label, accept, multiple, maxSize, files, onFilesChange, hint, name, disabled, className }, ref) {
+export const FileUpload = forwardRef<HTMLDivElement, FileUploadProps>(function FileUpload({ label, accept, multiple, maxSize, files, onFilesChange, hint, name, disabled, className, invalid }, ref) {
   const id = useId();
   const input = useRef<HTMLInputElement>(null);
   const [inner, setInner] = useState<File[]>([]);
@@ -40,11 +42,11 @@ export const FileUpload = forwardRef<HTMLDivElement, FileUploadProps>(function F
   const set = (next: File[]) => { if (files === undefined) setInner(next); onFilesChange?.(next); };
   const add = (chosen: File[]) => { const { ok, refused: no } = check(chosen, accept, maxSize); setRefused(no.map((n) => n.reason)); set(multiple ? [...list, ...ok] : ok.slice(0, 1)); };
   return (
-    <div ref={ref} data-component="FileUpload" className={cx(styles.root, className)}>
+    <div ref={ref} data-component="FileUpload" data-invalid={invalid || undefined} className={cx(styles.root, className)}>
       <input ref={input} id={`${id}-in`} type="file" name={name} accept={accept} multiple={multiple} disabled={disabled} hidden
         onChange={(e) => { add(Array.from(e.target.files ?? [])); e.target.value = ''; }} />
       <div className={styles.head}>
-        <Button variant="glass" disabled={disabled} onClick={() => input.current?.click()} aria-describedby={hint ? `${id}-hint` : undefined}>
+        <Button variant="glass" disabled={disabled} aria-invalid={invalid || undefined} onClick={() => input.current?.click()} aria-describedby={hint ? `${id}-hint` : undefined}>
           <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.glyph}><path d="M12 16V4M7 9l5-5 5 5M5 20h14" /></svg>
           Choose {label.toLowerCase()}
         </Button>

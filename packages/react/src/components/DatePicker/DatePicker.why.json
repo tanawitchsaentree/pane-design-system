@@ -24,7 +24,18 @@
       "why": "the calendar sits on a level-4 popover with the shared popover padding"
     }
   },
-  "states": {},
+  "states": {
+    "data-readonly": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a read-only value drops the groove for a hairline, so it reads as settled but can still be focused and copied"
+    },
+    "aria-invalid=true": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
+    }
+  },
   "motion": {
     "@pop": {
       "p": "P4",

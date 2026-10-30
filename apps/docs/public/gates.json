@@ -1,31 +1,55 @@
 {
-  "generatedAt": "2026-10-30T03:58:45.884Z",
-  "passed": 3,
-  "total": 3,
+  "generatedAt": "2026-10-30T04:57:44.297Z",
+  "passed": 7,
+  "total": 7,
   "partial": true,
   "advisory": {},
   "results": [
     {
-      "id": "G-PUB1",
-      "name": "an install command names only what can be installed: no bare registry install of an unpublished package",
+      "id": "G-SH1",
+      "name": "the docs chrome is plain and opaque: no blur or see-through surface outside demo stages",
       "ok": true,
-      "detail": "5 pages, 2 unpublished packages never shown as a registry install",
-      "order": 34
+      "order": 10
+    },
+    {
+      "id": "G-SV1",
+      "name": "every promised state is there and visible: each cell of the state matrix differs from its row default and carries its ARIA, in every theme",
+      "ok": true,
+      "detail": "234 state cells differ from their default and carry their ARIA",
+      "order": 38
     },
     {
       "id": "G-S6",
       "name": "nothing in the page column spills out of it: no element crosses into the rail or the margin beside main (folds open)",
       "ok": true,
-      "detail": "5 pages",
-      "order": 40
+      "detail": "13 pages",
+      "order": 41
     },
     {
       "id": "G-IN1",
       "name": "text inside a control keeps its inset from the control's edge: at least 8px, and half the corner radius on a rounded end",
       "ok": true,
-      "skipped": true,
-      "detail": "skipped: nothing it checks is in the limited routes",
-      "order": 42
+      "detail": "19 lines of text in controls",
+      "order": 43
+    },
+    {
+      "id": "G-TT1",
+      "name": "every control in a live example and in the shell gives a pointer at least 44px each way",
+      "ok": true,
+      "detail": "321 controls",
+      "order": 48
+    },
+    {
+      "id": "axe-none",
+      "name": "axe finds no WCAG 2.2 AA violations on any page (forced-colors none)",
+      "ok": true,
+      "order": 49
+    },
+    {
+      "id": "axe-active",
+      "name": "axe finds no WCAG 2.2 AA violations on any page (forced-colors active)",
+      "ok": true,
+      "order": 50
     }
   ]
 }

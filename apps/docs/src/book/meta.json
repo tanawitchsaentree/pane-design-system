@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-30T02:45:34.112Z",
-  "version": "0.6.0",
+  "generatedAt": "2026-10-30T05:42:08.925Z",
+  "version": "0.7.0",
   "components": {
     "Accordion": {
       "source": "packages/react/src/components/Accordion/Accordion.tsx",
@@ -417,9 +417,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 8288,
-        "cssMin": 12910,
-        "gzip": 5317
+        "jsMin": 9286,
+        "cssMin": 14054,
+        "gzip": 5788
       }
     },
     "Autocomplete": {
@@ -501,17 +501,57 @@
               "description": "Extra class on the root.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Turns the field off. Inside a FormField, its `disabled` sets this for you.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "readOnly",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows the value without letting it change; it can still be focused and read.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the value as wrong. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "required",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Says the field must be filled. Inside a FormField, its `required` sets this for you.",
+              "enum": false,
+              "options": null
             }
           ]
         }
       ],
-      "variantDimensions": [],
-      "variantCount": 0,
-      "demoFloor": 3,
+      "variantDimensions": [
+        "disabled",
+        "readOnly",
+        "invalid"
+      ],
+      "variantCount": 3,
+      "demoFloor": 6,
       "bundle": {
-        "jsMin": 71851,
-        "cssMin": 3591,
-        "gzip": 26666
+        "jsMin": 72322,
+        "cssMin": 5189,
+        "gzip": 27131
       }
     },
     "Avatar": {
@@ -1116,20 +1156,30 @@
                 "sm",
                 "md"
               ]
+            },
+            {
+              "name": "loading",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows a spinner in place of the content while an action runs. The button keeps its width and focus, says it is busy, and ignores presses until it is done.",
+              "enum": false,
+              "options": null
             }
           ]
         }
       ],
       "variantDimensions": [
         "variant",
-        "size"
+        "size",
+        "loading"
       ],
-      "variantCount": 2,
-      "demoFloor": 5,
+      "variantCount": 3,
+      "demoFloor": 6,
       "bundle": {
-        "jsMin": 767,
-        "cssMin": 3436,
-        "gzip": 1458
+        "jsMin": 1444,
+        "cssMin": 4247,
+        "gzip": 1900
       }
     },
     "Calendar": {
@@ -1260,9 +1310,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 5031,
-        "cssMin": 5134,
-        "gzip": 3587
+        "jsMin": 5720,
+        "cssMin": 5945,
+        "gzip": 3984
       }
     },
     "Card": {
@@ -1403,9 +1453,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 2598,
-        "cssMin": 4352,
-        "gzip": 2555
+        "jsMin": 3275,
+        "cssMin": 5163,
+        "gzip": 2960
       }
     },
     "Center": {
@@ -1500,6 +1550,15 @@
               "options": null
             },
             {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the answer as wrong with a critical ring and aria-invalid. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
+            },
+            {
               "name": "required",
               "type": "boolean",
               "required": false,
@@ -1539,14 +1598,15 @@
         }
       ],
       "variantDimensions": [
-        "disabled"
+        "disabled",
+        "invalid"
       ],
-      "variantCount": 1,
-      "demoFloor": 4,
+      "variantCount": 2,
+      "demoFloor": 5,
       "bundle": {
-        "jsMin": 17248,
-        "cssMin": 1746,
-        "gzip": 6969
+        "jsMin": 17460,
+        "cssMin": 2917,
+        "gzip": 7295
       }
     },
     "Chip": {
@@ -1618,9 +1678,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 1199,
-        "cssMin": 2266,
-        "gzip": 1388
+        "jsMin": 1258,
+        "cssMin": 2380,
+        "gzip": 1453
       }
     },
     "CoachMark": {
@@ -1735,9 +1795,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 72070,
-        "cssMin": 7118,
-        "gzip": 27458
+        "jsMin": 72765,
+        "cssMin": 7929,
+        "gzip": 27895
       }
     },
     "ColorPicker": {
@@ -1810,17 +1870,28 @@
               "description": "Extra class on the wrapper.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Turns the whole control off, so it cannot be focused or changed and reads as dimmed. Inside a FormField, its `disabled` sets this for you.",
+              "enum": false,
+              "options": null
             }
           ]
         }
       ],
-      "variantDimensions": [],
-      "variantCount": 0,
-      "demoFloor": 3,
+      "variantDimensions": [
+        "disabled"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
       "bundle": {
-        "jsMin": 34050,
-        "cssMin": 5290,
-        "gzip": 13137
+        "jsMin": 34083,
+        "cssMin": 5498,
+        "gzip": 13176
       }
     },
     "Combobox": {
@@ -1911,17 +1982,57 @@
               "description": "Extra class on the root.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Turns the field off. Inside a FormField, its `disabled` sets this for you.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "readOnly",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows the value without letting it change; it can still be focused and read.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the value as wrong. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "required",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Says the field must be filled. Inside a FormField, its `required` sets this for you.",
+              "enum": false,
+              "options": null
             }
           ]
         }
       ],
-      "variantDimensions": [],
-      "variantCount": 0,
-      "demoFloor": 3,
+      "variantDimensions": [
+        "disabled",
+        "readOnly",
+        "invalid"
+      ],
+      "variantCount": 3,
+      "demoFloor": 6,
       "bundle": {
-        "jsMin": 71883,
-        "cssMin": 3591,
-        "gzip": 26670
+        "jsMin": 72354,
+        "cssMin": 5189,
+        "gzip": 27132
       }
     },
     "CommandPalette": {
@@ -2196,6 +2307,15 @@
               "options": null
             },
             {
+              "name": "empty",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "What the body says when there are no rows, such as No prints match these filters; Nothing to show yet by default.",
+              "enum": false,
+              "options": null
+            },
+            {
               "name": "className",
               "type": "string",
               "required": false,
@@ -2222,9 +2342,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 20590,
-        "cssMin": 4826,
-        "gzip": 8990
+        "jsMin": 20753,
+        "cssMin": 5242,
+        "gzip": 9108
       }
     },
     "DatePicker": {
@@ -2347,6 +2467,24 @@
               "options": null
             },
             {
+              "name": "readOnly",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows the value without letting it change. It can still be focused and read, and it does not open.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the date as wrong. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
+            },
+            {
               "name": "className",
               "type": "string",
               "required": false,
@@ -2360,14 +2498,16 @@
       ],
       "variantDimensions": [
         "mode",
-        "disabled"
+        "disabled",
+        "readOnly",
+        "invalid"
       ],
-      "variantCount": 2,
-      "demoFloor": 5,
+      "variantCount": 4,
+      "demoFloor": 7,
       "bundle": {
-        "jsMin": 75823,
-        "cssMin": 12626,
-        "gzip": 29943
+        "jsMin": 76692,
+        "cssMin": 13990,
+        "gzip": 30483
       }
     },
     "DescriptionList": {
@@ -2822,19 +2962,29 @@
               "description": "Extra class on the zone.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the answer as wrong with a critical ring and aria-invalid. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
             }
           ]
         }
       ],
       "variantDimensions": [
-        "disabled"
+        "disabled",
+        "invalid"
       ],
-      "variantCount": 1,
-      "demoFloor": 4,
+      "variantCount": 2,
+      "demoFloor": 5,
       "bundle": {
-        "jsMin": 1879,
-        "cssMin": 1820,
-        "gzip": 1713
+        "jsMin": 1914,
+        "cssMin": 1944,
+        "gzip": 1760
       }
     },
     "Editable": {
@@ -2934,8 +3084,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 1926,
-        "cssMin": 3693,
-        "gzip": 2050
+        "cssMin": 3736,
+        "gzip": 2055
       }
     },
     "EmptyState": {
@@ -3129,8 +3279,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 584,
-        "cssMin": 1238,
-        "gzip": 887
+        "cssMin": 1338,
+        "gzip": 921
       }
     },
     "Feed": {
@@ -3380,19 +3530,29 @@
               "description": "Extra class on the wrapper.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the answer as wrong with a critical ring and aria-invalid. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
             }
           ]
         }
       ],
       "variantDimensions": [
-        "disabled"
+        "disabled",
+        "invalid"
       ],
-      "variantCount": 1,
-      "demoFloor": 4,
+      "variantCount": 2,
+      "demoFloor": 5,
       "bundle": {
-        "jsMin": 3824,
-        "cssMin": 7444,
-        "gzip": 3206
+        "jsMin": 4875,
+        "cssMin": 8584,
+        "gzip": 3733
       }
     },
     "Flex": {
@@ -3995,20 +4155,30 @@
                 "sm",
                 "md"
               ]
+            },
+            {
+              "name": "loading",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows a spinner in place of the content while an action runs. The button keeps its width and focus, says it is busy, and ignores presses until it is done.",
+              "enum": false,
+              "options": null
             }
           ]
         }
       ],
       "variantDimensions": [
         "variant",
-        "size"
+        "size",
+        "loading"
       ],
-      "variantCount": 2,
-      "demoFloor": 5,
+      "variantCount": 3,
+      "demoFloor": 6,
       "bundle": {
-        "jsMin": 771,
-        "cssMin": 2658,
-        "gzip": 1320
+        "jsMin": 1448,
+        "cssMin": 3469,
+        "gzip": 1775
       }
     },
     "Image": {
@@ -4158,8 +4328,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 442,
-        "cssMin": 1134,
-        "gzip": 758
+        "cssMin": 1270,
+        "gzip": 801
       }
     },
     "KanbanBoard": {
@@ -4213,9 +4383,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 3357,
+        "jsMin": 3439,
         "cssMin": 2521,
-        "gzip": 2350
+        "gzip": 2384
       }
     },
     "Kbd": {
@@ -4601,17 +4771,38 @@
               "description": "Extra class on the root.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the answer as wrong with a critical ring and aria-invalid. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Turns the whole control off, so it cannot be focused or changed and reads as dimmed. Inside a FormField, its `disabled` sets this for you.",
+              "enum": false,
+              "options": null
             }
           ]
         }
       ],
-      "variantDimensions": [],
-      "variantCount": 0,
-      "demoFloor": 3,
+      "variantDimensions": [
+        "invalid",
+        "disabled"
+      ],
+      "variantCount": 2,
+      "demoFloor": 5,
       "bundle": {
-        "jsMin": 2588,
-        "cssMin": 2354,
-        "gzip": 2072
+        "jsMin": 2898,
+        "cssMin": 3604,
+        "gzip": 2390
       }
     },
     "Menu": {
@@ -4926,17 +5117,57 @@
               "description": "Extra class on the root.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Turns the field off. Inside a FormField, its `disabled` sets this for you.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "readOnly",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows the value without letting it change; it can still be focused and read.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the value as wrong. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "required",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Says the field must be filled. Inside a FormField, its `required` sets this for you.",
+              "enum": false,
+              "options": null
             }
           ]
         }
       ],
-      "variantDimensions": [],
-      "variantCount": 0,
-      "demoFloor": 3,
+      "variantDimensions": [
+        "disabled",
+        "readOnly",
+        "invalid"
+      ],
+      "variantCount": 3,
+      "demoFloor": 6,
       "bundle": {
-        "jsMin": 73313,
-        "cssMin": 5856,
-        "gzip": 27720
+        "jsMin": 73855,
+        "cssMin": 7568,
+        "gzip": 28210
       }
     },
     "Navbar": {
@@ -5138,9 +5369,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 73620,
-        "cssMin": 13091,
-        "gzip": 28718
+        "jsMin": 74641,
+        "cssMin": 14102,
+        "gzip": 29175
       }
     },
     "NumberInput": {
@@ -5241,9 +5472,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 3761,
-        "cssMin": 6541,
-        "gzip": 3297
+        "jsMin": 4467,
+        "cssMin": 7488,
+        "gzip": 3742
       }
     },
     "OTPFlow": {
@@ -5315,9 +5546,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 4612,
-        "cssMin": 6813,
-        "gzip": 3861
+        "jsMin": 4972,
+        "cssMin": 7134,
+        "gzip": 4059
       }
     },
     "Pagination": {
@@ -5442,9 +5673,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 2521,
-        "cssMin": 6337,
-        "gzip": 2720
+        "jsMin": 3200,
+        "cssMin": 7284,
+        "gzip": 3157
       }
     },
     "PinInput": {
@@ -5540,6 +5771,15 @@
               "options": null
             },
             {
+              "name": "readOnly",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows the code without letting it change; the cells can still be focused and read.",
+              "enum": false,
+              "options": null
+            },
+            {
               "name": "name",
               "type": "string",
               "required": false,
@@ -5563,14 +5803,15 @@
       "variantDimensions": [
         "type",
         "invalid",
-        "disabled"
+        "disabled",
+        "readOnly"
       ],
-      "variantCount": 3,
-      "demoFloor": 6,
+      "variantCount": 4,
+      "demoFloor": 7,
       "bundle": {
-        "jsMin": 1913,
-        "cssMin": 1951,
-        "gzip": 1760
+        "jsMin": 1961,
+        "cssMin": 2080,
+        "gzip": 1822
       }
     },
     "Popover": {
@@ -5878,6 +6119,15 @@
               "options": null
             },
             {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the answer as wrong with a critical ring and aria-invalid. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
+            },
+            {
               "name": "disabled",
               "type": "boolean",
               "required": false,
@@ -5963,9 +6213,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 33060,
-        "cssMin": 1752,
-        "gzip": 12015
+        "jsMin": 33268,
+        "cssMin": 2926,
+        "gzip": 12340
       }
     },
     "RadioCards": {
@@ -6041,17 +6291,38 @@
               "description": "Extra class on the root.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the answer as wrong with a critical ring and aria-invalid. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Turns the whole control off, so it cannot be focused or changed and reads as dimmed. Inside a FormField, its `disabled` sets this for you.",
+              "enum": false,
+              "options": null
             }
           ]
         }
       ],
-      "variantDimensions": [],
-      "variantCount": 0,
-      "demoFloor": 3,
+      "variantDimensions": [
+        "invalid",
+        "disabled"
+      ],
+      "variantCount": 2,
+      "demoFloor": 5,
       "bundle": {
-        "jsMin": 32549,
-        "cssMin": 2213,
-        "gzip": 12005
+        "jsMin": 32800,
+        "cssMin": 3393,
+        "gzip": 12340
       }
     },
     "RangeSlider": {
@@ -6245,19 +6516,29 @@
               "description": "Extra class on the root.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Turns the whole control off, so it cannot be focused or changed and reads as dimmed. Inside a FormField, its `disabled` sets this for you.",
+              "enum": false,
+              "options": null
             }
           ]
         }
       ],
       "variantDimensions": [
-        "readOnly"
+        "readOnly",
+        "disabled"
       ],
-      "variantCount": 1,
-      "demoFloor": 4,
+      "variantCount": 2,
+      "demoFloor": 5,
       "bundle": {
-        "jsMin": 29637,
-        "cssMin": 926,
-        "gzip": 10964
+        "jsMin": 29671,
+        "cssMin": 998,
+        "gzip": 11002
       }
     },
     "RichTextEditor": {
@@ -6323,6 +6604,24 @@
               "options": null
             },
             {
+              "name": "readOnly",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows the text without letting it change; it can be focused, read and selected, and the toolbar is hidden.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the text as wrong. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
+            },
+            {
               "name": "className",
               "type": "string",
               "required": false,
@@ -6335,14 +6634,16 @@
         }
       ],
       "variantDimensions": [
-        "disabled"
+        "disabled",
+        "readOnly",
+        "invalid"
       ],
-      "variantCount": 1,
-      "demoFloor": 4,
+      "variantCount": 3,
+      "demoFloor": 6,
       "bundle": {
-        "jsMin": 3224,
-        "cssMin": 2868,
-        "gzip": 2556
+        "jsMin": 3395,
+        "cssMin": 3121,
+        "gzip": 2693
       }
     },
     "SearchInput": {
@@ -6425,9 +6726,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 2832,
-        "cssMin": 6419,
-        "gzip": 2894
+        "jsMin": 3510,
+        "cssMin": 7366,
+        "gzip": 3324
       }
     },
     "SegmentedControl": {
@@ -6506,19 +6807,29 @@
               "description": "Extra class on the root.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Turns the whole control off, so it cannot be focused or changed and reads as dimmed. Inside a FormField, its `disabled` sets this for you.",
+              "enum": false,
+              "options": null
             }
           ]
         }
       ],
       "variantDimensions": [
-        "size"
+        "size",
+        "disabled"
       ],
-      "variantCount": 1,
-      "demoFloor": 4,
+      "variantCount": 2,
+      "demoFloor": 5,
       "bundle": {
-        "jsMin": 26049,
+        "jsMin": 26071,
         "cssMin": 1531,
-        "gzip": 9734
+        "gzip": 9737
       }
     },
     "Select": {
@@ -6617,6 +6928,24 @@
               "options": null
             },
             {
+              "name": "readOnly",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows the value without letting it change. It can still be focused and read, and it does not open.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the value as wrong. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
+            },
+            {
               "name": "name",
               "type": "string",
               "required": false,
@@ -6639,14 +6968,16 @@
       ],
       "variantDimensions": [
         "size",
-        "disabled"
+        "disabled",
+        "readOnly",
+        "invalid"
       ],
-      "variantCount": 2,
-      "demoFloor": 5,
+      "variantCount": 4,
+      "demoFloor": 7,
       "bundle": {
-        "jsMin": 91577,
-        "cssMin": 3681,
-        "gzip": 33254
+        "jsMin": 91988,
+        "cssMin": 5018,
+        "gzip": 33650
       }
     },
     "SettingsLayout": {
@@ -7655,6 +7986,15 @@
               "options": null
             },
             {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the answer as wrong with a critical ring and aria-invalid. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
+            },
+            {
               "name": "disabled",
               "type": "boolean",
               "required": false,
@@ -7685,14 +8025,15 @@
         }
       ],
       "variantDimensions": [
+        "invalid",
         "disabled"
       ],
-      "variantCount": 1,
-      "demoFloor": 4,
+      "variantCount": 2,
+      "demoFloor": 5,
       "bundle": {
-        "jsMin": 14012,
-        "cssMin": 2694,
-        "gzip": 6092
+        "jsMin": 14214,
+        "cssMin": 3866,
+        "gzip": 6438
       }
     },
     "Table": {
@@ -7788,6 +8129,24 @@
               "options": null
             },
             {
+              "name": "empty",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "What the body says when there are no rows, such as No prints match these filters; Nothing to show yet by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "loading",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shown over the body while rows load; the rows stay so the reader keeps their place, and the table says it is busy.",
+              "enum": false,
+              "options": null
+            },
+            {
               "name": "ref",
               "type": "Ref<HTMLDivElement>",
               "required": false,
@@ -7800,14 +8159,15 @@
         }
       ],
       "variantDimensions": [
-        "density"
+        "density",
+        "loading"
       ],
-      "variantCount": 1,
-      "demoFloor": 4,
+      "variantCount": 2,
+      "demoFloor": 5,
       "bundle": {
-        "jsMin": 1773,
-        "cssMin": 2427,
-        "gzip": 1770
+        "jsMin": 2022,
+        "cssMin": 2717,
+        "gzip": 1934
       }
     },
     "TableOfContents": {
@@ -8005,17 +8365,57 @@
               "description": "Extra class on the root.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Turns the field off. Inside a FormField, its `disabled` sets this for you.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "readOnly",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows the tags without letting them change; it can still be focused and read.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "invalid",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the value as wrong. Inside a FormField, its `error` sets this for you.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "required",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Says the field must be filled. Inside a FormField, its `required` sets this for you.",
+              "enum": false,
+              "options": null
             }
           ]
         }
       ],
-      "variantDimensions": [],
-      "variantCount": 0,
-      "demoFloor": 3,
+      "variantDimensions": [
+        "disabled",
+        "readOnly",
+        "invalid"
+      ],
+      "variantCount": 3,
+      "demoFloor": 6,
       "bundle": {
-        "jsMin": 2547,
-        "cssMin": 3313,
-        "gzip": 2190
+        "jsMin": 3003,
+        "cssMin": 4813,
+        "gzip": 2734
       }
     },
     "Text": {
@@ -8257,6 +8657,15 @@
               "options": null
             },
             {
+              "name": "readOnly",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows the value without letting it change. It can still be focused and read, and it does not open.",
+              "enum": false,
+              "options": null
+            },
+            {
               "name": "name",
               "type": "string",
               "required": false,
@@ -8278,14 +8687,15 @@
         }
       ],
       "variantDimensions": [
-        "disabled"
+        "disabled",
+        "readOnly"
       ],
-      "variantCount": 1,
-      "demoFloor": 4,
+      "variantCount": 2,
+      "demoFloor": 5,
       "bundle": {
-        "jsMin": 92246,
-        "cssMin": 3681,
-        "gzip": 33559
+        "jsMin": 92657,
+        "cssMin": 5018,
+        "gzip": 33964
       }
     },
     "Timeline": {
@@ -8571,9 +8981,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 4685,
-        "cssMin": 6440,
-        "gzip": 3666
+        "jsMin": 5683,
+        "cssMin": 8501,
+        "gzip": 4364
       }
     },
     "TreeView": {
@@ -8858,9 +9268,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 2989,
-        "cssMin": 6623,
-        "gzip": 3023
+        "jsMin": 3666,
+        "cssMin": 7434,
+        "gzip": 3414
       }
     }
   }

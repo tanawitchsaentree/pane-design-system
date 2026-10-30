@@ -680,3 +680,12 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .demo-phone { position: relative; inline-size: min(100%, calc(var(--ds-space-32) * 2.25)); block-size: calc(var(--ds-space-32) * 2); padding: var(--ds-gap-xl); border-radius: var(--ds-corner-inner); background: var(--ds-surface-quiet); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); }
 .demo-ptr { max-block-size: calc(var(--ds-space-32) * 1.5); }
 .demo-row-target { padding: var(--ds-gap-lg); border-radius: var(--ds-corner-media); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); }
+
+/* the state matrix: one row per component, its states as captioned cells on one opaque stage, so cells differ only by their state (G-SV1) */
+.state-row { display: flex; flex-direction: column; gap: var(--ds-gap-md); margin-block: var(--ds-gap-xl); }
+.state-name { margin: 0; font-size: var(--ds-type-body); font-weight: var(--ds-type-weight-semibold); }
+.state-cells { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr)); gap: var(--ds-gap-md); }
+.state-cell { display: flex; flex-direction: column; gap: var(--ds-gap-sm); margin: 0; min-inline-size: 0; }
+.state-stage { position: relative; min-block-size: calc(var(--ds-control-xl) + var(--ds-gap-lg) * 2); display: flex; align-items: flex-start; padding: var(--ds-gap-lg); border-radius: var(--ds-corner-media); background: var(--ds-surface-raised); box-shadow: var(--ds-level-shadow-edge); min-inline-size: 0; overflow-wrap: anywhere; }
+.state-stage > * { min-inline-size: 0; max-inline-size: 100%; }
+.state-cell figcaption { font-size: var(--ds-type-caption); color: var(--ds-text-secondary); }

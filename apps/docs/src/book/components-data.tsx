@@ -731,6 +731,8 @@ export const COMPONENTS: ComponentChapter[] = [
     overview: (<><p>Lets the reader choose one or several options that should all stay visible on the page.</p></>),
     hero: ex('ListboxSingle', 'One choice from a short list.'),
     ladder: [
+      ex('ListboxInvalid', 'Wrong, with the reason in words.'),
+      ex('ListboxDisabled', 'Off while stock is checked.'),
       ex('ListboxMultiple', 'Several choices with checks.'),
       ex('ListboxDescriptions', 'Options with a second line.'),
     ],
@@ -756,6 +758,9 @@ export const COMPONENTS: ComponentChapter[] = [
     overview: (<><p>Lets the reader choose one value from a long list by typing to narrow it.</p></>),
     hero: ex('ComboboxPlaces', 'Choose a place from a long list.'),
     ladder: [
+      ex('ComboboxReadOnly', 'Read-only after the order is placed.'),
+      ex('ComboboxDisabled', 'Off until a country is chosen.'),
+      ex('ComboboxInvalid', 'Wrong, with the reason in words.'),
       ex('ComboboxPrefilled', 'With a value already chosen.'),
       ex('ComboboxEmpty', 'A custom message when nothing matches.'),
     ],
@@ -781,6 +786,9 @@ export const COMPONENTS: ComponentChapter[] = [
     overview: (<><p>Suggests as the reader types and accepts their own words too.</p></>),
     hero: ex('AutocompleteTags', 'Suggestions with free text.'),
     ladder: [
+      ex('AutocompleteReadOnly', 'Read-only on a saved print.'),
+      ex('AutocompleteDisabled', 'Off for a scanned film print.'),
+      ex('AutocompleteInvalid', 'Wrong, with the reason in words.'),
       ex('AutocompleteSearch', 'A search with recent terms.'),
       ex('AutocompleteValue', 'With a starting value.'),
     ],
@@ -806,6 +814,9 @@ export const COMPONENTS: ComponentChapter[] = [
     overview: (<><p>Lets the reader choose several values from a long list, each a removable chip.</p></>),
     hero: ex('MultiSelectPlaces', 'Choose several places.'),
     ladder: [
+      ex('MultiSelectReadOnly', 'Read-only, chips without remove.'),
+      ex('MultiSelectDisabled', 'Off while the album syncs.'),
+      ex('MultiSelectInvalid', 'Wrong, with the reason in words.'),
       ex('MultiSelectEmpty', 'Starting empty.'),
       ex('MultiSelectMany', 'Many chosen values wrap.'),
     ],
@@ -882,6 +893,7 @@ export const COMPONENTS: ComponentChapter[] = [
     overview: (<><p>Offers one choice from a few options that each need a line of detail.</p></>),
     hero: ex('RadioCardsShipping', 'A delivery speed.'),
     ladder: [
+      ex('RadioCardsInvalid', 'Wrong, with the reason in words.'),
       ex('RadioCardsPlans', 'Three plans in a row.'),
       ex('RadioCardsTwo', 'Two columns.'),
       ex('RadioCardsDisabled', 'An option that cannot be chosen.'),
@@ -908,6 +920,7 @@ export const COMPONENTS: ComponentChapter[] = [
     overview: (<><p>Gives or shows a score from one to five stars.</p></>),
     hero: ex('RatingInput', 'Rate a print.'),
     ladder: [
+      ex('RatingDisabled', 'Off until the print arrives.'),
       ex('RatingReadOnly', 'A score shown in a review.'),
       ex('RatingTen', 'Out of ten.'),
       ex('RatingSaved', 'A controlled score that is saved as it changes.'),
@@ -934,6 +947,9 @@ export const COMPONENTS: ComponentChapter[] = [
     overview: (<><p>Collects free-form tags typed into one field, each a removable chip.</p></>),
     hero: ex('TagInputTopics', 'Tags for a photo.'),
     ladder: [
+      ex('TagInputReadOnly', 'Read-only on a published print.'),
+      ex('TagInputDisabled', 'Off while the print is reviewed.'),
+      ex('TagInputInvalid', 'Wrong, with the reason in words.'),
       ex('TagInputEmpty', 'Starting empty.'),
       ex('TagInputMax', 'A limit on how many.'),
     ],
@@ -959,6 +975,7 @@ export const COMPONENTS: ComponentChapter[] = [
     overview: (<><p>Switches between two to five views of the same content.</p></>),
     hero: ex('SegmentedView', 'Grid, list or map of the same photos.'),
     ladder: [
+      ex('SegmentedControlDisabled', 'Off while the map loads.'),
       ex('SegmentedSmall', 'The small size in a toolbar.'),
       ex('SegmentedFiltered', 'A range that changes the count below it.'),
       ex('SegmentedDisabled', 'A segment that is not available yet.'),
@@ -1406,6 +1423,7 @@ export const COMPONENTS: ComponentChapter[] = [
     overview: (<><p>Sets data in rows and columns to compare.</p></>),
     hero: ex('TablePrints', 'Prints, sortable by name, sales and price.'),
     ladder: [
+      ex('TableLoading', 'Loading, rows kept under a scrim.'),
       ex('TableCompact', 'Compact, for dense data.'),
       ex('TableScroll', 'A long table with its header in view.'),
       ex('TableStatus', 'Cells drawn with other components.'),
@@ -1586,6 +1604,7 @@ export const COMPONENTS: ComponentChapter[] = [
     overview: (<><p>Chooses files with a button and lists them with their sizes.</p></>),
     hero: ex('UploadReceipts', 'Receipts for an expense.'),
     ladder: [
+      ex('FileUploadInvalid', 'Wrong, with the reason in words.'),
       ex('UploadOne', 'One profile photo.'),
       ex('UploadLimit', 'A small size limit.'),
       ex('UploadDisabled', 'Off until the form is saved.'),
@@ -1615,6 +1634,7 @@ export const COMPONENTS: ComponentChapter[] = [
     overview: (<><p>Takes files dragged onto it, and opens the chooser when pressed.</p></>),
     hero: ex('DropPhotos', 'Photos for a new album.'),
     ladder: [
+      ex('DropzoneInvalid', 'Wrong, with the reason in words.'),
       ex('DropList', 'What was dropped, listed under it.'),
       ex('DropOne', 'A single cover image.'),
       ex('DropDisabled', 'Full until a photo is removed.'),
@@ -1644,6 +1664,7 @@ export const COMPONENTS: ComponentChapter[] = [
     overview: (<><p>Chooses a colour for the reader’s own content from named swatches.</p></>),
     hero: ex('ColorAlbum', 'A colour for an album.'),
     ladder: [
+      ex('ColorPickerDisabled', 'Off for a shared album.'),
       ex('ColorCustom', 'Any colour by its hex value.'),
       ex('ColorFew', 'A few colours for labels.'),
     ],
@@ -1732,6 +1753,8 @@ export const COMPONENTS: ComponentChapter[] = [
     overview: (<><p>Holds a date and opens a calendar to choose it.</p></>),
     hero: ex('DatePick', 'A pick-up date.'),
     ladder: [
+      ex('DatePickerReadOnly', 'Read-only once booked.'),
+      ex('DatePickerInvalid', 'Wrong, with the reason in words.'),
       ex('DateRangePick', 'A stay from and to.'),
       ex('DateEmpty', 'Nothing chosen yet, weekdays only.'),
       ex('DateLocale', 'Dates in Norwegian.'),
@@ -1763,6 +1786,7 @@ export const COMPONENTS: ComponentChapter[] = [
     overview: (<><p>Chooses a time from a list at a fixed step.</p></>),
     hero: ex('TimePick', 'A pick-up time.'),
     ladder: [
+      ex('TimePickerReadOnly', 'Read-only once booked.'),
       ex('TimeUS', 'Times on a 12 hour clock.'),
       ex('TimeQuarter', 'Every quarter hour.'),
       ex('TimeDisabled', 'Off until a date is chosen.'),
@@ -2336,6 +2360,8 @@ export const COMPONENTS: ComponentChapter[] = [
     overview: (<><p>Takes short formatted text with bold, italic, lists and links.</p></>),
     hero: ex('RichCaption', 'A caption with a link.'),
     ladder: [
+      ex('RichTextEditorReadOnly', 'Read-only on a published print.'),
+      ex('RichTextEditorInvalid', 'Wrong, with the reason in words.'),
       ex('RichEmpty', 'An empty comment.'),
       ex('RichList', 'A list of care notes.'),
       ex('RichDisabled', 'Locked once the print is listed.'),
@@ -2492,6 +2518,7 @@ export const COMPONENTS: ComponentChapter[] = [
     ),
     hero: ex('ButtonPair', 'The foot of a card usually holds one light action with a glass alternative beside it.'),
     ladder: [
+      ex('ButtonLoading', 'Saving, with the width held.'),
       ex('ButtonVariants', 'Three variants. Light is white with near-black text (18.74:1). Accent is the same pair with a soft glow of its own. Glass is an 8% white fill, because 14% lifted the backdrop under white text to 4.25:1.'),
       ex('ButtonSizes', 'md is 44px tall and suits touch. sm is 32px for dense rows.'),
       ex('ButtonDisabled', 'Disabled uses the native attribute. Put the reason in text next to it, since nobody can focus a disabled button to ask.'),
@@ -2529,6 +2556,7 @@ export const COMPONENTS: ComponentChapter[] = [
     ),
     hero: ex('IconButtonVariants', 'A small glass pane suits a standalone action like edit. Bare glyphs suit overflow and share.'),
     ladder: [
+      ex('IconButtonLoading', 'Busy while a refresh runs.'),
       ex('IconButtonSizes', 'md is a 36px disc. sm is 32px and fits action rows. Both have a 44px press area.'),
       ex('IconButtonActionRow', 'In a row of ghost actions each label names the action, and the count where there is one.'),
       ex('IconButtonOnCover', 'On a photo the disc keeps its own 20px blur so the icon stays legible.'),
@@ -2840,6 +2868,8 @@ export const COMPONENTS: ComponentChapter[] = [
     ),
     hero: ex('SelectBasic', 'A select on a settings pane, labelled by the setting it changes.'),
     ladder: [
+      ex('SelectReadOnly', 'Read-only, settled but readable.'),
+      ex('SelectInvalid', 'Wrong, with the reason in words.'),
       ex('SelectSizes', 'md is 44px and suits touch. sm is 32px for toolbars and dense forms.'),
       ex('SelectPlaceholder', 'A placeholder until the reader chooses, and an option that is shown but cannot be chosen.'),
       ex('SelectDisabled', 'Disabled uses the native behaviour. Write the reason beside it.'), ex('SelectInForm', 'Two selects in one pane, each labelled by the setting it changes.')
@@ -2950,7 +2980,7 @@ export const COMPONENTS: ComponentChapter[] = [
     importLine: "import { Checkbox } from 'pane-react';",
     overview: (<><p>A checkbox is a choice that stays as it is until the reader changes it, and that takes effect when a form is saved. The box is a 24px well with soft corners. When checked it holds a check, and when its children are mixed it holds a dash, so each state has a shape (P6). The whole row is the target and is at least 44px tall.</p><p>Behaviour comes from Radix: Space toggles it, and its value is submitted with the form.</p></>),
     hero: ex('CheckboxBasic', 'One choice with a line of explanation.'),
-    ladder: [ex('CheckboxGroup', 'Several related choices in a Fieldset.'), ex('CheckboxMixed', 'A parent shows a dash when some of its children are checked.'), ex('CheckboxDisabled', 'Disabled, with the reason in its description.')],
+    ladder: [ex('CheckboxInvalid', 'Wrong, with the reason in words.'), ex('CheckboxGroup', 'Several related choices in a Fieldset.'), ex('CheckboxMixed', 'A parent shows a dash when some of its children are checked.'), ex('CheckboxDisabled', 'Disabled, with the reason in its description.')],
     whenToUse: ['A choice that is saved with a form.', 'Several independent choices from a list.'],
     whenNotToUse: [['A setting that applies at once', 'Switch'], ['One answer from a few options', 'RadioGroup'], ['A filter above a list', 'Chip']],
     anatomy: [['Box', '24px well, soft corners.'], ['Check or dash', 'The mark of the state.'], ['Label', 'Toggles the box too.'], ['Description', 'Optional secondary line.']],
@@ -2998,7 +3028,7 @@ export const COMPONENTS: ComponentChapter[] = [
     importLine: "import { Switch } from 'pane-react';",
     overview: (<><p>A switch is a setting that takes effect at once, such as making an account private. Its track is a well when off and lights from within when on, white in the dark theme and ink in the light theme (P1). The knob moves across and a mark appears, so on reads by position and mark as well as brightness (P6).</p><p>Behaviour comes from Radix: Space and Enter toggle it.</p></>),
     hero: ex('SwitchBasic', 'A setting with what it does underneath.'),
-    ladder: [ex('SwitchList', 'A list of settings on one pane.'), ex('SwitchDisabled', 'Disabled, with the reason in its description.'), ex('CheckboxBasic', 'Compare with a checkbox, which waits for Save.')],
+    ladder: [ex('SwitchInvalid', 'Wrong, with the reason in words.'), ex('SwitchList', 'A list of settings on one pane.'), ex('SwitchDisabled', 'Disabled, with the reason in its description.'), ex('CheckboxBasic', 'Compare with a checkbox, which waits for Save.')],
     whenToUse: ['A setting that applies the moment it changes.'],
     whenNotToUse: [['A choice saved with a form', 'Checkbox'], ['More than two states', 'RadioGroup or Select']],
     anatomy: [['Label', 'The setting, at the start of the row.'], ['Track', 'Well when off, lit from within when on.'], ['Knob', 'White, slides across.'], ['Tick', 'Shown when on.']],
@@ -3134,7 +3164,7 @@ export const COMPONENTS: ComponentChapter[] = [
     importLine: "import { FormField, PinInput } from 'pane-react';",
     overview: (<><p>PinInput shows a code as a row of 44px wells, one per character. Typing moves to the next cell, Backspace moves back, and pasting a whole code fills every cell. The first cell offers the code from a text message on phones.</p></>),
     hero: ex('PinInputBasic', 'A six-digit code, with where it was sent.'),
-    ladder: [ex('PinInputError', 'A wrong code.'), ex('InputBasic', 'For long codes, a single Input is easier to paste into.'), ex('PinInputLetters', 'type="alphanumeric" accepts letters and digits and shows the full keyboard.'), ex('PinInputDisabled', 'Locked while the code is checked.'), ex('PinInputShort', 'length sets the number of cells; four for a passcode, six for a sent code.')],
+    ladder: [ex('PinInputReadOnly', 'Read-only once verified.'), ex('PinInputError', 'A wrong code.'), ex('InputBasic', 'For long codes, a single Input is easier to paste into.'), ex('PinInputLetters', 'type="alphanumeric" accepts letters and digits and shows the full keyboard.'), ex('PinInputDisabled', 'Locked while the code is checked.'), ex('PinInputShort', 'length sets the number of cells; four for a passcode, six for a sent code.')],
     whenToUse: ['A short code of four to eight characters, such as a verification code.'],
     whenNotToUse: [['A password', 'Input type="password" (PasswordInput is planned)'], ['A long code', 'Input']],
     anatomy: [['Cells', 'One 44px well per character.'], ['Group name', 'From the FormField label.']],

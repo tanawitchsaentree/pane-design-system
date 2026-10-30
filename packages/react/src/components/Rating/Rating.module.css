@@ -5,4 +5,6 @@
 .star svg { inline-size: var(--ds-rating-star); block-size: var(--ds-rating-star); fill: transparent; stroke: var(--ds-rating-off); stroke-width: var(--ds-width-ring); stroke-linejoin: round; transition: fill var(--ds-motion-press) var(--ds-motion-easing); }
 .on svg, .item[data-on] svg, .item[data-state='checked'] svg { fill: var(--ds-rating-on); stroke: var(--ds-rating-on); }
 .readOnly .star { display: inline-grid; }
+/* off: the stars dim and refuse presses; the score still shows */
+.item[data-disabled] { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
 @media (forced-colors: active) { .on svg, .item[data-on] svg { fill: CanvasText; stroke: CanvasText; } .star svg { stroke: CanvasText; } }

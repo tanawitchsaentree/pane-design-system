@@ -22,12 +22,14 @@ export interface DropzoneProps {
   disabled?: boolean;
   /** Extra class on the zone. */
   className?: string;
+  /** Marks the answer as wrong with a critical ring and aria-invalid. Inside a FormField, its `error` sets this for you. */
+  invalid?: boolean;
 }
 
 /** A large well that takes files dragged onto it, and is itself a button that opens the file chooser, so
  *  the keyboard and touch get the same thing as a drag. While a file is over it the well lifts into chosen
  *  glass with a ring, by shape and not only by tone (P6). */
-export const Dropzone = forwardRef<HTMLButtonElement, DropzoneProps>(function Dropzone({ label, hint, accept, multiple, maxSize, onFiles, icon, disabled, className }, ref) {
+export const Dropzone = forwardRef<HTMLButtonElement, DropzoneProps>(function Dropzone({ label, hint, accept, multiple, maxSize, onFiles, icon, disabled, className, invalid }, ref) {
   const id = useId();
   const input = useRef<HTMLInputElement>(null);
   const [over, setOver] = useState(false);
@@ -35,7 +37,7 @@ export const Dropzone = forwardRef<HTMLButtonElement, DropzoneProps>(function Dr
   return (
     <>
       <input ref={input} type="file" accept={accept} multiple={multiple} disabled={disabled} hidden onChange={(e) => { take(e.target.files); e.target.value = ''; }} />
-      <button ref={ref} type="button" data-component="Dropzone" data-over={over || undefined} disabled={disabled} className={cx(styles.root, className)} aria-describedby={hint ? `${id}-hint` : undefined}
+      <button ref={ref} type="button" data-component="Dropzone" data-over={over || undefined} disabled={disabled} aria-invalid={invalid || undefined} className={cx(styles.root, className)} aria-describedby={hint ? `${id}-hint` : undefined}
         onClick={() => input.current?.click()}
         onDragEnter={(e) => { e.preventDefault(); setOver(true); }}
         onDragOver={(e) => { e.preventDefault(); e.dataTransfer.dropEffect = 'copy'; }}

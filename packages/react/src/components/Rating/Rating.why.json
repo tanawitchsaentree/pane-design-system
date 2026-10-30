@@ -92,6 +92,11 @@
       "p": "P6",
       "axis": "colour",
       "why": "forced colours fill chosen stars with the system text colour"
+    },
+    "data-disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "an off control dims and refuses presses, so it reads as there but not available"
     }
   },
   "motion": {

@@ -153,6 +153,11 @@
       "p": "P2",
       "axis": "interaction",
       "why": "keyboard focus draws the shared 2px ring with its halo, visible on any part of any scene"
+    },
+    "aria-invalid=true": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
     }
   },
   "motion": {

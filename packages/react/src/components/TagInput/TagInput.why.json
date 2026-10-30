@@ -87,6 +87,16 @@
       "p": "P6",
       "axis": "colour",
       "why": "forced colours outline the field, the same in every theme and on every scene"
+    },
+    "aria-invalid=true": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
+    },
+    "data-off": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "an off field dims its whole groove and refuses typing, so it reads as not available"
     }
   },
   "motion": {}

@@ -117,6 +117,16 @@
       "p": "P2",
       "axis": "type",
       "why": "the trigger drops the card text halo because its groove already gives the label its ground"
+    },
+    "data-readonly": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a read-only value drops the groove for a hairline, so it reads as settled but can still be focused and copied"
+    },
+    "aria-invalid=true": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
     }
   },
   "motion": {

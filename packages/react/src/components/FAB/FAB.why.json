@@ -92,6 +92,11 @@
       "p": "P6",
       "axis": "colour",
       "why": "forced colours outline the bead, the same in every theme and on every scene"
+    },
+    "disabled": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "an off control dims and refuses presses, so it reads as there but not available"
     }
   },
   "motion": {

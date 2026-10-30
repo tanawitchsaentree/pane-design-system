@@ -1,6 +1,7 @@
 import { forwardRef, useId, useLayoutEffect, useRef, useState, type PointerEvent } from 'react';
 import * as RS from '@radix-ui/react-select';
 import { cx } from '../../cx';
+import { useField } from '../FormField';
 import styles from './Select.module.css';
 
 // Behaviour (listbox roles, typeahead, Arrow/Home/End, Escape, focus return, scroll into view) is
@@ -37,6 +38,10 @@ export interface SelectProps {
   size?: SelectSize;
   /** Native disabled behaviour. The select cannot take focus or open. */
   disabled?: boolean;
+  /** Shows the value without letting it change. It can still be focused and read, and it does not open. */
+  readOnly?: boolean;
+  /** Marks the value as wrong. Inside a FormField, its `error` sets this for you. */
+  invalid?: boolean;
   /** Name for form submission. */
   name?: string;
   /** Extra class on the wrapper. */
@@ -52,9 +57,10 @@ const Chevron = () => <svg viewBox="0 0 24 24" aria-hidden="true" className={sty
 const Check = () => <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 
 export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select(
-  { label, hideLabel = false, options, value, defaultValue, onValueChange, placeholder, size = 'md', disabled, name, className },
+  { label, hideLabel = false, options, value, defaultValue, onValueChange, placeholder, size = 'md', disabled, readOnly, invalid, name, className },
   ref,
 ) {
+  const field = useField();
   const id = useId();
   const wrap = useRef<HTMLDivElement>(null);
   // The list opens in a portal at the end of <body>; it takes the theme of the place the control sits
@@ -64,8 +70,8 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
   return (
     <div ref={wrap} className={cx(styles.root, className)} data-component="Select">
       <span id={`${id}-label`} className={hideLabel ? styles.hidden : styles.label}>{label}</span>
-      <RS.Root value={value} defaultValue={defaultValue} onValueChange={onValueChange} disabled={disabled} name={name}>
-        <RS.Trigger ref={ref} className={cx(styles.trigger, styles[size])} aria-labelledby={`${id}-label`}>
+      <RS.Root value={value} defaultValue={defaultValue} onValueChange={onValueChange} disabled={disabled ?? field?.disabled} required={field?.required} name={name} {...(readOnly ? { open: false, onOpenChange: () => {} } : {})}>
+        <RS.Trigger ref={ref} className={cx(styles.trigger, styles[size])} aria-labelledby={`${id}-label`} aria-readonly={readOnly || undefined} data-readonly={readOnly || undefined} aria-invalid={(invalid ?? field?.invalid) || undefined} aria-describedby={field?.describedBy} aria-required={field?.required || undefined}>
           <RS.Value placeholder={placeholder} />
           <RS.Icon asChild><span className={styles.icon}><Chevron /></span></RS.Icon>
         </RS.Trigger>
