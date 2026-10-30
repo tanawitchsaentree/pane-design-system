@@ -19,3 +19,11 @@ MCP for agents, a state matrix that proves every state).
 | X6 | Scheduler | preview | day, week, month, agenda; events moved and resized by keys; recurrence; timezones |
 | X7 | Chat | preview | message list, composer, streaming text, attachments, tool-call blocks, all announced politely |
 | X8 | Practice | unit tests, coverage, versioned docs, AGENTS.md | Vitest + coverage gate next to the browser gates, versioned docs, migration guides, `pane-mcp` + `llms.txt`, plain-HTML recipes (`pane-css`) |
+
+## X9 · Open core, hands-off income (user, 2026-10-30)
+Free MIT core with every component; a paid Pro tier for what teams pay MUI for (advanced DataGrid from
+X2b on, Scheduler, Pro charts, Figma kit, extra themes). Sold through a merchant of record (Lemon Squeezy
+or Paddle) that takes the payment, handles tax and emails a signed license key. The key is checked
+offline in the package (no server); without it Pro shows an "unlicensed" mark. Pane builds: the package
+split, key verification and watermark, the key-issuing script, the pricing page and launch docs. The
+user owns: the store account, prices, the npm account and publish, the licence text (with a lawyer).
