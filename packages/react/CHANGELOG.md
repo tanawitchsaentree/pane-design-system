@@ -4,6 +4,10 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- ConfidenceChip: new. How sure a claim is, as dots filled to the level in one sequential hue (D-032) with the level in words.
+- NodeCard: new. A step on a canvas with ports, chosen glass when picked, Enter to pick and arrow keys to move it.
+- NetworkGraph: new. Nodes and links on a quiet canvas, the neighbourhood in focus lit, arrow keys between nodes and a table of every link.
+- SequenceDiagram: new. Messages between actors in lanes, solid for a message and dashed for a reply, spoken step by step.
 - Button: `ghost` and `danger` variants, size `lg`, `icon` and `iconEnd`, and `fullWidth`.
 - PaneProvider: new. Sets the words and the locale for every component below it; `en` (default) and `th` ship, and a custom catalog is typed as PaneMessages. th-TH gives the Buddhist year.
 - Calendar: month names, weekdays and its button names follow PaneProvider's catalog and locale.

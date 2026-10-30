@@ -1,0 +1,27 @@
+/* Lanes are columns with a hairline down their middle; each step spans from one lane's centre to the other's
+   with an arrowhead drawn by borders, solid for a message, dashed for a reply, a quiet pane for a note. */
+.root { display: flex; flex-direction: column; gap: var(--ds-gap-md); margin: 0; min-inline-size: 0; font-family: var(--ds-type-family); }
+.caption { font-size: var(--ds-type-body); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-primary); }
+.scroll { overflow-x: auto; border-radius: var(--ds-corner-media); }
+.scroll:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.grid { --pane-lane: max(var(--ds-sequence-lane), calc(100% / var(--pane-lanes))); position: relative; min-inline-size: calc(var(--pane-lane) * var(--pane-lanes)); }
+.lanes { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(var(--pane-lanes), var(--pane-lane)); pointer-events: none; }
+.lane { position: relative; display: flex; justify-content: center; }
+.lane::before { content: ''; position: absolute; inset-block: var(--ds-sequence-head) 0; inset-inline-start: 50%; inline-size: var(--ds-width-hairline); background: var(--ds-sequence-rail); }
+.actor { position: relative; align-self: flex-start; padding: var(--ds-gap-sm) var(--ds-gap-lg); border-radius: var(--ds-corner-round); background: var(--ds-sequence-actor-bg); box-shadow: var(--ds-sequence-actor-edge); font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-primary); white-space: nowrap; }
+.steps { position: relative; display: flex; flex-direction: column; margin: 0; padding: var(--ds-sequence-head) 0 var(--ds-gap-lg); list-style: none; }
+.step { position: relative; display: block; min-block-size: var(--ds-sequence-row); }
+.time { position: absolute; inset-inline-start: var(--ds-gap-sm); inset-block-start: 0; font-size: var(--ds-type-micro); color: var(--ds-text-secondary); font-variant-numeric: tabular-nums; }
+.arrow { position: absolute; inset-block-end: var(--ds-gap-sm); inset-inline-start: calc(var(--pane-lane) * var(--pane-from) + var(--pane-lane) / 2); inline-size: calc(var(--pane-lane) * (var(--pane-to) - var(--pane-from))); border-block-end: var(--ds-width-ring) solid var(--ds-sequence-arrow); }
+.arrow::after { content: ''; position: absolute; inset-block-end: calc(var(--ds-width-ring) * -1 - var(--ds-sequence-head-size) / 2 + var(--ds-width-ring) / 2); inset-inline-end: 0; border-block: calc(var(--ds-sequence-head-size) / 2) solid transparent; border-inline-start: var(--ds-sequence-head-size) solid var(--ds-sequence-arrow); }
+.back::after { inset-inline-end: auto; inset-inline-start: 0; border-inline-start: 0; border-inline-end: var(--ds-sequence-head-size) solid var(--ds-sequence-arrow); }
+.reply { color: var(--ds-text-secondary); }
+.reply .arrow { border-block-end-style: dashed; border-block-end-color: var(--ds-sequence-reply); }
+.reply .arrow::after { border-inline-start-color: var(--ds-sequence-reply); border-inline-end-color: var(--ds-sequence-reply); }
+.text { position: absolute; inset-block-end: var(--ds-gap-xs); inset-inline: var(--ds-gap-md); font-size: var(--ds-type-label); color: var(--ds-text-primary); text-align: center; overflow-wrap: anywhere; }
+.reply .text { color: var(--ds-text-secondary); }
+.self { inline-size: auto; border: 0; inset-inline-start: calc(var(--pane-lane) * var(--pane-from) + var(--pane-lane) / 2 - var(--ds-sequence-lane) / 2.4); inline-size: calc(var(--ds-sequence-lane) / 1.2); }
+.self::after { display: none; }
+.note .self { padding: var(--ds-gap-sm) var(--ds-gap-md); border-radius: var(--ds-corner-inner); background: var(--ds-sequence-note-bg); box-shadow: var(--ds-sequence-actor-edge); }
+.note .text { position: static; display: block; }
+@media (forced-colors: active) { .arrow, .reply .arrow { border-block-end-color: CanvasText; } .arrow::after { border-inline-start-color: CanvasText; border-inline-end-color: CanvasText; } .lane::before { background: CanvasText; } }

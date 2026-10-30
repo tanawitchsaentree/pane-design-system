@@ -1,0 +1,87 @@
+{
+  "concept": "How sure a claim is: a small level-2 chip with dots filled to the level in one sequential hue, and the level in words.",
+  "default_to_avoid": [
+    {
+      "pattern": "a confidence chip in traffic-light red, amber and green",
+      "kind": "confidence chip, confidence indicator, certainty badge, evidence strength",
+      "why_not": "red, amber and green read as good and bad and fail for colour-blind readers; Pane fills dots in one hue and says the level"
+    }
+  ],
+  "references": [
+    {
+      "title": "Carbon · Data visualization, color palettes",
+      "url": "https://carbondesignsystem.com/data-visualization/color-palettes/"
+    },
+    {
+      "title": "WCAG 1.4.1 Use of color",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P6",
+      "axis": "colour",
+      "consequence": "status is spoken in text as well as shown in colour",
+      "form": "an ordered magnitude steps through one hue from faint to strong, never the status colours (D-032)"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the count of filled dots carries the level so it reads without colour"
+    },
+    {
+      "p": "P2",
+      "axis": "type",
+      "consequence": "secondary text keeps the lowest opacity that still measured as passing; text halos count only where WCAG allows them",
+      "form": "the word beside the dots names the level in the text tone"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/x11/",
+    "section": "confidencechip",
+    "options": [
+      "A dots in one hue with a word",
+      "B traffic-light chip",
+      "C percent number"
+    ],
+    "picked": "A dots in one hue with a word",
+    "by": "agent",
+    "reason": "A reads by count and word (P6). B reads as pass or fail. C gives false precision to a judgement."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the chip is a small level-2 pane with its edge so it sits on any backdrop"
+    },
+    "dots": {
+      "p": "P6",
+      "axis": "space",
+      "why": "the dots sit in one row with a ring-width gap"
+    },
+    "dot": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "each dot is an empty ring until the level reaches it"
+    },
+    "on": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a reached dot fills with its step of the sequential ramp"
+    },
+    "word": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the level in words at label size in the primary tone"
+    }
+  },
+  "states": {
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours filled dots take the text colour and empty ones keep a ring"
+    }
+  },
+  "motion": {}
+}

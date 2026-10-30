@@ -1,0 +1,8 @@
+/* A chip with dots filled up to the level in the sequential ramp's step for that level, and the level's word
+   in the text tone; the count of dots says the level before any colour does (P6, D-032). */
+.root { max-inline-size: 100%; display: inline-flex; align-items: center; gap: var(--ds-confidence-chip-gap); min-block-size: var(--ds-confidence-chip-height); padding-inline: var(--ds-confidence-chip-padding); border-radius: var(--ds-corner-round); background: var(--ds-confidence-chip-bg); box-shadow: var(--ds-confidence-chip-edge); font-family: var(--ds-type-family); }
+.dots { display: inline-flex; gap: var(--ds-confidence-chip-dot-gap); }
+.dot { inline-size: var(--ds-confidence-chip-dot); block-size: var(--ds-confidence-chip-dot); border-radius: var(--ds-corner-round); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-confidence-chip-ring); }
+.on { background: var(--pane-step); box-shadow: none; }
+.word { font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-medium); color: var(--ds-text-primary); overflow-wrap: anywhere; }
+@media (forced-colors: active) { .on { background: CanvasText; forced-color-adjust: none; } .dot { border: var(--ds-width-hairline) solid CanvasText; } }

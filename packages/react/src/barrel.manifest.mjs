@@ -62,6 +62,10 @@ export const BARREL_MANIFEST = [
     components: ['Scale', 'RadarChart'],
   },
   {
+    header: `Diagrams and evidence (0.7.0): a confidence chip on the sequential ramp, a canvas node, a network graph and a sequence diagram.`,
+    components: ['ConfidenceChip', 'NodeCard', 'NetworkGraph', 'SequenceDiagram'],
+  },
+  {
     header: `Language (0.7.0): one catalog for every word a component shows or speaks, English by default, Thai included.`,
     components: ['PaneProvider'],
   },

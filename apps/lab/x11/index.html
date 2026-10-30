@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>X11 diagrams, three ways each</title>
+<style>
+  body { margin: 0; padding: 48px; background: #0B0B0D; color: #fff; font: 15px/1.5 system-ui, sans-serif; }
+  section { margin-block-end: 36px; } .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .pane { padding: 16px; border-radius: 22px; background: linear-gradient(180deg, #2a2b30, #1c1d21); box-shadow: inset 0 1px 0 #fff2; }
+  .chip { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border-radius: 99px; background: #ffffff14; box-shadow: inset 0 1px 0 #fff2; }
+  .d { display: inline-block; width: 8px; height: 8px; border-radius: 50%; border: 1px solid #ffffff5c; margin-right: 2px; }
+  .node { display: inline-block; padding: 10px 14px; border-radius: 16px; background: linear-gradient(180deg,#34353b,#26272c); box-shadow: inset 0 1px 0 #fff3, 0 0 0 2px #fff8; }
+  figcaption { margin-top: 8px; color: #ffffffcc; font-size: 13px; }
+</style></head><body>
+<h1>ConfidenceChip, NodeCard, NetworkGraph, SequenceDiagram (Pane)</h1>
+<section><h2>ConfidenceChip</h2><div class="row">
+ <figure><div class="pane"><span class="chip"><span><i class="d" style="background:#3987E5;border-color:#3987E5"></i><i class="d" style="background:#6DA7EC;border-color:#6DA7EC"></i><i class="d" style="background:#9EC5F4;border-color:#9EC5F4"></i><i class="d"></i><i class="d"></i></span>Medium</span></div><figcaption><b>A · dots in one hue with a word</b> (picked)</figcaption></figure>
+ <figure><div class="pane"><span class="chip" style="background:#d9a400;color:#000">Medium</span></div><figcaption>B · traffic-light chip</figcaption></figure>
+ <figure><div class="pane"><span class="chip">62%</span></div><figcaption>C · percent number</figcaption></figure>
+</div></section>
+<section><h2>NodeCard</h2><div class="row">
+ <figure><div class="pane"><span class="node"><b>Fetch prices</b><br><small style="color:#ffffffaa">HTTP · 2 out</small></span></div><figcaption><b>A · level-2 pane with ports, chosen glass and ring</b> (picked)</figcaption></figure>
+ <figure><div class="pane"><span style="display:inline-block;background:#fff;color:#000;border-radius:4px;overflow:hidden"><b style="display:block;background:#7c3aed;color:#fff;padding:4px 10px">Fetch prices</b><span style="padding:4px 10px;display:block">HTTP</span></span></div><figcaption>B · coloured header bar</figcaption></figure>
+ <figure><div class="pane"><span style="border:1px solid #fff6;padding:6px 10px">Fetch prices</span></div><figcaption>C · bare text box</figcaption></figure>
+</div></section>
+<section><h2>NetworkGraph</h2><div class="row">
+ <figure><div class="pane"><svg width="160" height="110"><g stroke="#ffffff22"><line x1="20" y1="20" x2="80" y2="60"/><line x1="140" y1="20" x2="80" y2="60"/></g><g stroke="#fff"><line x1="80" y1="60" x2="40" y2="100"/><line x1="80" y1="60" x2="130" y2="95"/></g><circle cx="80" cy="60" r="7" fill="#3987E5" stroke="#1c1d21" stroke-width="2"/><circle cx="40" cy="100" r="5" fill="#3987E5"/><circle cx="130" cy="95" r="5" fill="#3987E5"/><circle cx="20" cy="20" r="5" fill="#3987E544"/><circle cx="140" cy="20" r="5" fill="#3987E544"/></svg></div><figcaption><b>A · hairlines with a lit neighbourhood</b> (picked)</figcaption></figure>
+ <figure><div class="pane"><svg width="160" height="110"><g stroke-width="4"><line x1="20" y1="20" x2="80" y2="60" stroke="#f43"/><line x1="140" y1="20" x2="80" y2="60" stroke="#3f4"/><line x1="80" y1="60" x2="40" y2="100" stroke="#fd0"/><line x1="80" y1="60" x2="130" y2="95" stroke="#a3f"/></g></svg></div><figcaption>B · rainbow hairball</figcaption></figure>
+ <figure><div class="pane"><table style="font-size:12px"><tr><td></td><td>A</td><td>B</td><td>C</td></tr><tr><td>A</td><td></td><td>■</td><td></td></tr><tr><td>B</td><td>■</td><td></td><td>■</td></tr></table></div><figcaption>C · adjacency matrix only</figcaption></figure>
+</div></section>
+<section><h2>SequenceDiagram</h2><div class="row">
+ <figure><div class="pane" style="font-size:12px"><div style="display:grid;grid-template-columns:1fr 1fr;text-align:center"><span class="chip">App</span><span class="chip">API</span></div><div style="margin:10px 25%;border-bottom:2px solid #fff;text-align:center">GET /deck</div><div style="margin:10px 25%;border-bottom:2px dashed #ffffffaa;text-align:center;color:#ffffffaa">200 OK</div></div><figcaption><b>A · lanes with a spoken list, solid message, dashed reply</b> (picked)</figcaption></figure>
+ <figure><div class="pane"><div style="height:80px;background:repeating-linear-gradient(90deg,#fff1 0 2px,transparent 2px 60px);font-size:8px">[image]</div></div><figcaption>B · static image</figcaption></figure>
+ <figure><div class="pane"><table style="font-size:12px"><tr><th>From</th><th>To</th><th>Message</th></tr><tr><td>App</td><td>API</td><td>GET /deck</td></tr></table></div><figcaption>C · plain table</figcaption></figure>
+</div></section>
+</body></html>

@@ -1,0 +1,147 @@
+{
+  "concept": "Messages between actors in time: lanes with hairline rails, solid arrows for a message and dashed for a reply, read aloud step by step.",
+  "default_to_avoid": [
+    {
+      "pattern": "a sequence diagram as a static image with tiny labels",
+      "kind": "sequence diagram, message flow, swimlane timeline",
+      "why_not": "an image cannot be read by a screen reader or scrolled on a phone; Pane draws it as a list with each step spoken"
+    }
+  ],
+  "references": [
+    {
+      "title": "UML sequence diagram notation",
+      "url": "https://www.uml-diagrams.org/sequence-diagrams.html"
+    },
+    {
+      "title": "WAI · Complex images",
+      "url": "https://www.w3.org/WAI/tutorials/images/complex/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P2",
+      "axis": "colour",
+      "consequence": "opaque pairs are computed, glass pairs are measured",
+      "form": "rails are hairlines and arrows wear the text tones, never a series colour"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "a message is a solid arrow and a reply a dashed one, so the kind reads by shape"
+    },
+    {
+      "p": "P6",
+      "axis": "type",
+      "consequence": "labels and names exist for assistive tech even when hidden visually",
+      "form": "each step is a list item that says who, to whom and what"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/x11/",
+    "section": "sequencediagram",
+    "options": [
+      "A lanes with a spoken list",
+      "B static image",
+      "C plain table"
+    ],
+    "picked": "A lanes with a spoken list",
+    "by": "agent",
+    "reason": "A keeps the picture and the words (P6). B shuts out screen readers. C loses who talks to whom at a glance."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the diagram stacks under its caption so the name is read first"
+    },
+    "caption": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the caption is label size in the primary tone"
+    },
+    "scroll": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the lanes scroll sideways on a narrow screen instead of squeezing"
+    },
+    "grid": {
+      "p": "P3",
+      "axis": "space",
+      "why": "one grid column per lane so every arrow lines up"
+    },
+    "lanes": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the actor heads sit in one row over their lanes"
+    },
+    "lane": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a lane is one column at the lane width"
+    },
+    "actor": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "an actor head is a small level-2 pane with its edge"
+    },
+    "steps": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the steps stack at the row height so arrows sit one under another in time order"
+    },
+    "step": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a step spans from its sender lane to its receiver lane"
+    },
+    "time": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the time is caption size in the tertiary tone"
+    },
+    "arrow": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a message is a solid line ending in a head"
+    },
+    "back": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a step going back to an earlier lane turns its head round"
+    },
+    "reply": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a reply is dashed in the secondary tone"
+    },
+    "text": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the message rides above its arrow at caption size"
+    },
+    "self": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a message to itself loops back into the same lane"
+    },
+    "note": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a note is a quiet pane on its lane"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the scroll area shows the focus ring when reached by keyboard"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours arrows and rails are drawn in the text colour"
+    }
+  },
+  "motion": {}
+}

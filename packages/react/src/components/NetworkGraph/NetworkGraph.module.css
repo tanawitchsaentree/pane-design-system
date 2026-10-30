@@ -1,0 +1,10 @@
+/* Links are recessive hairlines that come up to the primary tone around the node in focus; nodes are dots
+   in their group's data colour with a surface ring, so a busy graph stays readable (dataviz marks). */
+.edge { stroke: var(--ds-viz-grid); transition: stroke var(--ds-motion-hover) var(--ds-motion-easing), opacity var(--ds-motion-hover) var(--ds-motion-easing); }
+.on { stroke: var(--ds-text-primary); }
+.faded { opacity: var(--ds-viz-dim); }
+.node { cursor: pointer; transition: opacity var(--ds-motion-hover) var(--ds-motion-easing); }
+.dot { stroke: var(--ds-viz-ring); stroke-width: var(--ds-viz-line); }
+.dot[data-on] { stroke: var(--ds-text-primary); }
+.live { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (forced-colors: active) { .dot { forced-color-adjust: none; } .edge { stroke: GrayText; } .on { stroke: Highlight; } }

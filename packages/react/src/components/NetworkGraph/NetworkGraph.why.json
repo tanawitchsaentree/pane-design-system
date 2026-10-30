@@ -1,0 +1,108 @@
+{
+  "concept": "Who links to whom: dots on a quiet canvas joined by hairlines, the node in focus and its links lit, the rest faded, with a table view.",
+  "default_to_avoid": [
+    {
+      "pattern": "a network graph as a rainbow hairball of thick coloured edges",
+      "kind": "network graph, force graph, node-link diagram",
+      "why_not": "thick coloured edges hide the structure and colour every node for no reason; Pane keeps edges recessive and lights only the neighbourhood in focus"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI · Complex images",
+      "url": "https://www.w3.org/WAI/tutorials/images/complex/"
+    },
+    {
+      "title": "Carbon · Data visualization",
+      "url": "https://carbondesignsystem.com/data-visualization/chart-types/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P2",
+      "axis": "colour",
+      "consequence": "opaque pairs are computed, glass pairs are measured",
+      "form": "edges are recessive hairlines in the grid tone"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "the arrow keys walk to the nearest node in that direction and a live line says its links"
+    },
+    {
+      "p": "P6",
+      "axis": "colour",
+      "consequence": "status is spoken in text as well as shown in colour",
+      "form": "every link is also in the table view so nothing is read by colour alone"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/x11/",
+    "section": "networkgraph",
+    "options": [
+      "A hairlines with a lit neighbourhood",
+      "B rainbow hairball",
+      "C adjacency matrix only"
+    ],
+    "picked": "A hairlines with a lit neighbourhood",
+    "by": "agent",
+    "reason": "A shows structure on a quiet grid (dataviz). B is noise. C loses the shape of the network."
+  },
+  "parts": {
+    "edge": {
+      "p": "P2",
+      "axis": "colour",
+      "why": "a link is a hairline in the grid tone"
+    },
+    "on": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a link of the node in focus turns to the primary tone"
+    },
+    "faded": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "everything outside the neighbourhood fades so the lit part reads"
+    },
+    "node": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "each node is a hit target bigger than its dot"
+    },
+    "dot": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "a dot carries its group colour from the content palette (D-031)"
+    },
+    "live": {
+      "p": "P6",
+      "axis": "type",
+      "why": "a hidden live line says the node in focus and its links"
+    }
+  },
+  "states": {
+    "data-on": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the node in focus gains a surface ring"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours links are grey and the lit ones take the highlight"
+    }
+  },
+  "motion": {
+    "stroke": {
+      "p": "P6",
+      "axis": "motion",
+      "why": "a link lights at the hover duration so the neighbourhood appears without a flash"
+    },
+    "opacity": {
+      "p": "P6",
+      "axis": "motion",
+      "why": "fading eases at the hover duration so the rest steps back without a flash"
+    }
+  }
+}

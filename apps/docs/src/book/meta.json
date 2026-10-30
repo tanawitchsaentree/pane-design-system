@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T09:47:21.802Z",
+  "generatedAt": "2026-10-30T12:20:24.440Z",
   "version": "0.7.0",
   "components": {
     "Accordion": {
@@ -172,9 +172,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 47799,
+        "jsMin": 48205,
         "cssMin": 4464,
-        "gzip": 18090
+        "gzip": 18252
       }
     },
     "AppShell": {
@@ -255,9 +255,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5481,
+        "jsMin": 5887,
         "cssMin": 1771,
-        "gzip": 3052
+        "gzip": 3208
       }
     },
     "AspectRatio": {
@@ -417,9 +417,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 13796,
+        "jsMin": 14202,
         "cssMin": 14665,
-        "gzip": 7809
+        "gzip": 7971
       }
     },
     "Autocomplete": {
@@ -549,9 +549,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 76939,
+        "jsMin": 77345,
         "cssMin": 5189,
-        "gzip": 29074
+        "gzip": 29232
       }
     },
     "Avatar": {
@@ -770,9 +770,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 6521,
+        "jsMin": 6927,
         "cssMin": 2555,
-        "gzip": 3777
+        "gzip": 3937
       }
     },
     "BarChart": {
@@ -876,9 +876,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 11255,
+        "jsMin": 11661,
         "cssMin": 3924,
-        "gzip": 5928
+        "gzip": 6091
       }
     },
     "BottomNav": {
@@ -955,9 +955,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 5467,
+        "jsMin": 5873,
         "cssMin": 2247,
-        "gzip": 3206
+        "gzip": 3364
       }
     },
     "Box": {
@@ -1110,9 +1110,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5365,
+        "jsMin": 5771,
         "cssMin": 1014,
-        "gzip": 2809
+        "gzip": 2967
       }
     },
     "Button": {
@@ -1210,9 +1210,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 6290,
+        "jsMin": 6696,
         "cssMin": 4853,
-        "gzip": 4018
+        "gzip": 4174
       }
     },
     "Calendar": {
@@ -1343,9 +1343,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 10401,
+        "jsMin": 10807,
         "cssMin": 5945,
-        "gzip": 5943
+        "gzip": 6104
       }
     },
     "Card": {
@@ -1486,9 +1486,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 7899,
+        "jsMin": 8305,
         "cssMin": 5163,
-        "gzip": 4882
+        "gzip": 5043
       }
     },
     "Center": {
@@ -1711,9 +1711,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5882,
+        "jsMin": 6288,
         "cssMin": 2380,
-        "gzip": 3398
+        "gzip": 3557
       }
     },
     "CoachMark": {
@@ -1828,9 +1828,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 77632,
+        "jsMin": 78038,
         "cssMin": 8535,
-        "gzip": 30047
+        "gzip": 30207
       }
     },
     "ColorPicker": {
@@ -1922,9 +1922,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 38715,
+        "jsMin": 39121,
         "cssMin": 5498,
-        "gzip": 15139
+        "gzip": 15302
       }
     },
     "Combobox": {
@@ -2063,9 +2063,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 76994,
+        "jsMin": 77400,
         "cssMin": 5189,
-        "gzip": 29093
+        "gzip": 29250
       }
     },
     "CommandPalette": {
@@ -2146,9 +2146,65 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 49615,
+        "jsMin": 50042,
         "cssMin": 7489,
-        "gzip": 19411
+        "gzip": 19577
+      }
+    },
+    "ConfidenceChip": {
+      "source": "packages/react/src/components/ConfidenceChip/ConfidenceChip.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "ConfidenceChip",
+          "props": [
+            {
+              "name": "level",
+              "type": "number",
+              "required": true,
+              "default": null,
+              "description": "How sure, from 1 (lowest) to `steps`.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "steps",
+              "type": "number",
+              "required": false,
+              "default": "5",
+              "description": "How many steps the scale has; 5 by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "words",
+              "type": "string[]",
+              "required": false,
+              "default": null,
+              "description": "One word per step, lowest first, such as ['Rumour', 'Reported', 'Likely', 'Confirmed', 'Proven']. The word for the level is shown and read. Without it, five steps say Very low to Very high from the catalog, and other counts say n of N.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "What is being rated, read before the level, such as Evidence.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 5840,
+        "cssMin": 917,
+        "gzip": 2968
       }
     },
     "Container": {
@@ -2375,9 +2431,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 25395,
+        "jsMin": 25801,
         "cssMin": 5242,
-        "gzip": 11049
+        "gzip": 11210
       }
     },
     "DatePicker": {
@@ -2538,9 +2594,9 @@
       "variantCount": 4,
       "demoFloor": 7,
       "bundle": {
-        "jsMin": 81404,
+        "jsMin": 81810,
         "cssMin": 13990,
-        "gzip": 32451
+        "gzip": 32607
       }
     },
     "DescriptionList": {
@@ -3015,9 +3071,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 6504,
+        "jsMin": 6910,
         "cssMin": 1944,
-        "gzip": 3696
+        "gzip": 3856
       }
     },
     "Editable": {
@@ -3116,9 +3172,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 6546,
+        "jsMin": 6952,
         "cssMin": 3736,
-        "gzip": 3970
+        "gzip": 4132
       }
     },
     "EmptyState": {
@@ -3423,9 +3479,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 6426,
+        "jsMin": 6832,
         "cssMin": 1613,
-        "gzip": 3450
+        "gzip": 3609
       }
     },
     "Fieldset": {
@@ -3583,9 +3639,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 9708,
+        "jsMin": 10114,
         "cssMin": 9190,
-        "gzip": 5924
+        "gzip": 6081
       }
     },
     "Flex": {
@@ -3739,9 +3795,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5997,
+        "jsMin": 6403,
         "cssMin": 1646,
-        "gzip": 3274
+        "gzip": 3431
       }
     },
     "FormField": {
@@ -3829,9 +3885,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 6304,
+        "jsMin": 6710,
         "cssMin": 1046,
-        "gzip": 3151
+        "gzip": 3310
       }
     },
     "Grid": {
@@ -4039,9 +4095,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 9023,
+        "jsMin": 9429,
         "cssMin": 4485,
-        "gzip": 5105
+        "gzip": 5266
       }
     },
     "HelperText": {
@@ -4078,9 +4134,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 5274,
+        "jsMin": 5680,
         "cssMin": 715,
-        "gzip": 2727
+        "gzip": 2884
       }
     },
     "Icon": {
@@ -4209,9 +4265,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 6079,
+        "jsMin": 6485,
         "cssMin": 3469,
-        "gzip": 3723
+        "gzip": 3881
       }
     },
     "Image": {
@@ -4416,9 +4472,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 7865,
+        "jsMin": 8271,
         "cssMin": 2521,
-        "gzip": 4223
+        "gzip": 4381
       }
     },
     "Kbd": {
@@ -4464,9 +4520,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5013,
+        "jsMin": 5419,
         "cssMin": 218,
-        "gzip": 2339
+        "gzip": 2496
       }
     },
     "LineChart": {
@@ -4565,9 +4621,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 10446,
+        "jsMin": 10852,
         "cssMin": 4001,
-        "gzip": 5639
+        "gzip": 5800
       }
     },
     "Link": {
@@ -4613,9 +4669,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 5112,
+        "jsMin": 5518,
         "cssMin": 973,
-        "gzip": 2691
+        "gzip": 2847
       }
     },
     "List": {
@@ -5066,9 +5122,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5854,
+        "jsMin": 6260,
         "cssMin": 1282,
-        "gzip": 3159
+        "gzip": 3312
       }
     },
     "MultiSelect": {
@@ -5198,9 +5254,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 78492,
+        "jsMin": 78898,
         "cssMin": 7568,
-        "gzip": 30162
+        "gzip": 30326
       }
     },
     "Navbar": {
@@ -5281,9 +5337,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5310,
+        "jsMin": 5716,
         "cssMin": 1352,
-        "gzip": 2897
+        "gzip": 3054
       }
     },
     "NavigationMenu": {
@@ -5328,9 +5384,228 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6237,
+        "jsMin": 6643,
         "cssMin": 2186,
-        "gzip": 3574
+        "gzip": 3733
+      }
+    },
+    "NetworkGraph": {
+      "source": "packages/react/src/components/NetworkGraph/NetworkGraph.tsx",
+      "kinds": {},
+      "sizes": [
+        "mini",
+        "full"
+      ],
+      "exports": [
+        {
+          "displayName": "NetworkGraph",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The graph's title; it names the figure and the plot.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "A line under the title that says what the nodes and links are.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "nodes",
+              "type": "GraphNode[]",
+              "required": true,
+              "default": null,
+              "description": "The nodes; `group` (0 to 7) picks a data colour, so a kind of node keeps one colour everywhere.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "edges",
+              "type": "GraphEdge[]",
+              "required": true,
+              "default": null,
+              "description": "The links between nodes; `weight` thickens a link, `label` names it in the table and the tooltip.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "size",
+              "type": "\"mini\" | \"full\"",
+              "required": false,
+              "default": "full",
+              "description": "`mini` (no labels, small) for a preview in a card or a row; `full` (default) labels every node.",
+              "enum": true,
+              "options": [
+                "mini",
+                "full"
+              ]
+            },
+            {
+              "name": "blockSize",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "The plot's height in pixels; 320 by default, 120 for mini.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onSelect",
+              "type": "((id: string) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with a node's id when the reader chooses it.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the figure.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "size"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 10007,
+        "cssMin": 4253,
+        "gzip": 5576
+      }
+    },
+    "NodeCard": {
+      "source": "packages/react/src/components/NodeCard/NodeCard.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "NodeCard",
+          "props": [
+            {
+              "name": "title",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The node's name, such as Account 4471 or Witness statement.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "meta",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A line under the name, such as a kind, a date or a count.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "icon",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A glyph or an avatar at the start of the header; it is not read.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "What the node holds, shown unless the node is collapsed.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "selected",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Marks the node the reader picked with chosen glass and a ring, and says so with aria-current.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "dragging",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Set while the node is moved, so it lifts one level like a card picked up.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "collapsed",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Shows only the header; `onToggle` adds the button that opens it again.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onToggle",
+              "type": "(() => void)",
+              "required": false,
+              "default": null,
+              "description": "Called by the collapse button in the header.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onSelect",
+              "type": "(() => void)",
+              "required": false,
+              "default": null,
+              "description": "Called when the node is chosen by a press, Enter or Space.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onMove",
+              "type": "((dx: number, dy: number) => void)",
+              "required": false,
+              "default": null,
+              "description": "Called with a step when the node is moved by the arrow keys (with Shift, ten steps), so a canvas can move it.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "ports",
+              "type": "{ in?: number; out?: number; } | undefined",
+              "required": false,
+              "default": null,
+              "description": "How many connection points on each side, drawn as small dots on the edges where lines attach.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 6806,
+        "cssMin": 3125,
+        "gzip": 3975
       }
     },
     "NotificationCenter": {
@@ -5402,9 +5677,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 79491,
+        "jsMin": 79897,
         "cssMin": 14713,
-        "gzip": 31317
+        "gzip": 31477
       }
     },
     "NumberInput": {
@@ -5505,9 +5780,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 9112,
+        "jsMin": 9518,
         "cssMin": 7488,
-        "gzip": 5673
+        "gzip": 5833
       }
     },
     "OTPFlow": {
@@ -5579,9 +5854,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 9753,
+        "jsMin": 10159,
         "cssMin": 7740,
-        "gzip": 6110
+        "gzip": 6268
       }
     },
     "Pagination": {
@@ -5653,9 +5928,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5985,
+        "jsMin": 6391,
         "cssMin": 1505,
-        "gzip": 3276
+        "gzip": 3435
       }
     },
     "PaneProvider": {
@@ -5667,9 +5942,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 18556,
+        "jsMin": 19957,
         "cssMin": 0,
-        "gzip": 4512
+        "gzip": 4827
       }
     },
     "PasswordInput": {
@@ -5720,9 +5995,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 7844,
+        "jsMin": 8250,
         "cssMin": 7284,
-        "gzip": 5075
+        "gzip": 5236
       }
     },
     "PinInput": {
@@ -5856,9 +6131,9 @@
       "variantCount": 4,
       "demoFloor": 7,
       "bundle": {
-        "jsMin": 6581,
+        "jsMin": 6987,
         "cssMin": 2080,
-        "gzip": 3748
+        "gzip": 3908
       }
     },
     "Popover": {
@@ -6098,9 +6373,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6170,
+        "jsMin": 6576,
         "cssMin": 1394,
-        "gzip": 3360
+        "gzip": 3519
       }
     },
     "RadarChart": {
@@ -6199,9 +6474,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 8404,
+        "jsMin": 8810,
         "cssMin": 4135,
-        "gzip": 4835
+        "gzip": 4994
       }
     },
     "Radio": {
@@ -6589,9 +6864,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 34752,
+        "jsMin": 35158,
         "cssMin": 4084,
-        "gzip": 13965
+        "gzip": 14121
       }
     },
     "Rating": {
@@ -6684,9 +6959,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 34301,
+        "jsMin": 34707,
         "cssMin": 998,
-        "gzip": 12981
+        "gzip": 13145
       }
     },
     "RichTextEditor": {
@@ -6789,9 +7064,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 8027,
+        "jsMin": 8433,
         "cssMin": 3121,
-        "gzip": 4608
+        "gzip": 4764
       }
     },
     "Scale": {
@@ -6881,9 +7156,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6173,
+        "jsMin": 6579,
         "cssMin": 2198,
-        "gzip": 3542
+        "gzip": 3698
       }
     },
     "SearchInput": {
@@ -6966,9 +7241,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 8163,
+        "jsMin": 8569,
         "cssMin": 7366,
-        "gzip": 5262
+        "gzip": 5423
       }
     },
     "SegmentedControl": {
@@ -7218,6 +7493,53 @@
         "jsMin": 91988,
         "cssMin": 5018,
         "gzip": 33650
+      }
+    },
+    "SequenceDiagram": {
+      "source": "packages/react/src/components/SequenceDiagram/SequenceDiagram.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "SequenceDiagram",
+          "props": [
+            {
+              "name": "label",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Names the sequence, such as Money trail, case 2026-118.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "actors",
+              "type": "SequenceActor[]",
+              "required": true,
+              "default": null,
+              "description": "The actors, in the order of their lanes.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "steps",
+              "type": "SequenceStep[]",
+              "required": true,
+              "default": null,
+              "description": "The steps, in the order they happened.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 6586,
+        "cssMin": 3423,
+        "gzip": 3803
       }
     },
     "SettingsLayout": {
@@ -7534,9 +7856,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5703,
+        "jsMin": 6109,
         "cssMin": 1977,
-        "gzip": 3218
+        "gzip": 3376
       }
     },
     "Skeleton": {
@@ -7947,9 +8269,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 5060,
+        "jsMin": 5466,
         "cssMin": 620,
-        "gzip": 2559
+        "gzip": 2716
       }
     },
     "Stack": {
@@ -8097,9 +8419,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 5807,
+        "jsMin": 6213,
         "cssMin": 1427,
-        "gzip": 3124
+        "gzip": 3282
       }
     },
     "Stepper": {
@@ -8167,9 +8489,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 5733,
+        "jsMin": 6139,
         "cssMin": 2400,
-        "gzip": 3314
+        "gzip": 3471
       }
     },
     "Switch": {
@@ -8405,9 +8727,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 6643,
+        "jsMin": 7049,
         "cssMin": 2717,
-        "gzip": 3869
+        "gzip": 4035
       }
     },
     "TableOfContents": {
@@ -8461,9 +8783,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5807,
+        "jsMin": 6213,
         "cssMin": 1170,
-        "gzip": 3152
+        "gzip": 3313
       }
     },
     "Tabs": {
@@ -8653,9 +8975,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 7622,
+        "jsMin": 8028,
         "cssMin": 4813,
-        "gzip": 4666
+        "gzip": 4825
       }
     },
     "Text": {
@@ -8933,9 +9255,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 97325,
+        "jsMin": 97731,
         "cssMin": 5018,
-        "gzip": 35932
+        "gzip": 36094
       }
     },
     "Timeline": {
@@ -9084,9 +9406,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 43787,
+        "jsMin": 44193,
         "cssMin": 2771,
-        "gzip": 15890
+        "gzip": 16052
       }
     },
     "Tooltip": {
@@ -9221,9 +9543,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 10550,
+        "jsMin": 10956,
         "cssMin": 9107,
-        "gzip": 6478
+        "gzip": 6637
       }
     },
     "TreeView": {
@@ -9508,9 +9830,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 8533,
+        "jsMin": 8939,
         "cssMin": 8040,
-        "gzip": 5537
+        "gzip": 5698
       }
     }
   }

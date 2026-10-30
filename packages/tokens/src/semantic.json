@@ -2407,6 +2407,66 @@
           "light": "{color.data.light-8}"
         }
       }
+    },
+    "seq-1": {
+      "$value": "{color.data.seq-dark-1}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.data.seq-light-1}"
+        },
+        "kiln.why": {
+          "p": "P6",
+          "why": "an ordered magnitude such as confidence is one hue stepping from faint to strong, never categorical hues (D-032)"
+        }
+      }
+    },
+    "seq-2": {
+      "$value": "{color.data.seq-dark-2}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.data.seq-light-2}"
+        },
+        "kiln.why": {
+          "p": "P6",
+          "why": "an ordered magnitude such as confidence is one hue stepping from faint to strong, never categorical hues (D-032)"
+        }
+      }
+    },
+    "seq-3": {
+      "$value": "{color.data.seq-dark-3}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.data.seq-light-3}"
+        },
+        "kiln.why": {
+          "p": "P6",
+          "why": "an ordered magnitude such as confidence is one hue stepping from faint to strong, never categorical hues (D-032)"
+        }
+      }
+    },
+    "seq-4": {
+      "$value": "{color.data.seq-dark-4}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.data.seq-light-4}"
+        },
+        "kiln.why": {
+          "p": "P6",
+          "why": "an ordered magnitude such as confidence is one hue stepping from faint to strong, never categorical hues (D-032)"
+        }
+      }
+    },
+    "seq-5": {
+      "$value": "{color.data.seq-dark-5}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.data.seq-light-5}"
+        },
+        "kiln.why": {
+          "p": "P6",
+          "why": "an ordered magnitude such as confidence is one hue stepping from faint to strong, never categorical hues (D-032)"
+        }
+      }
     }
   }
 }

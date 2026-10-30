@@ -746,6 +746,46 @@
       "dark-8": {
         "$value": "#E66767",
         "$description": "data slot 8, red, stepped for the dark surface; same hue as light-8"
+      },
+      "seq-dark-1": {
+        "$value": "#184F95",
+        "$description": "sequential step 1 of 5 for the dark surface: more is brighter"
+      },
+      "seq-light-1": {
+        "$value": "#86B6EF",
+        "$description": "sequential step 1 of 5 for the light surface: more is deeper"
+      },
+      "seq-dark-2": {
+        "$value": "#256ABF",
+        "$description": "sequential step 2 of 5 for the dark surface: more is brighter"
+      },
+      "seq-light-2": {
+        "$value": "#5598E7",
+        "$description": "sequential step 2 of 5 for the light surface: more is deeper"
+      },
+      "seq-dark-3": {
+        "$value": "#3987E5",
+        "$description": "sequential step 3 of 5 for the dark surface: more is brighter"
+      },
+      "seq-light-3": {
+        "$value": "#2A78D6",
+        "$description": "sequential step 3 of 5 for the light surface: more is deeper"
+      },
+      "seq-dark-4": {
+        "$value": "#6DA7EC",
+        "$description": "sequential step 4 of 5 for the dark surface: more is brighter"
+      },
+      "seq-light-4": {
+        "$value": "#1C5CAB",
+        "$description": "sequential step 4 of 5 for the light surface: more is deeper"
+      },
+      "seq-dark-5": {
+        "$value": "#9EC5F4",
+        "$description": "sequential step 5 of 5 for the dark surface: more is brighter"
+      },
+      "seq-light-5": {
+        "$value": "#104281",
+        "$description": "sequential step 5 of 5 for the light surface: more is deeper"
       }
     }
   },
