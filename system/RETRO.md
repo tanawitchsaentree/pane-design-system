@@ -198,3 +198,25 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **Root cause:** the nesting rule (R-008: inner radius = outer radius − inset, with an even inset) became a gate, G-NR1, for one case only, the highlighted row of an open flyout. Every later surface that put a shape inside a rounded one, the topbar first, never met the rule. The end padding was also copied from the "a round button sits at the end" case (gap.xs), which only fits a shape as tall as the pill. In InputGroup, Input's read-only ring outranked the group's reset of the inner field.
 - **What changed in that step:** the rule is checked as a rule. Any drawn shape near a drawn parent's rounded corner (within 0.6 of its radius) must have even insets, and, unless it is a pill, a radius equal to the outer radius minus the inset. The topbar key and tag fill the pill's height less an even 4px and are pills. Read-only now lives on the InputGroup well.
 - **Check that now catches it:** G-NC1 on the shell, the first 40 component pages and the state matrix. It was red on the topbar (Kbd 4/7px with a 4px corner, tag 4/10px) and on the read-only PasswordInput, and it is green now.
+
+### R-029: every IconButton icon was drawn at 0×0 for a day
+- **Date:** 2026-10-31
+- **User said:** "จริงๆก็ต้องตรวจทุกอันนั่นแหละ" (gallery screenshots: an IconButton pill with a dot, Menu and Tooltip triggers as empty discs)
+- **What was wrong:** the loading state (R-023) wrapped IconButton's children in a content span. The rule that sized the icon was `.root > svg`, so it stopped matching and every glyph collapsed to nothing. Menu and Tooltip demos use IconButton triggers, so they went blank too.
+- **Root cause:** a change to a component's DOM never re-checked the selectors that depend on that DOM, and no gate asked whether an icon has area. The state matrix compared each state with its default, so the default itself being empty passed.
+- **What changed:** the rule sizes `.content > svg` too.
+- **Check that now catches it:** G-IC1 fails any visible svg inside a component that measures under 4×4px. It was red on the old build (IconButton 0×0) and is green now.
+
+### R-030: the book's prose styles reached inside components
+- **Date:** 2026-10-31
+- **Found in:** the same gallery review. Pagination's page list stood in a column, and the links in Sidebar, NavigationMenu, BottomNav and List rows were underlined.
+- **What was wrong:** the gallery sits inside the overview's `.prose`. `.prose ul` (flex column), `.prose a` (underline), `.prose p, li` (reading size) and `.prose h3` matched the lists, links and text inside components. Sidebar and List also set no font size of their own, so they took the page's reading size.
+- **Root cause:** docs element rules were written for authored prose and never scoped away from live components. Components were only ever checked in their own example stage, where those rules happen not to apply.
+- **What changed:** every `.prose` element rule now skips anything inside `[data-component]` or `[data-example-live]`. List and Sidebar set their own type.
+- **Check that now catches it:** G-LK1 clones each component outside main, where no page rule reaches, and compares the layout of its own parts (display, direction, type, decoration, spacing). It was red on the old CSS for 26 components and is green now.
+
+### R-031: nodes in a row put their ports on each other
+- **Date:** 2026-10-31
+- **What was wrong:** NodeCard's ports sit half outside its edge. The examples set the cards in a `demo-row` at the small gap, which wrapped in the gallery, so one card's out port landed on the next card's in port.
+- **What changed:** the node examples use a canvas row that keeps the cards a port apart and scrolls instead of wrapping. SegmentedControl's segments share a stretched track evenly, so no empty well is left at its end.
+- **Check that now catches it:** G-OV1 measures everything each neighbouring component draws, ports and badges included, and fails any overlap.
