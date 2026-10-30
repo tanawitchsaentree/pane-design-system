@@ -2,7 +2,7 @@
 // search over every chapter with ⌘K (Pane's own CommandPalette), and the source on GitHub.
 import { useState } from 'react';
 import { CommandPalette, Kbd, Menu } from 'pane-react';
-import meta from './meta.json';
+import { version, componentCount } from 'virtual:book-facts';
 import { PARTS, navigate } from './router';
 
 const REPO = 'https://github.com/tanawitchsaentree/pane-design-system';
@@ -11,9 +11,9 @@ const Chevron = () => <svg viewBox="0 0 16 16" aria-hidden="true" className="tb-
 export function VersionMenu() {
   return (
     <Menu label="Versions" align="start"
-      trigger={<button type="button" className="tb-version" aria-label={`v${meta.version}, versions`}>v{meta.version}<Chevron /></button>}
+      trigger={<button type="button" className="tb-version" aria-label={`v${version}, versions`}>v{version}<Chevron /></button>}
       items={[
-        { label: `${meta.version} · latest`, onSelect: () => navigate('/reference/changelog') },
+        { label: `${version} · latest`, onSelect: () => navigate('/reference/changelog') },
         'separator',
         { label: 'What changed', onSelect: () => navigate('/reference/changelog') },
         { label: 'Upgrade guide', onSelect: () => navigate('/getting-started/migrating') },
@@ -25,7 +25,7 @@ export function VersionMenu() {
 export function Announcement() {
   return (
     <a className="tb-news" href="/reference/changelog" onClick={(e) => { e.preventDefault(); navigate('/reference/changelog'); }}>
-      <span className="tb-news-tag">New</span>Pane {meta.version.split('.').slice(0, 2).join('.')}: {Object.keys(meta.components).length} components in English and Thai
+      <span className="tb-news-tag">New</span>Pane {version.split('.').slice(0, 2).join('.')}: {componentCount} components in English and Thai
     </a>
   );
 }

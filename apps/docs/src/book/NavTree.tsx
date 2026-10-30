@@ -2,8 +2,8 @@
 // of the page you are on start open, and a search opens everything so every match shows. Components fold
 // once more into their families, so 100-odd pages stay a short list. Pages new in this release say so.
 import { useEffect, useState } from 'react';
-import { CATEGORIES } from './components-data';
-import { HISTORY } from './ComponentPage';
+import { CATEGORIES } from './categories';
+import { HISTORY } from './chapter-facts';
 
 type Page = { path: string; title: string };
 type Part = { title: string; pages: Page[] };

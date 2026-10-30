@@ -23,9 +23,9 @@ import { PaletteGrid, RoleTabs, TokenBrowser } from './color-page';
 import { ElevationDemo } from './elevation';
 import { ThemePlayground, GlassPlayground, ContrastPlayground, TypePlayground, SpacingPlayground, GridPlayground, ShapePlayground, MotionPlayground, IconBrowser, TouchTargetPlayground } from './playgrounds';
 import { inline, useScene, Stage, PRINCIPLES, CONCEPT_INTRO, Callout, Code, CodeBlock, CopyButton, ConformanceList, EvidenceTable, Example, Link, Markdown, Page, Section, TOKENS, TokenTable, VerifiedTags, useVerify } from './kit';
-import { CATEGORIES, COMPONENTS } from './components-data';
+import { CATEGORIES, COMPONENTS, preloadExamples } from './components-data';
 import { GridLayoutPage } from './grid-page';
-import { ComponentPage, EVIDENCE_GROUPS, HISTORY, STATUS_LABEL, TABS } from './ComponentPage';
+import { ComponentPage, preloadChapter, EVIDENCE_GROUPS, HISTORY, STATUS_LABEL, TABS, type Tab } from './ComponentPage';
 import { TabRedirect } from './TabRedirect';
 import { PATTERN_DEPTH } from '../patterns/content';
 import { EXTRAS } from './foundation-extras';
@@ -66,10 +66,13 @@ const LAYOUT_THUMB: Record<string, ReactNode> = {
 function Gallery() {
   const ref = useRef<HTMLDialogElement>(null);
   const byName = Object.fromEntries(COMPONENTS.map((c) => [c.name, c]));
+  // the live heroes are a hundred small chunks: fetched when the reader opens the gallery, not with the page
+  const [ready, setReady] = useState(false);
+  const open = () => preloadExamples(COMPONENTS.filter((c) => !LAYOUT_THUMB[c.name]).map((c) => c.hero), false).then(() => { setReady(true); ref.current?.showModal(); });
   let n = 0;
   return (
     <>
-      <Button variant="glass" onClick={() => ref.current?.showModal()}>Open the gallery · {COMPONENTS.length} components</Button>
+      <Button variant="glass" onClick={open}>Open the gallery · {COMPONENTS.length} components</Button>
       <dialog ref={ref} className="gallery-modal" aria-labelledby="gallery-h" onClick={(e) => { if (e.target === e.currentTarget) ref.current?.close(); }}>
         <div className="gallery-modal-head">
           <h2 id="gallery-h" className="flush">Every component</h2>
@@ -90,7 +93,7 @@ function Gallery() {
                     <p className="gallery-purpose">{c.purpose}</p>
                     <code className="gallery-tag">{`<${c.name} />`}</code>
                   </div>
-                  <Environment brightness="bright" className="gallery-demo">{LAYOUT_THUMB[name] ?? <div className="gallery-scale"><c.hero.Render /></div>}</Environment>
+                  <Environment brightness="bright" className="gallery-demo">{LAYOUT_THUMB[name] ?? <div className="gallery-scale">{ready && <c.hero.Render />}</div>}</Environment>
                 </div>
               ); })}
             </div>
@@ -1052,3 +1055,11 @@ export const PAGE_COMPONENTS: Record<string, () => ReactElement> = Object.fromEn
   const Extra = EXTRAS[route];
   return [route, Extra ? () => <><Page /><Extra /></> : Page];
 }));
+
+/** Loads what the page at `path` shows, so App can paint it whole (no fallback, no late pop-in). */
+export function preload(path: string): Promise<unknown> {
+  if (path === '/foundations/themes') return preloadExamples(COMPONENTS.filter((c) => c.name === 'Card').map((c) => c.hero), false);
+  const [, slug, tab] = path.match(/^\/components\/([^/]+)\/([^/]+)$/) ?? [];
+  const c = slug ? COMPONENTS.find((x) => x.slug === slug) : undefined;
+  return c && (TABS as readonly string[]).includes(tab) ? preloadChapter(c, tab as Tab) : Promise.resolve();
+}

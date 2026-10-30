@@ -1,10 +1,10 @@
 import { NavTree } from './book/NavTree';
 import { Announcement, GitHubLink, SearchButton, VersionMenu } from './book/TopbarExtras';
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Environment, Select } from 'pane-react';
 import { PAGES, PARTS, navigate, pageOf, useRoute } from './book/router';
-import { Link, SceneContext, VerifyContext, type Conformance, type Evidence } from './book/kit';
-import { PAGE_COMPONENTS } from './book/pages';
+import { Link, SceneContext, VerifyContext, type Conformance, type Evidence } from './book/kit-core';
+import { loadPage, pageFor } from './book/load-page';
 import { SCENES, sceneById } from './scenes';
 
 // Verification results ship inside the bundle (the verify run rebuilds the docs after writing them),
@@ -26,7 +26,15 @@ function useOnThisPage(path: string) {
 
 
 export function App() {
-  const path = useRoute();
+  const route = useRoute();
+  // the page on screen: the address changes at once, the page once its chunks are in (main.tsx
+  // loads the first one before the first render)
+  const [path, setPath] = useState(route);
+  useEffect(() => {
+    let live = true;
+    loadPage(route).then(() => { if (live) setPath(route); });
+    return () => { live = false; };
+  }, [route]);
   const evidence = validEvidence(verifyFile<Evidence>('evidence'));
   const conformance = validConformance(verifyFile<Conformance>('conformance'));
   const [scene, setScene] = useState(sceneById(new URLSearchParams(location.search).get('backdrop') ?? 'studio').id);
@@ -52,7 +60,7 @@ export function App() {
   useEffect(() => {
     setMenuOpen(false);
     if (firstRender.current) { firstRender.current = false; return; }
-    if (location.hash) return;
+    if (location.hash) { document.getElementById(location.hash.slice(1))?.scrollIntoView({ block: 'start' }); return; }
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
     requestAnimationFrame(() => document.getElementById('page-title')?.focus({ preventScroll: true }));
   }, [path]);
@@ -81,7 +89,7 @@ export function App() {
     document.title = pg ? `${pg.title}${tab ? ` ${tab[0].toUpperCase()}${tab.slice(1)}` : ''}. Pane` : 'Pane';
   }, [path]);
 
-  const PageComponent = PAGE_COMPONENTS[path];
+  const PageComponent = pageFor(path);
   const here = pageOf(path);
   const idx = here ? PAGES.indexOf(here) : -1;
   const [prev, next] = [PAGES[idx - 1], PAGES[idx + 1]];
@@ -123,7 +131,7 @@ export function App() {
         </aside>
 
         <main id="main" className="content" key={path} inert={menuOpen || undefined}>
-          {PageComponent ? <PageComponent /> : (
+          {PageComponent ? <Suspense fallback={null}><PageComponent /></Suspense> : (
             <section aria-labelledby="nf"><h1 id="nf" className="flush page-title">Not in the book</h1><p className="muted">No chapter at {path}. <Link to="/">Back to the overview</Link>.</p></section>
           )}
           <nav className="pager" aria-label="Chapters">

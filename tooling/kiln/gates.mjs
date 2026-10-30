@@ -850,7 +850,8 @@ try {
       await p.reload(); await p.waitForLoadState('networkidle');
       await c.setOffline(true);
       await p.goto(url(srv.base, probe, {}, C)).catch(() => {});
-      const ok = await p.evaluate(() => (document.querySelector('main h1')?.textContent ?? '').trim().length > 0).catch(() => false);
+      // a code-split book renders once its route chunks are in, which can be after the load event
+      const ok = await p.waitForFunction(() => (document.querySelector('main h1')?.textContent ?? '').trim().length > 0, null, { timeout: 8000 }).then(() => true, () => false);
       if (!ok) bad.push(`offline, ${probe} did not render its heading`);
       await c.setOffline(false);
     }

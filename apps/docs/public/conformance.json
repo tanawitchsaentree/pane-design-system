@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T07:37:04.762Z",
+  "generatedAt": "2026-10-30T10:57:17.558Z",
   "passed": 423,
   "total": 423,
   "checks": [
@@ -193,7 +193,7 @@
       "component": "Button",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "3 props"
+      "detail": "6 props"
     },
     {
       "component": "IconButton",
@@ -871,7 +871,7 @@
       "component": "Button",
       "name": "demo floor met (≥ variant dimensions + 3 = 6)",
       "ok": true,
-      "detail": "6 demos"
+      "detail": "9 demos"
     },
     {
       "component": "IconButton",
@@ -1442,7 +1442,7 @@
       "component": "IconButton",
       "name": "every button with no visible text, on every page of the book, has an accessible name",
       "ok": true,
-      "detail": "496 pages"
+      "detail": "612 pages"
     },
     {
       "component": "Tabs",
@@ -1471,7 +1471,7 @@
     },
     {
       "component": "Docs page",
-      "name": "G-D3, no literal backtick in rendered text on any of the 496 pages",
+      "name": "G-D3, no literal backtick in rendered text on any of the 612 pages",
       "ok": true
     },
     {

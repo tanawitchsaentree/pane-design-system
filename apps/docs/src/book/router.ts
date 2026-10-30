@@ -11,7 +11,7 @@ export const pageOf = (path: string) => PAGES.find((p) => p.path === path) ?? PA
 
 // A page with tabs opens on its first tab; rewriting here means every reader of the path agrees.
 const firstTab = (p: string) => { const pg = PAGES.find((x) => x.path === p && x.tabs); return pg ? `${p}/${pg.tabs![0]}` : p; };
-const current = () => {
+export const current = () => {
   const raw = location.pathname.replace(/\/+$/, '') || '/';
   const to = firstTab(raw);
   if (to !== raw) history.replaceState(null, '', `${to}${location.search}${location.hash}`);
