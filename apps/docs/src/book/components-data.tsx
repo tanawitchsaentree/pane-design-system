@@ -2580,7 +2580,7 @@ export const COMPONENTS: ComponentChapter[] = [
       </>
     ),
     hero: ex('ButtonPair', 'The foot of a card usually holds one light action with a glass alternative beside it.'),
-    ladder: [
+    ladder: [ex('ButtonGhostDanger', 'Ghost for a third action, danger to delete.'), ex('ButtonLarge', 'Large and full width.'), ex('ButtonIcons', 'A glyph before or after the label.'), 
       ex('ButtonLoading', 'Saving, with the width held.'),
       ex('ButtonVariants', 'Three variants. Light is white with near-black text (18.74:1). Accent is the same pair with a soft glow of its own. Glass is an 8% white fill, because 14% lifted the backdrop under white text to 4.25:1.'),
       ex('ButtonSizes', 'md is 44px tall and suits touch. sm is 32px for dense rows.'),

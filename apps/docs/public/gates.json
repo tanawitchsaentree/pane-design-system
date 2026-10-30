@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T08:01:19.379Z",
+  "generatedAt": "2026-10-30T08:27:44.632Z",
   "passed": 52,
   "total": 52,
   "partial": false,
@@ -9,14 +9,14 @@
       "id": "G-P0",
       "name": "every page renders: a <main>, a heading and no uncaught error",
       "ok": true,
-      "detail": "5 pages",
+      "detail": "4 pages",
       "order": 0
     },
     {
       "id": "G-D3",
       "name": "no literal backtick in rendered text",
       "ok": true,
-      "detail": "5 pages",
+      "detail": "4 pages",
       "order": 1
     },
     {
@@ -143,7 +143,7 @@
       "id": "G-K6",
       "name": "usage depth ≥ 0.5 × the Carbon page for the same component (words and sections)",
       "ok": true,
-      "detail": "Button 3002/5260w 43/36s",
+      "detail": "Button 3318/5260w 45/36s",
       "order": 21
     },
     {
@@ -223,14 +223,14 @@
       "id": "G-TODO1",
       "name": "no starter placeholder is left on any page: no TODO( and no seed reason",
       "ok": true,
-      "detail": "5 pages clean",
+      "detail": "4 pages clean",
       "order": 33
     },
     {
       "id": "G-PUB1",
       "name": "an install command names only what can be installed: no bare registry install of an unpublished package",
       "ok": true,
-      "detail": "5 pages, 2 unpublished packages never shown as a registry install",
+      "detail": "4 pages, 2 unpublished packages never shown as a registry install",
       "order": 34
     },
     {
@@ -244,7 +244,7 @@
       "id": "G-CL1",
       "name": "every colour value written in the book is a current token value (no stale hex in prose)",
       "ok": true,
-      "detail": "20 values checked",
+      "detail": "22 values checked",
       "order": 36
     },
     {
@@ -289,7 +289,7 @@
       "id": "G-S6",
       "name": "nothing in the page column spills out of it: no element crosses into the rail or the margin beside main (folds open)",
       "ok": true,
-      "detail": "5 pages",
+      "detail": "4 pages",
       "order": 42
     },
     {
@@ -303,7 +303,7 @@
       "id": "G-IN1",
       "name": "text inside a control keeps its inset from the control's edge: at least 8px, and half the corner radius on a rounded end",
       "ok": true,
-      "detail": "15 lines of text in controls",
+      "detail": "20 lines of text in controls",
       "order": 44
     },
     {
@@ -317,7 +317,7 @@
       "id": "G-RH1",
       "name": "separate steps stand apart: a demo stage and a tab bar sit at least 24px from the blocks around them; a stage's own code, caption or heading may sit 8px off and its intro 16px",
       "ok": true,
-      "detail": "90 gaps",
+      "detail": "109 gaps",
       "order": 46
     },
     {
@@ -331,14 +331,14 @@
       "id": "G-SM1",
       "name": "following an in-page link (table of contents, heading anchor) lands with its heading clear of the sticky header",
       "ok": true,
-      "detail": "4 links followed",
+      "detail": "2 links followed",
       "order": 48
     },
     {
       "id": "G-TT1",
       "name": "every control in a live example and in the shell gives a pointer at least 44px each way",
       "ok": true,
-      "detail": "128 controls",
+      "detail": "161 controls",
       "order": 49
     },
     {

@@ -4,6 +4,7 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- Button: `ghost` and `danger` variants, size `lg`, `icon` and `iconEnd`, and `fullWidth`.
 - PaneProvider: new. Sets the words and the locale for every component below it; `en` (default) and `th` ship, and a custom catalog is typed as PaneMessages. th-TH gives the Buddhist year.
 - Calendar: month names, weekdays and its button names follow PaneProvider's catalog and locale.
 - DataGrid: its checkbox names and loading line come from the catalog.
