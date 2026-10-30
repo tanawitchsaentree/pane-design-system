@@ -336,6 +336,30 @@
     "streak": {
       "$type": "color",
       "$value": "{level.streak}"
+    },
+    "height-lg": {
+      "$value": "{control.xl}",
+      "$type": "dimension"
+    },
+    "padding-lg": {
+      "$value": "{gap.inset}",
+      "$type": "dimension"
+    },
+    "icon": {
+      "$value": "{control.icon-md}",
+      "$type": "dimension"
+    },
+    "ghost-fg": {
+      "$value": "{text.primary}",
+      "$type": "color"
+    },
+    "ghost-hover": {
+      "$value": "{surface.quiet}",
+      "$type": "color"
+    },
+    "danger-fg": {
+      "$value": "{status.critical-mark}",
+      "$type": "color"
     }
   },
   "icon-button": {

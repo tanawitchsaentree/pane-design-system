@@ -45,6 +45,8 @@ export const BUTTON: Depth = {
   variants: {
     light: { purpose: 'The one main action of a pane. White with ink text in the dark theme and ink with white text in the light theme, so it stays the loudest mark on the pane in both.', pairing: 'At most one per pane. Pair it with any number of glass buttons. Never beside accent.' },
     accent: { purpose: 'An action the product promotes on purpose, such as Get verified or Go live. It is the light solid glowing with its own light, the one glow the system makes.', pairing: 'Replaces light on that pane rather than joining it. Glass buttons sit beside it as usual.' },
+    ghost: { purpose: 'A third action, or an action in a toolbar, where even glass would be one object too many. Only the label shows until the pointer arrives.', pairing: 'After a light and a glass button, never instead of the glass one that is the way out.' },
+    danger: { purpose: 'An action that destroys something, such as Delete album. Quiet glass with the label in the critical mark, the way destructive rows read in Menu and ActionSheet.', pairing: 'Beside a glass Cancel, and confirmed in a Dialog before anything is lost.' },
     glass: { purpose: 'Every secondary action. A translucent pill that reads as an object on the pane without competing with the loud one.', pairing: 'As many as the pane needs, beside one light or one accent, or alone when no action leads.' },
   },
   anatomy: {
@@ -55,7 +57,7 @@ export const BUTTON: Depth = {
       { part: 'Label', selector: '[data-component="Button"]', what: 'Semibold, 15px at md and 14px at sm. Solid fills drop the text halo because they already contrast with their own fill.' },
       { part: 'Shadow', selector: '[data-component="Button"]', what: 'light casts elevation.cast, so it rests on its own shadow. accent casts elevation.loud-glow, a soft white glow in the dark theme and a soft ink shadow in the light theme. Glass casts elevation.quiet-cast, a short soft shadow, and does not lift.' },
     ],
-    perVariant: 'All three variants share the rim, the top-lit fill and the glint. Glass keeps a short shadow and does not lift.',
+    perVariant: 'Light, accent and glass share the rim, the top-lit fill and the glint. Glass keeps a short shadow and does not lift.',
   },
   sizes: {
     md: { use: 'The default for every action a finger might press, including every action on a phone. 44px tall, which is P6\'s minimum target.', pairs: 'Body text at 15px, Select md and Tabs. Two md buttons sit 8px apart.' },
@@ -182,6 +184,28 @@ export const BUTTON: Depth = {
         doNote: 'Cancel is glass, so Save is clearly the way forward.',
         dont: <Card as="div" className="demo-card"><Foot><Button variant="glass">Save changes</Button><Button variant="glass">Cancel</Button></Foot></Card>,
         dontNote: 'Both glass on a pane that has an obvious next step. The reader has to read both to find it.',
+      },
+    },
+    ghost: {
+      purpose: <p>Ghost is the label alone. It has no fill and no rim until the pointer arrives, when the quiet surface lights under it. Use it where a row of glass would put too many objects on the pane, such as a third action or the tools along a card's foot.</p>,
+      context: <Card as="div" className="demo-card"><Foot><Button>Publish</Button><Button variant="glass">Save draft</Button><Button variant="ghost">Preview</Button></Foot></Card>,
+      practices: ['Use ghost for the least important action in a group.', 'Keep the verb in the label; a ghost button is still a button.', 'Never make Cancel a ghost when a glass button sits beside it, or leaving looks less safe than it is.'],
+      pair: {
+        do: <Card as="div" className="demo-card"><Foot><Button>Publish</Button><Button variant="ghost">Preview</Button></Foot></Card>,
+        doNote: 'Preview is there when wanted and quiet otherwise.',
+        dont: <Card as="div" className="demo-card"><Foot><Button variant="ghost">Publish</Button><Button variant="ghost">Preview</Button></Foot></Card>,
+        dontNote: 'The main action is a ghost, so nothing on the pane says what to do next.',
+      },
+    },
+    danger: {
+      purpose: <p>Danger is for an action that destroys something the reader cannot get back by themselves. It keeps the glass of a quiet button and sets its label in the critical mark, so it reads as serious without becoming the loudest thing on the pane. The press opens a Dialog that names what will be lost.</p>,
+      context: <Card as="div" className="demo-card"><Foot><Button variant="danger">Delete album</Button><Button variant="glass">Cancel</Button></Foot></Card>,
+      practices: ['Name what is destroyed in the label, such as Delete album, never Delete or OK.', 'Confirm in a Dialog unless the action can be undone from a Snackbar.', 'Use one danger button per pane, apart from the main action.'],
+      pair: {
+        do: <Card as="div" className="demo-card"><Foot><Button variant="danger">Delete 12 photos</Button><Button variant="glass">Cancel</Button></Foot></Card>,
+        doNote: 'The label says what goes and how much.',
+        dont: <Card as="div" className="demo-card"><Foot><Button variant="danger">OK</Button><Button variant="danger">Delete</Button></Foot></Card>,
+        dontNote: 'Two danger buttons, and neither says what is lost.',
       },
     },
   },

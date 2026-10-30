@@ -86,4 +86,13 @@
 /* opacity, not visibility, so the label still names the button while it is hidden */
 .loading .content { opacity: 0; }
 .spinner { position: absolute; inset: 0; display: grid; place-items: center; color: currentColor; }
+/* ghost: the label alone, lit quietly under the pointer; danger: glass with the label in the critical
+   mark, the same way destructive rows read in Menu and ActionSheet (P1: hue only to say status) */
+.ghost { background: transparent; color: var(--ds-button-ghost-fg); }
+.ghost:hover:not(:disabled) { background: var(--ds-button-ghost-hover); }
+.danger { background: linear-gradient(180deg, var(--ds-button-glass-top), transparent 55%), var(--ds-button-glass-foot); color: var(--ds-button-danger-fg); box-shadow: var(--ds-button-edge), var(--ds-button-glass-cast); }
+.lg { min-block-size: var(--ds-button-height-lg); padding-inline: var(--ds-button-padding-lg); font-size: var(--ds-type-emphasis); }
+.full { display: flex; inline-size: 100%; }
+.icon { display: inline-grid; place-items: center; flex: none; }
+.icon svg { inline-size: var(--ds-button-icon); block-size: var(--ds-button-icon); }
 @media (forced-colors: active) { .root { border: var(--ds-focus-ring-width) solid ButtonText; } .root::before, .root::after { display: none; } }

@@ -54,7 +54,7 @@ export const CATEGORIES: Array<{ title: string; blurb: string; names: string[] }
   { title: 'Identity and status', blurb: 'Who something belongs to, what it is about and what state it is in.', names: ['Avatar', 'Tag', 'Badge', 'Banner'] },
   { title: 'Data display', blurb: 'Numbers, facts, rows and tables that the reader reads and compares.', names: ['Stat', 'Meter', 'Scale', 'Progress', 'DescriptionList', 'List', 'Table', 'Timeline', 'EmptyState', 'DataGrid', 'TreeView', 'VirtualList'] },
   { title: 'Charts', blurb: 'Amounts, trends and patterns drawn in the data palette, each with a table view.', names: ['BarChart', 'LineChart', 'RadarChart', 'Sparkline', 'Heatmap'] },
-  { title: 'Patterns', blurb: 'Whole steps and frames built from the components before them, such as forms, sign-in, tours, boards and the app shell.', names: ['Form', 'Wizard', 'AuthForm', 'CommandPalette', 'NotificationCenter', 'CoachMark', 'KanbanBoard', 'Feed', 'AppShell', 'SettingsLayout', 'RichTextEditor'] },
+  { title: 'Patterns', blurb: 'Whole steps built from the components before them, such as forms, tours, boards and the app shell.', names: ['Form', 'Wizard', 'AuthForm', 'CommandPalette', 'NotificationCenter', 'CoachMark', 'KanbanBoard', 'Feed', 'AppShell', 'SettingsLayout', 'RichTextEditor'] },
   { title: 'Loading', blurb: 'What the reader sees while content is on its way.', names: ['Spinner', 'Skeleton', 'PullToRefresh'] },
   { title: 'Overlays', blurb: 'Panes above the page: levels 3 and 4 of the stack, from a dialog to a tooltip.', names: ['Dialog', 'Sheet', 'Drawer', 'ActionSheet', 'Popover', 'Tooltip', 'Toast', 'Snackbar'] },
   { title: 'Form fields', blurb: 'Text the reader types, with its label, its help and its group.', names: ['Label', 'HelperText', 'FormField', 'Fieldset', 'Input', 'Textarea', 'InputGroup', 'PinInput'] },
@@ -2580,7 +2580,7 @@ export const COMPONENTS: ComponentChapter[] = [
       </>
     ),
     hero: ex('ButtonPair', 'The foot of a card usually holds one light action with a glass alternative beside it.'),
-    ladder: [
+    ladder: [ex('ButtonGhostDanger', 'Ghost for a third action, danger to delete.'), ex('ButtonLarge', 'Large and full width.'), ex('ButtonIcons', 'A glyph before or after the label.'), 
       ex('ButtonLoading', 'Saving, with the width held.'),
       ex('ButtonVariants', 'Three variants. Light is white with near-black text (18.74:1). Accent is the same pair with a soft glow of its own. Glass is an 8% white fill, because 14% lifted the backdrop under white text to 4.25:1.'),
       ex('ButtonSizes', 'md is 44px tall and suits touch. sm is 32px for dense rows.'),

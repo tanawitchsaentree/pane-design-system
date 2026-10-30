@@ -1,9 +1,9 @@
+import { NavTree } from './book/NavTree';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Environment, Select } from 'pane-react';
 import { PAGES, PARTS, navigate, pageOf, useRoute } from './book/router';
 import { Link, SceneContext, VerifyContext, type Conformance, type Evidence } from './book/kit';
 import { PAGE_COMPONENTS } from './book/pages';
-import { plannedWaves } from './book/catalog';
 import { SCENES, sceneById } from './scenes';
 
 // Verification results ship inside the bundle (the verify run rebuilds the docs after writing them),
@@ -23,7 +23,6 @@ function useOnThisPage(path: string) {
   return items;
 }
 
-const PLANNED = plannedWaves(PARTS.find((p) => p.title === 'Components')?.pages.map((p) => p.title) ?? []);
 
 export function App() {
   const path = useRoute();
@@ -114,20 +113,7 @@ export function App() {
         <aside className={`rail${menuOpen ? ' open' : ''}`} id="book-nav" aria-label="Book navigation">
           <nav aria-label="Book" data-book-nav="">
             <label className="field"><span className="visually-hidden">Find a chapter</span><input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find a chapter" /></label>
-            {filtered.map((part) => (
-              <div key={part.title} className="nav-part">
-                <p className="nav-part-title" data-nav-part="">{part.title}</p>
-                <ul className="toc flush">
-                  {part.pages.map((p) => <li key={p.path}><a href={p.path} aria-current={p.path === here?.path ? 'page' : undefined} onClick={(e) => { e.preventDefault(); navigate(p.path); }}>{p.title}</a></li>)}
-                </ul>
-                {part.title === 'Components' && !q && PLANNED.map((w) => (
-                  <details key={w.wave} className="nav-planned">
-                    <summary>Planned · wave {w.wave} {w.title} ({w.items.length})</summary>
-                    <ul className="toc flush">{w.items.map((n) => <li key={n} data-planned="">{n} <span className="visually-hidden">Planned · wave {w.wave}</span></li>)}</ul>
-                  </details>
-                ))}
-              </div>
-            ))}
+            <NavTree parts={filtered} here={here?.path} searching={!!q} navigate={navigate} />
           </nav>
         </aside>
 

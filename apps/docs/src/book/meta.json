@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T07:04:00.403Z",
+  "generatedAt": "2026-10-30T08:19:37.243Z",
   "version": "0.7.0",
   "components": {
     "Accordion": {
@@ -417,9 +417,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 13575,
-        "cssMin": 14054,
-        "gzip": 7566
+        "jsMin": 13796,
+        "cssMin": 14665,
+        "gzip": 7809
       }
     },
     "Autocomplete": {
@@ -1121,12 +1121,15 @@
         "variant": [
           "light",
           "accent",
-          "glass"
+          "glass",
+          "ghost",
+          "danger"
         ]
       },
       "sizes": [
         "sm",
-        "md"
+        "md",
+        "lg"
       ],
       "exports": [
         {
@@ -1134,27 +1137,30 @@
           "props": [
             {
               "name": "variant",
-              "type": "\"light\" | \"accent\" | \"glass\"",
+              "type": "\"light\" | \"accent\" | \"glass\" | \"ghost\" | \"danger\"",
               "required": false,
               "default": "light",
-              "description": "`light` = the loud solid (white in dark, ink in light), the one main action on a pane. `accent` = the same solid glowing with its own light, for a promoted action. `glass` = quiet glass lit from above.",
+              "description": "`light` = the loud solid (white in dark, ink in light), the one main action on a pane. `accent` = the same solid glowing with its own light, for a promoted action. `ghost` = the label alone, for a third action or a toolbar. `danger` = quiet glass with the label in the critical mark, for an action that destroys something; confirm it in a dialog. `glass` = quiet glass lit from above.",
               "enum": true,
               "options": [
                 "light",
                 "accent",
-                "glass"
+                "glass",
+                "ghost",
+                "danger"
               ]
             },
             {
               "name": "size",
-              "type": "\"sm\" | \"md\"",
+              "type": "\"sm\" | \"md\" | \"lg\"",
               "required": false,
               "default": "md",
-              "description": "`md` = 44px tall (default, touch-friendly); `sm` = 32px for dense rows and toolbars.",
+              "description": "`md` = 44px tall (default, touch-friendly); `sm` = 32px for dense rows and toolbars; `lg` = 56px for the one action of a screen, such as Check out.",
               "enum": true,
               "options": [
                 "sm",
-                "md"
+                "md",
+                "lg"
               ]
             },
             {
@@ -1163,6 +1169,33 @@
               "required": false,
               "default": null,
               "description": "Shows a spinner in place of the content while an action runs. The button keeps its width and focus, says it is busy, and ignores presses until it is done.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "icon",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A glyph before the label, such as a plus; it is not read, so the label must say the action.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "iconEnd",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A glyph after the label, such as an arrow for an action that moves on.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "fullWidth",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Fills the width of its container, for the one action at the foot of a form or a sheet.",
               "enum": false,
               "options": null
             }
@@ -1177,9 +1210,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 6075,
-        "cssMin": 4247,
-        "gzip": 3847
+        "jsMin": 6290,
+        "cssMin": 4853,
+        "gzip": 4018
       }
     },
     "Calendar": {
@@ -1795,9 +1828,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 77412,
-        "cssMin": 7929,
-        "gzip": 29890
+        "jsMin": 77632,
+        "cssMin": 8535,
+        "gzip": 30047
       }
     },
     "ColorPicker": {
@@ -3550,9 +3583,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 9493,
-        "cssMin": 8584,
-        "gzip": 5666
+        "jsMin": 9708,
+        "cssMin": 9190,
+        "gzip": 5924
       }
     },
     "Flex": {
@@ -5369,9 +5402,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 79266,
-        "cssMin": 14102,
-        "gzip": 31108
+        "jsMin": 79491,
+        "cssMin": 14713,
+        "gzip": 31317
       }
     },
     "NumberInput": {
@@ -5546,9 +5579,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 9538,
-        "cssMin": 7134,
-        "gzip": 5932
+        "jsMin": 9753,
+        "cssMin": 7740,
+        "gzip": 6110
       }
     },
     "Pagination": {
@@ -9188,9 +9221,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 10337,
-        "cssMin": 8501,
-        "gzip": 6305
+        "jsMin": 10550,
+        "cssMin": 9107,
+        "gzip": 6478
       }
     },
     "TreeView": {
@@ -9475,9 +9508,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 8318,
-        "cssMin": 7434,
-        "gzip": 5369
+        "jsMin": 8533,
+        "cssMin": 8040,
+        "gzip": 5537
       }
     }
   }

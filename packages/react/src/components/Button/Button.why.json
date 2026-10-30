@@ -50,6 +50,31 @@
       "p": "P6",
       "axis": "shape",
       "why": "the spinner sits over the hidden label so the reader sees the action is still running"
+    },
+    "ghost": {
+      "p": "P5",
+      "axis": "colour",
+      "why": "the ghost button is the label alone so a third action never competes with the loud one"
+    },
+    "danger": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a destructive action keeps quiet glass and takes the critical mark on its label, as in Menu and ActionSheet"
+    },
+    "lg": {
+      "p": "P6",
+      "axis": "space",
+      "why": "the large size is 56px for the one action of a screen, easy to reach with a thumb"
+    },
+    "full": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a full-width button fills its container for the single action at the foot of a sheet or form"
+    },
+    "icon": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a glyph beside the label is hidden from screen readers so the label alone says the action"
     }
   },
   "states": {
