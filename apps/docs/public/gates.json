@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-30T08:41:40.585Z",
-  "passed": 4,
-  "total": 4,
+  "generatedAt": "2026-10-30T09:05:11.266Z",
+  "passed": 6,
+  "total": 6,
   "partial": true,
   "advisory": {},
   "results": [
@@ -12,24 +12,36 @@
       "order": 2
     },
     {
-      "id": "G-R1",
-      "name": "long-form text is readable: ≥16px, line height ≥1.5, lines ≤ 80 characters",
+      "id": "G-SH1",
+      "name": "the docs chrome is plain and opaque: no blur or see-through surface outside demo stages",
       "ok": true,
-      "order": 6
+      "order": 10
     },
     {
-      "id": "G-NAV1",
-      "name": "every page in routes.json is reachable from the book nav at 375 and 1280px",
+      "id": "G-SV1",
+      "name": "every promised state is there and visible: each cell of the state matrix differs from its row default and carries its ARIA, in every theme",
       "ok": true,
-      "detail": "159 pages",
-      "order": 47
+      "detail": "NO state matrix route in this run",
+      "order": 39
     },
     {
-      "id": "G-SM1",
-      "name": "following an in-page link (table of contents, heading anchor) lands with its heading clear of the sticky header",
+      "id": "G-TT1",
+      "name": "every control in a live example and in the shell gives a pointer at least 44px each way",
       "ok": true,
-      "detail": "20 links followed",
-      "order": 48
+      "detail": "626 controls",
+      "order": 49
+    },
+    {
+      "id": "axe-none",
+      "name": "axe finds no WCAG 2.2 AA violations on any page (forced-colors none)",
+      "ok": true,
+      "order": 50
+    },
+    {
+      "id": "axe-active",
+      "name": "axe finds no WCAG 2.2 AA violations on any page (forced-colors active)",
+      "ok": true,
+      "order": 51
     }
   ]
 }

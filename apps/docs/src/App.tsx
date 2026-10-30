@@ -1,4 +1,5 @@
 import { NavTree } from './book/NavTree';
+import { Announcement, GitHubLink, SearchButton, VersionMenu } from './book/TopbarExtras';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Environment, Select } from 'pane-react';
 import { PAGES, PARTS, navigate, pageOf, useRoute } from './book/router';
@@ -95,8 +96,12 @@ export function App() {
 
         <header className="topbar">
           <Link to="/" className="brand-link"><img className="brand-mark" src="/favicon.png" alt="" width="28" height="28" /><span className="brand">Pane</span><span className="brand-sub">design system</span></Link>
+          <VersionMenu />
+          <Announcement />
           <span className="topbar-title">{here?.title}</span>
           <div className="topbar-tools">
+            <SearchButton />
+            <GitHubLink />
             <div className="seg" role="group" aria-label="Theme" data-theme-control="">
               {(['system', 'light', 'dark'] as const).map((t) => (
                 <button key={t} type="button" className="seg-btn" aria-pressed={t === themePref} data-theme-value={t} onClick={() => setThemePref(t)}>{t[0].toUpperCase() + t.slice(1)}</button>

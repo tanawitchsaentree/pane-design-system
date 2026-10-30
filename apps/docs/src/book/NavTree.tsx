@@ -19,7 +19,8 @@ function Fold({ id, title, open, onToggle, level, children }: { id: string; titl
       <button type="button" className={level === 1 ? 'nav-part-title nav-fold' : 'nav-family-title nav-fold'} aria-expanded={open} aria-controls={id} onClick={onToggle} data-nav-part={level === 1 ? '' : undefined}>
         <svg viewBox="0 0 16 16" aria-hidden="true" className="nav-chevron"><path d="M6 3.5 10.5 8 6 12.5" /></svg>{title}
       </button>
-      <div id={id} hidden={!open}>{children}</div>
+      {/* the body slides open and shut (grid rows 0fr→1fr); while shut it is inert, so its links are neither seen nor reached */}
+      <div id={id} className="nav-body" data-open={open || undefined} inert={!open || undefined}><div className="nav-body-inner">{children}</div></div>
     </div>
   );
 }
