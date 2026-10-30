@@ -1,6 +1,6 @@
 /* Rows of one kind. Inset is a level-2 pane with hairlines that start where the text starts, so the
    leading column reads as one band; a pressable row lights under the pointer like a menu row (R-013). */
-.root { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; font-family: var(--ds-type-family); }
+.root { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; font-family: var(--ds-type-family); font-size: var(--ds-type-body); line-height: var(--ds-type-leading-body); }
 .inset { padding: var(--ds-list-inset); border-radius: var(--ds-corner-media); background: var(--ds-list-bg); box-shadow: var(--ds-list-edge); }
 .item { position: relative; }
 .inset .item:not(:last-child)::after { content: ''; position: absolute; inset-block-end: 0; inset-inline: var(--ds-list-padding) 0; block-size: var(--ds-width-hairline); background: var(--ds-list-divider); pointer-events: none; }

@@ -4,4 +4,7 @@
 .error { color: var(--ds-field-error-fg); }
 .glyph { flex: none; inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); margin-block-start: calc((1lh - var(--ds-control-icon-sm)) / 2); fill: none; stroke: var(--ds-field-error-mark); stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
 .sr { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.warning { color: var(--ds-field-error-fg); }
+/* the warning keeps the text tone too and takes the warning mark in its triangle */
+.warnGlyph { stroke: var(--ds-field-warning-mark); }
 @media (forced-colors: active) { .glyph { stroke: CanvasText; } }

@@ -18,6 +18,9 @@
 //   inset        G-IN1 text inside a control ≥8px (and ≥ half the end radius) from the control's edge
 //   travel       G-SL1 a slider ≥200px long, and it and its pane keep their size from Home to End
 //   states       G-SV1 every promised state is present, visible and announced (state matrix)
+//   icons        G-IC1 every icon in a component is drawn at a size
+//   overlap      G-OV1 neighbours in a demo never overlap
+//   leaks        G-LK1 page styles never reach inside a component (clone outside main, compare layout)
 //   nesting      G-NC1 a shape near a rounded parent's corner nests it (even inset, inner = outer − inset)
 //   text fields  G-TX1 fields hold Thai marks and keep their size while typing
 //   glow         G-GL1 only [data-glow] parts emit light in dark, visibly and within reach; text never; nothing in light
@@ -1260,6 +1263,109 @@ try {
     return `${n} pages`;
   });
 
+  await gate('G-IC1', 'every icon inside a component is drawn at a size: no glyph collapses to nothing', async () => {
+    // Pane, 2026-10-31: IconButton wrapped its children in a content span for the loading state, and its
+    // ".root > svg" size rule stopped matching, so every IconButton icon (and Menu and Tooltip triggers)
+    // rendered at 0×0 for a day while every gate passed. Any visible svg in a component must have area.
+    const routes = [...new Set(['/', ...ROUTES.filter((x) => x.startsWith(`${C.componentsBase}/`) && x.endsWith('/code'))])].filter((r) => ROUTES.includes(r));
+    if (!routes.length) throw new Error('NO pages to check');
+    const bad = []; let n = 0;
+    for (const r of routes) {
+      await go(r);
+      const res = await page.evaluate(() => {
+        const out = []; let count = 0;
+        for (const svg of document.querySelectorAll('main [data-component] svg')) {
+          if (svg.parentElement.closest('svg')) continue;
+          const host = svg.closest('[data-component]');
+          const hb = host.getBoundingClientRect(); if (hb.width === 0 || hb.height === 0) continue; // the component itself is hidden
+          let hidden = false; for (let e = svg; e && e !== host.parentElement; e = e.parentElement) { const cs = getComputedStyle(e); if (cs.display === 'none' || cs.visibility === 'hidden') { hidden = true; break; } }
+          if (hidden) continue;
+          count++;
+          const b = svg.getBoundingClientRect();
+          if (b.width < 4 || b.height < 4) out.push(`${host.getAttribute('data-component')}: an icon drawn at ${Math.round(b.width)}×${Math.round(b.height)}`);
+        }
+        return { out, count };
+      });
+      n += res.count; for (const x of res.out) bad.push(`${r}: ${x}`);
+    }
+    const u = [...new Set(bad.map((x) => x.replace(/^\S+: /, '')))];
+    if (u.length) throw new Error(`${u.length} collapsed icons: ${u.slice(0, 8).join(' | ')}`);
+    return `${n} icons on ${routes.length} pages`;
+  });
+
+  await gate('G-OV1', 'components side by side in a demo never overlap: nothing one draws, a port or a badge, lands on its neighbour', async () => {
+    // Pane, 2026-10-31: three NodeCards in a row at the small gap put each out port on the next card's in
+    // port. Every part a component draws, including what sticks out past its box, is measured.
+    const routes = ROUTES.filter((x) => x.startsWith(`${C.componentsBase}/`) && x.endsWith('/code'));
+    if (!routes.length) throw new Error('NO pages to check');
+    const bad = [];
+    for (const r of routes) {
+      await go(r);
+      const res = await page.evaluate(() => {
+        const out = [];
+        const extent = (root) => { let l = Infinity, t = Infinity, rr = -Infinity, b = -Infinity; for (const e of [root, ...root.querySelectorAll('*')]) { const q = e.getBoundingClientRect(); if (!q.width || !q.height || getComputedStyle(e).visibility === 'hidden') continue; l = Math.min(l, q.left); t = Math.min(t, q.top); rr = Math.max(rr, q.right); b = Math.max(b, q.bottom); } return { l, t, r: rr, b }; };
+        for (const stage of document.querySelectorAll('main [data-example-live]')) {
+          const roots = [...stage.querySelectorAll('[data-component]')].filter((e) => !e.parentElement.closest('[data-component]') || e.parentElement.closest('[data-component]') === stage.closest('[data-component]'));
+          const sibs = roots.filter((e, i) => roots.every((o, j) => j === i || !o.contains(e)));
+          const ex = sibs.map(extent);
+          for (let i = 0; i < sibs.length; i++) for (let j = i + 1; j < sibs.length; j++) {
+            if (sibs[i].parentElement !== sibs[j].parentElement) continue;
+            const a = ex[i], b = ex[j]; const w = Math.min(a.r, b.r) - Math.max(a.l, b.l), h = Math.min(a.b, b.b) - Math.max(a.t, b.t);
+            if (w > 2 && h > 2) out.push(`${sibs[i].getAttribute('data-component')} and ${sibs[j].getAttribute('data-component')} overlap by ${Math.round(w)}×${Math.round(h)}px`);
+          }
+        }
+        return out;
+      });
+      for (const x of res) bad.push(`${r}: ${x}`);
+    }
+    if (bad.length) throw new Error(`${bad.length} overlaps: ${bad.slice(0, 8).join(' | ')}`);
+    return `${routes.length} pages`;
+  });
+
+  await gate('G-LK1', 'page styles never reach inside a component: it lays out the same inside the prose of a page as on its own', async () => {
+    // Pane, 2026-10-31: the gallery sits inside the overview's prose, and ".prose ul" turned Pagination's
+    // page list into a column; ".prose a" underlined Sidebar, BottomNav and List rows. Each example's
+    // component is cloned outside main, where no page rule can reach, and their layout is compared.
+    const routes = [...new Set(['/', ...ROUTES.filter((x) => x.startsWith(`${C.componentsBase}/`) && x.endsWith('/code'))])].filter((r) => ROUTES.includes(r));
+    if (!routes.length) throw new Error('NO pages to check');
+    const bad = [];
+    for (const r of routes) {
+      await go(r);
+      if (r === '/') { const open = page.getByRole('button', { name: /gallery/i }); if (await open.count()) { await open.first().click(); await page.waitForTimeout(1500); } }
+      const res = await page.evaluate(() => {
+        const PROPS = ['display', 'flexDirection', 'flexWrap', 'fontSize', 'lineHeight', 'fontWeight', 'textDecorationLine', 'marginTop', 'marginBottom', 'paddingLeft', 'paddingTop', 'listStyleType', 'rowGap', 'columnGap', 'textTransform', 'letterSpacing'];
+        const same = (p, q) => p === q || (/px$/.test(p) && /px$/.test(q) && Math.abs(parseFloat(p) - parseFloat(q)) < 0.5);
+        const roots = [...document.querySelectorAll('main [data-component], dialog [data-component]')].filter((e) => !e.parentElement.closest('[data-component]'));
+        const host = document.createElement('div'); host.setAttribute('data-lk-host', ''); host.style.cssText = 'position:absolute;left:-10000px;top:0;inline-size:1200px';
+        document.body.appendChild(host);
+        const out = [];
+        for (const r0 of roots.slice(0, 120)) {
+          const env = r0.closest('[data-brightness], [data-environment], [data-theme]');
+          const wrap = env ? env.cloneNode(false) : document.createElement('div');
+          const w = r0.parentElement.getBoundingClientRect().width;
+          wrap.style.inlineSize = `${Math.max(1, w)}px`;
+          const c = r0.cloneNode(true); wrap.appendChild(c); host.appendChild(wrap);
+          const a = [r0, ...r0.querySelectorAll('*')], b = [c, ...c.querySelectorAll('*')];
+          // the root itself may be placed by the page (a row, a grid); only what is inside it must not change
+          for (let i = 1; i < a.length && i < b.length; i++) {
+            // only the component's own parts: content a product passes in (a paragraph in a Card) may follow the page
+            if (a[i].closest('svg') || !/-module__/.test(String(a[i].className))) continue;
+            const x = getComputedStyle(a[i]), y = getComputedStyle(b[i]);
+            const diff = PROPS.filter((k) => !same(x[k], y[k]) && (k !== 'listStyleType' || a[i].tagName === 'LI'));
+            if (diff.length) { out.push(`${r0.getAttribute('data-component')} ${a[i].tagName.toLowerCase()}: ${diff.map((k) => `${k} ${x[k]}≠${y[k]}`).join(', ')}`); break; }
+          }
+          wrap.remove();
+        }
+        host.remove();
+        return out;
+      });
+      for (const x of res) bad.push(`${r}: ${x}`);
+    }
+    const u = [...new Set(bad.map((x) => x.replace(/^\S+: /, '')))];
+    if (u.length) throw new Error(`${u.length} components restyled by the page: ${u.slice(0, 8).join(' | ')}`);
+    return `${routes.length} pages`;
+  });
+
   await gate('G-NC1', 'a shape inside a rounded shape nests its corner wherever it sits near one: even inset and inner radius = outer radius − inset', async () => {
     // Pane, 2026-10-30, user: the ⌘K key in the topbar search pill sat 4px from the pill's round end and
     // 12px from its top and bottom, with a 6px corner against a 22px one. G-NR1 checked this rule only for
@@ -1270,18 +1376,18 @@ try {
     const bad = [];
     for (const r of routes) {
       await go(r);
-      const res = await page.evaluate(() => {
+      const res = await page.evaluate((EXEMPT) => {
         const out = [];
         const drawn = (el) => {
           const cs = getComputedStyle(el);
           if (cs.visibility === 'hidden' || cs.display === 'contents') return false;
           const bg = cs.backgroundColor; const solid = bg && !/rgba\(.*,\s*0\)$/.test(bg) && bg !== 'transparent';
-          return solid || cs.backgroundImage !== 'none' || (cs.boxShadow !== 'none' && !/inset/.test(cs.boxShadow) ? true : cs.boxShadow !== 'none') || parseFloat(cs.borderTopWidth) > 0;
+          return solid || cs.backgroundImage !== 'none' || (cs.boxShadow !== 'none' && !/inset/.test(cs.boxShadow) ? true : cs.boxShadow !== 'none') || ['Top', 'Right', 'Bottom', 'Left'].every((k) => parseFloat(cs[`border${k}Width`]) > 0); // a one-side rule is a line, not a shape
         };
         const rad = (el) => parseFloat(getComputedStyle(el).borderTopLeftRadius) || 0;
         const name = (el) => el.closest('[data-component]')?.getAttribute('data-component') ?? (el.className && typeof el.className === 'string' ? `.${el.className.split(' ')[0]}` : el.tagName.toLowerCase());
         for (const el of document.querySelectorAll('body *')) {
-          if (el.closest('svg, [aria-hidden="true"] [aria-hidden="true"], [data-nc-exempt]') || !drawn(el)) continue;
+          if (el.closest(`svg, [aria-hidden="true"] [aria-hidden="true"], [data-nc-exempt]${EXEMPT ? `, ${EXEMPT}` : ''}`) || !drawn(el)) continue;
           const b = el.getBoundingClientRect();
           if (b.width < 12 || b.height < 12 || b.width > 600) continue;
           let p = el.parentElement; while (p && p !== document.body && !drawn(p)) p = p.parentElement;
@@ -1301,10 +1407,10 @@ try {
           // a pill's end is set by its height, so a pill only owes the even inset, never a radius
           const pill = got >= Math.min(b.height, b.width) / 2 - 1;
           const uneven = Math.abs(h - v) > Math.max(2, 0.25 * Math.max(h, v)) && Math.min(h, v) < 0.6 * Math.max(h, v);
-          if (uneven || (!pill && Math.abs(got - want) > Math.max(2, 0.2 * want))) out.push(`${name(el)} in ${name(p)}: inset ${Math.round(h)}px/${Math.round(v)}px, corner ${Math.round(got)}px (wants even insets and ${Math.round(want)}px)`);
+          if (uneven || (!pill && Math.abs(got - want) > Math.max(2, 0.2 * want))) out.push(`${name(el)}${el.closest('[data-component]') === el ? '' : ` ${el.tagName.toLowerCase()}.${String(el.className).split(' ')[0].replace(/^pane-|-module__/g, '')}`} in ${name(p)}: inset ${Math.round(h)}px/${Math.round(v)}px, corner ${Math.round(got)}px (wants even insets and ${Math.round(want)}px)`);
         }
         return out;
-      });
+      }, C.ncExempt ?? '');
       for (const x of res) bad.push(`${r}: ${x}`);
     }
     const u = [...new Set(bad.map((x) => x.replace(/^\S+: /, '')))];

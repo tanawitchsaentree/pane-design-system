@@ -96,3 +96,14 @@
 .icon { display: inline-grid; place-items: center; flex: none; }
 .icon svg { inline-size: var(--ds-button-icon); block-size: var(--ds-button-icon); }
 @media (forced-colors: active) { .root { border: var(--ds-focus-ring-width) solid ButtonText; } .root::before, .root::after { display: none; } }
+/* A toggle that is on is chosen glass with a ring, the system's one way to say "this is on" without a hue
+   (P3); aria-pressed says it. Off it keeps its variant's look. */
+.toggle[aria-pressed='true'] { background: linear-gradient(180deg, var(--ds-button-pressed-top), var(--ds-button-pressed-foot)); color: var(--ds-text-primary); box-shadow: var(--ds-button-edge), 0 0 0 var(--ds-width-ring) var(--ds-button-pressed-ring); }
+/* a menu button's chevron turns while its menu is open, and the button stays lit as the menu's source */
+.chevron svg { fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; transition: transform var(--ds-motion-hover) var(--ds-motion-easing); }
+.root[aria-expanded='true'] .chevron svg { transform: rotate(180deg); }
+.root[aria-expanded='true'] { box-shadow: var(--ds-button-edge), 0 0 0 var(--ds-width-ring) var(--ds-button-pressed-ring); }
+/* as a link it keeps the button's look; disabled or loading it has no href and says so */
+a.root { text-decoration: none; }
+a.root[aria-disabled='true'] { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
+@media (forced-colors: active) { .toggle[aria-pressed='true'] { outline: var(--ds-width-ring) solid Highlight; } }

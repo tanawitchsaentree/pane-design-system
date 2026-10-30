@@ -47,6 +47,31 @@
       "p": "P6",
       "axis": "colour",
       "why": "a refused file is listed with its reason in words and only the bullet takes the critical mark"
+    },
+    "status": {
+      "p": "P6",
+      "axis": "type",
+      "why": "each file says where its upload has got to in words beside a shape"
+    },
+    "bar": {
+      "p": "P6",
+      "axis": "space",
+      "why": "the bar for an uploading file is short and sits in the file row"
+    },
+    "done": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "an uploaded file shows the check in the positive mark and the word Uploaded"
+    },
+    "failed": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a failed file shows the octagon in the critical mark, the reason and a Retry button"
+    },
+    "sr": {
+      "p": "P6",
+      "axis": "type",
+      "why": "the word Error is read before the reason, so the tone is never colour alone"
     }
   },
   "states": {

@@ -1,0 +1,11 @@
+/* Buttons that belong together sit at the small gap; joined, the gap shrinks to a hairline of the scene
+   between them and the inner corners square off, so the piece reads as one object made of parts (P3, P6). */
+.root { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--ds-button-group-gap); }
+.vertical { flex-direction: column; align-items: stretch; }
+.attached { flex-wrap: nowrap; gap: var(--ds-button-group-seam); max-inline-size: 100%; }
+/* joined buttons may shrink, so a long label wraps inside its pill the way a lone Button's does */
+.attached > * { min-inline-size: 0; }
+.attached:not(.vertical) > :not(:first-child) { border-start-start-radius: var(--ds-button-group-inner); border-end-start-radius: var(--ds-button-group-inner); }
+.attached:not(.vertical) > :not(:last-child) { border-start-end-radius: var(--ds-button-group-inner); border-end-end-radius: var(--ds-button-group-inner); }
+.attached.vertical > :not(:first-child) { border-start-start-radius: var(--ds-button-group-inner); border-start-end-radius: var(--ds-button-group-inner); }
+.attached.vertical > :not(:last-child) { border-end-start-radius: var(--ds-button-group-inner); border-end-end-radius: var(--ds-button-group-inner); }

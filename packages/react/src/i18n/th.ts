@@ -65,5 +65,11 @@ const th: PaneMessages = {
   seqStep: (a, b, what, reply) => reply ? `${a} ตอบ ${b}: ${what}` : `${a} ถึง ${b}: ${what}`,
   seqNote: (a, what) => `หมายเหตุที่ ${a}: ${what}`,
   confidence: ['ต่ำมาก', 'ต่ำ', 'ปานกลาง', 'สูง', 'สูงมาก'],
+  clear: 'ล้าง',
+  charCount: (n, max) => `${n} จาก ${max} ตัวอักษร`,
+  uploading: (name) => `กำลังอัปโหลด ${name}`,
+  uploaded: 'อัปโหลดแล้ว',
+  uploadFailed: 'อัปโหลดไม่สำเร็จ',
+  retry: 'ลองอีกครั้ง',
 };
 export default th;

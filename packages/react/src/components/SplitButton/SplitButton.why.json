@@ -1,0 +1,61 @@
+{
+  "concept": "One usual action with its rarer alternatives a press away: the action and a chevron joined into one piece, two focus stops, the chevron opening a Menu.",
+  "default_to_avoid": [
+    {
+      "pattern": "a split button with a coloured main half and a grey arrow half",
+      "kind": "split button, combo button, dropdown button",
+      "why_not": "two colours make two buttons of unequal weight; Pane gives both halves the same variant, joined by a seam"
+    }
+  ],
+  "references": [
+    {
+      "title": "Fluent 2 · Split button",
+      "url": "https://fluent2.microsoft.design/components/web/react/core/splitbutton/usage"
+    },
+    {
+      "title": "Carbon · Combo button",
+      "url": "https://carbondesignsystem.com/components/combo-button/usage/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P5",
+      "axis": "colour",
+      "consequence": "one solid fill exists, the loud solid (white in dark, ink in light); a promoted action is the same solid glowing with its own light, and a pane uses one of them",
+      "form": "both halves share one variant, so the pair is one action and its options"
+    },
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the menu half is only its chevron, narrow, so the main action leads"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "two focus stops: Enter on the first runs the action, on the second opens the menu"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/waveA/",
+    "section": "splitbutton",
+    "options": [
+      "A one variant, joined",
+      "B coloured main half, grey arrow",
+      "C a menu button only"
+    ],
+    "picked": "A one variant, joined",
+    "by": "agent",
+    "reason": "A keeps one weight for one action (P5). B splits the weight. C hides the usual action behind a menu."
+  },
+  "parts": {
+    "more": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the menu half holds only the chevron with a narrow inline padding so the main action leads"
+    }
+  },
+  "states": {},
+  "motion": {}
+}

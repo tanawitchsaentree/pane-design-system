@@ -93,7 +93,8 @@ function Gallery() {
                     <p className="gallery-purpose">{c.purpose}</p>
                     <code className="gallery-tag">{`<${c.name} />`}</code>
                   </div>
-                  <Environment brightness="bright" className="gallery-demo">{LAYOUT_THUMB[name] ?? <div className="gallery-scale">{ready && <c.hero.Render />}</div>}</Environment>
+                  {/* the gallery shows each component on the backdrop chosen in the header, as every example does (P1) */}
+                  <Stage plain className="gallery-demo">{LAYOUT_THUMB[name] ?? <div className="gallery-scale">{ready && <c.hero.Render />}</div>}</Stage>
                 </div>
               ); })}
             </div>

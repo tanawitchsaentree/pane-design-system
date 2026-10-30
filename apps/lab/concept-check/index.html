@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Concept check: has the glass drifted from anchor A?</title>
+<style>
+  body { margin: 0; padding: 32px; background: #0b0b0d; color: #fff; font: 15px/1.45 -apple-system, system-ui, sans-serif; }
+  h1 { font-size: 22px; margin: 0 0 6px; } p.lede { margin: 0 0 24px; color: #ffffffb0; max-width: 900px; }
+  .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding: 28px; border-radius: 28px; margin-bottom: 18px; }
+  .forest { background: center / cover url(forest.jpg); }
+  .studio { background: #050506; }
+  .lit { background: radial-gradient(120% 70% at 50% -10%, #3a3b42 0%, #17181c 55%, #0a0a0c 100%); }
+  .tag { grid-column: 1 / -1; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: #ffffffb0; margin: -8px 0 4px; }
+  .card { position: relative; padding: 22px; border-radius: 40px; color: #fff; overflow: hidden; isolation: isolate; }
+  .card::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: linear-gradient(180deg, #ffffff66, #ffffff10 40%, #ffffff22); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+  .card h3 { margin: 0 0 2px; font-size: 19px; } .meta { color: #ffffffcc; font-size: 13px; margin-bottom: 14px; }
+  .tabs { display: flex; gap: 6px; margin-bottom: 14px; } .tabs span { padding: 6px 12px; border-radius: 99px; font-size: 13px; font-weight: 600; background: #ffffff1f; } .tabs span.on { background: #fff; color: #000; }
+  .inset { padding: 14px; border-radius: 22px; background: #ffffff14; margin-bottom: 14px; font-size: 14px; }
+  .btn { display: inline-block; padding: 11px 20px; border-radius: 99px; background: #fff; color: #000; font-weight: 600; font-size: 14px; }
+  .A  { background: rgba(118,118,128,.32); -webkit-backdrop-filter: blur(44px) saturate(160%); backdrop-filter: blur(44px) saturate(160%); }
+  .P  { background: rgba(255,255,255,.06); -webkit-backdrop-filter: blur(40px) saturate(140%) brightness(.42); backdrop-filter: blur(40px) saturate(140%) brightness(.42); }
+  .R1 { background: rgba(118,118,128,.30); -webkit-backdrop-filter: blur(44px) saturate(150%) brightness(.62); backdrop-filter: blur(44px) saturate(150%) brightness(.62); }
+  .R2 { background: rgba(130,130,142,.40); -webkit-backdrop-filter: blur(50px) saturate(150%) brightness(.74); backdrop-filter: blur(50px) saturate(150%) brightness(.74); }
+  .studio .A, .lit .A { background: rgba(118,118,128,.32); }
+  figcaption { margin-top: 8px; font-size: 13px; color: #ffffffcc; }
+</style></head><body>
+<h1>Concept check: has Pane drifted from anchor A?</h1>
+<p class="lede">The same card four ways, on a photo, on today's black studio and on a softly lit studio. <b>A</b> is the anchor you picked (D-008). <b>P</b> is Pane today: the scene dimmed to 0.42 behind a 6% white body (D-010, D-011, D-025). <b>R1</b> and <b>R2</b> bring back A's grey body with a floor of dimming so text still clears 4.5:1. Pick one per row (or say "keep P").</p>
+<div class="row forest"><div class="tag">On a photo (forest)</div>
+ <figure><div class="card A"><h3>Trip to Lauterbrunnen</h3><div class="meta">Saturday · 3 people going</div><div class="tabs"><span class="on">Plan</span><span>People</span><span>Photos</span></div><div class="inset">Meet at the station at 07:40. Bring layers. It's 4°C at the falls.</div><span class="btn">Join</span></div><figcaption><b>A</b> · anchor as picked</figcaption></figure>
+ <figure><div class="card P"><h3>Trip to Lauterbrunnen</h3><div class="meta">Saturday · 3 people going</div><div class="tabs"><span class="on">Plan</span><span>People</span><span>Photos</span></div><div class="inset">Meet at the station at 07:40. Bring layers. It's 4°C at the falls.</div><span class="btn">Join</span></div><figcaption><b>P</b> · Pane today (smoked)</figcaption></figure>
+ <figure><div class="card R1"><h3>Trip to Lauterbrunnen</h3><div class="meta">Saturday · 3 people going</div><div class="tabs"><span class="on">Plan</span><span>People</span><span>Photos</span></div><div class="inset">Meet at the station at 07:40. Bring layers. It's 4°C at the falls.</div><span class="btn">Join</span></div><figcaption><b>R1</b> · A's grey body, scene dimmed to 0.62</figcaption></figure>
+ <figure><div class="card R2"><h3>Trip to Lauterbrunnen</h3><div class="meta">Saturday · 3 people going</div><div class="tabs"><span class="on">Plan</span><span>People</span><span>Photos</span></div><div class="inset">Meet at the station at 07:40. Bring layers. It's 4°C at the falls.</div><span class="btn">Join</span></div><figcaption><b>R2</b> · lighter grey body, dimmed to 0.74</figcaption></figure>
+</div>
+<div class="row studio"><div class="tag">On today's studio (black, the book's default)</div>
+ <figure><div class="card A"><h3>Trip to Lauterbrunnen</h3><div class="meta">Saturday · 3 people going</div><div class="tabs"><span class="on">Plan</span><span>People</span><span>Photos</span></div><div class="inset">Meet at the station at 07:40.</div><span class="btn">Join</span></div><figcaption><b>A</b></figcaption></figure>
+ <figure><div class="card P"><h3>Trip to Lauterbrunnen</h3><div class="meta">Saturday · 3 people going</div><div class="tabs"><span class="on">Plan</span><span>People</span><span>Photos</span></div><div class="inset">Meet at the station at 07:40.</div><span class="btn">Join</span></div><figcaption><b>P</b> · on black the glass has nothing to show, so it reads as a flat dark card</figcaption></figure>
+ <figure><div class="card R1"><h3>Trip to Lauterbrunnen</h3><div class="meta">Saturday · 3 people going</div><div class="tabs"><span class="on">Plan</span><span>People</span><span>Photos</span></div><div class="inset">Meet at the station at 07:40.</div><span class="btn">Join</span></div><figcaption><b>R1</b></figcaption></figure>
+ <figure><div class="card R2"><h3>Trip to Lauterbrunnen</h3><div class="meta">Saturday · 3 people going</div><div class="tabs"><span class="on">Plan</span><span>People</span><span>Photos</span></div><div class="inset">Meet at the station at 07:40.</div><span class="btn">Join</span></div><figcaption><b>R2</b></figcaption></figure>
+</div>
+<div class="row lit"><div class="tag">On a softly lit studio (light from above, still no photo)</div>
+ <figure><div class="card A"><h3>Trip to Lauterbrunnen</h3><div class="meta">Saturday · 3 people going</div><div class="tabs"><span class="on">Plan</span><span>People</span><span>Photos</span></div><div class="inset">Meet at the station at 07:40.</div><span class="btn">Join</span></div><figcaption><b>A</b></figcaption></figure>
+ <figure><div class="card P"><h3>Trip to Lauterbrunnen</h3><div class="meta">Saturday · 3 people going</div><div class="tabs"><span class="on">Plan</span><span>People</span><span>Photos</span></div><div class="inset">Meet at the station at 07:40.</div><span class="btn">Join</span></div><figcaption><b>P</b></figcaption></figure>
+ <figure><div class="card R1"><h3>Trip to Lauterbrunnen</h3><div class="meta">Saturday · 3 people going</div><div class="tabs"><span class="on">Plan</span><span>People</span><span>Photos</span></div><div class="inset">Meet at the station at 07:40.</div><span class="btn">Join</span></div><figcaption><b>R1</b></figcaption></figure>
+ <figure><div class="card R2"><h3>Trip to Lauterbrunnen</h3><div class="meta">Saturday · 3 people going</div><div class="tabs"><span class="on">Plan</span><span>People</span><span>Photos</span></div><div class="inset">Meet at the station at 07:40.</div><span class="btn">Join</span></div><figcaption><b>R2</b></figcaption></figure>
+</div>
+</body></html>

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T14:00:29.481Z",
+  "generatedAt": "2026-10-30T15:21:37.749Z",
   "lint": "/Users/tanawitch.saentree/Downloads/human-tone-folder/.claude/skills/human-tone/scripts/lint.py",
   "excluded": [
     "/reference/decisions"
@@ -199,19 +199,25 @@
     },
     "/getting-started": {
       "ok": true,
-      "words": 682,
+      "words": 803,
       "hard": 0,
       "report": {
         "hard": [],
         "warn": [
           {
-            "line": 19,
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "If a page uses only a few components, it can load less CSS. Import code and code"
+          },
+          {
+            "line": 20,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Every verify run installs exactly these tarballs into an empty project and impor"
           },
           {
-            "line": 26,
+            "line": 27,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Every token with tier, type, reference and resolved value. For build tools and F"
@@ -227,6 +233,18 @@
             "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
             "code": "rhythm",
             "text": "It defines every code custom property, the three environment blocks, and the fal"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Three ways to bring Pane into another codebase, from simplest:\nFor a plain HTML "
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'the'",
+            "code": "anaphora",
+            "text": ""
           }
         ],
         "pass": true,
@@ -3099,18 +3117,11 @@
       }
     },
     "/components/toast/code": {
-      "ok": false,
-      "words": 231,
-      "hard": 1,
+      "ok": true,
+      "words": 234,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 22,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "code (default), code or code: each with its own glyph shape beside the title and"
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 7,
@@ -3131,13 +3142,13 @@
             "text": ""
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
     "/components/toast/accessibility": {
       "ok": true,
-      "words": 239,
+      "words": 265,
       "hard": 0,
       "report": {
         "hard": [],
@@ -3297,7 +3308,7 @@
     },
     "/components/fab/accessibility": {
       "ok": true,
-      "words": 235,
+      "words": 241,
       "hard": 0,
       "report": {
         "hard": [],
@@ -3985,7 +3996,7 @@
     },
     "/components/tabs/accessibility": {
       "ok": true,
-      "words": 440,
+      "words": 469,
       "hard": 0,
       "report": {
         "hard": [],
@@ -4386,7 +4397,7 @@
     },
     "/components/chip/accessibility": {
       "ok": true,
-      "words": 389,
+      "words": 399,
       "hard": 0,
       "report": {
         "hard": [],
@@ -4572,7 +4583,7 @@
     },
     "/components/listbox/accessibility": {
       "ok": true,
-      "words": 243,
+      "words": 256,
       "hard": 0,
       "report": {
         "hard": [],
@@ -5116,7 +5127,7 @@
     },
     "/components/radio-cards/accessibility": {
       "ok": true,
-      "words": 242,
+      "words": 254,
       "hard": 0,
       "report": {
         "hard": [],
@@ -5806,7 +5817,7 @@
     },
     "/components/breadcrumb/accessibility": {
       "ok": true,
-      "words": 244,
+      "words": 256,
       "hard": 0,
       "report": {
         "hard": [],
@@ -6106,7 +6117,7 @@
     },
     "/components/accordion/accessibility": {
       "ok": true,
-      "words": 255,
+      "words": 270,
       "hard": 0,
       "report": {
         "hard": [],
@@ -6818,7 +6829,7 @@
     },
     "/components/list/accessibility": {
       "ok": true,
-      "words": 263,
+      "words": 276,
       "hard": 0,
       "report": {
         "hard": [],
@@ -6907,7 +6918,7 @@
     },
     "/components/table/accessibility": {
       "ok": true,
-      "words": 281,
+      "words": 311,
       "hard": 0,
       "report": {
         "hard": [],
@@ -7080,7 +7091,7 @@
     },
     "/components/search-input/accessibility": {
       "ok": true,
-      "words": 289,
+      "words": 306,
       "hard": 0,
       "report": {
         "hard": [],
@@ -8276,7 +8287,7 @@
     },
     "/components/virtual-list/accessibility": {
       "ok": true,
-      "words": 243,
+      "words": 253,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10591,7 +10602,7 @@
     },
     "/components/input/accessibility": {
       "ok": true,
-      "words": 325,
+      "words": 351,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10600,7 +10611,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "#Change history\nFirst release, part of the W3 form family drawn as a well in the"
+            "text": "#Change history\nthe line box is the body leading, so Thai tone marks over upper "
           }
         ],
         "pass": true,
@@ -10675,7 +10686,7 @@
     },
     "/components/textarea/accessibility": {
       "ok": true,
-      "words": 263,
+      "words": 274,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10739,7 +10750,7 @@
     },
     "/components/checkbox/accessibility": {
       "ok": true,
-      "words": 325,
+      "words": 337,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10803,7 +10814,7 @@
     },
     "/components/radio/accessibility": {
       "ok": true,
-      "words": 314,
+      "words": 326,
       "hard": 0,
       "report": {
         "hard": [],
@@ -10867,7 +10878,7 @@
     },
     "/components/switch/accessibility": {
       "ok": true,
-      "words": 281,
+      "words": 294,
       "hard": 0,
       "report": {
         "hard": [],
@@ -11265,7 +11276,7 @@
     },
     "/components/input-group/accessibility": {
       "ok": true,
-      "words": 278,
+      "words": 302,
       "hard": 0,
       "report": {
         "hard": [],
@@ -11774,18 +11785,11 @@
       }
     },
     "/api/toast": {
-      "ok": false,
-      "words": 221,
-      "hard": 1,
+      "ok": true,
+      "words": 224,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 12,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "code (default), code or code: each with its own glyph shape beside the title and"
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 15,
@@ -11794,7 +11798,7 @@
             "text": "Draws it in place, open and not modal, inside its parent, for documentation, pre"
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -13380,16 +13384,34 @@
     },
     "/patterns/states": {
       "ok": true,
-      "words": 358,
+      "words": 573,
       "hard": 0,
       "report": {
         "hard": [],
         "warn": [
           {
+            "line": 27,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Tone, weight and size change the look of words. Truncation keeps one line, and t"
+          },
+          {
             "line": 0,
-            "rule": "anaphora: 3 sentences open with 'enter'",
-            "code": "anaphora",
-            "text": ""
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#Identity\nInitials stand in for a photo, and a badge says its tone with a glyph "
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "#Ranges\nA slider keeps its length and its bead in every state; disabled dims bot"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Truncation keeps one line, and the full text stays in the page for a screen read"
           }
         ],
         "pass": true,
@@ -13691,103 +13713,103 @@
     },
     "/reference/changelog": {
       "ok": true,
-      "words": 2814,
+      "words": 3105,
       "hard": 0,
       "report": {
         "hard": [],
         "warn": [
           {
-            "line": 8,
+            "line": 26,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code and code variants, size code, code and code, and code."
           },
           {
-            "line": 10,
+            "line": 28,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "month names, weekdays and its button names follow PaneProvider's catalog and loc"
           },
           {
-            "line": 12,
+            "line": 30,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Previous, Next and Page n come from the catalog."
           },
           {
-            "line": 29,
+            "line": 47,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code and code."
           },
           {
-            "line": 30,
+            "line": 48,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code and code."
           },
           {
-            "line": 31,
+            "line": 49,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code and code; read-only chips have no remove button."
           },
           {
-            "line": 32,
+            "line": 50,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code and code."
           },
           {
-            "line": 69,
+            "line": 87,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. Done, current and upcoming steps of one task, horizontal or vertical."
           },
           {
-            "line": 77,
+            "line": 95,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. Events on a hairline rail; done, current and upcoming dots differ by shape."
           },
           {
-            "line": 103,
+            "line": 121,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. Stepper, one panel at a time under a heading that takes focus, Back and the"
           },
           {
-            "line": 118,
+            "line": 136,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. A few words on hover, focus and tap."
           },
           {
-            "line": 125,
+            "line": 143,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new (D-029). A mesh gradient for covers, icons, illustrations and scenes, never "
           },
           {
-            "line": 145,
+            "line": 163,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "removed code, code, code, code, code, code, code, code, code; added the etch, po"
           },
           {
-            "line": 149,
+            "line": 167,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code, code, code, code, code, code, code, code, code, code, code, an"
           },
           {
-            "line": 175,
+            "line": 193,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "First release with glass, inset and solid variants and a cover slot. Glass dims "
           },
           {
-            "line": 178,
+            "line": 196,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "First release with light, accent and glass variants and the soft hover lift."
@@ -13832,11 +13854,23 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "First release, part of the W3 form family drawn as a well in the pane (D-020)."
+            "text": "each card brings its own glass on a scene, as Table does."
           },
           {
             "line": 0,
-            "rule": "anaphora: 3 sentences open with 'code'",
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "the trigger is Input's groove; the open list's rows nest the sheet corner (radiu"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "#0.2.0 (2026-10-27)\nRedrawn from the concept (derivation C, picked by the user) "
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'a'",
             "code": "anaphora",
             "text": ""
           }

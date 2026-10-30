@@ -220,3 +220,11 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **What was wrong:** NodeCard's ports sit half outside its edge. The examples set the cards in a `demo-row` at the small gap, which wrapped in the gallery, so one card's out port landed on the next card's in port.
 - **What changed:** the node examples use a canvas row that keeps the cards a port apart and scrolls instead of wrapping. SegmentedControl's segments share a stretched track evenly, so no empty well is left at its end.
 - **Check that now catches it:** G-OV1 measures everything each neighbouring component draws, ports and badges included, and fails any overlap.
+
+### R-032: the glass drifted from anchor A towards a dark smoked slab
+- **Date:** 2026-10-31
+- **User said:** "เหมือนจะหลุด concept glass ไปไกลเลยวะเช็คด้วยนะ"
+- **What was measured:** `apps/lab/concept-check/` sets the same card four ways: A as picked (grey body rgba(118,118,128,.32), blur 44, saturate 160%, no dimming), Pane today (6% white body over a scene dimmed to 0.42), and two returns towards A with a floor of dimming. On a photo, today's pane reads as smoked glass, close to anchor C, which was not picked. On the book's black studio it reads as a flat dark card, because black glass over black has nothing to show. The gallery and the state matrix always sat on that black, whatever backdrop was chosen.
+- **Root cause:** each step after D-008 tuned one number against one measurement (contrast at the worst pixel in D-010/D-011, slab thickness in D-025, the studio floor in D-028) and was checked against the gates, never against the anchor. No gate asks whether a pane still looks like A, so every step was green and the sum walked away from the pick. The black studio default then removed the scene that P1 says is part of the interface.
+- **What changed so far:** the gallery follows the chosen backdrop, as every example does. The material is the user's call: candidates R1 and R2 are rendered beside A and today's pane, on a photo, on the black studio and on a softly lit studio.
+- **Next:** once a candidate is picked, add an anchor-likeness check that measures the pane body against A's on the same backdrop (luminance and chroma of the body, rim contrast). The material then cannot move past it without a visible decision.

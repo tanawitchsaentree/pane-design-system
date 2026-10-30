@@ -22,6 +22,8 @@ export * from './components/Environment';
 export * from './components/Card';
 export * from './components/Avatar';
 export * from './components/Button';
+export * from './components/ButtonGroup';
+export * from './components/SplitButton';
 export * from './components/IconButton';
 export * from './components/Tabs';
 export * from './components/Tag';

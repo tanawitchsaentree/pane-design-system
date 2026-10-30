@@ -86,6 +86,31 @@
       "p": "P7",
       "axis": "space",
       "why": "the component owns the spacing between its own parts, so children never carry margins and rows line up"
+    },
+    "auto": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "growing with its text it drops the resize grip and only scrolls past its most lines"
+    },
+    "wrap": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a counted field stacks the field and its count"
+    },
+    "count": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the count is caption size in tabular figures at the end, under the field"
+    },
+    "full": {
+      "p": "P2",
+      "axis": "type",
+      "why": "at the limit the count comes up to the primary tone and medium weight"
+    },
+    "sr": {
+      "p": "P6",
+      "axis": "type",
+      "why": "near the limit the count is said in words, and not at every key"
     }
   },
   "states": {

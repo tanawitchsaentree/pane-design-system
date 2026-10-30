@@ -50,6 +50,11 @@
       "p": "P6",
       "axis": "shape",
       "why": "the spinner sits over the hidden label so the reader sees the action is still running"
+    },
+    "toggle": {
+      "p": "P3",
+      "axis": "colour",
+      "why": "a toggle icon button that is on takes the chosen glass and a ring, as Button does"
     }
   },
   "states": {
@@ -77,6 +82,11 @@
       "p": "P6",
       "axis": "depth",
       "why": "forced colours drop rim, glint and fill, so a real system-colour border keeps the shape"
+    },
+    "aria-pressed=true": {
+      "p": "P3",
+      "axis": "colour",
+      "why": "on, it is chosen glass with a ring and aria-pressed says so"
     }
   },
   "motion": {

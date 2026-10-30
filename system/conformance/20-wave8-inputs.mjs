@@ -37,7 +37,9 @@ export default async function (t) {
   await check('SearchInput', 'the clear button shows with a query and puts focus back', async () => {
     const root = ex().locator('[data-component="SearchInput"]').first();
     const input = root.locator('input');
-    expect(await root.locator('button').count() === 0, 'a clear button with no query');
+    // with no query the clear button keeps its place but is unseen and out of the tab order (R-027)
+    const idle = root.locator('button[aria-label="Clear search"]');
+    expect(await idle.evaluate((e) => getComputedStyle(e).visibility === 'hidden' && e.tabIndex === -1), 'a clear button shows with no query');
     await input.fill('Reine');
     await root.locator('button[aria-label="Clear search"]').click();
     expect(await input.inputValue() === '', 'the button did not clear');

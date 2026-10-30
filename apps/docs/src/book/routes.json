@@ -382,6 +382,26 @@
           ]
         },
         {
+          "path": "/components/button-group",
+          "title": "ButtonGroup",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/split-button",
+          "title": "SplitButton",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
           "path": "/components/pull-to-refresh",
           "title": "PullToRefresh",
           "tabs": [
@@ -1393,6 +1413,14 @@
         {
           "path": "/api/fab",
           "title": "FAB"
+        },
+        {
+          "path": "/api/button-group",
+          "title": "ButtonGroup"
+        },
+        {
+          "path": "/api/split-button",
+          "title": "SplitButton"
         },
         {
           "path": "/api/pull-to-refresh",

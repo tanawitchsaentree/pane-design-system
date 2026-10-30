@@ -128,7 +128,8 @@
     "catalogAliases": {
       "Anchor/TOC": "TableOfContents",
       "AuthForms": "AuthForm"
-    }
+    },
+    "ncExempt": ".demo-box, .demo-box-media, [class*=\"demo-pad\"], .demo-fill"
   },
   "autonomy": {
     "picks": "agent",

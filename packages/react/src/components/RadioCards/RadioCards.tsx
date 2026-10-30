@@ -15,6 +15,8 @@ export interface RadioCardOption {
 export interface RadioCardsProps {
   /** The question the cards answer, the group's accessible name. */
   label: string;
+  /** Keeps the label for screen readers only, when a row beside it already shows the same words, such as a SettingsRow. */
+  hideLabel?: boolean;
   /** The options, in the order they are shown. */
   options: RadioCardOption[];
   /** The controlled value. */
@@ -35,12 +37,12 @@ export interface RadioCardsProps {
 
 /** One choice from a few options that each need a sentence, such as a plan or a delivery speed: radio
  *  buttons drawn as small panes, the chosen one a lighter pane with a check (P6: a mark, never only colour). */
-export const RadioCards = forwardRef<HTMLDivElement, RadioCardsProps>(function RadioCards({ label, options, value, defaultValue, onValueChange, columns, className, invalid, disabled }, ref) {
+export const RadioCards = forwardRef<HTMLDivElement, RadioCardsProps>(function RadioCards({ label, hideLabel, options, value, defaultValue, onValueChange, columns, className, invalid, disabled }, ref) {
   const field = useField();
   const bad = invalid ?? field?.invalid ?? false;
   return (
     <div ref={ref} data-component="RadioCards" className={cx(styles.root, className)}>
-      <span className={styles.legend} id={`rc-${label.replace(/\W+/g, '-')}`}>{label}</span>
+      <span className={cx(styles.legend, hideLabel && styles.sr)} id={`rc-${label.replace(/\W+/g, '-')}`}>{label}</span>
       <RR.Root aria-labelledby={`rc-${label.replace(/\W+/g, '-')}`} value={value} defaultValue={defaultValue} onValueChange={onValueChange} disabled={disabled ?? field?.disabled} aria-invalid={bad || undefined} className={cx(styles.grid, columns && styles[`c${columns}`])}>
         {options.map((o) => (
           <RR.Item key={o.value} value={o.value} disabled={o.disabled} className={styles.card}>

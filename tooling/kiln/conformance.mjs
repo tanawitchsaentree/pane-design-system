@@ -93,7 +93,9 @@ try {
   for (const { name, slug } of CHAPTERS.filter((c) => inScope(c.slug))) {
     await check(name, `demo floor met (≥ variant dimensions + 3 = ${META.components?.[name]?.demoFloor})`, async () => {
       let n = 0;
-      for (const t of C.tabs) { await go(`${C.componentsBase}/${slug}/${t}`); n += await main().locator('figure.example').count(); }
+      // examples load as their chunk arrives (the docs are code-split), so count once the number stops growing
+      const settled = async () => { let last = -1; for (let i = 0; i < 20; i++) { const c = await main().locator('figure.example').count(); if (c === last) return c; last = c; await page.waitForTimeout(150); } return last; };
+      for (const t of C.tabs) { await go(`${C.componentsBase}/${slug}/${t}`); n += await settled(); }
       expect(n >= META.components[name].demoFloor, `${n} demos across the tabs`);
       return `${n} demos`;
     });

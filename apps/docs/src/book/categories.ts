@@ -4,7 +4,7 @@ export const CATEGORIES: Array<{ title: string; blurb: string; names: string[] }
   { title: 'Layout', blurb: 'Where things go, from the page width and its columns to the space between items.', names: ['Container', 'Grid', 'Stack', 'Flex', 'Box', 'Center', 'Spacer', 'Divider', 'AspectRatio', 'VisuallyHidden'] },
   { title: 'Type', blurb: 'The words on the glass, with the headings, links, icons and keys that sit among them.', names: ['Heading', 'Text', 'Link', 'Icon', 'Kbd'] },
   { title: 'Surfaces and media', blurb: 'What content sits on, from the scene and the glass to colour and pictures.', names: ['Environment', 'Card', 'Mesh', 'Image', 'Carousel'] },
-  { title: 'Actions', blurb: 'What the reader does, from the one loud action to a row of icons.', names: ['Button', 'IconButton', 'FAB'] },
+  { title: 'Actions', blurb: 'What the reader does, from the one loud action to a row of icons.', names: ['Button', 'IconButton', 'FAB', 'ButtonGroup', 'SplitButton'] },
   { title: 'Navigation', blurb: 'Where the reader is and how they move, through bars, docks, paths, pages and steps.', names: ['Tabs', 'SegmentedControl', 'Navbar', 'NavigationMenu', 'Sidebar', 'BottomNav', 'Breadcrumb', 'Pagination', 'Stepper', 'Accordion', 'TableOfContents'] },
   { title: 'Selection', blurb: 'Choosing from a set, in place or from a list that opens.', names: ['Chip', 'Select', 'Listbox', 'Combobox', 'Autocomplete', 'MultiSelect', 'Menu', 'ContextMenu', 'RadioCards', 'Rating', 'TagInput', 'TransferList'] },
   { title: 'Identity and status', blurb: 'Who something belongs to, what it is about and what state it is in.', names: ['Avatar', 'Tag', 'Badge', 'Banner'] },

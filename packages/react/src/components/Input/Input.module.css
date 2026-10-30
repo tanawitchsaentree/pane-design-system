@@ -21,3 +21,10 @@
 .root:disabled { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
 .root:read-only:not(:disabled) { background: transparent; box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring-readonly); }
 @media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid FieldText; } .root[aria-invalid='true'] { border-width: var(--ds-width-ring); } }
+/* a field with a clear button or a count is wrapped: the field and its count stack, the count at the end */
+.wrap { display: flex; flex-direction: column; gap: var(--ds-gap-xs); min-inline-size: 0; }
+.idle { visibility: hidden; }
+.glyph { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; color: var(--ds-text-secondary); }
+.count { align-self: flex-end; font-size: var(--ds-type-caption); font-variant-numeric: tabular-nums; color: var(--ds-text-secondary); }
+.full { color: var(--ds-text-primary); font-weight: var(--ds-type-weight-medium); }
+.sr { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

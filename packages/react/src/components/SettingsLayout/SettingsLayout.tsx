@@ -7,7 +7,7 @@ export interface SettingsRowProps {
   label: string;
   /** A sentence under the name on what it changes. */
   description?: ReactNode;
-  /** The control, such as a Switch, a Select, a SegmentedControl or a Button. Give it the same label. */
+  /** The control, such as a Switch, a Select, a SegmentedControl or a Button. Give it the same label; a control that shows its label (RadioCards, Slider) takes hideLabel so the words appear once. */
   control: ReactNode;
 }
 

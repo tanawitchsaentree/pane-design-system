@@ -15,18 +15,20 @@ export interface ProgressProps extends Omit<HTMLAttributes<HTMLDivElement>, 'chi
   valueText?: string;
   /** `md` (default) is the channel a slider uses; `sm` is a thinner line for a card or a row. */
   size?: 'sm' | 'md';
+  /** Keeps the label for screen readers only, for a bar inside a row that already names its task, such as a file in an upload list. */
+  hideLabel?: boolean;
 }
 
 /** How far a task has come: the slider's carved channel with the loud solid filling it, lit from above.
  *  In dark the filled part gives off a soft light (glow.soft). With no value it travels slowly; under
  *  reduced motion it stays still and the label carries the news. */
-export const Progress = forwardRef<HTMLDivElement, ProgressProps>(function Progress({ label, value, max = 100, showValue, valueText, size = 'md', className, ...rest }, ref) {
+export const Progress = forwardRef<HTMLDivElement, ProgressProps>(function Progress({ label, value, max = 100, showValue, valueText, size = 'md', hideLabel, className, ...rest }, ref) {
   const known = typeof value === 'number';
   const pct = known ? Math.min(100, Math.max(0, (value / max) * 100)) : 0;
   const text = valueText ?? (known ? `${Math.round(pct)}%` : undefined);
   return (
     <div ref={ref} data-component="Progress" className={cx(styles.root, className)} {...rest}>
-      <div className={styles.head}>
+      <div className={cx(styles.head, hideLabel && styles.sr)}>
         <span className={styles.label}>{label}</span>
         {showValue && text && <span className={styles.value} aria-hidden="true">{text}</span>}
       </div>

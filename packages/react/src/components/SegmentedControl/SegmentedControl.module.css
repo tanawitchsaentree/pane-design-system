@@ -10,3 +10,6 @@
 .segment[data-disabled] { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
 .segment:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
 @media (forced-colors: active) { .track { border: var(--ds-width-hairline) solid ButtonText; } .segment[data-state='on'] { outline: var(--ds-width-ring) solid Highlight; } }
+/* stretched by its container (a column, a card), the segments share the track evenly instead of leaving an
+   empty run of well at the end; at its own width nothing changes */
+.segment { flex: 1 1 auto; }
