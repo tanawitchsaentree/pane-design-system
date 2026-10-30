@@ -124,6 +124,10 @@
       "probe": "Environment",
       "maxJsGz": 8000,
       "tokensCss": "pane-react/tokens.css"
+    },
+    "catalogAliases": {
+      "Anchor/TOC": "TableOfContents",
+      "AuthForms": "AuthForm"
     }
   },
   "autonomy": {

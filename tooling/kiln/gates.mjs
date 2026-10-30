@@ -135,7 +135,10 @@ try {
       await page.evaluate(() => scrollTo({ top: 600, behavior: 'instant' }));
       const menu = page.locator('button[data-menu-toggle]');
       if (await menu.isVisible()) { await menu.click(); await page.waitForTimeout(150); }
-      await page.locator('nav[data-book-nav]').getByRole('link', { name: target.title, exact: true }).click();
+      // a folding nav may hide the link in a closed part: open its folds first, as a reader would
+      await page.evaluate((t) => { const a = [...document.querySelectorAll('nav[data-book-nav] a')].find((x) => x.textContent.trim() === t || x.firstChild?.textContent?.trim() === t); for (let el = a?.parentElement; el; el = el.parentElement) if (el.hidden) { const b = document.querySelector(`[aria-controls="${el.id}"]`); b?.click(); } }, target.title);
+      await page.waitForTimeout(150);
+      await page.locator('nav[data-book-nav]').getByRole('link', { name: target.title, exact: false }).first().click();
       await eventually(() => page.locator('#page-title').textContent(), target.title, `heading did not change at ${w}px`);
       await page.waitForTimeout(100);
       const st = await page.evaluate(() => { const h = document.getElementById('page-title'); const r = h.getBoundingClientRect(); return { y: scrollY, top: r.top, vh: innerHeight, focused: document.activeElement === h }; });
@@ -238,7 +241,7 @@ try {
       if (!link || !title) return { missing: true };
       const a = getComputedStyle(link), t = getComputedStyle(title);
       const diffs = ['fontSize', 'fontWeight', 'textTransform', 'color', 'letterSpacing'].filter((k) => a[k] !== t[k]);
-      return { diffs, titleCursor: t.cursor, titleInteractive: !!title.closest('a, button') };
+      return { diffs, titleCursor: t.cursor, titleInteractive: !!title.closest('a, button'), titleDisclosure: !!title.closest('button[aria-expanded]') };
     });
     expect(!r.missing, 'NO NAV LINK OR PART TITLE FOUND ([data-nav-part])');
     const link = page.locator('nav[data-book-nav] a:not([aria-current])').first();
@@ -247,7 +250,8 @@ try {
     const after = await link.evaluate((e) => { const c = getComputedStyle(e); return `${c.backgroundColor}|${c.color}|${c.textDecorationLine}|${c.boxShadow}`; });
     const bad = [];
     if (r.diffs.length < 2) bad.push(`links and part titles differ only in ${r.diffs.join(', ') || 'nothing'}`);
-    if (r.titleCursor === 'pointer' || r.titleInteractive) bad.push('part title looks pressable');
+    // a folding nav (Pane NavTree) makes part titles disclosure buttons: allowed when they say they open with aria-expanded
+    if ((r.titleCursor === 'pointer' || r.titleInteractive) && !r.titleDisclosure) bad.push('part title looks pressable');
     if (before === after) bad.push('links do not react to hover');
     fail(bad, 'problems');
     return `differ in ${r.diffs.join(', ')}`;
@@ -764,7 +768,8 @@ try {
       const cut = new Set((C.catalogCut ?? []).map((x) => x.toLowerCase()));
       const names = [...readFileSync(catFile, 'utf8').matchAll(/^\*\*W\d+[^*]*\*\*\s*(.+)$/gm)].flatMap((m) => m[1].split(/,\s*/)).map((s) => s.replace(/\[.*?\]|\(.*?\)|×\d+:?/g, '').trim()).filter(Boolean);
       for (const n of names) {
-        const aliases = n.split('/').map((a) => a.trim().toLowerCase()).filter(Boolean);
+        // a system may ship a catalog entry under its own name (kiln.config docs.catalogAliases: { "AuthForms": "AuthForm" })
+        const aliases = [...n.split('/'), ...[].concat(C.catalogAliases?.[n] ?? [])].map((a) => a.trim().toLowerCase()).filter(Boolean);
         if (aliases.some((a) => cut.has(a))) continue;
         if (!aliases.some((a) => nav.items.some((x) => x === a || x.startsWith(`${a} `)))) bad.push(`catalog "${n}" not in nav`);
       }
