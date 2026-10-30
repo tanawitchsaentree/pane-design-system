@@ -73,3 +73,12 @@ Not a priority list — order of discovery.
 - **TreeView**: no multi or checkbox selection, no lazy-loaded children, no drag reorder, no label editing, no virtualisation.
 - **Scheduler** (day/week/month events) and **Chat** (AI chat UI): Pane has neither.
 - **Practice**: MUI X has unit tests with coverage (Vitest, Codecov); Pane has browser gates and conformance but no unit tests. MUI X versions docs per major with migration guides; Pane does not yet. MUI X ships AGENTS.md and skills; Pane plans pane-mcp + llms.txt.
+
+## Flagged back by a consumer (an evidence/graph app, 2026-10-30)
+- **NodeCard**: a card that is a node on a canvas (ports, selected, dragging, collapsed). Generic for any node-link canvas → X11.
+- **MiniGraph**: a small node-link graph (network) preview. → X11 NetworkGraph, with a table view of nodes and edges like every chart.
+- **DatasetBadge** ("synthetic data"): provenance of the data shown (live, sample, synthetic, stale). → a Badge kind plus a "Data provenance" pattern page; must read by word and glyph, not colour.
+- **Evidence confidence colours conflict with the data palette**: confidence is an ordered magnitude, so it must not use categorical hues (D-031 is identity only). → a sequential ramp (one hue, faint to full, `data.seq-1..5`) and an ordinal chip that pairs the step with a word and Scale-style dots; decision D-032.
+- **MoneyFlow**: flows between parties → X4 Sankey (with the table view).
+- **Sequence**: an ordered exchange between actors (lanes and messages) → SequenceDiagram / swimlane timeline, a sibling of Timeline. → X11.
+- **PerfOverlay**: a developer overlay for frame time and glass cost. Not a product component; offer as a dev-only tool (`pane-react/devtools`) if wanted.

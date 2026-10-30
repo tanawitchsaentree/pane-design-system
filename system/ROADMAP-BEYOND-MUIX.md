@@ -27,3 +27,10 @@ or Paddle) that takes the payment, handles tax and emails a signed license key. 
 offline in the package (no server); without it Pro shows an "unlicensed" mark. Pane builds: the package
 split, key verification and watermark, the key-issuing script, the pricing page and launch docs. The
 user owns: the store account, prices, the npm account and publish, the licence text (with a lawyer).
+
+## X11 · Canvas, graphs and provenance (consumer feedback, 2026-10-30)
+NodeCard (a node on a canvas: ports, selected, dragging, collapsed, keyboard move), NetworkGraph (mini and
+full, with a nodes-and-edges table view), SequenceDiagram (actors in lanes, messages between them), a
+sequential data ramp and an ordinal ConfidenceChip (D-032: confidence is magnitude, never categorical hue),
+a provenance Badge kind (live, sample, synthetic, stale) with its pattern page, and an optional dev-only
+PerfOverlay in `pane-react/devtools`. MoneyFlow is X4's Sankey.
