@@ -150,3 +150,10 @@
 - **ตัดสิน:** hue ของ chart เป็นของ content แบบเดียวกับ scene, mesh และ swatch ของ ColorPicker ใช้ได้เฉพาะ mark (bar, line, dot, cell) ส่วนข้อความ legend, label, tick และ tooltip ใช้ text tone เสมอ และ control รอบ chart ยังไม่มี hue
 - **ค่า:** categorical 8 ช่องตามลำดับของ dataviz reference palette, dark/light แยก step (`color.data.*` → `data.series-1..8` → `viz.series-*`); sequential ใช้ hue ช่อง 1 จางไปเข้ม
 - **วัด:** validate_palette ผ่านทุก hard gate บน surface ของ Pane (light #f2f2f4, dark #1c1d21): CVD ΔE ต่ำสุด 9.1 / 8.4, normal ΔE 19.6 / 19.3; light มี 4 ช่องต่ำกว่า 3:1 จึงต้องมี legend, direct label และ table view ทุก chart (ChartFrame บังคับ)
+
+### D-032: ระดับที่เรียงลำดับ (เช่นความมั่นใจ) ใช้ sequential ramp สีเดียว
+- **วันที่:** 2026-10-30 · **เลือกโดย:** agent (X11, ConfidenceChip; มาจาก feedback ของ PEG เรื่องสี evidence confidence)
+- **ปัญหา:** ความมั่นใจเป็นขนาด (มากน้อย) ไม่ใช่ identity ถ้าใช้แดง/เหลือง/เขียวจะอ่านเป็นผ่าน/ไม่ผ่าน และคนตาบอดสีแดงเขียวแยกไม่ได้
+- **ตัดสิน:** ใช้ hue ช่อง 1 (น้ำเงิน) ไล่ 5 step จางไปเข้ม เป็น `color.data.seq-{dark,light}-1..5` → `data.seq-1..5` ใช้เฉพาะ mark; จำนวนจุดและคำบอกระดับเสมอ สีแค่ซ้ำสิ่งที่ shape บอกแล้ว ห้ามใช้ status colour กับ magnitude
+- **ค่า:** dark `#184F95 #256ABF #3987E5 #6DA7EC #9EC5F4` (มากขึ้น = สว่างขึ้น), light `#86B6EF #5598E7 #2A78D6 #1C5CAB #104281` (มากขึ้น = เข้มขึ้น)
+- **ผลต่อ:** ConfidenceChip วันนี้; Heatmap และ legend แบบ sequential ใช้ ramp เดียวกันได้
