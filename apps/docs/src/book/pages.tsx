@@ -161,6 +161,28 @@ function Overview() {
   );
 }
 
+function InstallApp() {
+  return (
+    <Page eyebrow="Getting started" title="Install as an app" lede={<p>This book installs on a phone or a laptop like an app, with no store, and reads offline once it has been opened. A product built with Pane can do the same with one command after its build.</p>}>
+      <Section id="book" title="Install this book">
+        <p>On Android, open the book in Chrome and choose Install app when it offers, or open the menu and choose Install app. On an iPhone, open it in Safari, press Share, then Add to Home Screen. On a laptop, Chrome and Edge show an install button at the end of the address bar.</p>
+        <p>The installed book opens full screen with its own icon. Pages you have opened before still load without a network; when you are online it fetches the latest pages first, so it never shows an old version for long.</p>
+      </Section>
+      <Section id="product" title="Make your product installable">
+        <p>Run <code>pane-pwa</code> on the folder you deploy, after your build. It writes the manifest and a service worker into that folder and copies your icons. Give it a 192 and a 512 pixel PNG, and a maskable 512 if you have one, so Android does not crop the plain icon into a circle.</p>
+        <Code label="After your build">{'npx pane-pwa --dist dist --name "Brick Forge" --short "Forge" --icon192 public/icon-192.png --icon512 public/icon-512.png --maskable public/maskable-512.png --theme "#141418"'}</Code>
+        <p>Then add the manifest and the icon to your HTML head, and register the worker once from your app.</p>
+        <Code label="index.html">{'<link rel="manifest" href="/manifest.webmanifest">\n<link rel="apple-touch-icon" href="/icons/icon-192.png">\n<meta name="theme-color" content="#141418">'}</Code>
+        <Code label="main.tsx">{"if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));"}</Code>
+        <p>The site has to be served over HTTPS for a phone to offer the install. Cloudflare Pages, Netlify and Vercel all are, and localhost works while you test.</p>
+      </Section>
+      <Section id="checks" title="What is checked">
+        <p>kiln G-PWA1 loads a page at phone size, reads the manifest, decodes the 192 and 512 icons to check their sizes, looks for a maskable icon and an iPhone icon, waits for the service worker, then turns the network off and reloads the page. The gate fails if any step does.</p>
+      </Section>
+    </Page>
+  );
+}
+
 function GettingStarted() {
   return (
     <Page eyebrow="Getting started" title="Getting started" lede={<p>Install the two packages and load the token stylesheet once. Then wrap the screen in an Environment that matches its backdrop and put your content on Cards.</p>}>
@@ -979,6 +1001,7 @@ const BASE_PAGES: Record<string, () => ReactElement> = {
   '/foundations/content': ContentFoundation,
   '/foundations/accessibility': AccessibilityFoundation,
   '/principles': Principles,
+  '/getting-started/install-app': InstallApp,
   '/patterns/states': () => <StatesPage Page={Page} Section={Section} />,
   '/foundations/glass': Glass,
   '/foundations/color': ColorPage,

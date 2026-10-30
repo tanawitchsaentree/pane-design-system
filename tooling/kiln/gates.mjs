@@ -22,6 +22,7 @@
 //   rhythm       G-RH1 a stage and a tab bar ≥24px from neighbouring blocks (own code/caption/heading ≥8, intro ≥16)
 //   address      G-ST1 no default written into the URL; stale or unknown values fall back and are dropped
 //   stack        G-EL1 stacked glass levels a measured step apart, a scrim under an overlay
+//   install      G-PWA1 installable app: manifest, 192/512/maskable icons, service worker, offline page
 //   milestone    G-TODO1 no starter placeholder or seed reason left · G-PUB1 no registry install of an unpublished package   reach  G-NAV1 G-SM1   touch  G-TT1
 //
 // Usage: node tooling/engine/gates.mjs [--only G-K2,G-K3] [--report]
@@ -810,6 +811,47 @@ try {
     }
     fail(bad, 'install commands for unpublished packages');
     return `${ROUTES.length} pages, ${unpublished.length} unpublished packages never shown as a registry install`;
+  });
+
+  await gate('G-PWA1', 'the book installs as an app and reads offline: a valid manifest with 192 and 512 icons, a service worker that takes control, and a page that loads with the network off', async () => {
+    // Pane, 2026-10-30, user: install the book on a phone without a store (PWA). Checks what Chrome and
+    // Safari need to offer "Install app" / "Add to Home Screen", then reloads a page offline.
+    if (C.pwa === false) return 'NO pwa in this system';
+    const probe = ROUTES.find((r) => r.startsWith(`${C.componentsBase}/`)) ?? '/';
+    const c = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: 'allow' });
+    const p = await c.newPage(); const bad = [];
+    await p.goto(url(srv.base, probe, {}, C)); await p.waitForLoadState('networkidle');
+    const href = await p.evaluate(() => document.querySelector('link[rel="manifest"]')?.getAttribute('href'));
+    if (!href) bad.push('no <link rel="manifest">');
+    else {
+      const m = await p.evaluate(async (h) => (await fetch(h)).json().catch(() => null), href);
+      if (!m) bad.push('manifest is not JSON');
+      else {
+        for (const k of ['name', 'short_name', 'start_url', 'display', 'icons', 'theme_color', 'background_color']) if (!m[k]) bad.push(`manifest has no ${k}`);
+        if (m.display && !['standalone', 'fullscreen', 'minimal-ui'].includes(m.display)) bad.push(`display is ${m.display}`);
+        for (const want of ['192x192', '512x512']) {
+          const ic = (m.icons ?? []).find((i) => String(i.sizes).split(' ').includes(want));
+          if (!ic) { bad.push(`no ${want} icon`); continue; }
+          const size = await p.evaluate(async (src) => { const img = new Image(); img.src = src; await img.decode().catch(() => {}); return `${img.naturalWidth}x${img.naturalHeight}`; }, ic.src);
+          if (size !== want) bad.push(`${want} icon is ${size}`);
+        }
+        if (!(m.icons ?? []).some((i) => String(i.purpose ?? '').includes('maskable'))) bad.push('no maskable icon (Android crops the plain one)');
+      }
+    }
+    if (!(await p.evaluate(() => !!document.querySelector('link[rel="apple-touch-icon"]')))) bad.push('no apple-touch-icon for iPhone');
+    const controlled = await p.evaluate(async () => { if (!('serviceWorker' in navigator)) return false; return Promise.race([navigator.serviceWorker.ready.then(() => true), new Promise((r) => setTimeout(() => r(false), 8000))]); }).catch(() => false);
+    if (!controlled) bad.push('no service worker became ready');
+    else {
+      await p.reload(); await p.waitForLoadState('networkidle');
+      await c.setOffline(true);
+      await p.goto(url(srv.base, probe, {}, C)).catch(() => {});
+      const ok = await p.evaluate(() => (document.querySelector('main h1')?.textContent ?? '').trim().length > 0).catch(() => false);
+      if (!ok) bad.push(`offline, ${probe} did not render its heading`);
+      await c.setOffline(false);
+    }
+    await c.close();
+    fail(bad, 'install problems');
+    return `manifest, icons and worker in place; ${probe} renders offline`;
   });
 
   await gate('G-CL1', 'every colour value written in the book is a current token value (no stale hex in prose)', async () => {

@@ -86,6 +86,7 @@
     "vite": "^7.0.0"
   },
   "bin": {
-    "pane-mesh": "./bin/pane-mesh.mjs"
+    "pane-mesh": "./bin/pane-mesh.mjs",
+    "pane-pwa": "./bin/pane-pwa.mjs"
   }
 }

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-30T07:21:23.786Z",
-  "passed": 51,
-  "total": 51,
+  "generatedAt": "2026-10-30T08:01:19.379Z",
+  "passed": 52,
+  "total": 52,
   "partial": false,
   "advisory": {},
   "results": [
@@ -9,14 +9,14 @@
       "id": "G-P0",
       "name": "every page renders: a <main>, a heading and no uncaught error",
       "ok": true,
-      "detail": "26 pages",
+      "detail": "5 pages",
       "order": 0
     },
     {
       "id": "G-D3",
       "name": "no literal backtick in rendered text",
       "ok": true,
-      "detail": "26 pages",
+      "detail": "5 pages",
       "order": 1
     },
     {
@@ -78,7 +78,7 @@
       "id": "G-C1",
       "name": "every code block has a Copy button you can see",
       "ok": true,
-      "detail": "72 code blocks",
+      "detail": "16 code blocks",
       "order": 11
     },
     {
@@ -143,7 +143,7 @@
       "id": "G-K6",
       "name": "usage depth ≥ 0.5 × the Carbon page for the same component (words and sections)",
       "ok": true,
-      "detail": "MultiSelect 367w/27s (no benchmark) · Pagination 857/1654w 28/30s · OTPFlow 454w/28s (no benchmark) · Calendar 540w/41s (no benchmark) · DataGrid 1269/2507w 29/34s · RichTextEditor 375w/28s (no benchmark)",
+      "detail": "Button 3002/5260w 43/36s",
       "order": 21
     },
     {
@@ -223,29 +223,37 @@
       "id": "G-TODO1",
       "name": "no starter placeholder is left on any page: no TODO( and no seed reason",
       "ok": true,
-      "detail": "26 pages clean",
+      "detail": "5 pages clean",
       "order": 33
     },
     {
       "id": "G-PUB1",
       "name": "an install command names only what can be installed: no bare registry install of an unpublished package",
       "ok": true,
-      "detail": "26 pages, 2 unpublished packages never shown as a registry install",
+      "detail": "5 pages, 2 unpublished packages never shown as a registry install",
       "order": 34
+    },
+    {
+      "id": "G-PWA1",
+      "name": "the book installs as an app and reads offline: a valid manifest with 192 and 512 icons, a service worker that takes control, and a page that loads with the network off",
+      "ok": true,
+      "detail": "manifest, icons and worker in place; /components/button/usage renders offline",
+      "order": 35
     },
     {
       "id": "G-CL1",
       "name": "every colour value written in the book is a current token value (no stale hex in prose)",
       "ok": true,
-      "detail": "33 values checked",
-      "order": 35
+      "detail": "20 values checked",
+      "order": 36
     },
     {
       "id": "G-NT2",
       "name": "every form control shows its boundary at least 3:1 against what it sits on, in every theme (WCAG 1.4.11)",
       "ok": true,
-      "detail": "72 controls in 2 themes",
-      "order": 36
+      "skipped": true,
+      "detail": "skipped: nothing it checks is in the limited routes",
+      "order": 37
     },
     {
       "id": "G-EL1",
@@ -253,22 +261,21 @@
       "ok": true,
       "skipped": true,
       "detail": "skipped: nothing it checks is in the limited routes",
-      "order": 37
+      "order": 38
     },
     {
       "id": "G-SV1",
       "name": "every promised state is there and visible: each cell of the state matrix differs from its row default and carries its ARIA, in every theme",
       "ok": true,
-      "detail": "240 state cells differ from their default and carry their ARIA",
-      "order": 38
+      "detail": "NO state matrix route in this run",
+      "order": 39
     },
     {
       "id": "G-GL1",
       "name": "glow is declared and measured: in dark only [data-glow] parts give off light, each visibly (near ring vs ground) and within reach; text never glows; in light nothing glows",
       "ok": true,
-      "skipped": true,
-      "detail": "skipped: nothing it checks is in the limited routes",
-      "order": 39
+      "detail": "4 glowing parts in 2 themes (strong 1.49–1.55:1)",
+      "order": 40
     },
     {
       "id": "G-SL1",
@@ -276,75 +283,75 @@
       "ok": true,
       "skipped": true,
       "detail": "skipped: nothing it checks is in the limited routes",
-      "order": 40
+      "order": 41
     },
     {
       "id": "G-S6",
       "name": "nothing in the page column spills out of it: no element crosses into the rail or the margin beside main (folds open)",
       "ok": true,
-      "detail": "26 pages",
-      "order": 41
+      "detail": "5 pages",
+      "order": 42
     },
     {
       "id": "G-NR1",
       "name": "a highlighted row inside a rounded flyout nests its corner: inner radius = outer radius − inset",
       "ok": true,
       "detail": "no flyout triggers on any Code page",
-      "order": 42
+      "order": 43
     },
     {
       "id": "G-IN1",
       "name": "text inside a control keeps its inset from the control's edge: at least 8px, and half the corner radius on a rounded end",
       "ok": true,
-      "detail": "13 lines of text in controls",
-      "order": 43
+      "detail": "15 lines of text in controls",
+      "order": 44
     },
     {
       "id": "G-ST1",
       "name": "the address holds only what someone chose: a default is never written into the URL, and a stale or unknown value falls back and is dropped",
       "ok": true,
       "detail": "clean address, stale values dropped",
-      "order": 44
+      "order": 45
     },
     {
       "id": "G-RH1",
       "name": "separate steps stand apart: a demo stage and a tab bar sit at least 24px from the blocks around them; a stage's own code, caption or heading may sit 8px off and its intro 16px",
       "ok": true,
-      "detail": "336 gaps",
-      "order": 45
+      "detail": "90 gaps",
+      "order": 46
     },
     {
       "id": "G-NAV1",
       "name": "every page in routes.json is reachable from the book nav at 375 and 1280px",
       "ok": true,
-      "detail": "157 pages",
-      "order": 46
+      "detail": "159 pages",
+      "order": 47
     },
     {
       "id": "G-SM1",
       "name": "following an in-page link (table of contents, heading anchor) lands with its heading clear of the sticky header",
       "ok": true,
-      "detail": "16 links followed",
-      "order": 47
+      "detail": "4 links followed",
+      "order": 48
     },
     {
       "id": "G-TT1",
       "name": "every control in a live example and in the shell gives a pointer at least 44px each way",
       "ok": true,
-      "detail": "1672 controls",
-      "order": 48
+      "detail": "128 controls",
+      "order": 49
     },
     {
       "id": "axe-none",
       "name": "axe finds no WCAG 2.2 AA violations on any page (forced-colors none)",
       "ok": true,
-      "order": 49
+      "order": 50
     },
     {
       "id": "axe-active",
       "name": "axe finds no WCAG 2.2 AA violations on any page (forced-colors active)",
       "ok": true,
-      "order": 50
+      "order": 51
     }
   ]
 }
