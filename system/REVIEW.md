@@ -108,3 +108,5 @@ Lab: `apps/lab/round5/index.html` (the user's OpenGlass-style reference beside P
 | CoachMark (wave 10) | **A anchored card, no scrim** | A points without blocking (P3). B covers the page. C teaches out of context. |
 | KanbanBoard (wave 10) | **A panes, keys and drag** | A moves by keyboard as well as pointer (P6). B leaves keys out. C loses the board. |
 | RichTextEditor (wave 10) | **A few tools over the groove** | A keeps the system type (P2) and the field family (P3). B lets text leave the system. C asks readers to learn syntax. |
+| Scale (indicators) | **A stepped channel, bead and ring** | A shows the steps and both positions by shape (P6) on the slider material (P3). B rests on hue. C cannot show a value between steps or a comparison. |
+| RadarChart (indicators) | **A thin outlines with a wash** | A keeps overlapping shapes readable (dataviz). B hides one behind another. C loses the profile at a glance. |

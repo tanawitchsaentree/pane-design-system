@@ -4044,5 +4044,80 @@
         "why": "the number keeps room for a few digits between its steppers, so the field never shrinks to a sliver"
       }
     }
+  },
+  "scale": {
+    "label": {
+      "$value": "{control.scale-label}",
+      "$type": "dimension"
+    },
+    "word": {
+      "$value": "{control.scale-word}",
+      "$type": "dimension"
+    },
+    "min": {
+      "$value": "{control.xl}",
+      "$type": "dimension"
+    },
+    "gap": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "step-gap": {
+      "$value": "{width.ring}",
+      "$type": "dimension"
+    },
+    "hit": {
+      "$value": "{control.check}",
+      "$type": "dimension"
+    },
+    "track": {
+      "$value": "{control.dot}",
+      "$type": "dimension"
+    },
+    "off": {
+      "$value": "{surface.carve}",
+      "$type": "color"
+    },
+    "carve": {
+      "$value": "{elevation.track}",
+      "$type": "shadow"
+    },
+    "on": {
+      "$value": "{line.ring}",
+      "$type": "color"
+    },
+    "good": {
+      "$value": "{status.positive-mark}",
+      "$type": "color"
+    },
+    "bad": {
+      "$value": "{status.critical-mark}",
+      "$type": "color"
+    },
+    "ring": {
+      "$value": "{line.edge}",
+      "$type": "color"
+    },
+    "bead": {
+      "$value": "{control.icon-sm}",
+      "$type": "dimension"
+    },
+    "bead-bg": {
+      "$value": "{surface.knob}",
+      "$type": "color"
+    },
+    "bead-shadow": {
+      "$value": "{elevation.bead}",
+      "$type": "shadow"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": [
+          "P3",
+          "P6"
+        ],
+        "why": "Slider's channel cut into steps with Slider's bead at the value, a hollow ring to compare and a mark-coloured band between them"
+      }
+    }
   }
 }

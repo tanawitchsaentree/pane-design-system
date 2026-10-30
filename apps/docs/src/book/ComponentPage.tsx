@@ -231,6 +231,14 @@ export function ComponentPage({ c, tab }: { c: ComponentChapter; tab: Tab }) {
             <Code label="Import">{c.importLine}</Code>
             <Code label="Usage">{c.usage}</Code>
           </Section>
+          {c.html && (
+            <Section id="without-react" title="Without React">
+              <p>A site without React uses the same tokens and this stylesheet, and writes the markup itself. It looks the same as the component.</p>
+              <Code label="head">{`<link rel="stylesheet" href="https://pane-design-system.pages.dev/pane-tokens.css">\n<link rel="stylesheet" href="${c.html.css}">`}</Code>
+              <Code label="HTML">{c.html.snippet}</Code>
+              <p>{c.html.note}</p>
+            </Section>
+          )}
           <Section id="hero" title="In use" wide>
             <p>{c.hero.intro}</p>
             <Example title={c.hero.title} code={c.hero.code} plain={c.hero.plain} backdrop={c.hero.backdrop}><c.hero.Render /></Example>

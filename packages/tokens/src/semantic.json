@@ -1123,6 +1123,14 @@
           "why": "a navigation column is 280px, wide enough for labels on one line beside the content"
         }
       }
+    },
+    "scale-label": {
+      "$value": "{size.scale-label}",
+      "$type": "dimension"
+    },
+    "scale-word": {
+      "$value": "{size.scale-word}",
+      "$type": "dimension"
     }
   },
   "corner": {

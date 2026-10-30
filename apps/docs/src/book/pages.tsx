@@ -194,6 +194,18 @@ npm install /path/to/pilot-glass/release/pane-react-${meta.version}.tgz`}</Code>
 <!-- then, in your own CSS -->
 .card { background: var(--ds-level-2); padding: var(--ds-gap-lg); border-radius: var(--ds-corner-media); color: var(--ds-text-primary); }`}</Code>
         <p>The theme follows <code>data-theme="light"</code> or <code>"dark"</code> on the <code>html</code> element.</p>
+        <p>A few components also come as plain HTML and one more stylesheet, made from the same tokens so they look the same as the React ones. Scale is the first. Its markup is a label, a track of steps with a dot, an optional ring and band, and a word, and the Scale page shows it on its Code tab.</p>
+        <Code label="index.html">{`<link rel="stylesheet" href="https://pane-design-system.pages.dev/pane-scale.css">
+
+<div class="pane-scale" role="img" aria-label="Speed: Fast, 4 of 5, above the format average">
+  <span class="pane-scale-label" aria-hidden="true">Speed</span>
+  <span class="pane-scale-track" aria-hidden="true" style="--at: 75%; --cmp: 50%">
+    <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i>
+    <b class="pane-scale-band good" style="--from: 50%; --to: 75%"></b>
+    <b class="pane-scale-ring"></b><b class="pane-scale-dot"></b>
+  </span>
+  <span class="pane-scale-word" aria-hidden="true">Fast</span>
+</div>`}</Code>
         <h3>A · Tarballs</h3>
         <Code>{`# in this repo
 pnpm run release:pack            # → release/pane-tokens-${meta.version}.tgz, release/pane-react-${meta.version}.tgz

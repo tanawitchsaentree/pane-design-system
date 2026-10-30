@@ -1,5 +1,5 @@
 // Usage tabs for wave 9 (component-depth.md U1–U14): complex data, the pickers and the charts (D-031).
-import { BarChart, Calendar, Card, Carousel, DataGrid, DatePicker, FormField, Heatmap, LineChart, Sparkline, Stat, Text, TimePicker, TransferList, TreeView, VirtualList } from 'pane-react';
+import { BarChart, Calendar, RadarChart, Scale, Card, Carousel, DataGrid, DatePicker, FormField, Heatmap, LineChart, Sparkline, Stat, Text, TimePicker, TransferList, TreeView, VirtualList } from 'pane-react';
 import type { Depth } from './types';
 
 const OnCard = ({ children }: { children: React.ReactNode }) => <Card as="div" className="demo-card">{children}</Card>;
@@ -323,4 +323,57 @@ export const HEATMAP: Depth = {
   modifiers: [{ name: 'labelEvery', rules: <p>Show every nth column name when names would collide.</p>, pair: { do: <Wide><Heatmap label="Visits" labelEvery={2} rows={['Shop']} columns={WEEKS} values={[[3, 5, 4, 6, 8, 7]]} /></Wide>, doNote: 'Names stay apart.', dont: <Wide><Heatmap label="Visits" rows={['Shop']} columns={Array.from({ length: 24 }, (_, i) => `W${i + 30}`)} values={[Array.from({ length: 24 }, (_, i) => i % 7)]} /></Wide>, dontNote: 'Names run together.' } }],
   related: [['/components/table', 'Table', 'Exact values.'], ['/components/bar-chart', 'BarChart', 'One dimension.']],
   references: [ref('Carbon · Heat maps', 'https://carbondesignsystem.com/data-visualization/complex-charts/', 'Sequential scales.'), ref('WAI · Complex images', 'https://www.w3.org/WAI/tutorials/images/complex/', 'A table beside a chart.')],
+};
+
+const SPEED = ['Slow', 'Steady', 'Medium', 'Fast', 'Very fast'];
+const LEVEL = ['Very low', 'Low', 'Medium', 'High', 'Very high'];
+const AX = ['Speed', 'Interaction', 'Late game', 'Consistency', 'Removal'];
+const DECK = [{ name: 'Mono white tokens', values: [4.6, 2.2, 2.8, 3.9, 2.4] }];
+
+export const SCALE: Depth = {
+  overview: (
+    <>
+      <p>A Scale shows where something sits on a short ordered scale, such as the speed of a deck, the risk of a plan or how long a game runs. It is the slider channel cut into steps, with the slider bead at the value. Steps up to the value are lit, and the word for that step sits at the end of the row, so the level reads before the reader finds the bead. A value can fall between two steps, such as 3.4 on a scale of five.</p>
+      <p>Give it a second value to compare with, such as the average for the format, and a hollow ring marks it. The band between the ring and the bead takes the positive mark when the value moved the right way and the critical mark when it moved the wrong way, and an arrow beside the word points up or down. Set higherIsBetter to false for a scale where a rise is bad news, such as a mulligan rate.</p>
+      <p>A Scale shows a value and takes no input. A screen reader hears the label, the word, the position and the comparison in one sentence, such as Speed, Fast, 4.4 of 5, above the format average. For a value the reader sets, use Slider; for a reading in a continuous range with a limit, use Meter.</p>
+      <p>A site without React gets the same look from pane-scale.css and plain markup, shown on the Code tab, and a hand-built track swaps over one part at a time. Each segment becomes an i element, and the lit one takes the on class. The value dot becomes the dot with --at, set from (value - 1) / (steps - 1) as a percentage, and the compare dot becomes the ring with --cmp. An up or down gap becomes the band, with --from, --to and the good or bad class. Steps of different widths keep their widths with flex on each i.</p>
+    </>
+  ),
+  whenToUse: ['A level on a scale of three to seven steps, with words for each step.', 'A profile of several such levels, one row each.', 'A level compared with an average or an earlier value.'],
+  whenNot: [{ situation: 'The reader sets the value', to: '/components/slider', label: 'Slider' }, { situation: 'A reading against a limit', to: '/components/meter', label: 'Meter' }, { situation: 'A score in stars', to: '/components/rating', label: 'Rating' }],
+  variants: { na: 'Scale has one look; the comparison and the number of steps change it.' },
+  anatomy: { render: <Wide><Scale label="Speed" value={4.4} compare={3} compareLabel="the format average" words={SPEED} /></Wide>, parts: [{ part: 'Label', selector: '[data-component="Scale"] > span:first-child', what: 'What is measured.' }, { part: 'Steps', selector: '[data-component="Scale"] > span:nth-child(2)', what: 'The channel cut into steps.' }, { part: 'Word', selector: '[data-component="Scale"] > span:last-child', what: 'The level in words, with its arrow.' }] },
+  sizes: { na: 'Scale is one size; it takes the width of its row.' },
+  emphasis: { text: <p>The comparison is the loud part. Leave it out when there is nothing to compare, so the rows that do compare stand out.</p>, pair: { do: <Wide><Scale label="Speed" value={4.4} compare={3} compareLabel="the format average" words={SPEED} /></Wide>, doNote: 'One comparison that matters.', dont: <Wide><Scale label="Speed" value={3.1} compare={3} compareLabel="the format average" words={SPEED} /></Wide>, dontNote: 'A comparison too small to mean anything.' } },
+  placement: { rows: [['A profile', 'Four or five rows, one per axis, beside a RadarChart.'], ['A table row', 'Bare, when the column names it.']], examples: [{ title: 'Seven steps', render: <Wide><Scale label="Curve" value={5.5} steps={7} /></Wide> }] },
+  combinations: { good: [['Scale + RadarChart', 'The shape at a glance and each axis in words.'], ['Scale + Table', 'A level per row.']], avoid: [{ title: 'a scale without words', why: 'A bead on a channel says nothing until the steps have names.', render: <Wide><Scale label="Speed" value={4} /></Wide> }] },
+  content: { formula: <p>A noun for what is measured, and one word per step, lowest first.</p>, pair: { do: <Wide><Scale label="Speed" value={4} words={SPEED} /></Wide>, doNote: 'Words for each step.', dont: <Wide><Scale label="Metric 1" value={4} /></Wide>, dontNote: 'A name and a number that mean nothing.' }, overflow: { text: 'A long label or word wraps in its column.', render: <div data-overflow-demo="" className="overflow-probe"><OnCard><Scale label="Interaction with the opponent's board" value={3} words={['Little', 'Some', 'A fair amount of interaction', 'Much', 'Constant']} /></OnCard></div> }, rtl: { text: 'The steps fill from the right.', render: <div dir="rtl" lang="ar"><Wide><Scale label="السرعة" value={4} words={['بطيء', 'ثابت', 'متوسط', 'سريع', 'سريع جدا']} /></Wide></div> }, expansion: { text: 'Longer words wrap at the end of the row.', render: <Wide><Scale label="Geschwindigkeit" value={4} words={['Langsam', 'Gleichmäßig', 'Mittel', 'Schnell', 'Sehr schnell']} /></Wide> } },
+  behaviours: { states: [['Rest', 'Lit steps up to the value and the bead.', 'P6.'], ['Compared above', 'A ring, a positive band and an up arrow.', 'P6.'], ['Compared below', 'A ring, a critical band and a down arrow.', 'P6.']], interactions: [['Keyboard', 'None', 'It takes no focus.', 'Scale: it is an image that says its level and the comparison'], ['Mouse', 'None', 'Nothing happens when pressed.', 'Scale'], ['Touch', 'None', 'Nothing happens when tapped.', 'Scale']], loading: <p>Leave the row out until the value arrives, or show a Skeleton line in its place.</p>, focus: <p>Takes no focus; it is read as one image with its level in words.</p> },
+  deepDive: NA_D('Scale'),
+  modifiers: [{ name: 'higherIsBetter', rules: <p>Set it to false where a rise is bad news, so a rise takes the critical mark.</p>, pair: { do: <Wide><Scale label="Mulligan rate" value={3.6} compare={2.5} compareLabel="last month" higherIsBetter={false} words={['Rare', 'Low', 'Usual', 'High', 'Very high']} /></Wide>, doNote: 'More mulligans read as worse.', dont: <Wide><Scale label="Mulligan rate" value={3.6} compare={2.5} compareLabel="last month" words={['Rare', 'Low', 'Usual', 'High', 'Very high']} /></Wide>, dontNote: 'More mulligans shown as good news.' } }],
+  related: [['/components/meter', 'Meter', 'A reading against a limit.'], ['/components/slider', 'Slider', 'The reader sets the value.'], ['/components/radar-chart', 'RadarChart', 'Every axis as one shape.']],
+  references: [ref('WAI · Images of data', 'https://www.w3.org/WAI/tutorials/images/complex/', 'The value said in words.'), ref('Stephen Few · Bullet graphs', 'https://www.perceptualedge.com/articles/misc/Bullet_Graph_Design_Spec.pdf', 'A value against a comparison on one line.')],
+};
+
+export const RADAR_CHART: Depth = {
+  overview: (
+    <>
+      <p>A RadarChart shows a profile over a few axes, such as how a deck plays on speed, interaction, late game and consistency. Each series is one shape, a 2px outline over a faint wash of its data colour, on a recessive grid of rings and spokes. Marks carry the data palette and every word stays in a text tone (D-031).</p>
+      <p>Arrow keys walk the axes, and a live line reads every series on the axis in focus. The Show table button gives every value. A shape is for a profile at a glance; to compare exact values, use a BarChart or a Table. Keep it to three series at most, and to three to eight axes.</p>
+    </>
+  ),
+  whenToUse: ['A profile at a glance over three to eight axes.', 'Two or three profiles over the same axes.'],
+  whenNot: [{ situation: 'Exact comparison', to: '/components/bar-chart', label: 'BarChart' }, { situation: 'One axis in words', to: '/components/scale', label: 'Scale' }],
+  variants: NA_V('RadarChart'),
+  anatomy: { render: <Wide><RadarChart label="Deck profile" max={5} axes={AX} series={DECK} /></Wide>, parts: [{ part: 'Title', selector: '[data-component="RadarChart"] figcaption', what: 'What the shape is.' }, { part: 'Plot', selector: '[data-component="RadarChart"] [aria-roledescription="chart"]', what: 'One tab stop.' }, { part: 'Show table', selector: '[data-component="RadarChart"] figcaption button', what: 'Every value as a table.' }] },
+  sizes: { na: 'The plot takes the width it is given up to blockSize.' },
+  emphasis: { na: 'Every series is equal; say the story in the title.' },
+  placement: { rows: [['A profile card', 'Beside the Scale rows that say each axis in words.']], examples: [{ title: 'Two decks', render: <Wide><RadarChart label="Two decks" max={5} axes={AX.slice(0, 4)} series={[{ name: 'Tokens', values: [4.6, 2.2, 2.8, 3.9] }, { name: 'Control', values: [1.8, 4.7, 4.4, 3.1] }]} /></Wide> }] },
+  combinations: { good: [['RadarChart + Scale', 'The shape and each axis in words.']], avoid: [{ title: 'five series', why: 'Past three, the shapes cover each other; use small multiples.', render: <Wide><RadarChart label="Five decks" max={5} axes={AX.slice(0, 4)} series={[1, 2, 3, 4, 5].map((k) => ({ name: `Deck ${k}`, values: [k % 5 + 1, (k * 2) % 5 + 1, (k * 3) % 5 + 1, (k * 4) % 5 + 1] }))} /></Wide> }] },
+  content: chartContent((l) => <RadarChart label={l} max={5} axes={AX} series={DECK} />),
+  behaviours: behaviourOf('RadarChart', 'arrow keys read each axis aloud'),
+  deepDive: NA_D('RadarChart'),
+  modifiers: [{ name: 'max', rules: <p>Fix the outer ring to the top of the scale, so two charts side by side share it.</p>, pair: { do: <Wide><RadarChart label="Deck profile" max={5} axes={AX} series={DECK} /></Wide>, doNote: 'The outer ring is 5.', dont: <Wide><RadarChart label="Deck profile" axes={AX} series={DECK} /></Wide>, dontNote: 'The ring follows the largest value, so shapes cannot be compared.' } }],
+  related: [['/components/scale', 'Scale', 'Each axis in words.'], ['/components/bar-chart', 'BarChart', 'Exact values.']],
+  references: [ref('Carbon · Radar charts', 'https://carbondesignsystem.com/data-visualization/complex-charts/', 'Axes and series.'), ref('WAI · Complex images', 'https://www.w3.org/WAI/tutorials/images/complex/', 'A table beside a chart.')],
 };

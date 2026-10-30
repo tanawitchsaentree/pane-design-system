@@ -1020,6 +1020,14 @@
     "segment-min": {
       "$value": "72px",
       "$description": "the narrowest segment of a segmented control"
+    },
+    "scale-label": {
+      "$value": "112px",
+      "$description": "the label column of a Scale row: room for a two-word axis name, the same in every row so tracks line up"
+    },
+    "scale-word": {
+      "$value": "96px",
+      "$description": "the word column of a Scale row, the width of a short level word"
     }
   },
   "radius": {

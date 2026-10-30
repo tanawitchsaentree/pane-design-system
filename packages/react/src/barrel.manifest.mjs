@@ -57,4 +57,8 @@ export const BARREL_MANIFEST = [
     header: `Wave 10 patterns (0.7.0): compositions of the waves before, with the error summary, palette and board.`,
     components: ['Form', 'Wizard', 'AuthForm', 'CommandPalette', 'NotificationCenter', 'CoachMark', 'KanbanBoard', 'Feed', 'AppShell', 'SettingsLayout', 'RichTextEditor'],
   },
+  {
+    header: `Indicators (0.7.0): a stepped scale on Slider's channel, and the radar profile on the data palette.`,
+    components: ['Scale', 'RadarChart'],
+  },
 ];

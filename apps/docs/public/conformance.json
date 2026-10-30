@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-30T05:40:50.918Z",
-  "passed": 407,
-  "total": 410,
+  "generatedAt": "2026-10-30T06:51:52.958Z",
+  "passed": 420,
+  "total": 420,
   "checks": [
     {
       "component": "Container",
@@ -524,6 +524,18 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "8 props"
+    },
+    {
+      "component": "Scale",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "8 props"
+    },
+    {
+      "component": "RadarChart",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props"
     },
     {
       "component": "Form",
@@ -1192,6 +1204,18 @@
       "detail": "3 demos"
     },
     {
+      "component": "Scale",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "6 demos"
+    },
+    {
+      "component": "RadarChart",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
       "component": "Form",
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
@@ -1278,8 +1302,8 @@
     {
       "component": "Checkbox",
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": false,
-      "detail": "4 demos across the tabs"
+      "ok": true,
+      "detail": "5 demos"
     },
     {
       "component": "Radio",
@@ -1290,8 +1314,8 @@
     {
       "component": "Switch",
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": false,
-      "detail": "4 demos across the tabs"
+      "ok": true,
+      "detail": "5 demos"
     },
     {
       "component": "FormField",
@@ -1326,14 +1350,14 @@
     {
       "component": "PinInput",
       "name": "demo floor met (≥ variant dimensions + 3 = 7)",
-      "ok": false,
-      "detail": "6 demos across the tabs"
+      "ok": true,
+      "detail": "7 demos"
     },
     {
       "component": "Banner",
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
-      "detail": "11 demos"
+      "detail": "8 demos"
     },
     {
       "component": "Environment",
@@ -1418,7 +1442,7 @@
       "component": "IconButton",
       "name": "every button with no visible text, on every page of the book, has an accessible name",
       "ok": true,
-      "detail": "487 pages"
+      "detail": "495 pages"
     },
     {
       "component": "Tabs",
@@ -1447,7 +1471,7 @@
     },
     {
       "component": "Docs page",
-      "name": "G-D3, no literal backtick in rendered text on any of the 487 pages",
+      "name": "G-D3, no literal backtick in rendered text on any of the 495 pages",
       "ok": true
     },
     {
@@ -2288,6 +2312,36 @@
     {
       "component": "RichTextEditor",
       "name": "a mark says when it is on",
+      "ok": true
+    },
+    {
+      "component": "Scale",
+      "name": "says its label, word, position and the comparison in one sentence",
+      "ok": true
+    },
+    {
+      "component": "Scale",
+      "name": "a value between two steps sits between them and lights the steps up to the nearest",
+      "ok": true
+    },
+    {
+      "component": "Scale",
+      "name": "a rise where lower is better takes the critical band and an up arrow",
+      "ok": true
+    },
+    {
+      "component": "Scale",
+      "name": "in RTL the steps fill from the right",
+      "ok": true
+    },
+    {
+      "component": "RadarChart",
+      "name": "Show table gives every axis and series as a table, and back",
+      "ok": true
+    },
+    {
+      "component": "RadarChart",
+      "name": "arrow keys walk the axes and read every series there",
       "ok": true
     }
   ]

@@ -4,6 +4,8 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- Scale: new. A position on a short ordered scale, the slider channel cut into steps with a bead, a ring to compare with and a band between them; also as plain HTML with pane-scale.css.
+- RadarChart: new. A profile over a few axes as one 2px shape per series with a faint wash, a table view and arrow keys between axes.
 - Button: `loading` keeps the width and focus, shows a spinner, says it is busy and ignores presses.
 - IconButton: `loading`, as Button's.
 - Checkbox: `invalid`, a critical ring and aria-invalid; FormField's error sets it.

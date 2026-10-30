@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Scale and Radar, three ways each</title>
+<style>
+  body { margin: 0; padding: 48px; background: #0B0B0D; color: #fff; font: 15px/1.5 system-ui, sans-serif; }
+  section { margin-block-end: 36px; } .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .pane { padding: 16px; border-radius: 22px; background: linear-gradient(180deg, #2a2b30, #1c1d21); box-shadow: inset 0 1px 0 #fff2; }
+  .well { display: inline-flex; gap: 4px; padding: 4px; border-radius: 99px; background: #0000005a; box-shadow: inset 0 2px 4px #0008; }
+  .s { padding: 6px 14px; border-radius: 99px; } .on { background: linear-gradient(180deg,#ffffff38,#ffffff14); font-weight: 600; }
+  figcaption { margin-top: 8px; color: #ffffffcc; font-size: 13px; }
+</style></head><body>
+<h1>Scale and RadarChart (Pane)</h1>
+<section><div class="row">
+ <figure><div class="pane">Speed <span style="display:inline-block;width:30px;height:6px;margin-right:2px;background:#ffffff5c"></span><span style="display:inline-block;width:30px;height:6px;margin-right:2px;background:#ffffff5c"></span><span style="display:inline-block;width:30px;height:6px;margin-right:2px;background:#ffffff5c"></span><span style="display:inline-block;width:30px;height:6px;margin-right:2px;background:#ffffff5c"></span><span style="display:inline-block;width:30px;height:6px;margin-right:2px;background:#0000005a"></span> <b>Fast</b></div><figcaption><b>Scale A · stepped channel, bead and ring (picked)</b>; B gold progress bar; C five dots</figcaption></figure>
+ <figure><div class="pane"><svg width="120" height="110"><polygon points="60,10 110,45 90,100 30,100 10,45" fill="none" stroke="#ffffff22"/><polygon points="60,30 95,48 75,85 40,80 25,50" fill="#3987E51a" stroke="#3987E5" stroke-width="2"/></svg></div><figcaption><b>RadarChart A · thin outlines with a wash (picked)</b>; B saturated fills; C bars per axis</figcaption></figure>
+</div></section>
+</body></html>

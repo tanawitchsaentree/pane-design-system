@@ -39,6 +39,7 @@ export interface ComponentChapter {
   youMust: string[]; // accessibility work left to the app (Primer: implementation requirements)
   backdrops: string; // what changes between themes and bright or dark scenes
   related: Array<[string, string, string]>; // path · label · "use it instead when…"
+  html?: { css: string; snippet: string; note: string }; // the plain-HTML recipe, for a site without React
 }
 
 /** The component families, in reading order: what a screen is laid on, what it is made of, what the
@@ -51,8 +52,8 @@ export const CATEGORIES: Array<{ title: string; blurb: string; names: string[] }
   { title: 'Navigation', blurb: 'Where the reader is and how they move: bars, docks, paths, pages and steps.', names: ['Tabs', 'SegmentedControl', 'Navbar', 'NavigationMenu', 'Sidebar', 'BottomNav', 'Breadcrumb', 'Pagination', 'Stepper', 'Accordion', 'TableOfContents'] },
   { title: 'Selection', blurb: 'Choosing from a set, in place or from a list that opens.', names: ['Chip', 'Select', 'Listbox', 'Combobox', 'Autocomplete', 'MultiSelect', 'Menu', 'ContextMenu', 'RadioCards', 'Rating', 'TagInput', 'TransferList'] },
   { title: 'Identity and status', blurb: 'Who something belongs to, what it is about and what state it is in.', names: ['Avatar', 'Tag', 'Badge', 'Banner'] },
-  { title: 'Data display', blurb: 'Numbers, facts, rows and tables that the reader reads and compares.', names: ['Stat', 'Meter', 'Progress', 'DescriptionList', 'List', 'Table', 'Timeline', 'EmptyState', 'DataGrid', 'TreeView', 'VirtualList'] },
-  { title: 'Charts', blurb: 'Amounts, trends and patterns drawn in the data palette, each with a table view.', names: ['BarChart', 'LineChart', 'Sparkline', 'Heatmap'] },
+  { title: 'Data display', blurb: 'Numbers, facts, rows and tables that the reader reads and compares.', names: ['Stat', 'Meter', 'Scale', 'Progress', 'DescriptionList', 'List', 'Table', 'Timeline', 'EmptyState', 'DataGrid', 'TreeView', 'VirtualList'] },
+  { title: 'Charts', blurb: 'Amounts, trends and patterns drawn in the data palette, each with a table view.', names: ['BarChart', 'LineChart', 'RadarChart', 'Sparkline', 'Heatmap'] },
   { title: 'Patterns', blurb: 'Whole steps and frames built from the components before them, such as forms, sign-in, tours, boards and the app shell.', names: ['Form', 'Wizard', 'AuthForm', 'CommandPalette', 'NotificationCenter', 'CoachMark', 'KanbanBoard', 'Feed', 'AppShell', 'SettingsLayout', 'RichTextEditor'] },
   { title: 'Loading', blurb: 'What the reader sees while content is on its way.', names: ['Spinner', 'Skeleton', 'PullToRefresh'] },
   { title: 'Overlays', blurb: 'Panes above the page: levels 3 and 4 of the stack, from a dialog to a tooltip.', names: ['Dialog', 'Sheet', 'Drawer', 'ActionSheet', 'Popover', 'Tooltip', 'Toast', 'Snackbar'] },
@@ -2030,6 +2031,68 @@ export const COMPONENTS: ComponentChapter[] = [
     related: [['/components/stat', 'Stat', 'The number.']],
     keyboard: [
       ['None', 'It takes no focus', 'Sparkline: it is an image with its trend in words'],
+    ],
+  },
+  {
+    name: 'Scale',
+    slug: 'scale',
+    status: 'alpha',
+    limitations: ['New in 0.7.0; its API may still change before 1.0.', 'Steps are equal in width; for steps of different widths use the HTML recipe and set flex on each step.'],
+    youMust: ['Give it a label that names what is measured and words for its steps; the component cannot write your words.'],
+    usage: '<Scale label="Speed" value={4.2} words={["Slow", "Steady", "Medium", "Fast", "Very fast"]} />',
+    backdrops: 'Data sits on a level-2 pane or the card it is in, with the opaque sheet tone under sticky headers and popovers, so values read on every scene; chart marks carry the data palette (D-031) and every word stays in a text tone.',
+    purpose: 'Shows a position on a short ordered scale, with a value to compare with.',
+    importLine: "import { Scale } from 'pane-react';",
+    overview: (<><p>Shows a position on a short ordered scale, with a value to compare with.</p></>),
+    hero: ex('ScaleProfile', "A deck's profile on four scales."),
+    ladder: [
+      ex('ScaleCompared', 'Above the format average.'),
+      ex('ScaleBelow', 'Below the format average.'),
+      ex('ScaleRisk', 'Lower is better, so a rise reads as bad.'),
+      ex('ScaleSteps', 'Seven steps and a value between two of them.'),
+      ex('ScaleBare', 'Bare, inside a table row.'),
+    ],
+    whenToUse: ['Showing where something sits on a scale of a few steps, such as speed or risk.', 'Comparing that position with an average or an earlier value.'],
+    whenNotToUse: [['A sibling named on the Usage tab', 'See When not to use it']],
+    anatomy: [['Scale', 'See Anatomy on the Usage tab.']],
+    content: ['See Content on the Usage tab.'],
+    dodont: [{ do: 'Follow the pairs on the Usage tab.', dont: 'Restyle it by hand.' }],
+    a11y: ['See the Accessibility tab for what it announces.'],
+    inherits: 'the img role with its value in words',
+    related: [['/components/meter', 'Meter', 'A reading in a continuous range.'], ['/components/slider', 'Slider', 'When the reader sets the value.'], ['/components/rating', 'Rating', 'A score in stars.']],
+    keyboard: [
+      ['None', 'It takes no focus', 'Scale: it is an image that says its level and the comparison'],
+    ],
+    html: { css: 'https://pane-design-system.pages.dev/pane-scale.css', snippet: '<div class="pane-scale" role="img" aria-label="Speed: Fast, 4 of 5, above the format average">\n  <span class="pane-scale-label" aria-hidden="true">Speed</span>\n  <span class="pane-scale-track" aria-hidden="true" style="--steps: 5; --at: 75%; --cmp: 50%">\n    <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i>\n    <b class="pane-scale-band good" style="--from: 50%; --to: 75%"></b>\n    <b class="pane-scale-ring"></b><b class="pane-scale-dot"></b>\n  </span>\n  <span class="pane-scale-word" aria-hidden="true">Fast</span>\n</div>', note: 'Set --at and --cmp to (value minus 1) divided by (steps minus 1), as a percentage. Leave out the band and the ring when there is nothing to compare. Steps of different widths take flex on each step.' },
+  },
+  {
+    name: 'RadarChart',
+    slug: 'radar-chart',
+    status: 'alpha',
+    limitations: ['New in 0.7.0; its API may still change before 1.0.', 'Up to three series keep apart; more belong in small multiples.'],
+    youMust: ['Name every axis and give the chart a title that says what the shape is.'],
+    usage: '<RadarChart label="Deck profile" axes={axes} series={[{ name: "Deck", values }]} />',
+    backdrops: 'Data sits on a level-2 pane or the card it is in, with the opaque sheet tone under sticky headers and popovers, so values read on every scene; chart marks carry the data palette (D-031) and every word stays in a text tone.',
+    purpose: 'Shows a profile over a few axes as one shape per series.',
+    importLine: "import { RadarChart } from 'pane-react';",
+    overview: (<><p>Shows a profile over a few axes as one shape per series.</p></>),
+    hero: ex('RadarDeck', "One deck's shape over five axes."),
+    ladder: [
+      ex('RadarTwo', 'Two decks over the same axes.'),
+      ex('RadarSix', 'Six axes and five rings.'),
+      ex('RadarSmall', 'Small, on a card.'),
+    ],
+    whenToUse: ['A profile at a glance over three to eight axes.'],
+    whenNotToUse: [['A sibling named on the Usage tab', 'See When not to use it']],
+    anatomy: [['RadarChart', 'See Anatomy on the Usage tab.']],
+    content: ['See Content on the Usage tab.'],
+    dodont: [{ do: 'Follow the pairs on the Usage tab.', dont: 'Restyle it by hand.' }],
+    a11y: ['See the Accessibility tab for keys, roles and what it announces.'],
+    inherits: 'its WAI-ARIA pattern',
+    related: [['/components/bar-chart', 'BarChart', 'Exact comparison across categories.'], ['/components/scale', 'Scale', 'One axis at a time, with words.']],
+    keyboard: [
+      ['Tab', 'Moves focus to the plot', 'RadarChart: the plot is one tab stop'],
+      ['← → ↑ ↓', 'Moves between axes and reads every series there', 'RadarChart: arrow keys read each axis aloud'],
     ],
   },
   {

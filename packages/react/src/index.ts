@@ -155,3 +155,8 @@ export * from './components/Feed';
 export * from './components/AppShell';
 export * from './components/SettingsLayout';
 export * from './components/RichTextEditor';
+
+// Indicators (0.7.0): a stepped scale on Slider's channel, and the radar profile on the data palette.
+
+export * from './components/Scale';
+export * from './components/RadarChart';

@@ -1,0 +1,22 @@
+/* Slider's channel cut into steps, with Slider's bead at the value: lit steps up to it, a hollow ring for a
+   value to compare with, and a mark-coloured band between them (P3 depth, P6 shape and words). */
+.root { display: grid; grid-template-columns: minmax(0, var(--ds-scale-label)) minmax(var(--ds-scale-min), 1fr) minmax(0, var(--ds-scale-word)); align-items: center; gap: var(--ds-scale-gap); min-inline-size: 0; font-family: var(--ds-type-family); }
+.bare { grid-template-columns: minmax(var(--ds-scale-min), 1fr); }
+.label { font-size: var(--ds-type-label); color: var(--ds-text-primary); overflow-wrap: anywhere; }
+.word { display: inline-flex; align-items: center; justify-content: flex-end; gap: var(--ds-gap-xs); font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-medium); color: var(--ds-text-primary); text-align: end; overflow-wrap: anywhere; }
+/* the steps sit in one row with hairline gaps; the bead and the ring ride on the same centre line */
+.track { position: relative; display: flex; align-items: center; gap: var(--ds-scale-step-gap); block-size: var(--ds-scale-hit); }
+.step { flex: 1; block-size: var(--ds-scale-track); background: var(--ds-scale-off); box-shadow: var(--ds-scale-carve); }
+.step:first-child { border-start-start-radius: var(--ds-corner-round); border-end-start-radius: var(--ds-corner-round); }
+.step:last-child { border-start-end-radius: var(--ds-corner-round); border-end-end-radius: var(--ds-corner-round); }
+.on { background: var(--ds-scale-on); }
+.band { position: absolute; inset-block-start: 50%; inset-inline-start: var(--pane-from); inline-size: calc(var(--pane-to) - var(--pane-from)); block-size: var(--ds-scale-track); transform: translateY(-50%); border-radius: var(--ds-corner-round); }
+.good { background: var(--ds-scale-good); }
+.bad { background: var(--ds-scale-bad); }
+.ring, .dot { position: absolute; inset-block-start: 50%; inset-inline-start: var(--pane-at); inline-size: var(--ds-scale-bead); block-size: var(--ds-scale-bead); border-radius: var(--ds-corner-round); transform: translate(-50%, -50%); }
+:global([dir='rtl']) .ring, :global([dir='rtl']) .dot { transform: translate(50%, -50%); }
+.ring { box-sizing: border-box; border: var(--ds-width-ring) solid var(--ds-scale-ring); background: transparent; }
+.dot { background: var(--ds-scale-bead-bg); box-shadow: var(--ds-scale-bead-shadow); }
+.arrow { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); flex: none; fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.down { transform: rotate(180deg); }
+@media (forced-colors: active) { .step { background: GrayText; } .on, .dot { background: CanvasText; forced-color-adjust: none; } .ring { border-color: CanvasText; } .good, .bad { background: Highlight; } }

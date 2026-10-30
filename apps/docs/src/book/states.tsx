@@ -4,7 +4,7 @@
 import type { ReactNode } from 'react';
 import {
   Autocomplete, BarChart, Button, Checkbox, Chip, ColorPicker, Combobox, DataGrid, DatePicker, Dropzone, Editable, FAB, FileUpload, FormField,
-  IconButton, Input, Listbox, MultiSelect, NumberInput, PasswordInput, PinInput, Radio, RadioCards, RadioGroup, RangeSlider, Rating,
+  IconButton, Input, RadarChart, Scale, Listbox, MultiSelect, NumberInput, PasswordInput, PinInput, Radio, RadioCards, RadioGroup, RangeSlider, Rating,
   RichTextEditor, SearchInput, SegmentedControl, Select, Slider, Switch, Table, TagInput, Textarea, TimePicker,
 } from 'pane-react';
 import { IconMore } from '../icons';
@@ -62,6 +62,8 @@ export const STATE_ROWS: StateRow[] = [
   { component: 'FAB', family: 'Actions', cells: [['default', <FAB icon={<IconMore />} label="New print" position="contained" />], ['disabled', <FAB icon={<IconMore />} label="New print" position="contained" disabled />]] },
   { component: 'Table', family: 'Tables', cells: [['default', <Table caption="Prints" columns={COLS} rows={ROWS} />], ['sorted', <Table caption="Prints" columns={COLS} rows={ROWS} defaultSort={{ key: 'price', direction: 'descending' }} />], ['compact', <Table caption="Prints" density="compact" columns={COLS} rows={ROWS} />], ['empty', <Table caption="Prints" columns={COLS} rows={[]} />], ['loading', <Table caption="Prints" columns={COLS} rows={ROWS} loading />]] },
   { component: 'DataGrid', family: 'Tables', cells: [['default', <DataGrid caption="Prints" selectable columns={COLS} rows={ROWS} />], ['selected', <DataGrid caption="Prints" selectable selected={[1]} columns={COLS} rows={ROWS} />], ['empty', <DataGrid caption="Prints" selectable columns={COLS} rows={[]} />], ['loading', <DataGrid caption="Prints" selectable columns={COLS} rows={ROWS} loading />]] },
+  { component: 'Scale', family: 'Tables', cells: [['default', <Scale label="Speed" value={3} words={['Slow', 'Steady', 'Medium', 'Fast', 'Very fast']} />], ['compared above', <Scale label="Speed" value={4.4} compare={3} words={['Slow', 'Steady', 'Medium', 'Fast', 'Very fast']} />], ['compared below', <Scale label="Speed" value={1.8} compare={3} words={['Slow', 'Steady', 'Medium', 'Fast', 'Very fast']} />]] },
+  { component: 'RadarChart', family: 'Tables', cells: [['default', <RadarChart label="Shape" blockSize={180} max={5} axes={['Speed', 'Interaction', 'Late game']} series={[{ name: 'Deck', values: [4, 2, 3] }]} />], ['two series', <RadarChart label="Shape" blockSize={180} max={5} axes={['Speed', 'Interaction', 'Late game']} series={[{ name: 'Deck', values: [4, 2, 3] }, { name: 'Other', values: [2, 4, 3] }]} />]] },
   { component: 'BarChart', family: 'Tables', cells: [['default', <BarChart label="Sold" categories={['Jan', 'Feb']} series={[{ name: 'Prints', values: [4, 7] }]} />], ['empty', <BarChart label="Sold" categories={[]} series={[{ name: 'Prints', values: [] }]} />]] },
 ];
 
@@ -72,7 +74,7 @@ const FAMILY_TEXT: Record<string, string> = {
   Ranges: 'A slider keeps its length and its bead in every state; disabled dims both and stops the keys.',
   Files: 'File controls take the field states. Disabled refuses drops and presses. Invalid takes the critical ring, and a refused file is listed with its reason in words.',
   Actions: 'Loading keeps the button in place and at its width, with a spinner over unseen content, says it is busy and ignores presses. Disabled dims it and takes it out of the tab order.',
-  Tables: 'A table says when it is sorted (aria-sort and the arrow), when rows are chosen (chosen glass and a check), when it is empty (one quiet line) and when it is loading (a scrim over the rows it keeps).',
+  Tables: 'A table says when it is sorted (aria-sort and the arrow), when rows are chosen (chosen glass and a check), when it is empty (one quiet line) and when it is loading (a scrim over the rows it keeps). A scale compared with another value adds a ring, a band and an arrow; a chart with a second series adds a legend.',
 };
 
 /** The book page: every row of the matrix, by family, each cell captioned with its state. */
