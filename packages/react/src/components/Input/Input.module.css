@@ -5,7 +5,7 @@
   padding-inline: var(--ds-input-padding); border-radius: var(--ds-input-radius);
   background: var(--ds-input-bg); color: var(--ds-input-fg);
   box-shadow: var(--ds-input-groove);
-  font-family: var(--ds-type-family); font-size: var(--ds-type-body); line-height: var(--ds-type-leading-tight);
+  font-family: var(--ds-type-family); font-size: var(--ds-type-body); line-height: var(--ds-type-leading-body);
   transition: box-shadow var(--ds-motion-hover) var(--ds-motion-easing);
 }
 :global([data-pane-card='glass']) .root { text-shadow: none; }

@@ -5,7 +5,7 @@ import styles from './Heading.module.css';
 export interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   /** The outline level, h1 to h6. Pick it from the page outline, never from the look. */
   level: 1 | 2 | 3 | 4 | 5 | 6;
-  /** The look, from the type scale: `display`, `headline`, `title`, `emphasis`. Defaults by level. */
+  /** The look, taken from the type scale as `display`, `headline`, `title` or `emphasis`. It defaults by level. */
   size?: 'display' | 'headline' | 'title' | 'emphasis';
 }
 

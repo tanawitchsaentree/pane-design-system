@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T12:20:24.440Z",
+  "generatedAt": "2026-10-30T14:30:39.822Z",
   "version": "0.7.0",
   "components": {
     "Accordion": {
@@ -418,8 +418,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 14202,
-        "cssMin": 14665,
-        "gzip": 7971
+        "cssMin": 14664,
+        "gzip": 7968
       }
     },
     "Autocomplete": {
@@ -550,8 +550,8 @@
       "demoFloor": 6,
       "bundle": {
         "jsMin": 77345,
-        "cssMin": 5189,
-        "gzip": 29232
+        "cssMin": 5562,
+        "gzip": 29331
       }
     },
     "Avatar": {
@@ -695,6 +695,10 @@
       },
       "sizes": [],
       "exports": [
+        {
+          "displayName": "GLYPHS",
+          "props": []
+        },
         {
           "displayName": "Banner",
           "props": [
@@ -1024,7 +1028,7 @@
               "type": "\"none\" | \"inner\" | \"media\" | \"round\"",
               "required": false,
               "default": "none",
-              "description": "Corner from the shape scale: `inner` for a surface inside a pane, `media` for an image, `round` for a pill.",
+              "description": "The corner, taken from the shape scale. Use `inner` for a surface inside a pane, `media` for an image and `round` for a pill.",
               "enum": true,
               "options": [
                 "none",
@@ -1923,8 +1927,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 39121,
-        "cssMin": 5498,
-        "gzip": 15302
+        "cssMin": 5497,
+        "gzip": 15299
       }
     },
     "Combobox": {
@@ -2064,8 +2068,8 @@
       "demoFloor": 6,
       "bundle": {
         "jsMin": 77400,
-        "cssMin": 5189,
-        "gzip": 29250
+        "cssMin": 5562,
+        "gzip": 29352
       }
     },
     "CommandPalette": {
@@ -2432,8 +2436,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 25801,
-        "cssMin": 5242,
-        "gzip": 11210
+        "cssMin": 5680,
+        "gzip": 11321
       }
     },
     "DatePicker": {
@@ -2843,7 +2847,7 @@
               "type": "\"start\" | \"end\"",
               "required": false,
               "default": "end",
-              "description": "`end` (default) or `start`: the side the panel slides in from.",
+              "description": "The side the panel slides in from, `end` (default) or `start`.",
               "enum": true,
               "options": [
                 "start",
@@ -3173,8 +3177,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 6952,
-        "cssMin": 3736,
-        "gzip": 4132
+        "cssMin": 3735,
+        "gzip": 4130
       }
     },
     "EmptyState": {
@@ -3685,7 +3689,7 @@
               "type": "\"start\" | \"center\" | \"end\" | \"between\"",
               "required": false,
               "default": "start",
-              "description": "Main-axis distribution: `start` (default), `center`, `end`, `between`.",
+              "description": "How items spread along the main axis, one of `start` (default), `center`, `end` or `between`.",
               "enum": true,
               "options": [
                 "start",
@@ -3699,7 +3703,7 @@
               "type": "\"start\" | \"center\" | \"end\" | \"stretch\" | \"baseline\"",
               "required": false,
               "default": "center",
-              "description": "Cross-axis alignment: `stretch`, `start`, `center` (default), `end`, `baseline`.",
+              "description": "How items line up across the axis, one of `stretch`, `start`, `center` (default), `end` or `baseline`.",
               "enum": true,
               "options": [
                 "start",
@@ -3985,7 +3989,7 @@
               "type": "\"title\" | \"display\" | \"headline\" | \"emphasis\"",
               "required": false,
               "default": null,
-              "description": "The look, from the type scale: `display`, `headline`, `title`, `emphasis`. Defaults by level.",
+              "description": "The look, taken from the type scale as `display`, `headline`, `title` or `emphasis`. It defaults by level.",
               "enum": true,
               "options": [
                 "title",
@@ -4292,7 +4296,7 @@
               "type": "\"media\" | \"inner\" | \"none\"",
               "required": false,
               "default": "media",
-              "description": "The corner: `media` (default) inside a pane, `inner` for a full-bleed card image, `none`.",
+              "description": "The corner. Use `media` (default) inside a pane, `inner` for a full-bleed card image, or `none`.",
               "enum": true,
               "options": [
                 "media",
@@ -4370,8 +4374,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 692,
-        "cssMin": 2362,
-        "gzip": 1194
+        "cssMin": 2361,
+        "gzip": 1190
       }
     },
     "InputGroup": {
@@ -4786,8 +4790,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 1200,
-        "cssMin": 2045,
-        "gzip": 1361
+        "cssMin": 2482,
+        "gzip": 1478
       }
     },
     "Listbox": {
@@ -4890,8 +4894,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 2898,
-        "cssMin": 3604,
-        "gzip": 2390
+        "cssMin": 3977,
+        "gzip": 2492
       }
     },
     "Menu": {
@@ -5255,8 +5259,8 @@
       "demoFloor": 6,
       "bundle": {
         "jsMin": 78898,
-        "cssMin": 7568,
-        "gzip": 30326
+        "cssMin": 7941,
+        "gzip": 30427
       }
     },
     "Navbar": {
@@ -5781,8 +5785,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 9518,
-        "cssMin": 7488,
-        "gzip": 5833
+        "cssMin": 7487,
+        "gzip": 5830
       }
     },
     "OTPFlow": {
@@ -5996,8 +6000,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 8250,
-        "cssMin": 7284,
-        "gzip": 5236
+        "cssMin": 7283,
+        "gzip": 5233
       }
     },
     "PinInput": {
@@ -6744,8 +6748,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 32800,
-        "cssMin": 3393,
-        "gzip": 12340
+        "cssMin": 3837,
+        "gzip": 12450
       }
     },
     "RangeSlider": {
@@ -7241,9 +7245,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 8569,
-        "cssMin": 7366,
-        "gzip": 5423
+        "jsMin": 8642,
+        "cssMin": 7386,
+        "gzip": 5462
       }
     },
     "SegmentedControl": {
@@ -8728,8 +8732,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 7049,
-        "cssMin": 2717,
-        "gzip": 4035
+        "cssMin": 3155,
+        "gzip": 4151
       }
     },
     "TableOfContents": {
@@ -9004,7 +9008,7 @@
               "type": "\"reading\" | \"body\" | \"label\" | \"caption\" | \"micro\"",
               "required": false,
               "default": "body",
-              "description": "A step of the type scale: `reading` 16 (long text), `body` 15 (default), `label` 14, `caption` 13, `micro` 11.",
+              "description": "A step of the type scale. Use `reading` 16 for long text, `body` 15 (default), `label` 14, `caption` 13 or `micro` 11.",
               "enum": true,
               "options": [
                 "reading",
@@ -9362,7 +9366,7 @@
               "type": "\"info\" | \"positive\" | \"critical\"",
               "required": false,
               "default": "info",
-              "description": "`info` (default), `positive` or `critical`: the status mark beside the title.",
+              "description": "The tone, `info` (default), `positive` or `critical`. Each has its own glyph shape beside the title and its word is read first, so colour is never the only cue.",
               "enum": true,
               "options": [
                 "info",
@@ -9406,9 +9410,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 44193,
-        "cssMin": 2771,
-        "gzip": 16052
+        "jsMin": 46822,
+        "cssMin": 5497,
+        "gzip": 17298
       }
     },
     "Tooltip": {
@@ -9544,8 +9548,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 10956,
-        "cssMin": 9107,
-        "gzip": 6637
+        "cssMin": 9480,
+        "gzip": 6736
       }
     },
     "TreeView": {
@@ -9728,8 +9732,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 963,
-        "cssMin": 752,
-        "gzip": 951
+        "cssMin": 1197,
+        "gzip": 1071
       }
     },
     "VisuallyHidden": {

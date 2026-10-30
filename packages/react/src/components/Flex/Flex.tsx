@@ -9,9 +9,9 @@ export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
   direction?: 'row' | 'column';
   /** Space between children, from the gap scale. Defaults to md. */
   gap?: FlexGap;
-  /** Main-axis distribution: `start` (default), `center`, `end`, `between`. */
+  /** How items spread along the main axis, one of `start` (default), `center`, `end` or `between`. */
   justify?: 'start' | 'center' | 'end' | 'between';
-  /** Cross-axis alignment: `stretch`, `start`, `center` (default), `end`, `baseline`. */
+  /** How items line up across the axis, one of `stretch`, `start`, `center` (default), `end` or `baseline`. */
   align?: 'stretch' | 'start' | 'center' | 'end' | 'baseline';
   /** Lets children wrap to a new line when they do not fit. */
   wrap?: boolean;

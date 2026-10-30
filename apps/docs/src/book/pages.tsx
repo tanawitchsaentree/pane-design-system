@@ -134,7 +134,7 @@ function Overview() {
       </section>
 
       <Section id="glance" title="Pane at a glance" wide>
-        <p>Three screens built only from Pane, each using what its parts can do: a mesh that lights the pane, the loud bead, a fill slider, a switch that glows when it is on, a card inside a card, and tabs over chosen glass. Each card names the parts it is made of.</p>
+        <p>Three screens built only from Pane, each using what its parts can do. They show a mesh that lights the pane, the loud bead, a fill slider, a switch that glows when it is on, a card inside a card, and tabs over chosen glass. Each card names the parts it is made of.</p>
         <Stage className="showcase-stage"><Showcase /></Stage>
       </Section>
 
@@ -216,6 +216,8 @@ pnpm run release:pack
 npm install /path/to/pilot-glass/release/pane-react-${meta.version}.tgz`}</Code>
         <Code label="main.tsx">{"import 'pane-react/all.css';\nimport { Environment, Card, Button } from 'pane-react';"}</Code>
         <p>The tokens are also on their own as <code>pane-tokens</code>, for projects that are not React. The React package includes them as <code>pane-react/tokens.css</code> and <code>pane-react/tokens</code>, so you never need both.</p>
+        <p>If a page uses only a few components, it can load less CSS. Import <code>pane-react/tokens/core.css</code> and <code>pane-react/tokens/colour.css</code> in place of <code>pane-react/tokens.css</code>, and import components from <code>pane-react</code> or <code>pane-react/Button</code> through a bundler such as Vite or Next.js. Each component then brings its own component tokens along with its styles, so a page with only a Button pays for the Button tokens and nothing else. The core sheet holds spacing, sizes, corners, type, motion, layers and layout. The colour sheet holds colours, shadows, themes and environments, and a product with its own palette can skip it and define those colour tokens itself. The split relies on the per-component styles, so keep <code>tokens.css</code> if you link <code>pane-react/styles.css</code>. The <code>all.css</code> file already contains every token.</p>
+        <Code label="main.tsx, split tokens">{"import 'pane-react/tokens/core.css';\nimport 'pane-react/tokens/colour.css';\nimport { Button } from 'pane-react/Button';"}</Code>
         <div className="pkg-grid">
           <div className="panel" data-surface="">
             <p className="flush"><b>pane-tokens</b> <span className="muted">v{meta.version}</span></p>
@@ -458,7 +460,7 @@ function ColorPage() {
           <tbody>
             <tr><th scope="row">A scene behind glass</th><td>Yes. Pick <b>Aurora (mesh)</b> in Demo backdrop.</td><td>It is the world, and glass is made to show the world.</td></tr>
             <tr><th scope="row">Media: a cover, an app or folder icon, an illustration</th><td>Yes</td><td>It is content, like a photo.</td></tr>
-            <tr><th scope="row">An ambient shadow under a mesh object</th><td>Yes</td><td>A coloured object lights what is under it in its own colour: the same mesh, blurred, under the object.</td></tr>
+            <tr><th scope="row">An ambient shadow under a mesh object</th><td>Yes</td><td>A coloured object lights what is under it in its own colour, with the same mesh blurred beneath it.</td></tr>
             <tr><th scope="row">A Button, a Switch, a selected tab</th><td>No</td><td>Controls own no hue (P1). The loud action is the lit solid, and in dark it glows white.</td></tr>
             <tr><th scope="row">Text</th><td>No</td><td>A gradient changes the letter’s contrast along its width, so no part of it can be measured.</td></tr>
           </tbody>
@@ -672,8 +674,8 @@ function Shape() {
         <TokenTable prefix="elevation." />
         <p>There are only two shadows. <b>float</b> lifts a pane off the scene; <b>lift</b> sits under solid buttons. Glass never stacks shadows on shadows.</p>
       </Section>
-      <Section id="glow" title="Glow: what gives off light">
-        <p>Everything in Pane reflects the one light from above. In the dark theme a few white parts also give off light of their own. Being white is not the test. What the part says is: it is the promoted action, it is on, it is an amount, or it marks now. Text never glows, because a glow blurs the letter. In the light theme nothing glows, and the same parts read by their solid ink.</p>
+      <Section id="glow" title="What gives off light">
+        <p>Everything in Pane reflects the one light from above. In the dark theme a few white parts also give off light of their own. Being white is not the test. What counts is what the part says. It glows when it is the promoted action, when it is on, when it is an amount, or when it marks now. Text never glows, because a glow blurs the letter. In the light theme nothing glows, and the same parts read by their solid ink.</p>
         <div className="table-wrap"><table>
           <thead><tr><th scope="col">Glow</th><th scope="col">Means</th><th scope="col">Where</th><th scope="col">Visible step (measured)</th></tr></thead>
           <tbody>

@@ -14,14 +14,14 @@ const layoutBehaviours = (what: string): Depth['behaviours'] => ({
 });
 const ref = (title: string, url: string, why: string) => ({ title, url, why });
 const CSSFLEX = ref('MDN · CSS flexible box layout', 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout', 'The browser behaviour these primitives are thin names for.');
-const SPACING = ref('Every Layout · Stack and spacing', 'https://every-layout.dev/layouts/stack/', 'Why space belongs to the container as a gap, not to the items as margins.');
+const SPACING = ref('Every Layout · Stack and spacing', 'https://every-layout.dev/layouts/stack/', 'Why space belongs to the container as a gap instead of to the items as margins.');
 const MDN_GAP = ref('MDN · gap', 'https://developer.mozilla.org/en-US/docs/Web/CSS/gap', 'The property every gap here sets.');
 
 export const BOX: Depth = {
-  overview: <><p>Box is padding and a corner and nothing else. Reach for it when content needs room around it but should not look like a surface: a note inside a card, a group of fields, a frame that clips media. When it should be seen, use Card, which brings the glass.</p></>,
+  overview: <><p>Box is padding and a corner and nothing else. Reach for it when content needs room around it but should not look like a surface, such as a note inside a card, a group of fields or a frame that clips media. When it should be seen, use Card, which brings the glass.</p></>,
   whenToUse: ['Padding around content that has no surface of its own.', 'A corner that clips media inside a pane.'],
   whenNot: [{ situation: 'Content that should look like a surface', to: '/components/card', label: 'Card' }, { situation: 'Space between siblings', to: '/components/stack', label: 'Stack' }],
-  variants: { na: 'Box has no variant prop; padding and radius are scales, not looks.' },
+  variants: { na: 'Box has no variant prop, because padding and radius are scales that set room and shape.' },
   anatomy: { render: <OnCard><Box padding="lg" radius="inner" className="demo-box"><p className="flush">Padded note</p></Box></OnCard>, parts: [{ part: 'Box', selector: '[data-component="Box"]', what: 'Padding from the gap scale and a corner from the shape scale. No fill, rim or shadow.' }] },
   sizes: { na: 'Box has no size prop; its padding steps are the gap scale, from none to 2xl.' },
   emphasis: { na: 'Box draws nothing, so it carries no emphasis of its own.' },
@@ -39,10 +39,10 @@ export const BOX: Depth = {
 };
 
 export const FLEX: Depth = {
-  overview: <><p>Flex is the browser's flexbox with the decisions made: the gap is a step from the scale, and the two alignments have plain names. Use it for a row whose ends matter, a title at the start and actions at the end, or a row of items that may wrap.</p></>,
+  overview: <><p>Flex is the browser's flexbox with the decisions made. The gap is a step from the scale, and the two alignments have plain names. Use it for a row whose ends matter, a title at the start and actions at the end, or a row of items that may wrap.</p></>,
   whenToUse: ['A title and actions on one row.', 'A row of chips or tags that may wrap.', 'A centred column of a few items.'],
   whenNot: [{ situation: 'A plain list of items one under another', to: '/components/stack', label: 'Stack' }, { situation: 'Columns across the page', to: '/components/grid', label: 'Grid' }],
-  variants: { na: 'Flex has no variant prop; direction and alignment are layout, not looks.' },
+  variants: { na: 'Flex has no variant prop, because direction and alignment are layout choices.' },
   anatomy: { render: <OnCard><Flex justify="between"><h3 className="flush">Drafts</h3><Button size="sm">New</Button></Flex></OnCard>, parts: [{ part: 'Flex', selector: '[data-component="Flex"]', what: 'A flex container whose gap comes from the scale.' }] },
   sizes: { na: 'Flex has no size prop; its gap steps are the gap scale.' },
   emphasis: { na: 'Flex draws nothing, so it carries no emphasis of its own.' },
@@ -78,7 +78,7 @@ export const CENTER: Depth = {
 };
 
 export const SPACER: Depth = {
-  overview: <><p>A gap on the container is the first choice for space. Spacer is for the two cases a gap cannot do: pushing the next item to the far end of a row, and one larger break inside a row of evenly spaced items.</p></>,
+  overview: <><p>A gap on the container is the first choice for space. Spacer is for the two cases a gap cannot do. It pushes the next item to the far end of a row, or makes one larger break inside a row of evenly spaced items.</p></>,
   whenToUse: ['Pushing an action to the end of a row.', 'One larger break between two groups in a row.'],
   whenNot: [{ situation: 'Even space between every item', to: '/components/stack', label: 'Stack gap' }, { situation: 'Space around content', to: '/components/box', label: 'Box padding' }],
   variants: { na: 'Spacer has no variant prop; its only choice is its size.' },
@@ -96,7 +96,7 @@ export const SPACER: Depth = {
 };
 
 export const DIVIDER: Depth = {
-  overview: <><p>A Divider separates two groups that belong to the same pane. It is a groove, not a drawn line: a hairline of shade over a hairline of light, the way every recess in Pane is lit from above. If the two groups are different subjects, give them separate cards instead.</p><p>It is a separator for assistive technology. When headings already separate the groups, mark it decorative so a screen reader does not announce it.</p></>,
+  overview: <><p>A Divider separates two groups that belong to the same pane. It is a groove made of a hairline of shade over a hairline of light, lit from above like every recess in Pane. If the two groups are different subjects, give them separate cards instead.</p><p>It is a separator for assistive technology. When headings already separate the groups, mark it decorative so a screen reader does not announce it.</p></>,
   whenToUse: ['Two groups of related settings in one pane.', 'Between groups of actions in a toolbar.'],
   whenNot: [{ situation: 'Two different subjects', to: '/components/card', label: 'a second Card' }, { situation: 'Every row of a list', to: '/foundations/spacing', label: 'spacing alone' }],
   variants: { na: 'Divider has one look on purpose, the etched groove; orientation and inset are modifiers.' },

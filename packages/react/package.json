@@ -27,6 +27,14 @@
       "types": "./styles.css.d.ts",
       "default": "./dist/tokens/tokens.css"
     },
+    "./tokens/core.css": {
+      "types": "./styles.css.d.ts",
+      "default": "./dist/tokens/core.css"
+    },
+    "./tokens/colour.css": {
+      "types": "./styles.css.d.ts",
+      "default": "./dist/tokens/colour.css"
+    },
     "./tokens": {
       "types": "./dist/tokens/tokens.d.ts",
       "default": "./dist/tokens/tokens.mjs"
@@ -44,7 +52,7 @@
     "react-dom": ">=18"
   },
   "scripts": {
-    "build": "(test ! -f ../../tooling/kiln/i18n-lint.mjs || node ../../tooling/kiln/i18n-lint.mjs) && vite build && PANE_NODE=1 vite build && rm -rf dist/node/*.css dist/node/css && vite build -c vite.cjs.config.ts && rm -f dist/cjs-unused.css && tsc -p tsconfig.build.json && node ../../tooling/bundle-tokens.mjs && node ../../tooling/pane-knowledge.mjs",
+    "build": "(test ! -f ../../tooling/kiln/i18n-lint.mjs || node ../../tooling/kiln/i18n-lint.mjs) && vite build && PANE_NODE=1 vite build && rm -rf dist/node/*.css dist/node/css && vite build -c vite.cjs.config.ts && rm -f dist/cjs-unused.css && tsc -p tsconfig.build.json && node ../../tooling/bundle-tokens.mjs && cp ../tokens/build/css/core.css ../tokens/build/css/colour.css dist/tokens/ && node ../../tooling/pane-knowledge.mjs",
     "typecheck": "tsc --noEmit -p .",
     "barrel:check": "node ../../tooling/generate-barrel.mjs --check",
     "prepack": "pnpm run build"

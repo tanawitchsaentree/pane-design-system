@@ -2,3 +2,5 @@
 .glyph { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; color: var(--ds-text-secondary); }
 /* the browser's own cancel button is replaced by the clear button, so there is one way to clear */
 .input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+/* with no query the clear button is kept but unseen, so typing the first letter never widens the field */
+.idle { visibility: hidden; }

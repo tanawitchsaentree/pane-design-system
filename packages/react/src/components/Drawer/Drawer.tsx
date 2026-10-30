@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import { Sheet, type SheetProps } from '../Sheet';
 
 export interface DrawerProps extends Omit<SheetProps, 'side'> {
-  /** `end` (default) or `start`: the side the panel slides in from. */
+  /** The side the panel slides in from, `end` (default) or `start`. */
   side?: 'start' | 'end';
 }
 

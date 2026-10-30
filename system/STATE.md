@@ -1,11 +1,12 @@
 # STATE — working memory ของ system นี้
 - **System:** Pane (`pane-tokens`, `pane-react`) — spatial glass จาก anchor A (D-008): กระจกใส + หรี่ฉากหลัง (D-010/D-011) บนรูปถ่ายจริง
-- **Phase ปัจจุบัน:** 0.7.0 packed ใน `release/` + branch `release-0.7` (ต่อจาก origin/main, ยังไม่ push/deploy — มือ user) · 111 components (wave 1–10) · `release/UPGRADE-0.7.0.md`
-- **งานล่าสุดที่เสร็จ (2026-10-30):** wave 1–10 ครบ code + docs + conformance 410/410; chart palette D-031; install line ชี้ tarball (R-022, G-PUB1)
-- **งานถัดไป:** (BACKLOG, หลัง wave 10) เมนู docs พับได้แบบ MUI · บท Component API · pane-mcp + llms.txt · full-book evidence ทุก scene (R-020) · tone gate ทั้งเล่ม 423/485
+- **Phase ปัจจุบัน:** 0.7.0 live ที่ pane-design-system.pages.dev (release-0.7 push แล้ว a8682d6) · 118 components · tarball ใหม่ใน `release/` (19:42)
+- **งานล่าสุดที่เสร็จ (2026-10-30):** code-split docs (main 55 kB gz, G-PF2 ผ่าน) · X11 ConfidenceChip/NodeCard/NetworkGraph/SequenceDiagram + D-032 · conformance 441/441 · Badge provenance
+- **งานถัดไป:** แก้ contrast จาก evidence (aurora/city ~500 จุดต่อ scene) · tone debt 58 หน้า · token sheet split ให้ PEG · X2 DataGrid (พักไว้) · X3–X9
 - **Wave ปัจจุบัน:** pilot · **Component ผ่าน QA:** 13/13 (Alpha 1: Environment, Beta 12)
 - **ค้าง/blocked:** — (ดู BACKLOG.md)
 ## Log ย่อ (ใหม่สุดบน ≤15 บรรทัด)
+- 2026-10-30 ค่ำ: code-split + X11 (4 ตัว, D-032) push/deploy; kiln: conformance KILN_CHECKS ไม่ทับผลเต็ม, G-SV1 รับ aria-current
 - 2026-10-30: 0.7.0 — wave 1–10 (83 ตัวใหม่), charts (D-031), G-PUB1; smoke 22/22 จาก tarball
 - 2026-10-29: 0.6.0 — Mesh + pane-mesh CLI, glow (D-027), fill slider (D-026), studio/aurora backdrops, gallery dialog; gates ใหม่ G-IN1 G-ST1 G-RH1 G-GL1 G-SL1 G-S6; ต่อไป: evidence เต็มเล่มทุก scene (R-020), push main, อัปเกรด Brick Forge
 - 2026-10-27 ดึก: ทุก component (15 ตัว รวม Select/Slider ที่เพิ่งมีหน้า) เป็น 4 tab ถึงระดับ Carbon (G-K1–K8 เขียว), Style tab สร้างจาก kiln spec-capture, หนังสือ 101 หน้า: Getting started 5 หน้า, Foundations +Content/Accessibility, Patterns +12 (G-IA1 เขียว), nav แสดง catalog ที่ยังไม่ทำทั้งหมด · contrast ทุกหน้าใหม่ 0 fail, axe 0 · tone 96→ ที่เหลือคือ docstring Select (guard บล็อก) · บั๊กที่เจอระหว่างเขียน: control 32–36px ต่ำกว่า P6, opacity 0.5 ดิบ 4 ที่, Avatar ไม่มี forced-colours, Tabs ไม่มี hover → BACKLOG (แก้ตอน derivation round)

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T12:40:07.448Z",
+  "generatedAt": "2026-10-30T14:17:15.148Z",
   "passed": 441,
   "total": 441,
   "checks": [
@@ -112,66 +112,6 @@
       "detail": "3 props"
     },
     {
-      "component": "Dialog",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "11 props"
-    },
-    {
-      "component": "Sheet",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "12 props"
-    },
-    {
-      "component": "Drawer",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "12 props"
-    },
-    {
-      "component": "ActionSheet",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "9 props"
-    },
-    {
-      "component": "Popover",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "10 props"
-    },
-    {
-      "component": "Tooltip",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "4 props"
-    },
-    {
-      "component": "Toast",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "9 props"
-    },
-    {
-      "component": "Snackbar",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "7 props"
-    },
-    {
-      "component": "FAB",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "4 props"
-    },
-    {
-      "component": "PullToRefresh",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "2 props"
-    },
-    {
       "component": "Environment",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
@@ -236,60 +176,6 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "13 props"
-    },
-    {
-      "component": "Listbox",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "9 props"
-    },
-    {
-      "component": "Combobox",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "13 props"
-    },
-    {
-      "component": "Autocomplete",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "12 props"
-    },
-    {
-      "component": "MultiSelect",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "12 props"
-    },
-    {
-      "component": "Menu",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "4 props"
-    },
-    {
-      "component": "ContextMenu",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "3 props"
-    },
-    {
-      "component": "RadioCards",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "9 props"
-    },
-    {
-      "component": "Rating",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "8 props"
-    },
-    {
-      "component": "TagInput",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "12 props"
     },
     {
       "component": "SegmentedControl",
@@ -790,66 +676,6 @@
       "detail": "5 demos"
     },
     {
-      "component": "Dialog",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Sheet",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Drawer",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "ActionSheet",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "Popover",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "Tooltip",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Toast",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Snackbar",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "FAB",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "PullToRefresh",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
       "component": "Environment",
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
@@ -914,60 +740,6 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 7)",
       "ok": true,
       "detail": "7 demos"
-    },
-    {
-      "component": "Listbox",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "Combobox",
-      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
-      "ok": true,
-      "detail": "6 demos"
-    },
-    {
-      "component": "Autocomplete",
-      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
-      "ok": true,
-      "detail": "6 demos"
-    },
-    {
-      "component": "MultiSelect",
-      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
-      "ok": true,
-      "detail": "6 demos"
-    },
-    {
-      "component": "Menu",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "ContextMenu",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "RadioCards",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "Rating",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "TagInput",
-      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
-      "ok": true,
-      "detail": "6 demos"
     },
     {
       "component": "SegmentedControl",
@@ -1735,101 +1507,6 @@
       "ok": true
     },
     {
-      "component": "Dialog",
-      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
-      "ok": true
-    },
-    {
-      "component": "Sheet",
-      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
-      "ok": true
-    },
-    {
-      "component": "Drawer",
-      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
-      "ok": true
-    },
-    {
-      "component": "ActionSheet",
-      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
-      "ok": true
-    },
-    {
-      "component": "Popover",
-      "name": "opens on Enter, closes on Esc with focus back on the trigger",
-      "ok": true
-    },
-    {
-      "component": "Tooltip",
-      "name": "shows on keyboard focus",
-      "ok": true
-    },
-    {
-      "component": "Toast",
-      "name": "is announced as a status in a labelled region",
-      "ok": true
-    },
-    {
-      "component": "Snackbar",
-      "name": "shows one line with its action reachable",
-      "ok": true
-    },
-    {
-      "component": "FAB",
-      "name": "has an accessible name and a 56px target",
-      "ok": true
-    },
-    {
-      "component": "PullToRefresh",
-      "name": "a Refresh button is reachable with Tab and shows on focus",
-      "ok": true
-    },
-    {
-      "component": "Listbox",
-      "name": "one tab stop; arrow keys move, Space chooses, aria-selected follows",
-      "ok": true
-    },
-    {
-      "component": "Combobox",
-      "name": "typing filters, arrow keys highlight while focus stays in the field, Enter chooses, Esc closes",
-      "ok": true
-    },
-    {
-      "component": "Autocomplete",
-      "name": "keeps free text that matches no suggestion",
-      "ok": true
-    },
-    {
-      "component": "MultiSelect",
-      "name": "chosen values are chips with named remove buttons; Backspace removes the last",
-      "ok": true
-    },
-    {
-      "component": "Menu",
-      "name": "opens from the keyboard on its first action and Esc returns focus",
-      "ok": true
-    },
-    {
-      "component": "ContextMenu",
-      "name": "opens from the keyboard menu key on a focused target",
-      "ok": true
-    },
-    {
-      "component": "RadioCards",
-      "name": "a radio group: arrow keys choose and the chosen card carries a check",
-      "ok": true
-    },
-    {
-      "component": "Rating",
-      "name": "arrow keys change the score; read-only is one image with a spoken score",
-      "ok": true
-    },
-    {
-      "component": "TagInput",
-      "name": "Enter and a comma add, duplicates are ignored, Backspace removes",
-      "ok": true
-    },
-    {
       "component": "SegmentedControl",
       "name": "one tab stop",
       "ok": true
@@ -2455,6 +2132,329 @@
     {
       "component": "SequenceDiagram",
       "name": "the lanes scroll with the keyboard",
+      "ok": true
+    },
+    {
+      "component": "Dialog",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "11 props"
+    },
+    {
+      "component": "Sheet",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "12 props"
+    },
+    {
+      "component": "Drawer",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "12 props"
+    },
+    {
+      "component": "ActionSheet",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props"
+    },
+    {
+      "component": "Popover",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "10 props"
+    },
+    {
+      "component": "Tooltip",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props"
+    },
+    {
+      "component": "Toast",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props"
+    },
+    {
+      "component": "Snackbar",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props"
+    },
+    {
+      "component": "FAB",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props"
+    },
+    {
+      "component": "PullToRefresh",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "2 props"
+    },
+    {
+      "component": "Listbox",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props"
+    },
+    {
+      "component": "Combobox",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "13 props"
+    },
+    {
+      "component": "Autocomplete",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "12 props"
+    },
+    {
+      "component": "MultiSelect",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "12 props"
+    },
+    {
+      "component": "Menu",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props"
+    },
+    {
+      "component": "ContextMenu",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props"
+    },
+    {
+      "component": "RadioCards",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props"
+    },
+    {
+      "component": "Rating",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "8 props"
+    },
+    {
+      "component": "TagInput",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "12 props"
+    },
+    {
+      "component": "Dialog",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Sheet",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Drawer",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "ActionSheet",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Popover",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "Tooltip",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Toast",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Snackbar",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "FAB",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "PullToRefresh",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "Listbox",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "Combobox",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
+      "ok": true,
+      "detail": "6 demos"
+    },
+    {
+      "component": "Autocomplete",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
+      "ok": true,
+      "detail": "6 demos"
+    },
+    {
+      "component": "MultiSelect",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
+      "ok": true,
+      "detail": "6 demos"
+    },
+    {
+      "component": "Menu",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "ContextMenu",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "RadioCards",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "Rating",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "TagInput",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
+      "ok": true,
+      "detail": "6 demos"
+    },
+    {
+      "component": "Dialog",
+      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
+      "ok": true
+    },
+    {
+      "component": "Sheet",
+      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
+      "ok": true
+    },
+    {
+      "component": "Drawer",
+      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
+      "ok": true
+    },
+    {
+      "component": "ActionSheet",
+      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
+      "ok": true
+    },
+    {
+      "component": "Popover",
+      "name": "opens on Enter, closes on Esc with focus back on the trigger",
+      "ok": true
+    },
+    {
+      "component": "Tooltip",
+      "name": "shows on keyboard focus",
+      "ok": true
+    },
+    {
+      "component": "Toast",
+      "name": "is announced as a status in a labelled region",
+      "ok": true
+    },
+    {
+      "component": "Snackbar",
+      "name": "shows one line with its action reachable",
+      "ok": true
+    },
+    {
+      "component": "FAB",
+      "name": "has an accessible name and a 56px target",
+      "ok": true
+    },
+    {
+      "component": "PullToRefresh",
+      "name": "a Refresh button is reachable with Tab and shows on focus",
+      "ok": true
+    },
+    {
+      "component": "Listbox",
+      "name": "one tab stop; arrow keys move, Space chooses, aria-selected follows",
+      "ok": true
+    },
+    {
+      "component": "Combobox",
+      "name": "typing filters, arrow keys highlight while focus stays in the field, Enter chooses, Esc closes",
+      "ok": true
+    },
+    {
+      "component": "Autocomplete",
+      "name": "keeps free text that matches no suggestion",
+      "ok": true
+    },
+    {
+      "component": "MultiSelect",
+      "name": "chosen values are chips with named remove buttons; Backspace removes the last",
+      "ok": true
+    },
+    {
+      "component": "Menu",
+      "name": "opens from the keyboard on its first action and Esc returns focus",
+      "ok": true
+    },
+    {
+      "component": "ContextMenu",
+      "name": "opens from the keyboard menu key on a focused target",
+      "ok": true
+    },
+    {
+      "component": "RadioCards",
+      "name": "arrow keys choose like a radio group and the chosen card carries a check",
+      "ok": true
+    },
+    {
+      "component": "Rating",
+      "name": "arrow keys change the score; read-only is one image with a spoken score",
+      "ok": true
+    },
+    {
+      "component": "TagInput",
+      "name": "Enter and a comma add, duplicates are ignored, Backspace removes",
       "ok": true
     }
   ]

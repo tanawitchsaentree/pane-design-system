@@ -3,6 +3,7 @@ import * as RT from '@radix-ui/react-toast';
 import { cx } from '../../cx';
 import styles from './Toast.module.css';
 import { useMessages } from '../../i18n/context';
+import { GLYPHS } from '../Banner/Banner';
 
 export interface ToastProps {
   /** Whether it is showing. It hides itself after `duration` and calls onOpenChange(false). */
@@ -15,7 +16,7 @@ export interface ToastProps {
   description?: ReactNode;
   /** One action, such as Undo or View. `altText` says how to do it without the toast, for screen readers. */
   action?: { label: string; altText: string; onClick: () => void };
-  /** `info` (default), `positive` or `critical`: the status mark beside the title. */
+  /** The tone, `info` (default), `positive` or `critical`. Each has its own glyph shape beside the title and its word is read first, so colour is never the only cue. */
   tone?: 'info' | 'positive' | 'critical';
   /** How long it stays, in milliseconds. Defaults to 5000; it pauses while hovered or focused. */
   duration?: number;
@@ -28,18 +29,39 @@ export interface ToastProps {
 /** A short message about something that just happened, in a level-4 pane at the top end of the screen.
  *  It is announced politely, pauses under the pointer and leaves by itself. */
 export function Toast({ open, onOpenChange, title, description, action, tone = 'info', duration = 5000, className, preview }: ToastProps) {
-  return (
-    <RT.Provider swipeDirection="right" duration={duration}>
-      <RT.Root open={preview ? true : open} onOpenChange={onOpenChange} duration={preview ? Infinity : undefined} className={cx(styles.toast, className)} data-component="Toast" data-tone={tone}>
-        <span className={cx(styles.mark, styles[tone])} aria-hidden="true" />
+  const t = useMessages();
+  // the toast sits at the end edge, so it is swiped away towards the end: right in LTR, left in RTL
+  const rtl = typeof document !== 'undefined' && document.documentElement.dir === 'rtl';
+  const word = { info: t.info, positive: t.success, critical: t.errorTone }[tone];
+  const mark = <svg className={cx(styles.mark, styles[tone])} viewBox="0 0 24 24" aria-hidden="true">{GLYPHS[tone]}</svg>;
+  const close = <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>;
+  // A preview is drawn in place on the first render, with no portal and no timer: Radix mounts a toast
+  // into its viewport a frame later, which left a documentation page without its text on first paint.
+  if (preview) return (
+    <div className={cx(styles.viewport, styles.previewViewport)}>
+      <div role="status" className={cx(styles.toast, className)} data-component="Toast" data-tone={tone} data-state="open">
+        {mark}
         <div className={styles.text}>
-          <RT.Title className={styles.title}>{title}</RT.Title>
+          <div className={styles.title}><span className={styles.sr}>{word}: </span>{title}</div>
+          {description != null && <div className={styles.description}>{description}</div>}
+        </div>
+        {action && <button type="button" className={styles.action} onClick={action.onClick}>{action.label}</button>}
+        <button type="button" className={styles.close} aria-label={t.dismiss} onClick={() => onOpenChange(false)}>{close}</button>
+      </div>
+    </div>
+  );
+  return (
+    <RT.Provider swipeDirection={rtl ? 'left' : 'right'} duration={duration}>
+      <RT.Root open={open} onOpenChange={onOpenChange} className={cx(styles.toast, className)} data-component="Toast" data-tone={tone}>
+        {mark}
+        <div className={styles.text}>
+          <RT.Title className={styles.title}><span className={styles.sr}>{word}: </span>{title}</RT.Title>
           {description != null && <RT.Description className={styles.description}>{description}</RT.Description>}
         </div>
         {action && <RT.Action altText={action.altText} className={styles.action} onClick={action.onClick}>{action.label}</RT.Action>}
-        <RT.Close className={styles.close} aria-label={useMessages().dismiss}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg></RT.Close>
+        <RT.Close className={styles.close} aria-label={t.dismiss}>{close}</RT.Close>
       </RT.Root>
-      <RT.Viewport className={cx(styles.viewport, preview && styles.previewViewport)} />
+      <RT.Viewport className={styles.viewport} />
     </RT.Provider>
   );
 }

@@ -28,7 +28,8 @@ export interface BannerProps extends Omit<HTMLAttributes<HTMLElement>, 'title'> 
   live?: 'polite' | 'assertive';
 }
 
-const GLYPHS: Record<BannerTone, ReactNode> = {
+/** One glyph shape per status tone, shared with Toast so a tone looks the same wherever it appears. */
+export const GLYPHS: Record<BannerTone, ReactNode> = {
   info: <><circle cx="12" cy="12" r="8.5" /><path d="M12 11v5M12 8v.01" /></>,
   positive: <><circle cx="12" cy="12" r="8.5" /><path d="M8.5 12.3l2.4 2.4 4.6-5" /></>,
   warning: <><path d="M12 4.2l8.6 15H3.4z" /><path d="M12 10v4M12 16.8v.01" /></>,

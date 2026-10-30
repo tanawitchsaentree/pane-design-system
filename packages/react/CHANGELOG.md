@@ -4,6 +4,14 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- Input: the line box is the body leading, so Thai tone marks over upper vowels are no longer cut off (every field built on Input gets it).
+- SearchInput: the clear button keeps its place while the field is empty, so typing never widens the field.
+- Toast: each tone has its own glyph (the Banner shapes) and its word is read before the title; it swipes towards the end edge in RTL too.
+- Table: straight on a scene it blurs and dims what is behind it like a Card, so its rows read on a photo; inside a pane it stays the inner level.
+- List: the inset list brings its own glass on a scene, as Table does.
+- Listbox: the inline list brings its own glass on a scene, as Table does.
+- VirtualList: brings its own glass on a scene, as Table does.
+- RadioCards: each card brings its own glass on a scene, as Table does.
 - ConfidenceChip: new. How sure a claim is, as dots filled to the level in one sequential hue (D-032) with the level in words.
 - NodeCard: new. A step on a canvas with ports, chosen glass when picked, Enter to pick and arrow keys to move it.
 - NetworkGraph: new. Nodes and links on a quiet canvas, the neighbourhood in focus lit, arrow keys between nodes and a table of every link.
@@ -147,7 +155,9 @@ Every entry names the component it touches, so each component page in the book c
 
 - Thick smoked glass (D-025). A pane is a slab: a smoked body, a faint edge all round, shade at its foot, a short streak where light catches its top edge, and a long soft shadow. The loud solid is a warm off-white with a bloom.
 - Levels. `Card` takes `level` 1 to 4 (pane, surface inside a pane, overlay, popover); a Card inside a Card is level 2 by itself, with no second blur and an inner corner. Use `--ds-card-scrim` under an overlay. Each level is measured at least 1.15:1 from what is under it.
-- IconButton: new `loud` variant, a white bead. Slider: the thumb is a capsule and the track is thinner. Tabs: the track is a well and the chosen tab is grey glass.
+- IconButton: new `loud` variant, a white bead.
+- Slider: the thumb is a capsule and the track is thinner.
+- Tabs: the track is a well and the chosen tab is grey glass.
 - The book: a palette with full ramps (50 to 950) and roles in tabs on the Colour page; a grouped, searchable token reference; long sections fold behind their headings, so no page is longer than about ten screens.
 - One light from above on every part (D-024, R-012). Every surface, control and track carries a rim brightest along its top edge, a sheen on its upper half and a short soft shadow; recesses are the inverse.
 - No blue. `Button` `accent` is the loud solid glowing with its own light (white in dark, ink in light). Tabs, Switch, Slider and the Select check are monochrome: a chosen tab is a lighter pane of glass, a switch that is on is a lit track, the slider fills with the loud solid.

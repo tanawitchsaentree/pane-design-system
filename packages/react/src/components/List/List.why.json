@@ -126,6 +126,16 @@
       "p": "P6",
       "axis": "interaction",
       "why": "the focus ring is drawn inside the row so it is not clipped by the pane"
+    },
+    "data-pane-card": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "inside a Card the card glass already blurs and dims the scene, so this drops its own filter and stays the inner level"
+    },
+    "data-pane-surface": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "inside any other pane that marks itself a surface it likewise drops its own filter and stays the inner level"
     }
   },
   "motion": {

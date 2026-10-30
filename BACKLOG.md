@@ -75,14 +75,17 @@ Not a priority list — order of discovery.
 - **Practice**: MUI X has unit tests with coverage (Vitest, Codecov); Pane has browser gates and conformance but no unit tests. MUI X versions docs per major with migration guides; Pane does not yet. MUI X ships AGENTS.md and skills; Pane plans pane-mcp + llms.txt.
 
 ## Flagged back by a consumer (an evidence/graph app, 2026-10-30)
-- **NodeCard**: a card that is a node on a canvas (ports, selected, dragging, collapsed). Generic for any node-link canvas → X11.
-- **MiniGraph**: a small node-link graph (network) preview. → X11 NetworkGraph, with a table view of nodes and edges like every chart.
-- **DatasetBadge** ("synthetic data"): provenance of the data shown (live, sample, synthetic, stale). → a Badge kind plus a "Data provenance" pattern page; must read by word and glyph, not colour.
-- **Evidence confidence colours conflict with the data palette**: confidence is an ordered magnitude, so it must not use categorical hues (D-031 is identity only). → a sequential ramp (one hue, faint to full, `data.seq-1..5`) and an ordinal chip that pairs the step with a word and Scale-style dots; decision D-032.
+- ✅ 2026-10-30 shipped (X11). **NodeCard**: a card that is a node on a canvas (ports, selected, dragging, collapsed). Generic for any node-link canvas → X11.
+- ✅ 2026-10-30 shipped as NetworkGraph size="mini". **MiniGraph**: a small node-link graph (network) preview. → X11 NetworkGraph, with a table view of nodes and edges like every chart.
+- ✅ 2026-10-30 as a Badge recipe (BadgeProvenance example; tones, no new kind). **DatasetBadge** ("synthetic data"): provenance of the data shown (live, sample, synthetic, stale). → a Badge kind plus a "Data provenance" pattern page; must read by word and glyph, not colour.
+- ✅ 2026-10-30 D-032 + ConfidenceChip. **Evidence confidence colours conflict with the data palette**: confidence is an ordered magnitude, so it must not use categorical hues (D-031 is identity only). → a sequential ramp (one hue, faint to full, `data.seq-1..5`) and an ordinal chip that pairs the step with a word and Scale-style dots; decision D-032.
 - **MoneyFlow**: flows between parties → X4 Sankey (with the table view).
-- **Sequence**: an ordered exchange between actors (lanes and messages) → SequenceDiagram / swimlane timeline, a sibling of Timeline. → X11.
+- ✅ 2026-10-30 SequenceDiagram (X11). **Sequence**: an ordered exchange between actors (lanes and messages) → SequenceDiagram / swimlane timeline, a sibling of Timeline. → X11.
 - **PerfOverlay**: a developer overlay for frame time and glass cost. Not a product component; offer as a dev-only tool (`pane-react/devtools`) if wanted.
 
 ## Token sheet split (PEG, 2026-10-30, measured: CSS 27.6 kB gz with tokens.css, 13.7 of it the sheet)
 - Component tokens move into each component's CSS file (arrive only with the component).
 - Separate entries: `pane-react/tokens/core.css` (space, size, radius, type, motion, z) and `pane-react/tokens/colour.css` (ramps, semantic colours, themes, environments), so a product with its own colours loads core only. tokens.css stays as both.
+
+## Variant and sub-state completeness (user, 2026-10-30 evening)
+"ไปสำรวจหาแต่ละ component มันจะมี variant state ย่อยอีกเยอะ … ดูให้ครบ". Audit of all 118 against MUI/Carbon/Ant/HIG/Radix/Fluent running in four groups (A actions+fields, B selection+nav, C overlays+surfaces+layout, D data+charts+patterns); results in the job's tmp/audit/{A,B,C,D}.md, then P1 gaps built wave by wave with gates (G-SV1 state matrix row per new state).

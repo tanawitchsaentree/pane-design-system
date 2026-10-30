@@ -17,7 +17,7 @@ const comboKeys: Depth['behaviours']['interactions'] = [
 ];
 
 export const LISTBOX: Depth = {
-  overview: <><p>A Listbox keeps its options on the page instead of in a popup: Select’s rows set in a recess. Use it when the reader should see every option at once, a few airports, a handful of papers, or when they choose several. Arrow keys move through the rows, Space or Enter chooses, and typing a letter jumps to the next option that starts with it.</p></>,
+  overview: <><p>A Listbox keeps its options on the page instead of in a popup, as Select’s rows set in a recess. Use it when the reader should see every option at once, a few airports, a handful of papers, or when they choose several. Arrow keys move through the rows, Space or Enter chooses, and typing a letter jumps to the next option that starts with it.</p></>,
   whenToUse: ['A few options that should all be visible.', 'Choosing several from a short list.'],
   whenNot: [{ situation: 'Many options in little space', to: '/components/select', label: 'Select' }, { situation: 'Options that need a sentence each', to: '/components/radio-cards', label: 'RadioCards' }],
   variants: { na: 'Listbox has one look; multiple is a modifier.' },
@@ -51,21 +51,21 @@ const comboDepth = (name: string, render: React.ReactNode, overview: React.React
   ...extra,
 });
 
-export const COMBOBOX = comboDepth('Combobox', <Combobox label="Destination" options={PLACES} />, <><p>A Combobox narrows a long list as the reader types and lets them choose one value from it. The field is Input’s groove and the list opens under it as Select’s sheet, so it reads as one family with both. Focus never leaves the field: arrow keys move the highlight, Enter chooses, Esc closes. The value must be one of the options; when the reader may type their own words, use Autocomplete.</p></>, ['Choosing one value from a long list, such as a country or an airport.'], [{ situation: 'Fewer than about ten options', to: '/components/select', label: 'Select' }, { situation: 'Free text with suggestions', to: '/components/autocomplete', label: 'Autocomplete' }], {});
-export const AUTOCOMPLETE = comboDepth('Autocomplete', <Autocomplete label="Camera" suggestions={['Leica Q2', 'Ricoh GR III']} />, <><p>An Autocomplete is a text field that suggests as the reader types. A suggestion only fills in the text; the reader may keep their own words. Use it for things a list cannot hold: a camera model, a search, a tag.</p></>, ['A search or a free-text value with common answers.'], [{ situation: 'A value that must come from a list', to: '/components/combobox', label: 'Combobox' }], {});
+export const COMBOBOX = comboDepth('Combobox', <Combobox label="Destination" options={PLACES} />, <><p>A Combobox narrows a long list as the reader types and lets them choose one value from it. The field is Input’s groove and the list opens under it as Select’s sheet, so it reads as one family with both. Focus never leaves the field. Arrow keys move the highlight, Enter chooses and Esc closes. The value must be one of the options; when the reader may type their own words, use Autocomplete.</p></>, ['Choosing one value from a long list, such as a country or an airport.'], [{ situation: 'Fewer than about ten options', to: '/components/select', label: 'Select' }, { situation: 'Free text with suggestions', to: '/components/autocomplete', label: 'Autocomplete' }], {});
+export const AUTOCOMPLETE = comboDepth('Autocomplete', <Autocomplete label="Camera" suggestions={['Leica Q2', 'Ricoh GR III']} />, <><p>An Autocomplete is a text field that suggests as the reader types. A suggestion only fills in the text; the reader may keep their own words. Use it for things a list cannot hold, such as a camera model, a search or a tag.</p></>, ['A search or a free-text value with common answers.'], [{ situation: 'A value that must come from a list', to: '/components/combobox', label: 'Combobox' }], {});
 export const MULTI_SELECT = comboDepth('MultiSelect', <MultiSelect label="Places" defaultValue={['lofoten']} options={PLACES} />, <><p>A MultiSelect lets the reader choose several values from a long list. Each chosen value is a Chip in the field with its own remove button; Backspace in an empty field removes the last one. The list keeps a check on every chosen option.</p></>, ['Choosing several values from a long list, such as places or people.'], [{ situation: 'Several from a short list', to: '/components/listbox', label: 'Listbox multiple' }, { situation: 'Made-up tags', to: '/components/tag-input', label: 'TagInput' }], {});
 
 export const MENU: Depth = {
   overview: (
     <>
-      <p>A Menu is a list of actions that opens from a button: Edit, Share, Delete for a photo; New, Open, Export for a file. It is Select’s opaque sheet, so the actions read clearly on any scene, and its rows nest the sheet’s corner. A groove separates groups of related actions, and an action that destroys something takes the critical mark colour and goes last, away from the rest.</p>
+      <p>A Menu is a list of actions that opens from a button, such as Edit, Share and Delete for a photo, or New, Open and Export for a file. It is Select’s opaque sheet, so the actions read clearly on any scene, and its rows nest the sheet’s corner. A groove separates groups of related actions, and an action that destroys something takes the critical mark colour and goes last, away from the rest.</p>
       <p>Open a menu from a button that says what is in it, such as File or Sort, or from a More button with an accessible name like More actions. Arrow keys move through the actions, Enter chooses, typing a letter jumps to the next action that starts with it, and Esc closes the menu and returns focus to the button. Disabled actions stay in the list, so the reader learns where they live, but cannot be chosen.</p>
       <p>A menu holds actions, not choices. When the reader picks a value that the screen then shows, such as a sort order or a size, that is a Select. When the reader picks several things to filter by, that is a group of Chips or a Listbox. And a menu is a shortcut to actions, so an action that most readers need should also be on the screen as a button, not hidden behind More.</p>
       <p>Place the trigger where the reader expects the actions to be. A More button belongs at the end of the thing it acts on, a card’s header or a list row, so the menu opens next to its object. A named menu such as File belongs in a toolbar, in the order people know from other software. When a screen has several More buttons, give each an accessible name that includes its object, such as More actions for Lofoten, so a screen reader user can tell them apart.</p>
-      <p>Choosing an action closes the menu straight away, before the action runs, so the reader sees its effect on the page. When the action needs a confirmation, open a dialog from it; when it can be undone, run it and offer Undo in a snackbar. Never put a form, a toggle or a link to another site inside a menu: readers expect each row to do one thing when pressed, and a row that does something else breaks that expectation for every row around it.</p>
+      <p>Choosing an action closes the menu straight away, before the action runs, so the reader sees its effect on the page. When the action needs a confirmation, open a dialog from it; when it can be undone, run it and offer Undo in a snackbar. Never put a form, a toggle or a link to another site inside a menu. Readers expect each row to do one thing when pressed, and a row that does something else breaks that expectation for every row around it.</p>
       <p>Group rows by what they do to the object, and put a separator between the groups. The actions people use every day come first, then the ones that copy or move the object elsewhere, and the destructive ones last, set in the critical tone. Keep the same order in every menu of the same kind across the product, so a reader who learned where Rename sits on one card finds it in the same place on the next one without reading the list again.</p>
       <p>Keep menus short. Seven actions or fewer in two or three groups is easy to scan; past that, readers stop reading and start hunting. If a menu needs submenus to stay short, the screen is probably asking it to do the job of a page or a toolbar.</p>
-      <p>Write each action as a verb, in sentence case, and add the object when it is not obvious: Delete photo rather than Delete when the menu belongs to a whole album. Shortcuts at the end of a row are for readers who use the keyboard; they are read in secondary text and never replace the action’s name. An icon before an action helps the eye find it in a long menu, but give icons to all the actions in a group or to none, so the labels stay in line.</p>
+      <p>Write each action as a verb, in sentence case, and add the object when it is not obvious, such as Delete photo rather than Delete when the menu belongs to a whole album. Shortcuts at the end of a row are for readers who use the keyboard; they are read in secondary text and never replace the action’s name. An icon before an action helps the eye find it in a long menu, but give icons to all the actions in a group or to none, so the labels stay in line.</p>
     </>
   ),
   whenToUse: ['A few actions for one thing, behind a button that names them or a More button.', 'Actions grouped by kind, with the destructive one last.'],
@@ -85,7 +85,7 @@ export const MENU: Depth = {
 };
 
 export const CONTEXT_MENU: Depth = {
-  overview: <><p>A ContextMenu is the Menu sheet opened on the thing it acts on: a right click, a long press, or the context-menu key on a focused item. It is always a shortcut, so every action in it must also be reachable another way, through a button or a Menu.</p></>,
+  overview: <><p>A ContextMenu is the Menu sheet opened on the thing it acts on, by a right click, a long press or the context-menu key on a focused item. It is always a shortcut, so every action in it must also be reachable another way, through a button or a Menu.</p></>,
   whenToUse: ['Shortcuts on photos, rows and files for readers who expect them.'],
   whenNot: [{ situation: 'The only way to an action', to: '/components/menu', label: 'Menu' }],
   variants: { na: 'ContextMenu has one look, the Menu sheet.' },
@@ -103,7 +103,7 @@ export const CONTEXT_MENU: Depth = {
 };
 
 export const RADIO_CARDS: Depth = {
-  overview: <><p>RadioCards offer one choice from a few options that each need a line of detail: a delivery speed with its price, a plan with what it includes. They are radio buttons drawn as level-2 panes inside the pane; the chosen one becomes chosen glass and fills the check in its corner, so the choice is a shape and a mark, never only a colour. Arrow keys move between them and choose, like any radio group.</p></>,
+  overview: <><p>RadioCards offer one choice from a few options that each need a line of detail, such as a delivery speed with its price or a plan with what it includes. They are radio buttons drawn as level-2 panes inside the pane; the chosen one becomes chosen glass and fills the check in its corner, so the choice is a shape and a mark, never only a colour. Arrow keys move between them and choose, like any radio group.</p></>,
   whenToUse: ['Two to six options that each need a sentence.'],
   whenNot: [{ situation: 'Many options or one-word ones', to: '/components/radio', label: 'Radio' }, { situation: 'Several choices', to: '/components/checkbox', label: 'Checkbox' }],
   variants: { na: 'RadioCards have one look; columns is a modifier.' },
@@ -121,7 +121,7 @@ export const RADIO_CARDS: Depth = {
 };
 
 export const RATING: Depth = {
-  overview: <><p>A Rating is a score from one to five stars. Chosen stars are the loud solid, white in dark and ink in light, and the rest are an outline at the edge opacity, so the score reads by count and shape without a gold hue. As an input it is a radio group: arrow keys change the score. Shown read-only, it is one image read as “4 out of 5”.</p></>,
+  overview: <><p>A Rating is a score from one to five stars. Chosen stars are the loud solid, white in dark and ink in light, and the rest are an outline at the edge opacity, so the score reads by count and shape without a gold hue. As an input it is a radio group, and arrow keys change the score. Shown read-only, it is one image read as “4 out of 5”.</p></>,
   whenToUse: ['Rating a print, a trip or a review.', 'Showing an average score.'],
   whenNot: [{ situation: 'A precise number', to: '/components/slider', label: 'Slider' }],
   variants: { na: 'Rating has one look; readOnly is a modifier.' },
@@ -139,7 +139,7 @@ export const RATING: Depth = {
 };
 
 export const TAG_INPUT: Depth = {
-  overview: <><p>A TagInput collects free-form tags in one field: Enter or a comma turns the typed text into a Chip, Backspace in an empty field removes the last chip, and pasting a comma-separated list adds them all. Duplicates are ignored. Each chip has a remove button with its own name.</p></>,
+  overview: <><p>A TagInput collects free-form tags in one field. Enter or a comma turns the typed text into a Chip, Backspace in an empty field removes the last chip, and pasting a comma-separated list adds them all. Duplicates are ignored. Each chip has a remove button with its own name.</p></>,
   whenToUse: ['Tags, keywords and names the reader makes up.'],
   whenNot: [{ situation: 'Values from a list', to: '/components/multi-select', label: 'MultiSelect' }],
   variants: { na: 'TagInput has one look.' },

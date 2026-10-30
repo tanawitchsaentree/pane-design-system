@@ -20,3 +20,7 @@
 /* a wrong answer rings every card in the critical mark, like a field (P6) */
 .grid[aria-invalid='true'] .card { outline: var(--ds-width-ring) solid var(--ds-radio-cards-ring-invalid); outline-offset: var(--ds-width-hairline); }
 @media (forced-colors: active) { .card { border: var(--ds-width-hairline) solid ButtonText; } .card[data-state='checked'] { outline: var(--ds-width-ring) solid Highlight; } }
+/* Straight on a scene it blurs and dims what is behind it like a Card, so its words read on a photo (P3,
+   R-025); inside a pane the pane's glass does that and it stays the inner level. */
+.card { background: var(--ds-surface-glass); -webkit-backdrop-filter: blur(var(--ds-glass-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-glass-brightness)); backdrop-filter: blur(var(--ds-glass-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-glass-brightness)); }
+:global(:is([data-pane-card], [role="dialog"], [role="alertdialog"], [data-pane-surface])) .card { background: var(--ds-radio-cards-bg); -webkit-backdrop-filter: none; backdrop-filter: none; }

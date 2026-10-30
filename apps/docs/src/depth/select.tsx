@@ -33,7 +33,7 @@ export const SELECT: Depth = {
     { situation: 'An on or off setting', to: '/components/switch', label: 'Switch' },
     { situation: 'Switching between views of the same content', to: '/components/tabs', label: 'Tabs' },
     { situation: 'Many options people search by typing', to: '/reference/status', label: 'Combobox (planned, wave 5)' },
-    { situation: 'Several values at once', to: '/components/chip', label: 'Chips, or MultiSelect (planned)' },
+    { situation: 'Several values at once', to: '/components/multi-select', label: 'MultiSelect' },
   ],
   variants: { na: 'Select has one look. Its size and states are covered in the size table and under Behaviours.' },
   anatomy: {

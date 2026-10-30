@@ -167,3 +167,26 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **Step that produced it:** the library build was set up for the docs app, which uses everything, and never measured from a product's side.
 - **What changed in that step:** ESM keeps one file per module and every module imports its own CSS (named without `.module`); each component has an entry and a subpath (`pane-react/Button`); Node gets the same modules without CSS imports through the `node` export condition; CJS stays one file. Environment alone is now 3.6 kB gz JS and 13 kB gz CSS, which is the token sheet.
 - **Check that now catches it:** G-TS1 builds a throwaway Vite app importing one component and fails when its JS passes the budget or its CSS carries another component's styles; red on 0.6.0 (49 kB), green now. The smoke test still installs the tarball and renders on Node (22/22).
+
+### R-025: a table straight on a photo had no glass of its own
+- **Date:** 2026-10-30
+- **Found by:** the book-wide evidence run on the photo scenes. city and aurora failed about 500 texts each (studio 82). 788 were Table rows and 408 List rows, shown on the Style tab and in examples without a Card.
+- **What was wrong:** Table, List (inset), Listbox, VirtualList and RadioCards draw a level-2 tint and assume a Card's glass behind them, which blurs and dims the scene. With no Card they sat as a faint tint on a raw photo, and their words were unreadable.
+- **Step that produced it:** each was derived as "the inner level of a pane" and only ever checked inside one. The derivation never asked what happens when a product drops it straight on a scene.
+- **What changed in that step:** a component that brings its own surface brings the whole material. On a scene it blurs and dims what is behind it like a Card and takes the level-1 glass. Inside a pane (`[data-pane-card]`, dialog, `[data-pane-surface]`) it falls back to the inner level. Components with no surface of their own (Accordion, DescriptionList, charts) are shown on a pane in the book.
+- **Check that now catches it:** evidence on the photo scenes. Table went from hundreds of failures to 0 on city and aurora in both themes.
+
+### R-026: Toast said its tone by colour alone
+- **Date:** 2026-10-30
+- **Found by:** the variant audit (group C).
+- **What was wrong:** Toast marked info, positive and critical with a coloured dot only. That breaks Pane's own status rule (glyph and word) and WCAG 1.4.1. Its swipe also ran to the right in RTL, where the toast sits on the left.
+- **What changed:** Toast uses Banner's glyph shapes and says the tone word before the title. It swipes towards the end edge in both directions.
+- **Check that now catches it:** G-SV1 rows for the overlay family (wave V0), plus axe on the Toast page.
+
+### R-027: Thai marks cut off in a field, and SearchInput grew while typing
+- **Date:** 2026-10-30
+- **User said:** "ภาษาไทยสระบนสุดโดนตัด … ตอนพิมพ์ input มันยืดยาวขึ้น"
+- **What was wrong:** Input set its line box to the tight leading (1.15em). A text field clips to its line box, so a tone mark stacked over an upper vowel (เหี่ยะ) lost its top. SearchInput added its clear button only once there was a query, so a field sized by its content grew by a button's width at the first letter.
+- **Step that produced it:** field type was set with the display leading used for one-line labels, and every check typed Latin text. No step typed into a field and measured it before and after.
+- **What changed in that step:** fields use the body leading (1.42em). SearchInput keeps the clear button's place while empty, hidden and out of the tab order.
+- **Check that now catches it:** G-TX1 types Thai with stacked marks into every text field on the state matrix. It fails a line box under 1.35em and any field whose width changes while typing. It was red on the old build (FormField, PasswordInput, SearchInput, NumberInput at 1.15em, SearchInput 215 → 249px) and is green now.

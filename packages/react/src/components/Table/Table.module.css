@@ -25,3 +25,8 @@
 .empty { padding: var(--ds-table-cell-block) var(--ds-table-cell-inline); color: var(--ds-text-secondary); text-align: center; }
 .loading { position: absolute; inset: 0; display: grid; place-items: center; background: var(--ds-table-scrim); color: var(--ds-text-primary); font-size: var(--ds-type-label); }
 @media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid CanvasText; } .th, .td { border-color: CanvasText; } }
+/* On its own, straight on a scene, the table is its own pane: the scene behind it is blurred and dimmed
+   like a Card's, so the rows read on a photo (P3, R-025). Inside a pane it is the inner level and the
+   pane's own glass does that work. */
+.root { background: var(--ds-surface-glass); -webkit-backdrop-filter: blur(var(--ds-glass-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-glass-brightness)); backdrop-filter: blur(var(--ds-glass-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-glass-brightness)); }
+:global(:is([data-pane-card], [role="dialog"], [role="alertdialog"], [data-pane-surface])) .root { background: var(--ds-table-bg); -webkit-backdrop-filter: none; backdrop-filter: none; }

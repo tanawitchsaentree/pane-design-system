@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-30T12:35:18.496Z",
-  "passed": 52,
-  "total": 52,
+  "generatedAt": "2026-10-30T14:36:26.115Z",
+  "passed": 53,
+  "total": 53,
   "partial": false,
   "advisory": {},
   "results": [
@@ -9,14 +9,14 @@
       "id": "G-P0",
       "name": "every page renders: a <main>, a heading and no uncaught error",
       "ok": true,
-      "detail": "21 pages",
+      "detail": "13 pages",
       "order": 0
     },
     {
       "id": "G-D3",
       "name": "no literal backtick in rendered text",
       "ok": true,
-      "detail": "21 pages",
+      "detail": "13 pages",
       "order": 1
     },
     {
@@ -78,13 +78,15 @@
       "id": "G-C1",
       "name": "every code block has a Copy button you can see",
       "ok": true,
-      "detail": "51 code blocks",
+      "detail": "34 code blocks",
       "order": 11
     },
     {
       "id": "G-C2",
       "name": "Copy puts the whole snippet on the clipboard, including hidden lines",
       "ok": true,
+      "skipped": true,
+      "detail": "skipped: nothing it checks is in the limited routes",
       "order": 12
     },
     {
@@ -141,7 +143,7 @@
       "id": "G-K6",
       "name": "usage depth ≥ 0.5 × the Carbon page for the same component (words and sections)",
       "ok": true,
-      "detail": "ConfidenceChip 624w/29s (no benchmark) · NodeCard 624w/30s (no benchmark) · NetworkGraph 524w/28s (no benchmark) · SequenceDiagram 531w/29s (no benchmark)",
+      "detail": "Toast 455w/31s (no benchmark) · SearchInput 776/827w 28/17s · Input 1534/2580w 30/31s",
       "order": 21
     },
     {
@@ -221,36 +223,35 @@
       "id": "G-TODO1",
       "name": "no starter placeholder is left on any page: no TODO( and no seed reason",
       "ok": true,
-      "detail": "21 pages clean",
+      "detail": "13 pages clean",
       "order": 33
     },
     {
       "id": "G-PUB1",
       "name": "an install command names only what can be installed: no bare registry install of an unpublished package",
       "ok": true,
-      "detail": "21 pages, 2 unpublished packages never shown as a registry install",
+      "detail": "13 pages, 2 unpublished packages never shown as a registry install",
       "order": 34
     },
     {
       "id": "G-PWA1",
       "name": "the book installs as an app and reads offline: a valid manifest with 192 and 512 icons, a service worker that takes control, and a page that loads with the network off",
       "ok": true,
-      "detail": "manifest, icons and worker in place; /components/confidence-chip/usage renders offline",
+      "detail": "manifest, icons and worker in place; /components/toast/usage renders offline",
       "order": 35
     },
     {
       "id": "G-CL1",
       "name": "every colour value written in the book is a current token value (no stale hex in prose)",
       "ok": true,
-      "detail": "28 values checked",
+      "detail": "18 values checked",
       "order": 36
     },
     {
       "id": "G-NT2",
       "name": "every form control shows its boundary at least 3:1 against what it sits on, in every theme (WCAG 1.4.11)",
       "ok": true,
-      "skipped": true,
-      "detail": "skipped: nothing it checks is in the limited routes",
+      "detail": "26 controls in 2 themes",
       "order": 37
     },
     {
@@ -288,7 +289,7 @@
       "id": "G-S6",
       "name": "nothing in the page column spills out of it: no element crosses into the rail or the margin beside main (folds open)",
       "ok": true,
-      "detail": "21 pages",
+      "detail": "13 pages",
       "order": 42
     },
     {
@@ -299,58 +300,65 @@
       "order": 43
     },
     {
+      "id": "G-TX1",
+      "name": "a text field holds every script and keeps its size while typing: Thai marks above and below are not clipped, and typing never widens the field",
+      "ok": true,
+      "detail": "52 fields",
+      "order": 44
+    },
+    {
       "id": "G-IN1",
       "name": "text inside a control keeps its inset from the control's edge: at least 8px, and half the corner radius on a rounded end",
       "ok": true,
-      "detail": "35 lines of text in controls",
-      "order": 44
+      "detail": "13 lines of text in controls",
+      "order": 45
     },
     {
       "id": "G-ST1",
       "name": "the address holds only what someone chose: a default is never written into the URL, and a stale or unknown value falls back and is dropped",
       "ok": true,
       "detail": "clean address, stale values dropped",
-      "order": 45
+      "order": 46
     },
     {
       "id": "G-RH1",
       "name": "separate steps stand apart: a demo stage and a tab bar sit at least 24px from the blocks around them; a stage's own code, caption or heading may sit 8px off and its intro 16px",
       "ok": true,
-      "detail": "240 gaps",
-      "order": 46
+      "detail": "193 gaps",
+      "order": 47
     },
     {
       "id": "G-NAV1",
       "name": "every page in routes.json is reachable from the book nav at 375 and 1280px",
       "ok": true,
       "detail": "281 pages",
-      "order": 47
+      "order": 48
     },
     {
       "id": "G-SM1",
       "name": "following an in-page link (table of contents, heading anchor) lands with its heading clear of the sticky header",
       "ok": true,
-      "detail": "18 links followed",
-      "order": 48
+      "detail": "8 links followed",
+      "order": 49
     },
     {
       "id": "G-TT1",
       "name": "every control in a live example and in the shell gives a pointer at least 44px each way",
       "ok": true,
-      "detail": "830 controls",
-      "order": 49
+      "detail": "613 controls",
+      "order": 50
     },
     {
       "id": "axe-none",
       "name": "axe finds no WCAG 2.2 AA violations on any page (forced-colors none)",
       "ok": true,
-      "order": 50
+      "order": 51
     },
     {
       "id": "axe-active",
       "name": "axe finds no WCAG 2.2 AA violations on any page (forced-colors active)",
       "ok": true,
-      "order": 51
+      "order": 52
     }
   ]
 }
