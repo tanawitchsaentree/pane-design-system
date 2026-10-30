@@ -59,7 +59,7 @@
     "mark": {
       "p": "P5",
       "axis": "colour",
-      "why": "a small dot in the status colour, the only colour on the toast"
+      "why": "the tone is a glyph shape in the tone colour, the same shapes as Banner and Badge, so it reads without colour"
     },
     "info": {
       "p": "P5",
@@ -105,6 +105,11 @@
       "p": "P3",
       "axis": "space",
       "why": "in a preview the toast sits in place in its parent instead of the top end of the screen"
+    },
+    "sr": {
+      "p": "P6",
+      "axis": "type",
+      "why": "the tone is said as a word before the title, so a screen reader hears Error before the message and colour is never the only cue"
     }
   },
   "states": {

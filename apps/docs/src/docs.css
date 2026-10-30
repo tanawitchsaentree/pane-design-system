@@ -678,6 +678,8 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .demo-swatch { display: block; inline-size: var(--ds-space-6); block-size: var(--ds-space-6); border-radius: var(--ds-corner-mark); background: var(--ds-text-secondary); }
 /* wave 4 examples */
 .demo-phone { position: relative; inline-size: min(100%, calc(var(--ds-space-32) * 2.25)); block-size: calc(var(--ds-space-32) * 2); padding: var(--ds-gap-xl); border-radius: var(--ds-corner-inner); background: var(--ds-surface-quiet); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); }
+/* the phone's screen is glass over the scene, so the page title on it reads on a photo (R-025) */
+.demo-phone { background: var(--ds-surface-glass); -webkit-backdrop-filter: blur(var(--ds-glass-blur)) brightness(var(--ds-glass-brightness)); backdrop-filter: blur(var(--ds-glass-blur)) brightness(var(--ds-glass-brightness)); }
 .demo-ptr { max-block-size: calc(var(--ds-space-32) * 1.5); }
 .demo-row-target { padding: var(--ds-gap-lg); border-radius: var(--ds-corner-media); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); }
 

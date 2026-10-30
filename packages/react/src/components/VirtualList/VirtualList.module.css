@@ -5,3 +5,7 @@
 .list { position: relative; margin: 0; padding: 0; list-style: none; }
 .row { position: absolute; inset-inline: 0; display: flex; align-items: center; box-sizing: border-box; padding-inline: var(--ds-virtual-list-padding); border-block-end: var(--ds-width-hairline) solid var(--ds-virtual-list-divider); color: var(--ds-text-primary); font-size: var(--ds-type-body); }
 @media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid CanvasText; } }
+/* Straight on a scene it blurs and dims what is behind it like a Card, so its words read on a photo (P3,
+   R-025); inside a pane the pane's glass does that and it stays the inner level. */
+.root { background: var(--ds-surface-glass); -webkit-backdrop-filter: blur(var(--ds-glass-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-glass-brightness)); backdrop-filter: blur(var(--ds-glass-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-glass-brightness)); }
+:global(:is([data-pane-card], [role="dialog"], [role="alertdialog"], [data-pane-surface])) .root { background: var(--ds-virtual-list-bg); -webkit-backdrop-filter: none; backdrop-filter: none; }

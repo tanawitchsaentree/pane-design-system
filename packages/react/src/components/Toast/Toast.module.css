@@ -6,10 +6,11 @@
 .toast[data-state='closed'] { animation: fade var(--ds-motion-press) var(--ds-motion-easing) both; }
 .toast[data-swipe='move'] { translate: var(--radix-toast-swipe-move-x) 0; }
 .toast[data-swipe='end'] { animation: fade var(--ds-motion-press) var(--ds-motion-easing) both; }
-.mark { flex: none; inline-size: var(--ds-control-dot); block-size: var(--ds-control-dot); margin-block-start: calc((var(--ds-type-leading-body) * var(--ds-type-body) - var(--ds-control-dot)) / 2); border-radius: var(--ds-corner-round); }
-.info { background: var(--ds-text-secondary); }
-.positive { background: var(--ds-status-positive-mark); }
-.critical { background: var(--ds-status-critical-mark); }
+.mark { flex: none; inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); margin-block-start: calc((1lh - var(--ds-control-icon-sm)) / 2); fill: none; stroke: var(--mark); stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.sr { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.info { --mark: var(--ds-text-secondary); }
+.positive { --mark: var(--ds-status-positive-mark); }
+.critical { --mark: var(--ds-status-critical-mark); }
 .text { flex: 1; min-inline-size: 0; display: flex; flex-direction: column; gap: var(--ds-gap-xs); }
 .title { margin: 0; font-size: var(--ds-type-body); font-weight: var(--ds-type-weight-semibold); line-height: var(--ds-type-leading-body); }
 .description { margin: 0; font-size: var(--ds-type-label); line-height: var(--ds-type-leading-body); color: var(--ds-text-secondary); }
@@ -20,7 +21,7 @@
 .action:focus-visible, .close:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
 @keyframes rise { from { opacity: 0; translate: 0 calc(var(--ds-motion-rise) * -1); } }
 @keyframes fade { to { opacity: 0; } }
-@media (forced-colors: active) { .toast { border: var(--ds-width-hairline) solid CanvasText; } .mark { background: CanvasText; } }
+@media (forced-colors: active) { .toast { border: var(--ds-width-hairline) solid CanvasText; } .mark { stroke: CanvasText; } }
 .previewViewport { position: relative; inset: auto; z-index: auto; inline-size: 100%; padding: 0; }
 .viewport { pointer-events: none; }
 .viewport > * { pointer-events: auto; }

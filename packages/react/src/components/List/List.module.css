@@ -19,3 +19,7 @@
 .chevron { inline-size: var(--ds-list-chevron); block-size: var(--ds-list-chevron); flex: none; fill: none; stroke: var(--ds-text-secondary); stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
 :global([dir='rtl']) .chevron { transform: scaleX(-1); }
 @media (forced-colors: active) { .inset { border: var(--ds-width-hairline) solid CanvasText; } .press:hover { outline: var(--ds-width-hairline) solid Highlight; } }
+/* Straight on a scene it blurs and dims what is behind it like a Card, so its words read on a photo (P3,
+   R-025); inside a pane the pane's glass does that and it stays the inner level. */
+.inset { background: var(--ds-surface-glass); -webkit-backdrop-filter: blur(var(--ds-glass-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-glass-brightness)); backdrop-filter: blur(var(--ds-glass-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-glass-brightness)); }
+:global(:is([data-pane-card], [role="dialog"], [role="alertdialog"], [data-pane-surface])) .inset { background: var(--ds-list-bg); -webkit-backdrop-filter: none; backdrop-filter: none; }

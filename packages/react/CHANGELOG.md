@@ -4,6 +4,12 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- Toast: each tone has its own glyph (the Banner shapes) and its word is read before the title; it swipes towards the end edge in RTL too.
+- Table: straight on a scene it blurs and dims what is behind it like a Card, so its rows read on a photo; inside a pane it stays the inner level.
+- List: the inset list brings its own glass on a scene, as Table does.
+- Listbox: the inline list brings its own glass on a scene, as Table does.
+- VirtualList: brings its own glass on a scene, as Table does.
+- RadioCards: each card brings its own glass on a scene, as Table does.
 - ConfidenceChip: new. How sure a claim is, as dots filled to the level in one sequential hue (D-032) with the level in words.
 - NodeCard: new. A step on a canvas with ports, chosen glass when picked, Enter to pick and arrow keys to move it.
 - NetworkGraph: new. Nodes and links on a quiet canvas, the neighbourhood in focus lit, arrow keys between nodes and a table of every link.

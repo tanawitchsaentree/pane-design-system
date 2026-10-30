@@ -132,6 +132,16 @@
       "p": "P6",
       "axis": "colour",
       "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
+    },
+    "data-pane-card": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "inside a Card the card glass already blurs and dims the scene, so this drops its own filter and stays the inner level"
+    },
+    "data-pane-surface": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "inside any other pane that marks itself a surface it likewise drops its own filter and stays the inner level"
     }
   },
   "motion": {

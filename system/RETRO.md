@@ -167,3 +167,18 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **Step that produced it:** the library build was set up for the docs app, which uses everything, and never measured from a product's side.
 - **What changed in that step:** ESM keeps one file per module and every module imports its own CSS (named without `.module`); each component has an entry and a subpath (`pane-react/Button`); Node gets the same modules without CSS imports through the `node` export condition; CJS stays one file. Environment alone is now 3.6 kB gz JS and 13 kB gz CSS, which is the token sheet.
 - **Check that now catches it:** G-TS1 builds a throwaway Vite app importing one component and fails when its JS passes the budget or its CSS carries another component's styles; red on 0.6.0 (49 kB), green now. The smoke test still installs the tarball and renders on Node (22/22).
+
+### R-025: a table straight on a photo had no glass of its own
+- **Date:** 2026-10-30
+- **Found by:** the book-wide evidence run on the photo scenes. city and aurora failed about 500 texts each (studio 82). 788 were Table rows and 408 List rows, shown on the Style tab and in examples without a Card.
+- **What was wrong:** Table, List (inset), Listbox, VirtualList and RadioCards draw a level-2 tint and assume a Card's glass behind them, which blurs and dims the scene. With no Card they sat as a faint tint on a raw photo, and their words were unreadable.
+- **Step that produced it:** each was derived as "the inner level of a pane" and only ever checked inside one. The derivation never asked what happens when a product drops it straight on a scene.
+- **What changed in that step:** a component that brings its own surface brings the whole material. On a scene it blurs and dims what is behind it like a Card and takes the level-1 glass. Inside a pane (`[data-pane-card]`, dialog, `[data-pane-surface]`) it falls back to the inner level. Components with no surface of their own (Accordion, DescriptionList, charts) are shown on a pane in the book.
+- **Check that now catches it:** evidence on the photo scenes. Table went from hundreds of failures to 0 on city and aurora in both themes.
+
+### R-026: Toast said its tone by colour alone
+- **Date:** 2026-10-30
+- **Found by:** the variant audit (group C).
+- **What was wrong:** Toast marked info, positive and critical with a coloured dot only. That breaks Pane's own status rule (glyph and word) and WCAG 1.4.1. Its swipe also ran to the right in RTL, where the toast sits on the left.
+- **What changed:** Toast uses Banner's glyph shapes and says the tone word before the title. It swipes towards the end edge in both directions.
+- **Check that now catches it:** G-SV1 rows for the overlay family (wave V0), plus axe on the Toast page.
