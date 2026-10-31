@@ -10,5 +10,5 @@ const EDGES = [
 ];
 
 export default function GraphDescribed() {
-  return <Card as="div" className="demo-card demo-wide"><NetworkGraph label="Linked accounts" description="Account A and Account E never touch, yet they share Card 4411." nodes={NODES} edges={EDGES} /></Card>;
+  return <Card as="div" className="demo-card demo-wide"><Card as="div" className="demo-card demo-wide"><NetworkGraph label="Linked accounts" description="Account A and Account E never touch, yet they share Card 4411." nodes={NODES} edges={EDGES} /></Card></Card>;
 }

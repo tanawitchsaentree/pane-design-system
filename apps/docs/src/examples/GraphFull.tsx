@@ -10,5 +10,5 @@ const EDGES = [
 ];
 
 export default function GraphFull() {
-  return <Card as="div" className="demo-card demo-wide"><NetworkGraph label="Linked accounts" nodes={NODES} edges={EDGES} /></Card>;
+  return <Card as="div" className="demo-card demo-wide"><Card as="div" className="demo-card demo-wide"><NetworkGraph label="Linked accounts" nodes={NODES} edges={EDGES} /></Card></Card>;
 }

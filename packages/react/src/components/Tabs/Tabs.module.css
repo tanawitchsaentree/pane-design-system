@@ -56,6 +56,7 @@
   outline-offset: var(--ds-focus-ring-width);
   box-shadow: 0 0 0 calc(var(--ds-focus-ring-width) * 2 + var(--ds-focus-ring-halo-width)) var(--ds-focus-ring-halo);
 }
+.root:not([data-orientation='vertical']) > .content { margin-block-start: var(--ds-tabs-panel-gap); }
 .content[data-state='active'] { animation: tab-in var(--ds-motion-enter) var(--ds-motion-easing); }
 @keyframes tab-in { from { opacity: 0; transform: translateY(calc(var(--ds-motion-rise) / 2)); } }
 .content:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }

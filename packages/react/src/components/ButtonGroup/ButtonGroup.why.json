@@ -62,10 +62,31 @@
     },
     "attached": {
       "p": "P3",
-      "axis": "shape",
-      "why": "joined, the gap is a hairline and the inner corners square off so the piece reads as one"
+      "axis": "depth",
+      "why": "joined buttons sit in one carved track at an even inset, so the group is one object and every corner nests"
     }
   },
-  "states": {},
+  "states": {
+    "data-component": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a button inside the track gives up its own body and shadow, so the track is the one object"
+    },
+    "hover": {
+      "p": "P4",
+      "axis": "colour",
+      "why": "a button in the track answers the pointer with the quiet surface, as a segment does"
+    },
+    "aria-pressed=true": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a pressed button in the track is chosen glass lit at its top, the way the chosen segment is"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "in forced colours the track keeps a system-colour outline so the group stays one object"
+    }
+  },
   "motion": {}
 }

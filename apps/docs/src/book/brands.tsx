@@ -7,7 +7,7 @@ import { checkBrand, ratio, PAGE } from '../../../../packages/tokens/brand-check
 import { Code, Page, Section, Stage } from './kit';
 import { smooth } from './kit-core';
 
-type Brand = { id: string; name: string; description: string; tier?: string; density?: string; motion?: string; tokens: Record<string, string | { dark: string; light?: string }> };
+type Brand = { id: string; name: string; description: string; tier?: 'brand' | 'expert'; density?: 'compact' | 'regular' | 'roomy'; motion?: 'brisk' | 'steady' | 'calm'; tokens: Record<string, string | { dark: string; light?: string }> };
 const LIST = BRANDS as unknown as Brand[];
 
 const WHAT: Array<[string, string]> = [
@@ -73,7 +73,7 @@ export function Brands() {
         <BrandPlayground />
       </Section>
       <Section id="compare" title="Ten brands on one product" wide>
-        <p>The same appointment card under Pane and nine sample brands, on the backdrop chosen in the header. They differ in colour, typeface, weight, corners, spacing, tempo and how much colour the glass carries, so a trading desk, a children’s reading app and a fashion house each read as their own product. The glass, the text tones, the status colours and the touch targets stay the same in all ten. Use the Brand control in the header to see the whole book in one of them.</p>
+        <p>The same appointment card under Pane and nine sample brands, on the backdrop picked with the swatches beside the examples. They differ in colour, typeface, weight, corners, spacing, tempo and how much colour the glass carries, so a trading desk, a children’s reading app and a fashion house each read as their own product. The glass, the text tones, the status colours and the touch targets stay the same in all ten. Use the Brand control in the header to see the whole book in one of them.</p>
         <div className="brand-grid">
           {[{ id: 'pane', name: 'Pane', description: 'The system as it ships.' }, ...LIST].map((b) => (
             <figure key={b.id} className="brand-cell" data-brand={b.id === 'pane' ? undefined : b.id}>

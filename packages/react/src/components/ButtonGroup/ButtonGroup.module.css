@@ -1,11 +1,12 @@
-/* Buttons that belong together sit at the small gap; joined, the gap shrinks to a hairline of the scene
-   between them and the inner corners square off, so the piece reads as one object made of parts (P3, P6). */
+/* Buttons that belong together sit at the small gap. Joined, they sit in one carved track, the well a
+   segmented control uses, each button a rounded piece of glass inside it at an even inset, so the group reads
+   as one object made of parts and every corner nests (P3, P6; R-038 replaced squared inner corners). */
 .root { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--ds-button-group-gap); }
 .vertical { flex-direction: column; align-items: stretch; }
-.attached { flex-wrap: nowrap; gap: var(--ds-button-group-seam); max-inline-size: 100%; }
+.attached { flex-wrap: nowrap; gap: var(--ds-button-group-inset); padding: var(--ds-button-group-inset); max-inline-size: 100%; border-radius: var(--ds-corner-round); background: var(--ds-button-group-track); box-shadow: var(--ds-button-group-ring), var(--ds-button-group-carve); }
+.attached.vertical { border-radius: var(--ds-corner-inner); }
 /* joined buttons may shrink, so a long label wraps inside its pill the way a lone Button's does */
-.attached > * { min-inline-size: 0; }
-.attached:not(.vertical) > :not(:first-child) { border-start-start-radius: var(--ds-button-group-inner); border-end-start-radius: var(--ds-button-group-inner); }
-.attached:not(.vertical) > :not(:last-child) { border-start-end-radius: var(--ds-button-group-inner); border-end-end-radius: var(--ds-button-group-inner); }
-.attached.vertical > :not(:first-child) { border-start-start-radius: var(--ds-button-group-inner); border-start-end-radius: var(--ds-button-group-inner); }
-.attached.vertical > :not(:last-child) { border-end-start-radius: var(--ds-button-group-inner); border-end-end-radius: var(--ds-button-group-inner); }
+.attached > [data-component][data-component] { min-inline-size: 0; background: transparent; box-shadow: none; }
+.attached > [data-component][data-component]:hover:not([disabled]) { background: var(--ds-surface-quiet); }
+.attached > [data-component][data-component][aria-pressed='true'] { background: linear-gradient(180deg, var(--ds-button-group-on-top), var(--ds-button-group-on-foot)); box-shadow: var(--ds-button-group-ring), var(--ds-button-group-on-cast); }
+@media (forced-colors: active) { .attached { border: var(--ds-width-hairline) solid CanvasText; } }

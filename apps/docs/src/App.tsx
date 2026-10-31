@@ -4,7 +4,7 @@ import { Announcement, AppearanceMenu, GitHubLink, SearchButton, VersionMenu } f
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Environment, Select } from 'pane-react';
 import { PAGES, PARTS, navigate, pageOf, useRoute } from './book/router';
-import { Link, SceneContext, VerifyContext, smooth, type Conformance, type Evidence } from './book/kit-core';
+import { Link, SceneContext, SetSceneContext, VerifyContext, smooth, type Conformance, type Evidence } from './book/kit-core';
 import { loadPage, pageFor } from './book/load-page';
 import { SCENES, sceneById } from './scenes';
 
@@ -112,7 +112,7 @@ export function App() {
 
   return (
     <VerifyContext.Provider value={{ evidence, conformance }}>
-    <SceneContext.Provider value={scene}>
+    <SceneContext.Provider value={scene}><SetSceneContext.Provider value={(v) => smooth(() => setScene(v))}>
       {/* Plain, opaque docs chrome (D-016). Glass appears only inside demo stages, over a scene. */}
       <Environment brightness={sceneById(scene).brightness} material={material} className="page">
         <a className="skip" href="#main">Skip to content</a>
@@ -130,7 +130,7 @@ export function App() {
                 <button key={t} type="button" className="seg-btn" aria-pressed={t === themePref} data-theme-value={t} onClick={() => smooth(() => setThemePref(t))}>{t[0].toUpperCase() + t.slice(1)}</button>
               ))}
             </div>
-            <AppearanceMenu material={material} onMaterial={(v) => smooth(() => setMaterial(v))} brand={brand} onBrand={(v) => smooth(() => setBrand(v))} brands={BRANDS} scene={scene} onScene={(v) => smooth(() => setScene(v))} scenes={SCENES} />
+            <AppearanceMenu material={material} onMaterial={(v) => smooth(() => setMaterial(v))} brand={brand} onBrand={(v) => smooth(() => setBrand(v))} brands={BRANDS} />
           </div>
           <button ref={menuButton} type="button" className="menu-btn" data-menu-toggle="" aria-expanded={menuOpen} aria-controls="book-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? 'Close' : 'Menu'}</button>
         </header>
@@ -160,7 +160,7 @@ export function App() {
           </aside>
         )}
       </Environment>
-    </SceneContext.Provider>
+    </SetSceneContext.Provider></SceneContext.Provider>
     </VerifyContext.Provider>
   );
 }

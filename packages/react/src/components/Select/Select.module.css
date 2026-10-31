@@ -27,7 +27,8 @@
 .trigger[data-state='open'] .chevron { transform: rotate(180deg); }
 
 .menu {
-  z-index: var(--ds-layer-overlay); min-inline-size: max(var(--radix-select-trigger-width), var(--ds-select-menu-min));
+  /* the same layer as menus and popovers, so a Select opened inside a popover lies above it (R-038) */
+  z-index: var(--ds-overlay-z-pop); min-inline-size: max(var(--radix-select-trigger-width), var(--ds-select-menu-min));
   max-block-size: var(--radix-select-content-available-height);
   padding: var(--ds-select-menu-inset); border-radius: var(--ds-select-menu-radius);
   background: var(--ds-select-menu-bg); color: var(--ds-text-primary);
