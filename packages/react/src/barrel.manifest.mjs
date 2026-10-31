@@ -70,6 +70,10 @@ export const BARREL_MANIFEST = [
     components: ['ButtonGroup', 'SplitButton'],
   },
   {
+    header: `Working with AI (0.7.0): the conversation, the composer, an agent's status, the hand-over to a person and the source behind a claim.`,
+    components: ['ChatMessage', 'ChatComposer', 'AgentStatus', 'HumanHandoff', 'Citation'],
+  },
+  {
     header: `Language (0.7.0): one catalog for every word a component shows or speaks, English by default, Thai included.`,
     components: ['PaneProvider'],
   },

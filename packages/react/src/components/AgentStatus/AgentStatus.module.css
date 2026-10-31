@@ -1,0 +1,31 @@
+/* An agent's state is a quiet row on the pane: a glyph shape and a word per state (P6), the task in the
+   primary tone, its steps as a short list with the current one lit. Working turns slowly and thinking
+   breathes; under reduced motion both stand still and the word carries the news. */
+.root { display: flex; flex-direction: column; gap: var(--ds-gap-md); padding: var(--ds-agent-padding); border-radius: var(--ds-agent-radius); background: var(--ds-agent-bg); box-shadow: var(--ds-agent-edge); font-family: var(--ds-type-family); font-size: var(--ds-type-body); line-height: var(--ds-type-leading-body); color: var(--ds-text-primary); }
+.line { display: flex; align-items: flex-start; gap: var(--ds-gap-md); }
+.glyph { flex: none; inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); margin-block-start: calc((1lh - var(--ds-control-icon-md)) / 2); fill: none; stroke: var(--mark); stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.thinking .glyph { fill: var(--mark); stroke: none; }
+.thinking { --mark: var(--ds-text-secondary); }
+.working { --mark: var(--ds-text-primary); }
+.waiting { --mark: var(--ds-status-warning-mark); }
+.done { --mark: var(--ds-status-positive-mark); }
+.failed { --mark: var(--ds-status-critical-mark); }
+.working .glyph { animation: turn var(--ds-agent-turn) linear infinite; }
+.thinking .glyph { animation: breathe var(--ds-agent-breathe) var(--ds-motion-easing-inout) infinite; }
+@keyframes turn { to { transform: rotate(1turn); } }
+@keyframes breathe { 50% { opacity: var(--ds-opacity-disabled); } }
+@media (prefers-reduced-motion: reduce) { .working .glyph, .thinking .glyph { animation: none; } }
+.text { flex: 1; min-inline-size: 0; }
+.title { margin: 0; }
+.word { font-weight: var(--ds-type-weight-semibold); }
+.meta { margin: 0; font-size: var(--ds-type-caption); font-variant-numeric: tabular-nums; color: var(--ds-text-secondary); }
+.action { flex: none; }
+.steps { display: flex; flex-direction: column; gap: var(--ds-gap-xs); margin: 0; padding: 0 0 0 calc(var(--ds-control-icon-md) + var(--ds-gap-md)); list-style: none; font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.step { display: flex; align-items: center; gap: var(--ds-gap-sm); }
+.dot { flex: none; inline-size: var(--ds-control-dot); block-size: var(--ds-control-dot); border-radius: var(--ds-corner-round); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-text-secondary); }
+.step[data-state='done'] .dot { background: var(--ds-text-secondary); box-shadow: none; }
+.step[data-state='current'] { color: var(--ds-text-primary); font-weight: var(--ds-type-weight-medium); }
+.step[data-state='current'] .dot { background: var(--ds-text-primary); box-shadow: none; }
+.step[data-state='failed'] .dot { background: var(--ds-status-critical-mark); box-shadow: none; }
+.sr { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid CanvasText; } .glyph { stroke: CanvasText; } .thinking .glyph { fill: CanvasText; } .dot { background: CanvasText; } }

@@ -1,0 +1,97 @@
+{
+  "concept": "Where the reader writes the next turn: the field's carved well that grows with the text, and one round button that sends or stops.",
+  "default_to_avoid": [
+    {
+      "pattern": "a chat composer as a flat white box with a blue paper-plane button",
+      "kind": "chat composer, message input, prompt box",
+      "why_not": "a blue send button brings a hue and a second loud thing to the screen; Pane uses the field's well and the loud white bead"
+    }
+  ],
+  "references": [
+    {
+      "title": "Apple HIG · Text fields",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/text-fields"
+    },
+    {
+      "title": "WAI-ARIA · Textbox",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the composer is the same carved well as every field"
+    },
+    {
+      "p": "P5",
+      "axis": "colour",
+      "consequence": "one solid fill exists, the loud solid (white in dark, ink in light); a promoted action is the same solid glowing with its own light, and a pane uses one of them",
+      "form": "send is the one loud bead on the composer"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "Enter sends, Shift+Enter is a new line, and an answer arriving turns Send into Stop"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/waveJ4/",
+    "section": "chatcomposer",
+    "options": [
+      "A carved well with a loud bead",
+      "B white box, blue plane",
+      "C a field and a text button"
+    ],
+    "picked": "A carved well with a loud bead",
+    "by": "agent",
+    "reason": "A matches every field and keeps one loud thing (P3, P5). B adds a hue. C makes Send hard to hit with a thumb."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "one well holds the field and the button, the field's own material"
+    },
+    "start": {
+      "p": "P3",
+      "axis": "space",
+      "why": "an attach button may sit before the field at touch height"
+    },
+    "field": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the field inside drops its own groove so the well is the one shape"
+    },
+    "send": {
+      "p": "P5",
+      "axis": "colour",
+      "why": "send or stop is the loud white bead at the end, low beside the last line"
+    }
+  },
+  "states": {
+    "focus-within": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the well takes the focus ring while the field inside has focus"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the field keeps no ring of its own; the well carries it"
+    },
+    "hover": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the field keeps no hover ring of its own inside the well"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the edges and marks, so every part stays findable"
+    }
+  },
+  "motion": {}
+}

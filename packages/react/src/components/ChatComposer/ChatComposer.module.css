@@ -1,0 +1,11 @@
+/* The composer is one well (the Input material) holding the growing field and one round button at its
+   end, which sends or stops; the button sits low so it stays beside the last line as the field grows (P3, P5). */
+.root { display: flex; align-items: flex-end; gap: var(--ds-gap-sm); padding: var(--ds-chat-composer-inset); border-radius: var(--ds-chat-composer-radius); background: var(--ds-chat-composer-bg); box-shadow: var(--ds-chat-composer-groove); font-family: var(--ds-type-family); }
+.root:focus-within { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+.start { display: flex; align-items: center; min-block-size: var(--ds-layout-touch); }
+.field { flex: 1; min-inline-size: 0; min-block-size: var(--ds-layout-touch); padding-block: var(--ds-gap-md); background: transparent; box-shadow: none; outline: 0; }
+.field:hover, .field:focus-visible { box-shadow: none; outline: 0; }
+.send { flex: none; }
+.send svg { fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.send svg rect { fill: currentColor; stroke: none; }
+@media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid FieldText; } }

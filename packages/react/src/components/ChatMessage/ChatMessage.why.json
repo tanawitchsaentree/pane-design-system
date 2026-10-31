@@ -1,0 +1,188 @@
+{
+  "concept": "One turn of a conversation: the reader's on chosen glass at the end edge, the answer as text on the pane, its steps above and quiet actions under it.",
+  "default_to_avoid": [
+    {
+      "pattern": "a chat message as a pair of coloured bubbles, blue for the reader and grey for the bot",
+      "kind": "chat message, chat bubble, conversation turn, message row",
+      "why_not": "two coloured bubbles put a hue on both sides and box the answer in; Pane keeps the answer as content on the pane and marks only the reader's turn with chosen glass"
+    }
+  ],
+  "references": [
+    {
+      "title": "Apple HIG · Messages",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/"
+    },
+    {
+      "title": "WAI-ARIA · Feed and article",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/feed/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "the answer is content, so it sits as text on the pane with no bubble of its own"
+    },
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the reader's turn is chosen glass, the system's mark for what the reader chose"
+    },
+    {
+      "p": "P6",
+      "axis": "type",
+      "consequence": "labels and names exist for assistive tech even when hidden visually",
+      "form": "the author is read first and a streaming answer is marked busy until it is complete"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/waveJ4/",
+    "section": "chatmessage",
+    "options": [
+      "A chosen-glass turn, plain answer",
+      "B two coloured bubbles",
+      "C both plain"
+    ],
+    "picked": "A chosen-glass turn, plain answer",
+    "by": "agent",
+    "reason": "A keeps the answer as content and marks the reader's turn without a hue (P1, P3). B adds two hues. C loses who said what at a glance."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "space",
+      "why": "a turn is a row; the reader's sits at the end edge and the answer at the start"
+    },
+    "user": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the reader's turn moves to the end edge"
+    },
+    "assistant": {
+      "p": "P1",
+      "axis": "space",
+      "why": "the answer takes the full width of the pane, because it is the content"
+    },
+    "avatar": {
+      "p": "P3",
+      "axis": "space",
+      "why": "an assistant may sign its turn with a small avatar before it"
+    },
+    "body": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the head, steps, text and actions stack at the small gap"
+    },
+    "head": {
+      "p": "P2",
+      "axis": "type",
+      "why": "who and when sit above the text at caption size in the secondary tone"
+    },
+    "author": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the author is medium weight so the turn can be found by who said it"
+    },
+    "time": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the time uses tabular figures so times line up"
+    },
+    "text": {
+      "p": "P1",
+      "axis": "type",
+      "why": "the text wraps anywhere so a long link or code never spills out"
+    },
+    "caret": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "a caret follows a streaming answer and blinks slowly, so the reader sees it is still arriving"
+    },
+    "actions": {
+      "p": "P5",
+      "axis": "space",
+      "why": "copy and retry are quiet ghost buttons under the answer, never louder than it"
+    },
+    "steps": {
+      "p": "P6",
+      "axis": "space",
+      "why": "the steps the assistant took sit above its answer as rows that open"
+    },
+    "tool": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a step is a quiet tinted row with the inner corner"
+    },
+    "toolHead": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the step's line is a 44px summary that opens its detail"
+    },
+    "toolTitle": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the step reads as a past-tense line in the reader's words, never as code"
+    },
+    "toolBody": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the detail is label size in the secondary tone"
+    },
+    "mark": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "each step state has its own glyph shape: a turning arc, a check, an octagon"
+    },
+    "running": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "a running step turns slowly so the reader sees the assistant is still at it"
+    },
+    "done": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a finished step takes the positive mark beside its check, so done reads by shape too"
+    },
+    "failed": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a failed step takes the critical mark beside its octagon, so a failure reads by shape too"
+    },
+    "sr": {
+      "p": "P6",
+      "axis": "type",
+      "why": "the state word is read before the line, so the state is never colour or shape alone"
+    }
+  },
+  "states": {
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring shows on a step's line when it is reached by keyboard"
+    },
+    "@media prefers-reduced-motion: reduce": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "under reduced motion nothing turns, blinks or breathes, and the word carries the news"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the edges and marks, so every part stays findable"
+    }
+  },
+  "motion": {
+    "@blink": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the caret blinks in steps so it reads as a cursor and never pulses"
+    },
+    "@turn": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "a running step turns once a second or so, steady and never frantic"
+    }
+  }
+}

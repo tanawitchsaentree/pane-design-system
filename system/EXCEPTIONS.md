@@ -28,3 +28,11 @@
 - **ขอบเขต (สำคัญที่สุด):** เฉพาะ Input `sm` เท่านั้น ห้ามอ้างกับ Input `md`, Textarea, PinInput หรือ control อื่น ทุกตัวนั้นต้องได้ 44px; บนจอสัมผัสให้ใช้ `md` (หนังสือเขียนไว้ในหน้า Input)
 - **ทางออกถ้าจะปิด:** ให้ FormField หรือ InputGroup ห่อ Input sm ด้วย label `[data-hit]` สูง 44px ที่ส่งการคลิกเข้า input หรือเลิกใช้ `sm`
 - **วันที่ / ผู้อนุมัติ:** 2026-10-28 / agent รอ user ยืนยันตอน milestone review
+
+### E-003: Citation มี press area 24px ต่ำกว่า 44px ของ P6 OPEN
+- **ที่ไหน:** `Citation` (`packages/react/src/components/Citation/Citation.module.css` `.mark::after`, token `citation.hit` = 24px) มี `data-touch-exempt` บนปุ่ม
+- **ค่าที่วัดได้ / เกณฑ์:** 24px vs 44px ของ P6 (G-TT1); ผ่าน WCAG 2.2 2.5.8 Target Size (Minimum) ข้อยกเว้น inline ที่ 24px
+- **เหตุผลที่ยอมรับ:** citation อยู่ในบรรทัดข้อความเหมือนเชิงอรรถ ถ้าให้กดได้ 44px จะดันบรรทัดให้สูงขึ้นหรือทับคำข้างเคียงจนกดผิด WCAG ยกเว้นเป้าหมายแบบ inline ไว้ตรงนี้โดยตรง
+- **ขอบเขต (สำคัญที่สุด):** เฉพาะ Citation ในบรรทัดข้อความเท่านั้น รายการแหล่งที่มาแบบแยกบรรทัดต้องใช้ List หรือ Link ที่ได้ 44px
+- **ทางออกถ้าจะปิด:** มีรายการแหล่งที่มาใต้คำตอบ (44px ต่อแถว) ให้กดแทนได้ทุกครั้ง แล้วยกเลิกข้อยกเว้น
+- **วันที่ / ผู้อนุมัติ:** 2026-10-31 / agent รอ user ยืนยันตอน milestone review

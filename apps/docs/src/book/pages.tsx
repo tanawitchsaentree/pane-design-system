@@ -5,6 +5,8 @@ import exceptionsMd from '../../../../system/EXCEPTIONS.md?raw';
 import creditsMd from '../../public/scenes/CREDITS.md?raw';
 import FeedPost from '../examples/FeedPost';
 import { Brands } from './brands';
+import { Materials } from './materials';
+import { ChooseLook } from './look';
 import FeedPostSrc from '../examples/FeedPost.tsx?raw';
 import MotionDemo from '../examples/MotionDemo';
 import MotionDemoSrc from '../examples/MotionDemo.tsx?raw';
@@ -1038,6 +1040,8 @@ const BASE_PAGES: Record<string, () => ReactElement> = {
   '/foundations/color': ColorPage,
   '/foundations/themes': Themes,
   '/foundations/brands': Brands,
+  '/foundations/materials': Materials,
+  '/getting-started/look': ChooseLook,
   '/foundations/typography': Typography,
   '/foundations/spacing': Spacing,
   '/foundations/grid': GridLayoutPage,

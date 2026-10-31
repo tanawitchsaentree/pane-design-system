@@ -22,6 +22,10 @@
           "title": "Getting started"
         },
         {
+          "path": "/getting-started/look",
+          "title": "Choose your look"
+        },
+        {
           "path": "/getting-started/language",
           "title": "Language"
         },
@@ -58,6 +62,10 @@
     {
       "title": "Foundations",
       "pages": [
+        {
+          "path": "/foundations/materials",
+          "title": "Materials"
+        },
         {
           "path": "/foundations/glass",
           "title": "Glass & environment"
@@ -1066,6 +1074,56 @@
           ]
         },
         {
+          "path": "/components/chat-message",
+          "title": "ChatMessage",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/chat-composer",
+          "title": "ChatComposer",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/agent-status",
+          "title": "AgentStatus",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/human-handoff",
+          "title": "HumanHandoff",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
+          "path": "/components/citation",
+          "title": "Citation",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
           "path": "/components/form",
           "title": "Form",
           "tabs": [
@@ -1689,6 +1747,26 @@
         {
           "path": "/api/sequence-diagram",
           "title": "SequenceDiagram"
+        },
+        {
+          "path": "/api/chat-message",
+          "title": "ChatMessage"
+        },
+        {
+          "path": "/api/chat-composer",
+          "title": "ChatComposer"
+        },
+        {
+          "path": "/api/agent-status",
+          "title": "AgentStatus"
+        },
+        {
+          "path": "/api/human-handoff",
+          "title": "HumanHandoff"
+        },
+        {
+          "path": "/api/citation",
+          "title": "Citation"
         },
         {
           "path": "/api/form",
