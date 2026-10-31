@@ -21,10 +21,11 @@
 .critical { --top: var(--ds-badge-critical-top); --foot: var(--ds-badge-critical-foot); --rim: var(--ds-badge-critical-rim); --glow: var(--ds-badge-critical-glow); --tint: var(--ds-badge-critical-muted); --k: var(--ds-badge-critical-ink); --s: var(--ds-badge-critical-solid); --o: var(--ds-badge-critical-on-solid); }
 .accent { --top: var(--ds-badge-accent-top); --foot: var(--ds-badge-accent-foot); --rim: var(--ds-badge-accent-rim); --glow: var(--ds-badge-accent-glow); --tint: var(--ds-badge-accent-muted); --k: var(--ds-badge-accent-ink); --s: var(--ds-badge-accent-solid); --o: var(--ds-badge-accent-on-solid); }
 .crystal, .muted, .solid { padding-inline: var(--ds-badge-padding-inline); border-radius: var(--ds-badge-radius); color: var(--k); text-shadow: none; }
-/* the top facet takes the lit hue and the foot the hue; the rim is the crystal's own edge (R-021) */
+/* a clear stone: the lit hue at the top fading into a thin tint of the tone, its rim and top facet catching the
+   light and one hairline of the tone along the bottom where light bends through; no glow, so it stays clear (R-039) */
 .crystal {
-  background: linear-gradient(180deg, var(--top) 0 45%, var(--foot) 55%);
-  box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--rim), inset 0 var(--ds-width-hairline) 0 var(--ds-badge-facet), 0 var(--ds-gap-xs) var(--ds-gap-xl) var(--glow);
+  background: linear-gradient(180deg, var(--top) 0%, var(--foot) 52%, var(--foot) 100%);
+  box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--rim), inset 0 var(--ds-width-hairline) 0 var(--ds-badge-facet), inset 0 calc(var(--ds-width-hairline) * -1) 0 var(--glow);
   -webkit-backdrop-filter: blur(var(--ds-badge-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-badge-brightness));
   backdrop-filter: blur(var(--ds-badge-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-badge-brightness));
 }
