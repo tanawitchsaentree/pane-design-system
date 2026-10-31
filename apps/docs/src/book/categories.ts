@@ -11,6 +11,7 @@ export const CATEGORIES: Array<{ title: string; blurb: string; names: string[] }
   { title: 'Data display', blurb: 'Numbers, facts, rows and tables that the reader reads and compares.', names: ['Stat', 'Meter', 'Scale', 'ConfidenceChip', 'Progress', 'DescriptionList', 'List', 'Table', 'Timeline', 'EmptyState', 'DataGrid', 'TreeView', 'VirtualList'] },
   { title: 'Charts', blurb: 'Amounts, trends and patterns drawn in the data palette, each with a table view.', names: ['BarChart', 'LineChart', 'RadarChart', 'Sparkline', 'Heatmap'] },
   { title: 'Diagrams', blurb: 'Steps, links and messages between things, each with words for every part.', names: ['NodeCard', 'NetworkGraph', 'SequenceDiagram'] },
+  { title: 'Working with AI', blurb: 'A conversation, an agent at work, a person taking over and the source of each claim.', names: ['ChatMessage', 'ChatComposer', 'AgentStatus', 'HumanHandoff', 'Citation'] },
   { title: 'Patterns', blurb: 'Whole steps built from the components before them, such as forms, tours, boards and the app shell.', names: ['Form', 'Wizard', 'AuthForm', 'CommandPalette', 'NotificationCenter', 'CoachMark', 'KanbanBoard', 'Feed', 'AppShell', 'SettingsLayout', 'RichTextEditor'] },
   { title: 'Loading', blurb: 'What the reader sees while content is on its way.', names: ['Spinner', 'Skeleton', 'PullToRefresh'] },
   { title: 'Overlays', blurb: 'Panes above the page at levels 3 and 4 of the stack, from a dialog to a tooltip.', names: ['Dialog', 'Sheet', 'Drawer', 'ActionSheet', 'Popover', 'Tooltip', 'Toast', 'Snackbar'] },

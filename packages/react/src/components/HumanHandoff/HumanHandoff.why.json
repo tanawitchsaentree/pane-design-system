@@ -1,0 +1,118 @@
+{
+  "concept": "The moment a conversation moves between an assistant and a person: the offer and why, the wait, who has taken over, and the hand back.",
+  "default_to_avoid": [
+    {
+      "pattern": "a human handoff as a red alert banner that says Escalated",
+      "kind": "human handoff, escalation, live agent transfer, talk to a person",
+      "why_not": "a red alert frightens the reader and says nothing about who or how long; Pane says who, why and the wait in words in a quiet row"
+    }
+  ],
+  "references": [
+    {
+      "title": "Material · Patterns for AI",
+      "url": "https://m3.material.io/"
+    },
+    {
+      "title": "WAI-ARIA · status role",
+      "url": "https://www.w3.org/TR/wai-aria-1.2/#status"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P2",
+      "axis": "colour",
+      "consequence": "opaque pairs are computed, glass pairs are measured",
+      "form": "the row is quiet and centred like a divider in the conversation"
+    },
+    {
+      "p": "P5",
+      "axis": "colour",
+      "consequence": "one solid fill exists, the loud solid (white in dark, ink in light); a promoted action is the same solid glowing with its own light, and a pane uses one of them",
+      "form": "the offer has one loud action, Talk to a person, and a ghost Not now"
+    },
+    {
+      "p": "P6",
+      "axis": "type",
+      "consequence": "labels and names exist for assistive tech even when hidden visually",
+      "form": "each change is one sentence that names who"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/waveJ4/",
+    "section": "humanhandoff",
+    "options": [
+      "A quiet row that names who",
+      "B red escalation banner",
+      "C a system message line only"
+    ],
+    "picked": "A quiet row that names who",
+    "by": "agent",
+    "reason": "A keeps calm and names the person and the wait (P2, P6). B alarms. C gives the reader no way to accept or decline."
+  },
+  "parts": {
+    "root": {
+      "p": "P2",
+      "axis": "colour",
+      "why": "a quiet tinted row centred in the conversation, with its edge"
+    },
+    "line": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the glyph or avatar and the words share one row"
+    },
+    "glyph": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a person glyph, or a turning arc while connecting"
+    },
+    "turning": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "while connecting the arc turns slowly, so the reader sees the wait is live"
+    },
+    "avatar": {
+      "p": "P3",
+      "axis": "space",
+      "why": "once connected, the person's avatar replaces the glyph"
+    },
+    "text": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the words align to the start beside the glyph"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "one medium-weight sentence names who is coming and what happens"
+    },
+    "meta": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the reason or the wait is label size in the secondary tone"
+    },
+    "actions": {
+      "p": "P5",
+      "axis": "space",
+      "why": "at most one loud action and a ghost one, centred under the line"
+    }
+  },
+  "states": {
+    "@media prefers-reduced-motion: reduce": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "under reduced motion nothing turns, blinks or breathes, and the word carries the news"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the edges and marks, so every part stays findable"
+    }
+  },
+  "motion": {
+    "@turn": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the connecting arc turns once a second or so"
+    }
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "concept": "What an AI agent is doing, in one quiet row: a glyph and a word per state, the task in a line, its steps, and the one thing the reader can do now.",
+  "default_to_avoid": [
+    {
+      "pattern": "an agent status as a coloured pill that pulses",
+      "kind": "agent status, AI status, progress indicator for an agent, task status",
+      "why_not": "a coloured pulse says nothing about what the agent is doing and fails without colour; Pane says the state in a word with its own glyph and lists the steps"
+    }
+  ],
+  "references": [
+    {
+      "title": "WAI-ARIA · status role",
+      "url": "https://www.w3.org/TR/wai-aria-1.2/#status"
+    },
+    {
+      "title": "Apple HIG · Progress indicators",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/progress-indicators"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "each state has its own glyph: dots, a turning arc, a clock, a check, an octagon"
+    },
+    {
+      "p": "P6",
+      "axis": "type",
+      "consequence": "labels and names exist for assistive tech even when hidden visually",
+      "form": "the state is a word before the task, read once as a polite status"
+    },
+    {
+      "p": "P4",
+      "axis": "motion",
+      "consequence": "long ease-out curves (420 to 640ms) for arriving and hovering, a shorter one (200ms) for pressing because a press is a reply; under reduced motion every duration is zero at the token level",
+      "form": "working turns and thinking breathes, slowly, and both stop under reduced motion"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/waveJ4/",
+    "section": "agentstatus",
+    "options": [
+      "A glyph, a word and the steps",
+      "B a coloured pulsing pill",
+      "C a spinner alone"
+    ],
+    "picked": "A glyph, a word and the steps",
+    "by": "agent",
+    "reason": "A says what and where without colour (P6). B rests on hue. C says nothing about the task."
+  },
+  "parts": {
+    "root": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "a quiet tinted row on the pane with its edge"
+    },
+    "line": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the glyph, the words and the action share one row"
+    },
+    "glyph": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "the state's glyph sits on the first line of text"
+    },
+    "thinking": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "thinking is three dots in the secondary tone"
+    },
+    "working": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "working is a turning arc in the primary tone"
+    },
+    "waiting": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "waiting for the reader takes the warning mark, because the reader must act"
+    },
+    "done": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "done takes the positive mark beside its check, so finished reads by shape too"
+    },
+    "failed": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "failed takes the critical mark beside its octagon, so a failure reads by shape too"
+    },
+    "text": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the words take the free width between the glyph and the action"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the task reads in the primary tone, in the reader's own words"
+    },
+    "word": {
+      "p": "P6",
+      "axis": "type",
+      "why": "the state word is semibold so it is found first"
+    },
+    "meta": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the step count and time are caption size in tabular figures"
+    },
+    "action": {
+      "p": "P5",
+      "axis": "space",
+      "why": "the one thing the reader can do sits at the end"
+    },
+    "steps": {
+      "p": "P3",
+      "axis": "space",
+      "why": "the steps are a short list under the line, aligned with the words"
+    },
+    "step": {
+      "p": "P6",
+      "axis": "type",
+      "why": "each step is a line of label size"
+    },
+    "dot": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a step's dot is a ring until done, filled when done or current"
+    },
+    "sr": {
+      "p": "P6",
+      "axis": "type",
+      "why": "the state word is read before the line, so the state is never colour or shape alone"
+    }
+  },
+  "states": {
+    "data-state=current": {
+      "p": "P6",
+      "axis": "type",
+      "why": "the current step comes up to the primary tone and medium weight, and is marked current"
+    },
+    "data-state=done": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a done step's dot is filled in the secondary tone"
+    },
+    "data-state=failed": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a failed step's dot takes the critical mark and the word Failed is read"
+    },
+    "@media prefers-reduced-motion: reduce": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "under reduced motion nothing turns, blinks or breathes, and the word carries the news"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the edges and marks, so every part stays findable"
+    }
+  },
+  "motion": {
+    "@turn": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "working turns once a second or so, steady enough to read as busy and never frantic"
+    },
+    "@breathe": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "thinking breathes slowly between full and faint, so it reads as waiting rather than working"
+    }
+  }
+}

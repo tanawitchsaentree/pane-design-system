@@ -1,7 +1,7 @@
 // The header's MUI-style tools: the version with what it means, a one-line announcement of the release,
 // search over every chapter with ⌘K (Pane's own CommandPalette), and the source on GitHub.
 import { useState } from 'react';
-import { CommandPalette, Kbd, Menu } from 'pane-react';
+import { CommandPalette, Kbd, Menu, Popover, SegmentedControl, Select } from 'pane-react';
 import { version, componentCount } from 'virtual:book-facts';
 import { PARTS, navigate } from './router';
 
@@ -49,5 +49,31 @@ export function GitHubLink() {
     <a className="tb-iconlink" href={REPO} target="_blank" rel="noreferrer" aria-label="Pane on GitHub (opens in a new tab)">
       <svg viewBox="0 0 16 16" aria-hidden="true" className="tb-icon tb-fill"><path d="M8 .2a8 8 0 0 0-2.5 15.6c.4 0 .5-.2.5-.4v-1.4c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.2 1.9.9 2.3.7.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.9.3-1.6.8-2.2-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8a7.6 7.6 0 0 1 4 0c1.5-1 2.2-.8 2.2-.8.4 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.2 0 3.1-1.9 3.8-3.6 4 .3.3.6.8.6 1.5v2.2c0 .2.1.5.6.4A8 8 0 0 0 8 .2Z" /></svg>
     </a>
+  );
+}
+
+/** The look of the book in one place (M1): material first, then brand, then the demo backdrop. The theme
+ *  stays a visible control beside it because it is the one people change most. The button says the
+ *  current choice, so the reader can see what the book is showing without opening it. */
+export function AppearanceMenu({ material, onMaterial, brand, onBrand, brands, scene, onScene, scenes }: {
+  material: 'glass' | 'solid'; onMaterial: (m: 'glass' | 'solid') => void;
+  brand: string; onBrand: (b: string) => void; brands: Array<{ id: string; name: string }>;
+  scene: string; onScene: (s: string) => void; scenes: Array<{ id: string; label: string }>;
+}) {
+  const brandName = brand === 'pane' ? 'Pane' : brands.find((b) => b.id === brand)?.name ?? brand;
+  const sceneName = scenes.find((x) => x.id === scene)?.label.replace(/ \(.*\)$/, '') ?? scene;
+  const summary = `${material === 'glass' ? 'Glass' : 'Solid'} · ${brandName} · ${sceneName}`;
+  return (
+    <span className="tb-appearance" data-scene-control="" data-brand-control="" data-material-control="">
+      <Popover title="Appearance" align="end"
+        trigger={<button type="button" className="tb-version tb-look" aria-label={`Appearance: ${summary}`}><span className="tb-look-text">{summary}</span><Chevron /></button>}>
+        <div className="tb-look-body">
+          <SegmentedControl label="Material" value={material} onValueChange={(v) => onMaterial(v as 'glass' | 'solid')} options={[{ value: 'glass', label: 'Glass' }, { value: 'solid', label: 'Solid' }]} />
+          <Select label="Brand" size="sm" value={brand} onValueChange={onBrand} options={[{ value: 'pane', label: 'Pane' }, ...brands.map((b) => ({ value: b.id, label: b.name }))]} />
+          <Select label="Demo backdrop" size="sm" value={scene} onValueChange={onScene} options={scenes.map((x) => ({ value: x.id, label: x.label }))} />
+          <a className="tb-look-link" href="/foundations/materials" onClick={(e) => { e.preventDefault(); navigate('/foundations/materials'); }}>How to choose a material</a>
+        </div>
+      </Popover>
+    </span>
   );
 }

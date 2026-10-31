@@ -25,5 +25,19 @@ const components = Object.entries(meta.components).map(([name, m]) => {
 const out = { version: meta.version, site: SITE, install: 'Pane is not on npm. Install the release tarball: npm install /path/to/pilot-glass/release/pane-react-<version>.tgz, then import \'pane-react/tokens.css\'. Plain HTML: <link rel="stylesheet" href="' + SITE + '/pane-tokens-<version>.css">.', components,
   tokens: Object.entries(tokens).map(([k, t]) => ({ name: k, tier: t.tier, type: t.type, css: t.css, value: t.value, light: t.themes?.light?.value ?? null })) };
 const dest = path.join(root, 'packages/react/dist/mcp'); mkdirSync(dest, { recursive: true });
+// how a product sets its look (M1): the four choices in order, read by choose_appearance and the skill
+const brandsFile = path.join(root, 'packages', 'tokens', 'build', 'css', 'brands', 'brands.json');
+out.appearance = {
+  order: ['material', 'theme', 'brand', 'environment'],
+  materials: [
+    { id: 'glass', default: true, what: 'Translucent panes over a blurred, dimmed scene. The same lit, carved shapes as solid.', when: 'A product with a scene worth seeing (a photo, a wallpaper, a place) or a brand that asks for depth over a picture.', code: '<Environment material="glass" brightness="bright">…</Environment>' },
+    { id: 'solid', what: 'The same lit, carved shapes, opaque. Nothing shows through and no backdrop filter runs.', when: 'A live backdrop (video, map, 3D), a reading- or data-heavy tool, a business app with no scene, or low-power devices. Reduced transparency falls back to it by itself.', code: '<Environment material="solid">…</Environment>' },
+  ],
+  rules: ['Set the material once, on the Environment at the root of a screen.', 'Never put glass and solid panes side by side on one screen.', 'An overlay takes the material of the screen it opens over.', 'Change material only for a whole region that is a different place, such as a full-screen video player.'],
+  themes: { values: ['dark', 'light'], how: 'data-theme on <html> or any region; leave it out to follow the system.' },
+  brands: { list: existsSync(brandsFile) ? JSON.parse(readFileSync(brandsFile, 'utf8')).map((b) => ({ id: b.id, name: b.name, description: b.description })) : [], how: "@import 'pane-react/tokens/brands/<id>.css' and data-brand=\"<id>\"; check your own with npx pane-theme check brand.json." },
+  environments: { values: ['dim', 'mid', 'bright'], how: 'Environment brightness, sized for the brightest spot a pane can land on; solid ignores it.' },
+  docs: `${SITE}/getting-started/look`,
+};
 writeFileSync(path.join(dest, 'pane-knowledge.json'), JSON.stringify(out));
 console.log(`✓ pane-knowledge: ${components.length} components, ${out.tokens.length} tokens`);

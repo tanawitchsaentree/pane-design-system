@@ -164,3 +164,9 @@
 - **ตัดสิน:** แบรนด์คือไฟล์ JSON หนึ่งไฟล์ เปลี่ยนได้เฉพาะ loud action (fill + ตัวอักษรบน fill), accent, focus ring, chosen glass, type family และ corner 3 ขั้น ไม่แตะ glass material, text tone, status colour, spacing, motion และ data palette build จะหยุดถ้ามี token นอกรายการ หรือถ้าตัวอักษรบน loud action ต่ำกว่า 4.5:1 หรือ focus ring บนหน้าต่ำกว่า 3:1 ไม่ว่าจะธีม dark หรือ light แต่ละแบรนด์ได้ sheet ของตัวเอง (`pane-react/tokens/brands/<id>.css`) scope ด้วย `[data-brand]` และประกาศ component token ที่อ้างถึงซ้ำในบล็อก เหมือนบล็อกของธีมและ environment
 - **ตัวอย่าง:** Harbor (ฟ้า, มุมแคบลงหนึ่งขั้น), Sage (เขียว), Plum (ม่วง และ chosen glass ย้อมสีแบรนด์)
 - **ผลต่อ:** header มีตัวเลือก Brand, มีบท White-label brands, CLI `pane-theme`, evidence วัดแยกแต่ละแบรนด์ได้ด้วย KILN_BRAND
+
+### D-034: Material เป็นตัวเลือกหลักของระบบ มีสองแบบ glass และ solid หนึ่งหน้าจอหนึ่ง material
+- **วันที่:** 2026-10-31 · **เลือกโดย:** agent ตามที่ user สั่ง ("มีแนว skeuomorph กับ glassmorph ต้องทำให้ชัดเจน")
+- **ตัดสิน:** ภาษารูปทรงแบบจับต้องได้ (แสงจากบน, ร่องที่ฝังลงไป, แผ่นที่ยกขึ้น) เป็นของทั้งระบบ ส่วน material ตัดสินแค่ความโปร่ง glass (ค่าเริ่มต้น) ให้ฉากหลังลอดผ่านแบบเบลอและหรี่ solid ให้รูปทรงเดิมแต่ทึบ ตั้งที่ `<Environment material>` ตัวเดียวที่รากของหน้าจอ ห้ามวาง glass กับ solid ข้างกัน (G-MT1) overlay ใช้ material ของหน้าจอที่มันเปิดทับ ถ้าผู้ใช้เปิด reduced transparency จะเปลี่ยนเป็น solid เอง
+- **ผลต่อ:** บท Materials, หน้า Choose your look, ปุ่ม Appearance ใน header, `choose_appearance` ใน MCP, skill และ check_usage
+- **ค้าง:** หน้าตาของ glass เองยังรอ user เลือกจาก concept-check (R-032) ตอนนี้ glass ที่เป็นแบบรมควันเข้มดูใกล้กับ solid มาก

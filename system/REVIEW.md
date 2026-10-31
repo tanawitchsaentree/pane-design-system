@@ -116,3 +116,8 @@ Lab: `apps/lab/round5/index.html` (the user's OpenGlass-style reference beside P
 | SequenceDiagram (diagrams) | **A lanes with a spoken list** | A keeps the picture and the words (P6). B shuts out screen readers. C loses who talks to whom at a glance. |
 | ButtonGroup (wave A) | **A hairline seam, squared inner corners** | A reads as one object of parts on glass (P3). B frames it twice. C merges the buttons into one blur. |
 | SplitButton (wave A) | **A one variant, joined** | A keeps one weight for one action (P5). B splits the weight. C hides the usual action behind a menu. |
+| ChatMessage (J4) | **A chosen-glass turn, plain answer** | A keeps the answer as content and marks the reader's turn without a hue (P1, P3). B adds two hues. C loses who said what at a glance. |
+| ChatComposer (J4) | **A carved well with a loud bead** | A matches every field and keeps one loud thing (P3, P5). B adds a hue. C makes Send hard to hit with a thumb. |
+| AgentStatus (J4) | **A glyph, a word and the steps** | A says what and where without colour (P6). B rests on hue. C says nothing about the task. |
+| HumanHandoff (J4) | **A quiet row that names who** | A keeps calm and names the person and the wait (P2, P6). B alarms. C gives no way to accept or decline. |
+| Citation (J4) | **A round chip that opens a card** | A checks a claim in place (P6). B is a hue and a tiny target. C makes the reader match numbers by hand. |

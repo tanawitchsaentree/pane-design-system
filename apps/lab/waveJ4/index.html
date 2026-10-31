@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>J4: working with AI, three ways each</title>
+<style>
+  body { margin: 0; padding: 40px; background: #0B0B0D; color: #fff; font: 15px/1.5 system-ui, sans-serif; }
+  section { margin-block-end: 32px; } .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .pane { padding: 18px; border-radius: 26px; background: linear-gradient(180deg, #2a2b30, #1c1d21); box-shadow: inset 0 1px 0 #fff2; display: flex; flex-direction: column; gap: 10px; }
+  .me { align-self: flex-end; padding: 10px 14px; border-radius: 18px; background: linear-gradient(180deg,#ffffff38,#ffffff14); }
+  .bub { padding: 10px 14px; border-radius: 18px; } .blue { background: #2a6ef0; align-self: flex-end; } .grey { background: #3a3b40; }
+  .row2 { display: flex; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 16px; background: #ffffff10; }
+  .chip { display: inline-grid; place-items: center; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 99px; background: #ffffff20; font-size: 11px; vertical-align: super; }
+  figcaption { margin-top: 8px; color: #ffffffcc; font-size: 13px; }
+</style></head><body>
+<h1>Working with AI (Pane J4)</h1>
+<section><h2>ChatMessage</h2><div class="row">
+ <figure><div class="pane"><span class="me">When is my next test?</span><span>Thursday at 08:30, at Bryggen.</span></div><figcaption><b>A · chosen-glass turn, plain answer</b> (picked)</figcaption></figure>
+ <figure><div class="pane"><span class="bub blue">When is my next test?</span><span class="bub grey">Thursday at 08:30.</span></div><figcaption>B · two coloured bubbles</figcaption></figure>
+ <figure><div class="pane"><span>When is my next test?</span><span>Thursday at 08:30.</span></div><figcaption>C · both plain</figcaption></figure>
+</div></section>
+<section><h2>ChatComposer</h2><div class="row">
+ <figure><div class="pane"><div class="row2" style="background:#0000004d;border-radius:99px">Ask about your results <span style="margin-left:auto;width:36px;height:36px;border-radius:99px;background:#fff;color:#000;display:grid;place-items:center">↑</span></div></div><figcaption><b>A · carved well, loud bead</b> (picked)</figcaption></figure>
+ <figure><div class="pane"><div class="row2" style="background:#fff;color:#555">Ask <span style="margin-left:auto;color:#2a6ef0">➤</span></div></div><figcaption>B · white box, blue plane</figcaption></figure>
+ <figure><div class="pane"><div class="row2">Ask <span style="margin-left:auto;font-size:12px">Send</span></div></div><figcaption>C · a field and a text button</figcaption></figure>
+</div></section>
+<section><h2>AgentStatus</h2><div class="row">
+ <figure><div class="pane"><div class="row2">◠ <b>Working</b> Preparing your referral</div><small style="padding-left:30px;color:#ffffffaa">● Read your notes<br>● <b style="color:#fff">Fill in the form</b><br>○ Send</small></div><figcaption><b>A · glyph, word, steps</b> (picked)</figcaption></figure>
+ <figure><div class="pane"><span style="align-self:flex-start;padding:6px 12px;border-radius:99px;background:#6b46ff">● AI</span></div><figcaption>B · coloured pulsing pill</figcaption></figure>
+ <figure><div class="pane"><span>◌</span></div><figcaption>C · a spinner alone</figcaption></figure>
+</div></section>
+<section><h2>HumanHandoff</h2><div class="row">
+ <figure><div class="pane" style="align-items:center"><span>👤 Talk to a nurse?</span><small style="color:#ffffffaa">This needs a clinician to look at.</small><span><span class="bub" style="background:#fff;color:#000">Talk to a person</span> Not now</span></div><figcaption><b>A · quiet row that names who</b> (picked)</figcaption></figure>
+ <figure><div class="pane"><div class="row2" style="background:#7a1d1d">⚠ ESCALATED</div></div><figcaption>B · red escalation banner</figcaption></figure>
+ <figure><div class="pane"><small style="color:#ffffffaa">— system: transferred —</small></div><figcaption>C · a system line only</figcaption></figure>
+</div></section>
+<section><h2>Citation</h2><div class="row">
+ <figure><div class="pane"><span>LDL fell to 3.4<span class="chip">1</span> since March.</span></div><figcaption><b>A · round chip that opens a card</b> (picked)</figcaption></figure>
+ <figure><div class="pane"><span>LDL fell to 3.4<sup style="color:#4b8bff;text-decoration:underline">1</sup> since March.</span></div><figcaption>B · blue superscript</figcaption></figure>
+ <figure><div class="pane"><span>LDL fell to 3.4 since March.</span><small style="color:#ffffffaa">Sources: 1. Blood test</small></div><figcaption>C · a sources list at the end only</figcaption></figure>
+</div></section>
+</body></html>

@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-10-31T01:13:06.246Z",
+  "generatedAt": "2026-10-31T02:56:35.947Z",
   "passed": 1,
   "total": 1,
   "partial": true,
   "advisory": {},
   "results": [
     {
-      "id": "G-BT1",
-      "name": "every topic the reference systems cover on a page is covered on ours, or declined with a reason",
+      "id": "G-MT1",
+      "name": "one material per screen: no demo puts glass panes and solid panes side by side, outside a comparison marked as one",
       "ok": true,
-      "detail": "135 topics across 13 pages",
-      "order": 30
+      "detail": "124 pages",
+      "order": 43
     }
   ]
 }

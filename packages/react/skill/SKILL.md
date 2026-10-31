@@ -9,6 +9,15 @@ Pane is a design system of clear, blurred glass panes over a scene. The scene is
 
 Before writing a screen, look things up instead of guessing. The package ships an MCP server (`npx pane-mcp`) with `list_components`, `search_components`, `get_component` (props, keys, states, tokens) and `search_tokens`, and the docs publish `https://pane-design-system.pages.dev/llms.txt`.
 
+## Choose the look first
+
+Four choices, in this order, each one prop or attribute. Ask the MCP `choose_appearance` tool when unsure.
+
+1. **Material.** `glass` shows the scene through blurred, dimmed panes; `solid` keeps the same lit, carved shapes and makes them opaque. Pick solid for a live backdrop (video, map, 3D), a reading- or data-heavy tool, or when there is no scene worth seeing. Pick glass when the scene is part of the product. One material per screen, set on its root `Environment`; never mix glass and solid panes side by side.
+2. **Theme.** Leave `data-theme` off to follow the system, or set `dark` or `light`.
+3. **Brand.** Pane, or a white-label brand sheet with `data-brand`.
+4. **Environment.** `brightness` for the brightest spot a pane can land on; solid ignores it.
+
 ## Set up once
 
 ```tsx
@@ -16,7 +25,7 @@ import 'pane-react/tokens.css';            // or tokens/core.css + tokens/colour
 import { Environment, PaneProvider, th } from 'pane-react';
 
 <PaneProvider locale="th-TH" messages={th}>  {/* only for a Thai product */}
-  <Environment brightness="bright">{app}</Environment>
+  <Environment material="glass" brightness="bright">{app}</Environment>
 </PaneProvider>
 ```
 

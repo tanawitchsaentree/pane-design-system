@@ -1,0 +1,117 @@
+{
+  "concept": "A numbered mark after a claim that opens a small card with the source, the passage and a link, so a claim can be checked before acting on it.",
+  "default_to_avoid": [
+    {
+      "pattern": "a citation as a blue underlined superscript number",
+      "kind": "citation, source link, footnote, reference marker",
+      "why_not": "a blue superscript is a hue and a tiny target; Pane makes a round mark with a 24px press area and puts the source in words"
+    }
+  ],
+  "references": [
+    {
+      "title": "WCAG 2.5.8 · Target size",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html"
+    },
+    {
+      "title": "Perplexity and ChatGPT citation patterns",
+      "url": "https://www.w3.org/WAI/tutorials/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P6",
+      "axis": "shape",
+      "consequence": "selected and pressed states change shape or add a mark (a check, a ring), never only colour",
+      "form": "the mark is a small round chip in the line, sized to its number"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "its name says the source in words, and it opens a card on press or Enter"
+    },
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the card is a level-4 pane over the answer"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/waveJ4/",
+    "section": "citation",
+    "options": [
+      "A round chip that opens a card",
+      "B blue superscript link",
+      "C a sources list at the end only"
+    ],
+    "picked": "A round chip that opens a card",
+    "by": "agent",
+    "reason": "A checks a claim in place (P6). B is a hue and a tiny target. C makes the reader match numbers by hand."
+  },
+  "parts": {
+    "mark": {
+      "p": "P6",
+      "axis": "shape",
+      "why": "a small round chip raised like a footnote, sized to its number"
+    },
+    "pop": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "the source card is a level-4 pane held to a reading width"
+    },
+    "title": {
+      "p": "P2",
+      "axis": "type",
+      "why": "the source title is semibold at body size"
+    },
+    "source": {
+      "p": "P2",
+      "axis": "type",
+      "why": "where the source comes from is secondary, under its title"
+    },
+    "quote": {
+      "p": "P2",
+      "axis": "colour",
+      "why": "the passage is set off by a hairline rule at its start edge in the divider tone"
+    },
+    "foot": {
+      "p": "P3",
+      "axis": "space",
+      "why": "confidence and the link share the last row"
+    },
+    "link": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "Open source is an underlined link that says it opens a new tab"
+    },
+    "sr": {
+      "p": "P6",
+      "axis": "type",
+      "why": "opens in a new tab is read for screen readers"
+    }
+  },
+  "states": {
+    "hover": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the mark lifts to chosen glass under a pointer"
+    },
+    "data-state=open": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the mark stays lit while its card is open"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring shows on the mark when reached by keyboard"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "depth",
+      "why": "in forced colours the system draws the edges and marks, so every part stays findable"
+    }
+  },
+  "motion": {}
+}

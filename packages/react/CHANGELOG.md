@@ -4,6 +4,12 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- Environment: `material` (glass or solid) is now the documented way a screen chooses what its panes are made of, with the Materials chapter, Choose your look, and `choose_appearance` in pane-mcp.
+- ChatMessage: new. One turn of a conversation, the reader's on chosen glass and the answer as text on the pane, with ChatToolCall steps and a streaming caret.
+- ChatComposer: new. A growing field in the field's well with one bead that sends or stops; Enter sends, Shift+Enter is a new line.
+- AgentStatus: new. What an AI agent is doing, a glyph and a word per state, its steps and the one action that fits.
+- HumanHandoff: new. The move between an assistant and a person, from the offer to the hand back, announced once per change.
+- Citation: new. A numbered mark after a claim that opens its source, the passage and a link.
 - PaneProvider: white-label brands (D-033). Load `pane-react/tokens/brands/<id>.css` and set `data-brand`; three samples ship (Harbor, Sage, Plum) and `pane-theme check` validates your own.
 - IconButton: icons are drawn at their size again (a content wrapper had made them 0×0).
 - Pagination: when the whole bar does not fit its space, the numbered pages give way to the page in words between Previous and Next.

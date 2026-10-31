@@ -169,5 +169,16 @@
     "builder": "playground",
     "types": "file",
     "contrast": "check"
+  },
+  "/foundations/materials": {
+    "types": "choose",
+    "solid": "compare",
+    "translucent": "compare",
+    "wallpaper": {
+      "na": "Pane keeps to two materials on purpose. An opaque surface tinted by the wallpaper would be a third, and a screen must hold one material so the depth reads."
+    },
+    "scrim": "rules",
+    "legibility": "changes",
+    "platform": "choose"
   }
 }

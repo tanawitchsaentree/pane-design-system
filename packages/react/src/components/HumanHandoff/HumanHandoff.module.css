@@ -1,0 +1,15 @@
+/* The hand-over between an assistant and a person is a divider-like row in the conversation, centred
+   and quiet (P2): a person glyph, or their avatar once connected, one line that says who and what, and
+   at most one loud action, Talk to a person, in the offer (P5). */
+.root { display: flex; flex-direction: column; align-items: center; gap: var(--ds-gap-md); padding: var(--ds-handoff-padding); border-radius: var(--ds-handoff-radius); background: var(--ds-handoff-bg); box-shadow: var(--ds-handoff-edge); font-family: var(--ds-type-family); font-size: var(--ds-type-body); line-height: var(--ds-type-leading-body); color: var(--ds-text-primary); text-align: center; }
+.line { display: flex; align-items: center; gap: var(--ds-gap-md); }
+.glyph { flex: none; inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; color: var(--ds-text-secondary); }
+.turning { animation: turn var(--ds-agent-turn) linear infinite; }
+@keyframes turn { to { transform: rotate(1turn); } }
+@media (prefers-reduced-motion: reduce) { .turning { animation: none; } }
+.avatar { flex: none; display: inline-grid; }
+.text { text-align: start; }
+.title { margin: 0; font-weight: var(--ds-type-weight-medium); }
+.meta { margin: 0; font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--ds-gap-sm); }
+@media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid CanvasText; } .glyph { stroke: CanvasText; } }

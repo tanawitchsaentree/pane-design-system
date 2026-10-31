@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-31T01:26:09.557Z",
-  "passed": 443,
-  "total": 443,
+  "generatedAt": "2026-10-31T02:14:55.993Z",
+  "passed": 459,
+  "total": 459,
   "checks": [
     {
       "component": "Container",
@@ -2465,6 +2465,96 @@
     {
       "component": "FileUpload",
       "name": "each file says where its upload has got to",
+      "ok": true
+    },
+    {
+      "component": "ChatMessage",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "11 props"
+    },
+    {
+      "component": "ChatComposer",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props"
+    },
+    {
+      "component": "AgentStatus",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "5 props"
+    },
+    {
+      "component": "HumanHandoff",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props"
+    },
+    {
+      "component": "Citation",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props"
+    },
+    {
+      "component": "ChatMessage",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "6 demos"
+    },
+    {
+      "component": "ChatComposer",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "5 demos"
+    },
+    {
+      "component": "AgentStatus",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "HumanHandoff",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos"
+    },
+    {
+      "component": "Citation",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos"
+    },
+    {
+      "component": "ChatMessage",
+      "name": "a turn says who wrote it",
+      "ok": true
+    },
+    {
+      "component": "ChatMessage",
+      "name": "a step opens with Enter",
+      "ok": true
+    },
+    {
+      "component": "ChatComposer",
+      "name": "Enter sends and Shift+Enter starts a new line",
+      "ok": true
+    },
+    {
+      "component": "AgentStatus",
+      "name": "a change of state is announced once",
+      "ok": true
+    },
+    {
+      "component": "HumanHandoff",
+      "name": "each change is announced once",
+      "ok": true
+    },
+    {
+      "component": "Citation",
+      "name": "Enter opens the source",
       "ok": true
     }
   ]

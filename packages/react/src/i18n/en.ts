@@ -69,6 +69,22 @@ const en = {
   uploaded: 'Uploaded',
   uploadFailed: 'Upload failed',
   retry: 'Retry',
+  messageFrom: (who: string) => `Message from ${who}`,
+  working: 'Working',
+  failed: 'Failed',
+  thinking: 'Thinking',
+  waitingOnYou: 'Waiting for you',
+  writeMessage: 'Write a message',
+  send: 'Send',
+  stop: 'Stop',
+  handoffOffer: (who: string) => `Talk to ${who}?`,
+  handoffConnecting: (who: string) => `Connecting you to ${who}`,
+  handoffConnected: (who: string) => `${who} has joined the chat`,
+  handoffReturned: (who: string) => `${who} handed the chat back to the assistant`,
+  talkToPerson: 'Talk to a person',
+  notNow: 'Not now',
+  sourceOf: (n: number, title: string) => `Source ${n}, ${title}`,
+  openSource: 'Open source',
 };
 export type PaneMessages = typeof en;
 export default en;

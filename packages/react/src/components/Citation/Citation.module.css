@@ -1,0 +1,15 @@
+/* A citation is a small round mark in the line of text, raised like a footnote and sized to its number,
+   with a 24px press area around it (WCAG 2.5.8 spacing exception for inline targets); its card is a
+   level-4 pane with the source in words and one link (P6). */
+.mark { position: relative; display: inline-grid; place-items: center; min-inline-size: var(--ds-citation-size); block-size: var(--ds-citation-size); margin-inline: var(--ds-space-0-5); padding-inline: var(--ds-space-1); border: 0; border-radius: var(--ds-corner-round); background: var(--ds-citation-bg); color: var(--ds-text-primary); font: inherit; font-size: var(--ds-type-micro); font-weight: var(--ds-type-weight-semibold); font-variant-numeric: tabular-nums; line-height: 1; vertical-align: super; cursor: pointer; }
+.mark::after { content: ''; position: absolute; inset: calc((var(--ds-citation-size) - var(--ds-citation-hit)) / 2); }
+.mark:hover, .mark[data-state='open'] { background: var(--ds-citation-bg-on); }
+.mark:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-width-ring); }
+.pop { display: flex; flex-direction: column; gap: var(--ds-gap-sm); max-inline-size: var(--ds-citation-pop); font-family: var(--ds-type-family); font-size: var(--ds-type-label); line-height: var(--ds-type-leading-body); }
+.title { margin: 0; font-size: var(--ds-type-body); font-weight: var(--ds-type-weight-semibold); color: var(--ds-text-primary); }
+.source { margin: 0; color: var(--ds-text-secondary); }
+.quote { margin: 0; padding-inline-start: var(--ds-gap-md); border-inline-start: var(--ds-width-ring) solid var(--ds-line-divider); color: var(--ds-text-primary); }
+.foot { display: flex; align-items: center; justify-content: space-between; gap: var(--ds-gap-md); }
+.link { color: var(--ds-text-primary); text-decoration: underline; text-underline-offset: var(--ds-space-0-5); }
+.sr { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (forced-colors: active) { .mark { border: var(--ds-width-hairline) solid ButtonText; } }

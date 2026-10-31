@@ -18,6 +18,7 @@
 //   inset        G-IN1 text inside a control ≥8px (and ≥ half the end radius) from the control's edge
 //   travel       G-SL1 a slider ≥200px long, and it and its pane keep their size from Home to End
 //   states       G-SV1 every promised state is present, visible and announced (state matrix)
+//   material     G-MT1 one material per screen, no glass beside solid
 //   icons        G-IC1 every icon in a component is drawn at a size
 //   overlap      G-OV1 neighbours in a demo never overlap
 //   leaks        G-LK1 page styles never reach inside a component (clone outside main, compare layout)
@@ -1263,6 +1264,36 @@ try {
     }
     fail(bad, 'elements spilling out of the page column');
     return `${n} pages`;
+  });
+
+  await gate('G-MT1', 'one material per screen: no demo puts glass panes and solid panes side by side, outside a comparison marked as one', async () => {
+    // Pane, 2026-10-31, user: glass and opaque surfaces were mixing ("บางคนอยากได้กระจก บางคนอยากได้ทึบ"). A
+    // screen picks one material (M1). A pane is glass when its own backdrop filter blurs, solid when it does not.
+    const routes = ROUTES.filter((x) => x.startsWith(`${C.componentsBase}/`) && x.endsWith('/code'));
+    if (!routes.length) throw new Error('NO COMPONENT PAGES in this run');
+    const bad = [];
+    for (const r of routes) {
+      await go(r);
+      const res = await page.evaluate(() => {
+        const out = [];
+        for (const stage of document.querySelectorAll('main [data-example-live]')) {
+          if (stage.closest('[data-material-compare]')) continue;
+          const kinds = new Set();
+          for (const pane of stage.querySelectorAll('[data-pane-card], [data-component="Dialog"], [data-component="Sheet"], [data-component="Navbar"], [data-component="BottomNav"]')) {
+            const cs = getComputedStyle(pane); if (cs.display === 'none') continue;
+            const f = cs.backdropFilter || cs.webkitBackdropFilter || 'none';
+            // a nested pane inside a glass pane draws no filter of its own; it takes its parent's material
+            if (f === 'none' && pane.parentElement.closest('[data-pane-card]')) continue;
+            kinds.add(f === 'none' ? 'solid' : 'glass');
+          }
+          if (kinds.size > 1) out.push(stage.closest('figure')?.querySelector('figcaption')?.textContent?.slice(0, 50) ?? 'a demo');
+        }
+        return out;
+      });
+      for (const x of res) bad.push(`${r}: ${x}`);
+    }
+    if (bad.length) throw new Error(`${bad.length} demos mix glass and solid: ${bad.slice(0, 8).join(' | ')}`);
+    return `${routes.length} pages`;
   });
 
   await gate('G-IC1', 'every icon inside a component is drawn at a size: no glyph collapses to nothing', async () => {

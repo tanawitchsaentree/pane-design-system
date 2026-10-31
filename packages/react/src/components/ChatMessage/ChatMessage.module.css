@@ -1,0 +1,37 @@
+/* A conversation on glass (J4). The reader's turn is chosen glass at the end edge, because it is a choice
+   they made; the answer is plain text on the pane at the start, because the answer is the content (P1, P3).
+   Steps the assistant took sit above the answer as quiet rows that open. */
+.root { display: flex; gap: var(--ds-chat-gap); font-family: var(--ds-type-family); font-size: var(--ds-type-body); line-height: var(--ds-type-leading-body); color: var(--ds-text-primary); }
+.user { justify-content: flex-end; }
+.user .body { max-inline-size: var(--ds-chat-bubble-max); padding: var(--ds-chat-bubble-padding); border-radius: var(--ds-chat-bubble-radius); background: linear-gradient(180deg, var(--ds-chat-bubble-top), var(--ds-chat-bubble-foot)); box-shadow: var(--ds-chat-bubble-edge); }
+.user .head { justify-content: flex-end; }
+.assistant .body { flex: 1; min-inline-size: 0; }
+.avatar { flex: none; display: inline-grid; place-items: center; inline-size: var(--ds-chat-avatar); block-size: var(--ds-chat-avatar); }
+.body { display: flex; flex-direction: column; gap: var(--ds-gap-sm); min-inline-size: 0; }
+.head { display: flex; align-items: baseline; gap: var(--ds-gap-sm); font-size: var(--ds-type-caption); color: var(--ds-text-secondary); }
+.author { font-weight: var(--ds-type-weight-medium); }
+.time { font-variant-numeric: tabular-nums; }
+.text { overflow-wrap: anywhere; }
+.text > :first-child { margin-block-start: 0; }
+.text > :last-child { margin-block-end: 0; }
+/* the caret blinks at the end of an answer that is still arriving; under reduced motion it stays lit */
+.caret { display: inline-block; inline-size: var(--ds-width-ring); block-size: 1em; margin-inline-start: var(--ds-space-0-5); vertical-align: text-bottom; background: currentColor; animation: blink var(--ds-chat-caret) steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .caret { animation: none; } }
+.actions { display: flex; gap: var(--ds-gap-xs); margin-inline-start: calc(var(--ds-gap-sm) * -1); }
+.steps { display: flex; flex-direction: column; gap: var(--ds-gap-xs); }
+.tool { border-radius: var(--ds-chat-tool-radius); background: var(--ds-chat-tool-bg); }
+.toolHead { display: flex; align-items: center; gap: var(--ds-gap-sm); min-block-size: var(--ds-layout-touch); padding-inline: var(--ds-gap-lg); cursor: pointer; list-style: none; font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.toolHead::-webkit-details-marker { display: none; }
+.toolHead:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); border-radius: inherit; }
+.tool[open] .toolHead { color: var(--ds-text-primary); }
+.toolTitle { min-inline-size: 0; }
+.toolBody { padding: 0 var(--ds-gap-lg) var(--ds-gap-md); font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+.mark { flex: none; inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); fill: none; stroke: var(--mark); stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
+.running { --mark: var(--ds-text-secondary); animation: turn var(--ds-chat-turn) linear infinite; }
+.done { --mark: var(--ds-status-positive-mark); }
+.failed { --mark: var(--ds-status-critical-mark); }
+@keyframes turn { to { transform: rotate(1turn); } }
+@media (prefers-reduced-motion: reduce) { .running { animation: none; } }
+.sr { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (forced-colors: active) { .user .body { border: var(--ds-width-hairline) solid CanvasText; } .mark { stroke: CanvasText; } .caret { background: CanvasText; } }

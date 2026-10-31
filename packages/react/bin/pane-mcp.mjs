@@ -13,6 +13,7 @@ const TOOLS = [
   { name: 'get_component', description: 'One component: import line, every prop (type, default, description), its theme tokens, and links to its docs and API page.', inputSchema: { type: 'object', properties: { name: { type: 'string' } }, required: ['name'] } },
   { name: 'search_tokens', description: 'Find design tokens by name or value, such as "gap", "critical", "radius"; returns CSS custom properties with dark and light values.', inputSchema: { type: 'object', properties: { query: { type: 'string' }, tier: { type: 'string', enum: ['primitive', 'semantic', 'component'] } }, required: ['query'] } },
   { name: 'check_usage', description: 'Review a JSX or CSS snippet against the rules Pane enforces (one loud action per pane, no raw colours or pixels, names for icon buttons, the id on FormField, status by glyph and word, no unknown components) and list what to change.', inputSchema: { type: 'object', properties: { code: { type: 'string', description: 'The JSX/TSX or CSS to check.' } }, required: ['code'] } },
+  { name: 'choose_appearance', description: 'Pick how a product built with Pane should look: the material (glass or solid), theme, brand and environment, in that order, with the reasons and the code. Describe the product, such as "a clinic dashboard over a live map" or "a photo journal".', inputSchema: { type: 'object', properties: { product: { type: 'string', description: 'What the product is and what sits behind its interface.' } } } },
   { name: 'how_to_install', description: 'How to install Pane in a React project or a plain HTML site.', inputSchema: { type: 'object', properties: {} } },
 ];
 const words = (s) => String(s).toLowerCase().split(/[^a-z0-9ก-๙]+/).filter(Boolean);
@@ -31,8 +32,29 @@ function checkUsage(code) {
   const known = new Set(K.components.map((c) => c.name));
   const tags = [...new Set([...code.matchAll(/<([A-Z][A-Za-z]+)/g)].map((m) => m[1]))].filter((n) => /pane-react/.test(code) && !known.has(n) && !/^(Fragment|Suspense)$/.test(n) && !K.components.some((c) => c.exports.some((e) => e.name === n)));
   if (tags.length) out.push(`not Pane components: ${tags.join(', ')}; check list_components, or build them from tokens`);
+  const mats = [...code.matchAll(/<Environment\b[^>]*material="(glass|solid)"/g)].map((x) => x[1]);
+  if (new Set(mats).size > 1) out.push('glass and solid on one screen; pick one material for the whole screen (see choose_appearance)');
+  if (/<(Card|Sheet|Dialog|Drawer|Navbar|BottomNav)\b/.test(code) && !/<Environment\b/.test(code)) out.push('panes with no Environment above them; wrap the screen in <Environment material brightness> so the glass knows the scene, or say which file does');
   if (/<p\b|<span\b/.test(code) && !/<(Card|Sheet|Dialog|Popover|Drawer)\b/.test(code)) out.push('text with no pane around it; put content on a Card (or another pane) so it never sits straight on the scene');
   return out.length ? `${out.length} things to change:\n- ${out.join('\n- ')}` : 'No problems found by the quick checks. Run the docs gates for layout and contrast.';
+}
+// choose_appearance: the four choices in order (M1), each with the reason drawn from the description
+function chooseAppearance(text) {
+  const A = K.appearance; if (!A) return 'This build carries no appearance guide; see the Materials chapter.';
+  const t = text.toLowerCase();
+  const live = /video|map|3d|camera|game|stream|live/.test(t), dense = /dashboard|table|admin|crm|report|form|data|ops|operations|back.?office|clinic|ehr/.test(t), scene = /photo|wallpaper|travel|journal|gallery|music|weather|place|spatial|vision/.test(t);
+  const m = live || (dense && !scene) ? 'solid' : scene ? 'glass' : 'solid';
+  const why = live ? 'there is a live backdrop, and blurring a moving picture every frame costs the frame rate' : dense && !scene ? 'the screen is mostly reading or data, where a quiet opaque surface reads best for a long time' : scene ? 'the scene is part of the product, so glass shows it' : 'nothing says there is a scene worth seeing, so solid is the safe default';
+  const brand = A.brands.list.find((b) => t.includes(b.id) || t.includes(b.name.toLowerCase()));
+  const lines = [
+    `1. Material: ${m}, because ${why}. ${A.materials.find((x) => x.id === m).what}`,
+    '2. Theme: leave data-theme off to follow the reader\'s system, or set dark or light; both work on either material.',
+    `3. Brand: ${brand ? `${brand.name} (${brand.id}). ${brand.description}` : 'Pane, unless the product is white-label; then load a brand sheet. Samples: ' + A.brands.list.map((b) => b.id).join(', ') + '.'} ${A.brands.how}`,
+    `4. Environment: ${m === 'glass' ? 'set brightness for the brightest spot a pane can land on (bright when unsure)' : 'solid ignores brightness, so leave it at bright'}.`,
+    '', 'Rules: ' + A.rules.join(' '), '',
+    'Code:', `<Environment material="${m}" brightness="bright">`, '  <App />', '</Environment>', brand ? `@import 'pane-react/tokens/brands/${brand.id}.css';  <html data-brand="${brand.id}">` : '', '', `Docs: ${A.docs}`,
+  ];
+  return lines.filter((l, i, all) => !(l === '' && all[i - 1] === '')).join('\n');
 }
 function call(name, a = {}) {
   if (name === 'list_components') return K.components.map((c) => `${c.name}: ${c.concept}`).join('\n');
@@ -40,6 +62,7 @@ function call(name, a = {}) {
   if (name === 'get_component') { const c = byName.get(String(a.name).toLowerCase()); if (!c) return `No component named ${a.name}. Use list_components.`; return JSON.stringify(c, null, 2); }
   if (name === 'search_tokens') { const q = String(a.query).toLowerCase(); return JSON.stringify(K.tokens.filter((t) => (!a.tier || t.tier === a.tier) && (t.name.includes(q) || t.css.includes(q) || String(t.value).toLowerCase().includes(q))).slice(0, 60), null, 1); }
   if (name === 'check_usage') return checkUsage(String(a.code ?? ''));
+  if (name === 'choose_appearance') return chooseAppearance(String(a.product ?? ''));
   if (name === 'how_to_install') return `${K.install}\nDocs: ${K.site} (version ${K.version}).`;
   throw new Error(`unknown tool ${name}`);
 }

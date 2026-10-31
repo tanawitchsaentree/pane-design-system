@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T01:02:30.927Z",
+  "generatedAt": "2026-10-31T02:23:18.964Z",
   "version": "0.7.0",
   "components": {
     "Accordion": {
@@ -172,9 +172,82 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 48355,
+        "jsMin": 48829,
         "cssMin": 4464,
-        "gzip": 18305
+        "gzip": 18508
+      }
+    },
+    "AgentStatus": {
+      "source": "packages/react/src/components/AgentStatus/AgentStatus.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "AgentStatus",
+          "props": [
+            {
+              "name": "state",
+              "type": "\"thinking\" | \"working\" | \"waiting\" | \"done\" | \"failed\"",
+              "required": true,
+              "default": null,
+              "description": "Where the agent is. `thinking` before it acts, `working` through steps, `waiting` when it needs the reader, `done`, or `failed`. Each has its own glyph and word, so the state never rests on colour.",
+              "enum": true,
+              "options": [
+                "thinking",
+                "working",
+                "waiting",
+                "done",
+                "failed"
+              ]
+            },
+            {
+              "name": "title",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "What it is doing or did, in a line, such as Checking your last three visits.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "steps",
+              "type": "AgentStep[]",
+              "required": false,
+              "default": null,
+              "description": "The steps, when it works through several; the current one is marked and read.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "elapsed",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "How long it has been at it, already formatted, such as 12 s.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "action",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "The one thing the reader can do now, such as Answer while waiting, Retry after a failure or Stop while working.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "state"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 7657,
+        "cssMin": 2460,
+        "gzip": 4084
       }
     },
     "AppShell": {
@@ -255,9 +328,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6037,
+        "jsMin": 6511,
         "cssMin": 1771,
-        "gzip": 3264
+        "gzip": 3461
       }
     },
     "AspectRatio": {
@@ -417,9 +490,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 16805,
+        "jsMin": 17279,
         "cssMin": 16838,
-        "gzip": 9199
+        "gzip": 9400
       }
     },
     "Autocomplete": {
@@ -549,9 +622,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 77495,
+        "jsMin": 77969,
         "cssMin": 5635,
-        "gzip": 29402
+        "gzip": 29608
       }
     },
     "Avatar": {
@@ -774,9 +847,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 7077,
+        "jsMin": 7551,
         "cssMin": 2555,
-        "gzip": 3995
+        "gzip": 4194
       }
     },
     "BarChart": {
@@ -880,9 +953,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 11811,
+        "jsMin": 12285,
         "cssMin": 3924,
-        "gzip": 6148
+        "gzip": 6348
       }
     },
     "BottomNav": {
@@ -959,9 +1032,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 6023,
+        "jsMin": 6497,
         "cssMin": 2247,
-        "gzip": 3419
+        "gzip": 3617
       }
     },
     "Box": {
@@ -1114,9 +1187,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5921,
+        "jsMin": 6395,
         "cssMin": 1141,
-        "gzip": 3084
+        "gzip": 3282
       }
     },
     "Button": {
@@ -1259,9 +1332,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 7599,
+        "jsMin": 8073,
         "cssMin": 5638,
-        "gzip": 4672
+        "gzip": 4873
       }
     },
     "ButtonGroup": {
@@ -1444,9 +1517,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 11042,
+        "jsMin": 11516,
         "cssMin": 6277,
-        "gzip": 6260
+        "gzip": 6463
       }
     },
     "Card": {
@@ -1587,9 +1660,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 8538,
+        "jsMin": 9012,
         "cssMin": 5495,
-        "gzip": 5208
+        "gzip": 5408
       }
     },
     "Center": {
@@ -1619,6 +1692,242 @@
         "jsMin": 305,
         "cssMin": 77,
         "gzip": 307
+      }
+    },
+    "ChatComposer": {
+      "source": "packages/react/src/components/ChatComposer/ChatComposer.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "ChatComposer",
+          "props": [
+            {
+              "name": "onSend",
+              "type": "(text: string) => void",
+              "required": true,
+              "default": null,
+              "description": "Called with the text when the reader sends it; the field empties.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onStop",
+              "type": "(() => void)",
+              "required": false,
+              "default": null,
+              "description": "While an answer is arriving the send button becomes Stop, which calls this.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "busy",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Set while an answer is arriving. The field stays usable for the next message, and the button stops the answer.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "placeholder",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Names the field and shows when it is empty, such as Ask about your results.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Names the field for screen readers; the placeholder by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "start",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Things before the field, such as an attach IconButton.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "maxRows",
+              "type": "number",
+              "required": false,
+              "default": "6",
+              "description": "The most lines the field grows to before it scrolls; 6 by default.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Turns the composer off, such as while a human has taken over the chat.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Extra class on the composer.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "disabled"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 9945,
+        "cssMin": 7449,
+        "gzip": 6167
+      }
+    },
+    "ChatMessage": {
+      "source": "packages/react/src/components/ChatMessage/ChatMessage.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "ChatToolCall",
+          "props": [
+            {
+              "name": "title",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "What the assistant did, as a past-tense line, such as Searched your records.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "state",
+              "type": "\"running\" | \"done\" | \"failed\"",
+              "required": false,
+              "default": "done",
+              "description": "`running` turns its mark while it works; `done` and `failed` take the check and the octagon with their word.",
+              "enum": true,
+              "options": [
+                "running",
+                "done",
+                "failed"
+              ]
+            },
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A short result line, such as 3 visits found, and anything the reader may open to see.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        },
+        {
+          "displayName": "ChatMessage",
+          "props": [
+            {
+              "name": "sender",
+              "type": "\"user\" | \"assistant\"",
+              "required": true,
+              "default": null,
+              "description": "`user` is the reader's own turn, on chosen glass at the end edge. `assistant` is the answer, plain text on the pane at the start, because the answer is the content.",
+              "enum": true,
+              "options": [
+                "user",
+                "assistant"
+              ]
+            },
+            {
+              "name": "author",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Who spoke, read before the message, such as You or Lumen.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "children",
+              "type": "ReactNode",
+              "required": true,
+              "default": null,
+              "description": "The message. Markdown, code and citations are rendered by the product and passed in.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "time",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "When it was sent, already formatted, such as 09:41.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "streaming",
+              "type": "boolean",
+              "required": false,
+              "default": null,
+              "description": "Set while the answer is still arriving. A caret follows the text and the message is marked busy, so screen readers hear it once it is complete.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "avatar",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "A small avatar or glyph before an assistant message.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "actions",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Quiet actions under the message, such as Copy and Retry, usually ghost IconButtons.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "steps",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Tool calls and steps the assistant took, shown above the answer, usually ChatToolCall rows.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "sender"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 7630,
+        "cssMin": 2855,
+        "gzip": 4251
       }
     },
     "Checkbox": {
@@ -1812,9 +2121,83 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6438,
+        "jsMin": 6912,
         "cssMin": 2519,
-        "gzip": 3656
+        "gzip": 3853
+      }
+    },
+    "Citation": {
+      "source": "packages/react/src/components/Citation/Citation.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "Citation",
+          "props": [
+            {
+              "name": "index",
+              "type": "number",
+              "required": true,
+              "default": null,
+              "description": "The number shown in the text, such as 1.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "title",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The source's title, such as Blood test, 12 March.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "source",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Where it comes from, such as Lab results or a site name.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "quote",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "The passage the claim rests on, quoted.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "href",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Opens the source; the card's Open source link goes here.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "confidence",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "How sure the answer is that this source says it, such as a ConfidenceChip.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [],
+      "variantCount": 0,
+      "demoFloor": 3,
+      "bundle": {
+        "jsMin": 75388,
+        "cssMin": 3968,
+        "gzip": 28534
       }
     },
     "CoachMark": {
@@ -1929,9 +2312,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 78954,
+        "jsMin": 79428,
         "cssMin": 9320,
-        "gzip": 30672
+        "gzip": 30878
       }
     },
     "ColorPicker": {
@@ -2023,9 +2406,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 42018,
+        "jsMin": 42492,
         "cssMin": 10343,
-        "gzip": 17280
+        "gzip": 17475
       }
     },
     "Combobox": {
@@ -2164,9 +2547,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 77550,
+        "jsMin": 78024,
         "cssMin": 5635,
-        "gzip": 29422
+        "gzip": 29630
       }
     },
     "CommandPalette": {
@@ -2247,9 +2630,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 50192,
+        "jsMin": 50666,
         "cssMin": 7489,
-        "gzip": 19634
+        "gzip": 19839
       }
     },
     "ConfidenceChip": {
@@ -2303,9 +2686,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5990,
+        "jsMin": 6464,
         "cssMin": 917,
-        "gzip": 3025
+        "gzip": 3225
       }
     },
     "Container": {
@@ -2532,9 +2915,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 25951,
+        "jsMin": 26425,
         "cssMin": 5803,
-        "gzip": 11409
+        "gzip": 11619
       }
     },
     "DatePicker": {
@@ -2695,9 +3078,9 @@
       "variantCount": 4,
       "demoFloor": 7,
       "bundle": {
-        "jsMin": 82044,
+        "jsMin": 82518,
         "cssMin": 14398,
-        "gzip": 32772
+        "gzip": 32979
       }
     },
     "DescriptionList": {
@@ -3172,9 +3555,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 7060,
+        "jsMin": 7534,
         "cssMin": 1944,
-        "gzip": 3913
+        "gzip": 4115
       }
     },
     "Editable": {
@@ -3273,9 +3656,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 10187,
+        "jsMin": 10661,
         "cssMin": 9850,
-        "gzip": 6534
+        "gzip": 6735
       }
     },
     "EmptyState": {
@@ -3580,9 +3963,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 6982,
+        "jsMin": 7456,
         "cssMin": 1613,
-        "gzip": 3665
+        "gzip": 3863
       }
     },
     "Fieldset": {
@@ -3629,9 +4012,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 6664,
+        "jsMin": 7138,
         "cssMin": 1188,
-        "gzip": 3328
+        "gzip": 3530
       }
     },
     "FileUpload": {
@@ -3769,9 +4152,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 12991,
+        "jsMin": 13465,
         "cssMin": 12211,
-        "gzip": 7575
+        "gzip": 7771
       }
     },
     "Flex": {
@@ -3925,9 +4308,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6553,
+        "jsMin": 7027,
         "cssMin": 1646,
-        "gzip": 3487
+        "gzip": 3688
       }
     },
     "FormField": {
@@ -4024,9 +4407,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 7232,
+        "jsMin": 7706,
         "cssMin": 1119,
-        "gzip": 3478
+        "gzip": 3678
       }
     },
     "Grid": {
@@ -4234,9 +4617,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 9579,
+        "jsMin": 10053,
         "cssMin": 4485,
-        "gzip": 5324
+        "gzip": 5523
       }
     },
     "HelperText": {
@@ -4275,9 +4658,99 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 6108,
+        "jsMin": 6582,
         "cssMin": 788,
-        "gzip": 3022
+        "gzip": 3220
+      }
+    },
+    "HumanHandoff": {
+      "source": "packages/react/src/components/HumanHandoff/HumanHandoff.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "HumanHandoff",
+          "props": [
+            {
+              "name": "state",
+              "type": "\"offer\" | \"connecting\" | \"connected\" | \"returned\"",
+              "required": true,
+              "default": null,
+              "description": "`offer` when the assistant suggests a person; `connecting` while the reader waits; `connected` once a person has taken over; `returned` when the person hands the chat back.",
+              "enum": true,
+              "options": [
+                "offer",
+                "connecting",
+                "connected",
+                "returned"
+              ]
+            },
+            {
+              "name": "who",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "Who the reader will reach or is talking to, such as a nurse, or Nurse Ida Holm once connected.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "reason",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "Why a person is needed, in a line, such as This needs a clinician to review.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "wait",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "While connecting, where the reader is in the queue, already formatted, such as 2nd in line, about 3 min.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "avatar",
+              "type": "ReactNode",
+              "required": false,
+              "default": null,
+              "description": "Their avatar once connected.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onAccept",
+              "type": "(() => void)",
+              "required": false,
+              "default": null,
+              "description": "Called by Talk to a person in the offer.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "onDecline",
+              "type": "(() => void)",
+              "required": false,
+              "default": null,
+              "description": "Called by Not now in the offer, or Cancel while connecting.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "state"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 9552,
+        "cssMin": 6796,
+        "gzip": 5596
       }
     },
     "Icon": {
@@ -4424,9 +4897,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 6718,
+        "jsMin": 7192,
         "cssMin": 3801,
-        "gzip": 4050
+        "gzip": 4249
       }
     },
     "Image": {
@@ -4550,9 +5023,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 8940,
+        "jsMin": 9414,
         "cssMin": 8476,
-        "gzip": 5825
+        "gzip": 6025
       }
     },
     "InputGroup": {
@@ -4653,9 +5126,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 8421,
+        "jsMin": 8895,
         "cssMin": 2521,
-        "gzip": 4439
+        "gzip": 4643
       }
     },
     "Kbd": {
@@ -4701,9 +5174,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5569,
+        "jsMin": 6043,
         "cssMin": 218,
-        "gzip": 2552
+        "gzip": 2749
       }
     },
     "LineChart": {
@@ -4802,9 +5275,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 11002,
+        "jsMin": 11476,
         "cssMin": 4001,
-        "gzip": 5857
+        "gzip": 6058
       }
     },
     "Link": {
@@ -4850,9 +5323,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 5668,
+        "jsMin": 6142,
         "cssMin": 973,
-        "gzip": 2903
+        "gzip": 3100
       }
     },
     "List": {
@@ -5303,9 +5776,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6410,
+        "jsMin": 6884,
         "cssMin": 1282,
-        "gzip": 3369
+        "gzip": 3567
       }
     },
     "MultiSelect": {
@@ -5435,9 +5908,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 79048,
+        "jsMin": 79522,
         "cssMin": 8153,
-        "gzip": 30535
+        "gzip": 30735
       }
     },
     "Navbar": {
@@ -5518,9 +5991,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 5866,
+        "jsMin": 6340,
         "cssMin": 1451,
-        "gzip": 3141
+        "gzip": 3339
       }
     },
     "NavigationMenu": {
@@ -5565,9 +6038,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6793,
+        "jsMin": 7267,
         "cssMin": 2186,
-        "gzip": 3789
+        "gzip": 3988
       }
     },
     "NetworkGraph": {
@@ -5665,9 +6138,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 10157,
+        "jsMin": 10631,
         "cssMin": 4253,
-        "gzip": 5631
+        "gzip": 5833
       }
     },
     "NodeCard": {
@@ -5784,9 +6257,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6956,
+        "jsMin": 7430,
         "cssMin": 3125,
-        "gzip": 4030
+        "gzip": 4225
       }
     },
     "NotificationCenter": {
@@ -5858,9 +6331,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 80899,
+        "jsMin": 81373,
         "cssMin": 15833,
-        "gzip": 31961
+        "gzip": 32165
       }
     },
     "NumberInput": {
@@ -5979,9 +6452,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 10967,
+        "jsMin": 11441,
         "cssMin": 8865,
-        "gzip": 6633
+        "gzip": 6835
       }
     },
     "OTPFlow": {
@@ -6053,9 +6526,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 11066,
+        "jsMin": 11540,
         "cssMin": 8598,
-        "gzip": 6717
+        "gzip": 6919
       }
     },
     "Pagination": {
@@ -6127,9 +6600,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6987,
+        "jsMin": 7461,
         "cssMin": 1736,
-        "gzip": 3789
+        "gzip": 3988
       }
     },
     "PaneProvider": {
@@ -6141,9 +6614,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 20595,
+        "jsMin": 22361,
         "cssMin": 0,
-        "gzip": 4957
+        "gzip": 5374
       }
     },
     "PasswordInput": {
@@ -6212,9 +6685,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 9711,
+        "jsMin": 10185,
         "cssMin": 8661,
-        "gzip": 6101
+        "gzip": 6299
       }
     },
     "PinInput": {
@@ -6348,9 +6821,9 @@
       "variantCount": 4,
       "demoFloor": 7,
       "bundle": {
-        "jsMin": 7137,
+        "jsMin": 7611,
         "cssMin": 2153,
-        "gzip": 3978
+        "gzip": 4180
       }
     },
     "Popover": {
@@ -6599,9 +7072,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6726,
+        "jsMin": 7200,
         "cssMin": 1394,
-        "gzip": 3575
+        "gzip": 3774
       }
     },
     "RadarChart": {
@@ -6700,9 +7173,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 8960,
+        "jsMin": 9434,
         "cssMin": 4135,
-        "gzip": 5051
+        "gzip": 5254
       }
     },
     "Radio": {
@@ -7099,9 +7572,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 35315,
+        "jsMin": 35789,
         "cssMin": 4234,
-        "gzip": 14210
+        "gzip": 14415
       }
     },
     "Rating": {
@@ -7194,9 +7667,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 34857,
+        "jsMin": 35331,
         "cssMin": 998,
-        "gzip": 13203
+        "gzip": 13407
       }
     },
     "RichTextEditor": {
@@ -7299,9 +7772,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 8583,
+        "jsMin": 9057,
         "cssMin": 3194,
-        "gzip": 4837
+        "gzip": 5041
       }
     },
     "Scale": {
@@ -7391,9 +7864,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6729,
+        "jsMin": 7203,
         "cssMin": 2198,
-        "gzip": 3754
+        "gzip": 3953
       }
     },
     "SearchInput": {
@@ -7494,9 +7967,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 10095,
+        "jsMin": 10569,
         "cssMin": 8764,
-        "gzip": 6254
+        "gzip": 6454
       }
     },
     "SegmentedControl": {
@@ -7790,9 +8263,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6736,
+        "jsMin": 7210,
         "cssMin": 3423,
-        "gzip": 3859
+        "gzip": 4057
       }
     },
     "SettingsLayout": {
@@ -8109,9 +8582,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6259,
+        "jsMin": 6733,
         "cssMin": 2047,
-        "gzip": 3448
+        "gzip": 3647
       }
     },
     "Skeleton": {
@@ -8531,9 +9004,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 5616,
+        "jsMin": 6090,
         "cssMin": 620,
-        "gzip": 2771
+        "gzip": 2968
       }
     },
     "SplitButton": {
@@ -8650,9 +9123,9 @@
       "variantCount": 4,
       "demoFloor": 7,
       "bundle": {
-        "jsMin": 97029,
+        "jsMin": 97503,
         "cssMin": 8091,
-        "gzip": 36242
+        "gzip": 36445
       }
     },
     "Stack": {
@@ -8800,9 +9273,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 6363,
+        "jsMin": 6837,
         "cssMin": 1427,
-        "gzip": 3338
+        "gzip": 3537
       }
     },
     "Stepper": {
@@ -8870,9 +9343,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 6289,
+        "jsMin": 6763,
         "cssMin": 2400,
-        "gzip": 3526
+        "gzip": 3726
       }
     },
     "Switch": {
@@ -9108,9 +9581,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 7199,
+        "jsMin": 7673,
         "cssMin": 3155,
-        "gzip": 4206
+        "gzip": 4403
       }
     },
     "TableOfContents": {
@@ -9164,9 +9637,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6363,
+        "jsMin": 6837,
         "cssMin": 1170,
-        "gzip": 3369
+        "gzip": 3567
       }
     },
     "Tabs": {
@@ -9356,9 +9829,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 8178,
+        "jsMin": 8652,
         "cssMin": 5025,
-        "gzip": 4940
+        "gzip": 5142
       }
     },
     "Text": {
@@ -9514,9 +9987,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 6754,
+        "jsMin": 7228,
         "cssMin": 2747,
-        "gzip": 3899
+        "gzip": 4093
       }
     },
     "TimePicker": {
@@ -9663,9 +10136,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 97881,
+        "jsMin": 98355,
         "cssMin": 5091,
-        "gzip": 36164
+        "gzip": 36375
       }
     },
     "Timeline": {
@@ -9814,9 +10287,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 46972,
+        "jsMin": 47446,
         "cssMin": 5497,
-        "gzip": 17355
+        "gzip": 17561
       }
     },
     "Tooltip": {
@@ -9951,9 +10424,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 11863,
+        "jsMin": 12337,
         "cssMin": 10338,
-        "gzip": 7151
+        "gzip": 7355
       }
     },
     "TreeView": {
@@ -10238,9 +10711,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 9850,
+        "jsMin": 10324,
         "cssMin": 8825,
-        "gzip": 6127
+        "gzip": 6329
       }
     }
   }

@@ -6,6 +6,11 @@ import { lazyMap } from '../book/lazy';
 export const DEPTH = lazyMap<Depth>({
   Scale: () => import('./wave9').then((m) => m.SCALE),
   RadarChart: () => import('./wave9').then((m) => m.RADAR_CHART),
+  ChatMessage: () => import('./waveJ4').then((m) => m.CHAT_MESSAGE),
+  ChatComposer: () => import('./waveJ4').then((m) => m.CHAT_COMPOSER),
+  AgentStatus: () => import('./waveJ4').then((m) => m.AGENT_STATUS),
+  HumanHandoff: () => import('./waveJ4').then((m) => m.HUMAN_HANDOFF),
+  Citation: () => import('./waveJ4').then((m) => m.CITATION),
   ButtonGroup: () => import('./waveA').then((m) => m.BUTTON_GROUP),
   SplitButton: () => import('./waveA').then((m) => m.SPLIT_BUTTON),
   ConfidenceChip: () => import('./x11').then((m) => m.CONFIDENCE_CHIP),

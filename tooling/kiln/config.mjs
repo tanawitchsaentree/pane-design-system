@@ -46,6 +46,8 @@ export function url(base, route, { theme, scene } = {}, c = docsConfig()) {
   if (theme) q.set(c.themeParam, theme);
   // KILN_BRAND measures the book under one white-label brand (a system that has brands names its param)
   if (process.env.KILN_BRAND && c.brandParam) q.set(c.brandParam, process.env.KILN_BRAND);
+  // KILN_MATERIAL measures the book in one material (glass or solid) when the system names its param
+  if (process.env.KILN_MATERIAL && c.materialParam) q.set(c.materialParam, process.env.KILN_MATERIAL);
   const s = q.toString();
   return `${base}${route}${s ? `${route.includes('?') ? '&' : '?'}${s}` : ''}`;
 }

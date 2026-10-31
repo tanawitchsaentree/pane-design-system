@@ -1,6 +1,6 @@
 import BRANDS from '../../../packages/tokens/build/css/brands/brands.json';
 import { NavTree } from './book/NavTree';
-import { Announcement, GitHubLink, SearchButton, VersionMenu } from './book/TopbarExtras';
+import { Announcement, AppearanceMenu, GitHubLink, SearchButton, VersionMenu } from './book/TopbarExtras';
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Environment, Select } from 'pane-react';
 import { PAGES, PARTS, navigate, pageOf, useRoute } from './book/router';
@@ -47,6 +47,10 @@ export function App() {
     if (brand === 'pane') { delete document.documentElement.dataset.brand; localStorage.removeItem('pane-brand'); }
     else { document.documentElement.dataset.brand = brand; localStorage.setItem('pane-brand', brand); }
   }, [brand]);
+  // Material (M1): glass by default; solid from the Appearance control, stored, named in the address only when picked
+  const asMaterial = (v: string | null) => (v === 'glass' || v === 'solid' ? v : null);
+  const [material, setMaterial] = useState<'glass' | 'solid'>(() => asMaterial(new URLSearchParams(location.search).get('material')) ?? asMaterial(localStorage.getItem('pane-material')) ?? 'glass');
+  useLayoutEffect(() => { if (material === 'glass') localStorage.removeItem('pane-material'); else localStorage.setItem('pane-material', material); }, [material]);
   const [q, setQ] = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
   // Theme: system follows prefers-color-scheme; the choice is stored; ?theme= overrides (tests).
@@ -91,8 +95,9 @@ export function App() {
     if (!asPref(u.searchParams.get('theme'))) u.searchParams.delete('theme');
     if (scene === 'studio') u.searchParams.delete('backdrop'); else u.searchParams.set('backdrop', scene);
     if (brand === 'pane') u.searchParams.delete('brand'); else u.searchParams.set('brand', brand);
+    if (material === 'glass') u.searchParams.delete('material'); else u.searchParams.set('material', material);
     history.replaceState(null, '', u);
-  }, [scene, brand]);
+  }, [scene, brand, material]);
   useEffect(() => {
     const pg = pageOf(path);
     const tab = pg?.tabs && path !== pg.path ? path.slice(pg.path.length + 1) : null;
@@ -109,7 +114,7 @@ export function App() {
     <VerifyContext.Provider value={{ evidence, conformance }}>
     <SceneContext.Provider value={scene}>
       {/* Plain, opaque docs chrome (D-016). Glass appears only inside demo stages, over a scene. */}
-      <Environment brightness={sceneById(scene).brightness} className="page">
+      <Environment brightness={sceneById(scene).brightness} material={material} className="page">
         <a className="skip" href="#main">Skip to content</a>
 
         <header className="topbar">
@@ -125,12 +130,7 @@ export function App() {
                 <button key={t} type="button" className="seg-btn" aria-pressed={t === themePref} data-theme-value={t} onClick={() => setThemePref(t)}>{t[0].toUpperCase() + t.slice(1)}</button>
               ))}
             </div>
-            <div className="topbar-scene topbar-brand" data-brand-control=""><span className="topbar-scene-label" aria-hidden="true">Brand</span>
-              <Select label="Brand" hideLabel size="sm" value={brand} onValueChange={setBrand} options={[{ value: 'pane', label: 'Pane' }, ...BRANDS.map((b) => ({ value: b.id, label: b.name }))]} />
-            </div>
-            <div className="topbar-scene" data-scene-control=""><span className="topbar-scene-label" aria-hidden="true">Demo backdrop</span>
-              <Select label="Demo backdrop" hideLabel size="sm" value={scene} onValueChange={setScene} options={SCENES.map((s) => ({ value: s.id, label: s.label }))} />
-            </div>
+            <AppearanceMenu material={material} onMaterial={setMaterial} brand={brand} onBrand={setBrand} brands={BRANDS} scene={scene} onScene={setScene} scenes={SCENES} />
           </div>
           <button ref={menuButton} type="button" className="menu-btn" data-menu-toggle="" aria-expanded={menuOpen} aria-controls="book-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? 'Close' : 'Menu'}</button>
         </header>

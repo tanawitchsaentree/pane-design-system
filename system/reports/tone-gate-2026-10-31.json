@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T01:13:24.778Z",
+  "generatedAt": "2026-10-31T02:45:53.929Z",
   "lint": "/Users/tanawitch.saentree/Downloads/human-tone-folder/.claude/skills/human-tone/scripts/lint.py",
   "excluded": [
     "/reference/decisions"
@@ -7,7 +7,7 @@
   "pages": {
     "/": {
       "ok": true,
-      "words": 1411,
+      "words": 1461,
       "hard": 0,
       "report": {
         "hard": [],
@@ -43,28 +43,28 @@
             "text": "Steps, links and messages between things, each with words for every part."
           },
           {
-            "line": 33,
+            "line": 35,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Whole steps built from the components before them, such as forms, tours, boards "
           },
           {
-            "line": 40,
+            "line": 42,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Values beyond plain text, such as secrets, searches, numbers, ranges, files, col"
           },
           {
-            "line": 45,
+            "line": 47,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Glass, colour, type, space, shape, motion and icons. Each with live values."
           },
           {
-            "line": 57,
+            "line": 59,
             "rule": "possible rule-of-three",
             "code": "triad",
-            "text": "Pane is a pilot with 120 components, verified in Chromium only. It can lay out a"
+            "text": "Pane is a pilot with 125 components, verified in Chromium only. It can lay out a"
           },
           {
             "line": 20,
@@ -85,7 +85,7 @@
             "text": "What the reader does, from the one loud action to a row of icons."
           },
           {
-            "line": 35,
+            "line": 37,
             "rule": "repeated 'from X to Y' contrast across the document",
             "code": "symmetry",
             "text": "Panes above the page at levels 3 and 4 of the stack, from a dialog to a tooltip."
@@ -106,13 +106,13 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "What the reader sees while content is on its way."
+            "text": "Whole steps built from the components before them, such as forms, tours, boards "
           },
           {
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "119 chapters: Container · Grid · Stack · Box · Flex · Center · Spacer · Divider "
+            "text": "124 chapters: Container · Grid · Stack · Box · Flex · Center · Spacer · Divider "
           },
           {
             "line": 0,
@@ -245,6 +245,24 @@
             "rule": "anaphora: 3 sentences open with 'the'",
             "code": "anaphora",
             "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/getting-started/look": {
+      "ok": true,
+      "words": 269,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 6,
+            "rule": "suspect word: journey",
+            "code": "lexicon",
+            "text": "The full journey, the comparison and what it changes are in Materials."
           }
         ],
         "pass": true,
@@ -460,6 +478,72 @@
         "profile": []
       }
     },
+    "/foundations/materials": {
+      "ok": true,
+      "words": 717,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 1,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Every Pane surface is a physical object, lit from above, with fields carved into"
+          },
+          {
+            "line": 23,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "overlays, docks and round buttons blur what is under them"
+          },
+          {
+            "line": 27,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "It keeps shapes, corners and how corners nest."
+          },
+          {
+            "line": 42,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "The MCP server has a choose_appearance tool. Describe the product and it returns"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Does the product have a scene that is part of the experience, such as a photo, a"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Does the product have a scene that is part of the experience, such as a photo, a"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "Do not put glass panes and solid panes side by side on one screen."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "#Telling an AI\nThe MCP server has a choose_appearance tool."
+          },
+          {
+            "line": 0,
+            "rule": "anaphora: 3 sentences open with 'it'",
+            "code": "anaphora",
+            "text": ""
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
     "/foundations/glass": {
       "ok": true,
       "words": 840,
@@ -557,18 +641,11 @@
       }
     },
     "/foundations/brands": {
-      "ok": false,
-      "words": 488,
-      "hard": 1,
+      "ok": true,
+      "words": 491,
+      "hard": 0,
       "report": {
-        "hard": [
-          {
-            "line": 13,
-            "rule": "label colon in prose",
-            "code": "label_colon",
-            "text": "The tint of chosen glass: the selected tab, the picked card, a toggle that is on"
-          }
-        ],
+        "hard": [],
         "warn": [
           {
             "line": 26,
@@ -601,7 +678,7 @@
             "text": ""
           }
         ],
-        "pass": false,
+        "pass": true,
         "profile": []
       }
     },
@@ -9649,6 +9726,423 @@
         "profile": []
       }
     },
+    "/components/chat-message/usage": {
+      "ok": true,
+      "words": 390,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/chat-message/style": {
+      "ok": true,
+      "words": 153,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/chat-message/code": {
+      "ok": true,
+      "words": 345,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          },
+          {
+            "line": 27,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "The message. Markdown, code and citations are rendered by the product and passed"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "A short result line, such as 3 visits found, and anything the reader may open to"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/chat-message/accessibility": {
+      "ok": true,
+      "words": 260,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 5,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "See the Accessibility tab for keys, roles and what it announces."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#What you still have to do\nName the author, and set streaming while an answer ar"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/chat-composer/usage": {
+      "ok": true,
+      "words": 316,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/chat-composer/style": {
+      "ok": true,
+      "words": 341,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/chat-composer/code": {
+      "ok": true,
+      "words": 255,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/chat-composer/accessibility": {
+      "ok": true,
+      "words": 260,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 5,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "See the Accessibility tab for keys, roles and what it announces."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#What you still have to do\nGive a placeholder that says what to ask, and onStop "
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/agent-status/usage": {
+      "ok": true,
+      "words": 399,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/agent-status/style": {
+      "ok": true,
+      "words": 287,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/agent-status/code": {
+      "ok": true,
+      "words": 216,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/agent-status/accessibility": {
+      "ok": true,
+      "words": 255,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 5,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "See the Accessibility tab for keys, roles and what it announces."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#What you still have to do\nSay what the agent is doing in the reader's words, an"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/human-handoff/usage": {
+      "ok": true,
+      "words": 368,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It is a quiet, centred row in the thread, like a divider, so the conversation ke"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/human-handoff/style": {
+      "ok": true,
+      "words": 288,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/human-handoff/code": {
+      "ok": true,
+      "words": 229,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "While connecting, where the reader is in the queue, already formatted, such as 2"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/human-handoff/accessibility": {
+      "ok": true,
+      "words": 241,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 5,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "See the Accessibility tab for keys, roles and what it announces."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#What you still have to do\nName who, the role in the offer and the person once c"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/citation/usage": {
+      "ok": true,
+      "words": 334,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Add a ConfidenceChip in the card when the answer is less than sure the source sa"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/citation/style": {
+      "ok": true,
+      "words": 177,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Fill, text, border and shadow for each state, in each theme. Pressed is shown wh"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "It forces each state through Chrome DevTools, reads the computed style, and name"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/citation/code": {
+      "ok": true,
+      "words": 167,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "#Variants, states and compositions"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/components/citation/accessibility": {
+      "ok": true,
+      "words": 246,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 5,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "See the Accessibility tab for keys, roles and what it announces."
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "#What you still have to do\nGive each source a title the reader knows, and number"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
     "/components/form/usage": {
       "ok": true,
       "words": 296,
@@ -13288,6 +13782,113 @@
         "profile": []
       }
     },
+    "/api/chat-message": {
+      "ok": true,
+      "words": 294,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 13,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "The message. Markdown, code and citations are rendered by the product and passed"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "code turns its mark while it works; code and code take the check and the octagon"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "code is the answer, plain text on the pane at the start, because the answer is t"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "code is the answer, plain text on the pane at the start, because the answer is t"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/api/chat-composer": {
+      "ok": true,
+      "words": 217,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/api/agent-status": {
+      "ok": true,
+      "words": 206,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "The one thing the reader can do now, such as Answer while waiting, Retry after a"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/api/human-handoff": {
+      "ok": true,
+      "words": 211,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "While connecting, where the reader is in the queue, already formatted, such as 2"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
+    "/api/citation": {
+      "ok": true,
+      "words": 188,
+      "hard": 0,
+      "report": {
+        "hard": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "5 component tokens for Citation\n#Keyboard\nKeys Citation answers to\nOpens the sou"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "#Theme tokens\nSet any of these on a parent element to change Citation below it w"
+          }
+        ],
+        "pass": true,
+        "profile": []
+      }
+    },
     "/api/form": {
       "ok": true,
       "words": 192,
@@ -14039,103 +14640,103 @@
     },
     "/reference/changelog": {
       "ok": true,
-      "words": 3435,
+      "words": 3541,
       "hard": 0,
       "report": {
         "hard": [],
         "warn": [
           {
-            "line": 50,
+            "line": 55,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code and code variants, size code, code and code, and code."
           },
           {
-            "line": 52,
+            "line": 57,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "month names, weekdays and its button names follow PaneProvider's catalog and loc"
           },
           {
-            "line": 54,
+            "line": 59,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Previous, Next and Page n come from the catalog."
           },
           {
-            "line": 71,
+            "line": 76,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code and code."
           },
           {
-            "line": 72,
+            "line": 77,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code and code."
           },
           {
-            "line": 73,
+            "line": 78,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code and code; read-only chips have no remove button."
           },
           {
-            "line": 74,
+            "line": 79,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code and code."
           },
           {
-            "line": 111,
+            "line": 116,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. Done, current and upcoming steps of one task, horizontal or vertical."
           },
           {
-            "line": 119,
+            "line": 124,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. Events on a hairline rail; done, current and upcoming dots differ by shape."
           },
           {
-            "line": 145,
+            "line": 150,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. Stepper, one panel at a time under a heading that takes focus, Back and the"
           },
           {
-            "line": 160,
+            "line": 165,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. A few words on hover, focus and tap."
           },
           {
-            "line": 167,
+            "line": 172,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new (D-029). A mesh gradient for covers, icons, illustrations and scenes, never "
           },
           {
-            "line": 187,
+            "line": 192,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "removed code, code, code, code, code, code, code, code, code; added the etch, po"
           },
           {
-            "line": 191,
+            "line": 196,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code, code, code, code, code, code, code, code, code, code, code, an"
           },
           {
-            "line": 217,
+            "line": 222,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "First release with glass, inset and solid variants and a cover slot. Glass dims "
           },
           {
-            "line": 220,
+            "line": 225,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "First release with light, accent and glass variants and the soft hover lift."
@@ -14180,13 +14781,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "brings its own glass on a scene, as Table does."
-          },
-          {
-            "line": 0,
-            "rule": "150-word stretch with nothing under 7 words",
-            "code": "rhythm",
-            "text": "First release, part of the W3 form family drawn as a well in the pane (D-020)."
+            "text": "code is removed; the row radius is computed from code and code."
           },
           {
             "line": 0,
@@ -14201,7 +14796,7 @@
     },
     "/reference/status": {
       "ok": true,
-      "words": 1561,
+      "words": 1626,
       "hard": 0,
       "report": {
         "hard": [],
@@ -14219,7 +14814,7 @@
     },
     "/reference/exceptions": {
       "ok": true,
-      "words": 37,
+      "words": 48,
       "hard": 0,
       "report": {
         "hard": [],

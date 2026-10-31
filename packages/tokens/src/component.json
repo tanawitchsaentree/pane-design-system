@@ -4371,5 +4371,161 @@
         "why": "the menu half is only its chevron, kept narrow so the pair reads as one action plus more"
       }
     }
+  },
+  "chat": {
+    "gap": {
+      "$value": "{gap.md}",
+      "$type": "dimension"
+    },
+    "bubble-max": {
+      "$value": "{control.listbox-max}",
+      "$type": "dimension"
+    },
+    "bubble-padding": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "bubble-radius": {
+      "$value": "{corner.media}",
+      "$type": "dimension"
+    },
+    "bubble-top": {
+      "$value": "{surface.chosen-top}",
+      "$type": "color"
+    },
+    "bubble-foot": {
+      "$value": "{surface.chosen-foot}",
+      "$type": "color"
+    },
+    "bubble-edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow"
+    },
+    "avatar": {
+      "$value": "{control.avatar-sm}",
+      "$type": "dimension"
+    },
+    "tool-radius": {
+      "$value": "{corner.media}",
+      "$type": "dimension"
+    },
+    "tool-bg": {
+      "$value": "{surface.quiet}",
+      "$type": "color"
+    },
+    "caret": {
+      "$value": "{motion.breathe}",
+      "$type": "duration"
+    },
+    "turn": {
+      "$value": "{motion.spin}",
+      "$type": "duration"
+    },
+    "composer-inset": {
+      "$value": "{gap.xs}",
+      "$type": "dimension"
+    },
+    "composer-radius": {
+      "$value": "{corner.media}",
+      "$type": "dimension"
+    },
+    "composer-bg": {
+      "$value": "{surface.carve}",
+      "$type": "color"
+    },
+    "composer-groove": {
+      "$value": "{elevation.groove}",
+      "$type": "shadow"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P3",
+        "why": "the reader's turn is chosen glass at the end edge and the answer is text on the pane, so the content leads and the reader's choices read as theirs; the composer is the field's carved well"
+      }
+    }
+  },
+  "agent": {
+    "padding": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "radius": {
+      "$value": "{corner.media}",
+      "$type": "dimension"
+    },
+    "bg": {
+      "$value": "{surface.quiet}",
+      "$type": "color"
+    },
+    "edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow"
+    },
+    "turn": {
+      "$value": "{motion.spin}",
+      "$type": "duration"
+    },
+    "breathe": {
+      "$value": "{motion.breathe}",
+      "$type": "duration"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "an agent's state is a quiet row with its own glyph and word per state, so a reader knows what it is doing without reading colour"
+      }
+    }
+  },
+  "handoff": {
+    "padding": {
+      "$value": "{gap.lg}",
+      "$type": "dimension"
+    },
+    "radius": {
+      "$value": "{corner.media}",
+      "$type": "dimension"
+    },
+    "bg": {
+      "$value": "{surface.quiet}",
+      "$type": "color"
+    },
+    "edge": {
+      "$value": "{level-shadow.edge}",
+      "$type": "shadow"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P5",
+        "why": "the hand-over is a quiet centred row with one loud action at most, so the conversation keeps its focus"
+      }
+    }
+  },
+  "citation": {
+    "size": {
+      "$value": "{control.badge}",
+      "$type": "dimension"
+    },
+    "hit": {
+      "$value": "{control.check}",
+      "$type": "dimension"
+    },
+    "bg": {
+      "$value": "{surface.quiet}",
+      "$type": "color"
+    },
+    "bg-on": {
+      "$value": "{surface.chosen-top}",
+      "$type": "color"
+    },
+    "pop": {
+      "$value": "{control.listbox-max}",
+      "$type": "dimension"
+    },
+    "$extensions": {
+      "kiln.why": {
+        "p": "P6",
+        "why": "a source is a small numbered mark in the line, with the source in words one press away, so a claim can be checked before it is acted on"
+      }
+    }
   }
 }
