@@ -11,7 +11,7 @@ import FeedPostSrc from '../examples/FeedPost.tsx?raw';
 import MotionDemo from '../examples/MotionDemo';
 import MotionDemoSrc from '../examples/MotionDemo.tsx?raw';
 import ProfileCard from '../examples/ProfileCard';
-import Showcase from '../examples/Showcase';
+import { Scenarios } from './scenarios';
 import ProfileCardSrc from '../examples/ProfileCard.tsx?raw';
 import QuickStart from '../examples/QuickStart';
 import QuickStartSrc from '../examples/QuickStart.tsx?raw';
@@ -143,9 +143,8 @@ function Overview() {
       </section>
 
       <Section id="glance" title="Pane at a glance" wide>
-        <p>Three screens built only from Pane, each using what its parts can do. They show a mesh that lights the pane, the loud bead, a fill slider, a switch that glows when it is on, a card inside a card, and tabs over chosen glass. Each card names the parts it is made of.</p>
-        {/* the opening showcase is there to show the glass, so it always stands on a photo; on the studio it takes the room */}
-        <Stage className="showcase-stage" backdrop="scene"><Showcase /></Stage>
+        <p>Three small products built only from Pane, one per row, and they work. Press, drag and type as you would in an app. Each has a switch for what a real screen meets, so you can see it loading, empty and failing as well as ready, and each names the parts it is made of.</p>
+        <Scenarios />
       </Section>
 
       <Section id="gallery" title="Every component">

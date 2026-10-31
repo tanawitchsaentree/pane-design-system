@@ -1,25 +1,7 @@
 // The Language chapter: PaneProvider, the Thai catalog, the Buddhist year from th-TH, and how to add a
 // language. The demo runs real components under the Thai provider, so the page itself is the proof.
-import { useState } from 'react';
-import { Calendar, Card, DataGrid, OTPFlow, Pagination, PaneProvider, th } from 'pane-react';
-import { Code, Example, Page, Section } from './kit';
-
-const ROWS = [{ id: 1, print: 'โลโฟเทน', price: 1200 }, { id: 2, print: 'เซนยา', price: 950 }];
-const COLS = [{ key: 'print', header: 'ภาพพิมพ์', sortable: true }, { key: 'price', header: 'ราคา', align: 'end' as const, sortable: true }];
-
-function ThaiDemo() {
-  const [page, setPage] = useState(2);
-  return (
-    <PaneProvider messages={th} locale="th-TH">
-      <div className="lang-demo" lang="th">
-        <Card as="div" className="demo-card"><Calendar label="วันรับภาพ" defaultValue={new Date(2026, 10, 12)} /></Card>
-        <Card as="div" className="demo-card"><DataGrid caption="ภาพพิมพ์" selectable columns={COLS} rows={ROWS} /></Card>
-        <Card as="div" className="demo-card"><Pagination page={page} total={9} onPageChange={setPage} /></Card>
-        <Card as="div" className="demo-card"><OTPFlow destination="•••• 4821" length={6} onVerify={() => false} onResend={() => {}} /></Card>
-      </div>
-    </PaneProvider>
-  );
-}
+import { Code, Page, Section } from './kit';
+import { ThaiScenario } from './scenarios';
 
 export function Language() {
   return (
@@ -31,7 +13,7 @@ export function Language() {
       </Section>
       <Section id="thai" title="Thai, live" wide>
         <p>These are the real components under the Thai provider. The calendar's month and year come from the locale, the grid's checkboxes and the pagination's buttons from the catalog, and the code step speaks Thai to screen readers as well. Try the arrows.</p>
-        <Example title="Calendar, DataGrid, Pagination and OTPFlow in Thai" code={"<PaneProvider messages={th} locale=\"th-TH\">…</PaneProvider>"}><ThaiDemo /></Example>
+        <ThaiScenario />
       </Section>
       <Section id="change-words" title="Change a few words">
         <p>To keep a catalog and change only some of its words, pass them as overrides. Anything you leave out stays as the catalog has it.</p>

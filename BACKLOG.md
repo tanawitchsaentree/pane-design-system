@@ -129,3 +129,4 @@ Order, after wave A ships:
 - [ ] kiln gate from R-036: controls in one bar that do different jobs (field, button, link) must differ in look; an explicit prop beats any automatic fallback.
 - [ ] kiln gate from R-037: controls in one row (live demo, playground controls) share top and bottom edges.
 - [ ] kiln gates from R-038: focus ring inside the container's clip; a popup opened inside a popup stacks above it; a card is at least 2R + inset tall; a split menu aligns to the whole button.
+- [ ] kiln (docs-engine) rule from R-040: a showcase is a working flow, one per row, with ready/loading/empty/failing states; a grid of parts is not a showcase.
