@@ -4,6 +4,8 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- Badge: the crystal is clear: a thin tint lit at the top, a crisp rim and a hairline of the tone at the foot, with no glow around it.
+- Chip: a chosen chip with a tone is the same clear crystal as Badge.
 - PaneProvider: with reduced motion, hover and press keep a 100ms fade of colour and light while every movement stops (D-039); before, every duration went to 0 and controls snapped.
 - IconButton: a swapped glyph, such as play to pause, fades in.
 - Navbar: its controls fade on hover like a Button's (D-039).
