@@ -5,6 +5,7 @@ import { Button, Card, SegmentedControl, Select, Switch, Text } from 'pane-react
 import BRANDS from '../../../../packages/tokens/build/css/brands/brands.json';
 import { checkBrand, ratio, PAGE } from '../../../../packages/tokens/brand-check.mjs';
 import { Code, Page, Section, Stage } from './kit';
+import { smooth } from './kit-core';
 
 type Brand = { id: string; name: string; description: string; tier?: string; density?: string; motion?: string; tokens: Record<string, string | { dark: string; light?: string }> };
 const LIST = BRANDS as unknown as Brand[];
@@ -53,8 +54,8 @@ function BrandPlayground() {
       <p className="flush pg-title">A brand on one card</p>
       <div className="pg-body">
         <div className="pg-controls" data-controls="">
-          <Select label="Brand" size="sm" value={id} onValueChange={setId} options={LIST.map((x) => ({ value: x.id, label: x.name }))} />
-          <SegmentedControl label="Theme" value={th} onValueChange={(v) => setTh(v as 'dark' | 'light')} options={[{ value: 'dark', label: 'Dark' }, { value: 'light', label: 'Light' }]} />
+          <Select label="Brand" size="sm" value={id} onValueChange={(v) => smooth(() => setId(v))} options={LIST.map((x) => ({ value: x.id, label: x.name }))} />
+          <SegmentedControl label="Theme" value={th} onValueChange={(v) => smooth(() => setTh(v as 'dark' | 'light'))} options={[{ value: 'dark', label: 'Dark' }, { value: 'light', label: 'Light' }]} />
         </div>
         <div className="pg-preview" data-preview="" data-brand={id} data-theme={th}><Stage className="pg-stage"><Sample /></Stage></div>
       </div>

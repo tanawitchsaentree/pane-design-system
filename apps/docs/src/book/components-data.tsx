@@ -2828,7 +2828,7 @@ export const COMPONENTS: ComponentChapter[] = [
     importLine: "import { Card, CardCover } from 'pane-react';",
     overview: (
       <>
-        <p>A <code>Card</code> is the pane itself. It has a 6% white tint with a faint top sheen and a 64px blur that turns the scene into soft colour. A 1.8× saturation lift keeps that colour alive, and the environment’s dimming keeps white text readable. It has no hard border. A gradient specular rim catches the light that falls from above, brightest along the top edge, and drifts slowly on hover.</p>
+        <p>A <code>Card</code> is the pane itself. Its body is a thin smoke in dark (45%) and a pale film in light (66%), with a faint top sheen and a 32px blur that softens the scene while its shapes still show (D-035). A 1.8× saturation lift keeps that colour alive, and the environment’s dimming keeps white text readable. It has no hard border. A gradient specular rim catches the light that falls from above, brightest along the top edge, and drifts slowly on hover.</p>
         <p>Everything in Pane sits on a Card. The <code>inset</code> variant nests content inside a pane without a second layer of glass. <code>CardCover</code> is the full-bleed image strip at the top, pulled to the card edges automatically.</p>
       </>
     ),
@@ -3057,6 +3057,7 @@ export const COMPONENTS: ComponentChapter[] = [
     ),
     hero: ex('TagBasic', 'A post with a few category tags.'),
     ladder: [
+      ex('TagTones', 'A thin tint of a tone in the etch, for colour-coded categories.'),
       ex('TagMetaRow', 'In a trends list the tag works as the category line.'),
       ex('TextOnImage', 'On an image the tag sits inside the scrim with the other text.', true),
     ],
@@ -3194,6 +3195,7 @@ export const COMPONENTS: ComponentChapter[] = [
     ),
     hero: ex('BadgeInList', 'Status usually sits at the end of each row in a list.'),
     ladder: [
+      ex('BadgeLooks', 'The four looks: crystal by default, muted, solid for solid material, plain inside a sentence.'),
       ex('BadgeTones', 'Neutral is the word alone. The four status tones each add their own glyph.'),
       ex('BadgeDot', 'A neutral status with no tone, such as Draft, can carry a dot. The status tones have their glyph instead.'),
       ex('BadgeCount', 'Inside a button, the count becomes part of the accessible name.'),
@@ -3229,6 +3231,7 @@ export const COMPONENTS: ComponentChapter[] = [
     ),
     hero: ex('ChipFilter', 'A group of filter chips, one of them pre-selected.'),
     ladder: [
+      ex('ChipTones', 'A tone turns a chosen chip into a crystal of that colour.'),
       ex('ChipControlled', 'Here the selection drives a count below, which is announced politely.'),
       ex('ChipInput', 'Give a chip onRemove and it gets a labelled remove button.'),
     ],

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T08:45:12.891Z",
+  "generatedAt": "2026-10-31T11:02:52.722Z",
   "version": "0.7.0",
   "components": {
     "Accordion": {
@@ -701,7 +701,14 @@
           "info",
           "positive",
           "warning",
-          "critical"
+          "critical",
+          "accent"
+        ],
+        "appearance": [
+          "crystal",
+          "muted",
+          "solid",
+          "plain"
         ]
       },
       "sizes": [],
@@ -711,7 +718,7 @@
           "props": [
             {
               "name": "tone",
-              "type": "\"neutral\" | \"info\" | \"positive\" | \"warning\" | \"critical\"",
+              "type": "\"neutral\" | \"info\" | \"positive\" | \"warning\" | \"critical\" | \"accent\"",
               "required": false,
               "default": "neutral",
               "description": "`neutral` is a word alone. `info`, `positive`, `warning` and `critical` add their own glyph shape (circle, check, triangle, octagon) in the tone colour, so colour is never the only cue.",
@@ -721,7 +728,22 @@
                 "info",
                 "positive",
                 "warning",
-                "critical"
+                "critical",
+                "accent"
+              ]
+            },
+            {
+              "name": "appearance",
+              "type": "\"crystal\" | \"muted\" | \"solid\" | \"plain\"",
+              "required": false,
+              "default": "crystal",
+              "description": "`crystal` (default) is a small piece of tinted glass lit from above; `muted` one thin tint; `solid` an opaque fill, which a crystal also becomes on solid material; `plain` the word and glyph alone, for a status inside a sentence.",
+              "enum": true,
+              "options": [
+                "crystal",
+                "muted",
+                "solid",
+                "plain"
               ]
             },
             {
@@ -746,14 +768,15 @@
         }
       ],
       "variantDimensions": [
-        "tone"
+        "tone",
+        "appearance"
       ],
-      "variantCount": 1,
-      "demoFloor": 4,
+      "variantCount": 2,
+      "demoFloor": 5,
       "bundle": {
-        "jsMin": 1014,
-        "cssMin": 891,
-        "gzip": 912
+        "jsMin": 1253,
+        "cssMin": 3796,
+        "gzip": 1572
       }
     },
     "Banner": {
@@ -2054,7 +2077,16 @@
     },
     "Chip": {
       "source": "packages/react/src/components/Chip/Chip.tsx",
-      "kinds": {},
+      "kinds": {
+        "tone": [
+          "neutral",
+          "info",
+          "positive",
+          "warning",
+          "critical",
+          "accent"
+        ]
+      },
       "sizes": [],
       "exports": [
         {
@@ -2077,6 +2109,22 @@
               "description": "Controlled selection (filter chips). Selection is carried by aria-pressed and a check mark, never colour alone.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "tone",
+              "type": "\"neutral\" | \"info\" | \"positive\" | \"warning\" | \"critical\" | \"accent\"",
+              "required": false,
+              "default": null,
+              "description": "D-038: a tone turns the chip into a crystal of that colour while it is on. Without one, on is the lit solid.",
+              "enum": true,
+              "options": [
+                "neutral",
+                "info",
+                "positive",
+                "warning",
+                "critical",
+                "accent"
+              ]
             },
             {
               "name": "defaultSelected",
@@ -2117,13 +2165,15 @@
           ]
         }
       ],
-      "variantDimensions": [],
-      "variantCount": 0,
-      "demoFloor": 3,
+      "variantDimensions": [
+        "tone"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
       "bundle": {
-        "jsMin": 6912,
-        "cssMin": 2519,
-        "gzip": 3853
+        "jsMin": 7018,
+        "cssMin": 4692,
+        "gzip": 4249
       }
     },
     "Citation": {
@@ -5908,9 +5958,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 79522,
-        "cssMin": 8153,
-        "gzip": 30735
+        "jsMin": 79630,
+        "cssMin": 10326,
+        "gzip": 31148
       }
     },
     "Navbar": {
@@ -9675,7 +9725,16 @@
     },
     "Tag": {
       "source": "packages/react/src/components/Tag/Tag.tsx",
-      "kinds": {},
+      "kinds": {
+        "tone": [
+          "neutral",
+          "info",
+          "positive",
+          "warning",
+          "critical",
+          "accent"
+        ]
+      },
       "sizes": [],
       "exports": [
         {
@@ -9689,17 +9748,35 @@
               "description": "The label, written in normal case. CSS uppercases it, so screen readers still read words.",
               "enum": false,
               "options": null
+            },
+            {
+              "name": "tone",
+              "type": "\"neutral\" | \"info\" | \"positive\" | \"warning\" | \"critical\" | \"accent\"",
+              "required": false,
+              "default": null,
+              "description": "D-038: a thin tint of a tone in the etch, for colour-coded categories. The word still names the category.",
+              "enum": true,
+              "options": [
+                "neutral",
+                "info",
+                "positive",
+                "warning",
+                "critical",
+                "accent"
+              ]
             }
           ]
         }
       ],
-      "variantDimensions": [],
-      "variantCount": 0,
-      "demoFloor": 3,
+      "variantDimensions": [
+        "tone"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
       "bundle": {
-        "jsMin": 268,
-        "cssMin": 560,
-        "gzip": 497
+        "jsMin": 374,
+        "cssMin": 2533,
+        "gzip": 862
       }
     },
     "TagInput": {
@@ -9829,9 +9906,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 8652,
-        "cssMin": 5025,
-        "gzip": 5142
+        "jsMin": 8758,
+        "cssMin": 7198,
+        "gzip": 5546
       }
     },
     "Text": {

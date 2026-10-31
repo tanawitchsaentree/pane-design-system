@@ -1,0 +1,43 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Crystal badges · lab</title>
+<style>
+body{margin:0;font:14px/1.4 -apple-system,system-ui,sans-serif;background:#0b0c0e;color:#fff;padding:24px}
+h1{font-size:20px;margin:0 0 4px} p.lede{margin:0 0 20px;color:#ffffffb3;max-width:70ch}
+.row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:16px}
+.scene{border-radius:28px;padding:22px;background:#050506}
+.scene.photo{background:center/cover url(forest.jpg)}
+.scene.light{background:#e9e9ee}
+.card{border-radius:24px;padding:18px 20px;background:#14151873;backdrop-filter:blur(32px) saturate(1.8) brightness(.56);-webkit-backdrop-filter:blur(32px) saturate(1.8) brightness(.56);box-shadow:inset 0 1px 0 #ffffff1f,0 10px 30px #0006}
+.light .card{background:#F7F7F9A8;color:#111214;box-shadow:inset 0 1px 0 #fff,0 10px 30px #0002}
+.v{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0}
+.v b{inline-size:84px;font-size:12px;opacity:.7;font-weight:600}
+.badge{display:inline-flex;align-items:center;gap:6px;block-size:26px;padding:0 11px;border-radius:999px;font-size:12px;font-weight:650;white-space:nowrap}
+.badge i{inline-size:6px;block-size:6px;border-radius:50%;background:currentColor;opacity:.9}
+/* hue per tone: h = base, l = lit, k = ink (dark theme) */
+.blue{--h:#4DA3FF;--l:#C1DDFF;--k:#DFEEFF;--k2:#0052A8}
+.green{--h:#3FCB77;--l:#C7E3CC;--k:#E3F2E5;--k2:#204D2C}
+.amber{--h:#F5B000;--l:#EDD8B5;--k:#F7EBD9;--k2:#5B3B00}
+.red{--h:#FF6B5E;--l:#FFCDC4;--k:#FFE5E0;--k2:#70271E}
+.violet{--h:#A78BFA;--l:#DDD6FE;--k:#EDE9FE;--k2:#4C1D95}
+.grey{--h:#9A9CA6;--l:#D9DAE0;--k:#F1F2F5;--k2:#26282D}
+/* A: soft crystal, tinted glass lit from above, the edge carries the light */
+.A .badge{color:var(--k);background:linear-gradient(180deg,color-mix(in oklab,var(--l) 34%,transparent),color-mix(in oklab,var(--h) 22%,transparent));box-shadow:inset 0 0 0 1px color-mix(in oklab,var(--l) 30%,transparent),inset 0 1px 0 #ffffff55;backdrop-filter:blur(8px) saturate(1.6);-webkit-backdrop-filter:blur(8px) saturate(1.6)}
+/* B: faceted gem, brighter top facet, darker foot, coloured glow under */
+.B .badge{color:var(--k);background:linear-gradient(180deg,color-mix(in oklab,var(--l) 46%,transparent) 0 45%,color-mix(in oklab,var(--h) 30%,transparent) 55%);box-shadow:inset 0 0 0 1px color-mix(in oklab,var(--l) 40%,transparent),inset 0 1px 0 #ffffff80,inset 0 -1px 0 color-mix(in oklab,var(--h) 50%,transparent),0 4px 14px color-mix(in oklab,var(--h) 35%,transparent);backdrop-filter:blur(8px) saturate(1.8);-webkit-backdrop-filter:blur(8px) saturate(1.8)}
+/* C: muted, a quiet tint with no light */
+.C .badge{color:var(--k);background:color-mix(in oklab,var(--h) 16%,transparent);box-shadow:inset 0 0 0 1px color-mix(in oklab,var(--h) 22%,transparent)}
+/* D: solid, opaque tone fill */
+.D .badge{color:#fff;background:color-mix(in oklab,var(--h) 70%,#000);box-shadow:inset 0 1px 0 #ffffff33}
+.light .badge{color:var(--k2)}
+.light .A .badge{background:linear-gradient(180deg,color-mix(in oklab,var(--l) 70%,transparent),color-mix(in oklab,var(--l) 46%,transparent));box-shadow:inset 0 0 0 1px color-mix(in oklab,var(--h) 32%,transparent),inset 0 1px 0 #fff}
+.light .B .badge{background:linear-gradient(180deg,color-mix(in oklab,var(--l) 85%,#fff) 0 45%,color-mix(in oklab,var(--l) 60%,transparent) 55%);box-shadow:inset 0 0 0 1px color-mix(in oklab,var(--h) 36%,transparent),inset 0 1px 0 #fff,0 4px 12px color-mix(in oklab,var(--h) 28%,transparent)}
+.light .C .badge{background:color-mix(in oklab,var(--h) 14%,transparent)}
+.light .D .badge{color:#fff}
+</style></head><body>
+<h1>Crystal badges: four looks</h1>
+<p class="lede">The same six tones four ways, on dark glass over a photo, on the dark studio and on light glass. A soft crystal, B faceted gem with a coloured glow, C muted, D solid. My pick for the default is B on glass, with C and D as the muted and solid options.</p>
+<div class="row"><div class="scene photo"><div class="card" id="c1"></div></div><div class="scene"><div class="card" id="c2"></div></div></div>
+<div class="row"><div class="scene light"><div class="card" id="c3"></div></div><div class="scene light photo"><div class="card" id="c4"></div></div></div>
+<script>
+const tones=[['blue','Info'],['green','Paid'],['amber','Pending'],['red','Failed'],['violet','New'],['grey','Draft']];
+for(const id of ['c1','c2','c3','c4']){const c=document.getElementById(id);for(const v of 'ABCD'){const d=document.createElement('div');d.className='v '+v;d.innerHTML=`<b>${v}</b>`+tones.map(([t,w])=>`<span class="badge ${t}"><i></i>${w}</span>`).join('');c.appendChild(d)}}
+</script></body></html>

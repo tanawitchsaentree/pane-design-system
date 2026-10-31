@@ -125,3 +125,4 @@ Order, after wave A ships:
 - AI: MCP `choose_appearance` (guidance and code), knowledge carries materials and brands, the skill and llms.txt say how to choose; check_usage flags glass with no Environment and mixed materials.
 - Evidence and gates under `KILN_MATERIAL=solid`; a gate that fails a screen mixing materials.
 - Glass look itself waits on the concept-check pick (R-032).
+- [ ] kiln gates from R-035: (a) a playground's starting values must equal the current tokens it models; (b) command palette results must not repeat a label within one query; (c) docs controls with ≤3 options must be segmented.

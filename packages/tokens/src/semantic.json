@@ -2468,5 +2468,959 @@
         }
       }
     }
+  },
+  "crystal": {
+    "$description": "Crystal tints for small marks (D-038): each tone is a hue, a lit hue for the top facet and an ink for the word, per theme. Components mix them with transparency through crystal.mix-*.",
+    "neutral": {
+      "hue": {
+        "$value": "{color.graphite.300}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the neutral crystal's colour, mixed thin into the body and the glow"
+          },
+          "pane.theme": {
+            "light": "{color.graphite.600}"
+          }
+        }
+      },
+      "lit": {
+        "$value": "{color.graphite.200}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the neutral crystal's top facet, lighter because the light falls from above"
+          },
+          "pane.theme": {
+            "light": "{color.graphite.100}"
+          }
+        }
+      },
+      "ink": {
+        "$value": "{color.graphite.50}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the word on a neutral crystal: the palest step in dark and the deepest in light so it reads on the tint"
+          },
+          "pane.theme": {
+            "light": "{color.graphite.800}"
+          }
+        }
+      },
+      "solid": {
+        "$value": "{color.graphite.700}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the neutral mark on solid material: an opaque fill, for screens that show no scene"
+          }
+        }
+      },
+      "on-solid": {
+        "$value": "{color.white}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the word on the neutral solid fill, white so it holds its contrast on the opaque tone"
+          }
+        }
+      },
+      "top": {
+        "$value": "{color.crystal.neutral-top-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.neutral-top-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the neutral crystal's top, its tone at the alpha the top takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "foot": {
+        "$value": "{color.crystal.neutral-foot-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.neutral-foot-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the neutral crystal's foot, its tone at the alpha the foot takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "rim": {
+        "$value": "{color.crystal.neutral-rim-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.neutral-rim-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the neutral crystal's rim, its tone at the alpha the rim takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "glow": {
+        "$value": "{color.crystal.neutral-glow-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.neutral-glow-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the neutral crystal's glow, its tone at the alpha the glow takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "muted": {
+        "$value": "{color.crystal.neutral-muted-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.neutral-muted-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the neutral crystal's muted, its tone at the alpha the muted takes, lighter on top because the light falls from above"
+          }
+        }
+      }
+    },
+    "info": {
+      "hue": {
+        "$value": "{color.blue.400}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the info crystal's colour, mixed thin into the body and the glow"
+          },
+          "pane.theme": {
+            "light": "{color.blue.600}"
+          }
+        }
+      },
+      "lit": {
+        "$value": "{color.blue.200}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the info crystal's top facet, lighter because the light falls from above"
+          },
+          "pane.theme": {
+            "light": "{color.blue.200}"
+          }
+        }
+      },
+      "ink": {
+        "$value": "{color.blue.100}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the word on a info crystal: the palest step in dark and the deepest in light so it reads on the tint"
+          },
+          "pane.theme": {
+            "light": "{color.blue.800}"
+          }
+        }
+      },
+      "solid": {
+        "$value": "{color.blue.600}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the info mark on solid material: an opaque fill, for screens that show no scene"
+          }
+        }
+      },
+      "on-solid": {
+        "$value": "{color.white}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the word on the info solid fill, white so it holds its contrast on the opaque tone"
+          }
+        }
+      },
+      "top": {
+        "$value": "{color.crystal.info-top-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.info-top-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the info crystal's top, its tone at the alpha the top takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "foot": {
+        "$value": "{color.crystal.info-foot-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.info-foot-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the info crystal's foot, its tone at the alpha the foot takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "rim": {
+        "$value": "{color.crystal.info-rim-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.info-rim-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the info crystal's rim, its tone at the alpha the rim takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "glow": {
+        "$value": "{color.crystal.info-glow-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.info-glow-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the info crystal's glow, its tone at the alpha the glow takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "muted": {
+        "$value": "{color.crystal.info-muted-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.info-muted-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the info crystal's muted, its tone at the alpha the muted takes, lighter on top because the light falls from above"
+          }
+        }
+      }
+    },
+    "positive": {
+      "hue": {
+        "$value": "{color.green.400}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the positive crystal's colour, mixed thin into the body and the glow"
+          },
+          "pane.theme": {
+            "light": "{color.green.600}"
+          }
+        }
+      },
+      "lit": {
+        "$value": "{color.green.200}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the positive crystal's top facet, lighter because the light falls from above"
+          },
+          "pane.theme": {
+            "light": "{color.green.200}"
+          }
+        }
+      },
+      "ink": {
+        "$value": "{color.green.100}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the word on a positive crystal: the palest step in dark and the deepest in light so it reads on the tint"
+          },
+          "pane.theme": {
+            "light": "{color.green.800}"
+          }
+        }
+      },
+      "solid": {
+        "$value": "{color.green.600}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the positive mark on solid material: an opaque fill, for screens that show no scene"
+          }
+        }
+      },
+      "on-solid": {
+        "$value": "{color.white}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the word on the positive solid fill, white so it holds its contrast on the opaque tone"
+          }
+        }
+      },
+      "top": {
+        "$value": "{color.crystal.positive-top-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.positive-top-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the positive crystal's top, its tone at the alpha the top takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "foot": {
+        "$value": "{color.crystal.positive-foot-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.positive-foot-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the positive crystal's foot, its tone at the alpha the foot takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "rim": {
+        "$value": "{color.crystal.positive-rim-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.positive-rim-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the positive crystal's rim, its tone at the alpha the rim takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "glow": {
+        "$value": "{color.crystal.positive-glow-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.positive-glow-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the positive crystal's glow, its tone at the alpha the glow takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "muted": {
+        "$value": "{color.crystal.positive-muted-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.positive-muted-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the positive crystal's muted, its tone at the alpha the muted takes, lighter on top because the light falls from above"
+          }
+        }
+      }
+    },
+    "warning": {
+      "hue": {
+        "$value": "{color.amber.400}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the warning crystal's colour, mixed thin into the body and the glow"
+          },
+          "pane.theme": {
+            "light": "{color.amber.500}"
+          }
+        }
+      },
+      "lit": {
+        "$value": "{color.amber.200}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the warning crystal's top facet, lighter because the light falls from above"
+          },
+          "pane.theme": {
+            "light": "{color.amber.200}"
+          }
+        }
+      },
+      "ink": {
+        "$value": "{color.amber.100}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the word on a warning crystal: the palest step in dark and the deepest in light so it reads on the tint"
+          },
+          "pane.theme": {
+            "light": "{color.amber.800}"
+          }
+        }
+      },
+      "solid": {
+        "$value": "{color.amber.700}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the warning mark on solid material: an opaque fill, for screens that show no scene"
+          }
+        }
+      },
+      "on-solid": {
+        "$value": "{color.white}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the word on the warning solid fill, white so it holds its contrast on the opaque tone"
+          }
+        }
+      },
+      "top": {
+        "$value": "{color.crystal.warning-top-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.warning-top-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the warning crystal's top, its tone at the alpha the top takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "foot": {
+        "$value": "{color.crystal.warning-foot-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.warning-foot-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the warning crystal's foot, its tone at the alpha the foot takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "rim": {
+        "$value": "{color.crystal.warning-rim-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.warning-rim-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the warning crystal's rim, its tone at the alpha the rim takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "glow": {
+        "$value": "{color.crystal.warning-glow-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.warning-glow-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the warning crystal's glow, its tone at the alpha the glow takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "muted": {
+        "$value": "{color.crystal.warning-muted-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.warning-muted-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the warning crystal's muted, its tone at the alpha the muted takes, lighter on top because the light falls from above"
+          }
+        }
+      }
+    },
+    "critical": {
+      "hue": {
+        "$value": "{color.red.400}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the critical crystal's colour, mixed thin into the body and the glow"
+          },
+          "pane.theme": {
+            "light": "{color.red.600}"
+          }
+        }
+      },
+      "lit": {
+        "$value": "{color.red.200}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the critical crystal's top facet, lighter because the light falls from above"
+          },
+          "pane.theme": {
+            "light": "{color.red.200}"
+          }
+        }
+      },
+      "ink": {
+        "$value": "{color.red.100}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the word on a critical crystal: the palest step in dark and the deepest in light so it reads on the tint"
+          },
+          "pane.theme": {
+            "light": "{color.red.800}"
+          }
+        }
+      },
+      "solid": {
+        "$value": "{color.red.600}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the critical mark on solid material: an opaque fill, for screens that show no scene"
+          }
+        }
+      },
+      "on-solid": {
+        "$value": "{color.white}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the word on the critical solid fill, white so it holds its contrast on the opaque tone"
+          }
+        }
+      },
+      "top": {
+        "$value": "{color.crystal.critical-top-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.critical-top-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the critical crystal's top, its tone at the alpha the top takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "foot": {
+        "$value": "{color.crystal.critical-foot-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.critical-foot-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the critical crystal's foot, its tone at the alpha the foot takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "rim": {
+        "$value": "{color.crystal.critical-rim-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.critical-rim-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the critical crystal's rim, its tone at the alpha the rim takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "glow": {
+        "$value": "{color.crystal.critical-glow-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.critical-glow-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the critical crystal's glow, its tone at the alpha the glow takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "muted": {
+        "$value": "{color.crystal.critical-muted-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.critical-muted-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the critical crystal's muted, its tone at the alpha the muted takes, lighter on top because the light falls from above"
+          }
+        }
+      }
+    },
+    "accent": {
+      "hue": {
+        "$value": "{color.violet.400}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the accent crystal's colour, mixed thin into the body and the glow"
+          },
+          "pane.theme": {
+            "light": "{color.violet.500}"
+          }
+        }
+      },
+      "lit": {
+        "$value": "{color.violet.200}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the accent crystal's top facet, lighter because the light falls from above"
+          },
+          "pane.theme": {
+            "light": "{color.violet.200}"
+          }
+        }
+      },
+      "ink": {
+        "$value": "{color.violet.100}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the word on a accent crystal: the palest step in dark and the deepest in light so it reads on the tint"
+          },
+          "pane.theme": {
+            "light": "{color.violet.800}"
+          }
+        }
+      },
+      "solid": {
+        "$value": "{color.violet.600}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the accent mark on solid material: an opaque fill, for screens that show no scene"
+          }
+        }
+      },
+      "on-solid": {
+        "$value": "{color.white}",
+        "$type": "color",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P6"
+            ],
+            "why": "the word on the accent solid fill, white so it holds its contrast on the opaque tone"
+          }
+        }
+      },
+      "top": {
+        "$value": "{color.crystal.accent-top-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.accent-top-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the accent crystal's top, its tone at the alpha the top takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "foot": {
+        "$value": "{color.crystal.accent-foot-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.accent-foot-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the accent crystal's foot, its tone at the alpha the foot takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "rim": {
+        "$value": "{color.crystal.accent-rim-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.accent-rim-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the accent crystal's rim, its tone at the alpha the rim takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "glow": {
+        "$value": "{color.crystal.accent-glow-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.accent-glow-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the accent crystal's glow, its tone at the alpha the glow takes, lighter on top because the light falls from above"
+          }
+        }
+      },
+      "muted": {
+        "$value": "{color.crystal.accent-muted-dark}",
+        "$type": "color",
+        "$extensions": {
+          "pane.theme": {
+            "light": "{color.crystal.accent-muted-light}"
+          },
+          "kiln.why": {
+            "p": [
+              "P1",
+              "P3"
+            ],
+            "why": "the accent crystal's muted, its tone at the alpha the muted takes, lighter on top because the light falls from above"
+          }
+        }
+      }
+    },
+    "facet": {
+      "$value": "{color.white-a.50}",
+      "$type": "color",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.90}"
+        },
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the light from above on a crystal's top edge: one hairline along its own rim (R-021)"
+        }
+      }
+    }
   }
 }

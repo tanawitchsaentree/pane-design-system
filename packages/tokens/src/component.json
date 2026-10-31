@@ -773,6 +773,638 @@
     "glyph": {
       "$type": "dimension",
       "$value": "{control.icon-sm}"
+    },
+    "neutral-ink": {
+      "$value": "{crystal.neutral.ink}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the neutral badge reads its crystal ink from the shared tint so Chip and Tag match it"
+        }
+      }
+    },
+    "neutral-solid": {
+      "$value": "{crystal.neutral.solid}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the neutral badge reads its crystal solid from the shared tint so Chip and Tag match it"
+        }
+      }
+    },
+    "neutral-on-solid": {
+      "$value": "{crystal.neutral.on-solid}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the neutral badge reads its crystal on-solid from the shared tint so Chip and Tag match it"
+        }
+      }
+    },
+    "info-ink": {
+      "$value": "{crystal.info.ink}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the info badge reads its crystal ink from the shared tint so Chip and Tag match it"
+        }
+      }
+    },
+    "info-solid": {
+      "$value": "{crystal.info.solid}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the info badge reads its crystal solid from the shared tint so Chip and Tag match it"
+        }
+      }
+    },
+    "info-on-solid": {
+      "$value": "{crystal.info.on-solid}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the info badge reads its crystal on-solid from the shared tint so Chip and Tag match it"
+        }
+      }
+    },
+    "positive-ink": {
+      "$value": "{crystal.positive.ink}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the positive badge reads its crystal ink from the shared tint so Chip and Tag match it"
+        }
+      }
+    },
+    "positive-solid": {
+      "$value": "{crystal.positive.solid}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the positive badge reads its crystal solid from the shared tint so Chip and Tag match it"
+        }
+      }
+    },
+    "positive-on-solid": {
+      "$value": "{crystal.positive.on-solid}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the positive badge reads its crystal on-solid from the shared tint so Chip and Tag match it"
+        }
+      }
+    },
+    "warning-ink": {
+      "$value": "{crystal.warning.ink}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the warning badge reads its crystal ink from the shared tint so Chip and Tag match it"
+        }
+      }
+    },
+    "warning-solid": {
+      "$value": "{crystal.warning.solid}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the warning badge reads its crystal solid from the shared tint so Chip and Tag match it"
+        }
+      }
+    },
+    "warning-on-solid": {
+      "$value": "{crystal.warning.on-solid}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the warning badge reads its crystal on-solid from the shared tint so Chip and Tag match it"
+        }
+      }
+    },
+    "critical-ink": {
+      "$value": "{crystal.critical.ink}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the critical badge reads its crystal ink from the shared tint so Chip and Tag match it"
+        }
+      }
+    },
+    "critical-solid": {
+      "$value": "{crystal.critical.solid}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the critical badge reads its crystal solid from the shared tint so Chip and Tag match it"
+        }
+      }
+    },
+    "critical-on-solid": {
+      "$value": "{crystal.critical.on-solid}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the critical badge reads its crystal on-solid from the shared tint so Chip and Tag match it"
+        }
+      }
+    },
+    "accent-ink": {
+      "$value": "{crystal.accent.ink}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the accent badge reads its crystal ink from the shared tint so Chip and Tag match it"
+        }
+      }
+    },
+    "accent-solid": {
+      "$value": "{crystal.accent.solid}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the accent badge reads its crystal solid from the shared tint so Chip and Tag match it"
+        }
+      }
+    },
+    "accent-on-solid": {
+      "$value": "{crystal.accent.on-solid}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "the accent badge reads its crystal on-solid from the shared tint so Chip and Tag match it"
+        }
+      }
+    },
+    "blur": {
+      "$value": "{glass.blur-small}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "a crystal is a small piece of glass and blurs what is under it like one"
+        }
+      }
+    },
+    "brightness": {
+      "$value": "{glass.brightness-none}",
+      "$type": "number",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1",
+            "P6"
+          ],
+          "why": "a crystal sits on a pane that already dims the scene, so it adds no dimming of its own"
+        }
+      }
+    },
+    "facet": {
+      "$value": "{crystal.facet}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the badge crystal's lit top edge, one hairline of light from above along its own rim"
+        }
+      }
+    },
+    "neutral-top": {
+      "$value": "{crystal.neutral.top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the neutral badge crystal's top from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "neutral-foot": {
+      "$value": "{crystal.neutral.foot}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the neutral badge crystal's foot from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "neutral-rim": {
+      "$value": "{crystal.neutral.rim}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the neutral badge crystal's rim from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "neutral-glow": {
+      "$value": "{crystal.neutral.glow}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the neutral badge crystal's glow from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "neutral-muted": {
+      "$value": "{crystal.neutral.muted}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the neutral badge crystal's muted from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "info-top": {
+      "$value": "{crystal.info.top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the info badge crystal's top from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "info-foot": {
+      "$value": "{crystal.info.foot}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the info badge crystal's foot from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "info-rim": {
+      "$value": "{crystal.info.rim}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the info badge crystal's rim from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "info-glow": {
+      "$value": "{crystal.info.glow}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the info badge crystal's glow from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "info-muted": {
+      "$value": "{crystal.info.muted}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the info badge crystal's muted from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "positive-top": {
+      "$value": "{crystal.positive.top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the positive badge crystal's top from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "positive-foot": {
+      "$value": "{crystal.positive.foot}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the positive badge crystal's foot from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "positive-rim": {
+      "$value": "{crystal.positive.rim}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the positive badge crystal's rim from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "positive-glow": {
+      "$value": "{crystal.positive.glow}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the positive badge crystal's glow from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "positive-muted": {
+      "$value": "{crystal.positive.muted}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the positive badge crystal's muted from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "warning-top": {
+      "$value": "{crystal.warning.top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the warning badge crystal's top from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "warning-foot": {
+      "$value": "{crystal.warning.foot}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the warning badge crystal's foot from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "warning-rim": {
+      "$value": "{crystal.warning.rim}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the warning badge crystal's rim from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "warning-glow": {
+      "$value": "{crystal.warning.glow}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the warning badge crystal's glow from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "warning-muted": {
+      "$value": "{crystal.warning.muted}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the warning badge crystal's muted from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "critical-top": {
+      "$value": "{crystal.critical.top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the critical badge crystal's top from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "critical-foot": {
+      "$value": "{crystal.critical.foot}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the critical badge crystal's foot from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "critical-rim": {
+      "$value": "{crystal.critical.rim}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the critical badge crystal's rim from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "critical-glow": {
+      "$value": "{crystal.critical.glow}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the critical badge crystal's glow from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "critical-muted": {
+      "$value": "{crystal.critical.muted}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the critical badge crystal's muted from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "accent-top": {
+      "$value": "{crystal.accent.top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the accent badge crystal's top from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "accent-foot": {
+      "$value": "{crystal.accent.foot}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the accent badge crystal's foot from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "accent-rim": {
+      "$value": "{crystal.accent.rim}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the accent badge crystal's rim from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "accent-glow": {
+      "$value": "{crystal.accent.glow}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the accent badge crystal's glow from the shared tint, so Chip and Tag match it"
+        }
+      }
+    },
+    "accent-muted": {
+      "$value": "{crystal.accent.muted}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "the accent badge crystal's muted from the shared tint, so Chip and Tag match it"
+        }
+      }
     }
   },
   "chip": {

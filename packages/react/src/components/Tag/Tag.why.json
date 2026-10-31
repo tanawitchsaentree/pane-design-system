@@ -5,6 +5,41 @@
       "p": "P3",
       "axis": "interaction",
       "why": "etched into the glass with shade on top and light below, uppercase micro type, so it is never mistaken for a button"
+    },
+    "neutral": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "a status with no tone, in the grey crystal, for drafts and counts"
+    },
+    "info": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "the info crystal tints blue so a notice reads as information at a glance"
+    },
+    "positive": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "the positive crystal tints green so a done state reads as settled"
+    },
+    "warning": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "the warning crystal tints amber so a state that needs care stands out"
+    },
+    "critical": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "the critical crystal tints red so a failure is the loudest mark on the pane"
+    },
+    "accent": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "the accent crystal tints violet for new and featured, a hue no status uses"
+    },
+    "toned": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "a tag with a tone takes a thin tint of it in the etch, for colour-coded categories that still name themselves"
     }
   },
   "states": {
@@ -12,6 +47,11 @@
       "p": "P6",
       "axis": "depth",
       "why": "forced colours drop the etch, so a real system-colour border keeps the shape"
+    },
+    "data-material=solid": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "on solid material the tint becomes the opaque tone fill, since no scene shows through"
     }
   },
   "motion": {},

@@ -2,6 +2,7 @@
 // of the page you are on start open, and a search opens everything so every match shows. Components fold
 // once more into their families, so 100-odd pages stay a short list. Pages new in this release say so.
 import { useEffect, useState } from 'react';
+import { Badge } from 'pane-react';
 import { CATEGORIES } from './categories';
 import { HISTORY } from './chapter-facts';
 
@@ -28,7 +29,7 @@ function Fold({ id, title, open, onToggle, level, children }: { id: string; titl
 const Links = ({ pages, here, navigate }: { pages: Page[]; here?: string; navigate: (p: string) => void }) => (
   <ul className="toc flush">
     {pages.map((p) => (
-      <li key={p.path}><a href={p.path} aria-current={p.path === here ? 'page' : undefined} onClick={(e) => { e.preventDefault(); navigate(p.path); }}>{p.title}{isNew(p) && <>{' '}<span className="nav-new">New</span></>}</a></li>
+      <li key={p.path}><a href={p.path} aria-current={p.path === here ? 'page' : undefined} onClick={(e) => { e.preventDefault(); navigate(p.path); }}>{p.title}{isNew(p) && <>{' '}<Badge tone="accent" className="nav-new">New</Badge></>}</a></li>
     ))}
   </ul>
 );

@@ -549,7 +549,7 @@
         }
       },
       "glass": {
-        "$value": "#14151873",
+        "$value": "#24252B73",
         "$description": "the dark glass body at 45%: thin enough that the scene shows through as glass, with the dimming doing the work of legibility (D-035); the 78% smoke.1 read as an opaque slab"
       },
       "glass-light": {
@@ -794,6 +794,226 @@
       "seq-light-5": {
         "$value": "#104281",
         "$description": "sequential step 5 of 5 for the light surface: more is deeper"
+      }
+    },
+    "violet": {
+      "$type": "color",
+      "$description": "a violet for the accent crystal (New, Featured); only small marks and crystal tints use it (D-038)",
+      "100": {
+        "$value": "#EDE9FE"
+      },
+      "200": {
+        "$value": "#DDD6FE"
+      },
+      "300": {
+        "$value": "#C4B5FD"
+      },
+      "400": {
+        "$value": "#A78BFA"
+      },
+      "500": {
+        "$value": "#8B5CF6"
+      },
+      "600": {
+        "$value": "#7046E0"
+      },
+      "800": {
+        "$value": "#4C2A9E"
+      },
+      "900": {
+        "$value": "#2E1A63"
+      }
+    },
+    "crystal": {
+      "$type": "color",
+      "$description": "crystal tints (D-038): each tone's hue at the thin alpha a crystal uses, per theme",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P1"
+          ],
+          "why": "a crystal is a thin tint of its tone, so the scene still shows through it and the word stays on top"
+        }
+      },
+      "neutral-top-dark": {
+        "$value": "#D0D0D575"
+      },
+      "neutral-top-light": {
+        "$value": "#EAEBEFD9"
+      },
+      "neutral-foot-dark": {
+        "$value": "#B7B7BB4C"
+      },
+      "neutral-foot-light": {
+        "$value": "#5D5D6199"
+      },
+      "neutral-rim-dark": {
+        "$value": "#D0D0D566"
+      },
+      "neutral-rim-light": {
+        "$value": "#EAEBEF5C"
+      },
+      "neutral-glow-dark": {
+        "$value": "#B7B7BB59"
+      },
+      "neutral-glow-light": {
+        "$value": "#5D5D6147"
+      },
+      "neutral-muted-dark": {
+        "$value": "#B7B7BB29"
+      },
+      "neutral-muted-light": {
+        "$value": "#5D5D6124"
+      },
+      "info-top-dark": {
+        "$value": "#C1DDFF75"
+      },
+      "info-top-light": {
+        "$value": "#C1DDFFD9"
+      },
+      "info-foot-dark": {
+        "$value": "#4DA3FF4C"
+      },
+      "info-foot-light": {
+        "$value": "#0071E399"
+      },
+      "info-rim-dark": {
+        "$value": "#C1DDFF66"
+      },
+      "info-rim-light": {
+        "$value": "#C1DDFF5C"
+      },
+      "info-glow-dark": {
+        "$value": "#4DA3FF59"
+      },
+      "info-glow-light": {
+        "$value": "#0071E347"
+      },
+      "info-muted-dark": {
+        "$value": "#4DA3FF29"
+      },
+      "info-muted-light": {
+        "$value": "#0071E324"
+      },
+      "positive-top-dark": {
+        "$value": "#C7E3CC75"
+      },
+      "positive-top-light": {
+        "$value": "#C7E3CCD9"
+      },
+      "positive-foot-dark": {
+        "$value": "#3FCB774C"
+      },
+      "positive-foot-light": {
+        "$value": "#13803C99"
+      },
+      "positive-rim-dark": {
+        "$value": "#C7E3CC66"
+      },
+      "positive-rim-light": {
+        "$value": "#C7E3CC5C"
+      },
+      "positive-glow-dark": {
+        "$value": "#3FCB7759"
+      },
+      "positive-glow-light": {
+        "$value": "#13803C47"
+      },
+      "positive-muted-dark": {
+        "$value": "#3FCB7729"
+      },
+      "positive-muted-light": {
+        "$value": "#13803C24"
+      },
+      "warning-top-dark": {
+        "$value": "#EDD8B575"
+      },
+      "warning-top-light": {
+        "$value": "#EDD8B5D9"
+      },
+      "warning-foot-dark": {
+        "$value": "#F5B0004C"
+      },
+      "warning-foot-light": {
+        "$value": "#BF860099"
+      },
+      "warning-rim-dark": {
+        "$value": "#EDD8B566"
+      },
+      "warning-rim-light": {
+        "$value": "#EDD8B55C"
+      },
+      "warning-glow-dark": {
+        "$value": "#F5B00059"
+      },
+      "warning-glow-light": {
+        "$value": "#BF860047"
+      },
+      "warning-muted-dark": {
+        "$value": "#F5B00029"
+      },
+      "warning-muted-light": {
+        "$value": "#BF860024"
+      },
+      "critical-top-dark": {
+        "$value": "#FFCDC475"
+      },
+      "critical-top-light": {
+        "$value": "#FFCDC4D9"
+      },
+      "critical-foot-dark": {
+        "$value": "#FF6B5E4C"
+      },
+      "critical-foot-light": {
+        "$value": "#C42B1C99"
+      },
+      "critical-rim-dark": {
+        "$value": "#FFCDC466"
+      },
+      "critical-rim-light": {
+        "$value": "#FFCDC45C"
+      },
+      "critical-glow-dark": {
+        "$value": "#FF6B5E59"
+      },
+      "critical-glow-light": {
+        "$value": "#C42B1C47"
+      },
+      "critical-muted-dark": {
+        "$value": "#FF6B5E29"
+      },
+      "critical-muted-light": {
+        "$value": "#C42B1C24"
+      },
+      "accent-top-dark": {
+        "$value": "#DDD6FE75"
+      },
+      "accent-top-light": {
+        "$value": "#DDD6FED9"
+      },
+      "accent-foot-dark": {
+        "$value": "#A78BFA4C"
+      },
+      "accent-foot-light": {
+        "$value": "#8B5CF699"
+      },
+      "accent-rim-dark": {
+        "$value": "#DDD6FE66"
+      },
+      "accent-rim-light": {
+        "$value": "#DDD6FE5C"
+      },
+      "accent-glow-dark": {
+        "$value": "#A78BFA59"
+      },
+      "accent-glow-light": {
+        "$value": "#8B5CF647"
+      },
+      "accent-muted-dark": {
+        "$value": "#A78BFA29"
+      },
+      "accent-muted-light": {
+        "$value": "#8B5CF624"
       }
     }
   },

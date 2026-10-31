@@ -190,3 +190,10 @@
 - **ตัดสิน:** เพิ่มแกนบุคลิก: น้ำหนักตัวอักษร (400–800), tracking ของ display, `glass.saturate` (1–2), สี mesh, duration ของ motion (80–1000ms) และ preset สองตัว `density` (compact/regular/roomy เลื่อน gap ทุกตัวหนึ่งขั้นบน space scale, มุมใน = มุมนอก − inset ตามอัตโนมัติ) กับ `motion` (brisk/steady/calm) ส่วน reduced motion ยังกดทุก duration ของแบรนด์เป็น 0
 - **สามระดับ:** brand (รายการที่ตรวจได้ build หยุดเมื่อไม่ผ่าน), expert brand (`"tier": "expert"` แก้ semantic ได้ทุกตัว ตรวจแค่ contrast และ build บอกว่าตัวไหนไม่ได้ตรวจ), fork (primitive และ component token เป็นระบบของผู้ใช้เอง)
 - **พิสูจน์:** sample brand 9 ตัว + Pane = 10 (Harbor, Sage, Plum, Ledger, Kiddo, Atelier, Pulse, Terra, Signal) บนการ์ดเดียวกันในหน้า Brands ผ่าน brand-check ทุกตัว; BRANDABLE ย้ายไปอยู่ที่ `brand-check.mjs` ที่เดียว ทั้ง build และ `pane-theme` อ่านจากที่นั่น (เดิมสองที่ซ้ำกันและเริ่มไม่ตรงกัน)
+
+### D-038: Badge, Chip และ Tag เป็นคริสตัลสี (supersedes Badge A ของ round 3 ที่เป็นคำเปล่าบนกระจก)
+- **วันที่:** 2026-10-31 · **เลือกโดย:** user ("กูต้องการพวก badge chip เป็นคริสตัลสี กระจกอะแหละ … ต้องสวย แต่ก็มีตัวเลือก สีหม่น ทึบ ตาม concept")
+- **render:** `apps/lab/crystal/index.html` สี่แบบ A soft crystal, B faceted gem มี glow สี, C muted, D solid บนรูป, studio และ light ผมเลือก B เป็นค่าเริ่มต้น C กับ D เป็นตัวเลือก
+- **ตัดสิน:** Badge มี `appearance` crystal (ค่าเริ่มต้น) / muted / solid / plain และ tone ใหม่ `accent` (violet, glyph ประกายสี่แฉก) บน `material="solid"` crystal กลายเป็น solid เอง; Chip มี `tone` ที่ทำให้ตอนเลือกเป็นคริสตัลสีนั้น; Tag มี `tone` เป็น etch ที่มีสีจางๆ ทุก tone ยังมี glyph และคำ สีไม่ใช่สิ่งเดียวที่บอกความหมาย
+- **token:** primitive `color.violet.*`, `mix.*`; semantic `crystal.<tone>.{hue,lit,ink,solid,on-solid}`, `crystal.mix-*`, `crystal.facet`; component `badge.*` อ่านจาก crystal
+- **contrast:** user บอกว่าไม่ต้องเข้มมาก ตัวหนังสือยังวัดด้วย evidence ตามปกติ ถ้าตกจะลงเป็นข้อยกเว้นที่มีตัวเลข ไม่ปล่อยเงียบ

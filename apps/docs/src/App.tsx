@@ -4,7 +4,7 @@ import { Announcement, AppearanceMenu, GitHubLink, SearchButton, VersionMenu } f
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Environment, Select } from 'pane-react';
 import { PAGES, PARTS, navigate, pageOf, useRoute } from './book/router';
-import { Link, SceneContext, VerifyContext, type Conformance, type Evidence } from './book/kit-core';
+import { Link, SceneContext, VerifyContext, smooth, type Conformance, type Evidence } from './book/kit-core';
 import { loadPage, pageFor } from './book/load-page';
 import { SCENES, sceneById } from './scenes';
 
@@ -127,10 +127,10 @@ export function App() {
             <GitHubLink />
             <div className="seg" role="group" aria-label="Theme" data-theme-control="">
               {(['system', 'light', 'dark'] as const).map((t) => (
-                <button key={t} type="button" className="seg-btn" aria-pressed={t === themePref} data-theme-value={t} onClick={() => setThemePref(t)}>{t[0].toUpperCase() + t.slice(1)}</button>
+                <button key={t} type="button" className="seg-btn" aria-pressed={t === themePref} data-theme-value={t} onClick={() => smooth(() => setThemePref(t))}>{t[0].toUpperCase() + t.slice(1)}</button>
               ))}
             </div>
-            <AppearanceMenu material={material} onMaterial={setMaterial} brand={brand} onBrand={setBrand} brands={BRANDS} scene={scene} onScene={setScene} scenes={SCENES} />
+            <AppearanceMenu material={material} onMaterial={(v) => smooth(() => setMaterial(v))} brand={brand} onBrand={(v) => smooth(() => setBrand(v))} brands={BRANDS} scene={scene} onScene={(v) => smooth(() => setScene(v))} scenes={SCENES} />
           </div>
           <button ref={menuButton} type="button" className="menu-btn" data-menu-toggle="" aria-expanded={menuOpen} aria-controls="book-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? 'Close' : 'Menu'}</button>
         </header>

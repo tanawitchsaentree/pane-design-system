@@ -8,6 +8,8 @@ export interface ChipProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>,
   children: ReactNode;
   /** Controlled selection (filter chips). Selection is carried by aria-pressed and a check mark, never colour alone. */
   selected?: boolean;
+  /** D-038: a tone turns the chip into a crystal of that colour while it is on. Without one, on is the lit solid. */
+  tone?: 'neutral' | 'info' | 'positive' | 'warning' | 'critical' | 'accent';
   /** Initial selection when uncontrolled. */
   defaultSelected?: boolean;
   /** Called with the new selection. */
@@ -23,7 +25,7 @@ export interface ChipProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>,
  * so Space and Enter work without custom key handling.
  */
 export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
-  { children, selected, defaultSelected = false, onSelectedChange, onRemove, removeLabel, className, onClick, disabled, ...rest },
+  { children, selected, tone, defaultSelected = false, onSelectedChange, onRemove, removeLabel, className, onClick, disabled, ...rest },
   ref,
 ) {
   const [inner, setInner] = useState(defaultSelected);
@@ -31,7 +33,7 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
   const t = useMessages();
   const label = removeLabel ?? (typeof children === 'string' ? children : t.item);
   return (
-    <span data-component="Chip" data-disabled={disabled || undefined} className={cx(styles.root, on && styles.on, onRemove && styles.removable, className)}>
+    <span data-component="Chip" data-disabled={disabled || undefined} className={cx(styles.root, on && styles.on, tone && styles.toned, tone && styles[tone], onRemove && styles.removable, className)}>
       <button
         ref={ref}
         type="button"
