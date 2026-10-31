@@ -1,35 +1,16 @@
 {
-  "generatedAt": "2026-10-30T20:14:39.051Z",
-  "passed": 4,
-  "total": 4,
+  "generatedAt": "2026-10-31T01:13:06.246Z",
+  "passed": 1,
+  "total": 1,
   "partial": true,
   "advisory": {},
   "results": [
     {
-      "id": "G-S1",
-      "name": "a chapter opens as a new page at the top with its heading focused (375/768/1280px)",
+      "id": "G-BT1",
+      "name": "every topic the reference systems cover on a page is covered on ours, or declined with a reason",
       "ok": true,
-      "order": 2
-    },
-    {
-      "id": "G-K8",
-      "name": "every component shows a live RTL render and a live overflow render that is not clipped",
-      "ok": true,
-      "order": 23
-    },
-    {
-      "id": "G-S6",
-      "name": "nothing in the page column spills out of it: no element crosses into the rail or the margin beside main (folds open)",
-      "ok": true,
-      "detail": "44 pages",
-      "order": 42
-    },
-    {
-      "id": "G-OV1",
-      "name": "components side by side in a demo never overlap: nothing one draws, a port or a badge, lands on its neighbour",
-      "ok": true,
-      "detail": "11 pages",
-      "order": 44
+      "detail": "135 topics across 13 pages",
+      "order": 30
     }
   ]
 }

@@ -44,6 +44,8 @@ export function url(base, route, { theme, scene } = {}, c = docsConfig()) {
   const q = new URLSearchParams();
   if (scene) q.set(c.sceneParam, scene);
   if (theme) q.set(c.themeParam, theme);
+  // KILN_BRAND measures the book under one white-label brand (a system that has brands names its param)
+  if (process.env.KILN_BRAND && c.brandParam) q.set(c.brandParam, process.env.KILN_BRAND);
   const s = q.toString();
   return `${base}${route}${s ? `${route.includes('?') ? '&' : '?'}${s}` : ''}`;
 }

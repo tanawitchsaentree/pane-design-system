@@ -1,0 +1,37 @@
+{
+  "name": "Harbor",
+  "description": "A calm clinical blue for a patient portal. The loud action and focus take the brand blue, and the corners are a step tighter.",
+  "tokens": {
+    "action.loud-top": {
+      "dark": "#A9D3FF",
+      "light": "#2468B8"
+    },
+    "action.loud-foot": {
+      "dark": "#7DB8F7",
+      "light": "#1B559B"
+    },
+    "action.foot-solid": {
+      "dark": "#6AA8EE",
+      "light": "#174A87"
+    },
+    "text.on-light": {
+      "dark": "#0B1B2E",
+      "light": "#FFFFFF"
+    },
+    "text.on-accent": {
+      "dark": "#0B1B2E",
+      "light": "#FFFFFF"
+    },
+    "action.accent-hover": {
+      "dark": "#BFE0FF",
+      "light": "#2B74C9"
+    },
+    "focus.ring": {
+      "dark": "#A9D3FF",
+      "light": "#1B559B"
+    },
+    "corner.panel": "{radius.lg}",
+    "corner.inner": "{radius.md}",
+    "corner.media": "{radius.sm}"
+  }
+}

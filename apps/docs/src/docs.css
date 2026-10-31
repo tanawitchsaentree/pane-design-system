@@ -782,3 +782,8 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 /* a demo's wrappers (a lang or dir div) may shrink to the stage, so the component inside meets the real width
    of its column and can adapt to it, instead of the wrapper growing to the component's widest form (G-S6) */
 .stage-env > * { min-inline-size: 0; max-inline-size: 100%; }
+/* the white-label comparison: one cell per brand, each its own data-brand region */
+.brand-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: var(--ds-gap-xl); }
+.brand-cell { margin: 0; display: flex; flex-direction: column; gap: var(--ds-gap-md); }
+.brand-cell figcaption { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
+@media (max-width: 1280px) { .topbar-brand { display: none; } }

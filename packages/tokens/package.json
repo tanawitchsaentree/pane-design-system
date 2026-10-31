@@ -23,12 +23,20 @@
       "default": "./build/js/tokens.mjs"
     },
     "./scss": "./build/scss/_tokens.scss",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./css/brands/*": "./build/css/brands/*.css",
+    "./brands.json": "./build/css/brands/brands.json",
+    "./brand-check": {
+      "types": "./brand-check.d.mts",
+      "default": "./brand-check.mjs"
+    }
   },
   "files": [
     "build",
     "README.md",
-    "css.d.ts"
+    "css.d.ts",
+    "brand-check.mjs",
+    "brand-check.d.mts"
   ],
   "scripts": {
     "build": "node build.mjs",

@@ -143,7 +143,9 @@ try {
       // a folding nav may hide the link in a closed part: open its folds first, as a reader would
       await page.evaluate((t) => { const a = [...document.querySelectorAll('nav[data-book-nav] a')].find((x) => x.textContent.trim() === t || x.firstChild?.textContent?.trim() === t); for (let el = a?.parentElement; el; el = el.parentElement) if (el.hidden || el.inert) { const b = document.querySelector(`[aria-controls="${el.id}"]`); b?.click(); } }, target.title);
       await page.waitForTimeout(150);
-      await page.locator('nav[data-book-nav]').getByRole('link', { name: target.title, exact: false }).first().click();
+      // the exact name first: a substring match finds ButtonGroup before Button once both exist (a New badge stops exact matching, so fall back)
+      const exact = page.locator('nav[data-book-nav]').getByRole('link', { name: target.title, exact: true });
+      await ((await exact.count()) ? exact : page.locator('nav[data-book-nav]').getByRole('link', { name: new RegExp(`^${target.title}\\b(?!\\w)`) })).first().click();
       await eventually(() => page.locator('#page-title').textContent(), target.title, `heading did not change at ${w}px`);
       await page.waitForTimeout(100);
       const st = await page.evaluate(() => { const h = document.getElementById('page-title'); const r = h.getBoundingClientRect(); return { y: scrollY, top: r.top, vh: innerHeight, focused: document.activeElement === h }; });

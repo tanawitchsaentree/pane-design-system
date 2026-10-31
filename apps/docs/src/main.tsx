@@ -1,6 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import 'pane-tokens/css';
+// every white-label brand sheet (D-033), so the header's Brand control can switch between them
+import.meta.glob('../../../packages/tokens/build/css/brands/*.css', { eager: true });
 import 'pane-react/styles.css';
 import './scenes.css';
 import './docs.css';

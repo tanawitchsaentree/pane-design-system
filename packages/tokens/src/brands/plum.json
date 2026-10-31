@@ -1,0 +1,42 @@
+{
+  "name": "Plum",
+  "description": "A warm plum for a consumer wellness brand. The loud action, focus and chosen glass take the brand hue, and the corners stay round.",
+  "tokens": {
+    "action.loud-top": {
+      "dark": "#E2C6FA",
+      "light": "#7A47B5"
+    },
+    "action.loud-foot": {
+      "dark": "#CDA6F2",
+      "light": "#653A99"
+    },
+    "action.foot-solid": {
+      "dark": "#BF94EC",
+      "light": "#55307F"
+    },
+    "text.on-light": {
+      "dark": "#22103A",
+      "light": "#FFFFFF"
+    },
+    "text.on-accent": {
+      "dark": "#22103A",
+      "light": "#FFFFFF"
+    },
+    "action.accent-hover": {
+      "dark": "#EBD6FC",
+      "light": "#8752C4"
+    },
+    "focus.ring": {
+      "dark": "#E2C6FA",
+      "light": "#653A99"
+    },
+    "surface.chosen-top": {
+      "dark": "rgba(205, 166, 242, 0.34)",
+      "light": "rgba(101, 58, 153, 0.16)"
+    },
+    "surface.chosen-foot": {
+      "dark": "rgba(205, 166, 242, 0.14)",
+      "light": "rgba(101, 58, 153, 0.08)"
+    }
+  }
+}
