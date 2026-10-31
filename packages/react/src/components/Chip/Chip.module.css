@@ -68,3 +68,18 @@
 /* V0 */
 /* a chip that is a button washes under a pointer, so a filter reads as pressable (P6) */
 @media (hover: hover) { button.root:not([data-disabled]):hover { background-image: linear-gradient(var(--ds-surface-quiet), var(--ds-surface-quiet)); } }
+
+/* D-038: a chip with a tone is a crystal when it is on: the tone's tint lit from above, its rim catching the
+   light and its colour falling on the pane; off, it is the plain glass chip like any other */
+.neutral { --top: var(--ds-crystal-neutral-top); --foot: var(--ds-crystal-neutral-foot); --rim: var(--ds-crystal-neutral-rim); --glow: var(--ds-crystal-neutral-glow); --tint: var(--ds-crystal-neutral-muted); --k: var(--ds-crystal-neutral-ink); --s: var(--ds-crystal-neutral-solid); --o: var(--ds-crystal-neutral-on-solid); }
+.info { --top: var(--ds-crystal-info-top); --foot: var(--ds-crystal-info-foot); --rim: var(--ds-crystal-info-rim); --glow: var(--ds-crystal-info-glow); --tint: var(--ds-crystal-info-muted); --k: var(--ds-crystal-info-ink); --s: var(--ds-crystal-info-solid); --o: var(--ds-crystal-info-on-solid); }
+.positive { --top: var(--ds-crystal-positive-top); --foot: var(--ds-crystal-positive-foot); --rim: var(--ds-crystal-positive-rim); --glow: var(--ds-crystal-positive-glow); --tint: var(--ds-crystal-positive-muted); --k: var(--ds-crystal-positive-ink); --s: var(--ds-crystal-positive-solid); --o: var(--ds-crystal-positive-on-solid); }
+.warning { --top: var(--ds-crystal-warning-top); --foot: var(--ds-crystal-warning-foot); --rim: var(--ds-crystal-warning-rim); --glow: var(--ds-crystal-warning-glow); --tint: var(--ds-crystal-warning-muted); --k: var(--ds-crystal-warning-ink); --s: var(--ds-crystal-warning-solid); --o: var(--ds-crystal-warning-on-solid); }
+.critical { --top: var(--ds-crystal-critical-top); --foot: var(--ds-crystal-critical-foot); --rim: var(--ds-crystal-critical-rim); --glow: var(--ds-crystal-critical-glow); --tint: var(--ds-crystal-critical-muted); --k: var(--ds-crystal-critical-ink); --s: var(--ds-crystal-critical-solid); --o: var(--ds-crystal-critical-on-solid); }
+.accent { --top: var(--ds-crystal-accent-top); --foot: var(--ds-crystal-accent-foot); --rim: var(--ds-crystal-accent-rim); --glow: var(--ds-crystal-accent-glow); --tint: var(--ds-crystal-accent-muted); --k: var(--ds-crystal-accent-ink); --s: var(--ds-crystal-accent-solid); --o: var(--ds-crystal-accent-on-solid); }
+.toned.on {
+  color: var(--k);
+  background: linear-gradient(180deg, var(--top) 0 45%, var(--foot) 55%);
+  box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--rim), inset 0 var(--ds-width-hairline) 0 var(--ds-crystal-facet), 0 var(--ds-gap-xs) var(--ds-gap-xl) var(--glow);
+}
+[data-material="solid"] .toned.on { background: var(--s); color: var(--o); box-shadow: var(--ds-chip-edge); }

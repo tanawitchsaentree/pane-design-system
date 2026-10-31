@@ -1,3 +1,4 @@
+import { flushSync } from 'react-dom';
 // The shell's light half of the kit: contexts, Link and the verification types. App and the nav import
 // this, never kit.tsx, so the first chunk stays small (pages load kit.tsx with their own content).
 import { createContext, useContext, type AnchorHTMLAttributes, type ReactNode } from 'react';
@@ -26,3 +27,11 @@ export function Link({ to, children, ...rest }: { to: string; children: ReactNod
   );
 }
 
+
+/** Runs a change of theme, brand, material or backdrop as one soft cross-fade (the View Transitions API),
+ *  so the page does not snap; with reduced motion, or where the API is missing, it just runs. */
+export function smooth(fn: () => void) {
+  const d = document as Document & { startViewTransition?: (cb: () => void) => unknown };
+  if (!d.startViewTransition || matchMedia('(prefers-reduced-motion: reduce)').matches) { fn(); return; }
+  d.startViewTransition(() => flushSync(fn));
+}

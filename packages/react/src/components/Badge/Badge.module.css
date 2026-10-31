@@ -1,5 +1,7 @@
-/* A status written on the glass (round 3, Badge A, Banner's language from D-018): no fill; each tone has
-   its own glyph shape in its mark colour, and the word is in the text colour (P1, P6). */
+/* A status as a small crystal (D-038): a piece of tinted glass lit from above, its rim catching the light and
+   its colour falling on the pane under it. Each tone keeps its own glyph shape (D-018), so colour is never the
+   only cue. muted is one thin tint, solid an opaque fill for solid material, plain the word alone on the glass
+   (round 3, Badge A). */
 .root {
   display: inline-flex;
   align-items: center;
@@ -12,10 +14,31 @@
   line-height: var(--ds-type-leading-tight);
   white-space: nowrap;
 }
+.neutral { --top: var(--ds-badge-neutral-top); --foot: var(--ds-badge-neutral-foot); --rim: var(--ds-badge-neutral-rim); --glow: var(--ds-badge-neutral-glow); --tint: var(--ds-badge-neutral-muted); --k: var(--ds-badge-neutral-ink); --s: var(--ds-badge-neutral-solid); --o: var(--ds-badge-neutral-on-solid); }
+.info { --top: var(--ds-badge-info-top); --foot: var(--ds-badge-info-foot); --rim: var(--ds-badge-info-rim); --glow: var(--ds-badge-info-glow); --tint: var(--ds-badge-info-muted); --k: var(--ds-badge-info-ink); --s: var(--ds-badge-info-solid); --o: var(--ds-badge-info-on-solid); }
+.positive { --top: var(--ds-badge-positive-top); --foot: var(--ds-badge-positive-foot); --rim: var(--ds-badge-positive-rim); --glow: var(--ds-badge-positive-glow); --tint: var(--ds-badge-positive-muted); --k: var(--ds-badge-positive-ink); --s: var(--ds-badge-positive-solid); --o: var(--ds-badge-positive-on-solid); }
+.warning { --top: var(--ds-badge-warning-top); --foot: var(--ds-badge-warning-foot); --rim: var(--ds-badge-warning-rim); --glow: var(--ds-badge-warning-glow); --tint: var(--ds-badge-warning-muted); --k: var(--ds-badge-warning-ink); --s: var(--ds-badge-warning-solid); --o: var(--ds-badge-warning-on-solid); }
+.critical { --top: var(--ds-badge-critical-top); --foot: var(--ds-badge-critical-foot); --rim: var(--ds-badge-critical-rim); --glow: var(--ds-badge-critical-glow); --tint: var(--ds-badge-critical-muted); --k: var(--ds-badge-critical-ink); --s: var(--ds-badge-critical-solid); --o: var(--ds-badge-critical-on-solid); }
+.accent { --top: var(--ds-badge-accent-top); --foot: var(--ds-badge-accent-foot); --rim: var(--ds-badge-accent-rim); --glow: var(--ds-badge-accent-glow); --tint: var(--ds-badge-accent-muted); --k: var(--ds-badge-accent-ink); --s: var(--ds-badge-accent-solid); --o: var(--ds-badge-accent-on-solid); }
+.crystal, .muted, .solid { padding-inline: var(--ds-badge-padding-inline); border-radius: var(--ds-badge-radius); color: var(--k); }
+/* the top facet takes the lit hue and the foot the hue; the rim is the crystal's own edge (R-021) */
+.crystal {
+  background: linear-gradient(180deg, var(--top) 0 45%, var(--foot) 55%);
+  box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--rim), inset 0 var(--ds-width-hairline) 0 var(--ds-badge-facet), 0 var(--ds-gap-xs) var(--ds-gap-xl) var(--glow);
+  -webkit-backdrop-filter: blur(var(--ds-badge-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-badge-brightness));
+  backdrop-filter: blur(var(--ds-badge-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-badge-brightness));
+}
+.muted { background: var(--tint); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--tint); }
+/* solid material has no scene to tint, so a crystal on it becomes the opaque fill */
+.solid, [data-material="solid"] .crystal { background: var(--s); color: var(--o); box-shadow: inset 0 var(--ds-width-hairline) 0 var(--ds-line-ring); -webkit-backdrop-filter: none; backdrop-filter: none; }
+.root.solid .glyph, [data-material="solid"] .root.crystal .glyph { color: currentColor; }
+.root.solid .dot, [data-material="solid"] .root.crystal .dot { background: currentColor; }
+.root.crystal .dot, .root.muted .dot { background: currentColor; }
+@media (prefers-reduced-transparency: reduce) { .crystal { -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--s); color: var(--o); } }
 .glyph { inline-size: var(--ds-badge-glyph); block-size: var(--ds-badge-glyph); flex: none; fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
 .dot { inline-size: var(--ds-badge-dot); block-size: var(--ds-badge-dot); border-radius: var(--ds-badge-radius); background: var(--ds-badge-neutral-mark); }
 .info .glyph { color: var(--ds-badge-info-mark); }
 .positive .glyph { color: var(--ds-badge-positive-mark); }
 .warning .glyph { color: var(--ds-badge-warning-mark); }
 .critical .glyph { color: var(--ds-badge-critical-mark); }
-@media (forced-colors: active) { .glyph { stroke: CanvasText; } .dot { forced-color-adjust: none; background: CanvasText; } }
+@media (forced-colors: active) { .glyph { stroke: CanvasText; } .dot { forced-color-adjust: none; background: CanvasText; } .crystal, .muted, .solid { border: var(--ds-width-hairline) solid CanvasText; } }

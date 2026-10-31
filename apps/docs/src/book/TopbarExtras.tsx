@@ -32,7 +32,10 @@ export function Announcement() {
 
 export function SearchButton() {
   const [open, setOpen] = useState(false);
-  const commands = PARTS.flatMap((part) => part.pages.map((p) => ({ id: p.path, label: p.title, group: part.title, keywords: [part.title], onSelect: () => navigate(p.path) })));
+  // the same title in two parts (Chip the component and Chip in Component API) is told apart by its part,
+  // or the results show two rows that read the same
+  const count = new Map<string, number>(); for (const part of PARTS) for (const p of part.pages) count.set(p.title, (count.get(p.title) ?? 0) + 1);
+  const commands = PARTS.flatMap((part) => part.pages.map((p) => ({ id: p.path, label: (count.get(p.title) ?? 0) > 1 ? `${p.title} · ${part.title}` : p.title, group: part.title, keywords: [part.title], onSelect: () => navigate(p.path) })));
   return (
     <>
       <button type="button" className="tb-search" onClick={() => setOpen(true)} aria-keyshortcuts="Meta+K Control+K">

@@ -1,6 +1,8 @@
+import type * as React from 'react';
 // Tag's Usage tab (component-depth.md U1–U14). A static category label in small caps, etched into the glass.
 import { Badge, Card, CardCover, Chip, Stack, Tag } from 'pane-react';
 import type { Depth } from './types';
+const OnCard = ({ children }: { children: React.ReactNode }) => <Card as="div" className="demo-card"><Stack direction="row" gap="sm">{children}</Stack></Card>;
 
 const Album = ({ tags }: { tags: string[] }) => (
   <Card as="article" aria-label="Album" className="demo-card"><CardCover /><h3 className="flush">Lysefjord at dawn</h3><Stack direction="row" gap="sm">{tags.map((t) => <Tag key={t}>{t}</Tag>)}</Stack></Card>
@@ -26,7 +28,14 @@ export const TAG: Depth = {
     { situation: 'A value the reader can remove', to: '/components/chip', label: 'Chip with onRemove' },
     { situation: 'A link to all items in that category', to: '/foundations/typography', label: 'A text link' },
   ],
-  variants: { na: 'Tag has one look on purpose. A second weight would turn a label into a status, which is what Badge is for.' },
+  variants: {
+    neutral: { purpose: 'A grey tint in the etch for a category with no colour of its own, such as Studio or Draft.', pairing: 'The default when colour would add nothing.' },
+    info: { purpose: 'A blue tint in the etch for water, travel or information, such as Coast or Ferries.', pairing: 'One meaning per hue across the product.' },
+    positive: { purpose: 'A green tint in the etch for growth, nature or something open, such as Forest or Open now.', pairing: 'Keep green for good news in the same view.' },
+    warning: { purpose: 'A amber tint in the etch for warmth or something to watch, such as Desert or Few seats left.', pairing: 'Do not use amber for a category beside real warnings.' },
+    critical: { purpose: 'A red tint in the etch for urgency, such as Closing soon.', pairing: 'Red reads as a problem, so use it for categories sparingly.' },
+    accent: { purpose: 'A violet tint in the etch for new or featured, such as Night or New this week.', pairing: 'One accent per row, so it still stands out.' },
+  },
   anatomy: {
     render: <Card as="div" className="demo-card"><Stack direction="row" gap="sm"><Tag>Landscape</Tag></Stack></Card>,
     parts: [
@@ -75,7 +84,14 @@ export const TAG: Depth = {
     loading: <p>Tag has no loading state. Render tags with the content they describe, so a card never shows its tags before its title or after a delay that shifts the layout.</p>,
     focus: <p>A tag never takes focus. In a list of cards a screen reader reads each card’s tags as plain words after its title, so keep them in the same place on every card and keep their number small. Ten cards with five tags each is fifty extra words before the reader reaches the next title.</p>,
   },
-  deepDive: { na: 'Tag has no variant prop, so there is nothing to compare.' },
+  deepDive: {
+    neutral: { purpose: <p>The grey tag marks a category with no colour of its own, such as Studio or Draft. The word names the category, and the tint only helps the eye group it.</p>, context: <OnCard><Tag>Studio</Tag></OnCard>, practices: ['Give each category one tone and keep it everywhere.'], pair: { do: <OnCard><Tag>Studio</Tag></OnCard>, doNote: 'One word, one tone.', dont: <OnCard><Tag>Studio and more</Tag></OnCard>, dontNote: 'A sentence in a tag stops being a label.' } },
+    info: { purpose: <p>The blue tag marks water, travel or information, such as Coast or Ferries. The word names the category, and the tint only helps the eye group it.</p>, context: <OnCard><Tag tone="info">Coast</Tag></OnCard>, practices: ['Give each category one tone and keep it everywhere.'], pair: { do: <OnCard><Tag tone="info">Coast</Tag></OnCard>, doNote: 'One word, one tone.', dont: <OnCard><Tag tone="info">Coast and more</Tag></OnCard>, dontNote: 'A sentence in a tag stops being a label.' } },
+    positive: { purpose: <p>The green tag marks growth, nature or something open, such as Forest or Open now. The word names the category, and the tint only helps the eye group it.</p>, context: <OnCard><Tag tone="positive">Forest</Tag></OnCard>, practices: ['Give each category one tone and keep it everywhere.'], pair: { do: <OnCard><Tag tone="positive">Forest</Tag></OnCard>, doNote: 'One word, one tone.', dont: <OnCard><Tag tone="positive">Forest and more</Tag></OnCard>, dontNote: 'A sentence in a tag stops being a label.' } },
+    warning: { purpose: <p>The amber tag marks warmth or something to watch, such as Desert or Few seats left. The word names the category, and the tint only helps the eye group it.</p>, context: <OnCard><Tag tone="warning">Desert</Tag></OnCard>, practices: ['Give each category one tone and keep it everywhere.'], pair: { do: <OnCard><Tag tone="warning">Desert</Tag></OnCard>, doNote: 'One word, one tone.', dont: <OnCard><Tag tone="warning">Desert and more</Tag></OnCard>, dontNote: 'A sentence in a tag stops being a label.' } },
+    critical: { purpose: <p>The red tag marks urgency, such as Closing soon. The word names the category, and the tint only helps the eye group it.</p>, context: <OnCard><Tag tone="critical">Closing soon</Tag></OnCard>, practices: ['Give each category one tone and keep it everywhere.'], pair: { do: <OnCard><Tag tone="critical">Closing soon</Tag></OnCard>, doNote: 'One word, one tone.', dont: <OnCard><Tag tone="critical">Closing soon and more</Tag></OnCard>, dontNote: 'A sentence in a tag stops being a label.' } },
+    accent: { purpose: <p>The violet tag marks new or featured, such as Night or New this week. The word names the category, and the tint only helps the eye group it.</p>, context: <OnCard><Tag tone="accent">Night</Tag></OnCard>, practices: ['Give each category one tone and keep it everywhere.'], pair: { do: <OnCard><Tag tone="accent">Night</Tag></OnCard>, doNote: 'One word, one tone.', dont: <OnCard><Tag tone="accent">Night and more</Tag></OnCard>, dontNote: 'A sentence in a tag stops being a label.' } },
+  },
   modifiers: { na: 'Tag has no optional slots or booleans. It is a word etched into the glass. A tag that links to all items in its category is planned, and until then a text link beside the title does that job.' },
   related: [['/components/badge', 'Badge', 'A state such as Live or 3 new.'], ['/components/chip', 'Chip', 'A label the reader can toggle or remove.'], ['/foundations/typography', 'Typography', 'The caption size and caps tracking tags use.']],
   references: [

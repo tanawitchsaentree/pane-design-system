@@ -1,5 +1,5 @@
 {
-  "concept": "A badge is a status written on the glass as a glyph and a word. Each tone has its own glyph shape in its mark colour, the word is in the text colour, and there is no fill, the same language as Banner (D-018).",
+  "concept": "A badge is a status as a small crystal: a piece of tinted glass lit from above with a glyph and a word (D-038). Each tone keeps its own glyph shape, so colour is never the only cue; muted, solid and plain are the quieter looks.",
   "parts": {
     "root": {
       "p": "P6",
@@ -35,6 +35,31 @@
       "p": "P1",
       "axis": "colour",
       "why": "critical spends its colour only on the glyph"
+    },
+    "neutral": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "a status with no tone, in the grey crystal, for drafts and counts"
+    },
+    "accent": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "the accent crystal tints violet for new and featured, a hue no status uses"
+    },
+    "crystal": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "tinted glass lit from above: the top facet lighter, the rim its own edge, its colour falling on the pane under it"
+    },
+    "muted": {
+      "p": "P1",
+      "axis": "colour",
+      "why": "one thin tint and no light, for dense lists where many crystals would shout"
+    },
+    "solid": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "an opaque fill for solid material, where there is no scene for a crystal to tint"
     }
   },
   "states": {
@@ -42,6 +67,16 @@
       "p": "P6",
       "axis": "depth",
       "why": "forced colours drop the tone colours, so a real system-colour border keeps the shape"
+    },
+    "data-material=solid": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "on solid material a crystal has no scene to tint, so it becomes the opaque fill"
+    },
+    "@media prefers-reduced-transparency: reduce": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "with reduced transparency the crystal drops its blur and sits on an opaque mix of its tone"
     }
   },
   "motion": {},

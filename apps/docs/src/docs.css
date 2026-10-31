@@ -274,7 +274,7 @@ main a:not([class]) { text-decoration: underline; text-underline-offset: 3px; te
 .pg-control :focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
 .pg-preview { min-inline-size: 0; }
 .pg-note p { max-inline-size: var(--ds-type-measure); }
-.pg-scene { position: relative; aspect-ratio: 16 / 10; border-radius: var(--ds-corner-inner); background-size: cover; background-position: center; display: grid; place-items: center; overflow: hidden; }
+.pg-scene { position: relative; inline-size: 100%; aspect-ratio: 16 / 10; border-radius: var(--ds-corner-inner); background-size: cover; background-position: center; display: grid; place-items: center; overflow: hidden; }
 .pg-glass { inline-size: 60%; padding: var(--ds-gap-2xl); border-radius: var(--ds-corner-inner); color: var(--ds-text-primary); text-shadow: var(--ds-elevation-halo); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-rim-hi); }
 .pg-glass-title { font-size: var(--ds-type-title); font-weight: var(--ds-type-weight-semibold); }
 .pg-swatch { display: flex; flex-direction: column; align-items: flex-start; gap: var(--ds-gap-md); padding: var(--ds-gap-2xl); border-radius: var(--ds-corner-inner); text-shadow: none; }
@@ -700,7 +700,7 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 [dir='rtl'] .nav-fold[aria-expanded='true'] .nav-chevron { transform: rotate(-90deg); }
 .nav-family { padding-inline-start: var(--ds-gap-md); }
 .nav-family-title { font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-medium); color: var(--ds-text-secondary); }
-.nav-new { margin-inline-start: var(--ds-gap-sm); padding: 0 var(--ds-gap-sm); border-radius: var(--ds-corner-round); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-ring); font-size: var(--ds-type-micro); font-weight: var(--ds-type-weight-semibold); letter-spacing: var(--ds-type-tracking-caps); text-transform: uppercase; color: var(--ds-text-primary); }
+[data-component="Badge"].nav-new { margin-inline-start: var(--ds-gap-sm); min-block-size: 0; -webkit-backdrop-filter: none; backdrop-filter: none; block-size: calc(var(--ds-control-badge) - var(--ds-gap-sm)); vertical-align: middle; }
 
 /* nav hierarchy (round 2, user 2026-10-30: "ชิดกันเกิน … size ต่างกันแต่ใกล้กันจนแยกยาก สีก็ขาว"):
    parts are the primary tone at body size and semibold, families a small caps label in the tertiary tone,
@@ -808,3 +808,6 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .tb-look-icon { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); fill: currentColor; stroke: currentColor; stroke-width: var(--ds-width-ring); }
 .tb-look-icon circle { fill: none; }
 .tb-look-intro { margin: 0; font-size: var(--ds-type-label); color: var(--ds-text-secondary); max-inline-size: 28ch; }
+
+/* theme, brand, material and backdrop changes cross-fade instead of snapping (smooth() in kit-core) */
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: var(--ds-motion-scene); animation-timing-function: var(--ds-motion-easing); }

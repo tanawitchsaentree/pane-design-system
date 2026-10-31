@@ -36,7 +36,7 @@ export const CARD: Depth = {
   anatomy: {
     render: <Card as="article" aria-label="Fjord" className="demo-card"><CardCover /><h3 className="flush">Lysefjord</h3><p className="flush muted">Saved to Trips</p><div className="demo-row"><Button size="sm">Open</Button></div></Card>,
     parts: [
-      { part: 'Glass', selector: '[data-component="Card"]', what: 'Tint, 64px blur, saturation lift and the Environment’s dimming. Legibility comes from dimming, never from an opaque fill (P1).' },
+      { part: 'Glass', selector: '[data-component="Card"]', what: 'A thin body, 32px blur, saturation lift and the Environment’s dimming. Legibility comes from dimming, never from an opaque fill (P1).' },
       { part: 'Cover', selector: '[data-component="Card"] > div', what: 'Optional CardCover. Full bleed to the card’s edges and decorative, so meaning stays in the text.' },
       { part: 'Content', selector: '[data-component="Card"] h3', what: 'Padding inside is larger than the gaps between items, so the edge reads as the object’s boundary (P3).' },
       { part: 'Rim and shadow', selector: '[data-component="Card"]', what: 'A 1px light rim brightest along the top edge, faint down the sides and a little stronger at the foot, with the float shadow below.' },

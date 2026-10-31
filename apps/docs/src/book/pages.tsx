@@ -380,10 +380,10 @@ function Glass() {
           <table>
             <thead><tr><th scope="col">Layer</th><th scope="col">Token</th><th scope="col">Value</th><th scope="col">Why</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Blur</th><td><code>glass.blur</code></td><td><code>{tok('glass.blur')}</code></td><td>Turns the scene into soft colour. Heavier blur also averages away small bright spots, which helps contrast (64px beat 40px in the sweep).</td></tr>
+              <tr><th scope="row">Blur</th><td><code>glass.blur</code></td><td><code>{tok('glass.blur')}</code></td><td>Turns the scene into soft colour. 32px keeps the scene's shapes visible, so the glass reads as glass, while the dimming carries the contrast (D-035).</td></tr>
               <tr><th scope="row">Saturate</th><td><code>glass.saturate</code></td><td><code>{tok('glass.saturate')}</code></td><td>Dimming drains colour, and this puts it back so the glass looks lit.</td></tr>
               <tr><th scope="row">Dim</th><td><code>glass.brightness</code></td><td><code>{tok('glass.brightness')}</code></td><td>The legibility lever. Lowers the backdrop’s light while keeping hue and detail.</td></tr>
-              <tr><th scope="row">Tint</th><td><code>surface.glass</code></td><td><code>{tok('surface.glass')}</code></td><td>Almost nothing. 6% white so the pane has a body.</td></tr>
+              <tr><th scope="row">Body</th><td><code>level.1</code></td><td><code>{tok('level.1')}</code></td><td>A thin smoke in dark and a pale film in light, so the pane has a body and the scene still shows through it.</td></tr>
               <tr><th scope="row">Sheen</th><td><code>surface.sheen-top → sheen-bottom</code></td><td><code>{tok('surface.sheen-top')} → {tok('surface.sheen-bottom')}</code></td><td>A top-lit gradient so the pane reads as a surface catching light.</td></tr>
               <tr><th scope="row">Rim</th><td><code>line.rim-hi / mid / lo</code></td><td><code>{tok('line.rim-hi')}</code></td><td>Takes the place of a border. One light falls from above, so it is brightest along the top edge, faint down the sides and a little stronger at the foot.</td></tr>
               <tr><th scope="row">Halo</th><td><code>elevation.halo</code></td><td><code>{tok('elevation.halo')}</code></td><td>A soft dark glow around white text. Counted by WCAG as the text’s background when it is there.</td></tr>

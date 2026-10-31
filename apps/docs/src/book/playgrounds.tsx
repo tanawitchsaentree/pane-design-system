@@ -2,9 +2,10 @@
 // a live preview and a copy-ready snippet of the current setting. Values come from the token JSON, so a
 // playground never offers a number the system doesn't have.
 import { useEffect, useMemo, useRef, useState, type ReactElement, type ReactNode } from 'react';
-import { Badge, Button, Card, Chip, Select as PaneSelect, Slider, Stack, Tag } from 'pane-react';
+import { Badge, Button, Card, Chip, SegmentedControl, Select as PaneSelect, Slider, Stack, Tag } from 'pane-react';
 import * as Icons from '../icons';
 import { CodeBlock, Stage, TOKENS } from './kit';
+import { smooth } from './kit-core';
 
 const byPrefix = (pre: string) => Object.entries(TOKENS).filter(([p]) => p.startsWith(pre));
 const num = (v: string) => parseFloat(String(v));
@@ -14,7 +15,9 @@ const num = (v: string) => parseFloat(String(v));
 function Range({ label, min, max, step, value, onChange, unit = '' }: { label: string; min: number; max: number; step: number; value: number; onChange: (v: number) => void; unit?: string }) {
   return <Slider label={label} min={min} max={max} step={step} value={value} onValueChange={onChange} format={(v) => `${v}${unit}`} />;
 }
+// one rule for every docs control: two or three choices are a SegmentedControl, more are a Select (R-035)
 function Select<T extends string>({ label, value, options, onChange }: { label: string; value: T; options: Array<[T, string]>; onChange: (v: T) => void }) {
+  if (options.length <= 3) return <SegmentedControl label={label} value={value} options={options.map(([v, l]) => ({ value: v, label: l }))} onValueChange={(v) => onChange(v as T)} />;
   return <PaneSelect label={label} size="sm" value={value} options={options.map(([v, l]) => ({ value: v, label: l }))} onValueChange={(v) => onChange(v as T)} />;
 }
 function Playground({ title, controls, preview, code, note, bare, backdrop }: { title: string; controls: ReactNode; preview: ReactNode; code: string; note?: ReactNode; bare?: boolean; backdrop?: 'scene' | 'field' }) {
@@ -39,11 +42,15 @@ const hex = (h: string) => { const m = h.replace('#', ''); return [0, 2, 4].map(
 const alphaOf = (h: string) => (h.replace('#', '').length === 8 ? parseInt(h.replace('#', '').slice(6, 8), 16) / 255 : 1);
 
 // ---------- Glass ----------
-export function GlassPlayground({ scene }: { scene: string }) {
+export function GlassPlayground({ scene: chosen }: { scene: string }) {
+  // the recipe is about a photo behind glass; the studio and the field have none, so they borrow the forest
+  const scene = ['room', 'forest', 'night', 'city'].includes(chosen) ? chosen : 'forest';
   // Starts from the recipe of the theme the reader is in, and switching the text resets to that theme's recipe.
-  const preset = (t: 'dark' | 'light') => (t === 'light' ? { bright: num(TOKENS['brightness.light'].value), tint: 0.62 } : { bright: num(TOKENS['brightness.bright'].value), tint: 0.06 });
+  // starts from the shipped recipe (D-035): a smoke body in dark, a pale body in light, each with its own alpha
+  const body = (t: 'dark' | 'light') => TOKENS[t === 'light' ? 'color.smoke.glass-light' : 'color.smoke.glass'].value as string;
+  const preset = (t: 'dark' | 'light') => ({ bright: num(TOKENS[t === 'light' ? 'brightness.light' : 'brightness.bright'].value), tint: Math.round(alphaOf(body(t)) * 100) / 100 });
   const start: 'dark' | 'light' = document.documentElement.dataset.theme === 'light' || (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
-  const [blur, setBlur] = useState(num(TOKENS['blur.lg'].value));
+  const [blur, setBlur] = useState(num(TOKENS['blur.clear'].value));
   const [bright, setBright] = useState(preset(start).bright);
   const [tint, setTint] = useState(preset(start).tint);
   const [sat, setSat] = useState(num(TOKENS['saturate.glass'].value));
@@ -55,14 +62,14 @@ export function GlassPlayground({ scene }: { scene: string }) {
   // colour against the worst sample. Blur is ignored, which makes the estimate pessimistic.
   useEffect(() => {
     const img = new Image();
-    img.src = `/scenes/${scene}.jpg`;
+    img.src = `/scenes/${scene}-sm.jpg`;
     img.onload = () => {
       const c = document.createElement('canvas'); c.width = 160; c.height = 100;
       const ctx = c.getContext('2d', { willReadFrequently: true }); if (!ctx) return;
       ctx.drawImage(img, 0, 0, 160, 100);
       const d = ctx.getImageData(40, 25, 80, 50).data;
       const fg = theme === 'dark' ? [255, 255, 255] : [17, 18, 20];
-      const tintRGB = [255, 255, 255];
+      const tintRGB = hex(body(theme));
       let worst = Infinity;
       for (let i = 0; i < d.length; i += 4 * 7) {
         const px = [d[i], d[i + 1], d[i + 2]].map((v, k) => Math.min(255, v * bright) * (1 - tint) + tintRGB[k] * tint);
@@ -71,7 +78,8 @@ export function GlassPlayground({ scene }: { scene: string }) {
       setEstimate(Math.round(worst * 100) / 100);
     };
   }, [scene, bright, tint, theme]);
-  const css = `.my-pane {\n  background: rgba(255, 255, 255, ${tint});\n  backdrop-filter: blur(${blur}px) saturate(${sat}) brightness(${bright});\n  color: ${theme === 'dark' ? 'var(--ds-text-primary) /* white in dark */' : 'var(--ds-text-primary) /* ink in light */'};\n}`;
+  const rgb = hex(body(theme)).join(', ');
+  const css = `.my-pane {\n  background: rgba(${rgb}, ${tint});\n  backdrop-filter: blur(${blur}px) saturate(${sat}) brightness(${bright});\n  color: ${theme === 'dark' ? 'var(--ds-text-primary) /* white in dark */' : 'var(--ds-text-primary) /* ink in light */'};\n}`;
   return (
     <Playground
       bare
@@ -79,19 +87,19 @@ export function GlassPlayground({ scene }: { scene: string }) {
       controls={<>
         <Range label="Blur" min={0} max={96} step={4} value={blur} onChange={setBlur} unit="px" />
         <Range label="Brightness" min={0.2} max={1.4} step={0.02} value={bright} onChange={setBright} />
-        <Range label="White tint" min={0} max={0.9} step={0.02} value={tint} onChange={setTint} />
+        <Range label="Body" min={0} max={0.95} step={0.02} value={tint} onChange={setTint} />
         <Range label="Saturate" min={1} max={2.4} step={0.1} value={sat} onChange={setSat} />
-        <Select label="Text" value={theme} options={[['dark', 'White text (dark theme)'], ['light', 'Ink text (light theme)']]} onChange={setTheme} />
+        <Select label="Text" value={theme} options={[['dark', 'White text'], ['light', 'Ink text']]} onChange={(v) => smooth(() => setTheme(v))} />
       </>}
       preview={
-        <div ref={frame} className="pg-scene" style={{ backgroundImage: `url(/scenes/${scene}.jpg)` }} data-theme={theme}>
-          <div className="pg-glass" style={{ background: `rgba(255,255,255,${tint})`, backdropFilter: `blur(${blur}px) saturate(${sat}) brightness(${bright})`, WebkitBackdropFilter: `blur(${blur}px) saturate(${sat}) brightness(${bright})` }}>
-            <p className="flush pg-glass-title">Max Fmz</p>
-            <p className="flush">UX/UI designer. Coffee lover.</p>
+        <div ref={frame} className="pg-scene" style={{ backgroundImage: `url(/scenes/${scene}-sm.jpg)` }} data-theme={theme}>
+          <div className="pg-glass" style={{ background: `rgba(${rgb},${tint})`, backdropFilter: `blur(${blur}px) saturate(${sat}) brightness(${bright})`, WebkitBackdropFilter: `blur(${blur}px) saturate(${sat}) brightness(${bright})` }}>
+            <p className="flush pg-glass-title">Trip to Lauterbrunnen</p>
+            <p className="flush">Saturday · 3 people going</p>
           </div>
         </div>
       }
-      note={<p className="flush"><Badge tone={estimate == null ? 'neutral' : estimate >= 4.5 ? 'positive' : estimate >= 3 ? 'warning' : 'critical'}>{estimate == null ? 'about …:1' : `about ${estimate}:1`}</Badge> estimated from the scene image under the card, before blur. The evidence run is the real measurement.</p>}
+      note={<p className="flush"><Badge appearance="muted" tone={estimate == null ? 'neutral' : estimate >= 4.5 ? 'positive' : estimate >= 3 ? 'warning' : 'critical'}>{estimate == null ? 'about …:1' : `about ${estimate}:1`}</Badge> estimated from the scene image under the card, before blur. The evidence run is the real measurement.</p>}
       code={css}
     />
   );
@@ -293,10 +301,11 @@ export function ThemePlayground() {
   const [scene, setScene] = useState('night');
   return (
     <Playground
+      bare
       title="One card, any theme, any scene"
       controls={<>
-        <Select label="Theme" value={theme} options={[['dark', 'Dark'], ['light', 'Light']]} onChange={setTheme} />
-        <Select label="Scene" value={scene} options={[['room', 'Room'], ['forest', 'Forest'], ['night', 'Night café (dark)'], ['city', 'City (bright)']]} onChange={setScene} />
+        <Select label="Theme" value={theme} options={[['dark', 'Dark'], ['light', 'Light']]} onChange={(v) => smooth(() => setTheme(v))} />
+        <Select label="Scene" value={scene} options={[['room', 'Room'], ['forest', 'Forest'], ['night', 'Night café (dark)'], ['city', 'City (bright)']]} onChange={(v) => smooth(() => setScene(v))} />
       </>}
       preview={
         <div className="pg-scene" data-theme={theme} style={{ backgroundImage: `url(/scenes/${scene}-sm.jpg)` }}>

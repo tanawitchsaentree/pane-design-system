@@ -29,7 +29,7 @@ export const EXTRAS: Record<string, () => ReactElement> = {
         <p>Every colour value, in both themes, is listed with its tier and reference on the <Link to="/reference/tokens">Tokens</Link> page, generated from the token source. The loud solid and the accent pair ink and white at 18.74:1 in both themes. Info is #0071E3 at 4.70:1, positive is #13803C at 5.02:1, warning is #F5B000 with ink at 9.90:1, and critical is #C42B1C at 5.66:1.</p>
       </Section>
       <Section id="on-glass" title="Colour on glass">
-        <p>Glass has no colour of its own. It shows the scene through a 6 percent white tint, and the scene supplies every hue (P1). Status colour on glass is limited to small glyphs, in brighter tones on dark glass and deeper ones on light glass, so a small mark stays visible without repainting the pane.</p>
+        <p>Glass has no colour of its own. It shows the scene through a thin body, smoke in dark and a pale film in light, and the scene supplies every hue (P1). Status colour on glass is limited to small glyphs, in brighter tones on dark glass and deeper ones on light glass, so a small mark stays visible without repainting the pane.</p>
       </Section>
     </>
   ),

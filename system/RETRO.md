@@ -240,3 +240,20 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **ที่เจอ:** (1) Navbar, Sidebar, BottomNav, NavigationMenu, Tooltip, Snackbar, Toast, IconButton และ phone frame ของ docs ใช้กระจกไม่ครบสูตร (2) subject 14 ตัวตั้ง `bare` ทั้งที่ไม่ใช่พื้นผิว (3) mesh เป็นวอลเปเปอร์ 3 ที่ (Colour page, ภาพ media ปลอมที่วาดด้วย radial gradient, backdrop Field) (4) Card ซ้อน Card ใช้มุมใน 24px แทน 40 − 22 = 18px และ .env-tile ไม่ nest มุม (5) Kbd วางชิดมุม card ในตัวอย่าง (6) กฎ `.stage-env > *` ที่ผมเพิ่มเองไปลบ min-inline-size ของ demo card ทุกตัว
 - **ขั้นที่ผิด:** ข้อ 1–4 เกิดจากการแต่ง CSS ทีละตัวโดยไม่มีสูตรกลางหรือ gate ที่ครอบทั้งเล่ม ข้อ 6 เกิดจากการแก้ shared container โดยไม่ re-check ทุกอย่างที่ใช้ขนาดจากมัน (กฎ 14 บอกไว้แล้วแต่ผมไม่ได้ทำ)
 - **แก้แล้ว:** ทุกข้อ และ gate ของ kiln เองก็ได้แก้ด้วย: G-GR1 รับ filter ที่เขียนผ่าน token ทั้งหมด (ก่อนนี้ตกทุกอันแม้เขียนถูก), G-NC1 ไม่นับ shape ที่อยู่ในบรรทัดข้อความ และบอกหน้าที่เจอ
+
+## R-035: playground ค้างของเก่า, dropdown สองแบบ, ผลค้นหาซ้ำ, badge มองไม่เห็น (2026-10-31)
+- **User said:** "ขาวๆ max fmz คืออะไร", "dropdown แบบไหนแน่ๆ", "มองดีๆ", "ไม่ smooth เลยเวลาเปลี่ยน", "ทำไมมีซ้ำ", "badge ทำไมยาว", "ต้องการ badge chip เป็นคริสตัลสี"
+- **ขั้นที่ผิด:**
+  - Glass playground เขียนไว้ก่อนมี studio และก่อน D-035 พอค่าเริ่มต้นของ backdrop เปลี่ยน มันโหลดรูปไม่ได้ และยังใช้สูตรเก่า (blur 64, ตัวกระจกขาว 6%) เพราะไม่มีอะไรเช็คว่า playground ใช้ token ตัวปัจจุบัน
+  - ตัวควบคุมของ docs เลือกเป็น Select ทุกตัว ไม่มีกฎว่าเมื่อไหร่ใช้ SegmentedControl
+  - ThemePlayground ไม่ได้ตั้งเป็น `bare` จึงไปซ้อนอยู่ใน stage studio
+  - การเปลี่ยนธีมไม่มี transition
+  - หน้า Component API ใช้ชื่อเดียวกับหน้า component
+  - Badge neutral แบบไม่มีพื้น อยู่ใน card ตัวเดียว เลยดูเหมือน card คือ badge
+- **แก้แล้ว:**
+  - playground ใช้ token ของสูตรปัจจุบัน และใช้รูปถ่ายเสมอ
+  - ตั้งกฎใน docs ว่าตัวเลือก 2–3 อันใช้ SegmentedControl ถ้ามากกว่านั้นใช้ Select
+  - การเปลี่ยนธีม brand material และ backdrop ทำเป็น cross-fade ผ่าน `smooth()`
+  - ผลค้นหาที่ชื่อซ้ำจะต่อท้ายด้วยชื่อหมวด
+  - Badge, Chip และ Tag เป็นคริสตัลสีตาม D-038
+- **ยังไม่มี gate:** ยังไม่มี gate ที่จับ playground ซึ่งใช้ค่าที่ token ไม่มีแล้ว หรือผลค้นหาที่ชื่อซ้ำกัน จดไว้ใน BACKLOG เพื่อทำ gate ใน kiln
