@@ -18,7 +18,10 @@
 //   inset        G-IN1 text inside a control ≥8px (and ≥ half the end radius) from the control's edge
 //   travel       G-SL1 a slider ≥200px long, and it and its pane keep their size from Home to End
 //   states       G-SV1 every promised state is present, visible and announced (state matrix)
-//   material     G-MT1 one material per screen, no glass beside solid
+//   material     G-MT1 one material per screen, no glass beside solid · G-GR1 glass uses the shared recipe
+//   surfaces     G-BR1 a bare subject paints its surface; no live text straight on the photo
+//   mesh         G-MS1 a mesh gradient covers at most 10% of its region, never a wallpaper
+//   anchor       G-AN1 the card's body and rim stay within set deltas of the locked anchor
 //   icons        G-IC1 every icon in a component is drawn at a size
 //   overlap      G-OV1 neighbours in a demo never overlap
 //   leaks        G-LK1 page styles never reach inside a component (clone outside main, compare layout)
@@ -40,6 +43,7 @@ import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
 import { docsConfig, routes, componentPages, url, routeFilter } from './config.mjs';
 import { serveDist } from './serve-dist.mjs';
+import { glassCssProblems, glassRecipeProbe, bareSurfaceProbe, meshShareProbe, cardStats, anchorDrift } from './surface-probes.mjs';
 
 const C = docsConfig();
 const ROUTES = routeFilter(routes(C));
@@ -49,6 +53,9 @@ const BENCH = C.benchmark && existsSync(C.abs(C.benchmark)) ? JSON.parse(readFil
 const ONLY = process.argv.includes('--only') ? new Set(process.argv[process.argv.indexOf('--only') + 1].split(',')) : null;
 const THEME = C.themes[0];
 const SCENE = C.scenes[0];
+// what marks a component that paints its own surface (G-MT1, G-BR1, G-AN1). Generic [data-surface]; a system
+// that names it differently sets docs.surfaceSelector (an older system keeps its own attribute this way).
+const SURFACE = C.surfaceSelector ?? '[data-surface]';
 
 const results = [];
 // Sharding: `--shard k/n` runs every n-th gate (from k) and writes its results for `--merge n`, so
@@ -1081,7 +1088,10 @@ try {
     // readOnly missing on 9 fields, invalid on 7 choices, loading on Button and Table. This keeps them:
     // every cell must look different from its row's first cell and say its state to assistive tech.
     const route = C.statesRoute ?? '/patterns/states';
-    if (!ROUTES.includes(route)) return 'NO state matrix route in this run';
+    // a book with no state matrix used to pass here, so a fresh system never checked a state. Missing from the
+    // book is a failure; missing only from a KILN_ROUTES run is a skip (NO …); an empty matrix is a failure.
+    if (!routes(C).includes(route)) throw new Error(`no state matrix: ${route} is not in routes.json (the starter ships book/states.tsx; set docs.statesRoute if it moved)`);
+    if (!ROUTES.includes(route)) throw new Error('NO state matrix route in this run');
     const { PNG } = await import('pngjs');
     const ARIA = {
       disabled: ':disabled, [aria-disabled="true"], [data-disabled]', invalid: '[aria-invalid="true"], [data-invalid]',
@@ -1090,10 +1100,11 @@ try {
       indeterminate: '[data-state="indeterminate"], [aria-checked="mixed"]', selected: '[data-state="checked"], [data-state="on"], [aria-selected="true"], [aria-pressed="true"], [aria-current="true"], [data-state="active"]',
       loading: '[aria-busy="true"]', sorted: '[aria-sort="ascending"], [aria-sort="descending"]',
     };
-    const bad = []; let n = 0;
+    const bad = []; let n = 0, seen = 0;
     for (const theme of C.themes) {
       await go(route, { theme });
       const cells = await page.evaluate(() => [...document.querySelectorAll('[data-state-cell]')].map((f) => { const [c, s] = f.getAttribute('data-state-cell').split('|'); const b = f.querySelector('.state-stage, :scope > div')?.getBoundingClientRect(); return { c, s, box: b && { x: b.x + scrollX, y: b.y + scrollY, width: b.width, height: b.height } }; }));
+      seen += cells.length;
       const rows = {};
       for (const x of cells) (rows[x.c] ??= []).push(x);
       for (const [comp, list] of Object.entries(rows)) {
@@ -1137,6 +1148,7 @@ try {
         }
       }
     }
+    if (!seen) throw new Error(`the state matrix at ${route} has no cells: add a row to system/states.tsx for each component with states`);
     fail(bad, 'state cells missing or invisible');
     return `${n} state cells differ from their default and carry their ARIA`;
   });
@@ -1206,7 +1218,7 @@ try {
           if (d > 2 && d < 6) { nearOn.push(lum(on, k)); nearOff.push(lum(off, k)); } else if (d > 32 && d < 38) { farOn.push(lum(on, k)); farOff.push(lum(off, k)); }
         }
         const ratio = (med(nearOn) + 0.05) / (med(nearOff) + 0.05), spill = (med(farOn) + 0.05) / (med(farOff) + 0.05); n++;
-        if (spill > 1.03) bad.push(`${theme} ${r}: a ${info.kind} glow still lightens the pane ${spill.toFixed(2)}:1 at 32px; it should be gone by then`);
+        if (spill > 1.03) bad.push(`${theme} ${r}: a ${info.kind} glow still lightens the surface ${spill.toFixed(2)}:1 at 32px; it should be gone by then`);
         (seen[info.kind] ??= []).push(ratio);
         if (theme === DARK && ratio < NEED[info.kind]) bad.push(`${theme} ${r}: a ${info.kind} glow lifts its surround only ${ratio.toFixed(2)}:1 (needs ${NEED[info.kind]})`);
       }
@@ -1217,7 +1229,7 @@ try {
     return `${n} glowing parts in ${C.themes.length} themes (${span})`;
   });
 
-  await gate('G-SL1', 'a slider has room to travel and holds still: at least 200px long, and neither it nor its pane changes size between its lowest and highest value', async () => {
+  await gate('G-SL1', 'a slider has room to travel and holds still: at least 200px long, and neither it nor its surface changes size between its lowest and highest value', async () => {
     // Pane, 2026-10-29: in a centred stage the slider shrank to its label and value text, a stub, and
     // its pane grew and shrank as the value went from 2% to 100%. Checked by pressing Home and End.
     const MIN = C.sliderMin ?? 200;
@@ -1228,8 +1240,8 @@ try {
       for (const t of thumbs.slice(0, 8)) {
         if (!(await t.isVisible()) || (await t.isDisabled().catch(() => false)) || (await t.getAttribute('aria-disabled')) === 'true') continue;
         const measure = () => t.evaluate((e) => {
-          const root = e.closest('[data-component]') ?? e.parentElement; const pane = root.parentElement?.closest('[data-surface], [data-component="Card"]') ?? root.parentElement;
-          const a = root.getBoundingClientRect(), b = pane.getBoundingClientRect();
+          const root = e.closest('[data-component]') ?? e.parentElement; const surf = root.parentElement?.closest('[data-surface], [data-component="Card"]') ?? root.parentElement;
+          const a = root.getBoundingClientRect(), b = surf.getBoundingClientRect();
           return { w: a.width, h: a.height, pw: b.width, ph: b.height, name: root.getAttribute('data-component') ?? 'slider' };
         });
         await t.focus(); await page.keyboard.press('Home'); await page.waitForTimeout(80); const lo = await measure();
@@ -1238,7 +1250,7 @@ try {
         n++;
         if (lo.w < MIN - 0.5) bad.push(`${r}: ${lo.name} is ${Math.round(lo.w)}px long (needs ${MIN})`);
         const moved = Math.max(Math.abs(hi.w - lo.w), Math.abs(hi.h - lo.h), Math.abs(hi.pw - lo.pw), Math.abs(hi.ph - lo.ph));
-        if (moved > 1) bad.push(`${r}: ${lo.name} or its pane changes size by ${Math.round(moved)}px between its lowest and highest value`);
+        if (moved > 1) bad.push(`${r}: ${lo.name} or its surface changes size by ${Math.round(moved)}px between its lowest and highest value`);
       }
     }
     if (!n) throw new Error('NO SLIDER on any component page');
@@ -1274,26 +1286,87 @@ try {
     const bad = [];
     for (const r of routes) {
       await go(r);
-      const res = await page.evaluate(() => {
+      const res = await page.evaluate((SURF) => {
         const out = [];
         for (const stage of document.querySelectorAll('main [data-example-live]')) {
           if (stage.closest('[data-material-compare]')) continue;
           const kinds = new Set();
-          for (const pane of stage.querySelectorAll('[data-pane-card], [data-component="Dialog"], [data-component="Sheet"], [data-component="Navbar"], [data-component="BottomNav"]')) {
-            const cs = getComputedStyle(pane); if (cs.display === 'none') continue;
+          for (const surf of stage.querySelectorAll(`${SURF}, [data-component="Dialog"], [data-component="Sheet"], [data-component="Navbar"], [data-component="BottomNav"]`)) {
+            const cs = getComputedStyle(surf); if (cs.display === 'none') continue;
             const f = cs.backdropFilter || cs.webkitBackdropFilter || 'none';
             // a nested pane inside a glass pane draws no filter of its own; it takes its parent's material
-            if (f === 'none' && pane.parentElement.closest('[data-pane-card]')) continue;
+            if (f === 'none' && surf.parentElement.closest(SURF)) continue;
             kinds.add(f === 'none' ? 'solid' : 'glass');
           }
           if (kinds.size > 1) out.push(stage.closest('figure')?.querySelector('figcaption')?.textContent?.slice(0, 50) ?? 'a demo');
         }
         return out;
-      });
+      }, SURFACE);
       for (const x of res) bad.push(`${r}: ${x}`);
     }
     if (bad.length) throw new Error(`${bad.length} demos mix glass and solid: ${bad.slice(0, 8).join(' | ')}`);
     return `${routes.length} pages`;
+  });
+
+  // ------------------------------------------------------------------ material recipe, bare surfaces, mesh, anchor
+  // The measurements live in surface-probes.mjs and are proven red/green by surface-probes.proof.mjs.
+  await gate('G-GR1', 'every glass in a component uses the shared recipe: backdrop-filter is none or written through tokens, and what renders carries every recipe function', async () => {
+    // Pane, 2026-10-31: Navbar blurred without saturate or brightness, so on a bright scene its text fell to 3.4:1
+    const R = { functions: ['blur', 'saturate', 'brightness'], ...(C.glassRecipe ?? {}) };
+    const bad = [];
+    const walk = (d) => { if (!existsSync(d)) return; for (const n of readdirSync(d, { withFileTypes: true })) { const f = path.join(d, n.name); if (n.isDirectory()) walk(f); else if (n.name.endsWith('.css')) bad.push(...glassCssProblems(readFileSync(f, 'utf8'), path.relative(C.root, f))); } };
+    walk(C.abs(C.componentsDir));
+    const routes = ROUTES.filter((x) => x.startsWith(`${C.componentsBase}/`) && (x.endsWith('/code') || x.endsWith('/usage')));
+    if (!routes.length && !bad.length) throw new Error('NO COMPONENT PAGES in this run');
+    let glass = 0;
+    for (const r of routes) {
+      await go(r);
+      const res = await page.evaluate(glassRecipeProbe, { scope: 'main [data-example-live] *', functions: R.functions });
+      glass += await page.evaluate(() => [...document.querySelectorAll('main [data-example-live] *')].filter((e) => (getComputedStyle(e).backdropFilter || 'none') !== 'none').length);
+      for (const x of res) bad.push(`${r}: ${x}`);
+    }
+    fail([...new Set(bad)], 'glass outside the recipe');
+    return `${glass} glass elements on ${routes.length} pages carry ${R.functions.join(' + ')}`;
+  });
+
+  await gate('G-BR1', 'a subject shown as its own surface paints one, and no live example puts text straight on the photo', async () => {
+    // Pane: chart, chat and agent subjects were shown bare and drew their words on the scene with no pane
+    const arg = { minAlpha: C.bareMinAlpha ?? 0.9, paneAlpha: C.paneAlpha ?? 0.35, stages: 'main [data-example-live]' };
+    const scenes = [...new Set([SCENE, C.photoScene].filter(Boolean))];
+    const routes = ROUTES.filter((x) => !x.startsWith(`${C.componentsBase}/`) || x.endsWith('/usage') || x.endsWith('/style'));
+    if (!routes.length) throw new Error('NO PAGES in this run');
+    const bad = []; let photo = 0;
+    for (const scene of scenes) for (const r of routes) {
+      await go(r, { scene });
+      photo += await page.evaluate(() => [...document.querySelectorAll('main [data-example-live]')].filter((s) => /url\(/.test(getComputedStyle(s).backgroundImage)).length);
+      for (const x of await page.evaluate(bareSurfaceProbe, arg)) bad.push(`${scene} ${r}: ${x}`);
+    }
+    fail([...new Set(bad)], 'subjects with no surface');
+    return `${routes.length} pages, ${photo} photo stages${photo ? '' : ' (no stage showed a photo; set docs.photoScene to the brightest photo scene)'}`;
+  });
+
+  await gate('G-MS1', `a mesh gradient is an accent: at most ${Math.round((C.meshMaxShare ?? 0.1) * 100)}% of its section, stage or card, never a wallpaper`, async () => {
+    // user rule, 2026-10-31: mesh gradients are an accent, never the ground
+    const arg = { maxShare: C.meshMaxShare ?? 0.1, regions: C.meshRegions ?? `section, [data-example-live], ${SURFACE}, [data-component="Card"]` };
+    const bad = [];
+    for (const r of ROUTES) { await go(r); for (const x of await page.evaluate(meshShareProbe, arg)) bad.push(`${r}: ${x}`); }
+    fail([...new Set(bad)], 'mesh areas past their share');
+    return `${ROUTES.length} pages`;
+  });
+
+  await gate('G-AN1', 'the card still looks like the anchor: body lightness, chroma and rim contrast on the anchor\'s backdrop stay within the allowed deltas', async () => {
+    // Pane R-032: glass was tuned one number at a time until it read as opaque; nothing compared it with the anchor
+    const A = C.anchor;
+    if (!A?.route || !A?.selector) throw new Error('no docs.anchor { route, selector, reference } in kiln.config.json: the anchor pick records one (anchor-likeness.mjs --record)');
+    const refFile = C.abs(A.reference ?? 'system/anchor/anchor-likeness.json');
+    if (!existsSync(refFile)) throw new Error(`no anchor reference at ${path.relative(C.root, refFile)}: run node tooling/kiln/anchor-likeness.mjs --record <anchor html> at the anchor lock`);
+    if (!ROUTES.includes(A.route)) throw new Error('NO anchor route in this run');
+    const ref = JSON.parse(readFileSync(refFile, 'utf8'));
+    await go(A.route, { theme: ref.theme ?? THEME, scene: ref.scene ?? SCENE });
+    await page.mouse.move(1, 1);
+    const now = await cardStats(page, A.selector);
+    fail(anchorDrift(ref, now, A), 'drifts from the anchor');
+    return `L ${now.L} C ${now.C} rim ${now.rim}:1 against the anchor's L ${ref.L} C ${ref.C} rim ${ref.rim}:1`;
   });
 
   await gate('G-IC1', 'every icon inside a component is drawn at a size: no glyph collapses to nothing', async () => {
@@ -1423,6 +1496,8 @@ try {
         const name = (el) => el.closest('[data-component]')?.getAttribute('data-component') ?? (el.className && typeof el.className === 'string' ? `.${el.className.split(' ')[0]}` : el.tagName.toLowerCase());
         for (const el of document.querySelectorAll('body *')) {
           if (el.closest(`svg, [aria-hidden="true"] [aria-hidden="true"], [data-nc-exempt]${EXEMPT ? `, ${EXEMPT}` : ''}`) || !drawn(el)) continue;
+          // a shape set inside a line of text (a keycap, an inline code chip) belongs to the text, not to the pane's corner
+          { let n = el, inText = false; for (let i = 0; n && i < 3 && !inText; i++, n = n.parentElement) inText = /^inline/.test(getComputedStyle(n).display) && [...(n.parentElement?.childNodes ?? [])].some((x) => x.nodeType === 3 && x.textContent.trim()); if (inText) continue; }
           const b = el.getBoundingClientRect();
           if (b.width < 12 || b.height < 12 || b.width > 600) continue;
           let p = el.parentElement; while (p && p !== document.body && !drawn(p)) p = p.parentElement;
@@ -1442,13 +1517,15 @@ try {
           // a pill's end is set by its height, so a pill only owes the even inset, never a radius
           const pill = got >= Math.min(b.height, b.width) / 2 - 1;
           const uneven = Math.abs(h - v) > Math.max(2, 0.25 * Math.max(h, v)) && Math.min(h, v) < 0.6 * Math.max(h, v);
-          if (uneven || (!pill && Math.abs(got - want) > Math.max(2, 0.2 * want))) out.push(`${name(el)}${el.closest('[data-component]') === el ? '' : ` ${el.tagName.toLowerCase()}.${String(el.className).split(' ')[0].replace(/^pane-|-module__/g, '')}`} in ${name(p)}: inset ${Math.round(h)}px/${Math.round(v)}px, corner ${Math.round(got)}px (wants even insets and ${Math.round(want)}px)`);
+          if (uneven || (!pill && Math.abs(got - want) > Math.max(2, 0.2 * want))) out.push(`${name(el)}${el.closest('[data-component]') === el ? '' : ` ${el.tagName.toLowerCase()}.${String(el.className).split(' ')[0].replace(/^[a-z][a-z0-9-]*?-(?=[A-Z])|-module__/g, '')}`} in ${name(p)}: inset ${Math.round(h)}px/${Math.round(v)}px, corner ${Math.round(got)}px (wants even insets and ${Math.round(want)}px)`);
         }
         return out;
       }, C.ncExempt ?? '');
       for (const x of res) bad.push(`${r}: ${x}`);
     }
-    const u = [...new Set(bad.map((x) => x.replace(/^\S+: /, '')))];
+    // one line per distinct shape, with the first page it was seen on, so the report says where to look
+    const first = new Map(); for (const x of bad) { const m = x.match(/^(\S+): (.*)$/); if (!first.has(m[2])) first.set(m[2], m[1]); }
+    const u = [...first].map(([msg, at]) => `${msg} (${at})`);
     if (u.length) throw new Error(`${u.length} nested shapes: ${u.slice(0, 8).join(' | ')}`);
     return `${routes.length} pages`;
   });
@@ -1598,6 +1675,13 @@ try {
     const stale = await settle(`?${C.sceneParam}=no-such-value&${C.themeParam}=no-such-value`);
     for (const [k, v] of stale) if (v === 'no-such-value') bad.push(`?${k}=no-such-value is still in the address after load: an unknown value must fall back to the default and be dropped`);
     expect(await p2.locator('main').count() > 0, 'the page did not render with unknown values in the address');
+    // a book with a backdrop control and no configured scenes measured every scene-swept check on one
+    // backdrop and called it all of them; the starter ships one real scene, so an empty list is a lost setting
+    if (!C.scenes.length && await p2.locator('[data-scene-control]').count()) bad.push('the book has a backdrop control but docs.scenes is empty: list the backdrop ids in kiln.config.json (the first is the default)');
+    else if (C.scenes.length) {
+      const known = await p2.evaluate((ids) => ids.filter((id) => !document.querySelector(`[data-scene-control] option[value="${id}"], [data-scene-control] [data-value="${id}"], [data-scene-control] [value="${id}"]`)), C.scenes);
+      if (await p2.locator('[data-scene-control] option, [data-scene-control] [data-value]').count() && known.length) bad.push(`docs.scenes lists ${known.join(', ')}, which the backdrop control does not offer`);
+    }
     // every configured scene must be one the app understands, or every scene-swept check measures the default
     // (Pane, 2026-10-29: the app moved to ?backdrop= and evidence kept sending ?scene=, so its "4 scenes" were one)
     for (const sc of C.scenes.slice(1)) { const kept = await settle(`?${C.sceneParam}=${sc}`); if (kept.get(C.sceneParam) !== sc) bad.push(`?${C.sceneParam}=${sc} is dropped on load: the app does not read the scene the checks ask for`); }

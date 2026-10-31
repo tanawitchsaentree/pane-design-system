@@ -36,6 +36,8 @@ function checkUsage(code) {
   if (new Set(mats).size > 1) out.push('glass and solid on one screen; pick one material for the whole screen (see choose_appearance)');
   if (/<(Card|Sheet|Dialog|Drawer|Navbar|BottomNav)\b/.test(code) && !/<Environment\b/.test(code)) out.push('panes with no Environment above them; wrap the screen in <Environment material brightness> so the glass knows the scene, or say which file does');
   if (/<p\b|<span\b/.test(code) && !/<(Card|Sheet|Dialog|Popover|Drawer)\b/.test(code)) out.push('text with no pane around it; put content on a Card (or another pane) so it never sits straight on the scene');
+  // D-036: a mesh is an accent, about a tenth of its region; one that wraps content or fills its box is a wallpaper
+  if (/<Mesh\b[^>]*>(?!\s*<\/Mesh>)[\s\S]*?<\/Mesh>/.test(code) || /<Mesh\b[^>]*(inset|100%|100vw|100vh|fill|cover|scene|background)/.test(code)) out.push('a Mesh used as a background (it wraps content or fills its box); keep a mesh to about a tenth of the region, as an icon or album art beside a title, and use a photo or solid for the background');
   return out.length ? `${out.length} things to change:\n- ${out.join('\n- ')}` : 'No problems found by the quick checks. Run the docs gates for layout and contrast.';
 }
 // choose_appearance: the four choices in order (M1), each with the reason drawn from the description

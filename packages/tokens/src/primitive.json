@@ -547,6 +547,14 @@
           "p": "P3",
           "why": "smoked glass bodies for each level of the stack, a measured step apart so a pane, a surface inside it, an overlay and a popover read as four layers (R-013)"
         }
+      },
+      "glass": {
+        "$value": "#14151873",
+        "$description": "the dark glass body at 45%: thin enough that the scene shows through as glass, with the dimming doing the work of legibility (D-035); the 78% smoke.1 read as an opaque slab"
+      },
+      "glass-light": {
+        "$value": "#F7F7F9A8",
+        "$description": "the light glass body at 66%: the scene shows through as frosted glass while ink keeps its contrast (D-035)"
       }
     },
     "loud": {
@@ -806,6 +814,10 @@
     "mesh": {
       "$value": "40px",
       "$description": "melts the mesh's pools into each other: wide enough that no pool keeps an edge"
+    },
+    "clear": {
+      "$value": "32px",
+      "$description": "the glass blur for D-035: soft enough that text never sits on a hard edge, clear enough that the scene keeps its shapes, so glass reads as glass and not as a tinted slab"
     }
   },
   "saturate": {
@@ -1453,16 +1465,16 @@
   "brightness": {
     "$type": "number",
     "dim": {
-      "$value": 0.42,
+      "$value": 0.7,
       "$description": "Uncalibrated and held at the bright value"
     },
     "mid": {
-      "$value": 0.42,
+      "$value": 0.56,
       "$description": "Uncalibrated and held at the bright value"
     },
     "bright": {
-      "$value": 0.42,
-      "$description": "0.42: thinnest glass where the whole book stays >=3.8:1 on every photo (0.44 left 6 City nodes at 3.56-3.79); 0.38 passes every node at 4.5:1; between 3.8 and 4.5 = E-001"
+      "$value": 0.48,
+      "$description": "D-035: 0.48 for bright scenes. Earlier note, 0.42: thinnest glass where the whole book stays >=3.8:1 on every photo (0.44 left 6 City nodes at 3.56-3.79); 0.38 passes every node at 4.5:1; between 3.8 and 4.5 = E-001"
     },
     "none": {
       "$value": 1

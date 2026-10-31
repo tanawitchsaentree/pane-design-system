@@ -100,12 +100,12 @@ export function Stage({ children, plain, className = '', backdrop }: { children:
   const chosen = useScene();
   // diagrams pass backdrop="field": the subject is structure, so a photo would only compete with it
   const field = backdrop === 'field' || (backdrop !== 'scene' && chosen === 'field');
-  // the studio and the aurora are drawn in CSS, not photos; a diagram that asks for a scene still gets one
-  const drawn = !field && (chosen === 'studio' || chosen === 'aurora') && backdrop !== 'scene';
+  // the studio is drawn in CSS, not a photo; a diagram that asks for a scene still gets one (D-036: no mesh backdrop)
+  const drawn = !field && chosen === 'studio' && backdrop !== 'scene';
   const studio = drawn && chosen === 'studio';
-  const scene = field ? 'field' : drawn ? chosen : chosen === 'studio' || chosen === 'aurora' ? 'room' : chosen;
+  const scene = field ? 'field' : drawn ? chosen : chosen === 'studio' ? 'room' : chosen;
   return (
-    <div className={`example-live${plain ? ' plain' : ''}${field ? ' stage-field' : ''}${studio ? ' stage-studio' : ''}${drawn && !studio ? ' stage-aurora mesh' : ''} ${className}`} data-example-live="" data-surface="" style={field || drawn ? undefined : { backgroundImage: `url(/scenes/${scene}.webp)` }}>
+    <div className={`example-live${plain ? ' plain' : ''}${field ? ' stage-field' : ''}${studio ? ' stage-studio' : ''} ${className}`} data-example-live="" data-surface="" style={field || drawn ? undefined : { backgroundImage: `url(/scenes/${scene}.webp)` }}>
       <Environment brightness={sceneById(scene).brightness} className="stage-env">{children}</Environment>
     </div>
   );

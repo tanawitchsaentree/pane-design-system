@@ -20,6 +20,8 @@
 .icon svg { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); }
 .label { flex: 1; min-inline-size: 0; overflow-wrap: anywhere; }
 .keys { display: inline-flex; gap: var(--ds-gap-xs); flex: none; }
+/* a keycap at the row's end sits in the row's corner, so it takes the nested corner: row radius − inset (G-NC1) */
+.keys > * { border-radius: max(var(--ds-kbd-radius), calc(min(var(--ds-corner-inner), var(--ds-command-palette-row) / 2) - (var(--ds-command-palette-row) - var(--ds-kbd-size)) / 2)); }
 .empty { margin: 0; padding: var(--ds-gap-xl); text-align: center; font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
 .foot { display: flex; align-items: center; gap: var(--ds-gap-xs); margin: 0; padding: var(--ds-gap-md) var(--ds-command-palette-padding); border-block-start: var(--ds-width-hairline) solid var(--ds-command-palette-divider); font-size: var(--ds-type-caption); color: var(--ds-text-secondary); }
 @media (forced-colors: active) { .on { outline: var(--ds-width-ring) solid Highlight; } }

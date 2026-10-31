@@ -99,7 +99,17 @@ for (const [mode, m] of Object.entries(result.harness)) for (const [key, s] of O
 result.summary = { gatingChecks: total, gatingFailures: result.failures.length, excepted: result.excepted.length, informational };
 if (total === 0) result.failures.push('NOTHING MEASURED, so nothing was proven');
 
-for (const out of [path.join(C.abs(C.app), 'public', 'evidence.json'), path.join(C.root, 'system', 'reports', `evidence-${result.generatedAt.slice(0, 10)}.json`)]) {
+// A run limited by KILN_ROUTES or KILN_SCENES measured part of the book. It must never replace the published
+// full result (public/evidence.json is what the book shows): it goes to a partial report only, marked as
+// such, and milestone.mjs refuses it. (Pane: a quick partial run overwrote the book's full evidence.)
+result.partial = Boolean((process.env.KILN_ROUTES ?? '').trim() || (process.env.KILN_SCENES ?? '').trim());
+if (result.partial) result.limitedTo = { routes: process.env.KILN_ROUTES || null, scenes: process.env.KILN_SCENES || null };
+const day = result.generatedAt.slice(0, 10);
+const outs = result.partial
+  ? [path.join(C.root, 'system', 'reports', `evidence-partial-${day}.json`)]
+  : [path.join(C.abs(C.app), 'public', 'evidence.json'), path.join(C.root, 'system', 'reports', `evidence-${day}.json`)];
+if (result.partial) console.log(`partial run (${[result.limitedTo.routes && 'KILN_ROUTES', result.limitedTo.scenes && 'KILN_SCENES'].filter(Boolean).join(' + ')}): written to system/reports/evidence-partial-${day}.json only; public/evidence.json is left as it was`);
+for (const out of outs) {
   mkdirSync(path.dirname(out), { recursive: true });
   writeFileSync(out, JSON.stringify(result, null, 2) + '\n');
 }

@@ -1,0 +1,42 @@
+{
+  "name": "Signal",
+  "description": "A developer console: cyan on graphite, monospace type, compact spacing, small corners and quick motion.",
+  "density": "compact",
+  "motion": "brisk",
+  "tokens": {
+    "action.loud-top": {
+      "dark": "#A6EEF7",
+      "light": "#00707F"
+    },
+    "action.loud-foot": {
+      "dark": "#7FE2EF",
+      "light": "#005E6B"
+    },
+    "action.foot-solid": {
+      "dark": "#66D8E8",
+      "light": "#004F5A"
+    },
+    "text.on-light": {
+      "dark": "#002A30",
+      "light": "#FFFFFF"
+    },
+    "text.on-accent": {
+      "dark": "#002A30",
+      "light": "#FFFFFF"
+    },
+    "action.accent-hover": {
+      "dark": "#C2F4FA",
+      "light": "#007E8E"
+    },
+    "focus.ring": {
+      "dark": "#A6EEF7",
+      "light": "#005E6B"
+    },
+    "type.family": "'JetBrains Mono', 'SF Mono', ui-monospace, Menlo, monospace",
+    "type.weight-semibold": "600",
+    "type.tracking-display": "0em",
+    "corner.panel": "{radius.md}",
+    "corner.media": "{radius.sm}",
+    "glass.saturate": "1.1"
+  }
+}

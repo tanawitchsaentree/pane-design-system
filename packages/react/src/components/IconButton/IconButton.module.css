@@ -50,8 +50,8 @@
   background: linear-gradient(180deg, var(--ds-icon-button-glass-top), transparent 55%), var(--ds-icon-button-glass-foot);
   box-shadow: var(--ds-icon-button-edge), var(--ds-icon-button-cast);
   color: var(--ds-icon-button-fg);
-  -webkit-backdrop-filter: blur(var(--ds-icon-button-blur));
-  backdrop-filter: blur(var(--ds-icon-button-blur));
+  -webkit-backdrop-filter: blur(var(--ds-icon-button-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-icon-button-brightness));
+  backdrop-filter: blur(var(--ds-icon-button-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-icon-button-brightness));
 }
 /* loud: a white bead with its own bloom, the one main action in a toolbar or dock */
 .loud { background: radial-gradient(circle at 50% 30%, var(--ds-icon-button-loud-top) 40%, var(--ds-icon-button-loud-foot)); color: var(--ds-icon-button-loud-fg); box-shadow: var(--ds-icon-button-bloom); text-shadow: none; }

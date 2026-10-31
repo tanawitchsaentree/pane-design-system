@@ -66,12 +66,13 @@ export function AppearanceMenu({ material, onMaterial, brand, onBrand, brands, s
   return (
     <span className="tb-appearance" data-scene-control="" data-brand-control="" data-material-control="">
       <Popover title="Appearance" align="end"
-        trigger={<button type="button" className="tb-version tb-look" aria-label={`Appearance: ${summary}`}><span className="tb-look-text">{summary}</span><Chevron /></button>}>
+        trigger={<button type="button" className="tb-version tb-look" aria-label={`Appearance of the examples: ${summary}`} title={summary}><svg className="tb-look-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M12 3.5a8.5 8.5 0 0 0 0 17z" /></svg><span className="tb-look-text">Appearance</span><Chevron /></button>}>
         <div className="tb-look-body">
+          <p className="tb-look-intro">How the examples in this book look. In your own product these are one prop each, set in code.</p>
           <SegmentedControl label="Material" value={material} onValueChange={(v) => onMaterial(v as 'glass' | 'solid')} options={[{ value: 'glass', label: 'Glass' }, { value: 'solid', label: 'Solid' }]} />
           <Select label="Brand" size="sm" value={brand} onValueChange={onBrand} options={[{ value: 'pane', label: 'Pane' }, ...brands.map((b) => ({ value: b.id, label: b.name }))]} />
           <Select label="Demo backdrop" size="sm" value={scene} onValueChange={onScene} options={scenes.map((x) => ({ value: x.id, label: x.label }))} />
-          <a className="tb-look-link" href="/foundations/materials" onClick={(e) => { e.preventDefault(); navigate('/foundations/materials'); }}>How to choose a material</a>
+          <a className="tb-look-link" href="/getting-started/look" onClick={(e) => { e.preventDefault(); navigate('/getting-started/look'); }}>How to choose these for a product</a>
         </div>
       </Popover>
     </span>

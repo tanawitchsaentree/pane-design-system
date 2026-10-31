@@ -1,0 +1,45 @@
+{
+  "name": "Kiddo",
+  "description": "A reading app for children: warm orange, very round corners, roomy spacing and heavy friendly type.",
+  "density": "roomy",
+  "motion": "steady",
+  "tokens": {
+    "action.loud-top": {
+      "dark": "#FFD3A3",
+      "light": "#B04E00"
+    },
+    "action.loud-foot": {
+      "dark": "#FFBE7A",
+      "light": "#963F00"
+    },
+    "action.foot-solid": {
+      "dark": "#FFB066",
+      "light": "#7F3500"
+    },
+    "text.on-light": {
+      "dark": "#2B1400",
+      "light": "#FFFFFF"
+    },
+    "text.on-accent": {
+      "dark": "#2B1400",
+      "light": "#FFFFFF"
+    },
+    "action.accent-hover": {
+      "dark": "#FFE0BD",
+      "light": "#C25A05"
+    },
+    "focus.ring": {
+      "dark": "#FFD3A3",
+      "light": "#963F00"
+    },
+    "type.family": "Nunito, 'Avenir Next Rounded', 'SF Pro Rounded', system-ui, sans-serif",
+    "type.weight-medium": "600",
+    "type.weight-semibold": "800",
+    "corner.panel": "48px",
+    "corner.media": "{radius.lg}",
+    "mesh.a": "#FFD3A3",
+    "mesh.b": "#FFE98A",
+    "mesh.c": "#F27C5C",
+    "mesh.d": "#FFB3C7"
+  }
+}

@@ -552,7 +552,7 @@
   "glass": {
     "blur": {
       "$type": "dimension",
-      "$value": "{blur.lg}"
+      "$value": "{blur.clear}"
     },
     "blur-small": {
       "$type": "dimension",
@@ -1699,10 +1699,10 @@
   },
   "level": {
     "1": {
-      "$value": "{color.smoke.1}",
+      "$value": "{color.smoke.glass}",
       "$extensions": {
         "pane.theme": {
-          "light": "{color.smoke.1-light}"
+          "light": "{color.smoke.glass-light}"
         }
       }
     },

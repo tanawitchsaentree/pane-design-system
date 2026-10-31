@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T02:45:53.929Z",
+  "generatedAt": "2026-10-31T07:57:54.726Z",
   "lint": "/Users/tanawitch.saentree/Downloads/human-tone-folder/.claude/skills/human-tone/scripts/lint.py",
   "excluded": [
     "/reference/decisions"
@@ -7,85 +7,91 @@
   "pages": {
     "/": {
       "ok": true,
-      "words": 1461,
+      "words": 1410,
       "hard": 0,
       "report": {
         "hard": [],
         "warn": [
           {
-            "line": 21,
+            "line": 30,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Choose your look. Glass or solid, then theme, brand and environment."
+          },
+          {
+            "line": 39,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "The words on the glass, with the headings, links, icons and keys that sit among "
           },
           {
-            "line": 25,
+            "line": 43,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Where the reader is and how they move, through bars, docks, paths, pages and ste"
           },
           {
-            "line": 30,
+            "line": 48,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Numbers, facts, rows and tables that the reader reads and compares."
           },
           {
-            "line": 31,
+            "line": 49,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Amounts, trends and patterns drawn in the data palette, each with a table view."
           },
           {
-            "line": 32,
+            "line": 50,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Steps, links and messages between things, each with words for every part."
           },
           {
-            "line": 35,
+            "line": 53,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Whole steps built from the components before them, such as forms, tours, boards "
           },
           {
-            "line": 42,
+            "line": 60,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Values beyond plain text, such as secrets, searches, numbers, ranges, files, col"
           },
           {
-            "line": 47,
+            "line": 65,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Glass, colour, type, space, shape, motion and icons. Each with live values."
           },
           {
-            "line": 59,
+            "line": 77,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Pane is a pilot with 125 components, verified in Chromium only. It can lay out a"
           },
           {
-            "line": 20,
+            "line": 38,
             "rule": "repeated 'from X to Y' contrast across the document",
             "code": "symmetry",
             "text": "Where things go, from the page width and its columns to the space between items."
           },
           {
-            "line": 23,
+            "line": 41,
             "rule": "repeated 'from X to Y' contrast across the document",
             "code": "symmetry",
             "text": "What content sits on, from the scene and the glass to colour and pictures."
           },
           {
-            "line": 24,
+            "line": 42,
             "rule": "repeated 'from X to Y' contrast across the document",
             "code": "symmetry",
             "text": "What the reader does, from the one loud action to a row of icons."
           },
           {
-            "line": 37,
+            "line": 55,
             "rule": "repeated 'from X to Y' contrast across the document",
             "code": "symmetry",
             "text": "Panes above the page at levels 3 and 4 of the stack, from a dialog to a tooltip."
@@ -480,7 +486,7 @@
     },
     "/foundations/materials": {
       "ok": true,
-      "words": 717,
+      "words": 840,
       "hard": 0,
       "report": {
         "hard": [],
@@ -492,19 +498,19 @@
             "text": "Every Pane surface is a physical object, lit from above, with fields carved into"
           },
           {
-            "line": 23,
+            "line": 30,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "overlays, docks and round buttons blur what is under them"
           },
           {
-            "line": 27,
+            "line": 34,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "It keeps shapes, corners and how corners nest."
           },
           {
-            "line": 42,
+            "line": 49,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "The MCP server has a choose_appearance tool. Describe the product and it returns"
@@ -546,7 +552,7 @@
     },
     "/foundations/glass": {
       "ok": true,
-      "words": 840,
+      "words": 847,
       "hard": 0,
       "report": {
         "hard": [],
@@ -556,6 +562,12 @@
             "rule": "suspect word: genuinely",
             "code": "lexicon",
             "text": "Each of the four scene photos has a sunlit or lamp-lit region somewhere in frame"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "Uncalibrated and held at the bright value\nUncalibrated and held at the bright va"
           }
         ],
         "pass": true,
@@ -564,7 +576,7 @@
     },
     "/foundations/color": {
       "ok": true,
-      "words": 1695,
+      "words": 1736,
       "hard": 0,
       "report": {
         "hard": [],
@@ -597,13 +609,13 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "The status fills stay the same in both, because their text pairs are computed on"
+            "text": "#Colour in each theme\nThe dark theme puts white text on glass that dims the scen"
           },
           {
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "Status colour on glass is limited to small glyphs, in brighter tones on dark gla"
+            "text": "Info is #0071E3 at 4.70:1, positive is #13803C at 5.02:1, warning is #F5B000 wit"
           },
           {
             "line": 0,
@@ -641,14 +653,45 @@
       }
     },
     "/foundations/brands": {
-      "ok": true,
-      "words": 491,
-      "hard": 0,
+      "ok": false,
+      "words": 854,
+      "hard": 2,
       "report": {
-        "hard": [],
+        "hard": [
+          {
+            "line": 2,
+            "rule": "label colon in prose",
+            "code": "label_colon",
+            "text": "One Pane serves many client brands. A brand changes a list of semantic tokens: t"
+          },
+          {
+            "line": 35,
+            "rule": "label colon in prose",
+            "code": "label_colon",
+            "text": "Primitives and component tokens: the radius scale, the space scale, a component’"
+          }
+        ],
         "warn": [
           {
-            "line": 26,
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "The same appointment card under Pane and nine sample brands, on the backdrop cho"
+          },
+          {
+            "line": 25,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "It keeps the type scale, sizes and touch targets, and spacing beyond one density"
+          },
+          {
+            "line": 30,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "Every token is on the list, the words on the loud action hold 4.5:1, the focus r"
+          },
+          {
+            "line": 43,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Load the brand sheet after the tokens and set code on the root, or on one region"
@@ -657,7 +700,13 @@
             "line": 0,
             "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
             "code": "rhythm",
-            "text": "Use the Brand control in the header to see the whole book in one of them."
+            "text": "#What a brand may change\nThe fill of the one loud action on a pane (Button light"
+          },
+          {
+            "line": 0,
+            "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
+            "code": "rhythm",
+            "text": "How much of the scene’s colour the glass carries, from 1 (none added) to 2."
           },
           {
             "line": 0,
@@ -669,7 +718,13 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "A brand set on a region inside another brand wins for that region, the way a nes"
+            "text": "The glass, the text tones, the status colours and the touch targets stay the sam"
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "#Loading a brand\nLoad the brand sheet after the tokens and set code on the root,"
           },
           {
             "line": 0,
@@ -678,7 +733,7 @@
             "text": ""
           }
         ],
-        "pass": true,
+        "pass": false,
         "profile": []
       }
     },
@@ -1212,7 +1267,7 @@
     },
     "/components/container/accessibility": {
       "ok": true,
-      "words": 297,
+      "words": 333,
       "hard": 0,
       "report": {
         "hard": [],
@@ -1302,7 +1357,7 @@
     },
     "/components/grid/accessibility": {
       "ok": true,
-      "words": 341,
+      "words": 377,
       "hard": 0,
       "report": {
         "hard": [],
@@ -1329,7 +1384,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "Column counts are fixed by the tokens at 4, 8 and 12."
+            "text": "PASS 15.46:1\nPASS 12.12:1\nPASS 21.00:1\nPASS 15.46:1\nPASS 12.12:1\nPASS 21.00:1\nPA"
           },
           {
             "line": 0,
@@ -1422,7 +1477,7 @@
     },
     "/components/stack/accessibility": {
       "ok": true,
-      "words": 299,
+      "words": 335,
       "hard": 0,
       "report": {
         "hard": [],
@@ -1800,7 +1855,7 @@
     },
     "/components/aspect-ratio/usage": {
       "ok": true,
-      "words": 242,
+      "words": 244,
       "hard": 0,
       "report": {
         "hard": [],
@@ -3173,7 +3228,7 @@
     },
     "/components/tooltip/accessibility": {
       "ok": true,
-      "words": 222,
+      "words": 234,
       "hard": 0,
       "report": {
         "hard": [],
@@ -3192,6 +3247,12 @@
           },
           {
             "line": 20,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "the same glass recipe as cards (blur, saturate and the environment's dimming)."
+          },
+          {
+            "line": 21,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. A few words on hover, focus and tap."
@@ -3274,7 +3335,7 @@
     },
     "/components/toast/accessibility": {
       "ok": true,
-      "words": 265,
+      "words": 277,
       "hard": 0,
       "report": {
         "hard": [],
@@ -3284,6 +3345,12 @@
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "See the Accessibility tab for focus, keys and what it announces."
+          },
+          {
+            "line": 20,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "the same glass recipe as cards (blur, saturate and the environment's dimming)."
           },
           {
             "line": 0,
@@ -3357,7 +3424,7 @@
     },
     "/components/snackbar/accessibility": {
       "ok": true,
-      "words": 235,
+      "words": 247,
       "hard": 0,
       "report": {
         "hard": [],
@@ -3367,6 +3434,12 @@
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "See the Accessibility tab for focus, keys and what it announces."
+          },
+          {
+            "line": 20,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "the same glass recipe as cards (blur, saturate and the environment's dimming)."
           },
           {
             "line": 0,
@@ -3805,7 +3878,7 @@
     },
     "/components/environment/accessibility": {
       "ok": true,
-      "words": 395,
+      "words": 491,
       "hard": 0,
       "report": {
         "hard": [],
@@ -3820,7 +3893,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "PASS 15.21:1\nPASS 12.27:1\nPASS 21.00:1\nPASS 15.21:1\nPASS 12.27:1\nPASS 21.00:1\nPA"
+            "text": "PASS 15.58:1\nPASS 12.27:1\nPASS 21.00:1\nPASS 15.58:1\nPASS 12.27:1\nPASS 21.00:1\nPA"
           }
         ],
         "pass": true,
@@ -3889,7 +3962,7 @@
     },
     "/components/card/accessibility": {
       "ok": true,
-      "words": 351,
+      "words": 417,
       "hard": 0,
       "report": {
         "hard": [],
@@ -3901,7 +3974,7 @@
             "text": "PASS glass card blurs, saturates and dims what is behind it. blur(64px) saturate"
           },
           {
-            "line": 37,
+            "line": 56,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "First release with glass, inset and solid variants and a cover slot. Glass dims "
@@ -3910,7 +3983,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "Nesting glass inside glass doubles the blur cost, so the inset variant adds no s"
+            "text": "PASS 14.04:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 14.04:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
           }
         ],
         "pass": true,
@@ -3984,7 +4057,7 @@
     },
     "/components/avatar/accessibility": {
       "ok": true,
-      "words": 336,
+      "words": 372,
       "hard": 0,
       "report": {
         "hard": [],
@@ -3993,7 +4066,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "#Change history\na portrait behind a lens with the pane's rim of light; the white"
+            "text": "PASS 14.04:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 14.04:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
           }
         ],
         "pass": true,
@@ -4110,22 +4183,28 @@
     },
     "/components/button/accessibility": {
       "ok": true,
-      "words": 463,
+      "words": 499,
       "hard": 0,
       "report": {
         "hard": [],
         "warn": [
           {
-            "line": 47,
+            "line": 65,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code and code variants, size code, code and code, and code."
           },
           {
-            "line": 50,
+            "line": 68,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "First release with light, accent and glass variants and the soft hover lift."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "PASS 15.46:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 15.46:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
           },
           {
             "line": 0,
@@ -4212,16 +4291,22 @@
     },
     "/components/icon-button/accessibility": {
       "ok": true,
-      "words": 400,
+      "words": 448,
       "hard": 0,
       "report": {
         "hard": [],
         "warn": [
           {
+            "line": 59,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "the same glass recipe as cards (blur, saturate and the environment's dimming)."
+          },
+          {
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "The press area is 44px each way, wider than the 36px and 32px discs, so two icon"
+            "text": "PASS 15.46:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 15.46:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
           }
         ],
         "pass": true,
@@ -4320,7 +4405,7 @@
     },
     "/components/tabs/accessibility": {
       "ok": true,
-      "words": 481,
+      "words": 517,
       "hard": 0,
       "report": {
         "hard": [],
@@ -4416,21 +4501,35 @@
     },
     "/components/tag/accessibility": {
       "ok": true,
-      "words": 312,
+      "words": 384,
       "hard": 0,
       "report": {
         "hard": [],
-        "warn": [],
+        "warn": [
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "There is no click or remove behaviour; use a Chip for that."
+          }
+        ],
         "pass": true,
         "profile": []
       }
     },
     "/components/mesh/usage": {
-      "ok": true,
-      "words": 586,
-      "hard": 0,
+      "ok": false,
+      "words": 650,
+      "hard": 1,
       "report": {
-        "hard": [],
+        "hard": [
+          {
+            "line": 35,
+            "rule": "label colon in prose",
+            "code": "label_colon",
+            "text": "A mesh is the most colourful thing on a pane, so it stays small: about a tenth o"
+          }
+        ],
         "warn": [
           {
             "line": 7,
@@ -4439,25 +4538,25 @@
             "text": "Four presets ship, each measured. They are aurora (peach and coral over violet),"
           },
           {
-            "line": 21,
+            "line": 22,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Warm amber and rose over plum, for food, evening and firelight."
           },
           {
-            "line": 23,
+            "line": 24,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Cool aqua and sky over indigo, for water, air and health."
           },
           {
-            "line": 29,
+            "line": 30,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Pools. Four radial pools at the top left, top right, low and bottom left, blurre"
           },
           {
-            "line": 32,
+            "line": 33,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Not applicable. Mesh has no size of its own. It fills the box it is given, so se"
@@ -4466,16 +4565,16 @@
             "line": 0,
             "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
             "code": "rhythm",
-            "text": "Text goes on glass over the mesh, where Pane can measure it, never straight on t"
+            "text": "Text sits beside the mesh on the pane, where Pane can measure it, and never on t"
           }
         ],
-        "pass": true,
+        "pass": false,
         "profile": []
       }
     },
     "/components/mesh/style": {
       "ok": true,
-      "words": 269,
+      "words": 272,
       "hard": 0,
       "report": {
         "hard": [],
@@ -4499,7 +4598,7 @@
     },
     "/components/mesh/code": {
       "ok": true,
-      "words": 251,
+      "words": 252,
       "hard": 0,
       "report": {
         "hard": [],
@@ -4522,20 +4621,27 @@
       }
     },
     "/components/mesh/accessibility": {
-      "ok": true,
-      "words": 370,
-      "hard": 0,
+      "ok": false,
+      "words": 426,
+      "hard": 1,
       "report": {
-        "hard": [],
+        "hard": [
+          {
+            "line": 8,
+            "rule": "label colon in prose",
+            "code": "label_colon",
+            "text": "Keep a mesh to about a tenth of the region it sits in: an icon, album art or a s"
+          }
+        ],
         "warn": [
           {
-            "line": 28,
+            "line": 29,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new (D-029). A mesh gradient for covers, icons, illustrations and scenes, never "
           }
         ],
-        "pass": true,
+        "pass": false,
         "profile": []
       }
     },
@@ -4625,7 +4731,7 @@
     },
     "/components/badge/accessibility": {
       "ok": true,
-      "words": 325,
+      "words": 361,
       "hard": 0,
       "report": {
         "hard": [],
@@ -4635,6 +4741,12 @@
             "rule": "one contrast found: verify it passes the strawman test",
             "code": "negation",
             "text": "Put the status in the text, not only in the colour or the dot."
+          },
+          {
+            "line": 0,
+            "rule": "150-word stretch with nothing under 7 words",
+            "code": "rhythm",
+            "text": "The dot alone carries no meaning for screen readers."
           }
         ],
         "pass": true,
@@ -4721,7 +4833,7 @@
     },
     "/components/chip/accessibility": {
       "ok": true,
-      "words": 411,
+      "words": 447,
       "hard": 0,
       "report": {
         "hard": [],
@@ -4736,7 +4848,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "PASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
+            "text": "PASS 15.46:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 15.46:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
           }
         ],
         "pass": true,
@@ -4817,7 +4929,7 @@
     },
     "/components/select/accessibility": {
       "ok": true,
-      "words": 449,
+      "words": 485,
       "hard": 0,
       "report": {
         "hard": [],
@@ -4838,7 +4950,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "PASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
+            "text": "PASS 15.46:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 15.46:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
           }
         ],
         "pass": true,
@@ -5805,7 +5917,7 @@
     },
     "/components/navbar/accessibility": {
       "ok": true,
-      "words": 263,
+      "words": 283,
       "hard": 0,
       "report": {
         "hard": [],
@@ -5889,7 +6001,7 @@
     },
     "/components/navigation-menu/accessibility": {
       "ok": true,
-      "words": 265,
+      "words": 274,
       "hard": 0,
       "report": {
         "hard": [],
@@ -5973,7 +6085,7 @@
     },
     "/components/sidebar/accessibility": {
       "ok": true,
-      "words": 248,
+      "words": 257,
       "hard": 0,
       "report": {
         "hard": [],
@@ -6063,7 +6175,7 @@
     },
     "/components/bottom-nav/accessibility": {
       "ok": true,
-      "words": 244,
+      "words": 253,
       "hard": 0,
       "report": {
         "hard": [],
@@ -11217,7 +11329,7 @@
     },
     "/components/slider/accessibility": {
       "ok": true,
-      "words": 470,
+      "words": 506,
       "hard": 0,
       "report": {
         "hard": [],
@@ -11250,7 +11362,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "PASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 15.07:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
+            "text": "PASS 15.46:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 15.46:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
           }
         ],
         "pass": true,
@@ -12183,7 +12295,7 @@
     },
     "/components/banner/accessibility": {
       "ok": true,
-      "words": 404,
+      "words": 440,
       "hard": 0,
       "report": {
         "hard": [],
@@ -12192,7 +12304,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "A message that must interrupt every pane at once, such as a lost connection, nee"
+            "text": "PASS 15.46:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 15.46:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
           }
         ],
         "pass": true,
@@ -12730,7 +12842,7 @@
             "line": 0,
             "rule": "3 consecutive 15-25 word stretches (uniform rhythm)",
             "code": "rhythm",
-            "text": "26 component tokens for IconButton\n#Keyboard\nKeys IconButton answers to\nMoves fo"
+            "text": "27 component tokens for IconButton\n#Keyboard\nKeys IconButton answers to\nMoves fo"
           },
           {
             "line": 0,
@@ -14563,7 +14675,7 @@
     },
     "/accessibility": {
       "ok": true,
-      "words": 889,
+      "words": 1033,
       "hard": 0,
       "report": {
         "hard": [],
@@ -14581,7 +14693,7 @@
             "text": "PASS glass card blurs, saturates and dims what is behind it. blur(64px) saturate"
           },
           {
-            "line": 105,
+            "line": 177,
             "rule": "suspect word: genuinely",
             "code": "lexicon",
             "text": "A genuinely dark backdrop, so the dim and mid levels are uncalibrated."
@@ -14620,7 +14732,7 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "PASS 13.31:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 13.31:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
+            "text": "PASS 14.04:1\nPASS 12.11:1\nPASS 21.00:1\nPASS 14.04:1\nPASS 12.11:1\nPASS 21.00:1\nPA"
           }
         ],
         "pass": true,
@@ -14639,104 +14751,141 @@
       }
     },
     "/reference/changelog": {
-      "ok": true,
-      "words": 3541,
-      "hard": 0,
+      "ok": false,
+      "words": 3816,
+      "hard": 1,
       "report": {
-        "hard": [],
+        "hard": [
+          {
+            "line": 4,
+            "rule": "label colon in prose",
+            "code": "label_colon",
+            "text": "brands reach further (D-037). A brand file may also set type weights, display tr"
+          }
+        ],
         "warn": [
           {
-            "line": 55,
+            "line": 4,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "brands reach further (D-037). A brand file may also set type weights, display tr"
+          },
+          {
+            "line": 7,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "the same glass recipe as cards (blur, saturate and the environment's dimming)."
+          },
+          {
+            "line": 8,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "the same glass recipe as cards (blur, saturate and the environment's dimming)."
+          },
+          {
+            "line": 9,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "the same glass recipe as cards (blur, saturate and the environment's dimming)."
+          },
+          {
+            "line": 10,
+            "rule": "possible rule-of-three",
+            "code": "triad",
+            "text": "the same glass recipe as cards (blur, saturate and the environment's dimming)."
+          },
+          {
+            "line": 68,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code and code variants, size code, code and code, and code."
           },
           {
-            "line": 57,
+            "line": 70,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "month names, weekdays and its button names follow PaneProvider's catalog and loc"
           },
           {
-            "line": 59,
+            "line": 72,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "Previous, Next and Page n come from the catalog."
           },
           {
-            "line": 76,
+            "line": 89,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code and code."
           },
           {
-            "line": 77,
+            "line": 90,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code and code."
           },
           {
-            "line": 78,
+            "line": 91,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code and code; read-only chips have no remove button."
           },
           {
-            "line": 79,
+            "line": 92,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code and code."
           },
           {
-            "line": 116,
+            "line": 129,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. Done, current and upcoming steps of one task, horizontal or vertical."
           },
           {
-            "line": 124,
+            "line": 137,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. Events on a hairline rail; done, current and upcoming dots differ by shape."
           },
           {
-            "line": 150,
+            "line": 163,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. Stepper, one panel at a time under a heading that takes focus, Back and the"
           },
           {
-            "line": 165,
+            "line": 178,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new. A few words on hover, focus and tap."
           },
           {
-            "line": 172,
+            "line": 185,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "new (D-029). A mesh gradient for covers, icons, illustrations and scenes, never "
           },
           {
-            "line": 192,
+            "line": 205,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "removed code, code, code, code, code, code, code, code, code; added the etch, po"
           },
           {
-            "line": 196,
+            "line": 209,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "code, code, code, code, code, code, code, code, code, code, code, code, code, an"
           },
           {
-            "line": 222,
+            "line": 235,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "First release with glass, inset and solid variants and a cover slot. Glass dims "
           },
           {
-            "line": 225,
+            "line": 238,
             "rule": "possible rule-of-three",
             "code": "triad",
             "text": "First release with light, accent and glass variants and the soft hover lift."
@@ -14781,16 +14930,16 @@
             "line": 0,
             "rule": "150-word stretch with nothing under 7 words",
             "code": "rhythm",
-            "text": "code is removed; the row radius is computed from code and code."
+            "text": "code turns every pane inside opaque and switches the backdrop filter off, for li"
           },
           {
             "line": 0,
-            "rule": "anaphora: 3 sentences open with 'code'",
+            "rule": "anaphora: 3 sentences open with 'the'",
             "code": "anaphora",
             "text": ""
           }
         ],
-        "pass": true,
+        "pass": false,
         "profile": []
       }
     },

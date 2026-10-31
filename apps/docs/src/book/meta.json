@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T02:23:18.964Z",
+  "generatedAt": "2026-10-31T08:45:12.891Z",
   "version": "0.7.0",
   "components": {
     "Accordion": {
@@ -173,8 +173,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 48829,
-        "cssMin": 4464,
-        "gzip": 18508
+        "cssMin": 4514,
+        "gzip": 18523
       }
     },
     "AgentStatus": {
@@ -491,8 +491,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 17279,
-        "cssMin": 16838,
-        "gzip": 9400
+        "cssMin": 16998,
+        "gzip": 9426
       }
     },
     "Autocomplete": {
@@ -1033,8 +1033,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 6497,
-        "cssMin": 2247,
-        "gzip": 3617
+        "cssMin": 2391,
+        "gzip": 3645
       }
     },
     "Box": {
@@ -1518,8 +1518,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 11516,
-        "cssMin": 6277,
-        "gzip": 6463
+        "cssMin": 6437,
+        "gzip": 6491
       }
     },
     "Card": {
@@ -1601,8 +1601,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 578,
-        "cssMin": 2269,
-        "gzip": 1139
+        "cssMin": 2319,
+        "gzip": 1152
       }
     },
     "Carousel": {
@@ -1661,8 +1661,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 9012,
-        "cssMin": 5495,
-        "gzip": 5408
+        "cssMin": 5655,
+        "gzip": 5434
       }
     },
     "Center": {
@@ -1793,8 +1793,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 9945,
-        "cssMin": 7449,
-        "gzip": 6167
+        "cssMin": 7609,
+        "gzip": 6194
       }
     },
     "ChatMessage": {
@@ -2196,8 +2196,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 75388,
-        "cssMin": 3968,
-        "gzip": 28534
+        "cssMin": 4018,
+        "gzip": 28551
       }
     },
     "CoachMark": {
@@ -2313,8 +2313,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 79428,
-        "cssMin": 9320,
-        "gzip": 30878
+        "cssMin": 9370,
+        "gzip": 30894
       }
     },
     "ColorPicker": {
@@ -2407,8 +2407,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 42492,
-        "cssMin": 10343,
-        "gzip": 17475
+        "cssMin": 10503,
+        "gzip": 17501
       }
     },
     "Combobox": {
@@ -2631,8 +2631,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 50666,
-        "cssMin": 7489,
-        "gzip": 19839
+        "cssMin": 7711,
+        "gzip": 19899
       }
     },
     "ConfidenceChip": {
@@ -3079,8 +3079,8 @@
       "demoFloor": 7,
       "bundle": {
         "jsMin": 82518,
-        "cssMin": 14398,
-        "gzip": 32979
+        "cssMin": 14608,
+        "gzip": 32999
       }
     },
     "DescriptionList": {
@@ -3258,8 +3258,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 42814,
-        "cssMin": 3743,
-        "gzip": 15789
+        "cssMin": 3793,
+        "gzip": 15805
       }
     },
     "Divider": {
@@ -3443,8 +3443,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 43514,
-        "cssMin": 4688,
-        "gzip": 16276
+        "cssMin": 4738,
+        "gzip": 16291
       }
     },
     "Dropzone": {
@@ -3657,8 +3657,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 10661,
-        "cssMin": 9850,
-        "gzip": 6735
+        "cssMin": 10010,
+        "gzip": 6761
       }
     },
     "EmptyState": {
@@ -4153,8 +4153,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 13465,
-        "cssMin": 12211,
-        "gzip": 7771
+        "cssMin": 12371,
+        "gzip": 7796
       }
     },
     "Flex": {
@@ -4898,8 +4898,8 @@
       "demoFloor": 6,
       "bundle": {
         "jsMin": 7192,
-        "cssMin": 3801,
-        "gzip": 4249
+        "cssMin": 3961,
+        "gzip": 4277
       }
     },
     "Image": {
@@ -5024,8 +5024,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 9414,
-        "cssMin": 8476,
-        "gzip": 6025
+        "cssMin": 8636,
+        "gzip": 6052
       }
     },
     "InputGroup": {
@@ -5992,8 +5992,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 6340,
-        "cssMin": 1451,
-        "gzip": 3339
+        "cssMin": 1595,
+        "gzip": 3366
       }
     },
     "NavigationMenu": {
@@ -6039,8 +6039,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 7267,
-        "cssMin": 2186,
-        "gzip": 3988
+        "cssMin": 2330,
+        "gzip": 4017
       }
     },
     "NetworkGraph": {
@@ -6332,8 +6332,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 81373,
-        "cssMin": 15833,
-        "gzip": 32165
+        "cssMin": 16043,
+        "gzip": 32185
       }
     },
     "NumberInput": {
@@ -6453,8 +6453,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 11441,
-        "cssMin": 8865,
-        "gzip": 6835
+        "cssMin": 9025,
+        "gzip": 6860
       }
     },
     "OTPFlow": {
@@ -6686,8 +6686,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 10185,
-        "cssMin": 8661,
-        "gzip": 6299
+        "cssMin": 8821,
+        "gzip": 6326
       }
     },
     "PinInput": {
@@ -6944,8 +6944,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 69593,
-        "cssMin": 3192,
-        "gzip": 25864
+        "cssMin": 3242,
+        "gzip": 25880
       }
     },
     "Progress": {
@@ -7968,8 +7968,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 10569,
-        "cssMin": 8764,
-        "gzip": 6454
+        "cssMin": 8924,
+        "gzip": 6481
       }
     },
     "SegmentedControl": {
@@ -8509,8 +8509,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 43358,
-        "cssMin": 4688,
-        "gzip": 16233
+        "cssMin": 4738,
+        "gzip": 16248
       }
     },
     "Sidebar": {
@@ -8583,8 +8583,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 6733,
-        "cssMin": 2047,
-        "gzip": 3647
+        "cssMin": 2191,
+        "gzip": 3676
       }
     },
     "Skeleton": {
@@ -8849,8 +8849,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 38625,
-        "cssMin": 1863,
-        "gzip": 13543
+        "cssMin": 2015,
+        "gzip": 13571
       }
     },
     "Spacer": {
@@ -10288,8 +10288,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 47446,
-        "cssMin": 5497,
-        "gzip": 17561
+        "cssMin": 5649,
+        "gzip": 17588
       }
     },
     "Tooltip": {
@@ -10351,8 +10351,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 56351,
-        "cssMin": 750,
-        "gzip": 20547
+        "cssMin": 902,
+        "gzip": 20574
       }
     },
     "TransferList": {

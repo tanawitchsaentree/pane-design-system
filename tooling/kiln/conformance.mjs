@@ -16,6 +16,7 @@ import { pathToFileURL } from 'node:url';
 import path from 'node:path';
 import { chromium } from 'playwright';
 import { serveDist } from './serve-dist.mjs';
+import { createHash } from 'node:crypto';
 import { docsConfig, componentPages, url, ROOT } from './config.mjs';
 
 const C = docsConfig();
@@ -26,13 +27,30 @@ if (!process.argv.includes('--no-build')) {
   if (r.status !== 0) process.exit(r.status ?? 1);
 }
 
+// Every check is stamped with when it ran and a hash of its component's source folder, so a result kept from
+// an earlier run can be told apart from a fresh one and marked stale once the component changed under it.
+const srcHashes = new Map();
+function srcHash(component) {
+  if (srcHashes.has(component)) return srcHashes.get(component);
+  const dir = path.join(C.abs(C.componentsDir), component);
+  let h = null;
+  if (existsSync(dir)) {
+    const x = createHash('sha256');
+    const walk = (d) => { for (const n of readdirSync(d, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name))) { const p = path.join(d, n.name); if (n.isDirectory()) walk(p); else { x.update(n.name); x.update(readFileSync(p)); } } };
+    walk(dir); h = x.digest('hex').slice(0, 12);
+  }
+  srcHashes.set(component, h);
+  return h;
+}
+const RAN_AT = new Date().toISOString();
 const checks = [];
 async function check(component, name, fn) {
+  const stamp = { ranAt: RAN_AT, srcHash: srcHash(component) };
   try {
     const detail = await fn();
-    checks.push({ component, name, ok: true, ...(typeof detail === 'string' ? { detail } : {}) });
+    checks.push({ component, name, ok: true, ...(typeof detail === 'string' ? { detail } : {}), ...stamp });
   } catch (e) {
-    checks.push({ component, name, ok: false, detail: String(e.message ?? e).split('\n')[0] });
+    checks.push({ component, name, ok: false, detail: String(e.message ?? e).split('\n')[0], ...stamp });
   }
 }
 const expect = (cond, msg) => { if (!cond) throw new Error(msg); };
@@ -117,20 +135,35 @@ try {
   srv.close();
 }
 
-// A run of a few files (KILN_CHECKS) refreshes only the components those files cover and keeps the
-// rest of the last full run, so a quick check never wipes the book's evidence for every other component.
+// A limited run (KILN_CHECKS picks check files, KILN_ROUTES picks chapters) refreshes only the checks it
+// ran and keeps every other result from the file, so a quick check never wipes the book's
+// evidence for the rest (Pane: a KILN_ROUTES run dropped every other component). A kept result whose
+// component source changed since it ran is marked stale; milestone.mjs refuses stale results.
 const OUT = path.join(C.abs(C.app), 'public/conformance.json');
-if (ONLY_FILES.length && existsSync(OUT)) {
-  const fresh = checks.filter((c) => COVERED.has(c.component));
-  const kept = JSON.parse(readFileSync(OUT, 'utf8')).checks.filter((c) => !COVERED.has(c.component));
-  checks.splice(0, checks.length, ...kept, ...fresh);
+const partial = ONLY_FILES.length > 0 || ONLY_ROUTES.size > 0;
+let keptCount = 0;
+if (partial && existsSync(OUT)) {
+  // merged check by check: a result this run produced replaces the old one, every other old result stays
+  // (a full run is what drops a check that no longer exists)
+  const key = (c) => `${c.component}\u0000${c.name}`;
+  const refreshed = new Set(checks.map(key));
+  const prev = JSON.parse(readFileSync(OUT, 'utf8')).checks ?? [];
+  const kept = prev.filter((c) => !refreshed.has(key(c))).map((c) => {
+    const { stale, ...rest } = c;
+    const isStale = !c.ranAt || (srcHash(c.component) ?? null) !== (c.srcHash ?? null);
+    return isStale ? { ...rest, stale: true } : rest;
+  });
+  keptCount = kept.length;
+  checks.splice(0, checks.length, ...kept, ...checks);
 }
+const stale = checks.filter((c) => c.stale).length;
+if (partial) console.log(`limited run: ${checks.length - keptCount} checks ran, ${keptCount} kept from the last run${stale ? `, ${stale} of them stale (their component changed since)` : ''}`);
 const passed = checks.filter((c) => c.ok).length;
 for (const c of checks) console.log(`${c.ok ? '✓' : '✗'} ${c.component}: ${c.name}${c.detail ? ` — ${c.detail}` : ''}`);
 mkdirSync(path.join(C.abs(C.app), 'public'), { recursive: true });
 writeFileSync(
   OUT,
-  JSON.stringify({ generatedAt: new Date().toISOString(), passed, total: checks.length, checks }, null, 2) + '\n',
+  JSON.stringify({ generatedAt: RAN_AT, partial, stale, passed, total: checks.length, checks }, null, 2) + '\n',
 );
 console.log(`\n${passed === checks.length ? '✓' : '✗'} conformance: ${passed}/${checks.length}`);
 process.exit(passed === checks.length ? 0 : 1);

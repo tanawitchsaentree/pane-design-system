@@ -170,3 +170,23 @@
 - **ตัดสิน:** ภาษารูปทรงแบบจับต้องได้ (แสงจากบน, ร่องที่ฝังลงไป, แผ่นที่ยกขึ้น) เป็นของทั้งระบบ ส่วน material ตัดสินแค่ความโปร่ง glass (ค่าเริ่มต้น) ให้ฉากหลังลอดผ่านแบบเบลอและหรี่ solid ให้รูปทรงเดิมแต่ทึบ ตั้งที่ `<Environment material>` ตัวเดียวที่รากของหน้าจอ ห้ามวาง glass กับ solid ข้างกัน (G-MT1) overlay ใช้ material ของหน้าจอที่มันเปิดทับ ถ้าผู้ใช้เปิด reduced transparency จะเปลี่ยนเป็น solid เอง
 - **ผลต่อ:** บท Materials, หน้า Choose your look, ปุ่ม Appearance ใน header, `choose_appearance` ใน MCP, skill และ check_usage
 - **ค้าง:** หน้าตาของ glass เองยังรอ user เลือกจาก concept-check (R-032) ตอนนี้ glass ที่เป็นแบบรมควันเข้มดูใกล้กับ solid มาก
+
+### D-035: กระจกกลับมาบางและใส แยกจาก solid ให้เห็นชัด (supersedes ค่า body ของ D-025 และ brightness ของ D-011)
+- **วันที่:** 2026-10-31 · **เลือกโดย:** user สั่งตรง ("ถ้าจะแยกให้แตกต่างก็ทำ … ไม่ให้คนสับสนกับกระจกแบบทึบกับบาง")
+- **ปัญหา:** ตัวกระจก level 1 ทึบ 78% (smoke.1) หรี่ฉากหลังเหลือ 0.42 และเบลอ 64px ผลรวมคือกระจกดูเป็นแผ่นทึบ บน studio และรูปถ่ายแยกจาก solid ไม่ออก อีกทั้ง solid เองยังใช้ body 78% ที่โปร่งอยู่ 22%
+- **ตัดสิน:** body ของกระจกเหลือ 45% ใน dark (`color.smoke.glass` #14151873) และ 66% ใน light, blur ลดเป็น 32px (`blur.clear`) เพื่อให้ฉากยังเห็นรูปทรง, brightness ไล่ตาม environment dim .70 / mid .56 / bright .48 ส่วน solid ใช้ `surface.solid` ทึบ 100% ทั้ง level 1
+- **วัด:** evidence 23 หน้า × 6 ฉาก × 2 ธีม × 3 โหมด เจอสองต้นเหตุ (1) Navbar, Sidebar, BottomNav, NavigationMenu ใช้แค่ blur ไม่มี saturate/brightness ตามสูตรกระจก บนฉาก Aurora ตัวหนังสือเหลือ 3.4–3.8:1 แก้โดยเพิ่ม `nav.brightness` → `{glass.brightness}` (2) subject หลายตัว (charts, chat, agent, accordion, feed) ตั้ง `bare` ทั้งที่ตัวเองไม่ใช่พื้นผิว ตัวหนังสือจึงวางบนรูปตรงๆ แก้ให้วางบน Card ส่วนตัวอย่าง InputCount, InputClearable, TabsVertical ก็ครอบ Card แล้ว รันซ้ำบนหน้าที่เคยพลาด 18886/18886 ผ่าน
+- **คำศัพท์:** Pane มีแค่ glass (มองทะลุ) กับ solid (ทึบ) ไม่มี "กระจกหนา" บท Materials มีตารางบอกว่าคำที่คนใช้ (frosted, smoked, acrylic, flat, opaque) คือแบบไหน
+
+### D-036: mesh gradient เป็น accent ไม่เกินราว 10% ของ region ที่มันอยู่ (supersedes ข้อ "scene หลังกระจก" ของ D-029)
+- **วันที่:** 2026-10-31 · **เลือกโดย:** user สั่งตรง ("กฎ mesh gradient มันคือ 10% ของ region นั้นๆ ไม่ใช่เอาไปใช้ wallpaper")
+- **ตัดสิน:** Mesh ใช้เป็น icon, album art หรือ swatch ข้างชื่อเรื่อง กินพื้นที่ราวหนึ่งในสิบของ region ที่ครอบมัน (card, section, stage) ห้ามใช้เป็นพื้นหลังของหน้าจอ section หรือ card และห้ามเป็น cover เต็มความกว้าง
+- **ผลที่เปลี่ยน:** ตัด Demo backdrop "Aurora (mesh)" ออก (ลิงก์เก่า `?backdrop=aurora` กลับไปเป็น studio และไม่ถูกเขียนลง URL), ตัวอย่าง MeshScene ถูกแทนด้วย MeshAccent, ตัวอย่าง media placeholder ทั้งหมด (AspectRatio, Box, Showcase, ContextMenu, Text caption) ใช้รูปถ่ายแทน mesh, หน้า Mesh และตาราง "Where it goes" ใน Colour · Gradients เขียนกฎใหม่, `check_usage` ของ MCP เตือนเมื่อ Mesh ครอบเนื้อหาหรือเต็มกล่อง, knowledge มีกฎนี้
+- **วัด:** gate G-MS1 ใน kiln (พื้นที่ mesh รวม ÷ พื้นที่ region ≤ 0.10)
+
+### D-037: brand เปลี่ยนบุคลิกได้ ไม่ใช่แค่สี (ขยาย D-033)
+- **วันที่:** 2026-10-31 · **เลือกโดย:** agent ตามคำถามของ user ("ถ้ามีสิบแบรนด์เอาไปใช้ทำได้ขนาดไหน แตกต่างมากพอรึเปล่า … ยืดหยุ่นพอจะให้ user แก้ไขปรับเปลี่ยนไหม")
+- **ปัญหา:** D-033 เปิดให้ brand แก้แค่ 15 token (สี action, focus, chosen glass, font, มุม) ถ้าสิบแบรนด์ใช้ จะได้แอปเดิมที่เปลี่ยนสี
+- **ตัดสิน:** เพิ่มแกนบุคลิก: น้ำหนักตัวอักษร (400–800), tracking ของ display, `glass.saturate` (1–2), สี mesh, duration ของ motion (80–1000ms) และ preset สองตัว `density` (compact/regular/roomy เลื่อน gap ทุกตัวหนึ่งขั้นบน space scale, มุมใน = มุมนอก − inset ตามอัตโนมัติ) กับ `motion` (brisk/steady/calm) ส่วน reduced motion ยังกดทุก duration ของแบรนด์เป็น 0
+- **สามระดับ:** brand (รายการที่ตรวจได้ build หยุดเมื่อไม่ผ่าน), expert brand (`"tier": "expert"` แก้ semantic ได้ทุกตัว ตรวจแค่ contrast และ build บอกว่าตัวไหนไม่ได้ตรวจ), fork (primitive และ component token เป็นระบบของผู้ใช้เอง)
+- **พิสูจน์:** sample brand 9 ตัว + Pane = 10 (Harbor, Sage, Plum, Ledger, Kiddo, Atelier, Pulse, Terra, Signal) บนการ์ดเดียวกันในหน้า Brands ผ่าน brand-check ทุกตัว; BRANDABLE ย้ายไปอยู่ที่ `brand-check.mjs` ที่เดียว ทั้ง build และ `pane-theme` อ่านจากที่นั่น (เดิมสองที่ซ้ำกันและเริ่มไม่ตรงกัน)

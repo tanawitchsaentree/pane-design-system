@@ -92,6 +92,7 @@ function Gallery() {
                 <div key={c.slug} className={`gallery-cell${LAYOUT_THUMB[name] ? ' is-diagram' : ''}`} data-example-live="" data-surface="">
                   <div className="gallery-head">
                     <span className="gallery-no" aria-hidden="true">{String(n).padStart(2, '0')}</span>
+                    <span className="gallery-open" aria-hidden="true">Open →</span>
                     <Link to={`/components/${c.slug}`} className="gallery-name" onClick={() => ref.current?.close()}>{c.name}</Link>
                     <p className="gallery-purpose">{c.purpose}</p>
                     <code className="gallery-tag">{`<${c.name} />`}</code>
@@ -121,8 +122,11 @@ function Overview() {
             <h2 className="flush">What is in the box</h2>
             <ul>
               <li><b>pane-tokens</b>. {Object.keys(TOKENS).length} design tokens in three tiers (primitive → semantic → component), shipped as CSS, JS (+ types), SCSS and JSON.</li>
-              <li><b>pane-react</b> has {Object.keys(meta.components).length} components, namely {Object.keys(meta.components).join(', ')}.</li>
+              <li><b>pane-react</b>. {Object.keys(meta.components).length} components in {CATEGORIES.length} families. Open a family to see its components, or open the gallery below to see them all at once.</li>
               <li><b>This book</b>. Foundations, every component in depth, patterns, accessibility evidence and the full token reference.</li>
+            </ul>
+            <ul className="family-links" aria-label="Component families">
+              {CATEGORIES.map((c) => <li key={c.title}><Link to={`/components/${COMPONENTS.find((x) => x.name === c.names[0])?.slug ?? ''}`}>{c.title}</Link> <span className="muted">{c.names.length}</span></li>)}
             </ul>
             <VerifiedTags />
           </div>
@@ -130,6 +134,7 @@ function Overview() {
             <h2 className="flush">Read this first</h2>
             <ol>
               <li><Link to="/getting-started">Getting started</Link>. Install, wrap a screen in an Environment, place your first Card.</li>
+              <li><Link to="/getting-started/look">Choose your look</Link>. Glass or solid, then theme, brand and environment.</li>
               <li><Link to="/foundations/glass">Glass & environment</Link>. Why glass needs to know what is behind it.</li>
               <li><Link to="/components/card">Card</Link>. The surface everything else sits on.</li>
             </ol>
@@ -468,23 +473,26 @@ function ColorPage() {
         <div className="table-wrap"><table>
           <thead><tr><th scope="col">Use</th><th scope="col">Allowed</th><th scope="col">Why</th></tr></thead>
           <tbody>
-            <tr><th scope="row">A scene behind glass</th><td>Yes. Pick <b>Aurora (mesh)</b> in Demo backdrop.</td><td>It is the world, and glass is made to show the world.</td></tr>
-            <tr><th scope="row">Media: a cover, an app or folder icon, an illustration</th><td>Yes</td><td>It is content, like a photo.</td></tr>
+            <tr><th scope="row">Album art, an app or folder icon, a swatch</th><td>Yes, at about a tenth of the region it sits in</td><td>It is a small piece of content beside a title, like a thumbnail.</td></tr>
+            <tr><th scope="row">The background of a screen, a section or a card</th><td>No</td><td>Spread that wide a mesh is a wallpaper. The scene behind glass is a photo or the studio, and a card is glass or solid.</td></tr>
+            <tr><th scope="row">A full-width cover</th><td>No</td><td>A cover fills half a card, five times the share a mesh may take. Use a photo.</td></tr>
             <tr><th scope="row">An ambient shadow under a mesh object</th><td>Yes</td><td>A coloured object lights what is under it in its own colour, with the same mesh blurred beneath it.</td></tr>
             <tr><th scope="row">A Button, a Switch, a selected tab</th><td>No</td><td>Controls own no hue (P1). The loud action is the lit solid, and in dark it glows white.</td></tr>
             <tr><th scope="row">Text</th><td>No</td><td>A gradient changes the letter’s contrast along its width, so no part of it can be measured.</td></tr>
           </tbody>
         </table></div>
-        <div className="mesh mesh-scene" data-example-live="" data-surface="">
-          <Environment brightness="bright" className="stage-env mesh-scene-env">
-            <Card as="div" className="demo-card">
+        <Stage>
+          <Card as="div" className="demo-card">
+            <div className="mesh-demo-accent">
               <div className="mesh-tile-wrap"><div className="mesh mesh-tile" role="img" aria-label="Happy Files folder art" /></div>
-              <p className="eyebrow flush">New</p>
-              <h3 className="flush">Happy Files</h3>
-              <p className="flush">88 photos · 24 videos · 9 documents</p>
-            </Card>
-          </Environment>
-        </div>
+              <div>
+                <p className="eyebrow flush">New</p>
+                <h3 className="flush">Happy Files</h3>
+              </div>
+            </div>
+            <p className="flush">88 photos · 24 videos · 9 documents</p>
+          </Card>
+        </Stage>
       </Section>
       <Section id="rules" title="Rules">
         <ul>

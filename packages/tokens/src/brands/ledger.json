@@ -1,0 +1,42 @@
+{
+  "name": "Ledger",
+  "description": "A trading desk: indigo action, tight corners, compact spacing and quick motion, for screens that hold a lot of numbers.",
+  "density": "compact",
+  "motion": "brisk",
+  "tokens": {
+    "action.loud-top": {
+      "dark": "#C3CCFF",
+      "light": "#3A4BD1"
+    },
+    "action.loud-foot": {
+      "dark": "#A3AFFA",
+      "light": "#2F3EB2"
+    },
+    "action.foot-solid": {
+      "dark": "#919EF2",
+      "light": "#28359A"
+    },
+    "text.on-light": {
+      "dark": "#0E1233",
+      "light": "#FFFFFF"
+    },
+    "text.on-accent": {
+      "dark": "#0E1233",
+      "light": "#FFFFFF"
+    },
+    "action.accent-hover": {
+      "dark": "#D4DBFF",
+      "light": "#4456DE"
+    },
+    "focus.ring": {
+      "dark": "#C3CCFF",
+      "light": "#2F3EB2"
+    },
+    "type.family": "'IBM Plex Sans', Inter, system-ui, sans-serif",
+    "type.weight-semibold": "600",
+    "type.tracking-display": "-0.01em",
+    "corner.panel": "16px",
+    "corner.media": "{radius.sm}",
+    "glass.saturate": "1.2"
+  }
+}

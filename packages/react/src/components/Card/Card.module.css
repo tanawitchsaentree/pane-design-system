@@ -42,7 +42,7 @@
   background: linear-gradient(90deg, transparent, var(--ds-card-streak), transparent);
 }
 /* a pane inside a pane is the next level: no second blur (P3), one step lighter, a shorter shadow */
-.glass .glass:not(.l3):not(.l4), .l2 { border-radius: var(--ds-card-inner-radius); --level-bg: var(--ds-card-level2); --level-shadow: var(--ds-card-shadow-2); -webkit-backdrop-filter: none; backdrop-filter: none; }
+.glass .glass:not(.l3):not(.l4), .l2 { border-radius: max(var(--ds-radius-sm), calc(var(--ds-card-radius) - var(--ds-card-padding))); --level-bg: var(--ds-card-level2); --level-shadow: var(--ds-card-shadow-2); -webkit-backdrop-filter: none; backdrop-filter: none; }
 .l3 { --level-bg: var(--ds-card-level3); --level-shadow: var(--ds-card-shadow-3); }
 .l4 { --level-bg: var(--ds-card-level4); --level-shadow: var(--ds-card-shadow-4); }
 @media (prefers-reduced-transparency: reduce) { .glass, .glass .glass { background: var(--ds-surface-solid); } }

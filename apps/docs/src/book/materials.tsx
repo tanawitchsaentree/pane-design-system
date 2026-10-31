@@ -66,6 +66,15 @@ export function Materials() {
         </ol>
         <p>A reader who has asked their system for reduced transparency gets solid wherever glass was chosen, without the product doing anything.</p>
       </Section>
+      <Section id="words" title="Two materials, no in-between">
+        <p>Pane has exactly two materials, and every other word people use maps onto one of them. There is no thick glass. A pane is either something you can see the scene through, or it is not.</p>
+        <div className="table-wrap"><table className="tokens"><thead><tr><th scope="col">If someone asks for</th><th scope="col">In Pane it is</th><th scope="col">What they will see</th></tr></thead>
+          <tbody>
+            <tr><td>Glass, frosted, acrylic, smoked, translucent, glassmorphism</td><td><code>glass</code></td><td>The scene behind, blurred so its shapes go soft and dimmed so text keeps 4.5:1. Its colour comes through.</td></tr>
+            <tr><td>Opaque, flat, cards, skeuomorphic, no transparency</td><td><code>solid</code></td><td>A plain surface in the theme colour. The same light from above and carved fields, and nothing behind.</td></tr>
+          </tbody></table></div>
+        <p>Glass dims the scene to protect the text, and the scene still shows through. If the scene must not show at all, use solid. Darker glass is still glass.</p>
+      </Section>
       <Section id="playground" title="Try both" wide>
         <p>Pick a backdrop and a material. On a photo the difference is the scene showing through. On the studio backdrop glass and solid look close, because there is nothing behind to show.</p>
         <MaterialPlayground />
