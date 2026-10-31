@@ -4,6 +4,23 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- PaneProvider: with reduced motion, hover and press keep a 100ms fade of colour and light while every movement stops (D-039); before, every duration went to 0 and controls snapped.
+- IconButton: a swapped glyph, such as play to pause, fades in.
+- Navbar: its controls fade on hover like a Button's (D-039).
+- Breadcrumb: its controls fade on hover like a Button's (D-039).
+- NumberInput: its controls fade on hover like a Button's (D-039).
+- PasswordInput: its controls fade on hover like a Button's (D-039).
+- SearchInput: its controls fade on hover like a Button's (D-039).
+- Stepper: its controls fade on hover like a Button's (D-039).
+- TagInput: its controls fade on hover like a Button's (D-039).
+- FileUpload: its controls fade on hover like a Button's (D-039).
+- ChatComposer: its controls fade on hover like a Button's (D-039).
+- Citation: its controls fade on hover like a Button's (D-039).
+- Combobox: its controls fade on hover like a Button's (D-039).
+- TransferList: its controls fade on hover like a Button's (D-039).
+- Wizard: its controls fade on hover like a Button's (D-039).
+- DataGrid: its controls fade on hover like a Button's (D-039).
+- TableOfContents: its controls fade on hover like a Button's (D-039).
 - ButtonGroup: attached buttons sit in one carved track at an even inset, the pressed one as chosen glass, instead of squared inner corners.
 - SplitButton: the menu opens under the whole button, lined up with the action's start; the open menu half no longer draws a ring round its squared corner.
 - Select: its menu shares the popover layer, so a Select inside a popover opens above it.

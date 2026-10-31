@@ -4,7 +4,8 @@ import { Avatar, Badge, Button, Card, Chip, IconButton, Select, Slider, Stack, S
 import { IconNext, IconPause, IconPlay, IconPrev, IconShare } from '../icons';
 
 /** The parts a card is built from, named on the card itself, so the showcase says what it shows. */
-const Parts = ({ names }: { names: string[] }) => <div className="showcase-parts" aria-label="Built from">{names.map((n) => <Tag key={n}>{n}</Tag>)}</div>;
+// what each card is made of, as a plain caption, so it never looks like part of the card's own content
+const Parts = ({ names }: { names: string[] }) => <p className="showcase-parts">Built from {names.join(' · ')}</p>;
 
 export default function Showcase() {
   const [playing, setPlaying] = useState(true);

@@ -641,7 +641,7 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .showcase-transport, .showcase-actions { display: flex; align-items: center; justify-content: center; gap: var(--ds-gap-lg); }
 .showcase-actions { justify-content: flex-start; }
 .showcase-chips { display: flex; flex-wrap: wrap; gap: var(--ds-gap-sm); }
-.showcase-parts { display: flex; flex-wrap: wrap; gap: var(--ds-gap-xs); padding-block-start: var(--ds-gap-lg); border-block-start: var(--ds-width-hairline) solid var(--ds-line-divider); }
+.showcase-parts { margin: 0; padding-block-start: var(--ds-gap-lg); border-block-start: var(--ds-width-hairline) solid var(--ds-line-divider); font-size: var(--ds-type-caption); color: var(--ds-text-secondary); }
 .hero-copy { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: var(--ds-gap-2xl); }
 .showcase-wide { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--ds-gap-xl) var(--ds-gap-2xl); align-items: center; }
 .showcase-wide > .showcase-parts { grid-column: 1 / -1; }

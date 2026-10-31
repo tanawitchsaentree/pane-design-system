@@ -10,3 +10,6 @@
 .link[aria-current='location'] { background: linear-gradient(180deg, var(--ds-nav-on-top), var(--ds-nav-on-foot)); box-shadow: var(--ds-nav-on-cast); color: var(--ds-text-primary); font-weight: var(--ds-type-weight-semibold); }
 .link:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); border-radius: var(--ds-corner-mark); }
 @media (forced-colors: active) { .link[aria-current='location'] { outline: var(--ds-width-ring) solid Highlight; } }
+
+/* D-039: every control in it answers the pointer with the shared hover fade, as a Button does */
+[data-component="TableOfContents"] :is(a, button, input, [role='option'], [role='tab'], [role='row'], [role='checkbox']) { transition: background-color var(--ds-motion-hover) var(--ds-motion-easing), color var(--ds-motion-hover) var(--ds-motion-easing), box-shadow var(--ds-motion-hover) var(--ds-motion-easing), opacity var(--ds-motion-hover) var(--ds-motion-easing); }

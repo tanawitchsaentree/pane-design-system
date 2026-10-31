@@ -4,3 +4,6 @@
 .end { display: inline-flex; align-items: center; gap: var(--ds-gap-xs); }
 .unit { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
 .glyph { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; }
+
+/* D-039: every control in it answers the pointer with the shared hover fade, as a Button does */
+[data-component="NumberInput"] :is(a, button, input, [role='option'], [role='tab'], [role='row'], [role='checkbox']) { transition: background-color var(--ds-motion-hover) var(--ds-motion-easing), color var(--ds-motion-hover) var(--ds-motion-easing), box-shadow var(--ds-motion-hover) var(--ds-motion-easing), opacity var(--ds-motion-hover) var(--ds-motion-easing); }

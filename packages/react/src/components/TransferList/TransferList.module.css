@@ -7,3 +7,6 @@
 .glyph { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
 :global([dir='rtl']) .glyph { transform: scaleX(-1); }
 @container (inline-size < 34em) { .grid { grid-template-columns: minmax(0, 1fr); } .moves { flex-direction: row; justify-content: center; } .fwd { transform: rotate(90deg); } .back { transform: rotate(90deg); } }
+
+/* D-039: every control in it answers the pointer with the shared hover fade, as a Button does */
+[data-component="TransferList"] :is(a, button, input, [role='option'], [role='tab'], [role='row'], [role='checkbox']) { transition: background-color var(--ds-motion-hover) var(--ds-motion-easing), color var(--ds-motion-hover) var(--ds-motion-easing), box-shadow var(--ds-motion-hover) var(--ds-motion-easing), opacity var(--ds-motion-hover) var(--ds-motion-easing); }

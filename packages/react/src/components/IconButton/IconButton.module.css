@@ -76,3 +76,6 @@
 /* a toggle that is on is chosen glass with a ring, as Button's (P3); aria-pressed says it */
 .toggle[aria-pressed='true'] { background: linear-gradient(180deg, var(--ds-icon-button-pressed-top), var(--ds-icon-button-pressed-foot)); color: var(--ds-text-primary); box-shadow: 0 0 0 var(--ds-width-ring) var(--ds-icon-button-pressed-ring); }
 @media (forced-colors: active) { .toggle[aria-pressed='true'] { outline: var(--ds-width-ring) solid Highlight; } }
+/* D-039: a new glyph (play to pause) fades in over the press duration instead of snapping */
+.root svg { animation: icon-in var(--ds-motion-press) var(--ds-motion-easing); }
+@keyframes icon-in { from { opacity: 0; } }

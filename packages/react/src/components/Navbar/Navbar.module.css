@@ -12,3 +12,6 @@
 .link:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
 .actions { display: flex; align-items: center; gap: var(--ds-gap-md); margin-inline-start: auto; }
 @media (forced-colors: active) { .bar { border-block-end: var(--ds-width-hairline) solid CanvasText; } }
+
+/* D-039: every control in it answers the pointer with the shared hover fade, as a Button does */
+[data-component="Navbar"] :is(a, button, input, [role='option'], [role='tab'], [role='row'], [role='checkbox']) { transition: background-color var(--ds-motion-hover) var(--ds-motion-easing), color var(--ds-motion-hover) var(--ds-motion-easing), box-shadow var(--ds-motion-hover) var(--ds-motion-easing), opacity var(--ds-motion-hover) var(--ds-motion-easing); }
