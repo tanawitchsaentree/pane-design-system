@@ -4,3 +4,6 @@
 .input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
 /* with no query the clear button is kept but unseen, so typing the first letter never widens the field */
 .idle { visibility: hidden; }
+
+/* D-039: every control in it answers the pointer with the shared hover fade, as a Button does */
+[data-component="SearchInput"] :is(a, button, input, [role='option'], [role='tab'], [role='row'], [role='checkbox']) { transition: background-color var(--ds-motion-hover) var(--ds-motion-easing), color var(--ds-motion-hover) var(--ds-motion-easing), box-shadow var(--ds-motion-hover) var(--ds-motion-easing), opacity var(--ds-motion-hover) var(--ds-motion-easing); }

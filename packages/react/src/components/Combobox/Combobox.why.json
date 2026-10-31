@@ -92,7 +92,33 @@
       "p": "P6",
       "axis": "colour",
       "why": "a wrong answer takes the critical ring a field takes, and FormField says what is wrong in words"
+    },
+    "data-component=Combobox": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "its controls fade colour and light on hover with the shared motion, so it answers like every control"
     }
   },
-  "motion": {}
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "background-color fades over the hover duration, never snaps"
+    },
+    "color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "color fades over the hover duration, never snaps"
+    },
+    "box-shadow": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "box-shadow fades over the hover duration, never snaps"
+    },
+    "opacity": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "opacity fades over the hover duration, never snaps"
+    }
+  }
 }

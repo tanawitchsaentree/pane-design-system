@@ -39,7 +39,7 @@ if (cmd === 'list' || !cmd) {
     const deps = Object.keys(tokensJson).filter((k) => !all[k] && reaches(k));
     const body = (th) => [...Object.entries(all).map(([k, x]) => `  ${cssName(k)}: ${v(x, th)};`), ...deps.map((k) => `  ${cssName(k)}: var(${cssName(refOf(k))});`)].join('\n');
     console.log(`/* ${b.name ?? id}: load after pane-react/tokens.css. Component tokens follow because they read these semantic tokens where the brand is set. */\n[data-brand="${id}"][data-brand] {\n${body('dark')}\n}\n[data-theme="light"] [data-brand="${id}"][data-brand], [data-brand="${id}"][data-brand][data-theme="light"] {\n${body('light')}\n}`);
-    const tempo = Object.keys(all).filter((k) => tokensJson[k]?.type === 'duration').map((k) => `    ${cssName(k)}: 0ms;`);
+    const tempo = Object.keys(all).filter((k) => tokensJson[k]?.type === 'duration').map((k) => `    ${cssName(k)}: ${['motion.hover', 'motion.press'].includes(k) ? '100ms' : '0ms'};`);
     if (tempo.length) console.log(`@media (prefers-reduced-motion: reduce) {\n  [data-brand="${id}"][data-brand], [data-brand="${id}"][data-brand] * {\n${tempo.join('\n')}\n  }\n}`);
   }
 } else { console.error(`pane-theme: unknown command ${cmd}; try list, check or css`); process.exit(2); }

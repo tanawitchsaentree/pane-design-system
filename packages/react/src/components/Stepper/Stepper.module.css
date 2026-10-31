@@ -22,3 +22,6 @@
 .description { font-size: var(--ds-type-caption); color: var(--ds-text-secondary); }
 .sr { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (forced-colors: active) { .mark { border: var(--ds-width-hairline) solid CanvasText; } .current .mark { background: Highlight; color: HighlightText; } }
+
+/* D-039: every control in it answers the pointer with the shared hover fade, as a Button does */
+[data-component="Stepper"] :is(a, button, input, [role='option'], [role='tab'], [role='row'], [role='checkbox']) { transition: background-color var(--ds-motion-hover) var(--ds-motion-easing), color var(--ds-motion-hover) var(--ds-motion-easing), box-shadow var(--ds-motion-hover) var(--ds-motion-easing), opacity var(--ds-motion-hover) var(--ds-motion-easing); }

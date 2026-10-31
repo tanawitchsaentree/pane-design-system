@@ -12,3 +12,6 @@
 .field:has(input:read-only:not(:disabled)) { background: transparent; box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring-readonly); }
 .root[data-off] .field { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
 @media (forced-colors: active) { .field { border: var(--ds-width-hairline) solid ButtonText; } }
+
+/* D-039: every control in it answers the pointer with the shared hover fade, as a Button does */
+[data-component="TagInput"] :is(a, button, input, [role='option'], [role='tab'], [role='row'], [role='checkbox']) { transition: background-color var(--ds-motion-hover) var(--ds-motion-easing), color var(--ds-motion-hover) var(--ds-motion-easing), box-shadow var(--ds-motion-hover) var(--ds-motion-easing), opacity var(--ds-motion-hover) var(--ds-motion-easing); }

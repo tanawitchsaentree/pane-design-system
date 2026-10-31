@@ -21,3 +21,6 @@
 .failed { color: var(--ds-text-primary); }
 .failed .glyph { stroke: var(--ds-file-upload-error-mark); }
 .sr { position: absolute; inline-size: var(--ds-width-hairline); block-size: var(--ds-width-hairline); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* D-039: every control in it answers the pointer with the shared hover fade, as a Button does */
+[data-component="FileUpload"] :is(a, button, input, [role='option'], [role='tab'], [role='row'], [role='checkbox']) { transition: background-color var(--ds-motion-hover) var(--ds-motion-easing), color var(--ds-motion-hover) var(--ds-motion-easing), box-shadow var(--ds-motion-hover) var(--ds-motion-easing), opacity var(--ds-motion-hover) var(--ds-motion-easing); }

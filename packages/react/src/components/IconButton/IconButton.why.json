@@ -104,6 +104,11 @@
       "p": "P4",
       "axis": "motion",
       "why": "the glint fades in and out at hover pace"
+    },
+    "@icon-in": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "a swapped glyph fades in over the press duration, so play to pause reads as a change, not a jump"
     }
   },
   "default_to_avoid": [

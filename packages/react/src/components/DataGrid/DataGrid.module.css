@@ -7,3 +7,6 @@
 .stick { position: sticky; inset-inline-start: 0; z-index: 1; background: var(--ds-data-grid-stick-bg); }
 .loading { position: absolute; inset: 0; display: grid; place-items: center; background: var(--ds-data-grid-scrim); color: var(--ds-text-primary); font-size: var(--ds-type-label); }
 @media (forced-colors: active) { .chosen { outline: var(--ds-width-ring) solid Highlight; } }
+
+/* D-039: every control in it answers the pointer with the shared hover fade, as a Button does */
+[data-component="DataGrid"] :is(a, button, input, [role='option'], [role='tab'], [role='row'], [role='checkbox']) { transition: background-color var(--ds-motion-hover) var(--ds-motion-easing), color var(--ds-motion-hover) var(--ds-motion-easing), box-shadow var(--ds-motion-hover) var(--ds-motion-easing), opacity var(--ds-motion-hover) var(--ds-motion-easing); }

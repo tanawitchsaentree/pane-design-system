@@ -24,6 +24,33 @@
       "why": "minus and plus are drawn with the ring stroke so they read at a glance"
     }
   },
-  "states": {},
-  "motion": {}
+  "states": {
+    "data-component=NumberInput": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "its controls fade colour and light on hover with the shared motion, so it answers like every control"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "background-color fades over the hover duration, never snaps"
+    },
+    "color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "color fades over the hover duration, never snaps"
+    },
+    "box-shadow": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "box-shadow fades over the hover duration, never snaps"
+    },
+    "opacity": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "opacity fades over the hover duration, never snaps"
+    }
+  }
 }
