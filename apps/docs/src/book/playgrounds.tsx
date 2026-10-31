@@ -54,6 +54,10 @@ export function GlassPlayground({ scene: chosen }: { scene: string }) {
   const [bright, setBright] = useState(preset(start).bright);
   const [tint, setTint] = useState(preset(start).tint);
   const [sat, setSat] = useState(num(TOKENS['saturate.glass'].value));
+  // the edge (R-041): how bright the rim catches the light, how deep the bevel shades, how high the pane lifts
+  const [rim, setRim] = useState(0.62);
+  const [bevel, setBevel] = useState(0.7);
+  const [lift, setLift] = useState(0.75);
   const [theme, setThemeRaw] = useState<'dark' | 'light'>(start);
   const setTheme = (t: 'dark' | 'light') => { setThemeRaw(t); setBright(preset(t).bright); setTint(preset(t).tint); };
   const [estimate, setEstimate] = useState<number | null>(null);
@@ -79,7 +83,7 @@ export function GlassPlayground({ scene: chosen }: { scene: string }) {
     };
   }, [scene, bright, tint, theme]);
   const rgb = hex(body(theme)).join(', ');
-  const css = `.my-pane {\n  background: rgba(${rgb}, ${tint});\n  backdrop-filter: blur(${blur}px) saturate(${sat}) brightness(${bright});\n  color: ${theme === 'dark' ? 'var(--ds-text-primary) /* white in dark */' : 'var(--ds-text-primary) /* ink in light */'};\n}`;
+  const css = `.my-pane {\n  background: rgba(${rgb}, ${tint});\n  backdrop-filter: blur(${blur}px) saturate(${sat}) brightness(${bright});\n  color: ${theme === 'dark' ? 'var(--ds-text-primary) /* white in dark */' : 'var(--ds-text-primary) /* ink in light */'};\n  /* the edge: a lit bevel inside, a shadow under */\n  box-shadow: inset 0 1px 0 rgba(255, 255, 255, ${(0.2 + 0.3 * rim).toFixed(2)}), inset 1.5px 2px 6px -2px rgba(255, 255, 255, ${(0.25 * bevel).toFixed(2)}), inset -1px -6px 14px -6px rgba(0, 0, 0, ${(0.9 * bevel).toFixed(2)}), 0 ${Math.round(8 + 20 * lift)}px ${Math.round(16 + 40 * lift)}px -12px rgba(0, 0, 0, ${(0.4 + 0.5 * lift).toFixed(2)});\n}\n/* the rim: a hairline border, lit at the top left and again along the foot */\n.my-pane::after {\n  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;\n  background: linear-gradient(150deg, rgba(255, 255, 255, ${rim.toFixed(2)}), rgba(255, 255, 255, ${(rim * 0.2).toFixed(2)}) 22%, rgba(255, 255, 255, ${(rim * 0.08).toFixed(2)}) 55%, rgba(255, 255, 255, ${(rim * 0.65).toFixed(2)}));\n  mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0); mask-composite: exclude;\n}`;
   return (
     <Playground
       bare
@@ -89,11 +93,14 @@ export function GlassPlayground({ scene: chosen }: { scene: string }) {
         <Range label="Brightness" min={0.2} max={1.4} step={0.02} value={bright} onChange={setBright} />
         <Range label="Body" min={0} max={0.95} step={0.02} value={tint} onChange={setTint} />
         <Range label="Saturate" min={1} max={2.4} step={0.1} value={sat} onChange={setSat} />
+        <Range label="Rim light" min={0} max={1} step={0.02} value={rim} onChange={setRim} />
+        <Range label="Bevel" min={0} max={1} step={0.02} value={bevel} onChange={setBevel} />
+        <Range label="Lift" min={0} max={1} step={0.02} value={lift} onChange={setLift} />
         <Select label="Text" value={theme} options={[['dark', 'White text'], ['light', 'Ink text']]} onChange={(v) => smooth(() => setTheme(v))} />
       </>}
       preview={
         <div ref={frame} className="pg-scene" style={{ backgroundImage: `url(/scenes/${scene}-sm.jpg)` }} data-theme={theme}>
-          <div className="pg-glass" style={{ background: `rgba(${rgb},${tint})`, backdropFilter: `blur(${blur}px) saturate(${sat}) brightness(${bright})`, WebkitBackdropFilter: `blur(${blur}px) saturate(${sat}) brightness(${bright})` }}>
+          <div className="pg-glass" style={{ background: `rgba(${rgb},${tint})`, backdropFilter: `blur(${blur}px) saturate(${sat}) brightness(${bright})`, WebkitBackdropFilter: `blur(${blur}px) saturate(${sat}) brightness(${bright})`, ['--rim' as string]: rim, ['--bevel' as string]: bevel, ['--lift' as string]: lift }}>
             <p className="flush pg-glass-title">Trip to Lauterbrunnen</p>
             <p className="flush">Saturday · 3 people going</p>
           </div>

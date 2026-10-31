@@ -41,6 +41,20 @@
   pointer-events: none;
   background: linear-gradient(90deg, transparent, var(--ds-card-streak), transparent);
 }
+/* the rim (R-041): a hairline border lit where the light falls (top left), faint down the sides and lit again
+   along the foot where it leaves through the slab; with the bevel in card.edge it gives the pane its volume */
+.glass::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: var(--ds-card-rim-width);
+  pointer-events: none;
+  background: linear-gradient(150deg, var(--ds-card-rim-hi) 0%, var(--ds-card-rim-mid) 22%, var(--ds-card-rim-lo) 55%, var(--ds-card-rim-mid) 85%, var(--ds-card-rim-foot) 100%);
+  -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
 /* a pane inside a pane is the next level: no second blur (P3), one step lighter, a shorter shadow */
 .glass .glass:not(.l3):not(.l4), .l2 { border-radius: max(var(--ds-radius-sm), calc(var(--ds-card-radius) - var(--ds-card-padding))); --level-bg: var(--ds-card-level2); --level-shadow: var(--ds-card-shadow-2); -webkit-backdrop-filter: none; backdrop-filter: none; }
 .l3 { --level-bg: var(--ds-card-level3); --level-shadow: var(--ds-card-shadow-3); }
@@ -65,5 +79,5 @@
 
 @media (forced-colors: active) {
   .glass { border: var(--ds-card-rim-width) solid CanvasText; }
-  .glass::before { display: none; }
+  .glass::before, .glass::after { display: none; }
 }

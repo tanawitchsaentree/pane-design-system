@@ -52,6 +52,9 @@ function Anatomy({ render, parts }: { render: ReactNode; parts: Depth['anatomy']
           const up = xs.find((x) => free(x) && clearUp(x)); if (up != null) return [up, y, 1];
           const any = xs.find(free); if (any != null) return [any, y];
         }
+        // no clear column: pin just past the last letter of the part's own text, never in the middle of a word
+        const own = texts.filter((t) => t.top >= r.top - 1 && t.bottom <= r.bottom + 1 && t.left >= r.left - 1);
+        if (own.length) { const t = own.reduce((m, q) => (q.right > m.right ? q : m)); return [Math.min(t.right + 6, r.right - 2), t.top + t.height / 2]; }
         return [r.left + r.width / 2, r.bottom - 2.5];
       };
       const pins = found.map((r, i) => (r ? pin(i) : null));

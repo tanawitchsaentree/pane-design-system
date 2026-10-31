@@ -1,0 +1,33 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Glass edge · lab</title>
+<style>
+body{margin:0;background:#050506;color:#fff;font:15px/1.45 -apple-system,system-ui,sans-serif;padding:24px}
+h1{font-size:20px;margin:0 0 4px} p.l{margin:0 0 18px;color:#ffffffb3;max-width:75ch}
+.row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px}
+.scene{position:relative;border-radius:26px;block-size:300px;overflow:hidden;display:grid;place-items:center}
+.studio{background:radial-gradient(60% 70% at 30% 20%,#2a2b31,#050506)}
+.studio::before,.studio::after{content:'';position:absolute;border-radius:50%;background:radial-gradient(circle at 35% 30%,#a99b8f,#3b332e 60%,#120f0e)}
+.studio::before{inline-size:150px;block-size:150px;left:6%;bottom:-30px}.studio::after{inline-size:90px;block-size:90px;right:10%;top:22%}
+.night{background:center/cover url(night.jpg)} .forest{background:center/cover url(forest.jpg)}
+.card{position:relative;z-index:1;inline-size:72%;padding:20px 22px;border-radius:28px;background:linear-gradient(180deg,#ffffff1a,#ffffff08 55%),#24252B73;backdrop-filter:blur(32px) saturate(1.8) brightness(.5);-webkit-backdrop-filter:blur(32px) saturate(1.8) brightness(.5)}
+.card h3{margin:0 0 4px;font-size:18px}.card p{margin:0;color:#ffffffc7;font-size:13px}
+.tag{position:absolute;top:10px;left:14px;font-size:12px;font-weight:700;color:#fffc;z-index:2}
+/* NOW: today's Pane */
+.now{box-shadow:inset 0 0 0 1px #FFFFFF13,inset 0 -10px 18px -12px #00000099,0 14px 30px -10px #000000BF,0 2px 6px #00000080}
+/* A: lit rim. a gradient border, bright where the light falls (top left) and where it leaves through the thickness (bottom) */
+.A,.B,.C{box-shadow:0 18px 40px -12px #000000d0,0 2px 6px #00000080}
+.A::after,.B::after,.C::after{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+ background:linear-gradient(150deg,#ffffffb3 0%,#ffffff2e 22%,#ffffff0d 55%,#ffffff40 92%,#ffffff8c 100%);
+ -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.A{box-shadow:inset 0 1px 0 #ffffff26,0 18px 40px -12px #000000d0,0 2px 6px #00000080}
+/* B: bevel. A plus a rounded bevel inside the edge: light on the upper inner lip, shade on the lower one */
+.B{box-shadow:inset 0 1px 0 #ffffff33,inset 1.5px 2px 6px -2px #ffffff26,inset -1px -6px 14px -6px #000000b3,0 22px 48px -14px #000000e0,0 2px 6px #00000080}
+/* C: thick slab. B plus a soft light pooled in the top-left corner and a deeper foot, the heaviest glass */
+.C{background:radial-gradient(70% 55% at 0% 0%,#ffffff1f,transparent 60%),linear-gradient(180deg,#ffffff14,#ffffff05 55%,#00000026),#24252B73;
+ box-shadow:inset 0 1px 0 #ffffff40,inset 2px 3px 8px -3px #ffffff2e,inset -2px -10px 20px -8px #000000c0,0 26px 56px -16px #000000ee,0 3px 8px #00000090}
+</style></head><body>
+<h1>Glass edge: today and three ways to give it volume</h1>
+<p class="l">Same card, same body and blur. Columns: now (Pane today), A lit rim, B rim plus bevel, C thick slab. Rows: a dark studio with spheres behind (your reference), the night café, the forest. My pick is B: the rim catches light at the top left and leaves through the bottom edge like the reference, the bevel shades the lower lip so the pane reads as a slab, and it stays thin enough for a list of cards.</p>
+<script>
+const scenes=['studio','night','forest'],kinds=[['now','Now'],['A','A lit rim'],['B','B rim + bevel'],['C','C thick slab']];
+for(const s of scenes){const r=document.createElement('div');r.className='row';r.innerHTML=kinds.map(([k,l])=>`<div class="scene ${s}"><span class="tag">${l}</span><div class="card ${k}"><h3>Trip to Lauterbrunnen</h3><p>Saturday · 3 people going</p></div></div>`).join('');document.body.appendChild(r)}
+</script></body></html>

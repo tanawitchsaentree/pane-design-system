@@ -133,6 +133,18 @@
     "scrim": {
       "$type": "color",
       "$value": "{level.scrim}"
+    },
+    "rim-foot": {
+      "$value": "{line.rim-foot}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the card's bottom edge catches the light leaving through its thickness"
+        }
+      }
     }
   },
   "avatar": {
