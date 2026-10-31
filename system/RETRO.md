@@ -269,3 +269,9 @@ One entry per criticism. The fix is a change to the step that produced the resul
   - crystal ยังเป็น crystal บน material solid ส่วน solid เป็นตัวเลือกที่ตั้งเองเท่านั้น
   - การ์ด demo มีหลายแถวแล้ว และ neutral crystal เข้มขึ้นทั้งสองธีม
 - **กฎที่ได้:** ค่าที่ผู้ใช้ตั้งเองบน prop ต้องชนะค่าที่ระบบเดาให้ (ยัง backlog เป็น gate ใน kiln)
+
+## R-037: SegmentedControl กับ Select วางคู่กันแล้วไม่เสมอกัน (2026-10-31)
+- **User said:** "ทำไมเวลาวางด้วยกันไม่สมมาตรวะ"
+- **ขั้นที่ผิด:** SegmentedControl มีแค่ aria-label ไม่มี label ที่มองเห็นได้ ส่วน Select มี label อยู่ด้านบน พอกฎ R-035 เปลี่ยนตัวเลือก 2–3 อันเป็น segmented ก็ไม่มีใครเช็คว่ามันวางคู่กับ Select ในแถวเดียวกันได้หรือไม่ นอกจากนั้นความสูงของ track ยังมาจาก icon size ไม่ได้มาจากความสูงของ field
+- **แก้แล้ว:** เพิ่ม `showLabel` และทำให้ความสูง track = ความสูง field ของขนาดเดียวกัน (md 44, sm 32) วัดแล้วทั้งสามตัวอยู่ที่ 446–478px
+- **gate ที่ค้าง (BACKLOG):** controls ที่อยู่ใน toolbar เดียวกันต้องมี top/bottom ตรงกัน

@@ -1,9 +1,10 @@
-/* The tab track (a well, shaded under its lip) with the chosen mode as chosen glass lit at its top, the
+/* The track's outer height equals a field's at the same size (44px md, 32px sm), so a segmented control and a
+   Select stand level in one row (R-037). The tab track (a well, shaded under its lip) with the chosen mode as chosen glass lit at its top, the
    same family as Tabs, so a mode switch and a view switch read as kin but each keeps its own role. */
 .track { display: inline-flex; gap: var(--ds-nav-gap); padding: var(--ds-nav-inset); border-radius: var(--ds-corner-round); background: var(--ds-nav-track); box-shadow: var(--ds-nav-ring), var(--ds-nav-carve); font-family: var(--ds-type-family); }
 .segment { position: relative; display: inline-grid; place-items: center; min-inline-size: var(--ds-nav-segment-min); padding-inline: var(--ds-gap-xl); border: 0; border-radius: var(--ds-corner-round); background: transparent; color: var(--ds-text-primary); font: inherit; font-weight: var(--ds-type-weight-medium); cursor: pointer; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
-.md .segment { min-block-size: var(--ds-control-sm); font-size: var(--ds-type-body); }
-.sm .segment { min-block-size: var(--ds-control-icon-md); font-size: var(--ds-type-label); padding-inline: var(--ds-gap-lg); }
+.md .segment { min-block-size: calc(var(--ds-control-lg) - 2 * var(--ds-nav-inset)); font-size: var(--ds-type-body); }
+.sm .segment { min-block-size: calc(var(--ds-control-sm) - 2 * var(--ds-nav-inset)); font-size: var(--ds-type-label); padding-inline: var(--ds-gap-lg); }
 .segment::after { content: ''; position: absolute; inset-inline: 0; inset-block-start: 50%; block-size: var(--ds-layout-touch); translate: 0 -50%; }
 .segment:hover:not([data-state='on']):not([data-disabled]) { background: var(--ds-surface-quiet); }
 .segment[data-state='on'] { background: linear-gradient(180deg, var(--ds-nav-on-top), var(--ds-nav-on-foot)); box-shadow: var(--ds-nav-ring), var(--ds-nav-on-cast); font-weight: var(--ds-type-weight-semibold); }
@@ -13,3 +14,7 @@
 /* stretched by its container (a column, a card), the segments share the track evenly instead of leaving an
    empty run of well at the end; at its own width nothing changes */
 .segment { flex: 1 1 auto; }
+
+/* showLabel: the label sits above the track the way Select's does, so a row of labelled controls shares one baseline */
+.field { display: flex; flex-direction: column; gap: var(--ds-gap-sm); min-inline-size: 0; font-family: var(--ds-type-family); }
+.label { font-size: var(--ds-type-label); color: var(--ds-text-primary); }

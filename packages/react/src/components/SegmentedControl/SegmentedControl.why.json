@@ -65,6 +65,16 @@
       "p": "P2",
       "axis": "type",
       "why": "label-size segments for a toolbar, the same in every theme and on every scene"
+    },
+    "field": {
+      "p": "P6",
+      "axis": "space",
+      "why": "with showLabel the label stands above the track like a field's, so labelled controls in a row line up"
+    },
+    "label": {
+      "p": "P6",
+      "axis": "type",
+      "why": "the visible label in the label size and the primary text colour, the same as Select's"
     }
   },
   "states": {

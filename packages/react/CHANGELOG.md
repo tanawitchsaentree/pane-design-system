@@ -4,6 +4,7 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- SegmentedControl: `showLabel` puts the label above the track like Select's, and the track is as tall as a field of the same size (44px md, 32px sm), so the two stand level in a row.
 - Badge: a small crystal by default (D-038): the tone's tint lit from above with its rim and a coloured glow; `appearance` muted, solid or plain, and a new `accent` tone with its own spark glyph. A crystal stays a crystal on solid material; solid is chosen by hand.
 - Chip: `tone` turns a chosen chip into a crystal of that colour.
 - Tag: `tone` puts a thin tint of the tone in the etch.

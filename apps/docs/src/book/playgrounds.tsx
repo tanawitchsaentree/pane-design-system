@@ -17,7 +17,7 @@ function Range({ label, min, max, step, value, onChange, unit = '' }: { label: s
 }
 // one rule for every docs control: two or three choices are a SegmentedControl, more are a Select (R-035)
 function Select<T extends string>({ label, value, options, onChange }: { label: string; value: T; options: Array<[T, string]>; onChange: (v: T) => void }) {
-  if (options.length <= 3) return <SegmentedControl label={label} value={value} options={options.map(([v, l]) => ({ value: v, label: l }))} onValueChange={(v) => onChange(v as T)} />;
+  if (options.length <= 3) return <SegmentedControl label={label} showLabel size="sm" value={value} options={options.map(([v, l]) => ({ value: v, label: l }))} onValueChange={(v) => onChange(v as T)} />;
   return <PaneSelect label={label} size="sm" value={value} options={options.map(([v, l]) => ({ value: v, label: l }))} onValueChange={(v) => onChange(v as T)} />;
 }
 function Playground({ title, controls, preview, code, note, bare, backdrop }: { title: string; controls: ReactNode; preview: ReactNode; code: string; note?: ReactNode; bare?: boolean; backdrop?: 'scene' | 'field' }) {
