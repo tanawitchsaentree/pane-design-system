@@ -1,3 +1,4 @@
+import BRANDS from '../../../packages/tokens/build/css/brands/brands.json';
 import { NavTree } from './book/NavTree';
 import { Announcement, GitHubLink, SearchButton, VersionMenu } from './book/TopbarExtras';
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
@@ -38,6 +39,14 @@ export function App() {
   const evidence = validEvidence(verifyFile<Evidence>('evidence'));
   const conformance = validConformance(verifyFile<Conformance>('conformance'));
   const [scene, setScene] = useState(sceneById(new URLSearchParams(location.search).get('backdrop') ?? 'studio').id);
+  // Brand (D-033): Pane by default; a sample white-label brand from the header, stored, and named in the
+  // address only when one is picked (G-ST1). A brand the book no longer knows falls back to Pane.
+  const asBrand = (v: string | null) => (v && BRANDS.some((b) => b.id === v) ? v : null);
+  const [brand, setBrand] = useState(() => asBrand(new URLSearchParams(location.search).get('brand')) ?? asBrand(localStorage.getItem('pane-brand')) ?? 'pane');
+  useLayoutEffect(() => {
+    if (brand === 'pane') { delete document.documentElement.dataset.brand; localStorage.removeItem('pane-brand'); }
+    else { document.documentElement.dataset.brand = brand; localStorage.setItem('pane-brand', brand); }
+  }, [brand]);
   const [q, setQ] = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
   // Theme: system follows prefers-color-scheme; the choice is stored; ?theme= overrides (tests).
@@ -81,8 +90,9 @@ export function App() {
     u.searchParams.delete('scene');
     if (!asPref(u.searchParams.get('theme'))) u.searchParams.delete('theme');
     if (scene === 'studio') u.searchParams.delete('backdrop'); else u.searchParams.set('backdrop', scene);
+    if (brand === 'pane') u.searchParams.delete('brand'); else u.searchParams.set('brand', brand);
     history.replaceState(null, '', u);
-  }, [scene]);
+  }, [scene, brand]);
   useEffect(() => {
     const pg = pageOf(path);
     const tab = pg?.tabs && path !== pg.path ? path.slice(pg.path.length + 1) : null;
@@ -114,6 +124,9 @@ export function App() {
               {(['system', 'light', 'dark'] as const).map((t) => (
                 <button key={t} type="button" className="seg-btn" aria-pressed={t === themePref} data-theme-value={t} onClick={() => setThemePref(t)}>{t[0].toUpperCase() + t.slice(1)}</button>
               ))}
+            </div>
+            <div className="topbar-scene topbar-brand" data-brand-control=""><span className="topbar-scene-label" aria-hidden="true">Brand</span>
+              <Select label="Brand" hideLabel size="sm" value={brand} onValueChange={setBrand} options={[{ value: 'pane', label: 'Pane' }, ...BRANDS.map((b) => ({ value: b.id, label: b.name }))]} />
             </div>
             <div className="topbar-scene" data-scene-control=""><span className="topbar-scene-label" aria-hidden="true">Demo backdrop</span>
               <Select label="Demo backdrop" hideLabel size="sm" value={scene} onValueChange={setScene} options={SCENES.map((s) => ({ value: s.id, label: s.label }))} />

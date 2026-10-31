@@ -157,3 +157,10 @@
 - **ตัดสิน:** ใช้ hue ช่อง 1 (น้ำเงิน) ไล่ 5 step จางไปเข้ม เป็น `color.data.seq-{dark,light}-1..5` → `data.seq-1..5` ใช้เฉพาะ mark; จำนวนจุดและคำบอกระดับเสมอ สีแค่ซ้ำสิ่งที่ shape บอกแล้ว ห้ามใช้ status colour กับ magnitude
 - **ค่า:** dark `#184F95 #256ABF #3987E5 #6DA7EC #9EC5F4` (มากขึ้น = สว่างขึ้น), light `#86B6EF #5598E7 #2A78D6 #1C5CAB #104281` (มากขึ้น = เข้มขึ้น)
 - **ผลต่อ:** ConfidenceChip วันนี้; Heatmap และ legend แบบ sequential ใช้ ramp เดียวกันได้
+
+### D-033: White-label brands เปลี่ยนได้เฉพาะรายการ token สั้น ๆ ที่กำหนด
+- **วันที่:** 2026-10-31 · **เลือกโดย:** agent (J1 จาก JD, user สั่ง "จัดเต็ม"; ให้ user review ตอนจบ milestone)
+- **ปัญหา:** product หนึ่งต้องรองรับหลายแบรนด์ลูกค้า แต่ Pane ไม่มี hue ของตัวเอง (P1) และความอ่านออกของกระจกขึ้นกับ material ที่วัดแล้ว
+- **ตัดสิน:** แบรนด์คือไฟล์ JSON หนึ่งไฟล์ เปลี่ยนได้เฉพาะ loud action (fill + ตัวอักษรบน fill), accent, focus ring, chosen glass, type family และ corner 3 ขั้น ไม่แตะ glass material, text tone, status colour, spacing, motion และ data palette build จะหยุดถ้ามี token นอกรายการ หรือถ้าตัวอักษรบน loud action ต่ำกว่า 4.5:1 หรือ focus ring บนหน้าต่ำกว่า 3:1 ไม่ว่าจะธีม dark หรือ light แต่ละแบรนด์ได้ sheet ของตัวเอง (`pane-react/tokens/brands/<id>.css`) scope ด้วย `[data-brand]` และประกาศ component token ที่อ้างถึงซ้ำในบล็อก เหมือนบล็อกของธีมและ environment
+- **ตัวอย่าง:** Harbor (ฟ้า, มุมแคบลงหนึ่งขั้น), Sage (เขียว), Plum (ม่วง และ chosen glass ย้อมสีแบรนด์)
+- **ผลต่อ:** header มีตัวเลือก Brand, มีบท White-label brands, CLI `pane-theme`, evidence วัดแยกแต่ละแบรนด์ได้ด้วย KILN_BRAND

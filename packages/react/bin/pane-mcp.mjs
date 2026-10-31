@@ -12,14 +12,34 @@ const TOOLS = [
   { name: 'search_components', description: 'Find Pane components by a need, such as "date range", "upload", "chart over time".', inputSchema: { type: 'object', properties: { query: { type: 'string' } }, required: ['query'] } },
   { name: 'get_component', description: 'One component: import line, every prop (type, default, description), its theme tokens, and links to its docs and API page.', inputSchema: { type: 'object', properties: { name: { type: 'string' } }, required: ['name'] } },
   { name: 'search_tokens', description: 'Find design tokens by name or value, such as "gap", "critical", "radius"; returns CSS custom properties with dark and light values.', inputSchema: { type: 'object', properties: { query: { type: 'string' }, tier: { type: 'string', enum: ['primitive', 'semantic', 'component'] } }, required: ['query'] } },
+  { name: 'check_usage', description: 'Review a JSX or CSS snippet against the rules Pane enforces (one loud action per pane, no raw colours or pixels, names for icon buttons, the id on FormField, status by glyph and word, no unknown components) and list what to change.', inputSchema: { type: 'object', properties: { code: { type: 'string', description: 'The JSX/TSX or CSS to check.' } }, required: ['code'] } },
   { name: 'how_to_install', description: 'How to install Pane in a React project or a plain HTML site.', inputSchema: { type: 'object', properties: {} } },
 ];
 const words = (s) => String(s).toLowerCase().split(/[^a-z0-9ก-๙]+/).filter(Boolean);
+// check_usage: fast, rule-shaped checks that need no build; each finding names the rule and the fix
+function checkUsage(code) {
+  const out = []; const lines = code.split('\n');
+  const at = (re) => lines.map((l, i) => (re.test(l) ? i + 1 : 0)).filter(Boolean);
+  const say = (ls, msg) => { if (ls.length) out.push(`line ${ls.join(', ')}: ${msg}`); };
+  say(at(/#[0-9a-f]{3,8}\b(?![\w-])/i), 'a raw colour; use a token such as var(--ds-text-primary) or a component prop');
+  say(at(/(?<![\w-])(?!0px)\d+(\.\d+)?px\b/), 'a raw pixel value; use a spacing, size or radius token');
+  say(at(/<IconButton(?![^>]*aria-label)[^>]*>/), 'an IconButton without aria-label has no name a screen reader can say');
+  say(at(/<FormField[^>]*>\s*<(Input|Textarea|Select)[^>]*\bid=/), 'the id belongs on FormField; an id on the field inside breaks the label');
+  say(at(/style=\{\{[^}]*color\s*:\s*['"]?(red|green|#)/i), 'status by colour alone; use Badge, Banner or HelperText tones, which add a glyph and a word');
+  const louds = [...code.matchAll(/<Button\b([^>]*)>/g)].filter((m) => !/variant=/.test(m[1]) || /variant="(light|accent)"/.test(m[1]));
+  if (louds.length > 1) out.push(`${louds.length} loud Buttons; a pane has one, so make the others variant="glass" or "ghost"`);
+  const known = new Set(K.components.map((c) => c.name));
+  const tags = [...new Set([...code.matchAll(/<([A-Z][A-Za-z]+)/g)].map((m) => m[1]))].filter((n) => /pane-react/.test(code) && !known.has(n) && !/^(Fragment|Suspense)$/.test(n) && !K.components.some((c) => c.exports.some((e) => e.name === n)));
+  if (tags.length) out.push(`not Pane components: ${tags.join(', ')}; check list_components, or build them from tokens`);
+  if (/<p\b|<span\b/.test(code) && !/<(Card|Sheet|Dialog|Popover|Drawer)\b/.test(code)) out.push('text with no pane around it; put content on a Card (or another pane) so it never sits straight on the scene');
+  return out.length ? `${out.length} things to change:\n- ${out.join('\n- ')}` : 'No problems found by the quick checks. Run the docs gates for layout and contrast.';
+}
 function call(name, a = {}) {
   if (name === 'list_components') return K.components.map((c) => `${c.name}: ${c.concept}`).join('\n');
   if (name === 'search_components') { const q = words(a.query); const hits = K.components.map((c) => ({ c, s: q.filter((w) => `${c.name} ${c.concept} ${c.exports.flatMap((e) => e.props.map((p) => p.description)).join(' ')}`.toLowerCase().includes(w)).length })).filter((x) => x.s).sort((x, y) => y.s - x.s).slice(0, 8); return hits.length ? hits.map(({ c }) => `${c.name}: ${c.concept}`).join('\n') : 'No component matches; try list_components.'; }
   if (name === 'get_component') { const c = byName.get(String(a.name).toLowerCase()); if (!c) return `No component named ${a.name}. Use list_components.`; return JSON.stringify(c, null, 2); }
   if (name === 'search_tokens') { const q = String(a.query).toLowerCase(); return JSON.stringify(K.tokens.filter((t) => (!a.tier || t.tier === a.tier) && (t.name.includes(q) || t.css.includes(q) || String(t.value).toLowerCase().includes(q))).slice(0, 60), null, 1); }
+  if (name === 'check_usage') return checkUsage(String(a.code ?? ''));
   if (name === 'how_to_install') return `${K.install}\nDocs: ${K.site} (version ${K.version}).`;
   throw new Error(`unknown tool ${name}`);
 }

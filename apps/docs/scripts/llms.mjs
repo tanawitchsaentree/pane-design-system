@@ -6,8 +6,10 @@ const routes = JSON.parse(readFileSync(new URL('../src/book/routes.json', import
 const dist = new URL('../dist/', import.meta.url);
 const idx = [`# Pane ${K.version}`, '', `> A glass design system for React: ${K.components.length} components, tokens in three tiers, English and Thai, light and dark, installable docs. Install from the release tarball, not npm.`, '', K.install, '',
   ...routes.parts.filter((p) => p.title !== 'Component API').flatMap((p) => [`## ${p.title}`, '', ...p.pages.map((pg) => `- [${pg.title}](${K.site}${pg.path})`), '']),
-  '## Optional', '', `- [Every component's props and tokens in one file](${K.site}/llms-full.txt)`, `- MCP server: \`claude mcp add pane -- npx pane-mcp\` (tools: list_components, search_components, get_component, search_tokens, how_to_install)`, ''];
+  '## Optional', '', `- [Claude Code skill for building with Pane](${K.site}/skill.md)`, `- [Every component's props and tokens in one file](${K.site}/llms-full.txt)`, `- MCP server: \`claude mcp add pane -- npx pane-mcp\` (tools: list_components, search_components, get_component, search_tokens, how_to_install)`, ''];
 writeFileSync(new URL('llms.txt', dist), idx.join('\n'));
+// the Claude Code skill, served as a file so an agent can fetch it without installing the package
+writeFileSync(new URL('skill.md', dist), readFileSync(new URL('../../../packages/react/skill/SKILL.md', import.meta.url), 'utf8'));
 const full = [`# Pane ${K.version}, full reference`, '', K.install, ''];
 for (const c of K.components) {
   full.push(`## ${c.name}`, '', c.concept, '', '```tsx', c.import, '```', '');

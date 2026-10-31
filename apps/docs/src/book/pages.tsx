@@ -4,6 +4,7 @@ import decisionsMd from '../../../../system/DECISIONS.md?raw';
 import exceptionsMd from '../../../../system/EXCEPTIONS.md?raw';
 import creditsMd from '../../public/scenes/CREDITS.md?raw';
 import FeedPost from '../examples/FeedPost';
+import { Brands } from './brands';
 import FeedPostSrc from '../examples/FeedPost.tsx?raw';
 import MotionDemo from '../examples/MotionDemo';
 import MotionDemoSrc from '../examples/MotionDemo.tsx?raw';
@@ -191,11 +192,17 @@ function InstallApp() {
 function AiPage() {
   return (
     <Page eyebrow="Getting started" title="MCP and llms.txt" lede={<p>An AI assistant working in your project can look Pane up instead of guessing which component fits, how to import it, what every prop does and which tokens a theme can change. There are two ways in, built from the same generated data, so they always agree with this book.</p>}>
+      <Section id="skill" title="A skill that teaches the system">
+        <p>The MCP server answers questions. The skill sets the defaults. It tells an agent which component fits which job, the rules Pane enforces and the states every part must handle, so the right pattern shows up on the first try instead of after a review.</p>
+        <p>It ships in the package and on this site. Copy it into the project's skills folder and Claude Code loads it whenever a screen is built with pane-react.</p>
+        <Code label="Terminal">{'mkdir -p .claude/skills/pane && cp node_modules/pane-react/skill/SKILL.md .claude/skills/pane/'}</Code>
+        <Code label="Without the package">{'curl -o .claude/skills/pane/SKILL.md https://pane-design-system.pages.dev/skill.md'}</Code>
+      </Section>
       <Section id="mcp" title="MCP server">
         <p>pane-mcp is a Model Context Protocol server that ships inside pane-react. Add it once to Claude Code, Cursor or any client that speaks MCP. It runs on your machine and needs no account.</p>
         <Code label="Claude Code">{'claude mcp add pane -- npx pane-mcp'}</Code>
         <Code label="mcp.json">{'{ "mcpServers": { "pane": { "command": "npx", "args": ["pane-mcp"] } } }'}</Code>
-        <p>It answers five questions. list_components names every component with its idea in a line. search_components finds one for a need, such as a date range or an upload. get_component returns the import, every prop with its type and default, the component tokens and the links to its pages. search_tokens finds tokens by name or value with their dark and light values, and how_to_install says how to install Pane in a React app or a plain HTML site.</p>
+        <p>It answers six questions. list_components names every component with its idea in a line. search_components finds one for a need, such as a date range or an upload. get_component returns the import, every prop with its type and default, the component tokens and the links to its pages. search_tokens finds tokens by name or value with their dark and light values, and how_to_install says how to install Pane in a React app or a plain HTML site. check_usage reads a snippet you are about to write and lists what breaks a Pane rule, such as a second loud button, a raw colour or an icon button with no name.</p>
       </Section>
       <Section id="llms" title="llms.txt">
         <p>Some tools read a site instead of calling a server. For them the book publishes <a href="/llms.txt">llms.txt</a>, an index of every chapter, and <a href="/llms-full.txt">llms-full.txt</a>, with every component's import, props and tokens in one file. Point an assistant at either address.</p>
@@ -1030,6 +1037,7 @@ const BASE_PAGES: Record<string, () => ReactElement> = {
   '/foundations/glass': Glass,
   '/foundations/color': ColorPage,
   '/foundations/themes': Themes,
+  '/foundations/brands': Brands,
   '/foundations/typography': Typography,
   '/foundations/spacing': Spacing,
   '/foundations/grid': GridLayoutPage,

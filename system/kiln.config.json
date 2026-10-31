@@ -113,7 +113,8 @@
       "/foundations/dimensions": "dimensions",
       "/foundations/glass": "glass",
       "/foundations/content": "content",
-      "/foundations/accessibility": "accessibility"
+      "/foundations/accessibility": "accessibility",
+      "/foundations/brands": "brands"
     },
     "topicsDir": "../kiln/marketplace/plugins/kiln/skills/docs-engine/benchmarks/topics",
     "history": [
@@ -129,7 +130,8 @@
       "Anchor/TOC": "TableOfContents",
       "AuthForms": "AuthForm"
     },
-    "ncExempt": ".demo-box, .demo-box-media, [class*=\"demo-pad\"], .demo-fill"
+    "ncExempt": ".demo-box, .demo-box-media, [class*=\"demo-pad\"], .demo-fill",
+    "brandParam": "brand"
   },
   "autonomy": {
     "picks": "agent",

@@ -1,0 +1,34 @@
+{
+  "name": "Sage",
+  "description": "A quiet clinical green for a care team's operations tool. The loud action and focus take the brand green, and everything else stays Pane.",
+  "tokens": {
+    "action.loud-top": {
+      "dark": "#9BE3C6",
+      "light": "#13785C"
+    },
+    "action.loud-foot": {
+      "dark": "#6FD1AD",
+      "light": "#0E6249"
+    },
+    "action.foot-solid": {
+      "dark": "#5CC39E",
+      "light": "#0B523D"
+    },
+    "text.on-light": {
+      "dark": "#08261C",
+      "light": "#FFFFFF"
+    },
+    "text.on-accent": {
+      "dark": "#08261C",
+      "light": "#FFFFFF"
+    },
+    "action.accent-hover": {
+      "dark": "#B3ECD5",
+      "light": "#178566"
+    },
+    "focus.ring": {
+      "dark": "#9BE3C6",
+      "light": "#0E6249"
+    }
+  }
+}

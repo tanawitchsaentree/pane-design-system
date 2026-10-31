@@ -4,6 +4,7 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- PaneProvider: white-label brands (D-033). Load `pane-react/tokens/brands/<id>.css` and set `data-brand`; three samples ship (Harbor, Sage, Plum) and `pane-theme check` validates your own.
 - IconButton: icons are drawn at their size again (a content wrapper had made them 0×0).
 - Pagination: when the whole bar does not fit its space, the numbered pages give way to the page in words between Previous and Next.
 - SegmentedControl: stretched by its container, the segments share the track evenly.

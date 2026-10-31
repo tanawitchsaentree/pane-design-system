@@ -45,14 +45,20 @@
       "types": "./dist/types/components/*/index.d.ts",
       "node": "./dist/node/components/*/index.js",
       "import": "./dist/components/*/index.js"
-    }
+    },
+    "./tokens/brands/*": {
+      "style": "./dist/tokens/brands/*.css",
+      "default": "./dist/tokens/brands/*.css"
+    },
+    "./tokens/brands.json": "./dist/tokens/brands/brands.json",
+    "./skill": "./skill/SKILL.md"
   },
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18"
   },
   "scripts": {
-    "build": "(test ! -f ../../tooling/kiln/i18n-lint.mjs || node ../../tooling/kiln/i18n-lint.mjs) && vite build && PANE_NODE=1 vite build && rm -rf dist/node/*.css dist/node/css && vite build -c vite.cjs.config.ts && rm -f dist/cjs-unused.css && tsc -p tsconfig.build.json && node ../../tooling/bundle-tokens.mjs && cp ../tokens/build/css/core.css ../tokens/build/css/colour.css dist/tokens/ && node ../../tooling/pane-knowledge.mjs",
+    "build": "(test ! -f ../../tooling/kiln/i18n-lint.mjs || node ../../tooling/kiln/i18n-lint.mjs) && vite build && PANE_NODE=1 vite build && rm -rf dist/node/*.css dist/node/css && vite build -c vite.cjs.config.ts && rm -f dist/cjs-unused.css && tsc -p tsconfig.build.json && node ../../tooling/bundle-tokens.mjs && cp ../tokens/build/css/core.css ../tokens/build/css/colour.css dist/tokens/ && mkdir -p dist/tokens/brands && cp ../tokens/build/css/brands/* dist/tokens/brands/ && node ../../tooling/pane-knowledge.mjs",
     "typecheck": "tsc --noEmit -p .",
     "barrel:check": "node ../../tooling/generate-barrel.mjs --check",
     "prepack": "pnpm run build"
@@ -80,7 +86,8 @@
     "README.md",
     "CHANGELOG.md",
     "styles.css.d.ts",
-    "bin"
+    "bin",
+    "skill"
   ],
   "sideEffects": [
     "*.css"
@@ -96,6 +103,7 @@
   "bin": {
     "pane-mesh": "./bin/pane-mesh.mjs",
     "pane-pwa": "./bin/pane-pwa.mjs",
-    "pane-mcp": "./bin/pane-mcp.mjs"
+    "pane-mcp": "./bin/pane-mcp.mjs",
+    "pane-theme": "bin/pane-theme.mjs"
   }
 }
