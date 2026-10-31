@@ -116,3 +116,12 @@ Order, after wave A ships:
 - **J6 Motion**: spring tokens and an interruptible gesture helper, a motion principles chapter with live specimens (enter, exit, move, feedback, reduced motion).
 - **J7 Governance and adoption**: contribution and RFC process, deprecation and versioning policy page, `pane-adoption` CLI that scans a product repo (Pane imports vs raw elements and hard-coded values) and reports a score; an Adoption page.
 - **J8 Clinical and regulated**: a healthcare sample flow (intake form, appointment, results table with abnormal flags by glyph and word), WCAG 2.2 AA evidence page per component already exists; add an accessibility conformance report export (VPAT-style).
+
+## M1 Materials, first in the queue after J4 (user, 2026-10-31: "มีแนว skeuomorph กับ glassmorph ต้องทำให้ theme ตรงนี้ชัดเจน … IA ดีๆ ux journey ดีๆ ai mcp รู้เรื่องด้วย api ดีๆ")
+- One axis, two materials: **glass** (translucent, needs a scene) and **solid** (the same lit, carved, physical shapes, opaque). The physical shape language is shared; material only decides translucency. One material per screen.
+- API: `<Environment material>` (exists, D-021) is the one switch; `data-material` for plain HTML; documented defaults, reduced-transparency falls back to solid by itself.
+- IA: Foundations opens with **Materials** (decision journey: is there a scene, is it live, does the brand want glass), a comparison on three backdrops, the generated token diff, per-component notes, mixing rules, accessibility, API. Getting started gets a **Choose your look** journey: material → theme → brand → environment.
+- Header: one **Appearance** control holding material, theme, brand and backdrop instead of four separate controls.
+- AI: MCP `choose_appearance` (guidance and code), knowledge carries materials and brands, the skill and llms.txt say how to choose; check_usage flags glass with no Environment and mixed materials.
+- Evidence and gates under `KILN_MATERIAL=solid`; a gate that fails a screen mixing materials.
+- Glass look itself waits on the concept-check pick (R-032).
