@@ -26,5 +26,4 @@
 .accent { --top: var(--ds-crystal-accent-top); --foot: var(--ds-crystal-accent-foot); --rim: var(--ds-crystal-accent-rim); --glow: var(--ds-crystal-accent-glow); --tint: var(--ds-crystal-accent-muted); --k: var(--ds-crystal-accent-ink); --s: var(--ds-crystal-accent-solid); --o: var(--ds-crystal-accent-on-solid); }
 /* the tint sits on the opaque surface, so a photo behind a light pane cannot pull the word under 4.5:1 */
 .toned { background: linear-gradient(var(--tint), var(--tint)), var(--ds-surface-solid); color: var(--k); text-shadow: none; }
-[data-material="solid"] .toned { background: var(--s); color: var(--o); }
 @media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid CanvasText; } }

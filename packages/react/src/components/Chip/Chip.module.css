@@ -83,4 +83,3 @@
   background: linear-gradient(180deg, var(--top) 0 45%, var(--foot) 55%);
   box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--rim), inset 0 var(--ds-width-hairline) 0 var(--ds-crystal-facet), 0 var(--ds-gap-xs) var(--ds-gap-xl) var(--glow);
 }
-[data-material="solid"] .toned.on { background: var(--s); color: var(--o); box-shadow: var(--ds-chip-edge); }

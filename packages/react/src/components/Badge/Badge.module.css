@@ -1,6 +1,6 @@
 /* A status as a small crystal (D-038): a piece of tinted glass lit from above, its rim catching the light and
    its colour falling on the pane under it. Each tone keeps its own glyph shape (D-018), so colour is never the
-   only cue. muted is one thin tint, solid an opaque fill for solid material, plain the word alone on the glass
+   only cue. muted is one thin tint, solid an opaque fill, plain the word alone on the glass
    (round 3, Badge A). */
 .root {
   display: inline-flex;
@@ -29,10 +29,10 @@
   backdrop-filter: blur(var(--ds-badge-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-badge-brightness));
 }
 .muted { background: var(--tint); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--tint); }
-/* solid material has no scene to tint, so a crystal on it becomes the opaque fill */
-.solid, [data-material="solid"] .crystal { background: var(--s); color: var(--o); box-shadow: inset 0 var(--ds-width-hairline) 0 var(--ds-line-ring); -webkit-backdrop-filter: none; backdrop-filter: none; }
-.root.solid .glyph, [data-material="solid"] .root.crystal .glyph { color: currentColor; }
-.root.solid .dot, [data-material="solid"] .root.crystal .dot { background: currentColor; }
+/* solid is the opt-in opaque fill; a crystal stays a crystal on solid material, a gem on an opaque pane */
+.solid { background: var(--s); color: var(--o); box-shadow: inset 0 var(--ds-width-hairline) 0 var(--ds-line-ring); -webkit-backdrop-filter: none; backdrop-filter: none; }
+.root.solid .glyph { color: currentColor; }
+.root.solid .dot { background: currentColor; }
 .root.crystal .dot, .root.muted .dot { background: currentColor; }
 @media (prefers-reduced-transparency: reduce) { .crystal { -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--s); color: var(--o); } }
 .glyph { inline-size: var(--ds-badge-glyph); block-size: var(--ds-badge-glyph); flex: none; fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }

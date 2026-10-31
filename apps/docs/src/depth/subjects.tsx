@@ -37,7 +37,7 @@ export const SUBJECTS: Record<string, Subject> = {
   PinInput: { render: () => <PinInput aria-label="Code" length={4} defaultValue="48" />, code: () => '<PinInput aria-label="Code" length={4} />' },
   Button: { disabled: true, render: (p, d) => <Button {...p} disabled={d}>Follow</Button>, code: (p) => `<Button${attrs(p)}>Follow</Button>` },
   IconButton: { disabled: true, render: (p, d) => <IconButton aria-label="Share" {...p} disabled={d}><IconShare /></IconButton>, code: (p) => `<IconButton aria-label="Share"${attrs(p)}>\n  <IconShare />\n</IconButton>` },
-  Badge: { render: (p) => <div className="demo-row"><span>Inbox</span><Badge {...p}>3 new</Badge></div>, code: (p) => `<Badge${attrs(p)}>3 new</Badge>` },
+  Badge: { render: (p) => <div className="demo-stack"><b>Mail</b><div className="demo-row"><span>Inbox</span><Badge {...p}>3 new</Badge></div><div className="demo-row"><span>Archive</span><span className="muted">Nothing new</span></div></div>, code: (p) => `<Badge${attrs(p)}>3 new</Badge>` },
   Banner: { render: (p) => <Banner title="Card expires next month" {...p}>Update it to avoid a pause.</Banner>, code: (p) => `<Banner title="Card expires next month"${attrs(p)}>\n  Update it to avoid a pause.\n</Banner>` },
   // inset has no glass of its own, so it is shown where it lives: inside a glass card
   Card: { bare: true, render: (p) => { const c = <Card as="div" {...p} className="demo-card"><h3 className="flush">Mara Lind</h3><p className="flush muted">Landscape photographer</p></Card>; return p.variant === 'inset' ? <Card as="div" className="demo-card">{c}</Card> : c; }, code: (p) => `<Card${attrs(p)}>\n  <h3>Mara Lind</h3>\n</Card>` },

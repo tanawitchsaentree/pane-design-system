@@ -47,11 +47,6 @@
       "p": "P6",
       "axis": "depth",
       "why": "forced colours drop the etch, so a real system-colour border keeps the shape"
-    },
-    "data-material=solid": {
-      "p": "P3",
-      "axis": "depth",
-      "why": "on solid material the tint becomes the opaque tone fill, since no scene shows through"
     }
   },
   "motion": {},

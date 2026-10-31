@@ -1,7 +1,7 @@
 // The header's MUI-style tools: the version with what it means, a one-line announcement of the release,
 // search over every chapter with ⌘K (Pane's own CommandPalette), and the source on GitHub.
 import { useState } from 'react';
-import { CommandPalette, Kbd, Menu, Popover, SegmentedControl, Select } from 'pane-react';
+import { Badge, CommandPalette, Kbd, Menu, Popover, SegmentedControl, Select } from 'pane-react';
 import { version, componentCount } from 'virtual:book-facts';
 import { PARTS, navigate } from './router';
 
@@ -25,7 +25,7 @@ export function VersionMenu() {
 export function Announcement() {
   return (
     <a className="tb-news" href="/reference/changelog" onClick={(e) => { e.preventDefault(); navigate('/reference/changelog'); }}>
-      <span className="tb-news-tag">New</span>Pane {version.split('.').slice(0, 2).join('.')}: {componentCount} components in English and Thai
+      <Badge tone="accent" className="tb-news-tag">New</Badge>Pane {version.split('.').slice(0, 2).join('.')}: {componentCount} components in English and Thai
     </a>
   );
 }

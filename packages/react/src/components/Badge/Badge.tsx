@@ -8,7 +8,7 @@ export type BadgeAppearance = 'crystal' | 'muted' | 'solid' | 'plain';
 export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
   /** `neutral` is a word alone. `info`, `positive`, `warning` and `critical` add their own glyph shape (circle, check, triangle, octagon) in the tone colour, so colour is never the only cue. */
   tone?: BadgeTone;
-  /** `crystal` (default) is a small piece of tinted glass lit from above; `muted` one thin tint; `solid` an opaque fill, which a crystal also becomes on solid material; `plain` the word and glyph alone, for a status inside a sentence. */
+  /** `crystal` (default) is a small piece of tinted glass lit from above; `muted` one thin tint; `solid` an opaque fill, chosen by hand, for print, exports or a look with no glass at all; a crystal stays a crystal on solid material; `plain` the word and glyph alone, for a status inside a sentence. */
   appearance?: BadgeAppearance;
   /** Neutral only. A leading dot in the secondary text colour, for a status with no tone such as Draft. */
   dot?: boolean;

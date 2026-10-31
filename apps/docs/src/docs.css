@@ -725,7 +725,6 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .tb-chevron { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
 .tb-news { display: inline-flex; align-items: center; gap: var(--ds-gap-sm); min-block-size: var(--ds-control-sm); max-inline-size: 48ch; padding-inline: var(--ds-gap-xs) var(--ds-gap-lg); border-radius: var(--ds-corner-round); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); color: var(--ds-text-secondary); font-size: var(--ds-type-label); text-decoration: none; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
 .tb-news:hover { background: var(--ds-surface-quiet); color: var(--ds-text-primary); }
-.tb-news-tag { flex: none; padding: 0 var(--ds-gap-sm); border-radius: var(--ds-corner-round); background: var(--ds-text-primary); color: var(--ds-surface-page); font-size: var(--ds-type-micro); font-weight: var(--ds-type-weight-semibold); letter-spacing: var(--ds-type-tracking-caps); text-transform: uppercase; }
 .tb-search { display: inline-flex; align-items: center; gap: var(--ds-gap-md); min-block-size: var(--ds-control-sm); min-inline-size: 14rem; padding-inline: var(--ds-gap-md) var(--ds-gap-xs); border: 0; border-radius: var(--ds-corner-round); background: var(--ds-surface-sunken); color: var(--ds-text-secondary); font: inherit; font-size: var(--ds-type-label); cursor: pointer; }
 .tb-search:hover { color: var(--ds-text-primary); }
 .tb-search-label { flex: 1; text-align: start; }
@@ -754,8 +753,14 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .topbar-tools { gap: var(--ds-gap-md); }
 .tb-search, .tb-version, .tb-news, .tb-iconlink { min-block-size: var(--tb-h); }
 .tb-iconlink { inline-size: var(--tb-h); block-size: var(--tb-h); background: var(--ds-surface-sunken); }
-.tb-news { box-shadow: none; background: var(--ds-surface-sunken); }
-.tb-version { background: var(--ds-surface-sunken); }
+/* three roles, three looks (R-036): search is a field, carved into the bar like every Input; the version
+   and Appearance are buttons, a ring on the glass; the news is a link, no body at all, led by a crystal New */
+.tb-search { background: var(--ds-input-bg); box-shadow: var(--ds-input-groove); }
+.tb-search:hover { box-shadow: var(--ds-input-groove), inset 0 0 0 var(--ds-width-hairline) var(--ds-input-ring-hover); }
+.tb-version { background: transparent; box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-ring); }
+.tb-version:hover { background: var(--ds-surface-quiet); }
+.tb-news { box-shadow: none; background: transparent; color: var(--ds-text-secondary); }
+.tb-news:hover { background: transparent; color: var(--ds-text-primary); text-decoration: underline; text-underline-offset: var(--ds-gap-xs); }
 .topbar-scene [data-component='Select'] button { min-block-size: var(--tb-h); padding-inline: var(--ds-gap-lg) var(--ds-gap-md); border-radius: var(--ds-corner-round); background: var(--ds-surface-sunken); box-shadow: none; color: var(--ds-text-secondary); font-size: var(--ds-type-label); }
 .topbar-scene [data-component='Select'] button:hover { color: var(--ds-text-primary); box-shadow: none; }
 .topbar-scene { gap: var(--ds-gap-sm); }
@@ -764,8 +769,8 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
    the top, with a 4px corner in a round end. */
 .tb-search { padding-inline-end: var(--ds-gap-xs); }
 .tb-search kbd { block-size: calc(var(--tb-h) - var(--ds-gap-xs) * 2); border-radius: var(--ds-corner-round); padding-inline: var(--ds-gap-md); }
-.tb-news { padding-inline-start: var(--ds-gap-xs); }
-.tb-news-tag { display: inline-grid; place-items: center; block-size: calc(var(--tb-h) - var(--ds-gap-xs) * 2); padding-inline: var(--ds-gap-md); }
+.tb-news { padding-inline-start: 0; }
+[data-component="Badge"].tb-news-tag { flex: none; block-size: calc(var(--tb-h) - var(--ds-gap-xs) * 2); -webkit-backdrop-filter: none; backdrop-filter: none; }
 
 /* a canvas row of nodes: ports stick out half their size past each card, so the cards stand a port apart and stay on one line, scrolling if the column is narrow */
 .demo-flow { display: flex; align-items: center; gap: var(--ds-gap-2xl); overflow-x: auto; padding: var(--ds-gap-lg); }

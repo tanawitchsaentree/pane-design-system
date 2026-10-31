@@ -2473,7 +2473,7 @@
     "$description": "Crystal tints for small marks (D-038): each tone is a hue, a lit hue for the top facet and an ink for the word, per theme. Components mix them with transparency through crystal.mix-*.",
     "neutral": {
       "hue": {
-        "$value": "{color.graphite.500}",
+        "$value": "{color.graphite.400}",
         "$type": "color",
         "$extensions": {
           "kiln.why": {
@@ -2500,7 +2500,7 @@
             "why": "the neutral crystal's top facet, lighter because the light falls from above"
           },
           "pane.theme": {
-            "light": "{color.graphite.100}"
+            "light": "{color.graphite.300}"
           }
         }
       },
