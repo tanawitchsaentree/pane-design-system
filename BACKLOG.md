@@ -126,3 +126,4 @@ Order, after wave A ships:
 - Evidence and gates under `KILN_MATERIAL=solid`; a gate that fails a screen mixing materials.
 - Glass look itself waits on the concept-check pick (R-032).
 - [ ] kiln gates from R-035: (a) a playground's starting values must equal the current tokens it models; (b) command palette results must not repeat a label within one query; (c) docs controls with ≤3 options must be segmented.
+- [ ] kiln gate from R-036: controls in one bar that do different jobs (field, button, link) must differ in look; an explicit prop beats any automatic fallback.

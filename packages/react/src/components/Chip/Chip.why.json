@@ -97,11 +97,6 @@
       "p": "P6",
       "axis": "interaction",
       "why": "hover styles apply only on devices that can hover, so a touch screen never shows a stuck wash after a tap"
-    },
-    "data-material=solid": {
-      "p": "P3",
-      "axis": "depth",
-      "why": "on solid material the tint becomes the opaque tone fill, since no scene shows through"
     }
   },
   "motion": {

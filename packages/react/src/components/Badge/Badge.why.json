@@ -59,7 +59,7 @@
     "solid": {
       "p": "P3",
       "axis": "depth",
-      "why": "an opaque fill for solid material, where there is no scene for a crystal to tint"
+      "why": "an opaque fill chosen by hand, for print, exports or a product with no glass at all"
     }
   },
   "states": {
@@ -67,11 +67,6 @@
       "p": "P6",
       "axis": "depth",
       "why": "forced colours drop the tone colours, so a real system-colour border keeps the shape"
-    },
-    "data-material=solid": {
-      "p": "P3",
-      "axis": "depth",
-      "why": "on solid material a crystal has no scene to tint, so it becomes the opaque fill"
     },
     "@media prefers-reduced-transparency: reduce": {
       "p": "P6",

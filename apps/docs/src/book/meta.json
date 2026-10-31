@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T12:36:25.495Z",
+  "generatedAt": "2026-10-31T14:30:42.358Z",
   "version": "0.7.0",
   "components": {
     "Accordion": {
@@ -737,7 +737,7 @@
               "type": "\"crystal\" | \"muted\" | \"solid\" | \"plain\"",
               "required": false,
               "default": "crystal",
-              "description": "`crystal` (default) is a small piece of tinted glass lit from above; `muted` one thin tint; `solid` an opaque fill, which a crystal also becomes on solid material; `plain` the word and glyph alone, for a status inside a sentence.",
+              "description": "`crystal` (default) is a small piece of tinted glass lit from above; `muted` one thin tint; `solid` an opaque fill, chosen by hand, for print, exports or a look with no glass at all; a crystal stays a crystal on solid material; `plain` the word and glyph alone, for a status inside a sentence.",
               "enum": true,
               "options": [
                 "crystal",
@@ -775,8 +775,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 1253,
-        "cssMin": 3813,
-        "gzip": 1581
+        "cssMin": 3728,
+        "gzip": 1556
       }
     },
     "Banner": {
@@ -2172,8 +2172,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 7018,
-        "cssMin": 4709,
-        "gzip": 4257
+        "cssMin": 4616,
+        "gzip": 4229
       }
     },
     "Citation": {
@@ -5959,8 +5959,8 @@
       "demoFloor": 6,
       "bundle": {
         "jsMin": 79630,
-        "cssMin": 10343,
-        "gzip": 31153
+        "cssMin": 10250,
+        "gzip": 31128
       }
     },
     "Navbar": {
@@ -9775,8 +9775,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 374,
-        "cssMin": 2557,
-        "gzip": 870
+        "cssMin": 2497,
+        "gzip": 842
       }
     },
     "TagInput": {
@@ -9907,8 +9907,8 @@
       "demoFloor": 6,
       "bundle": {
         "jsMin": 8758,
-        "cssMin": 7215,
-        "gzip": 5553
+        "cssMin": 7122,
+        "gzip": 5528
       }
     },
     "Text": {
