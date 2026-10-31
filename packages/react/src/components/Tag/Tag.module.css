@@ -24,6 +24,7 @@
 .warning { --top: var(--ds-crystal-warning-top); --foot: var(--ds-crystal-warning-foot); --rim: var(--ds-crystal-warning-rim); --glow: var(--ds-crystal-warning-glow); --tint: var(--ds-crystal-warning-muted); --k: var(--ds-crystal-warning-ink); --s: var(--ds-crystal-warning-solid); --o: var(--ds-crystal-warning-on-solid); }
 .critical { --top: var(--ds-crystal-critical-top); --foot: var(--ds-crystal-critical-foot); --rim: var(--ds-crystal-critical-rim); --glow: var(--ds-crystal-critical-glow); --tint: var(--ds-crystal-critical-muted); --k: var(--ds-crystal-critical-ink); --s: var(--ds-crystal-critical-solid); --o: var(--ds-crystal-critical-on-solid); }
 .accent { --top: var(--ds-crystal-accent-top); --foot: var(--ds-crystal-accent-foot); --rim: var(--ds-crystal-accent-rim); --glow: var(--ds-crystal-accent-glow); --tint: var(--ds-crystal-accent-muted); --k: var(--ds-crystal-accent-ink); --s: var(--ds-crystal-accent-solid); --o: var(--ds-crystal-accent-on-solid); }
-.toned { background: linear-gradient(var(--tint), var(--tint)), var(--ds-tag-bg); color: var(--k); }
+/* the tint sits on the opaque surface, so a photo behind a light pane cannot pull the word under 4.5:1 */
+.toned { background: linear-gradient(var(--tint), var(--tint)), var(--ds-surface-solid); color: var(--k); text-shadow: none; }
 [data-material="solid"] .toned { background: var(--s); color: var(--o); }
 @media (forced-colors: active) { .root { border: var(--ds-width-hairline) solid CanvasText; } }

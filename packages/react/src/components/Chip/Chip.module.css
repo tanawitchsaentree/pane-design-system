@@ -78,6 +78,7 @@
 .critical { --top: var(--ds-crystal-critical-top); --foot: var(--ds-crystal-critical-foot); --rim: var(--ds-crystal-critical-rim); --glow: var(--ds-crystal-critical-glow); --tint: var(--ds-crystal-critical-muted); --k: var(--ds-crystal-critical-ink); --s: var(--ds-crystal-critical-solid); --o: var(--ds-crystal-critical-on-solid); }
 .accent { --top: var(--ds-crystal-accent-top); --foot: var(--ds-crystal-accent-foot); --rim: var(--ds-crystal-accent-rim); --glow: var(--ds-crystal-accent-glow); --tint: var(--ds-crystal-accent-muted); --k: var(--ds-crystal-accent-ink); --s: var(--ds-crystal-accent-solid); --o: var(--ds-crystal-accent-on-solid); }
 .toned.on {
+  text-shadow: none;
   color: var(--k);
   background: linear-gradient(180deg, var(--top) 0 45%, var(--foot) 55%);
   box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--rim), inset 0 var(--ds-width-hairline) 0 var(--ds-crystal-facet), 0 var(--ds-gap-xs) var(--ds-gap-xl) var(--glow);
