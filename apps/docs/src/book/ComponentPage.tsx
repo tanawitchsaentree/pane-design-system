@@ -101,7 +101,7 @@ function LiveDemo({ c, m }: { c: ComponentChapter; m: Meta }) {
     <div className="live-demo" data-live-demo="" data-registry="U1">
       <p className="flush muted small">Live demo. Pick a theme and {variantDim ? `a ${variantDim[0]}` : 'a variant'}{dims.length > 1 ? ` or ${dims.slice(1).map(([k]) => k).join(' and ')}` : ''} and the component and its code below update together.</p>
       <div className="live-demo-controls">
-        <div data-selector="theme"><SegmentedControl label="Theme" value={theme} onValueChange={(v) => smooth(() => setTheme(v as 'dark' | 'light'))} options={[{ value: 'dark', label: 'Dark' }, { value: 'light', label: 'Light' }]} /></div>
+        <div data-selector="theme"><SegmentedControl label="Theme" showLabel size="sm" value={theme} onValueChange={(v) => smooth(() => setTheme(v as 'dark' | 'light'))} options={[{ value: 'dark', label: 'Dark' }, { value: 'light', label: 'Light' }]} /></div>
         <div data-selector="variant">{variantDim
           ? <Select label={variantDim[0][0].toUpperCase() + variantDim[0].slice(1)} size="sm" value={picked[variantDim[0]]} onValueChange={(v) => setPicked({ ...picked, [variantDim[0]]: v })} options={variantDim[1].map((o) => ({ value: o, label: o }))} />
           : <Select label="Variant" size="sm" value="default" onValueChange={() => {}} options={[{ value: 'default', label: `${c.name} has one variant` }]} />}</div>

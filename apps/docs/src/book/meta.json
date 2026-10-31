@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T14:30:42.358Z",
+  "generatedAt": "2026-10-31T14:46:05.184Z",
   "version": "0.7.0",
   "components": {
     "Accordion": {
@@ -8091,6 +8091,15 @@
               ]
             },
             {
+              "name": "showLabel",
+              "type": "boolean",
+              "required": false,
+              "default": "false",
+              "description": "Shows the label above the track, as Select and the fields do, so a segmented control lines up with them in a row of labelled controls. Off by default: a mode switch usually explains itself.",
+              "enum": false,
+              "options": null
+            },
+            {
               "name": "className",
               "type": "string",
               "required": false,
@@ -8118,9 +8127,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 26071,
-        "cssMin": 1548,
-        "gzip": 9749
+        "jsMin": 26289,
+        "cssMin": 1781,
+        "gzip": 9904
       }
     },
     "Select": {

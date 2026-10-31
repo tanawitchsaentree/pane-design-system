@@ -55,7 +55,7 @@ function BrandPlayground() {
       <div className="pg-body">
         <div className="pg-controls" data-controls="">
           <Select label="Brand" size="sm" value={id} onValueChange={(v) => smooth(() => setId(v))} options={LIST.map((x) => ({ value: x.id, label: x.name }))} />
-          <SegmentedControl label="Theme" value={th} onValueChange={(v) => smooth(() => setTh(v as 'dark' | 'light'))} options={[{ value: 'dark', label: 'Dark' }, { value: 'light', label: 'Light' }]} />
+          <SegmentedControl label="Theme" showLabel size="sm" value={th} onValueChange={(v) => smooth(() => setTh(v as 'dark' | 'light'))} options={[{ value: 'dark', label: 'Dark' }, { value: 'light', label: 'Light' }]} />
         </div>
         <div className="pg-preview" data-preview="" data-brand={id} data-theme={th}><Stage className="pg-stage"><Sample /></Stage></div>
       </div>
