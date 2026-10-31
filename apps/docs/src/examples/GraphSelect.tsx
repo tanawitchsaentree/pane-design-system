@@ -13,5 +13,5 @@ const EDGES = [
 export default function GraphSelect() {
   const [id, setId] = useState('');
   const node = NODES.find((n) => n.id === id);
-  return <Card as="div" className="demo-card demo-wide"><NetworkGraph label="Linked accounts" nodes={NODES} edges={EDGES} onSelect={setId} /><Text as="p" aria-live="polite">{node ? `Picked ${node.label}` : 'Nothing picked yet'}</Text></Card>;
+  return <Card as="div" className="demo-card demo-wide"><Card as="div" className="demo-card demo-wide"><NetworkGraph label="Linked accounts" nodes={NODES} edges={EDGES} onSelect={setId} /><Text as="p" aria-live="polite">{node ? `Picked ${node.label}` : 'Nothing picked yet'}</Text></Card></Card>;
 }

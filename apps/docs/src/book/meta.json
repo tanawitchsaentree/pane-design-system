@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T14:46:05.184Z",
+  "generatedAt": "2026-10-31T15:54:50.098Z",
   "version": "0.7.0",
   "components": {
     "Accordion": {
@@ -774,9 +774,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 1253,
+        "jsMin": 1136,
         "cssMin": 3728,
-        "gzip": 1556
+        "gzip": 1504
       }
     },
     "Banner": {
@@ -1408,8 +1408,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 470,
-        "cssMin": 760,
-        "gzip": 547
+        "cssMin": 921,
+        "gzip": 696
       }
     },
     "Calendar": {
@@ -2681,8 +2681,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 50666,
-        "cssMin": 7711,
-        "gzip": 19899
+        "cssMin": 7722,
+        "gzip": 19905
       }
     },
     "ConfidenceChip": {
@@ -3130,7 +3130,7 @@
       "bundle": {
         "jsMin": 82518,
         "cssMin": 14608,
-        "gzip": 32999
+        "gzip": 32990
       }
     },
     "DescriptionList": {
@@ -5645,6 +5645,15 @@
                 "center",
                 "end"
               ]
+            },
+            {
+              "name": "alignOffset",
+              "type": "number",
+              "required": false,
+              "default": null,
+              "description": "Moves the menu along its edge, in px; SplitButton uses it to line the menu up with the whole button.",
+              "enum": false,
+              "options": null
             }
           ]
         }
@@ -5655,9 +5664,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 88562,
+        "jsMin": 88590,
         "cssMin": 1593,
-        "gzip": 31592
+        "gzip": 31599
       }
     },
     "Mesh": {
@@ -8128,8 +8137,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 26289,
-        "cssMin": 1781,
-        "gzip": 9904
+        "cssMin": 1826,
+        "gzip": 9925
       }
     },
     "Select": {
@@ -8277,7 +8286,7 @@
       "bundle": {
         "jsMin": 91988,
         "cssMin": 5091,
-        "gzip": 33663
+        "gzip": 33665
       }
     },
     "SequenceDiagram": {
@@ -9182,9 +9191,9 @@
       "variantCount": 4,
       "demoFloor": 7,
       "bundle": {
-        "jsMin": 97503,
-        "cssMin": 8091,
-        "gzip": 36445
+        "jsMin": 97868,
+        "cssMin": 8609,
+        "gzip": 36685
       }
     },
     "Stack": {
@@ -9728,8 +9737,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 29216,
-        "cssMin": 3112,
-        "gzip": 11105
+        "cssMin": 3195,
+        "gzip": 11130
       }
     },
     "Tag": {
@@ -10224,7 +10233,7 @@
       "bundle": {
         "jsMin": 98355,
         "cssMin": 5091,
-        "gzip": 36375
+        "gzip": 36377
       }
     },
     "Timeline": {

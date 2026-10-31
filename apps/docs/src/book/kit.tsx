@@ -15,7 +15,7 @@ const BY_CSS = Object.fromEntries(Object.entries(TOKENS).map(([p, t]) => [t.css,
 // chunk does not carry the tokens, CSS sources and concept text this file holds; re-exported here
 export { VerifyContext, useVerify, SceneContext, useScene, Link } from './kit-core';
 export type { GroupResult, Evidence, Conformance } from './kit-core';
-import { useVerify, useScene, Link } from './kit-core';
+import { useVerify, useScene, useSetScene, Link } from './kit-core';
 import { lazyMap } from './lazy';
 
 // ---------- page structure ----------
@@ -94,6 +94,20 @@ export function CodeBlock({ code, label = 'Code', lines = 14 }: { code: string; 
   );
 }
 
+/** The demo backdrop, picked where the examples are (R-038): one round swatch per scene. The choice is the
+ *  book's, so every example follows it, and it sits beside the example the reader is looking at. */
+export function BackdropPicker({ className = '' }: { className?: string }) {
+  const scene = useScene(); const set = useSetScene();
+  return (
+    <div className={`bd-picker ${className}`} role="radiogroup" aria-label="Demo backdrop" data-scene-control="">
+      {SCENES.map((s) => (
+        <button key={s.id} type="button" role="radio" aria-checked={s.id === scene} aria-label={s.label} title={s.label}
+          className={`bd-swatch bd-${s.id}`} data-value={s.id} onClick={() => set(s.id)} />
+      ))}
+    </div>
+  );
+}
+
 /** A demo stage: the one place glass appears in the docs. The current demo backdrop sits behind it,
  *  so a component is always seen the way it will be used, over a scene. */
 export function Stage({ children, plain, className = '', backdrop }: { children: ReactNode; plain?: boolean; className?: string; backdrop?: 'scene' | 'field' }) {
@@ -119,6 +133,7 @@ export function Example({ title, code, children, plain, backdrop }: { title: str
       {/* the caption sits in the stage's top-left corner, like a label on a studio plate */}
       <div className="example-plate">
         <figcaption className="example-bar"><span className="example-title">{title}</span></figcaption>
+        <BackdropPicker className="example-backdrop" />
         <Stage plain={plain} backdrop={backdrop}>{children}</Stage>
       </div>
       <CodeBlock code={body} label="TSX" />

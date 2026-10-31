@@ -2,5 +2,5 @@
 import { Card, OTPFlow } from 'pane-react';
 
 export default function OtpShort() {
-  return <Card as="div" className="demo-card"><OTPFlow destination="the card reader" length={4} onVerify={(c) => c === '1234'} /></Card>;
+  return <Card as="div" className="demo-card"><Card as="div" className="demo-card"><OTPFlow destination="the card reader" length={4} onVerify={(c) => c === '1234'} /></Card></Card>;
 }

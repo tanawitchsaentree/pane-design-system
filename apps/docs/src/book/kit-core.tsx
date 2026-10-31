@@ -17,6 +17,9 @@ export const VerifyContext = createContext<{ evidence: Evidence | null; conforma
 export const useVerify = () => useContext(VerifyContext);
 export const SceneContext = createContext<string>('room');
 export const useScene = () => useContext(SceneContext);
+/** Sets the demo backdrop for the whole book; the picker beside each example calls it. */
+export const SetSceneContext = createContext<(id: string) => void>(() => {});
+export const useSetScene = () => useContext(SetSceneContext);
 
 // ---------- navigation ----------
 export function Link({ to, children, ...rest }: { to: string; children: ReactNode } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & Record<`data-${string}`, string>) {

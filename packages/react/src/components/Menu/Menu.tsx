@@ -16,16 +16,18 @@ export interface MenuProps {
   items: MenuEntry[];
   /** Which edge of the trigger the sheet lines up with; start keeps it under the trigger's leading edge. */
   align?: 'start' | 'center' | 'end';
+  /** Moves the menu along its edge, in px; SplitButton uses it to line the menu up with the whole button. */
+  alignOffset?: number;
 }
 
 /** A list of actions that opens from a button: the menu sheet with rows that nest its corner (R-008).
  *  Arrow keys move, Enter chooses, typing a letter jumps, Esc closes and returns focus. */
-export function Menu({ trigger, label, items, align = 'start' }: MenuProps) {
+export function Menu({ trigger, label, items, align = 'start', alignOffset }: MenuProps) {
   return (
     <RM.Root>
       <RM.Trigger asChild>{trigger}</RM.Trigger>
       <RM.Portal>
-        <RM.Content aria-label={label} align={align} sideOffset={6} collisionPadding={12} className={styles.sheet} data-component="Menu">
+        <RM.Content aria-label={label} align={align} alignOffset={alignOffset} sideOffset={6} collisionPadding={12} className={styles.sheet} data-component="Menu">
           {items.map((it, i) => it === 'separator'
             ? <RM.Separator key={`s${i}`} className={styles.separator} />
             : (

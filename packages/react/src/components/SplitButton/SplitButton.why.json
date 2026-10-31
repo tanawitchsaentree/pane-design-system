@@ -54,8 +54,19 @@
       "p": "P6",
       "axis": "shape",
       "why": "the menu half holds only the chevron with a narrow inline padding so the main action leads"
+    },
+    "split": {
+      "p": "P3",
+      "axis": "shape",
+      "why": "the two halves are one pill, a hairline apart with squared inner corners, so action and menu read as one object"
     }
   },
-  "states": {},
+  "states": {
+    "aria-expanded=true": {
+      "p": "P3",
+      "axis": "depth",
+      "why": "open, the menu half keeps its own edge; the open menu shows the state"
+    }
+  },
   "motion": {}
 }

@@ -582,6 +582,18 @@
     "streak": {
       "$type": "color",
       "$value": "{level.streak}"
+    },
+    "panel-gap": {
+      "$value": "{gap.xl}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the panel stands one group's gap below its tab list, the same step the card puts between groups, so it reads as what the tabs show"
+        }
+      }
     }
   },
   "tag": {
@@ -5009,18 +5021,101 @@
       "$value": "{gap.sm}",
       "$type": "dimension"
     },
-    "seam": {
-      "$value": "{width.hairline}",
-      "$type": "dimension"
-    },
-    "inner": {
-      "$value": "{corner.check}",
-      "$type": "dimension"
-    },
     "$extensions": {
       "kiln.why": {
         "p": "P3",
         "why": "buttons that belong together sit at the small gap; joined, a hairline of the scene shows between them and the inner corners square off so the piece reads as one object of parts"
+      }
+    },
+    "track": {
+      "$value": "{surface.well-deep}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3",
+            "P6"
+          ],
+          "why": "joined buttons sit in one carved track, the same well a segmented control uses, so the group reads as one object"
+        }
+      }
+    },
+    "ring": {
+      "$value": "{elevation.control-ring}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3",
+            "P6"
+          ],
+          "why": "the track keeps the control ring at its edge"
+        }
+      }
+    },
+    "carve": {
+      "$value": "{level-shadow.well}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3",
+            "P6"
+          ],
+          "why": "the track is carved into the pane like every well"
+        }
+      }
+    },
+    "on-top": {
+      "$value": "{surface.chosen-top}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3",
+            "P6"
+          ],
+          "why": "a pressed button in the group is chosen glass lit at its top"
+        }
+      }
+    },
+    "on-foot": {
+      "$value": "{surface.chosen-foot}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3",
+            "P6"
+          ],
+          "why": "the foot of a pressed button in the group"
+        }
+      }
+    },
+    "on-cast": {
+      "$value": "{elevation.chosen-cast}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3",
+            "P6"
+          ],
+          "why": "the small cast under a pressed button in the group"
+        }
+      }
+    },
+    "inset": {
+      "$value": "{gap.xs}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3",
+            "P6"
+          ],
+          "why": "the even inset between the track and the buttons in it, so their round ends nest"
+        }
       }
     }
   },
@@ -5037,6 +5132,42 @@
       "kiln.why": {
         "p": "P6",
         "why": "the menu half is only its chevron, kept narrow so the pair reads as one action plus more"
+      }
+    },
+    "seam": {
+      "$value": "{width.hairline}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a hairline of the pane between the action and its menu, so the pill reads as two parts of one object"
+        }
+      }
+    },
+    "inner": {
+      "$value": "{corner.check}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the corners where the halves meet are nearly square, so the outer ends carry the pill's round"
+        }
+      }
+    },
+    "edge": {
+      "$value": "{elevation.control-ring}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "an open menu half keeps the control's edge and drops the pressed ring"
+        }
       }
     }
   },

@@ -1,8 +1,9 @@
-/* The track's outer height equals a field's at the same size (44px md, 32px sm), so a segmented control and a
+/* Segments share the track evenly (1fr each) and the resting label is regular, like a Select's value, so the
+   chosen one is told by its glass and its weight (R-038). The track's outer height equals a field's at the same size (44px md, 32px sm), so a segmented control and a
    Select stand level in one row (R-037). The tab track (a well, shaded under its lip) with the chosen mode as chosen glass lit at its top, the
    same family as Tabs, so a mode switch and a view switch read as kin but each keeps its own role. */
-.track { display: inline-flex; gap: var(--ds-nav-gap); padding: var(--ds-nav-inset); border-radius: var(--ds-corner-round); background: var(--ds-nav-track); box-shadow: var(--ds-nav-ring), var(--ds-nav-carve); font-family: var(--ds-type-family); }
-.segment { position: relative; display: inline-grid; place-items: center; min-inline-size: var(--ds-nav-segment-min); padding-inline: var(--ds-gap-xl); border: 0; border-radius: var(--ds-corner-round); background: transparent; color: var(--ds-text-primary); font: inherit; font-weight: var(--ds-type-weight-medium); cursor: pointer; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
+.track { display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: var(--ds-nav-gap); padding: var(--ds-nav-inset); border-radius: var(--ds-corner-round); background: var(--ds-nav-track); box-shadow: var(--ds-nav-ring), var(--ds-nav-carve); font-family: var(--ds-type-family); }
+.segment { position: relative; display: inline-grid; place-items: center; min-inline-size: var(--ds-nav-segment-min); padding-inline: var(--ds-gap-xl); border: 0; border-radius: var(--ds-corner-round); background: transparent; color: var(--ds-text-primary); font: inherit; font-weight: var(--ds-type-weight-regular); cursor: pointer; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
 .md .segment { min-block-size: calc(var(--ds-control-lg) - 2 * var(--ds-nav-inset)); font-size: var(--ds-type-body); }
 .sm .segment { min-block-size: calc(var(--ds-control-sm) - 2 * var(--ds-nav-inset)); font-size: var(--ds-type-label); padding-inline: var(--ds-gap-lg); }
 .segment::after { content: ''; position: absolute; inset-inline: 0; inset-block-start: 50%; block-size: var(--ds-layout-touch); translate: 0 -50%; }

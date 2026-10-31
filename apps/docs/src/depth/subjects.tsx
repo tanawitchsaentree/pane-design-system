@@ -43,7 +43,7 @@ export const SUBJECTS: Record<string, Subject> = {
   Card: { bare: true, render: (p) => { const c = <Card as="div" {...p} className="demo-card"><h3 className="flush">Mara Lind</h3><p className="flush muted">Landscape photographer</p></Card>; return p.variant === 'inset' ? <Card as="div" className="demo-card">{c}</Card> : c; }, code: (p) => `<Card${attrs(p)}>\n  <h3>Mara Lind</h3>\n</Card>` },
   Avatar: { render: (p) => <Avatar name="Mara Lind" {...p} />, code: (p) => `<Avatar name="Mara Lind"${attrs(p)} />` },
   Chip: { render: () => <Chip defaultSelected>Photos</Chip>, code: () => '<Chip defaultSelected>Photos</Chip>' },
-  Tag: { render: () => <Tag>Landscape</Tag>, code: () => '<Tag>Landscape</Tag>' },
+  Tag: { render: () => <div className="demo-stack"><b>Lofoten at dawn</b><span className="muted">12 prints</span><div className="demo-row"><Tag>Landscape</Tag><Tag>Norway</Tag></div></div>, code: () => '<Tag>Landscape</Tag>' },
   Box: { render: () => <Box padding="lg" radius="inner" className="demo-box">Padded</Box>, code: () => '<Box padding="lg" radius="inner">…</Box>' },
   Flex: { render: () => <Flex justify="between" className="demo-wide"><span>Title</span><span>Action</span></Flex>, code: () => '<Flex justify="between">…</Flex>' },
   Center: { render: () => <Center className="demo-center">Centred</Center>, code: () => '<Center>…</Center>' },

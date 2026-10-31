@@ -144,7 +144,8 @@ function Overview() {
 
       <Section id="glance" title="Pane at a glance" wide>
         <p>Three screens built only from Pane, each using what its parts can do. They show a mesh that lights the pane, the loud bead, a fill slider, a switch that glows when it is on, a card inside a card, and tabs over chosen glass. Each card names the parts it is made of.</p>
-        <Stage className="showcase-stage"><Showcase /></Stage>
+        {/* the opening showcase is there to show the glass, so it always stands on a photo; on the studio it takes the room */}
+        <Stage className="showcase-stage" backdrop="scene"><Showcase /></Stage>
       </Section>
 
       <Section id="gallery" title="Every component">
@@ -367,7 +368,7 @@ function Glass() {
   return (
     <Page eyebrow="Foundations" title="Glass & environment" lede={<p>The material is four operations applied to whatever is behind a pane. Blur, saturate, dim, tint. Plus a rim of light. This chapter explains each, how the numbers were chosen, and what happens when the user’s system says no to transparency.</p>}>
       <Section id="playground" title="Try the recipe" wide>
-        <p>Move the sliders over the current scene and watch the card. Switch the demo backdrop in the top bar to see why one value has to hold over every photo.</p>
+        <p>Move the sliders over the current scene and watch the card. Pick another backdrop with the swatches beside an example to see why one value has to hold over every photo.</p>
         <GlassPlaygroundWithScene />
       </Section>
       <Section id="levels" title="Levels of the stack" wide>

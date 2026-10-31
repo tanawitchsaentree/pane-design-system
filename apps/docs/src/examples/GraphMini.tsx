@@ -10,5 +10,5 @@ const EDGES = [
 ];
 
 export default function GraphMini() {
-  return <Card as="div" className="demo-card"><Text as="p">Six accounts and things they share.</Text><NetworkGraph label="Linked accounts" size="mini" nodes={NODES} edges={EDGES} /></Card>;
+  return <Card as="div" className="demo-card demo-wide"><Card as="div" className="demo-card"><Text as="p">Six accounts and things they share.</Text><NetworkGraph label="Linked accounts" size="mini" nodes={NODES} edges={EDGES} /></Card></Card>;
 }

@@ -9,7 +9,8 @@
 .field { position: relative; display: flex; align-items: center; margin: var(--ds-gap-md); }
 .glyph { position: absolute; inset-inline-start: var(--ds-command-palette-padding); pointer-events: none; inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); flex: none; fill: none; stroke: var(--ds-text-secondary); stroke-width: var(--ds-width-ring); stroke-linecap: round; }
 .input { flex: 1; min-inline-size: 0; min-block-size: var(--ds-command-palette-field); padding-inline: calc(var(--ds-command-palette-padding) * 2 + var(--ds-control-icon-md)) var(--ds-command-palette-padding); border: 0; border-radius: var(--ds-corner-media); background: var(--ds-command-palette-field-bg); box-shadow: var(--ds-command-palette-groove); color: var(--ds-text-primary); font: inherit; font-size: var(--ds-type-emphasis); outline: 0; }
-.input:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
+/* the field sits close to the palette's edge, so its ring is drawn inside it, where the palette's corner cannot clip it (R-038) */
+.input:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: calc(var(--ds-focus-ring-width) * -1); }
 .input::placeholder { color: var(--ds-text-secondary); }
 .list { flex: 1; overflow-y: auto; padding: var(--ds-gap-sm); overscroll-behavior: contain; }
 .group + .group { margin-block-start: var(--ds-gap-sm); }

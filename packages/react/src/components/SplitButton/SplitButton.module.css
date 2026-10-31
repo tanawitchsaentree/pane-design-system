@@ -1,2 +1,9 @@
 /* the menu half is only its chevron, square to the button's height so the pair reads as action plus more (P6) */
 .more { min-inline-size: var(--ds-split-button-more-min); padding-inline: var(--ds-split-button-more-padding); }
+/* the two halves are one pill: a hairline of the pane between them and the inner corners square, so the
+   action and its menu read as one object (P3). It is not a ButtonGroup track, because the action stays loud. */
+.split { flex-wrap: nowrap; gap: var(--ds-split-button-seam); }
+.split > :first-child { border-start-end-radius: var(--ds-split-button-inner); border-end-end-radius: var(--ds-split-button-inner); }
+.split > :last-child { border-start-start-radius: var(--ds-split-button-inner); border-end-start-radius: var(--ds-split-button-inner); }
+/* open, the menu half keeps its own edge and the open menu says the rest; a ring round a squared corner read as broken (R-038) */
+.more[aria-expanded='true'] { box-shadow: var(--ds-split-button-edge); }

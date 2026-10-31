@@ -4,8 +4,14 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- ButtonGroup: attached buttons sit in one carved track at an even inset, the pressed one as chosen glass, instead of squared inner corners.
+- SplitButton: the menu opens under the whole button, lined up with the action's start; the open menu half no longer draws a ring round its squared corner.
+- Select: its menu shares the popover layer, so a Select inside a popover opens above it.
+- Tabs: the panel stands a group's gap below the tab list.
+- CommandPalette: the field's focus ring is drawn inside it, where the palette's corner cannot clip it.
+- Menu: `alignOffset` moves the menu along its edge.
 - SegmentedControl: `showLabel` puts the label above the track like Select's, and the track is as tall as a field of the same size (44px md, 32px sm), so the two stand level in a row.
-- Badge: a small crystal by default (D-038): the tone's tint lit from above with its rim and a coloured glow; `appearance` muted, solid or plain, and a new `accent` tone with its own spark glyph. A crystal stays a crystal on solid material; solid is chosen by hand.
+- Badge: a small crystal by default (D-038): the tone's tint lit from above with its rim and a coloured glow; `appearance` muted, solid or plain, and a new violet `accent` tone for New, the word without a glyph. A crystal stays a crystal on solid material; solid is chosen by hand.
 - Chip: `tone` turns a chosen chip into a crystal of that colour.
 - Tag: `tone` puts a thin tint of the tone in the etch.
 - CommandPalette: a keycap at the end of a row takes the row's nested corner.

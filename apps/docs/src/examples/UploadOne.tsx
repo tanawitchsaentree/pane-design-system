@@ -2,5 +2,5 @@
 import { Card, FileUpload } from 'pane-react';
 
 export default function UploadOne() {
-  return <Card as="div" className="demo-card"><FileUpload label="Photo" accept="image/*" hint="A square photo works best" /></Card>;
+  return <Card as="div" className="demo-card"><Card as="div" className="demo-card"><FileUpload label="Photo" accept="image/*" hint="A square photo works best" /></Card></Card>;
 }

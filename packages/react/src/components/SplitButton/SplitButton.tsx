@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef, useState } from 'react';
 import { type ReactNode } from 'react';
 import { Button, type ButtonSize, type ButtonVariant } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
@@ -26,10 +27,14 @@ export interface SplitButtonProps {
 /** One main action with its alternatives a press away: the action and a chevron joined into one piece,
  *  two focus stops, the chevron opening a Menu. Use it when one choice is usual and the others are rare. */
 export function SplitButton({ children, onClick, menuLabel, items, variant = 'light', size = 'md', disabled, loading }: SplitButtonProps) {
+  // the menu opens under the whole button, its start edge on the action's start, not hanging off the chevron
+  const group = useRef<HTMLDivElement>(null);
+  const [offset, setOffset] = useState(0);
+  useLayoutEffect(() => { const g = group.current; const last = g?.lastElementChild as HTMLElement | null; if (!g || !last) return; const G = g.getBoundingClientRect(), L = last.getBoundingClientRect(); setOffset(getComputedStyle(g).direction === 'rtl' ? L.right - G.right : G.left - L.left); }, [children, size]);
   return (
-    <ButtonGroup label={menuLabel} attached data-component="SplitButton">
+    <ButtonGroup ref={group} label={menuLabel} className={styles.split} data-component="SplitButton">
       <Button variant={variant} size={size} disabled={disabled} loading={loading} onClick={onClick}>{children}</Button>
-      <Menu label={menuLabel} align="end" items={items}
+      <Menu label={menuLabel} align="start" alignOffset={offset} items={items}
         trigger={<Button variant={variant} size={size} disabled={disabled} chevron aria-label={menuLabel} className={styles.more} />} />
     </ButtonGroup>
   );
