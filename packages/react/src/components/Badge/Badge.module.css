@@ -20,7 +20,7 @@
 .warning { --top: var(--ds-badge-warning-top); --foot: var(--ds-badge-warning-foot); --rim: var(--ds-badge-warning-rim); --glow: var(--ds-badge-warning-glow); --tint: var(--ds-badge-warning-muted); --k: var(--ds-badge-warning-ink); --s: var(--ds-badge-warning-solid); --o: var(--ds-badge-warning-on-solid); }
 .critical { --top: var(--ds-badge-critical-top); --foot: var(--ds-badge-critical-foot); --rim: var(--ds-badge-critical-rim); --glow: var(--ds-badge-critical-glow); --tint: var(--ds-badge-critical-muted); --k: var(--ds-badge-critical-ink); --s: var(--ds-badge-critical-solid); --o: var(--ds-badge-critical-on-solid); }
 .accent { --top: var(--ds-badge-accent-top); --foot: var(--ds-badge-accent-foot); --rim: var(--ds-badge-accent-rim); --glow: var(--ds-badge-accent-glow); --tint: var(--ds-badge-accent-muted); --k: var(--ds-badge-accent-ink); --s: var(--ds-badge-accent-solid); --o: var(--ds-badge-accent-on-solid); }
-.crystal, .muted, .solid { padding-inline: var(--ds-badge-padding-inline); border-radius: var(--ds-badge-radius); color: var(--k); }
+.crystal, .muted, .solid { padding-inline: var(--ds-badge-padding-inline); border-radius: var(--ds-badge-radius); color: var(--k); text-shadow: none; }
 /* the top facet takes the lit hue and the foot the hue; the rim is the crystal's own edge (R-021) */
 .crystal {
   background: linear-gradient(180deg, var(--top) 0 45%, var(--foot) 55%);

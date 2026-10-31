@@ -87,7 +87,8 @@
       "infoGroups": [
         "media",
         "env-misuse"
-      ]
+      ],
+      "sceneRoutes": "^/($|foundations/|components/[^/]+/code$|patterns/)"
     },
     "tone": {
       "exclude": [
@@ -141,7 +142,8 @@
     },
     "advisory": {
       "G-AN1": "E-004: the card body measures L 0.29 against anchor A at 0.53 on forest in dark. D-035 dims the scene so text holds 4.5:1; anchor A had no dimming. Open for the user at milestone review: re-record the anchor from D-035, or move the body back toward A."
-    }
+    },
+    "parallel": 4
   },
   "autonomy": {
     "picks": "agent",
