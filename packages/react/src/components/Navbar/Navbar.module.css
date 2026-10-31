@@ -1,6 +1,6 @@
 /* A strip of glass across the top (level 1, D-025) that blurs the page when it sticks over it; the current
    page is marked by an underline and weight, not by colour (P6). */
-.bar { display: flex; align-items: center; gap: var(--ds-gap-2xl); min-block-size: var(--ds-nav-bar); padding-inline: var(--ds-gap-2xl); border-radius: var(--ds-corner-inner); background: var(--ds-nav-dock); box-shadow: var(--ds-nav-bar-edge); -webkit-backdrop-filter: blur(var(--ds-nav-blur)); backdrop-filter: blur(var(--ds-nav-blur)); color: var(--ds-text-primary); font-family: var(--ds-type-family); }
+.bar { display: flex; align-items: center; gap: var(--ds-gap-2xl); min-block-size: var(--ds-nav-bar); padding-inline: var(--ds-gap-2xl); border-radius: var(--ds-corner-inner); background: var(--ds-nav-dock); box-shadow: var(--ds-nav-bar-edge); -webkit-backdrop-filter: blur(var(--ds-nav-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-nav-brightness)); backdrop-filter: blur(var(--ds-nav-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-nav-brightness)); color: var(--ds-text-primary); font-family: var(--ds-type-family); }
 .sticky { position: sticky; inset-block-start: 0; z-index: var(--ds-overlay-z-fab); }
 .brand { display: flex; align-items: center; gap: var(--ds-gap-md); min-inline-size: 0; font-weight: var(--ds-type-weight-semibold); }
 /* a long brand gives way on a phone: it shrinks and ends with an ellipsis instead of pushing the actions off the edge */

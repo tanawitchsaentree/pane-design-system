@@ -1,0 +1,43 @@
+{
+  "name": "Terra",
+  "description": "A climate nonprofit: clay and earth, roomy spacing, calm motion and quiet glass.",
+  "density": "roomy",
+  "motion": "calm",
+  "tokens": {
+    "action.loud-top": {
+      "dark": "#F4C9B2",
+      "light": "#9A3F1C"
+    },
+    "action.loud-foot": {
+      "dark": "#EBB096",
+      "light": "#823317"
+    },
+    "action.foot-solid": {
+      "dark": "#E39F82",
+      "light": "#6E2B13"
+    },
+    "text.on-light": {
+      "dark": "#2E1206",
+      "light": "#FFFFFF"
+    },
+    "text.on-accent": {
+      "dark": "#2E1206",
+      "light": "#FFFFFF"
+    },
+    "action.accent-hover": {
+      "dark": "#F8D9C8",
+      "light": "#A84824"
+    },
+    "focus.ring": {
+      "dark": "#F4C9B2",
+      "light": "#823317"
+    },
+    "type.family": "'Source Serif 4', 'Iowan Old Style', Georgia, serif",
+    "type.weight-semibold": "600",
+    "glass.saturate": "1.3",
+    "mesh.a": "#F4C9B2",
+    "mesh.b": "#E8D8A8",
+    "mesh.c": "#5C3B2E",
+    "mesh.d": "#A9C49A"
+  }
+}

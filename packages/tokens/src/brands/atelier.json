@@ -1,0 +1,43 @@
+{
+  "name": "Atelier",
+  "description": "A fashion house: a serif, wide-set display type, gold ink on black, square-ish corners and slow, calm motion.",
+  "motion": "calm",
+  "tokens": {
+    "action.loud-top": {
+      "dark": "#EAD9AE",
+      "light": "#5E4A1C"
+    },
+    "action.loud-foot": {
+      "dark": "#D9C38C",
+      "light": "#4C3B15"
+    },
+    "action.foot-solid": {
+      "dark": "#CBB27A",
+      "light": "#3F3111"
+    },
+    "text.on-light": {
+      "dark": "#1C1608",
+      "light": "#FFFFFF"
+    },
+    "text.on-accent": {
+      "dark": "#1C1608",
+      "light": "#FFFFFF"
+    },
+    "action.accent-hover": {
+      "dark": "#F3E6C4",
+      "light": "#6B5523"
+    },
+    "focus.ring": {
+      "dark": "#EAD9AE",
+      "light": "#4C3B15"
+    },
+    "type.family": "'Bodoni 72', Didot, 'Playfair Display', Georgia, serif",
+    "type.weight-medium": "500",
+    "type.weight-semibold": "500",
+    "type.tracking-display": "0.02em",
+    "corner.panel": "12px",
+    "corner.inner": "{radius.sm}",
+    "corner.media": "0px",
+    "glass.saturate": "1"
+  }
+}

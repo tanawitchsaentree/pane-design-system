@@ -1,0 +1,44 @@
+{
+  "name": "Pulse",
+  "description": "A fitness tracker: hot pink action, heavy tight type, quick motion and saturated glass that carries the scene's colour.",
+  "motion": "brisk",
+  "tokens": {
+    "action.loud-top": {
+      "dark": "#FFB8CB",
+      "light": "#C2185B"
+    },
+    "action.loud-foot": {
+      "dark": "#FF94B1",
+      "light": "#A3134C"
+    },
+    "action.foot-solid": {
+      "dark": "#FF7FA2",
+      "light": "#8A0F40"
+    },
+    "text.on-light": {
+      "dark": "#33000F",
+      "light": "#FFFFFF"
+    },
+    "text.on-accent": {
+      "dark": "#33000F",
+      "light": "#FFFFFF"
+    },
+    "action.accent-hover": {
+      "dark": "#FFCCDA",
+      "light": "#D02466"
+    },
+    "focus.ring": {
+      "dark": "#FFB8CB",
+      "light": "#A3134C"
+    },
+    "type.weight-semibold": "800",
+    "type.tracking-display": "-0.03em",
+    "glass.saturate": "2",
+    "corner.panel": "32px",
+    "corner.inner": "{radius.sm}",
+    "mesh.a": "#FFB8CB",
+    "mesh.b": "#FFD36E",
+    "mesh.c": "#7A1FA2",
+    "mesh.d": "#FF6F61"
+  }
+}

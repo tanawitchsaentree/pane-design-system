@@ -4,6 +4,18 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- PaneProvider: brands reach further (D-037). A brand file may also set type weights, display tracking, glass saturation, mesh colours and motion durations, and name a `density` (compact, regular, roomy) and a `motion` tempo (brisk, steady, calm); setting `tier` to `expert` opens every semantic token with the contrast checks kept. Six more sample brands ship: Ledger, Kiddo, Atelier, Pulse, Terra and Signal.
+- Mesh: documented as an accent, about a tenth of the region it sits in (D-036); the book's Aurora backdrop and full-width mesh covers are gone, and `check_usage` flags a Mesh used as a background.
+- Card: the glass body is thin again (45% in dark, 66% in light, blur 32px), so the scene's colour and shapes show through; on `material="solid"` the body is fully opaque (D-035).
+- Tooltip: the same glass recipe as cards (blur, saturate and the environment's dimming).
+- Snackbar: the same glass recipe as cards (blur, saturate and the environment's dimming).
+- Toast: the same glass recipe as cards (blur, saturate and the environment's dimming).
+- IconButton: the same glass recipe as cards (blur, saturate and the environment's dimming).
+- Navbar: the bar's glass now saturates and dims the scene like a card, so its labels keep 4.5:1 on bright scenes.
+- Sidebar: the same glass recipe as the Navbar and cards.
+- BottomNav: the same glass recipe as the Navbar and cards.
+- NavigationMenu: the same glass recipe as the Navbar and cards.
+- Environment: dims the scene by how bright it is (.70 / .56 / .48) instead of one heavy .42, so glass reads as glass on a photo and on a plain room.
 - Environment: `material` (glass or solid) is now the documented way a screen chooses what its panes are made of, with the Materials chapter, Choose your look, and `choose_appearance` in pane-mcp.
 - ChatMessage: new. One turn of a conversation, the reader's on chosen glass and the answer as text on the pane, with ChatToolCall steps and a streaming caret.
 - ChatComposer: new. A growing field in the field's well with one bead that sends or stops; Enter sends, Shift+Enter is a new line.

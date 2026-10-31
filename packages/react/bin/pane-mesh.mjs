@@ -2,7 +2,7 @@
 // pane-mesh — makes a Pane mesh (D-029) from a brand image or four colours, and checks it.
 //   npx pane-mesh --from brand.png [--out mesh.css] [--scope :root]
 //   npx pane-mesh --colors "#F7B27C,#F2837B,#5F5BF2,#B9A3F5" [--base "#ECE7F1"]
-// Writes CSS that overrides the mesh variables, so <Mesh /> and the Aurora backdrop take the brand's
+// Writes CSS that overrides the mesh variables, so <Mesh /> takes the brand's
 // colours. PNG only (no dependencies); export a JPEG as PNG first (macOS: sips -s format png in.jpg --out in.png).
 import { readFileSync, writeFileSync } from 'node:fs';
 import { inflateSync } from 'node:zlib';

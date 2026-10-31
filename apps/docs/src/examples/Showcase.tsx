@@ -1,6 +1,6 @@
 // @example Pane at a glance: three screens that use what each component can do
 import { useState } from 'react';
-import { Avatar, Badge, Button, Card, Chip, IconButton, Mesh, Select, Slider, Stack, Switch, Tabs, Tag } from 'pane-react';
+import { Avatar, Badge, Button, Card, Chip, IconButton, Select, Slider, Stack, Switch, Tabs, Tag } from 'pane-react';
 import { IconNext, IconPause, IconPlay, IconPrev, IconShare } from '../icons';
 
 /** The parts a card is built from, named on the card itself, so the showcase says what it shows. */
@@ -11,7 +11,7 @@ export default function Showcase() {
   return (
     <div className="showcase">
       <Card as="section" aria-labelledby="sc-play" className="showcase-card">
-        <Mesh preset="dusk" glow className="showcase-cover" label="Album art for Night drive, lilac and rose over navy" />
+        <img src="/scenes/night-sm.jpg" alt="Album art for Night drive, lilac and rose over navy" className="showcase-cover" />
         <div className="showcase-row">
           <div><h3 id="sc-play" className="flush">Night drive</h3><p className="flush">Lumen · side A</p></div>
           <Badge tone="positive">Synced</Badge>
@@ -22,7 +22,7 @@ export default function Showcase() {
           <IconButton aria-label={playing ? 'Pause' : 'Play'} variant="loud" onClick={() => setPlaying(!playing)}>{playing ? <IconPause /> : <IconPlay />}</IconButton>
           <IconButton aria-label="Next track" variant="glass" size="sm"><IconNext /></IconButton>
         </div>
-        <Parts names={['Mesh glow', 'Slider', 'IconButton loud', 'Badge']} />
+        <Parts names={['Cover photo', 'Slider', 'IconButton loud', 'Badge']} />
       </Card>
 
       <Card as="section" aria-labelledby="sc-room" className="showcase-card">

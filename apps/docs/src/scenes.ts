@@ -6,8 +6,6 @@ import type { EnvironmentBrightness } from 'pane-react';
 export const SCENES: Array<{ id: string; label: string; brightness: EnvironmentBrightness }> = [
   // no photo: a dark studio sweep with one soft light from the top left, the default for showing components
   { id: 'studio', label: 'Studio (no photo)', brightness: 'bright' },
-  // no photo: a mesh gradient, colour pooled and melted, for seeing how the glass carries a hue
-  { id: 'aurora', label: 'Aurora (mesh)', brightness: 'bright' },
   { id: 'room', label: 'Room', brightness: 'bright' },
   { id: 'forest', label: 'Forest', brightness: 'bright' },
   { id: 'night', label: 'Night café', brightness: 'bright' },

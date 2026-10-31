@@ -1,7 +1,7 @@
 /* A level-4 pane at the top end (D-025): a status mark, the message, one action and a close. It rises in,
    settles and leaves by fading; swiping it to the end dismisses it. */
 .viewport { position: fixed; z-index: var(--ds-overlay-z-pop); inset-block-start: 0; inset-inline-end: 0; display: flex; flex-direction: column; gap: var(--ds-gap-md); inline-size: min(100vw, var(--ds-overlay-toast)); padding: var(--ds-overlay-margin); margin: 0; list-style: none; outline: 0; }
-.toast { display: flex; align-items: flex-start; gap: var(--ds-gap-lg); padding: var(--ds-gap-xl); border-radius: var(--ds-corner-inner); background: var(--ds-overlay-toast-bg); box-shadow: var(--ds-overlay-toast-shadow); color: var(--ds-text-primary); font-family: var(--ds-type-family); -webkit-backdrop-filter: blur(var(--ds-overlay-blur)); backdrop-filter: blur(var(--ds-overlay-blur)); }
+.toast { display: flex; align-items: flex-start; gap: var(--ds-gap-lg); padding: var(--ds-gap-xl); border-radius: var(--ds-corner-inner); background: var(--ds-overlay-toast-bg); box-shadow: var(--ds-overlay-toast-shadow); color: var(--ds-text-primary); font-family: var(--ds-type-family); -webkit-backdrop-filter: blur(var(--ds-overlay-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-overlay-brightness)); backdrop-filter: blur(var(--ds-overlay-blur)) saturate(var(--ds-glass-saturate)) brightness(var(--ds-overlay-brightness)); }
 .toast[data-state='open'] { animation: rise var(--ds-motion-enter) var(--ds-motion-easing) both; }
 .toast[data-state='closed'] { animation: fade var(--ds-motion-press) var(--ds-motion-easing) both; }
 .toast[data-swipe='move'] { translate: var(--radix-toast-swipe-move-x) 0; }

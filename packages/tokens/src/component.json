@@ -487,6 +487,18 @@
         ],
         "why": "a small round pane with Button material (gloss, rim, pointer glint) and a 44px hit area around the small size"
       }
+    },
+    "brightness": {
+      "$value": "{glass.brightness}",
+      "$type": "number",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "an icon bead on a scene is glass like a card and dims the scene behind its glyph the same way"
+        }
+      }
     }
   },
   "tabs": {
@@ -2050,6 +2062,18 @@
           "why": "a floating action sits over the content but under every overlay"
         }
       }
+    },
+    "brightness": {
+      "$value": "{glass.brightness}",
+      "$type": "number",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "overlays are the same glass as cards, so they dim what is under them the same way behind their text"
+        }
+      }
     }
   },
   "listbox": {
@@ -2743,6 +2767,18 @@
             "P6"
           ],
           "why": "a ring round the track, because its segments are radio buttons and need a 3:1 edge"
+        }
+      }
+    },
+    "brightness": {
+      "$value": "{glass.brightness}",
+      "$type": "number",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "bars are the same glass as cards, so they dim the scene the same way behind their labels"
         }
       }
     }

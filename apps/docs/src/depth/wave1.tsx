@@ -1,6 +1,6 @@
 // Usage tabs for wave 1 (component-depth.md U1–U14): the layout primitives that draw nothing, and the
 // Divider, which is the one with a form (an etched groove). Sections that cannot apply say why (G-K2).
-import { AspectRatio, Badge, Box, Button, Card, Center, Chip, Divider, Flex, IconButton, Mesh, Spacer, Stack, Switch, VisuallyHidden } from 'pane-react';
+import { AspectRatio, Badge, Box, Button, Card, Center, Chip, Divider, Flex, IconButton, Spacer, Stack, Switch, VisuallyHidden } from 'pane-react';
 import { IconHeart, IconPin, IconReply, IconShare } from '../icons';
 import type { Depth } from './types';
 
@@ -26,13 +26,13 @@ export const BOX: Depth = {
   sizes: { na: 'Box has no size prop; its padding steps are the gap scale, from none to 2xl.' },
   emphasis: { na: 'Box draws nothing, so it carries no emphasis of its own.' },
   placement: { rows: [['Inside a Card', 'Around a note, a group or media.'], ['Around media', 'With radius="media" to clip an image.']], examples: [{ title: 'Inside a Card', render: <OnCard><Box padding="lg" className="demo-box"><p className="flush">A boxed note</p></Box></OnCard> }] },
-  combinations: { good: [['Box + Mesh', 'A clipped cover.'], ['Box in a Card', 'A padded group inside a pane.']], avoid: [{ title: 'a box styled to look like a card', why: 'A border or fill on a Box invents a surface that Card already is.', render: <OnCard><Box padding="lg" radius="inner" className="demo-box"><p className="flush">Fake card</p></Box></OnCard> }] },
+  combinations: { good: [['Box + img', 'A clipped photo.'], ['Box in a Card', 'A padded group inside a pane.']], avoid: [{ title: 'a box styled to look like a card', why: 'A border or fill on a Box invents a surface that Card already is.', render: <OnCard><Box padding="lg" radius="inner" className="demo-box"><p className="flush">Fake card</p></Box></OnCard> }] },
   content: { na: 'Box has no text of its own; the content inside follows its own rules.' },
   behaviours: layoutBehaviours('Box'),
   deepDive: { na: 'Box has no variant prop, so there is nothing to compare.' },
   modifiers: [
     { name: 'paddingInline and paddingBlock', rules: <p>Set the two axes apart when content needs more room at the sides than above and below. Each overrides padding on its axis only.</p>, pair: { do: <OnCard><Box paddingInline="xl" paddingBlock="xs" className="demo-box"><p className="flush">Roomy sides</p></Box></OnCard>, doNote: 'Wider at the sides.', dont: <OnCard><Box padding="2xl" className="demo-box"><p className="flush">Lost</p></Box></OnCard>, dontNote: 'Too much padding swallows a short label.' } },
-    { name: 'radius', rules: <p>Use inner inside a pane, media around an image and round for a pill. A box inside a pane never takes the pane's own corner.</p>, pair: { do: <OnCard><Box radius="media" className="demo-box-media"><Mesh preset="tide" className="demo-fill" /></Box></OnCard>, doNote: 'The media corner on a cover.', dont: <OnCard><Box radius="none" className="demo-box-media"><Mesh preset="tide" className="demo-fill" /></Box></OnCard>, dontNote: 'A square image inside a round pane.' } },
+    { name: 'radius', rules: <p>Use inner inside a pane, media around an image and round for a pill. A box inside a pane never takes the pane's own corner.</p>, pair: { do: <OnCard><Box radius="media" className="demo-box-media"><img src="/scenes/forest-sm.jpg" alt="" className="demo-fill" /></Box></OnCard>, doNote: 'The media corner on a cover.', dont: <OnCard><Box radius="none" className="demo-box-media"><img src="/scenes/forest-sm.jpg" alt="" className="demo-fill" /></Box></OnCard>, dontNote: 'A square image inside a round pane.' } },
   ],
   related: [['/components/card', 'Card', 'When the box should be seen.'], ['/components/stack', 'Stack', 'Space between items.']],
   references: [SPACING, ref('Every Layout · The Box', 'https://every-layout.dev/layouts/box/', 'The idea of a box as padding only.')],
@@ -121,16 +121,16 @@ export const ASPECT_RATIO: Depth = {
   whenToUse: ['Photos, video and covers.', 'Placeholders that must keep their shape before content arrives.'],
   whenNot: [{ situation: 'A profile picture', to: '/components/avatar', label: 'Avatar' }, { situation: 'Text', to: '/components/box', label: 'Box (let text grow)' }],
   variants: { na: 'AspectRatio has no look; its ratio is a modifier, covered below.' },
-  anatomy: { render: <OnCard><AspectRatio ratio="video" className="demo-media"><Mesh preset="ember" /></AspectRatio></OnCard>, parts: [{ part: 'Frame', selector: '[data-component="AspectRatio"]', what: 'Holds the ratio and clips its child.' }] },
+  anatomy: { render: <OnCard><AspectRatio ratio="video" className="demo-media"><img src="/scenes/city-sm.jpg" alt="" /></AspectRatio></OnCard>, parts: [{ part: 'Frame', selector: '[data-component="AspectRatio"]', what: 'Holds the ratio and clips its child.' }] },
   sizes: { na: 'AspectRatio has no size; it takes the width it is given and the ratio sets the height.' },
   emphasis: { na: 'AspectRatio draws nothing, so its child carries the emphasis.' },
-  placement: { rows: [['At the top of a card', 'A cover.'], ['In a grid of media', 'Square tiles.']], examples: [{ title: 'At the top of a card', render: <OnCard><AspectRatio ratio="video" className="demo-media"><Mesh preset="ember" /></AspectRatio><h3 className="flush">Field notes</h3></OnCard> }] },
-  combinations: { good: [['AspectRatio + Mesh', 'A cover that keeps its shape.'], ['AspectRatio + img', 'A photo that never jumps.']], avoid: [{ title: 'text inside a ratio box', why: 'Text that grows gets cut off by the fixed height.', render: <OnCard><AspectRatio ratio="wide" className="demo-media"><p className="flush">A long caption that will not fit inside this short frame at narrow widths</p></AspectRatio></OnCard> }] },
+  placement: { rows: [['At the top of a card', 'A cover.'], ['In a grid of media', 'Square tiles.']], examples: [{ title: 'At the top of a card', render: <OnCard><AspectRatio ratio="video" className="demo-media"><img src="/scenes/city-sm.jpg" alt="" /></AspectRatio><h3 className="flush">Field notes</h3></OnCard> }] },
+  combinations: { good: [['AspectRatio + Card', 'A cover at the top of a card.'], ['AspectRatio + img', 'A photo that never jumps.']], avoid: [{ title: 'text inside a ratio box', why: 'Text that grows gets cut off by the fixed height.', render: <OnCard><AspectRatio ratio="wide" className="demo-media"><p className="flush">A long caption that will not fit inside this short frame at narrow widths</p></AspectRatio></OnCard> }] },
   content: { na: 'AspectRatio has no text; an image inside needs alt text.' },
   behaviours: layoutBehaviours('AspectRatio'),
   deepDive: { na: 'AspectRatio has no variant prop, so there is nothing to compare.' },
-  modifiers: [{ name: 'ratio', rules: <p>square for tiles, photo for camera images, video for covers and players, portrait for people and posters, wide for banners.</p>, pair: { do: <OnCard><AspectRatio ratio="square" className="demo-media"><Mesh preset="tide" /></AspectRatio></OnCard>, doNote: 'Square for a grid tile.', dont: <OnCard><AspectRatio ratio="wide" className="demo-media"><Mesh preset="tide" /></AspectRatio></OnCard>, dontNote: 'Wide in a narrow tile leaves a sliver.' } }],
-  related: [['/components/mesh', 'Mesh', 'A cover without a photo.'], ['/components/card', 'Card', 'Where covers sit.']],
+  modifiers: [{ name: 'ratio', rules: <p>square for tiles, photo for camera images, video for covers and players, portrait for people and posters, wide for banners.</p>, pair: { do: <OnCard><AspectRatio ratio="square" className="demo-media"><img src="/scenes/forest-sm.jpg" alt="" /></AspectRatio></OnCard>, doNote: 'Square for a grid tile.', dont: <OnCard><AspectRatio ratio="wide" className="demo-media"><img src="/scenes/forest-sm.jpg" alt="" /></AspectRatio></OnCard>, dontNote: 'Wide in a narrow tile leaves a sliver.' } }],
+  related: [['/components/mesh', 'Mesh', 'A small colour accent beside a title.'], ['/components/card', 'Card', 'Where covers sit.']],
   references: [ref('MDN · aspect-ratio', 'https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio', 'The property behind it.'), ref('web.dev · Cumulative Layout Shift', 'https://web.dev/articles/cls', 'Why media keeps its space before it loads.')],
 };
 

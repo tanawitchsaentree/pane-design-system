@@ -15,7 +15,7 @@ Four choices, in this order, each one prop or attribute. Ask the MCP `choose_app
 
 1. **Material.** `glass` shows the scene through blurred, dimmed panes; `solid` keeps the same lit, carved shapes and makes them opaque. Pick solid for a live backdrop (video, map, 3D), a reading- or data-heavy tool, or when there is no scene worth seeing. Pick glass when the scene is part of the product. One material per screen, set on its root `Environment`; never mix glass and solid panes side by side.
 2. **Theme.** Leave `data-theme` off to follow the system, or set `dark` or `light`.
-3. **Brand.** Pane, or a white-label brand sheet with `data-brand`.
+3. **Brand.** Pane, or a white-label brand sheet with `data-brand`. A brand file sets colour, type family and weight, corners, glass saturation, mesh colours and tempo, plus the presets `density` (compact, regular, roomy) and `motion` (brisk, steady, calm); `npx pane-theme check` proves it. `"tier": "expert"` opens every semantic token with only the contrast checks; changing primitives or component tokens means forking pane-tokens.
 4. **Environment.** `brightness` for the brightest spot a pane can land on; solid ignores it.
 
 ## Set up once
@@ -79,3 +79,5 @@ Each family has rows on the docs' state matrix (`/patterns/states`); a screen mu
 - Thai text with stacked marks (เหี่ยะ) is not clipped in any field.
 - A 375px width shows no horizontal scroll outside a table or code.
 - No hex, px or hand-picked colour was added outside tokens.
+
+A `Mesh` is an accent: about a tenth of the region it sits in (an icon, album art or a swatch beside a title). Never use one as the background of a screen, a section or a card; use a photo behind glass, or solid.

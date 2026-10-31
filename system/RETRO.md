@@ -228,3 +228,15 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **Root cause:** each step after D-008 tuned one number against one measurement (contrast at the worst pixel in D-010/D-011, slab thickness in D-025, the studio floor in D-028) and was checked against the gates, never against the anchor. No gate asks whether a pane still looks like A, so every step was green and the sum walked away from the pick. The black studio default then removed the scene that P1 says is part of the interface.
 - **What changed so far:** the gallery follows the chosen backdrop, as every example does. The material is the user's call: candidates R1 and R2 are rendered beside A and today's pane, on a photo, on the black studio and on a softly lit studio.
 - **Next:** once a candidate is picked, add an anchor-likeness check that measures the pane body against A's on the same backdrop (luminance and chroma of the body, rim contrast). The material then cannot move past it without a visible decision.
+- **Update 2026-10-31 (D-035):** the user asked for glass and solid to be told apart clearly. Glass body 45%/66%, blur 32px, dimming by environment; solid body fully opaque. The Materials chapter now has a words table so "frosted", "smoked" and "opaque" each map onto one of the two materials, and the book's Appearance menu says it only changes the examples. The anchor-likeness check is still owed.
+
+## R-033: mesh gradient ถูกใช้เป็น wallpaper
+- **User said:** "ส่วนกฎ mesh gradient มันคือ 10% ของ region นั้นๆ ไม่ใช่เอาไปใช้ wallapaper"
+- **Generative step at fault:** D-029 เขียนที่ใช้ได้เป็นรายการ (scene, media, glow) แต่ไม่มีสัดส่วน จึงไม่มีอะไรหยุด mesh ไม่ให้ขยายเต็ม stage (Aurora backdrop), เต็ม cover ครึ่ง card หรือเป็น placeholder ของทุก AspectRatio ตัวอย่างเลยลอกกันต่อจนกลายเป็นวอลเปเปอร์ทั้งเล่ม
+- **What changed:** D-036 ให้สัดส่วนเป็นกฎ (ราว 10% ของ region) ทั้งในหน้า Mesh, ตาราง Gradients, knowledge/MCP และ kiln ได้ gate G-MS1 ส่วน derivation ของ kiln ต้องถามสัดส่วนของ accent ทุกตัว ไม่ใช่แค่ว่าใช้ได้ที่ไหน
+
+## R-034: สิ่งที่ gate ใหม่ของ kiln v2.2 เจอใน Pane (2026-10-31)
+- **ที่มา:** sync engine ใหม่แล้วรัน G-GR1, G-BR1, G-MS1, G-NC1 ทั้งเล่มเป็นครั้งแรก
+- **ที่เจอ:** (1) Navbar, Sidebar, BottomNav, NavigationMenu, Tooltip, Snackbar, Toast, IconButton และ phone frame ของ docs ใช้กระจกไม่ครบสูตร (2) subject 14 ตัวตั้ง `bare` ทั้งที่ไม่ใช่พื้นผิว (3) mesh เป็นวอลเปเปอร์ 3 ที่ (Colour page, ภาพ media ปลอมที่วาดด้วย radial gradient, backdrop Field) (4) Card ซ้อน Card ใช้มุมใน 24px แทน 40 − 22 = 18px และ .env-tile ไม่ nest มุม (5) Kbd วางชิดมุม card ในตัวอย่าง (6) กฎ `.stage-env > *` ที่ผมเพิ่มเองไปลบ min-inline-size ของ demo card ทุกตัว
+- **ขั้นที่ผิด:** ข้อ 1–4 เกิดจากการแต่ง CSS ทีละตัวโดยไม่มีสูตรกลางหรือ gate ที่ครอบทั้งเล่ม ข้อ 6 เกิดจากการแก้ shared container โดยไม่ re-check ทุกอย่างที่ใช้ขนาดจากมัน (กฎ 14 บอกไว้แล้วแต่ผมไม่ได้ทำ)
+- **แก้แล้ว:** ทุกข้อ และ gate ของ kiln เองก็ได้แก้ด้วย: G-GR1 รับ filter ที่เขียนผ่าน token ทั้งหมด (ก่อนนี้ตกทุกอันแม้เขียนถูก), G-NC1 ไม่นับ shape ที่อยู่ในบรรทัดข้อความ และบอกหน้าที่เจอ
