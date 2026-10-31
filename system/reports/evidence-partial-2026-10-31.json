@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T16:57:01.543Z",
+  "generatedAt": "2026-10-31T17:22:05.164Z",
   "browser": "chromium 156.0.8078.4",
   "threshold": 4.5,
   "modes": [
@@ -13,91 +13,12 @@
   ],
   "scenes": [
     "studio",
-    "forest",
-    "city"
+    "city",
+    "night"
   ],
   "harness": {
     "normal": {
       "dark/studio": {
-        "card": {
-          "texts": 17,
-          "worst": 12.97,
-          "failures": 0,
-          "worstFive": [
-            "@bymxfmz 12.97",
-            "Switzerland 13.14",
-            "mfz.framer.website 13.14",
-            "Joined June 2023 13.46",
-            "Following 13.46"
-          ]
-        },
-        "controls": {
-          "texts": 3,
-          "worst": 14.52,
-          "failures": 0,
-          "worstFive": [
-            "Secondary text on the card. 14.52",
-            "Visual asset 05 18.54",
-            "Trending 18.54"
-          ]
-        },
-        "status": {
-          "texts": 9,
-          "worst": 5.85,
-          "failures": 0,
-          "worstFive": [
-            "Expiring 5.85",
-            "Beta 5.96",
-            "Live 5.96",
-            "Failed 6.03",
-            "Draft 6.72"
-          ]
-        },
-        "layout": {
-          "texts": 4,
-          "worst": 14.52,
-          "failures": 0,
-          "worstFive": [
-            "Secondary 14.52",
-            "Secondary 14.67",
-            "Grid cell 15.12",
-            "Stack 15.5"
-          ]
-        },
-        "environment": {
-          "texts": 3,
-          "worst": 14.67,
-          "failures": 0,
-          "worstFive": [
-            "Secondary text 14.67",
-            "bright 15.12",
-            "glass 15.33"
-          ]
-        },
-        "media": {
-          "texts": 3,
-          "worst": 4.12,
-          "failures": 0,
-          "worstFive": [
-            "07 4.12",
-            "Designed for modern visual projects 5.11",
-            "Visual asset 05 8.08"
-          ]
-        },
-        "env-misuse": {
-          "texts": 6,
-          "worst": 14.36,
-          "failures": 0,
-          "worstFive": [
-            "Secondary text 14.36",
-            "Secondary text 14.52",
-            "dim 14.9",
-            "glass 14.9",
-            "mid 14.92"
-          ]
-        }
-      },
-      "dark/forest": {
         "card": {
           "texts": 17,
           "worst": 12.97,
@@ -255,6 +176,85 @@
           ]
         }
       },
+      "dark/night": {
+        "card": {
+          "texts": 17,
+          "worst": 12.97,
+          "failures": 0,
+          "worstFive": [
+            "@bymxfmz 12.97",
+            "Switzerland 13.14",
+            "mfz.framer.website 13.14",
+            "Joined June 2023 13.46",
+            "Following 13.46"
+          ]
+        },
+        "controls": {
+          "texts": 3,
+          "worst": 14.52,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text on the card. 14.52",
+            "Visual asset 05 18.54",
+            "Trending 18.54"
+          ]
+        },
+        "status": {
+          "texts": 9,
+          "worst": 5.85,
+          "failures": 0,
+          "worstFive": [
+            "Expiring 5.85",
+            "Beta 5.96",
+            "Live 5.96",
+            "Failed 6.03",
+            "Draft 6.72"
+          ]
+        },
+        "layout": {
+          "texts": 4,
+          "worst": 14.52,
+          "failures": 0,
+          "worstFive": [
+            "Secondary 14.52",
+            "Secondary 14.67",
+            "Grid cell 15.12",
+            "Stack 15.5"
+          ]
+        },
+        "environment": {
+          "texts": 3,
+          "worst": 14.67,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 14.67",
+            "bright 15.12",
+            "glass 15.33"
+          ]
+        },
+        "media": {
+          "texts": 3,
+          "worst": 4.12,
+          "failures": 0,
+          "worstFive": [
+            "07 4.12",
+            "Designed for modern visual projects 5.11",
+            "Visual asset 05 8.08"
+          ]
+        },
+        "env-misuse": {
+          "texts": 6,
+          "worst": 14.36,
+          "failures": 0,
+          "worstFive": [
+            "Secondary text 14.36",
+            "Secondary text 14.52",
+            "dim 14.9",
+            "glass 14.9",
+            "mid 14.92"
+          ]
+        }
+      },
       "light/studio": {
         "card": {
           "texts": 17,
@@ -334,7 +334,7 @@
           ]
         }
       },
-      "light/forest": {
+      "light/city": {
         "card": {
           "texts": 17,
           "worst": 11.73,
@@ -413,7 +413,7 @@
           ]
         }
       },
-      "light/city": {
+      "light/night": {
         "card": {
           "texts": 17,
           "worst": 11.73,
@@ -573,7 +573,7 @@
           ]
         }
       },
-      "dark/forest": {
+      "dark/city": {
         "card": {
           "texts": 17,
           "worst": 12.11,
@@ -652,7 +652,7 @@
           ]
         }
       },
-      "dark/city": {
+      "dark/night": {
         "card": {
           "texts": 17,
           "worst": 12.11,
@@ -810,7 +810,7 @@
           ]
         }
       },
-      "light/forest": {
+      "light/city": {
         "card": {
           "texts": 17,
           "worst": 11.21,
@@ -889,7 +889,7 @@
           ]
         }
       },
-      "light/city": {
+      "light/night": {
         "card": {
           "texts": 17,
           "worst": 11.21,
@@ -1049,7 +1049,7 @@
           ]
         }
       },
-      "dark/forest": {
+      "dark/city": {
         "card": {
           "texts": 17,
           "worst": 21,
@@ -1128,7 +1128,7 @@
           ]
         }
       },
-      "dark/city": {
+      "dark/night": {
         "card": {
           "texts": 17,
           "worst": 21,
@@ -1286,7 +1286,7 @@
           ]
         }
       },
-      "light/forest": {
+      "light/city": {
         "card": {
           "texts": 17,
           "worst": 21,
@@ -1365,7 +1365,7 @@
           ]
         }
       },
-      "light/city": {
+      "light/night": {
         "card": {
           "texts": 17,
           "worst": 21,
@@ -1449,63 +1449,63 @@
   "docsPage": {
     "normal": {
       "dark/studio": {
-        "textElements": 4387,
-        "failures": 0,
+        "textElements": 4118,
+        "failures": 2,
         "pages": 9
-      },
-      "dark/forest": {
-        "textElements": 295,
-        "failures": 0,
-        "pages": 2
       },
       "dark/city": {
-        "textElements": 295,
+        "textElements": 480,
         "failures": 0,
-        "pages": 2
+        "pages": 3
+      },
+      "dark/night": {
+        "textElements": 480,
+        "failures": 0,
+        "pages": 3
       },
       "light/studio": {
-        "textElements": 4387,
-        "failures": 0,
+        "textElements": 4118,
+        "failures": 2,
         "pages": 9
       },
-      "light/forest": {
-        "textElements": 295,
-        "failures": 0,
-        "pages": 2
-      },
       "light/city": {
-        "textElements": 295,
+        "textElements": 480,
         "failures": 0,
-        "pages": 2
+        "pages": 3
+      },
+      "light/night": {
+        "textElements": 480,
+        "failures": 0,
+        "pages": 3
       }
     },
     "reduced-transparency": {
       "dark/studio": {
-        "textElements": 4387,
-        "failures": 0,
+        "textElements": 4118,
+        "failures": 2,
         "pages": 9
-      },
-      "dark/forest": {
-        "textElements": 0,
-        "failures": 0,
-        "pages": 0
       },
       "dark/city": {
         "textElements": 0,
         "failures": 0,
         "pages": 0
       },
-      "light/studio": {
-        "textElements": 4387,
-        "failures": 0,
-        "pages": 9
-      },
-      "light/forest": {
+      "dark/night": {
         "textElements": 0,
         "failures": 0,
         "pages": 0
       },
+      "light/studio": {
+        "textElements": 4118,
+        "failures": 2,
+        "pages": 9
+      },
       "light/city": {
+        "textElements": 0,
+        "failures": 0,
+        "pages": 0
+      },
+      "light/night": {
         "textElements": 0,
         "failures": 0,
         "pages": 0
@@ -1513,52 +1513,63 @@
     },
     "forced-colors": {
       "dark/studio": {
-        "textElements": 4415,
+        "textElements": 4133,
         "failures": 0,
         "pages": 9
-      },
-      "dark/forest": {
-        "textElements": 0,
-        "failures": 0,
-        "pages": 0
       },
       "dark/city": {
         "textElements": 0,
         "failures": 0,
         "pages": 0
       },
-      "light/studio": {
-        "textElements": 4415,
-        "failures": 0,
-        "pages": 9
-      },
-      "light/forest": {
+      "dark/night": {
         "textElements": 0,
         "failures": 0,
         "pages": 0
       },
+      "light/studio": {
+        "textElements": 4133,
+        "failures": 2,
+        "pages": 9
+      },
       "light/city": {
+        "textElements": 0,
+        "failures": 0,
+        "pages": 0
+      },
+      "light/night": {
         "textElements": 0,
         "failures": 0,
         "pages": 0
       }
     }
   },
-  "failures": [],
+  "failures": [
+    "[normal] docs /components/card/usage dark/studio: \"Lysefjord\" 1",
+    "[normal] docs /components/card/usage dark/studio: \"Saved to Trips\" 2.06",
+    "[normal] docs /components/card/usage light/studio: \"Lysefjord\" 1",
+    "[normal] docs /components/card/usage light/studio: \"Saved to Trips\" 2.67",
+    "[reduced-transparency] docs /components/card/usage dark/studio: \"Lysefjord\" 1",
+    "[reduced-transparency] docs /components/card/usage dark/studio: \"Saved to Trips\" 1.92",
+    "[reduced-transparency] docs /components/card/usage light/studio: \"Lysefjord\" 1",
+    "[reduced-transparency] docs /components/card/usage light/studio: \"Saved to Trips\" 2.6",
+    "[forced-colors] docs /components/card/usage light/studio: \"Lysefjord\" 1.12",
+    "[forced-colors] docs /components/card/usage light/studio: \"Saved to Trips\" 3.45"
+  ],
   "excepted": [],
   "exception": "E-001",
   "exceptionFloor": 3.8,
   "summary": {
-    "gatingChecks": 28206,
-    "gatingFailures": 0,
+    "gatingChecks": 27306,
+    "gatingFailures": 10,
     "excepted": 0,
     "informational": [
       "forced-colors/dark/studio media worst 1.73:1",
-      "forced-colors/dark/forest media worst 1.73:1",
       "forced-colors/dark/city media worst 1.73:1",
+      "forced-colors/dark/night media worst 1.73:1",
       "forced-colors/light/studio media worst 1.73:1",
-      "forced-colors/light/forest media worst 1.73:1",
-      "forced-colors/light/city media worst 1.73:1"
+      "forced-colors/light/city media worst 1.73:1",
+      "forced-colors/light/night media worst 1.73:1"
     ]
   },
   "plan": {
@@ -1567,7 +1578,7 @@
   },
   "partial": true,
   "limitedTo": {
-    "routes": "/components/badge,/components/chip,/getting-started/look",
-    "scenes": "studio,forest,city"
+    "routes": "/components/card,/foundations/glass,/components/badge",
+    "scenes": "studio,city,night"
   }
 }

@@ -522,6 +522,21 @@
           "why": "the edge of a control that has no groove, such as a read-only field, at the opacity that measured 3:1 on glass and pages in both themes"
         }
       }
+    },
+    "rim-foot": {
+      "$value": "{color.white-a.40}",
+      "$type": "color",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.90}"
+        },
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "light that passed through the slab leaves along the bottom edge, so the pane reads as a thick piece of glass"
+        }
+      }
     }
   },
   "focus": {

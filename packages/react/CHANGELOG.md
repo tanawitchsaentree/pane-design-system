@@ -4,6 +4,7 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- Card: the glass has volume. A hairline rim lit at the top left and again along the foot where light leaves the slab, a bevel inside (a lit upper lip, a shaded lower one) and a deeper lift (R-041).
 - Badge: the crystal is clear: a thin tint lit at the top, a crisp rim and a hairline of the tone at the foot, with no glow around it.
 - Chip: a chosen chip with a tone is the same clear crystal as Badge.
 - PaneProvider: with reduced motion, hover and press keep a 100ms fade of colour and light while every movement stops (D-039); before, every duration went to 0 and controls snapped.
