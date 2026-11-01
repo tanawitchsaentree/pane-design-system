@@ -1,33 +1,37 @@
-# NEXT — handoff 2026-10-27 (terminal closed mid-work)
+# NEXT — handoff 2026-11-01 (session closed by the user; everything below is committed and pushed)
 
-## สถานะตอนปิด
-- commit ล่าสุด: `2d3f2b6` (verify เขียวครบ 2 ธีม: glass 144,433/144,564 · 131 excepted E-001 · conformance 73/73 · tone 36/36 · smoke 19/19)
-- **ยังไม่ commit (WIP):** crafted controls — slider/select วาดจาก token, chevron, `color-scheme` ต่อธีมใน tokens build, check ใหม่ G-N1 ใน conformance (gate-proof แล้วด้วย probe แยก)
-- verify v9 (รวม crafted controls) **ถูกตัดกลางทาง** ตอนปิด terminal → ต้องรันใหม่: `pnpm run verify` (ใช้เวลานาน ~40–60 นาที เพราะวัด 2 ธีม)
-- server preview (`pnpm --filter pane-docs preview`, port 4173) ปิดไปพร้อม terminal
+## Where things stand
+- **Pane 0.7.0 live** at https://pane-design-system.pages.dev (main = release-0.7, deployed with wrangler).
+  Today it gained motion rhythm (R-044), Onboard your agent (/agent-setup/prompt.md, tarball at
+  /downloads/pane-react-0.7.0.tgz, tested from an empty folder), DESIGN.md, the Platforms page, the HTML
+  block under every demo, and Kotlin/Dart/Tailwind/Figma tokens (D-042).
+- **kiln 2.6.0** pushed to github.com/tanawitchsaentree/Kiln (marketplace); the user's plugin is 2.6.0.
+  Engine synced here (tooling/kiln). Release notes: kiln/marketplace/plugins/kiln/CHANGELOG.md.
+- **dial** (second kiln system, ~/Downloads/bauhouse-ds, its own session bauhouse-ds-9e): wave 1 done,
+  24 components, M1 verify in progress. It has engine 2.5.3 + its own fixes; it was told to sync 2.5.4
+  after (or instead of) its running full verify. 2.6.0 adds six gates, so sync that after M1 closes.
+  system/refs/ref-01.png was still missing at last check, so dial's colours are estimates from chat.
 
-## กติกาเครื่อง (user สั่ง 2026-10-27: ห้ามให้เครื่องกระตุกอีก)
-- ระหว่างทำงานใช้ `pnpm run verify:quick` (ไม่มี glass evidence) · `pnpm run verify` เต็มรันได้เฉพาะเมื่อบอก user ก่อนและ user ตกลง
-- ขั้นที่ใช้ browser รันที่ `nice -n 19` แล้ว · ห้ามทิ้ง process เบื้องหลังค้างไว้ตอนจบ turn
+## Do next, in this order
+1. **Pane full verify + evidence.** The last full verify is from 2026-10-28 and the evidence from
+   2026-11-01 00:12; both predate today's changes, so the book's numbers describe older code. Run
+   `pnpm run verify` (about an hour, nice 19) only when dial is not running its own full verify (machine
+   load), then rebuild and deploy with the release recipe in memory (pane-scope-calls).
+2. **Evidence reds: 34** in the last full run (anatomy pins on text, some forced-colors cases).
+3. **Motion choreography**: G-MO1 measures hover and press only. Add enter/exit of dialog, sheet and popover
+   (decelerate in, accelerate out, exit ≤ 0.6 × enter) and the distance rule from
+   references/foundations/motion.md, then look at Pane's motion.enter (640ms).
+4. **G-PG1**: mark Pane's playground controls with `data-playground-token` so the gate measures them.
+5. **Still-open gate items**: a popup opened inside a popup stacks above it; docs controls with ≤3 options
+   are segmented (BACKLOG R-035/R-038 lines).
+6. **kiln**: prove the 55 gates that have no planted-violation proof yet; score the 108 failure scenarios
+   (docs/PANE-RETRO-ANALYSIS.md 68 + RETRO R-001..R-044) by frequency × detectability; a taste measure
+   beyond anchor likeness.
+7. **Pro tier** (memory pane-monetize-goal): package split, license-key check, pricing page. The user owns
+   accounts, prices and publishing.
+8. npm publish stays the user's.
 
-## ทำต่อตามลำดับ (อัปเดต 2026-10-27 ดึก)
-- ✅ ข้อ 2 (docs ส่วน), 3, 4, 5 เสร็จ: ทุก component 4 tab ถึง Carbon, benchmark 32/32, G-IA1 เขียว
-- ⏳ รอ user: เลือกแบบ form ใน apps/lab/forms (A well / B written / C held) → แล้วสร้าง Input/Textarea/Checkbox/Radio/Switch + Label/FormField/HelperText/Fieldset/InputGroup/PinInput
-- ต่อไป: derivation round ของ Button variant ใหม่ (ghost, danger, danger-ghost, lg, loading, icon, fullWidth) · G-BT1 (หัวข้อจาก 3 ระบบ × 9 หน้า foundation) · derivation round ของ 10 ตัวใน pendingDerivation พร้อมแก้บั๊กใน BACKLOG
-
-1. ~~commit WIP crafted controls~~ เสร็จแล้ว · 2026-10-27 เย็น: 0.2.0 ผ่าน consumer test + verify:quick 74/74 — `pnpm run verify` เต็ม (glass evidence) ยังไม่ได้รันตั้งแต่ 2d3f2b6 ต้องขอ user ก่อน
-2. **Button ถึงระดับ Carbon** (reference implementation ของ `component-depth.md`):
-   - component: เพิ่ม variant `ghost`, `danger`, `danger-ghost` · size `lg` · `loading` (spinner, aria-busy, disabled, คงความกว้าง) · `icon` + `iconPosition` · `fullWidth` · `data-part` (container/label/icon/spinner) · token ใหม่ใน component.json (+ สีแดงสำหรับตัวอักษรบนกระจก dark ต้องวัดก่อน) · CHANGELOG entry · harness + conformance (loading, danger)
-   - docs: 4 tab routes `/components/<slug>/{usage,style,code,accessibility}` (routes.json เพิ่ม `tabs`, router + tooling ทุกตัวที่อ่าน routes.json ต้อง expand), header ร่วม (status, last updated, live demo + theme/variant selector)
-   - Usage registry U1–U14 (ตารางใน component-depth.md) — do/don't เป็น component จริงทุกคู่, RTL + overflow live, references ≥2 URL
-   - Style tab: `tooling/spec-capture.mjs` — Playwright + CDP `CSS.forcePseudoState` วัดทุก variant × size × state × theme → `specs.json` → reverse-map เป็นชื่อ token, redline diagram
-   - gates G-K1–G-K8 ใน conformance + gate-proof (ใส่บั๊กให้แดง แล้วแก้กลับ)
-   - เป้า: usage ≥ 0.5 × Carbon Button (5,260 คำ / 36 sections)
-3. อีก 12 component ไล่ทีละตัวตาม registry เดียวกัน
-4. benchmark Carbon ที่เหลือ 28 ตัว: `node <kiln>/marketplace/plugins/kiln/skills/docs-engine/scripts/benchmark-depth.mjs` (resume ได้, ต้องมี network; รอบแรกโดน throttle)
-5. G-IA1: nav แสดง catalog เต็ม (planned = "Planned · wave N" จาก kiln `docs/CATALOG.md`), เพิ่มหมวด Getting started (designing/developing/contributing/migrating), Foundations Content/Accessibility, Patterns ~12 หน้า
-6. แล้วค่อยขยาย breadth ทีละ wave ตาม CATALOG (W3 Forms-Core: Input, Checkbox, Radio, Switch… ก่อน)
-
-## kiln (commit แล้ว, local เท่านั้น ห้าม push)
-- marketplace `09bb5f5` component-depth.md + benchmark script · `2ffc15a` G-L1/G-M1 · G-N1
-- kiln `7963f30` rule 10 + standard #14 · USER-STANDARDS #12–#14
+## Rules that still hold
+Thai replies; no Storybook; never mention Xcode; push + deploy for Pane are authorised; never handle a
+credential; keep tool output tiny; check only what changed while working; one preview server at most and
+stop it at the end (none is running now).
