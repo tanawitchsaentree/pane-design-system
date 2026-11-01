@@ -382,3 +382,13 @@ One entry per criticism. The fix is a change to the step that produced the resul
   - inline code เป็นชิปใช้สีของ syntax token (ผ่าน 4.5:1) คลิกครั้งเดียวเลือกได้ทั้งคำ
   - หัวหน้า component มีปุ่ม Resources (React, HTML, platform อื่น, Figma, agent) และ tab มีไอคอน
 - **gate:** G-C1, G-FR1, G-TT1, G-BJ1, G-MO1 ผ่านบนหน้าที่เปลี่ยน
+
+## R-048: กดเลือก Chip แล้วสลับแข็งกระด้างมาก
+- **User said:** "เวลากด สลับไปมาแม่งแข็งกระด้างมากๆๆๆๆๆ" (ภาพชิป Brick / Plate / Tile / Slope)
+- **ขั้นที่ผิด:**
+  - สีตอนเลือกเป็น gradient แต่ CSS เขียนแค่ `transition: background-color` ซึ่ง transition ระหว่าง gradient ไม่ได้ พื้นจึงเปลี่ยนในเฟรมเดียว
+  - เครื่องหมายถูกใส่และเอาออกจาก DOM ทำให้ชิปกว้างขึ้นทันทีและชิปข้างๆ กระโดด ตัวหนังสือหนาขึ้นก็ทำให้กว้างขึ้นอีกรอบ
+  - G-MO1 วัดแค่ hover กับ press ไม่ได้วัดตอนสถานะเปลี่ยนเพราะกดเลือก
+- **แก้แล้ว:** พื้นตอนเลือกเป็นชั้นแยกที่ค่อยๆ fade in ส่วนช่องของเครื่องหมายถูกขยายจาก 0fr ไป 1fr ทำให้ชิปข้างๆ เลื่อนตามอย่างนุ่มนวล (วัดแล้ว 726→716→710→706→704 ไม่กระโดด) label กันที่ไว้สำหรับตัวหนาแล้ว และทุกอย่างใช้ `motion.press` (300ms ตอนปล่อย) ใต้ reduced motion ความกว้างเปลี่ยนทันทีแต่ fade ยังอยู่
+- **gate ที่ต้องเพิ่ม (kiln):** G-MO3 ต้องกด toggle จริง (aria-pressed / aria-checked / aria-selected) แล้วเก็บตำแหน่งของชิ้นข้างๆ หลายเฟรม ถ้าภายในเฟรมเดียวขยับเกิน 4px ถือว่าแดง และถ้าพื้นที่เปลี่ยนเป็น gradient ไม่มีชั้นที่ transition ได้ ก็ถือว่าแดงด้วย
+- **ขยายผล (2026-11-01):** ตรวจหาแบบเดียวกันทั้งระบบ เจอ 11 component ที่สลับ gradient ตอนเลือก แก้แล้ว 5 ตัว (SegmentedControl, Switch, RadioCards, ButtonGroup และ Chip) ด้วย `@property --pane-fill-top/--pane-fill-foot` ที่ token build ประกาศไว้ ตรวจแล้วทุกตัวมีสีกลางทางที่ 60ms หลังคลิก ส่วน Tabs ใช้ indicator ที่เลื่อนอยู่แล้ว ที่ยังเหลือคือ Button และ IconButton ตอน toggle (พื้นตอนพักเป็น gradient แยกตาม variant) และ Calendar, DataGrid, TreeView, RichTextEditor

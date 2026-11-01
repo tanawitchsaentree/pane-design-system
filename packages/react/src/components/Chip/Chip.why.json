@@ -65,6 +65,21 @@
       "p": "P1",
       "axis": "colour",
       "why": "a chosen chip with a tone becomes a crystal of that colour, so a filter set reads by colour and by its check"
+    },
+    "mark": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the check lives in a track that opens and closes, so choosing grows the chip smoothly instead of inserting a glyph in one frame"
+    },
+    "markInner": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "clips the check while its track is closed, so a closed track takes no width at all"
+    },
+    "label": {
+      "p": "P4",
+      "axis": "shape",
+      "why": "keeps room for the chosen semibold weight, so the weight change never moves the chip edge"
     }
   },
   "states": {
@@ -97,23 +112,38 @@
       "p": "P6",
       "axis": "interaction",
       "why": "hover styles apply only on devices that can hover, so a touch screen never shows a stuck wash after a tap"
+    },
+    "@media prefers-reduced-motion: reduce": {
+      "p": "P6",
+      "axis": "motion",
+      "why": "the width changes at once for a reader who asked for less motion; the fill still fades so the change is seen"
     }
   },
   "motion": {
     "box-shadow": {
       "p": "P4",
       "axis": "motion",
-      "why": "pressing in and out changes the carve at hover pace"
+      "why": "the carve changes on the press's way back up, 300ms, so choosing settles like a key"
     },
-    "background-color": {
+    "color": {
       "p": "P4",
       "axis": "motion",
-      "why": "the fill changes at the same pace as the carve"
+      "why": "the label colour moves with the fill so the two never disagree mid-change"
+    },
+    "opacity": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the chosen fill is a layer that fades in (R-048); a gradient swap cannot be transitioned and turned on in one frame"
+    },
+    "grid-template-columns": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the check track opens so the chip grows and its neighbours glide instead of jumping (R-048); off under reduced motion"
     },
     "transform": {
       "p": "P4",
       "axis": "motion",
-      "why": "the press runs at press pace, a reply to the reader"
+      "why": "the press runs at press pace, a reply to the reader, and the check scales up as it appears"
     }
   },
   "default_to_avoid": [
