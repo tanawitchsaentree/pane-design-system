@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pane lab · liquid glass: refraction, edge colour, bulge, merging</title>
+<!--
+  User, 2026-11-01, with Apple's developer page: real glass bends what is behind it at the edge, its rim
+  takes the colour of what is under or beside it, its middle bulges like a lens, and two pieces melt
+  into one when they come close. Three ways to draw it, side by side, over the same content:
+    A  liquid: an SVG displacement map as backdrop-filter (refraction + lens), split per colour
+       channel at the rim (the coloured edge), a specular rim from the one light (top left)
+    B  liquid, clean: the same lens with no colour split, for text-heavy panes
+    C  today's Pane glass (blur, saturate, brightness) for comparison
+  Below, merging: two lenses share one surface whose outline is a smooth union of both, so a neck forms
+  as they approach. Drag the thumb. The displacement map is built in a canvas from the shape's signed
+  distance field, so the bend follows any rounded shape. backdrop-filter: url() runs in Chromium; Safari
+  and Firefox fall back to C.
+-->
+<style>
+  :root { color-scheme: light; font-family: -apple-system, "SF Pro Text", Inter, system-ui, sans-serif; color: #1d1d1f; }
+  body { margin: 0; padding: 28px 32px 60px; background: #d9dbe0; }
+  body.photo { background: #111 url(../edge/night.jpg) center / cover fixed; color: #fff; }
+  h1 { font-size: 22px; margin: 0 0 6px; }
+  .lead { margin: 0 0 16px; max-width: 80ch; line-height: 1.5; }
+  .bar { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+  .bar button { font: inherit; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(0,0,0,.25); background: rgba(255,255,255,.7); cursor: pointer; }
+  .bar button[aria-pressed="true"] { background: #1d1d1f; color: #fff; }
+  .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  @media (max-width: 1100px) { .row { grid-template-columns: 1fr; } }
+  .col h2 { font-size: 15px; margin: 0 0 4px; } .col p { margin: 0 0 12px; font-size: 13px; line-height: 1.45; opacity: .85; min-height: 3.8em; }
+  /* the content under the glass: what real UI puts behind a control */
+  .stage { position: relative; height: 330px; border-radius: 22px; overflow: hidden; background: #d9dbe0; }
+  body.photo .stage { background: transparent; }
+  .stage .track { position: absolute; left: 0; right: 0; top: 64px; height: 56px; border-radius: 28px; margin: 0 20px; background: linear-gradient(90deg, #3aa0e6, #4b3fa0, #c63aa8, #e3505a, #f0b33b, #e9e651, #8ad46a); }
+  .stage .fill { position: absolute; left: 20px; top: 182px; width: 46%; height: 34px; border-radius: 17px; background: #3477e0; }
+  .stage .rest { position: absolute; left: 20px; right: 20px; top: 182px; height: 34px; border-radius: 17px; background: rgba(120,124,135,.25); z-index: 0; }
+  .stage .green { position: absolute; left: 40px; top: 250px; width: 150px; height: 56px; border-radius: 28px; background: #5cb85c; }
+  .stage .words { position: absolute; right: 22px; top: 252px; max-width: 38%; font-size: 13px; line-height: 1.3; max-width: 46%; }
+  /* the glass */
+  .lens { position: absolute; border-radius: 999px; z-index: 2; }
+  .lens .face { position: absolute; inset: 0; border-radius: inherit; }
+  .lens .rim { position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    box-shadow: inset 1.5px 1.5px 0 rgba(255,255,255,.95), inset -1px -1px 0 rgba(255,255,255,.35), inset 0 0 0 .5px rgba(0,0,0,.18),
+      inset 0 10px 18px -12px rgba(255,255,255,.9), 0 12px 28px -10px rgba(0,0,0,.35); }
+  .lens .rim::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px;
+    background: conic-gradient(from 200deg, rgba(255,255,255,.95), rgba(255,255,255,.1) 25%, rgba(255,255,255,.05) 55%, rgba(255,255,255,.7) 80%, rgba(255,255,255,.95));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+  .lens .label { position: absolute; inset: 0; display: grid; place-items: center; font-size: 30px; font-weight: 500; color: #1d1d1f; }
+  .v-c .face { backdrop-filter: blur(14px) saturate(1.8) brightness(1.06); -webkit-backdrop-filter: blur(14px) saturate(1.8) brightness(1.06); background: rgba(255,255,255,.18); }
+  .note { margin-top: 26px; font-size: 13px; max-width: 90ch; line-height: 1.5; }
+  .merge { margin-top: 30px; } .merge .stage { height: 220px; }
+  .merge .face { border-radius: 0; }
+</style>
+</head>
+<body>
+<h1>Liquid glass · refraction, edge colour, bulge and merging</h1>
+<p class="lead">The same controls in three glasses, over the same content. Look at the rim of each lens. In A the coloured bar bends and its colour runs into the edge. In B it bends with no colour split. C is today's Pane glass, which only blurs. Drag a lens to see it bend what it passes over.</p>
+<div class="bar" role="group" aria-label="Ground">
+  <button type="button" aria-pressed="true" data-ground="light">Light ground</button>
+  <button type="button" aria-pressed="false" data-ground="photo">Photo</button>
+</div>
+<div class="row">
+  <section class="col v-a"><h2>A · Liquid</h2><p>Displacement map from the shape's distance field, split per colour at the rim. The rim lights from the top left.</p><div class="stage"></div></section>
+  <section class="col v-b"><h2>B · Liquid, clean</h2><p>The same lens and bend, with no colour split. It reads calmer behind text-heavy panes.</p><div class="stage"></div></section>
+  <section class="col v-c"><h2>C · Today's Pane glass</h2><p>Blur, saturate and brightness. Nothing bends and the rim does not pick up colour.</p><div class="stage"></div></section>
+</div>
+<section class="merge v-a" aria-label="Merging">
+  <h2 style="font-size:15px;margin:0 0 4px">Merging · two lenses on one surface</h2>
+  <p style="margin:0 0 12px;font-size:13px">Drag the right lens toward the left one. Their outline is a smooth union of the two, so a neck forms before they touch and the bend follows it.</p>
+  <div class="stage" id="merge"></div>
+</section>
+<p class="note">How it is drawn. A canvas computes the signed distance d to the shape, rounded corners and all. Near the edge (within the band b), the map pushes each sample inward along the edge normal by A·(1 − |d|/b)³, which is the bend. Over the whole face it pulls samples toward the centre by k·r, so the middle magnifies a little like a lens. A uses three maps with slightly different strengths for red, green and blue, so a coloured edge separates the way real glass disperses. The result is a <code>backdrop-filter: url(#…)</code> filter. Text stays on the flat middle, where the bend is near zero, so its contrast is measured as before.</p>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs id="defs"></defs></svg>
+<script>
+const SUPPORTS = CSS.supports('backdrop-filter', 'url(#x)') || CSS.supports('-webkit-backdrop-filter', 'url(#x)');
+let uid = 0;
+// signed distance to a rounded rect centred in w×h with radius r (negative inside)
+const sdRect = (x, y, w, h, r) => { const qx = Math.abs(x - w / 2) - (w / 2 - r), qy = Math.abs(y - h / 2) - (h / 2 - r); return Math.hypot(Math.max(qx, 0), Math.max(qy, 0)) + Math.min(Math.max(qx, qy), 0) - r; };
+// displacement map: R,G hold the sample offset (0.5 = none). sd(x,y) is any signed distance function.
+function mapFor(w, h, sd, { band, amp, mag, centre = () => [w / 2, h / 2], span = Math.max(w, h) }) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h; const g = c.getContext('2d'); const img = g.createImageData(w, h);
+  const e = 1;
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    const d = sd(x, y), i = (y * w + x) * 4;
+    let dx = 0, dy = 0;
+    if (d < 0) {
+      const nx = sd(x + e, y) - sd(x - e, y), ny = sd(x, y + e) - sd(x, y - e), nl = Math.hypot(nx, ny) || 1;
+      const t = Math.max(0, 1 - -d / band); const bend = amp * t * t * t;
+      const [cx, cy] = centre(x, y); dx = (-nx / nl) * bend + (cx - x) * mag; dy = (-ny / nl) * bend + (cy - y) * mag;
+    }
+    const s = amp * 2 + span * mag;
+    img.data[i] = 128 + (dx / s) * 127; img.data[i + 1] = 128 + (dy / s) * 127; img.data[i + 2] = 128; img.data[i + 3] = 255;
+  }
+  g.putImageData(img, 0, 0); return { url: c.toDataURL(), scale: (amp * 2 + span * mag) * 2 };
+}
+// one filter per lens: refraction (and per-channel dispersion when split), then a light frost and lift
+function filterFor(w, h, sd, split, opt = {}) {
+  const size = opt.size ?? Math.min(w, h);
+  const id = `lq${uid++}`; const m = mapFor(w, h, sd, { band: size * 0.32, amp: size * 0.22, mag: 0.035, ...opt });
+  const disp = (inn, k, out) => `<feDisplacementMap in="${inn}" in2="map" scale="${(m.scale * k).toFixed(1)}" xChannelSelector="R" yChannelSelector="G" result="${out}"/>`;
+  const chan = (inn, r, g, b, out) => `<feColorMatrix in="${inn}" type="matrix" values="${r} 0 0 0 0  0 ${g} 0 0 0  0 0 ${b} 0 0  0 0 0 1 0" result="${out}"/>`;
+  const body = split
+    ? `${disp('SourceGraphic', 1.0, 'dr')}${disp('SourceGraphic', 0.93, 'dg')}${disp('SourceGraphic', 0.86, 'db')}${chan('dr', 1, 0, 0, 'r')}${chan('dg', 0, 1, 0, 'g')}${chan('db', 0, 0, 1, 'b')}<feBlend in="r" in2="g" mode="screen" result="rg"/><feBlend in="rg" in2="b" mode="screen" result="bent"/>`
+    : disp('SourceGraphic', 1.0, 'bent');
+  const f = `<filter id="${id}" x="0" y="0" width="${w}" height="${h}" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feImage href="${m.url}" x="0" y="0" width="${w}" height="${h}" result="map" preserveAspectRatio="none"/>${body}
+    <feGaussianBlur in="bent" stdDeviation="0.6" result="soft"/><feColorMatrix in="soft" type="saturate" values="1.35" result="sat"/>
+    <feComponentTransfer in="sat"><feFuncR type="linear" slope="1.04" intercept="0.02"/><feFuncG type="linear" slope="1.04" intercept="0.02"/><feFuncB type="linear" slope="1.04" intercept="0.02"/></feComponentTransfer></filter>`;
+  document.getElementById('defs').insertAdjacentHTML('beforeend', f); return id;
+}
+function lens(stage, { x, y, w, h, r, label, variant }) {
+  const el = document.createElement('div'); el.className = 'lens'; Object.assign(el.style, { left: `${x}px`, top: `${y}px`, width: `${w}px`, height: `${h}px`, borderRadius: `${r}px` });
+  el.innerHTML = `<div class="face"></div><div class="rim"></div>${label ? `<div class="label" aria-hidden="true">${label}</div>` : ''}`;
+  const face = el.firstChild;
+  if (variant !== 'c' && SUPPORTS) { const id = filterFor(w, h, (px, py) => sdRect(px, py, w, h, r), variant === 'a'); face.style.backdropFilter = `url(#${id})`; face.style.webkitBackdropFilter = `url(#${id})`; }
+  stage.append(el); drag(el, stage); return el;
+}
+function drag(el, stage) {
+  el.style.cursor = 'grab'; el.style.touchAction = 'none';
+  el.addEventListener('pointerdown', (e) => { el.setPointerCapture(e.pointerId); const sx = e.clientX - el.offsetLeft, sy = e.clientY - el.offsetTop;
+    const mv = (ev) => { el.style.left = `${Math.max(-40, Math.min(stage.clientWidth - el.offsetWidth + 40, ev.clientX - sx))}px`; el.style.top = `${Math.max(-20, Math.min(stage.clientHeight - el.offsetHeight + 20, ev.clientY - sy))}px`; };
+    el.addEventListener('pointermove', mv); el.addEventListener('pointerup', () => el.removeEventListener('pointermove', mv), { once: true }); });
+}
+for (const v of ['a', 'b', 'c']) {
+  const st = document.querySelector(`.v-${v} .stage`);
+  st.innerHTML = '<div class="track"></div><div class="rest"></div><div class="fill"></div><div class="green"></div><div class="words">Glass bends what is under its edge and leaves the middle readable.</div>';
+  lens(st, { x: Math.round(st.clientWidth * 0.55), y: 46, w: 120, h: 92, r: 46, variant: v });
+  lens(st, { x: Math.round(st.clientWidth * 0.36), y: 168, w: 104, h: 62, r: 31, variant: v });
+  lens(st, { x: 96, y: 244, w: 128, h: 68, r: 34, variant: v });
+  lens(st, { x: 24, y: 24, w: 88, h: 88, r: 44, label: '+', variant: v });
+}
+// merging: one surface whose outline is the smooth union of two circles (polynomial smooth min)
+const smin = (a, b, k) => { const hh = Math.max(k - Math.abs(a - b), 0) / k; return Math.min(a, b) - hh * hh * k * 0.25; };
+const M = document.getElementById('merge');
+M.innerHTML = '<div class="track" style="top:82px"></div>';
+const W = M.clientWidth, H = 220, R = 52; let bx = W * 0.72;
+const surf = document.createElement('div'); surf.className = 'lens'; Object.assign(surf.style, { left: 0, top: 0, width: `${W}px`, height: `${H}px`, borderRadius: 0 });
+surf.innerHTML = '<div class="face"></div>'; M.append(surf);
+const rimCv = document.createElement('canvas'); rimCv.width = W; rimCv.height = H; Object.assign(rimCv.style, { position: 'absolute', inset: 0, zIndex: 3, pointerEvents: 'none' }); M.append(rimCv);
+const handle = document.createElement('div'); Object.assign(handle.style, { position: 'absolute', top: `${H / 2 - R}px`, width: `${2 * R}px`, height: `${2 * R}px`, borderRadius: '50%', zIndex: 4, cursor: 'grab', touchAction: 'none' }); handle.setAttribute('role', 'slider'); handle.setAttribute('aria-label', 'Distance between the lenses'); handle.tabIndex = 0; M.append(handle);
+let pending = false;
+function drawMerge() {
+  pending = false; handle.style.left = `${bx - R}px`; handle.setAttribute('aria-valuenow', String(Math.round(bx)));
+  const ax = W * 0.3, cy = H / 2;
+  const sd = (x, y) => smin(Math.hypot(x - ax, y - cy) - R, Math.hypot(x - bx, y - cy) - R, 90);
+  const near = (x) => [Math.abs(x - ax) < Math.abs(x - bx) ? ax : bx, cy];
+  // the outline as a mask, from the same distance field
+  const mc = document.createElement('canvas'); mc.width = W; mc.height = H; const g = mc.getContext('2d'); const im = g.createImageData(W, H);
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { const d = sd(x, y), i = (y * W + x) * 4; im.data[i + 3] = d < -0.5 ? 255 : d < 0.5 ? 128 : 0; }
+  g.putImageData(im, 0, 0); const mask = `url(${mc.toDataURL()})`;
+  // the mask goes on the face itself: a filter or mask on an ancestor would become the backdrop root and the
+  // face would see nothing behind it
+  const face = surf.firstChild; face.style.webkitMaskImage = mask; face.style.maskImage = mask; face.style.maskSize = face.style.webkitMaskSize = '100% 100%';
+  if (SUPPORTS) { document.getElementById('defs').querySelectorAll('[data-merge]').forEach((n) => n.remove()); const id = filterFor(W, H, sd, true, { size: 2 * R, span: 2 * R, centre: (x) => near(x) }); document.getElementById(id).setAttribute('data-merge', ''); face.style.backdropFilter = `url(#${id})`; face.style.webkitBackdropFilter = `url(#${id})`; }
+  else { face.style.backdropFilter = 'blur(14px) saturate(1.8)'; face.style.background = 'rgba(255,255,255,.18)'; }
+  // the rim: a hairline along d≈0, lit from the top left
+  const rc = rimCv.getContext('2d'); const ri = rc.createImageData(W, H);
+  const sh = document.createElement('canvas'); sh.width = W; sh.height = H; const sg = sh.getContext('2d'); const si = sg.createImageData(W, H);
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { const d = sd(x, y - 8); const i = (y * W + x) * 4; if (sd(x, y) < 0) continue; si.data[i + 3] = Math.max(0, 70 * Math.exp(-Math.max(0, d) / 9)); }
+  sg.putImageData(si, 0, 0); M.querySelector('.shadow')?.remove(); sh.className = 'shadow'; Object.assign(sh.style, { position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none' }); M.insertBefore(sh, surf);
+  for (let y = 1; y < H - 1; y++) for (let x = 1; x < W - 1; x++) { const d = sd(x, y); if (d > 0.6 || d < -2.2) continue;
+    const nx = sd(x + 1, y) - sd(x - 1, y), ny = sd(x, y + 1) - sd(x, y - 1), nl = Math.hypot(nx, ny) || 1; const lit = Math.max(0, (-nx - ny) / nl / 1.414);
+    const i = (y * W + x) * 4; ri.data[i] = ri.data[i + 1] = ri.data[i + 2] = 255; ri.data[i + 3] = Math.round(255 * (0.25 + 0.7 * lit) * Math.max(0, 1 - Math.abs(d + 0.8) / 1.6)); }
+  rc.putImageData(ri, 0, 0);
+}
+const ask = () => { if (!pending) { pending = true; requestAnimationFrame(drawMerge); } };
+handle.addEventListener('pointerdown', (e) => { handle.setPointerCapture(e.pointerId); const mv = (ev) => { bx = Math.max(W * 0.3 + 30, Math.min(W - R - 6, ev.clientX - M.getBoundingClientRect().left)); ask(); }; handle.addEventListener('pointermove', mv); handle.addEventListener('pointerup', () => handle.removeEventListener('pointermove', mv), { once: true }); });
+handle.addEventListener('keydown', (e) => { const s = { ArrowLeft: -12, ArrowRight: 12 }[e.key]; if (s) { e.preventDefault(); bx = Math.max(W * 0.3 + 30, Math.min(W - R - 6, bx + s)); ask(); } });
+drawMerge();
+document.querySelectorAll('[data-ground]').forEach((b) => b.addEventListener('click', () => { document.body.classList.toggle('photo', b.dataset.ground === 'photo'); document.querySelectorAll('[data-ground]').forEach((x) => x.setAttribute('aria-pressed', String(x === b))); }));
+if (!SUPPORTS) document.querySelector('.lead').insertAdjacentHTML('beforeend', ' <b>This browser cannot run url() in backdrop-filter, so A and B show the fallback. Open it in Chrome.</b>');
+</script>
+</body>
+</html>

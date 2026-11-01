@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-01T06:59:38.599Z",
-  "version": "0.7.0",
+  "generatedAt": "2026-11-01T15:43:50.525Z",
+  "version": "0.8.0",
   "components": {
     "Accordion": {
       "source": "packages/react/src/components/Accordion/Accordion.tsx",
@@ -3906,15 +3906,25 @@
             },
             {
               "name": "material",
-              "type": "\"glass\" | \"solid\"",
+              "type": "\"glass\" | \"liquid\" | \"solid\"",
               "required": false,
               "default": "glass",
-              "description": "`glass` (default) blurs and dims the scene behind every pane. `solid` swaps every pane inside for the\nopaque surface and turns the backdrop filter off (D-021), for a live backdrop such as a 3D scene or\nvideo, where re-blurring each frame costs the frame rate. Text contrast is the same measured fallback\nused for reduced transparency.",
+              "description": "`glass` (default) blurs and dims the scene behind every pane. `liquid` is the same glass, and each pane\nalso bends what is behind its rim and lifts its middle like a lens (R-045); it needs Chromium, and other\nbrowsers show `glass`. `solid` swaps every pane inside for the opaque surface and turns the backdrop\nfilter off (D-021), for a live backdrop such as a 3D scene or video, where re-blurring each frame costs\nthe frame rate. Text contrast is the same measured fallback used for reduced transparency.",
               "enum": true,
               "options": [
                 "glass",
+                "liquid",
                 "solid"
               ]
+            },
+            {
+              "name": "look",
+              "type": "EnvironmentLook",
+              "required": false,
+              "default": null,
+              "description": "The anchor knobs (R-046). Set the pane corner or the density and everything that depends on it follows,\nso nesting and rhythm hold. Any single token can still be set by hand after it.",
+              "enum": false,
+              "options": null
             }
           ]
         }
@@ -3926,9 +3936,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 264,
+        "jsMin": 4334,
         "cssMin": 0,
-        "gzip": 201
+        "gzip": 2109
       }
     },
     "FAB": {

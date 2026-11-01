@@ -216,3 +216,10 @@
 - **วันที่:** 2026-11-01 · **เลือกโดย:** user ("รองรับทุกภาษายังนอกจาก react")
 - **ตัดสิน:** `packages/tokens/build.mjs` สร้าง token จากแหล่งเดียวออกเป็น CSS, Swift, Kotlin (Compose), Dart (Flutter), Tailwind preset และ Figma variables (ทุกไฟล์ 1149 token ชื่อเดียวกัน, dark/light คู่กัน) และ export ใน package.json ส่วน component สำหรับ HTML/Vue/Svelte/Angular/Solid ใช้ `pane-react/all.css` ที่ชื่อ class คงที่ บวกบล็อก HTML ใต้ demo ทุกหน้า (renderToStaticMarkup) โดยบอกตรงๆ ว่าพฤติกรรม (คีย์บอร์ด เปิด/ปิด) ต้องต่อเอง
 - **ไม่ทำตอนนี้:** component แบบ native ของ SwiftUI/Compose/Flutter (ได้แค่ token) และ wrapper ของ Vue/Svelte หน้า `/getting-started/platforms` บอกระดับของแต่ละแพลตฟอร์มไว้
+
+### D-043: วัสดุสามแบบสลับกันได้ (liquid / glass / solid) และ anchor knobs
+- **วันที่:** 2026-11-01 · **เลือกโดย:** user ("b กับ C … จะกระจก ทึบใส จะ solid สลับไปมาได้หมด … มีอะไรที่เป็นเหมือน anchor แนะนำ ไม่ให้มันพัง แต่ก็ไม่ปิด")
+- **ตัดสิน:**
+  - `<Environment material>` มีสามค่า: `liquid` (lab แบบ B คือหักเหที่ขอบ นูนตรงกลาง blur ใสขึ้น ใช้ได้เฉพาะ Chromium นอกนั้นเป็น glass), `glass` (แบบ C ค่าเริ่มต้น และยังเป็น anchor ของ D-041) และ `solid`
+  - knob มีสองตัวคือ `--ds-look-corner` และ `--ds-look-density` (และ `--ds-look-control-corner` ถ้าต้องการ) ส่วน corner.inner, corner.media, corner.round และ gap ทั้งหมดคำนวณจากสองตัวนี้ผ่าน `kiln.derive` ใช้ได้ทั้งจาก `look` ของ Environment และจาก CSS บน `[data-look]` ถ้าไม่ตั้งอะไร ค่าเริ่มต้นเท่ากับของเดิมทุกตัว
+- **override ได้เสมอ:** ตั้ง token ตัวไหนก็ได้ทับลงไปหลัง knob

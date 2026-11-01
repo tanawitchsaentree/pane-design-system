@@ -886,3 +886,11 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .agent-marks svg { inline-size: 1.15em; block-size: 1.15em; }
 .agent-marks svg:first-child { color: var(--ds-crystal-warning-hue); }
 .agent-note { font-size: var(--ds-type-caption); max-inline-size: var(--ds-type-measure); }
+
+/* Anchor knobs (Choose your look): controls on one row, the live card, what follows */
+.look-knobs { display: grid; gap: var(--ds-gap-lg); }
+.look-knobs-controls { display: flex; flex-wrap: wrap; gap: var(--ds-gap-lg); align-items: end; }
+.look-knobs-controls > * { min-inline-size: var(--ds-control-slider-min); }
+.look-knobs-read { border-collapse: collapse; max-inline-size: var(--ds-type-measure); }
+.look-knobs-read caption { text-align: start; font-weight: var(--ds-type-weight-semibold); padding-block-end: var(--ds-gap-sm); }
+.look-knobs-read th, .look-knobs-read td { text-align: start; padding: var(--ds-gap-xs) var(--ds-gap-lg) var(--ds-gap-xs) 0; border-block-end: var(--ds-width-hairline) solid var(--ds-line-divider); font-variant-numeric: tabular-nums; }

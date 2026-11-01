@@ -24,7 +24,7 @@ If there is no package.json, offer to start one, and do nothing until the person
 Pane is installed from the tarball its site hosts, so the line works before the package is on a registry:
 
 ```sh
-<package manager> add https://pane-design-system.pages.dev/downloads/pane-react-0.7.0.tgz
+<package manager> add https://pane-design-system.pages.dev/downloads/pane-react-0.8.0.tgz
 ```
 
 Then import the stylesheet once, in the app's entry file (main.tsx, _app.tsx, layout.tsx or the like), before the app's own CSS:
