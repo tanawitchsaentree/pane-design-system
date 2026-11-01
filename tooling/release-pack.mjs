@@ -2,7 +2,7 @@
 // release-pack — builds and packs pane-tokens + pane-react into ./release as installable tarballs,
 // for handing to another project without publishing anywhere (publishing stays the user's call).
 //   npm install ./release/pane-tokens-0.1.0.tgz ./release/pane-react-0.1.0.tgz
-import { mkdirSync, readdirSync, readFileSync, copyFileSync } from 'node:fs';
+import { mkdirSync, readdirSync, readFileSync, copyFileSync, rmSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -28,6 +28,14 @@ console.log(`\n✓ release/: ${readdirSync(OUT).filter((f) => f.endsWith('.tgz')
 // judged by still installed 0.3.0). --consumers installs the React tarball into every app listed in
 // kiln.config.json `consumers` ([{ "path": "../my-app", "vendor": "vendor" }]) and typechecks it there;
 // the agent then screenshots each app in both themes before calling the release done.
+// the book hosts the newest React tarball, so the install line on the site and in /agent-setup/prompt.md
+// works for anyone before the package is on a registry (kiln rule 17)
+{
+  const react = readdirSync(OUT).filter((f) => /^pane-react-.*\.tgz$/.test(f)).sort((a, b) => a.localeCompare(b, undefined, { numeric: true })).pop();
+  const pub = path.join(ROOT, 'apps', 'docs', 'public', 'downloads'); mkdirSync(pub, { recursive: true });
+  for (const f of readdirSync(pub)) if (f.endsWith('.tgz') && f !== react) rmSync(path.join(pub, f));
+  if (react) { copyFileSync(path.join(OUT, react), path.join(pub, react)); console.log(`✓ hosted: apps/docs/public/downloads/${react}`); }
+}
 if (process.argv.includes('--consumers')) {
   const react = readdirSync(OUT).filter((f) => f.endsWith('.tgz') && f.includes('react')).sort().pop();
   for (const c of cfg.consumers ?? []) {

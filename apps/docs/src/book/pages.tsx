@@ -8,6 +8,7 @@ import { Brands } from './brands';
 import { Materials } from './materials';
 import { ChooseLook } from './look';
 import { Platforms } from './platforms';
+import { AgentOnboard } from './AgentOnboard';
 import FeedPostSrc from '../examples/FeedPost.tsx?raw';
 import MotionDemo from '../examples/MotionDemo';
 import MotionDemoSrc from '../examples/MotionDemo.tsx?raw';
@@ -117,6 +118,7 @@ function Overview() {
       title="Spatial glass for the web"
       lede={<p>Pane is a design system of clear, blurred glass panes floating over a real scene. It brings the look of visionOS to the browser and holds it to WCAG contrast at every pixel it can measure. Kiln built it from one anchor component you picked, the profile card below, and every part of that card is a Pane component.</p>}
     >
+      <AgentOnboard />
       <section className="hero" aria-label="The anchor card">
         <div className="hero-copy">
           <div className="panel" data-surface="">
@@ -200,6 +202,11 @@ function InstallApp() {
 function AiPage() {
   return (
     <Page eyebrow="Getting started" title="MCP and llms.txt" lede={<p>An AI assistant working in your project can look Pane up instead of guessing which component fits, how to import it, what every prop does and which tokens a theme can change. There are two ways in, built from the same generated data, so they always agree with this book.</p>}>
+      <Section id="agent-setup" title="One line for your agent">
+        <p>The home page has a button that copies one line. Paste it into Claude Code, Cursor, Codex or Copilot and the agent fetches <a href="/agent-setup/prompt.md">the setup instructions</a>, installs pane-react from this site, imports the stylesheet, saves the skill, adds the MCP server for this project and renders one Card to prove it works.</p>
+        <p>The instructions make the agent read the project first and say what it will change, then ask you once. It installs into the project only, never globally, and it never asks for a key or an account. When it finishes it names what it cannot check. Contrast on your own backdrops, keyboard paths and the motion rhythm are measured only inside a kiln system, so look at those yourself.</p>
+        <Code label="The line it copies">{'Fetch https://pane-design-system.pages.dev/agent-setup/prompt.md and follow it to set up Pane in this project. Ask me before you install anything.'}</Code>
+      </Section>
       <Section id="skill" title="A skill that teaches the system">
         <p>The MCP server answers questions. The skill sets the defaults. It tells an agent which component fits which job, the rules Pane enforces and the states every part must handle, so the right pattern shows up on the first try instead of after a review.</p>
         <p>It ships in the package and on this site. Copy it into the project's skills folder and Claude Code loads it whenever a screen is built with pane-react.</p>
@@ -224,13 +231,13 @@ function GettingStarted() {
   return (
     <Page eyebrow="Getting started" title="Getting started" lede={<p>Install the two packages and load the token stylesheet once. Then wrap the screen in an Environment that matches its backdrop and put your content on Cards.</p>}>
       <Section id="install" title="1 · Install">
-        <p>Pane is not on the npm registry yet, so installing <code>pane-react</code> by name fails with a 404. Install it from the tarball this repo builds, as below; once the packages are published the same import lines work unchanged.</p>
+        <p>Pane is not on the npm registry yet, so installing <code>pane-react</code> by name fails with a 404. This site hosts the tarball, so the line below works from any project, and once the package is published the same import lines work unchanged. A coding agent can do all of it for you from the line on the home page.</p>
         <p>One package and one import are enough. <code>pane-react</code> carries the tokens inside it, so a React app installs nothing else and loads one stylesheet. It needs React 18 or newer.</p>
         <Code label="Install">{`# in this repo
 pnpm run release:pack
 
 # in your project
-npm install /path/to/pilot-glass/release/pane-react-${meta.version}.tgz`}</Code>
+npm install https://pane-design-system.pages.dev/downloads/pane-react-${meta.version}.tgz`}</Code>
         <Code label="main.tsx">{"import 'pane-react/all.css';\nimport { Environment, Card, Button } from 'pane-react';"}</Code>
         <p>The tokens are also on their own as <code>pane-tokens</code>, for projects that are not React. The React package includes them as <code>pane-react/tokens.css</code> and <code>pane-react/tokens</code>, so you never need both.</p>
         <p>If a page uses only a few components, it can load less CSS. Import <code>pane-react/tokens/core.css</code> and <code>pane-react/tokens/colour.css</code> in place of <code>pane-react/tokens.css</code>, and import components from <code>pane-react</code> or <code>pane-react/Button</code> through a bundler such as Vite or Next.js. Each component then brings its own component tokens along with its styles, so a page with only a Button pays for the Button tokens and nothing else. The core sheet holds spacing, sizes, corners, type, motion, layers and layout. The colour sheet holds colours, shadows, themes and environments, and a product with its own palette can skip it and define those colour tokens itself. The split relies on the per-component styles, so keep <code>tokens.css</code> if you link <code>pane-react/styles.css</code>. The <code>all.css</code> file already contains every token.</p>
