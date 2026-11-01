@@ -1,16 +1,50 @@
 {
-  "generatedAt": "2026-11-01T06:48:17.028Z",
-  "passed": 1,
-  "total": 1,
+  "generatedAt": "2026-11-01T07:01:15.588Z",
+  "passed": 6,
+  "total": 6,
   "partial": true,
   "advisory": {},
   "results": [
     {
-      "id": "G-MO1",
-      "name": "every control on a component page answers hover and press in the rhythm: a transition, fast in, slow out, never the browser default",
+      "id": "G-D3",
+      "name": "no literal backtick in rendered text",
       "ok": true,
-      "detail": "96 controls on 24 pages",
-      "order": 53
+      "detail": "12 pages",
+      "order": 1
+    },
+    {
+      "id": "G-PF2",
+      "name": "page weight: no image over 300 kB, no page over 1.5 MB transferred (gzip counted)",
+      "ok": true,
+      "order": 9
+    },
+    {
+      "id": "G-C1",
+      "name": "every code block has a Copy button you can see",
+      "ok": true,
+      "detail": "38 code blocks",
+      "order": 11
+    },
+    {
+      "id": "G-PUB1",
+      "name": "an install command names only what can be installed: no bare registry install of an unpublished package",
+      "ok": true,
+      "detail": "12 pages, 2 unpublished packages never shown as a registry install",
+      "order": 34
+    },
+    {
+      "id": "G-BR1",
+      "name": "a subject shown as its own surface paints one, and no live example puts text straight on the photo",
+      "ok": true,
+      "detail": "12 pages, 4 photo stages",
+      "order": 45
+    },
+    {
+      "id": "G-NC1",
+      "name": "a shape inside a rounded shape nests its corner wherever it sits near one: even inset and inner radius = outer radius − inset",
+      "ok": true,
+      "detail": "1 pages",
+      "order": 55
     }
   ]
 }

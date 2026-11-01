@@ -878,3 +878,11 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .code [data-syntax='attr'] { color: var(--ds-syntax-attr); }
 .code [data-syntax='property'] { color: var(--ds-syntax-property); }
 .code [data-syntax='punctuation'] { color: var(--ds-syntax-punctuation); }
+
+/* Onboard your agent (home): one glass pill above the hero, its note under it */
+.agent-onboard { display: grid; justify-items: center; gap: var(--ds-gap-sm); margin-block-end: var(--ds-gap-xl); text-align: center; }
+.agent-pill { border-radius: var(--ds-corner-round); }
+.agent-marks { display: inline-flex; gap: var(--ds-gap-xs); }
+.agent-marks svg { inline-size: 1.15em; block-size: 1.15em; }
+.agent-marks svg:first-child { color: var(--ds-crystal-warning-hue); }
+.agent-note { font-size: var(--ds-type-caption); max-inline-size: var(--ds-type-measure); }

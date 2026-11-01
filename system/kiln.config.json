@@ -152,5 +152,24 @@
       "vendor": "vendor",
       "name": "Brick Forge"
     }
-  ]
+  ],
+  "agentSetup": {
+    "site": "https://pane-design-system.pages.dev",
+    "packages": [
+      {
+        "name": "pane-react",
+        "tarball": "/downloads/pane-react-0.7.0.tgz"
+      }
+    ],
+    "stylesheet": "pane-react/all.css",
+    "react": "18 or newer",
+    "mcp": {
+      "name": "pane",
+      "command": "npx pane-mcp"
+    },
+    "skill": "/skill.md",
+    "design": "/DESIGN.md",
+    "llms": "/llms-full.txt",
+    "starter": "import { Environment, Card, Button } from 'pane-react';\n\nexport function PaneCheck() {\n  return (\n    <Environment>\n      <Card>\n        <h2>Pane is working</h2>\n        <Button>Continue</Button>\n      </Card>\n    </Environment>\n  );\n}"
+  }
 }
