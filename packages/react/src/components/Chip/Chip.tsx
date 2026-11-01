@@ -48,10 +48,15 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
         }}
         {...rest}
       >
-        {!onRemove && on && (
-          <svg className={styles.icon} viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+        {/* R-048: the check is always there and its track opens and closes, so choosing a chip grows it
+            smoothly and its neighbours glide instead of jumping */}
+        {!onRemove && (
+          <span className={styles.mark} aria-hidden="true"><span className={styles.markInner}>
+            <svg className={styles.icon} viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </span></span>
         )}
-        {children}
+        {/* the label keeps room for its chosen (heavier) weight, so the weight change never moves the edge */}
+        <span className={styles.label} data-text={typeof children === 'string' ? children : undefined}>{children}</span>
       </button>
       {onRemove && (
         <button type="button" className={styles.remove} aria-label={t.removeItem(label)} onClick={onRemove} disabled={disabled}>

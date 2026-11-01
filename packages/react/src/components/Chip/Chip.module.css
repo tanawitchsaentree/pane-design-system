@@ -14,8 +14,32 @@
   font-family: var(--ds-type-family);
   font-size: var(--ds-type-label);
   font-weight: var(--ds-type-weight-medium);
-  transition: box-shadow var(--ds-motion-hover) var(--ds-motion-easing), background-color var(--ds-motion-hover) var(--ds-motion-easing);
+  transition: box-shadow var(--ds-motion-press) var(--ds-motion-easing), color var(--ds-motion-press) var(--ds-motion-easing);
 }
+/* R-048: the chosen fill is its own layer that fades in, because a gradient swap cannot be transitioned
+   and turned on in one frame. It settles on the press's slow way back up (motion.press, 300ms). */
+.root::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, var(--ds-chip-on-top), var(--ds-chip-on-foot));
+  opacity: 0;
+  transition: opacity var(--ds-motion-press) var(--ds-motion-easing);
+  pointer-events: none;
+}
+.on::after { opacity: 1; }
+/* the check's track: closed it takes no width, open it holds the check and its gap */
+.mark { display: inline-grid; grid-template-columns: 0fr; margin-inline-end: calc(var(--ds-chip-gap) * -1); transition: grid-template-columns var(--ds-motion-press) var(--ds-motion-easing); }
+.markInner { display: inline-flex; min-inline-size: 0; overflow: hidden; }
+.markInner .icon { margin-inline-end: var(--ds-chip-gap); opacity: 0; transform: scale(var(--ds-motion-press-scale)); transition: opacity var(--ds-motion-press) var(--ds-motion-easing), transform var(--ds-motion-press) var(--ds-motion-easing); }
+.on .mark { grid-template-columns: 1fr; }
+.on .markInner .icon { opacity: 1; transform: none; }
+/* the label reserves its chosen weight's width, so semibold never widens the chip */
+.label { display: inline-flex; flex-direction: column; }
+.label::after { content: attr(data-text); block-size: 0; overflow: hidden; visibility: hidden; font-weight: var(--ds-type-weight-semibold); user-select: none; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .mark { transition: none; } }
 /* the streak: light catching the curve of the top edge, brightest at its centre (round 5) */
 .root::before {
   content: '';
@@ -30,7 +54,7 @@
   -webkit-mask-image: linear-gradient(90deg, transparent 22%, black 50%, transparent 78%);
   mask-image: linear-gradient(90deg, transparent 22%, black 50%, transparent 78%);
 }
-.on { background: linear-gradient(180deg, var(--ds-chip-on-top), var(--ds-chip-on-foot)); color: var(--ds-chip-on-fg); box-shadow: var(--ds-chip-edge), var(--ds-chip-on-cast); font-weight: var(--ds-type-weight-semibold); }
+.on { color: var(--ds-chip-on-fg); box-shadow: var(--ds-chip-edge), var(--ds-chip-on-cast); font-weight: var(--ds-type-weight-semibold); }
 .toggle, .remove {
   position: relative;
   display: inline-flex;
@@ -77,9 +101,10 @@
 .warning { --top: var(--ds-crystal-warning-top); --foot: var(--ds-crystal-warning-foot); --rim: var(--ds-crystal-warning-rim); --glow: var(--ds-crystal-warning-glow); --tint: var(--ds-crystal-warning-muted); --k: var(--ds-crystal-warning-ink); --s: var(--ds-crystal-warning-solid); --o: var(--ds-crystal-warning-on-solid); }
 .critical { --top: var(--ds-crystal-critical-top); --foot: var(--ds-crystal-critical-foot); --rim: var(--ds-crystal-critical-rim); --glow: var(--ds-crystal-critical-glow); --tint: var(--ds-crystal-critical-muted); --k: var(--ds-crystal-critical-ink); --s: var(--ds-crystal-critical-solid); --o: var(--ds-crystal-critical-on-solid); }
 .accent { --top: var(--ds-crystal-accent-top); --foot: var(--ds-crystal-accent-foot); --rim: var(--ds-crystal-accent-rim); --glow: var(--ds-crystal-accent-glow); --tint: var(--ds-crystal-accent-muted); --k: var(--ds-crystal-accent-ink); --s: var(--ds-crystal-accent-solid); --o: var(--ds-crystal-accent-on-solid); }
+/* a toned chip's chosen fill is the crystal, on the same fading layer */
+.toned::after { background: linear-gradient(180deg, var(--top) 0%, var(--foot) 52%, var(--foot) 100%); }
 .toned.on {
   text-shadow: none;
   color: var(--k);
-  background: linear-gradient(180deg, var(--top) 0%, var(--foot) 52%, var(--foot) 100%);
   box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--rim), inset 0 var(--ds-width-hairline) 0 var(--ds-crystal-facet), inset 0 calc(var(--ds-width-hairline) * -1) 0 var(--glow);
 }

@@ -4,6 +4,7 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.8.0 (2026-11-01)
 
+- Chip chooses smoothly (R-048). The chosen fill fades in, the check's track opens so the chip grows and its neighbours glide instead of jumping, and the label keeps room for its heavier weight. All of it settles on the press's 300ms way back up. Under reduced motion the width changes at once and the fade stays.
 - Environment takes `look` (D-043): `corner`, `density` and `controls` are the anchor knobs, and every inner corner, media corner, control corner and gap follows them so nesting holds. The same knobs work in plain CSS as `--ds-look-*` on any `[data-look]` element, and any token can still be set after them.
 
 ## 0.7.0 (2026-10-30)
