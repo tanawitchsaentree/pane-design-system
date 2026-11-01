@@ -4,6 +4,7 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- Environment takes `material="liquid"` (R-045). Every glass pane inside bends the scene at its rim and lifts its middle like a lens, from a map built for its own size and corner, with a clearer blur so the bend shows. Chrome and Edge run it, and other browsers show plain glass.
 - ActionSheet fades its rows on hover with the hover rhythm, light up in 130ms and fade over 380ms (R-044). Every hover and press in the system now enters fast and leaves slowly, through one token rule, and keeps that rhythm under Reduce motion, where only travel stops.
 - A CodeBlock under every live demo now holds the HTML of that demo, with the stable class names from all.css, so a Vue, Svelte, Angular or plain page can copy it (D-042). The tokens also build for Kotlin, Dart, Tailwind and Figma.
 - CodeBlock: new. Code in colour from the syntax tokens, every role at 4.5:1 on its code ground, with Copy always in reach, Show all for long files, line numbers and IDE palettes as code themes (GitHub Dark and Light, One Dark, Dracula, Solarized Light) (D-040).

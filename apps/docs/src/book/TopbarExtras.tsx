@@ -55,26 +55,29 @@ export function GitHubLink() {
   );
 }
 
+export type Material = 'glass' | 'liquid' | 'solid';
+const MATERIAL_LABEL: Record<Material, string> = { glass: 'Glass', liquid: 'Liquid', solid: 'Solid' };
+
 /** The look of the book in one place (M1): material first, then brand, then the demo backdrop. The theme
  *  stays a visible control beside it because it is the one people change most. The button says the
  *  current choice, so the reader can see what the book is showing without opening it. */
 export function AppearanceMenu({ material, onMaterial, brand, onBrand, brands, codeTheme, onCodeTheme, codeThemes }: {
-  material: 'glass' | 'solid'; onMaterial: (m: 'glass' | 'solid') => void;
+  material: Material; onMaterial: (m: Material) => void;
   brand: string; onBrand: (b: string) => void; brands: Array<{ id: string; name: string }>;
   codeTheme: string; onCodeTheme: (c: string) => void; codeThemes: Array<{ id: string; name: string }>;
 }) {
   const brandName = brand === 'pane' ? 'Pane' : brands.find((b) => b.id === brand)?.name ?? brand;
-  const summary = `${material === 'glass' ? 'Glass' : 'Solid'} · ${brandName}`;
+  const summary = `${MATERIAL_LABEL[material]} · ${brandName}`;
   // the trigger names whatever is not the default, so a reader who set Solid or a brand can see it without opening the menu (R-038)
   const codeName = codeThemes.find((c) => c.id === codeTheme)?.name;
-  const changed = [material === 'solid' && 'Solid', brand !== 'pane' && brandName, codeTheme !== 'pane' && codeName].filter(Boolean).join(' · ');
+  const changed = [material !== 'glass' && MATERIAL_LABEL[material], brand !== 'pane' && brandName, codeTheme !== 'pane' && codeName].filter(Boolean).join(' · ');
   return (
     <span className="tb-appearance" data-brand-control="" data-material-control="">
       <Popover title="Appearance" align="end"
         trigger={<button type="button" className="tb-version tb-look" aria-label={`Appearance of the examples: ${summary}`} title={summary}><svg className="tb-look-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M12 3.5a8.5 8.5 0 0 0 0 17z" /></svg><span className="tb-look-text">{changed || 'Appearance'}</span><Chevron /></button>}>
         <div className="tb-look-body">
           <p className="tb-look-intro">How the examples in this book look. The backdrop is picked beside each example. In your own product these are one prop each, set in code.</p>
-          <SegmentedControl label="Material" value={material} onValueChange={(v) => onMaterial(v as 'glass' | 'solid')} options={[{ value: 'glass', label: 'Glass' }, { value: 'solid', label: 'Solid' }]} />
+          <SegmentedControl label="Material" value={material} onValueChange={(v) => onMaterial(v as Material)} options={[{ value: 'liquid', label: 'Liquid' }, { value: 'glass', label: 'Glass' }, { value: 'solid', label: 'Solid' }]} />
           <Select label="Brand" size="sm" value={brand} onValueChange={onBrand} options={[{ value: 'pane', label: 'Pane' }, ...brands.map((b) => ({ value: b.id, label: b.name }))]} />
           <Select label="Code theme" size="sm" value={codeTheme} onValueChange={onCodeTheme} options={[{ value: 'pane', label: 'Pane' }, ...codeThemes.map((c) => ({ value: c.id, label: c.name }))]} />
           <a className="tb-look-link" href="/getting-started/look" onClick={(e) => { e.preventDefault(); navigate('/getting-started/look'); }}>How to choose these for a product</a>

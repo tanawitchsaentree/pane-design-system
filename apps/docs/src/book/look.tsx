@@ -6,8 +6,8 @@ export function ChooseLook() {
   return (
     <Page eyebrow="Getting started" title="Choose your look" lede={<p>Four choices set how a product built with Pane looks, and each is one attribute or prop. Make them in this order, because each one narrows the next.</p>}>
       <Section id="material" title="1. Material">
-        <p>Glass shows the scene through blurred, dimmed panes. Solid keeps the same lit, carved shapes and makes them opaque. A live backdrop or a reading-heavy tool points to solid, and a product with a scene worth seeing points to glass. Pick one for the whole screen.</p>
-        <Code label="React">{`<Environment material="glass">…</Environment>   // or "solid"`}</Code>
+        <p>Glass shows the scene through blurred, dimmed panes. Solid keeps the same lit, carved shapes and makes them opaque. A live backdrop or a reading-heavy tool points to solid, and a product with a scene worth seeing points to glass. Liquid is glass whose panes also bend the scene at their rim and lift their middle like a lens. It runs in Chrome and Edge, and other browsers show plain glass. Pick one for the whole screen.</p>
+        <Code label="React">{`<Environment material="glass">…</Environment>   // or "liquid" or "solid"`}</Code>
         <p>The full journey, the comparison and what it changes are in <Link to="/foundations/materials">Materials</Link>.</p>
       </Section>
       <Section id="theme" title="2. Theme">

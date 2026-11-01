@@ -49,8 +49,8 @@ export function App() {
     else { document.documentElement.dataset.brand = brand; localStorage.setItem('pane-brand', brand); }
   }, [brand]);
   // Material (M1): glass by default; solid from the Appearance control, stored, named in the address only when picked
-  const asMaterial = (v: string | null) => (v === 'glass' || v === 'solid' ? v : null);
-  const [material, setMaterial] = useState<'glass' | 'solid'>(() => asMaterial(new URLSearchParams(location.search).get('material')) ?? asMaterial(localStorage.getItem('pane-material')) ?? 'glass');
+  const asMaterial = (v: string | null) => (v === 'glass' || v === 'solid' || v === 'liquid' ? v : null);
+  const [material, setMaterial] = useState<'glass' | 'liquid' | 'solid'>(() => asMaterial(new URLSearchParams(location.search).get('material')) ?? asMaterial(localStorage.getItem('pane-material')) ?? 'glass');
   useLayoutEffect(() => { if (material === 'glass') localStorage.removeItem('pane-material'); else localStorage.setItem('pane-material', material); }, [material]);
   // Code theme (D-040): Pane's syntax palette by default; an IDE palette from Appearance, stored, in the address only when picked
   const asCode = (v: string | null) => (v && CODE_THEMES.some((t) => t.id === v) ? v : null);
