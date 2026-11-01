@@ -169,7 +169,7 @@ main td p, main [data-example-live] p { max-inline-size: none; }
 .example-bar { display: flex; justify-content: space-between; align-items: center; gap: var(--ds-gap-lg); flex-wrap: wrap; }
 .example-title { font-size: var(--ds-type-label); color: var(--ds-text-secondary); }
 .example-actions { display: flex; gap: var(--ds-gap-md); }
-.code { margin: 0; padding: var(--ds-gap-xl) var(--ds-gap-inset); border-radius: var(--ds-corner-inner); background: var(--ds-syntax-bg); color: var(--ds-syntax-fg); overflow-x: auto; font-size: var(--ds-type-caption); line-height: 1.6; text-shadow: none; }
+.code { text-shadow: none; margin: 0; padding: var(--ds-gap-xl) var(--ds-gap-inset); border-radius: var(--ds-corner-inner); background: var(--ds-syntax-bg); color: var(--ds-syntax-fg); overflow-x: auto; font-size: var(--ds-type-caption); line-height: 1.6; text-shadow: none; }
 /* only code the reader just revealed with Show code eases in; page code is there at once (G-S5) */
 .example > .code { animation: tab-fade var(--ds-motion-enter) var(--ds-motion-easing); }
 @keyframes tab-fade { from { opacity: 0; transform: translateY(calc(var(--ds-motion-rise) / 2)); } }
@@ -591,7 +591,9 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .elev-scrim { position: absolute; inset: 0; border-radius: inherit; background: var(--ds-card-scrim); -webkit-backdrop-filter: blur(var(--ds-space-1-5)); backdrop-filter: blur(var(--ds-space-1-5)); }
 .elev-grid .elev-dialog { position: absolute; inset-inline: 8%; inset-block-start: 12%; }
 .elev-actions { display: flex; gap: var(--ds-gap-md); }
-.elev-grid .elev-popover.elev-popover { position: absolute; z-index: 2; min-block-size: 0; inset-inline-end: 6%; inset-block-start: 58%; padding: var(--ds-gap-md); }
+.elev-grid .elev-dialog { overflow: visible; }
+.elev-anchor { position: relative; display: inline-flex; }
+.elev-grid .elev-popover.elev-popover { position: absolute; z-index: 2; min-block-size: 0; inset-inline-start: 0; inset-block-start: calc(100% + var(--ds-gap-sm)); padding: var(--ds-gap-md); white-space: nowrap; }
 /* Glow section: the same pane in both themes; a weekday tracker whose current day is a glowing mark */
 .glow-pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: var(--ds-gap-2xl); }
 .glow-pair > div { display: flex; flex-direction: column; gap: var(--ds-gap-2xl); }

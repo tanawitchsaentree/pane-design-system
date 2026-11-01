@@ -23,10 +23,12 @@ export function ElevationDemo() {
         <Card as="div" level={3} className="elev-dialog" data-level-sample="3" role="group" aria-label="Level 3, an overlay">
           <p className="eyebrow flush">Level 3 · an overlay</p>
           <Card as="div" data-level-sample="2"><p className="flush">A surface inside the overlay</p></Card>
-          <div className="elev-actions"><Button size="sm">Save</Button><Button size="sm" variant="glass">Cancel</Button></div>
+          <div className="elev-actions"><Button size="sm">Save</Button><Button size="sm" variant="glass">Cancel</Button>
+            {/* the popover hangs from the button that opened it, its start edge on the button's start */}
+            <span className="elev-anchor"><Button size="sm" variant="ghost" chevron aria-expanded>More</Button>
+              <Card as="div" level={4} className="elev-popover" data-level-sample="4" data-pill-ok=""><Chip>Level 4 · a popover</Chip></Card></span>
+          </div>
         </Card>
-        {/* the popover floats over the overlay, so it sits outside it and is never clipped by its corner */}
-        <Card as="div" level={4} className="elev-popover" data-level-sample="4" data-pill-ok=""><Chip>Level 4 · a popover</Chip></Card>
       </Stage>
     </div>
   );

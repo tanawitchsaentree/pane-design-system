@@ -512,7 +512,7 @@
         "$description": "level 1, a pane: smoked body at 78%"
       },
       "2": {
-        "$value": "#FFFFFF0D",
+        "$value": "#FFFFFF12",
         "$description": "level 2, a surface nested in a pane: +7% white, no second blur"
       },
       "3": {
@@ -555,6 +555,12 @@
       "glass-light": {
         "$value": "#F7F7F9A8",
         "$description": "the light glass body at 66%: the scene shows through as frosted glass while ink keeps its contrast (D-035)"
+      },
+      "2-solid": {
+        "$value": "#34353C"
+      },
+      "2-solid-light": {
+        "$value": "#FFFFFF"
       }
     },
     "loud": {
@@ -1720,6 +1726,12 @@
     "ring-light": {
       "$value": "inset 0 0 0 1px #111214B3",
       "$description": "the light-theme groove ring alone: an ink hairline all round that carries a 3:1 boundary on pale glass"
+    },
+    "step": {
+      "$value": "inset 0 0 0 1px #FFFFFF17, inset 0 1px 0 #FFFFFF14"
+    },
+    "step-light": {
+      "$value": "inset 0 0 0 1px #11121414, inset 0 1px 0 #FFFFFF"
     }
   },
   "duration": {

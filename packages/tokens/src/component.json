@@ -146,15 +146,27 @@
         }
       }
     },
-    "l2-ring": {
-      "$value": "{line.rim-lo}",
+    "l2-edge": {
+      "$value": "{level-shadow.step}",
+      "$type": "shadow",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "the card's inner surface is a raised step with a hairline, the way a panel sits in a node editor"
+        }
+      }
+    },
+    "level2-solid": {
+      "$value": "{level.2-solid}",
       "$type": "color",
       "$extensions": {
         "kiln.why": {
           "p": [
             "P3"
           ],
-          "why": "a surface inside a pane is a tonal step with one faint hairline, never a second lit slab, so the levels read apart"
+          "why": "on solid material the inner surface takes the opaque lighter step"
         }
       }
     }

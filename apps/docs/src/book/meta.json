@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T02:17:33.152Z",
+  "generatedAt": "2026-11-01T03:02:59.903Z",
   "version": "0.7.0",
   "components": {
     "Accordion": {
@@ -173,8 +173,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 48986,
-        "cssMin": 5164,
-        "gzip": 18736
+        "cssMin": 5235,
+        "gzip": 18740
       }
     },
     "AgentStatus": {
@@ -1624,8 +1624,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 578,
-        "cssMin": 2969,
-        "gzip": 1301
+        "cssMin": 3040,
+        "gzip": 1300
       }
     },
     "Carousel": {
@@ -2246,8 +2246,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 75545,
-        "cssMin": 5007,
-        "gzip": 28843
+        "cssMin": 5078,
+        "gzip": 28844
       }
     },
     "CoachMark": {
@@ -2363,8 +2363,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 79585,
-        "cssMin": 10020,
-        "gzip": 31080
+        "cssMin": 10091,
+        "gzip": 31086
       }
     },
     "CodeBlock": {
@@ -2448,9 +2448,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 9631,
-        "cssMin": 2820,
-        "gzip": 5185
+        "jsMin": 9651,
+        "cssMin": 2804,
+        "gzip": 5188
       }
     },
     "ColorPicker": {
@@ -2767,8 +2767,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 50823,
-        "cssMin": 8372,
-        "gzip": 20113
+        "cssMin": 8443,
+        "gzip": 20115
       }
     },
     "ConfidenceChip": {
@@ -3215,8 +3215,8 @@
       "demoFloor": 7,
       "bundle": {
         "jsMin": 82689,
-        "cssMin": 15352,
-        "gzip": 33218
+        "cssMin": 15423,
+        "gzip": 33227
       }
     },
     "DescriptionList": {
@@ -3394,8 +3394,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 42814,
-        "cssMin": 4443,
-        "gzip": 15951
+        "cssMin": 4514,
+        "gzip": 15954
       }
     },
     "Divider": {
@@ -3579,8 +3579,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 43514,
-        "cssMin": 5388,
-        "gzip": 16428
+        "cssMin": 5459,
+        "gzip": 16431
       }
     },
     "Dropzone": {
@@ -6477,8 +6477,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 81545,
-        "cssMin": 16787,
-        "gzip": 32401
+        "cssMin": 16858,
+        "gzip": 32411
       }
     },
     "NumberInput": {
@@ -7089,8 +7089,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 69593,
-        "cssMin": 3892,
-        "gzip": 26028
+        "cssMin": 3963,
+        "gzip": 26030
       }
     },
     "Progress": {
@@ -8663,8 +8663,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 43358,
-        "cssMin": 5388,
-        "gzip": 16384
+        "cssMin": 5459,
+        "gzip": 16386
       }
     },
     "Sidebar": {

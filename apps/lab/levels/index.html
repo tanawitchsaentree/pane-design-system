@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Levels · lab</title>
+<style>body{margin:0;padding:24px;background:#050506;color:#fff;font:14px/1.45 -apple-system,system-ui}
+.row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px}.sc{border-radius:26px;padding:26px;min-height:260px}
+.photo{background:center/cover url(forest.jpg)}.canvas{background:#0d0d0f radial-gradient(#ffffff14 1px,transparent 1px) 0 0/18px 18px}
+.tag{font-size:11px;font-weight:700;letter-spacing:.06em;color:#fffa;margin:0 0 10px}
+.p{border-radius:28px;padding:16px;position:relative}
+.glass{background:linear-gradient(180deg,#ffffff1a,#ffffff08 55%),#24252B73;backdrop-filter:blur(32px) saturate(1.8) brightness(.5);box-shadow:inset 0 1px 0 #ffffff33,inset -1px -6px 14px -6px #000000b3,0 22px 48px -14px #000000e0}
+.solid{background:#26272B;box-shadow:inset 0 0 0 1px #ffffff12,0 22px 48px -14px #000000e0}
+.h{font-size:12px;margin:2px 6px 10px;color:#fffc}.in{border-radius:16px;padding:12px 14px;margin-top:8px}.in b{display:block;font-size:13px}.in span{font-size:12px;color:#ffffffb0}
+.well{margin-top:10px;border-radius:12px;padding:9px 12px;font-size:12px;color:#fff9}
+/* A raised step (the reference): a lighter panel with a crisp hairline */
+.A.glass .in{background:#ffffff12;box-shadow:inset 0 0 0 1px #ffffff17,inset 0 1px 0 #ffffff14}.A.solid .in{background:#303136;box-shadow:inset 0 0 0 1px #ffffff14}
+/* B recessed tray */
+.B .in{background:#00000033;box-shadow:inset 0 1px 3px #00000066,inset 0 -1px 0 #ffffff14}
+/* C flat tint, no edge */
+.C .in{background:#ffffff0d}
+.glass .well,.solid .well{background:#0000004d;box-shadow:inset 0 1px 2px #00000080}
+</style></head><body><h1 style="font-size:18px;margin:0 0 4px">A surface inside a pane: three ways, behind glass and behind solid</h1>
+<p style="color:#fffb;margin:0 0 16px;max-width:80ch">A raised step: a lighter panel with a crisp hairline, like the node editor you sent. B a recessed tray. C a flat tint. Each row: glass over a photo, glass on a dark canvas, solid on the canvas. The field inside stays a darker well in every case, so panel and field never look alike. My pick is A.</p>
+<script>
+const rows=[['photo','glass'],['canvas','glass'],['canvas','solid']];
+for(const [sc,m] of rows){const r=document.createElement('div');r.className='row';r.innerHTML=['A','B','C'].map(k=>`<div class="sc ${sc}"><p class="tag">${k} · ${m} on ${sc}</p><div class="p ${m} ${k}"><p class="h">Image generator</p><div class="in"><b>Positive</b><span>A black bear with a pink snout</span><div class="well">Type what you want</div></div></div></div>`).join('');document.body.appendChild(r)}
+</script></body></html>

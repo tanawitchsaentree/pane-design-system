@@ -153,7 +153,7 @@ export const CODE_BLOCK: Depth = {
   whenToUse: ['Code a reader will copy or read closely: an install line, a snippet, a config file.'],
   whenNot: [{ situation: 'A word or a value inside a sentence', to: '/components/kbd', label: 'Kbd or inline code' }, { situation: 'Output a person reads as prose', to: '/components/text', label: 'Text' }],
   variants: { na: 'CodeBlock has one look; the language picks how the code is read, not how the block looks (see Modifiers).' },
-  anatomy: { render: <Wide><CodeBlock label="TSX" code={SAMPLE.tsx} /></Wide>, parts: [{ part: 'Bar', selector: '[data-component="CodeBlock"] > div', what: 'The label and the actions, parted from the code by a hairline.' }, { part: 'Code', selector: '[data-component="CodeBlock"] pre', what: 'The code in the mono face on its opaque ground.' }, { part: 'Role', selector: '[data-syntax="keyword"]', what: 'One run of a syntax role in its hue.' }] },
+  anatomy: { render: <Wide><CodeBlock label="TSX" code={SAMPLE.tsx} /></Wide>, parts: [{ part: 'Bar', selector: '[data-component="CodeBlock"] > div', what: 'The label and the actions, parted from the code by a hairline.' }, { part: 'Code', selector: '[data-component="CodeBlock"] pre', what: 'The code in the mono face on its opaque ground, each role in its own hue.' }] },
   sizes: NA_S('CodeBlock'),
   emphasis: { na: 'A code block is read closely, never loud; its colour is in the code, not around it.' },
   placement: { rows: [['Under the sentence that explains it', 'Say what the code does first.'], ['Inside a pane', 'It nests like any inner surface.']], examples: [{ title: 'Under its sentence', render: <Wide><Text as="p">Install the tarball.</Text><CodeBlock label="Terminal" language="bash" code={SAMPLE.bash} /></Wide> }] },
