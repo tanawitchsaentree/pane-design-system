@@ -1,10 +1,10 @@
 {
-  "L": 0.5269,
-  "C": 0.0023,
-  "rim": 1.089,
+  "L": 0.31,
+  "C": 0.0215,
+  "rim": 1.072,
   "scene": "forest",
   "theme": "dark",
-  "recordedFrom": "apps/lab/concept-check/index.html",
-  "selector": ".forest .card.A",
-  "recordedAt": "2026-10-31T08:22:30.269Z"
+  "recordedFrom": "http://localhost:4173/components/card/code?theme=dark&backdrop=forest",
+  "selector": "[data-example-live] [data-pane-card]",
+  "recordedAt": "2026-11-01T05:13:11.121Z"
 }
