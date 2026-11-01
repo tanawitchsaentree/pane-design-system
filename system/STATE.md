@@ -1,11 +1,12 @@
 # STATE — working memory ของ system นี้
 - **System:** Pane (`pane-tokens`, `pane-react`) — spatial glass จาก anchor A (D-008): กระจกใส + หรี่ฉากหลัง (D-010/D-011) บนรูปถ่ายจริง
-- **Phase ปัจจุบัน:** 0.7.0 live ที่ pane-design-system.pages.dev (release-0.7 push แล้ว a8682d6) · 118 components · tarball ใหม่ใน `release/` (19:42)
-- **งานล่าสุดที่เสร็จ (2026-10-30):** code-split docs (main 55 kB gz, G-PF2 ผ่าน) · X11 ConfidenceChip/NodeCard/NetworkGraph/SequenceDiagram + D-032 · conformance 441/441 · Badge provenance
-- **งานถัดไป:** แก้ contrast จาก evidence (aurora/city ~500 จุดต่อ scene) · tone debt 58 หน้า · token sheet split ให้ PEG · X2 DataGrid (พักไว้) · X3–X9
+- **Phase ปัจจุบัน:** 0.7.0 live ที่ pane-design-system.pages.dev · 126 components · engine kiln 2.6.0
+- **งานล่าสุดที่เสร็จ (2026-11-01):** R-044 motion rhythm · Onboard your agent + tarball ที่ /downloads · DESIGN.md · Platforms (D-042) · token Kotlin/Dart/Tailwind/Figma · gates G-MO1/2, G-CP1, G-BJ1, G-FR1, G-SP1, G-SC1, G-PG1 เขียว
+- **งานถัดไป:** ดู NEXT.md (full verify + evidence ใหม่, evidence แดง 34, motion choreography, G-PG1 marks, Pro tier)
 - **Wave ปัจจุบัน:** pilot · **Component ผ่าน QA:** 13/13 (Alpha 1: Environment, Beta 12)
 - **ค้าง/blocked:** — (ดู BACKLOG.md)
 ## Log ย่อ (ใหม่สุดบน ≤15 บรรทัด)
+- 2026-11-01: motion rhythm R-044, agent onboarding, DESIGN.md, platforms D-042, kiln 2.3–2.6 (app type, budget, rhythm gates, tactile recipe, 6 gates จาก backlog); dial (ระบบที่ 2) หา bug ของ kiln ได้ 12 ตัว แก้หมด
 - 2026-10-30 ค่ำ: code-split + X11 (4 ตัว, D-032) push/deploy; kiln: conformance KILN_CHECKS ไม่ทับผลเต็ม, G-SV1 รับ aria-current
 - 2026-10-30: 0.7.0 — wave 1–10 (83 ตัวใหม่), charts (D-031), G-PUB1; smoke 22/22 จาก tarball
 - 2026-10-29: 0.6.0 — Mesh + pane-mesh CLI, glow (D-027), fill slider (D-026), studio/aurora backdrops, gallery dialog; gates ใหม่ G-IN1 G-ST1 G-RH1 G-GL1 G-SL1 G-S6; ต่อไป: evidence เต็มเล่มทุก scene (R-020), push main, อัปเกรด Brick Forge
