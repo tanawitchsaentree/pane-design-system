@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T03:02:59.903Z",
+  "generatedAt": "2026-11-01T05:45:35.965Z",
   "version": "0.7.0",
   "components": {
     "Accordion": {
@@ -2449,8 +2449,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 9651,
-        "cssMin": 2804,
-        "gzip": 5188
+        "cssMin": 2821,
+        "gzip": 5194
       }
     },
     "ColorPicker": {
@@ -8190,7 +8190,7 @@
               "type": "boolean",
               "required": false,
               "default": "false",
-              "description": "Shows the label above the track, as Select and the fields do, so a segmented control lines up with them in a row of labelled controls. Off by default: a mode switch usually explains itself.",
+              "description": "Shows the label above the track, as Select and the fields do, so a segmented control lines up with them in a row of labelled controls. It is off by default, since a mode switch usually explains itself.",
               "enum": false,
               "options": null
             },

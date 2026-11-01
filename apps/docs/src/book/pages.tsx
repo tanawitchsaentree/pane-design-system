@@ -7,6 +7,7 @@ import FeedPost from '../examples/FeedPost';
 import { Brands } from './brands';
 import { Materials } from './materials';
 import { ChooseLook } from './look';
+import { Platforms } from './platforms';
 import FeedPostSrc from '../examples/FeedPost.tsx?raw';
 import MotionDemo from '../examples/MotionDemo';
 import MotionDemoSrc from '../examples/MotionDemo.tsx?raw';
@@ -1050,6 +1051,7 @@ const BASE_PAGES: Record<string, () => ReactElement> = {
   '/foundations/brands': Brands,
   '/foundations/materials': Materials,
   '/getting-started/look': ChooseLook,
+  '/getting-started/platforms': Platforms,
   '/foundations/typography': Typography,
   '/foundations/spacing': Spacing,
   '/foundations/grid': GridLayoutPage,

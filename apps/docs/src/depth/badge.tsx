@@ -31,7 +31,7 @@ export const BADGE: Depth = {
     positive: { purpose: 'A good outcome, such as Paid or Verified. A green circle with a check before the word.', pairing: 'One per item. Avoid beside critical on the same row.' },
     warning: { purpose: 'Something needs attention soon, such as Expiring. An amber triangle before the word.', pairing: 'Pair with the action that fixes it nearby.' },
     critical: { purpose: 'Something failed or is blocked, such as Failed or Declined. A red octagon before the word.', pairing: 'Pair with a way to fix it. Never on every row.' },
-    accent: { purpose: 'New or featured, such as New or Pick of the week. A violet crystal and the word, with no glyph: new is news, not a status.', pairing: 'One per view, so it keeps its pull.' },
+    accent: { purpose: 'New or featured, such as New or Pick of the week. A violet crystal and the word, with no glyph, because new is news and carries no status.', pairing: 'One per view, so it keeps its pull.' },
   },
   anatomy: {
     render: <OnCard><Stack direction="row" gap="md"><Badge tone="positive">Live</Badge><Badge dot>Draft</Badge></Stack></OnCard>,

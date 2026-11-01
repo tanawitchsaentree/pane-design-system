@@ -18,7 +18,7 @@ export interface SegmentedControlProps {
   onValueChange?: (value: string) => void;
   /** `md` (default) or `sm` for toolbars. */
   size?: 'md' | 'sm';
-  /** Shows the label above the track, as Select and the fields do, so a segmented control lines up with them in a row of labelled controls. Off by default: a mode switch usually explains itself. */
+  /** Shows the label above the track, as Select and the fields do, so a segmented control lines up with them in a row of labelled controls. It is off by default, since a mode switch usually explains itself. */
   showLabel?: boolean;
   /** Extra class on the root. */
   className?: string;

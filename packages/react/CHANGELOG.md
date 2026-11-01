@@ -4,9 +4,10 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- A CodeBlock under every live demo now holds the HTML of that demo, with the stable class names from all.css, so a Vue, Svelte, Angular or plain page can copy it (D-042). The tokens also build for Kotlin, Dart, Tailwind and Figma.
 - CodeBlock: new. Code in colour from the syntax tokens, every role at 4.5:1 on its code ground, with Copy always in reach, Show all for long files, line numbers and IDE palettes as code themes (GitHub Dark and Light, One Dark, Dracula, Solarized Light) (D-040).
 - Card: the glass has volume. A hairline rim lit at the top left and again along the foot where light leaves the slab, a bevel inside (a lit upper lip, a shaded lower one) and a deeper lift (R-041).
-- Badge: the crystal is clear: a thin tint lit at the top, a crisp rim and a hairline of the tone at the foot, with no glow around it.
+- The Badge crystal is clear, with a thin tint lit at the top, a crisp rim and a hairline of the tone at the foot, with no glow around it.
 - Chip: a chosen chip with a tone is the same clear crystal as Badge.
 - PaneProvider: with reduced motion, hover and press keep a 100ms fade of colour and light while every movement stops (D-039); before, every duration went to 0 and controls snapped.
 - IconButton: a swapped glyph, such as play to pause, fades in.
@@ -32,12 +33,12 @@ Every entry names the component it touches, so each component page in the book c
 - CommandPalette: the field's focus ring is drawn inside it, where the palette's corner cannot clip it.
 - Menu: `alignOffset` moves the menu along its edge.
 - SegmentedControl: `showLabel` puts the label above the track like Select's, and the track is as tall as a field of the same size (44px md, 32px sm), so the two stand level in a row.
-- Badge: a small crystal by default (D-038): the tone's tint lit from above with its rim and a coloured glow; `appearance` muted, solid or plain, and a new violet `accent` tone for New, the word without a glyph. A crystal stays a crystal on solid material; solid is chosen by hand.
+- Badge is a small crystal by default (D-038), the tone's tint lit from above with its rim and a coloured glow; `appearance` muted, solid or plain, and a new violet `accent` tone for New, the word without a glyph. A crystal stays a crystal on solid material; solid is chosen by hand.
 - Chip: `tone` turns a chosen chip into a crystal of that colour.
 - Tag: `tone` puts a thin tint of the tone in the etch.
 - CommandPalette: a keycap at the end of a row takes the row's nested corner.
 - Card: a pane nested in a pane takes the outer corner minus the padding, so the corners stay concentric.
-- PaneProvider: brands reach further (D-037). A brand file may also set type weights, display tracking, glass saturation, mesh colours and motion durations, and name a `density` (compact, regular, roomy) and a `motion` tempo (brisk, steady, calm); setting `tier` to `expert` opens every semantic token with the contrast checks kept. Six more sample brands ship: Ledger, Kiddo, Atelier, Pulse, Terra and Signal.
+- Brands given to PaneProvider reach further (D-037). A brand file may also set type weights, display tracking, glass saturation, mesh colours and motion durations, and name a `density` (compact, regular, roomy) and a `motion` tempo (brisk, steady, calm); setting `tier` to `expert` opens every semantic token with the contrast checks kept. Six more sample brands ship: Ledger, Kiddo, Atelier, Pulse, Terra and Signal.
 - Mesh: documented as an accent, about a tenth of the region it sits in (D-036); the book's Aurora backdrop and full-width mesh covers are gone, and `check_usage` flags a Mesh used as a background.
 - Card: the glass body is thin again (45% in dark, 66% in light, blur 32px), so the scene's colour and shapes show through; on `material="solid"` the body is fully opaque (D-035).
 - Tooltip: the same glass recipe as cards (blur, saturate and the environment's dimming).
