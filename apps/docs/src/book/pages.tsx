@@ -214,6 +214,7 @@ function AiPage() {
       </Section>
       <Section id="llms" title="llms.txt">
         <p>Some tools read a site instead of calling a server. For them the book publishes <a href="/llms.txt">llms.txt</a>, an index of every chapter, and <a href="/llms-full.txt">llms-full.txt</a>, with every component's import, props and tokens in one file. Point an assistant at either address.</p>
+        <p>Tools that build screens from a brief, such as Stitch, v0 or Cursor, read a third file, <a href="/DESIGN.md">DESIGN.md</a>. It holds the principles, every semantic token in both themes with its reason, each component with the generic look it must never become, and the locked decisions. It is generated from the same sources as this book, so it never drifts from it. Those tools cannot run the measurements behind this book, so check their contrast yourself.</p>
       </Section>
     </Page>
   );
