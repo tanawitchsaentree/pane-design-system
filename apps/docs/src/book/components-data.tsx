@@ -3225,7 +3225,7 @@ export const COMPONENTS: ComponentChapter[] = [
     ),
     hero: ex('BadgeInList', 'Status usually sits at the end of each row in a list.'),
     ladder: [
-      ex('BadgeLooks', 'The four looks: crystal by default, muted, solid for solid material, plain inside a sentence.'),
+      ex('BadgeLooks', 'There are four looks. Crystal is the default, then muted, solid for solid material, and plain inside a sentence.'),
       ex('BadgeTones', 'Neutral is the word alone. The four status tones each add their own glyph.'),
       ex('BadgeDot', 'A neutral status with no tone, such as Draft, can carry a dot. The status tones have their glyph instead.'),
       ex('BadgeCount', 'Inside a button, the count becomes part of the accessible name.'),

@@ -211,3 +211,8 @@
 ### D-041: anchor ใหม่คือกระจกแบบปัจจุบัน (ปิด E-004)
 - **วันที่:** 2026-11-01 · **เลือกโดย:** user ("อนุมัติหมด")
 - **ตัดสิน:** กระจกที่ได้จาก D-035, R-041 (ขอบรับแสง, bevel) และ R-043 (level 2 ตามวัสดุ) เป็น anchor แทนการ์ด A เดิม `system/anchor/anchor-likeness.json` บันทึกใหม่ ส่วน G-AN1 กลับมาเป็น gate บังคับ
+
+### D-042: เกินกว่า React (token ทุกแพลตฟอร์ม + HTML ใต้ทุก demo)
+- **วันที่:** 2026-11-01 · **เลือกโดย:** user ("รองรับทุกภาษายังนอกจาก react")
+- **ตัดสิน:** `packages/tokens/build.mjs` สร้าง token จากแหล่งเดียวออกเป็น CSS, Swift, Kotlin (Compose), Dart (Flutter), Tailwind preset และ Figma variables (ทุกไฟล์ 1149 token ชื่อเดียวกัน, dark/light คู่กัน) และ export ใน package.json ส่วน component สำหรับ HTML/Vue/Svelte/Angular/Solid ใช้ `pane-react/all.css` ที่ชื่อ class คงที่ บวกบล็อก HTML ใต้ demo ทุกหน้า (renderToStaticMarkup) โดยบอกตรงๆ ว่าพฤติกรรม (คีย์บอร์ด เปิด/ปิด) ต้องต่อเอง
+- **ไม่ทำตอนนี้:** component แบบ native ของ SwiftUI/Compose/Flutter (ได้แค่ token) และ wrapper ของ Vue/Svelte หน้า `/getting-started/platforms` บอกระดับของแต่ละแพลตฟอร์มไว้

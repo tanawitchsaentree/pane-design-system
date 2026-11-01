@@ -3,9 +3,12 @@
 // updated, purpose and a live demo whose theme and variant selectors come from the enum props.
 // Usage is written per component in ../depth; Style is measured (spec-capture); Code and
 // Accessibility are generated from meta.json, the CSS module and the conformance run.
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { Environment, SegmentedControl, Select, Tag } from 'pane-react';
 import { smooth } from './kit-core';
+import { renderToStaticMarkup } from 'react-dom/server';
+// static markup with each element on its own line, so it reads as HTML a person would write
+const htmlOf = (node: ReactNode) => { try { return renderToStaticMarkup(<>{node}</>).replace(/></g, '>\n<'); } catch { return '<!-- this one needs its behaviour from React -->'; } };
 import meta from './meta.json';
 import { inline, WhyText, type Why, Code, CodeBlock, ConformanceList, DoDont, EvidenceTable, Example, Link, Page, Section, Stage, TokensUsed, useVerify, CSS_MODULES, cssModuleKey } from './kit';
 import type { ComponentChapter } from './components-data';
@@ -111,6 +114,9 @@ function LiveDemo({ c, m }: { c: ComponentChapter; m: Meta }) {
       <div className="live-demo-result">
       <div data-theme={theme} className="live-demo-stage"><Stage picker>{!subject ? <c.hero.Render /> : subject.bare ? subject.render(picked) : <OnPane>{subject.render(picked)}</OnPane>}</Stage></div>
       {subject && <CodeBlock code={subject.code(picked)} label="TSX" />}
+      {/* D-042: the same render as plain HTML with Pane's stable class names, for Vue, Svelte, Angular or a page
+          with no framework; load pane-react/all.css. Behaviour (keys, open and close) is React's and is not in it. */}
+      {subject && <CodeBlock code={htmlOf(subject.render(picked))} label="HTML" lines={10} />}
       </div>
     </div>
   );

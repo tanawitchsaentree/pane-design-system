@@ -1,16 +1,36 @@
 {
-  "generatedAt": "2026-11-01T05:13:47.774Z",
-  "passed": 1,
-  "total": 1,
+  "generatedAt": "2026-11-01T05:33:27.912Z",
+  "passed": 4,
+  "total": 4,
   "partial": true,
   "advisory": {},
   "results": [
     {
-      "id": "G-AN1",
-      "name": "the card still looks like the anchor: body lightness, chroma and rim contrast on the anchor's backdrop stay within the allowed deltas",
+      "id": "G-PF2",
+      "name": "page weight: no image over 300 kB, no page over 1.5 MB transferred (gzip counted)",
       "ok": true,
-      "detail": "L 0.31 C 0.0215 rim 1.072:1 against the anchor's L 0.31 C 0.0215 rim 1.072:1",
-      "order": 47
+      "order": 9
+    },
+    {
+      "id": "G-C1",
+      "name": "every code block has a Copy button you can see",
+      "ok": true,
+      "detail": "20 code blocks",
+      "order": 11
+    },
+    {
+      "id": "G-BR1",
+      "name": "a subject shown as its own surface paints one, and no live example puts text straight on the photo",
+      "ok": true,
+      "detail": "3 pages, 0 photo stages (no stage showed a photo; set docs.photoScene to the brightest photo scene)",
+      "order": 45
+    },
+    {
+      "id": "G-NC1",
+      "name": "a shape inside a rounded shape nests its corner wherever it sits near one: even inset and inner radius = outer radius − inset",
+      "ok": true,
+      "detail": "1 pages",
+      "order": 53
     }
   ]
 }

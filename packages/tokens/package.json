@@ -26,6 +26,10 @@
     "./package.json": "./package.json",
     "./css/brands/*": "./build/css/brands/*.css",
     "./brands.json": "./build/css/brands/brands.json",
+    "./tailwind": "./build/tailwind/pane.preset.cjs",
+    "./kotlin": "./build/kotlin/PaneTokens.kt",
+    "./dart": "./build/dart/pane_tokens.dart",
+    "./figma": "./build/figma/pane.variables.json",
     "./css/code-themes/*": "./build/css/code-themes/*.css",
     "./code-themes.json": "./build/css/code-themes/code-themes.json",
     "./brand-check": {
