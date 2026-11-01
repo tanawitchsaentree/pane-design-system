@@ -207,3 +207,7 @@
 - **วันที่:** 2026-11-01 · **เลือกโดย:** user ("พัฒนา token สี หรือระบบ ui รองรับ theme IDE ด้วย")
 - **ตัดสิน:** semantic `syntax.*` 12 role (bg, fg, comment, keyword, string, number, function, type, tag, attr, property, punctuation) แยกค่า dark/light เป็น palette ของ Pane เอง, component ใหม่ CodeBlock (มี highlighter ในตัว ไม่พึ่ง library และไม่สร้าง HTML) อ่านสีจาก `code-block.*`, และ code theme แบบ IDE ห้าชุด (GitHub Dark/Light, One Dark, Dracula, Solarized Light) เป็น sheet `[data-code-theme]` ที่ build ตรวจว่าทุก role ได้ 4.5:1 บนพื้นของตัวเอง (One Dark ต้องยก comment กับ tag ขึ้นหนึ่งขั้น)
 - **หนังสือ:** code ทุกก้อนในเล่มใช้ token ชุดเดียวกัน และเลือก Code theme ได้ในเมนู Appearance
+
+### D-041: anchor ใหม่คือกระจกแบบปัจจุบัน (ปิด E-004)
+- **วันที่:** 2026-11-01 · **เลือกโดย:** user ("อนุมัติหมด")
+- **ตัดสิน:** กระจกที่ได้จาก D-035, R-041 (ขอบรับแสง, bevel) และ R-043 (level 2 ตามวัสดุ) เป็น anchor แทนการ์ด A เดิม `system/anchor/anchor-likeness.json` บันทึกใหม่ ส่วน G-AN1 กลับมาเป็น gate บังคับ
