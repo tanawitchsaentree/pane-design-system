@@ -141,11 +141,6 @@
     }
   },
   "motion": {
-    "background-color": {
-      "p": "P4",
-      "axis": "colour",
-      "why": "the track colour eases at the same pace as the knob, so colour and movement read as one event"
-    },
     "opacity": {
       "p": "P4",
       "axis": "motion",
@@ -170,6 +165,16 @@
       "p": "P4",
       "axis": "motion",
       "why": "when on, the squash grows backward along the track at press pace so the bead stays against its end"
+    },
+    "--pane-fill-top": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the chosen fill is two registered colours (R-048), so a change of state fades the glass in on the press's way back up instead of swapping a gradient in one frame"
+    },
+    "--pane-fill-foot": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the foot of the same fill moves with its top, so the light across the glass stays one piece mid-change"
     }
   },
   "kind": [

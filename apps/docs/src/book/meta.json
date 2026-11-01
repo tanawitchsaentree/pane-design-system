@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-01T15:43:50.525Z",
-  "version": "0.8.0",
+  "generatedAt": "2026-11-01T16:47:54.109Z",
+  "version": "0.8.1",
   "components": {
     "Accordion": {
       "source": "packages/react/src/components/Accordion/Accordion.tsx",
@@ -1408,8 +1408,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 470,
-        "cssMin": 921,
-        "gzip": 696
+        "cssMin": 1330,
+        "gzip": 761
       }
     },
     "Calendar": {
@@ -2171,9 +2171,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 7175,
-        "cssMin": 4640,
-        "gzip": 4301
+        "jsMin": 7365,
+        "cssMin": 5617,
+        "gzip": 4565
       }
     },
     "Citation": {
@@ -6063,9 +6063,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 79787,
-        "cssMin": 10613,
-        "gzip": 31273
+        "jsMin": 79984,
+        "cssMin": 11590,
+        "gzip": 31509
       }
     },
     "Navbar": {
@@ -7607,8 +7607,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 32831,
-        "cssMin": 4060,
-        "gzip": 12485
+        "cssMin": 4626,
+        "gzip": 12554
       }
     },
     "RangeSlider": {
@@ -8233,8 +8233,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 26289,
-        "cssMin": 1826,
-        "gzip": 9925
+        "cssMin": 2073,
+        "gzip": 9961
       }
     },
     "Select": {
@@ -9288,8 +9288,8 @@
       "demoFloor": 7,
       "bundle": {
         "jsMin": 98025,
-        "cssMin": 8609,
-        "gzip": 36756
+        "cssMin": 9018,
+        "gzip": 36817
       }
     },
     "Stack": {
@@ -9612,8 +9612,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 14214,
-        "cssMin": 4062,
-        "gzip": 6482
+        "cssMin": 4247,
+        "gzip": 6516
       }
     },
     "Table": {
@@ -9833,8 +9833,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 29216,
-        "cssMin": 3195,
-        "gzip": 11130
+        "cssMin": 3400,
+        "gzip": 11167
       }
     },
     "Tag": {
@@ -10020,9 +10020,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 8915,
-        "cssMin": 7485,
-        "gzip": 5673
+        "jsMin": 9105,
+        "cssMin": 8462,
+        "gzip": 5924
       }
     },
     "Text": {

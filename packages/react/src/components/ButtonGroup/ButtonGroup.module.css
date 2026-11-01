@@ -6,7 +6,9 @@
 .attached { flex-wrap: nowrap; gap: var(--ds-button-group-inset); padding: var(--ds-button-group-inset); max-inline-size: 100%; border-radius: var(--ds-corner-round); background: var(--ds-button-group-track); box-shadow: var(--ds-button-group-ring), var(--ds-button-group-carve); }
 .attached.vertical { border-radius: var(--ds-corner-inner); }
 /* joined buttons may shrink, so a long label wraps inside its pill the way a lone Button's does */
-.attached > [data-component][data-component] { min-inline-size: 0; background: transparent; box-shadow: none; }
-.attached > [data-component][data-component]:hover:not([disabled]) { background: var(--ds-surface-quiet); }
-.attached > [data-component][data-component][aria-pressed='true'] { background: linear-gradient(180deg, var(--ds-button-group-on-top), var(--ds-button-group-on-foot)); box-shadow: var(--ds-button-group-ring), var(--ds-button-group-on-cast); }
+/* R-048: hover and pressed move only the two registered fill colours, so pressing a joined button fades its
+   glass in instead of swapping it in one frame */
+.attached > [data-component][data-component] { min-inline-size: 0; background: linear-gradient(180deg, var(--pane-fill-top), var(--pane-fill-foot)); box-shadow: none; transition: --pane-fill-top var(--ds-motion-press) var(--ds-motion-easing), --pane-fill-foot var(--ds-motion-press) var(--ds-motion-easing), box-shadow var(--ds-motion-press) var(--ds-motion-easing), color var(--ds-motion-press) var(--ds-motion-easing), transform var(--ds-motion-press) var(--ds-motion-easing); }
+.attached > [data-component][data-component]:hover:not([disabled]) { --pane-fill-top: var(--ds-surface-quiet); --pane-fill-foot: var(--ds-surface-quiet); }
+.attached > [data-component][data-component][aria-pressed='true'] { --pane-fill-top: var(--ds-button-group-on-top); --pane-fill-foot: var(--ds-button-group-on-foot); box-shadow: var(--ds-button-group-ring), var(--ds-button-group-on-cast); }
 @media (forced-colors: active) { .attached { border: var(--ds-width-hairline) solid CanvasText; } }

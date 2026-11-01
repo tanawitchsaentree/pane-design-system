@@ -105,10 +105,20 @@
     }
   },
   "motion": {
-    "background-color": {
+    "--pane-fill-top": {
       "p": "P4",
       "axis": "motion",
-      "why": "the tint eases at hover pace, the same in every theme and on every scene"
+      "why": "the chosen fill is two registered colours (R-048), so a change of state fades the glass in on the press's way back up instead of swapping a gradient in one frame"
+    },
+    "--pane-fill-foot": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the foot of the same fill moves with its top, so the light across the glass stays one piece mid-change"
+    },
+    "box-shadow": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the ring and cast move with the fill, at the same pace, so the edge never lands before the glass"
     }
   }
 }

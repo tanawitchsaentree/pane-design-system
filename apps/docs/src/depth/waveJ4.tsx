@@ -138,7 +138,7 @@ const SAMPLE: Record<string, string> = {
   js: "// 12 prints, A3\nconst total = prints.length * 70;",
   css: ".my-pane {\n  /* glass over the scene */\n  backdrop-filter: blur(32px) saturate(1.8);\n  border-radius: var(--ds-corner-panel);\n}",
   json: '{\n  "name": "Harbor",\n  "density": "compact",\n  "tokens": { "focus.ring": "#A9D3FF" }\n}',
-  bash: "# add Pane to a project\nnpm install ./pane-react-0.8.0.tgz --save",
+  bash: "# add Pane to a project\nnpm install ./pane-react-0.8.1.tgz --save",
   html: '<html data-brand="harbor" data-code-theme="github-dark">',
   text: "Plain text keeps the code colour and no roles.",
 };

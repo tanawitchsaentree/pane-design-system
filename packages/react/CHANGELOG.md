@@ -2,6 +2,10 @@
 
 Every entry names the component it touches, so each component page in the book can show its own history. The conformance run fails if a component has no entry.
 
+## 0.8.1 (2026-11-01)
+
+- SegmentedControl, Switch, RadioCards and ButtonGroup fade into their chosen state (R-048). Each fill is now two registered colours (`--pane-fill-top`, `--pane-fill-foot`), so the browser can move between rest, hover and chosen. Before, a gradient swapped in one frame. The change settles on the press's 300ms way back up. Tabs keeps its sliding indicator.
+
 ## 0.8.0 (2026-11-01)
 
 - Chip chooses smoothly (R-048). The chosen fill fades in, the check's track opens so the chip grows and its neighbours glide instead of jumping, and the label keeps room for its heavier weight. All of it settles on the press's 300ms way back up. Under reduced motion the width changes at once and the fade stays.

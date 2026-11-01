@@ -8,11 +8,13 @@
 .track {
   position: relative; flex: none; padding: 0; border: 0; cursor: pointer;
   inline-size: var(--ds-switch-width); block-size: var(--ds-switch-height); border-radius: var(--ds-corner-round);
-  background: var(--ds-switch-bg); box-shadow: var(--ds-switch-carve);
-  transition: background-color var(--ds-motion-hover) var(--ds-motion-easing), box-shadow var(--ds-motion-hover) var(--ds-motion-easing);
+  /* R-048: off and on move only the two registered fill colours, so the track fills as the knob travels */
+  --pane-fill-top: var(--ds-switch-bg); --pane-fill-foot: var(--ds-switch-bg);
+  background: linear-gradient(180deg, var(--pane-fill-top), var(--pane-fill-foot)); box-shadow: var(--ds-switch-carve);
+  transition: --pane-fill-top var(--ds-motion-press) var(--ds-motion-easing), --pane-fill-foot var(--ds-motion-press) var(--ds-motion-easing), box-shadow var(--ds-motion-press) var(--ds-motion-easing);
 }
 .track::after { content: ''; position: absolute; inset: calc((var(--ds-switch-height) - var(--ds-switch-hit)) / 2) 0; }
-.track[data-state='checked'] { background: linear-gradient(180deg, var(--ds-switch-on-top), var(--ds-switch-on-bg)); box-shadow: var(--ds-switch-on-carve); }
+.track[data-state='checked'] { --pane-fill-top: var(--ds-switch-on-top); --pane-fill-foot: var(--ds-switch-on-bg); box-shadow: var(--ds-switch-on-carve); }
 .track:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
 .track:disabled { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
 .knob {

@@ -43,14 +43,16 @@
   font-weight: var(--ds-type-weight-medium);
   cursor: pointer;
   white-space: nowrap;
-  transition: color var(--ds-motion-hover) var(--ds-motion-easing), transform var(--ds-motion-press) var(--ds-motion-easing);
+  transition: color var(--ds-motion-hover) var(--ds-motion-easing), transform var(--ds-motion-press) var(--ds-motion-easing), --pane-fill-top var(--ds-motion-press) var(--ds-motion-easing), --pane-fill-foot var(--ds-motion-press) var(--ds-motion-easing);
+  /* R-048: the chosen fill is two registered colours, so choosing a tab fades it in instead of swapping */
+  background: linear-gradient(180deg, var(--pane-fill-top), var(--pane-fill-foot));
 }
 /* the press area, 44px tall around the 32px tab */
 .trigger::after { content: ''; position: absolute; inset-inline-start: 50%; inset-block-start: 50%; inline-size: max(100%, var(--ds-tabs-hit)); block-size: var(--ds-tabs-hit); transform: translate(-50%, -50%); }
 :global([dir='rtl']) .trigger::after { transform: translate(50%, -50%); }
 .trigger:active { transform: scale(var(--ds-motion-press-scale)); }
 .trigger[data-state='active'] { color: var(--ds-tabs-on-fg); font-weight: var(--ds-type-weight-semibold); }
-.list:not([data-placed]) .trigger[data-state='active'] { background: linear-gradient(180deg, var(--ds-tabs-on-top), var(--ds-tabs-on-foot)); }
+.list:not([data-placed]) .trigger[data-state='active'] { --pane-fill-top: var(--ds-tabs-on-top); --pane-fill-foot: var(--ds-tabs-on-foot); }
 .trigger:focus-visible {
   outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
   outline-offset: var(--ds-focus-ring-width);
