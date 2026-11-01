@@ -1787,6 +1787,21 @@
           "light": "{color.white-a.70}"
         }
       }
+    },
+    "2-solid": {
+      "$value": "{color.smoke.2-solid}",
+      "$type": "color",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.smoke.2-solid-light}"
+        },
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "behind solid the inner surface is an opaque step lighter than the card, since nothing shows through to lighten it"
+        }
+      }
     }
   },
   "level-shadow": {
@@ -1851,6 +1866,21 @@
       "kiln.why": {
         "p": "P3",
         "why": "each level floats a step higher on a longer shadow; every slab has an edge all round; the loud solid blooms; a track is a well"
+      }
+    },
+    "step": {
+      "$value": "{shadow.step}",
+      "$type": "shadow",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.step-light}"
+        },
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a surface inside a pane is one lighter step with a crisp hairline and a lit top edge, raised a little, never a second floating slab"
+        }
       }
     }
   },

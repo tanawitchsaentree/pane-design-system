@@ -3,7 +3,7 @@ import { Card, CodeBlock } from 'pane-react';
 
 const code = `.my-pane {
   /* glass over the scene */
-  backdrop-filter: blur(32px) saturate(1.8);
+  backdrop-filter: blur(32px);
   border-radius: var(--ds-corner-panel);
 }`;
 

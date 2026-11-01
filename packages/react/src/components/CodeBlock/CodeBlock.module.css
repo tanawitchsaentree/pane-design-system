@@ -1,6 +1,6 @@
 /* Code on its own ground (D-040): the code is set in the mono face on an opaque ground, so every syntax role
    is measured against one known colour; the bar names it and keeps the copy button in reach (P6). */
-.root { display: flex; flex-direction: column; border-radius: var(--ds-code-block-radius); overflow: hidden; background: var(--ds-code-block-bg); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-code-block-ring); font-family: var(--ds-type-family); }
+.root { text-shadow: none; display: flex; flex-direction: column; border-radius: var(--ds-code-block-radius); overflow: hidden; background: var(--ds-code-block-bg); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-code-block-ring); font-family: var(--ds-type-family); }
 .bar { display: flex; align-items: center; justify-content: space-between; gap: var(--ds-gap-md); padding: var(--ds-gap-xs) var(--ds-gap-xs) var(--ds-gap-xs) var(--ds-gap-xl); box-shadow: inset 0 calc(var(--ds-width-hairline) * -1) 0 var(--ds-code-block-ring); }
 .label { font-size: var(--ds-type-micro); letter-spacing: var(--ds-type-tracking-caps); text-transform: uppercase; color: var(--ds-code-block-punctuation); }
 .actions { display: flex; gap: var(--ds-gap-xs); }

@@ -132,7 +132,7 @@ export function Stage({ children, plain, className = '', backdrop, picker }: { c
     <div className={`example-live${plain ? ' plain' : ''}${field ? ' stage-field' : ''}${studio ? ' stage-studio' : ''} ${className}`} data-example-live="" data-surface="" style={field || drawn ? undefined : { backgroundImage: `url(/scenes/${scene}.webp)` }}>
       <Environment brightness={sceneById(scene).brightness} className="stage-env">{children}</Environment>
       {/* the backdrop is picked on the picture itself, where the component is shown (R-042) */}
-      {picker && !field && <BackdropPicker className="stage-backdrop" />}
+      {picker && <BackdropPicker className="stage-backdrop" />}
     </div>
   );
 }
