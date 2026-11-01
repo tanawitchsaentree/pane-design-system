@@ -13,6 +13,8 @@
   system/refs/ref-01.png was still missing at last check, so dial's colours are estimates from chat.
 
 ## Do next, in this order
+0. **Liquid glass (R-045), waiting on the user**: open `apps/lab/liquid/index.html` in Chrome. The user picks A (refraction + colour split), B (refraction, no split) or keeps C. Then build it as tokens and a recipe (SVG displacement backdrop-filter from the SDF in the lab, Chromium only, C as the fallback), add a gate that measures the bend, and re-record the anchor (D-041 changes).
+   Also: launch drafts are in `system/reports/launch-posts.md`. The user posts them; the share card and README are live.
 1. **Pane full verify + evidence.** The last full verify is from 2026-10-28 and the evidence from
    2026-11-01 00:12; both predate today's changes, so the book's numbers describe older code. Run
    `pnpm run verify` (about an hour, nice 19) only when dial is not running its own full verify (machine
