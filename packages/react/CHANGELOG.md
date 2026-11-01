@@ -4,6 +4,7 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- CodeBlock: new. Code in colour from the syntax tokens, every role at 4.5:1 on its code ground, with Copy always in reach, Show all for long files, line numbers and IDE palettes as code themes (GitHub Dark and Light, One Dark, Dracula, Solarized Light) (D-040).
 - Card: the glass has volume. A hairline rim lit at the top left and again along the foot where light leaves the slab, a bevel inside (a lit upper lip, a shaded lower one) and a deeper lift (R-041).
 - Badge: the crystal is clear: a thin tint lit at the top, a crisp rim and a hairline of the tone at the foot, with no glow around it.
 - Chip: a chosen chip with a tone is the same clear crystal as Badge.

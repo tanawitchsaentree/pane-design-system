@@ -1,6 +1,6 @@
 // Usage tabs for J4 (component-depth.md U1–U14): patterns for working with an AI, the conversation,
 // the composer, an agent's status, the hand-over to a person and the source behind a claim.
-import { AgentStatus, Avatar, Button, Card, ChatComposer, ChatMessage, ChatToolCall, Citation, HumanHandoff, Text } from 'pane-react';
+import { AgentStatus, Avatar, Button, Card, ChatComposer, ChatMessage, ChatToolCall, Citation, CodeBlock, HumanHandoff, Text } from 'pane-react';
 import type { Depth } from './types';
 
 const Wide = ({ children }: { children: React.ReactNode }) => <Card as="div" className="demo-card demo-wide">{children}</Card>;
@@ -128,4 +128,44 @@ export const CITATION: Depth = {
   modifiers: [{ name: 'quote', rules: <p>Quote the exact passage the claim rests on.</p>, pair: { do: <Wide><Text as="p">LDL 3.4<Citation index={1} title="Blood test, 12 March" quote="LDL cholesterol 3.4 mmol/L" /></Text></Wide>, doNote: 'The exact words.', dont: <Wide><Text as="p">LDL 3.4<Citation index={1} title="Blood test, 12 March" quote="Your levels look good overall." /></Text></Wide>, dontNote: 'A paraphrase.' } }],
   related: [['/components/confidence-chip', 'ConfidenceChip', 'How sure.'], ['/components/popover', 'Popover', 'The card it opens.'], ['/components/link', 'Link', 'A plain link.']],
   references: [ref('WCAG 2.5.8 · Target size', 'https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html', 'Inline targets.'), ref('WAI-ARIA · Disclosure', 'https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/', 'Opening a card from a button.')],
+};
+
+// CodeBlock (D-040): code in colour from the syntax tokens, IDE palettes as code themes.
+const SAMPLE: Record<string, string> = {
+  tsx: "import { Button } from 'pane-react';\n\nexport function Save() {\n  return <Button variant=\"glass\" onClick={save}>Save</Button>;\n}",
+  ts: "export function total(items: Item[]): number {\n  return items.reduce((a, i) => a + i.price, 0);\n}",
+  jsx: "<Card as=\"section\" className=\"demo-card\">\n  <h3>Lofoten</h3>\n</Card>",
+  js: "// 12 prints, A3\nconst total = prints.length * 70;",
+  css: ".my-pane {\n  /* glass over the scene */\n  backdrop-filter: blur(32px) saturate(1.8);\n  border-radius: var(--ds-corner-panel);\n}",
+  json: '{\n  "name": "Harbor",\n  "density": "compact",\n  "tokens": { "focus.ring": "#A9D3FF" }\n}',
+  bash: "# add Pane to a project\nnpm install ./pane-react-0.7.0.tgz --save",
+  html: '<html data-brand="harbor" data-code-theme="github-dark">',
+  text: "Plain text keeps the code colour and no roles.",
+};
+const LANG_WHY: Record<string, string> = { tsx: 'React components with JSX, the default', ts: 'TypeScript without JSX', jsx: 'JSX in plain JavaScript', js: 'plain JavaScript', css: 'stylesheets, with custom properties and units picked out', json: 'data and config, keys apart from values', bash: 'terminal commands, the command and its flags apart', html: 'markup, tags and attributes apart', text: 'anything else, in one colour' };
+export const CODE_BLOCK: Depth = {
+  overview: (
+    <>
+      <p>A CodeBlock shows code the way an editor does. Each role, keyword, string, number, call, type, tag, attribute and comment, takes its own hue from the syntax tokens, and each holds 4.5:1 or more on the block's opaque code ground. The bar names the code and keeps Copy in reach; long code shows its first lines with Show all.</p>
+      <p>The colours are tokens, so a product changes them in one place. Load an IDE palette from <code>pane-react/tokens/code-themes</code>, GitHub Dark or Light, One Dark, Dracula or Solarized Light, and set <code>codeTheme</code> or <code>data-code-theme</code> on a parent. The build refuses a code theme where any role falls under 4.5:1 on its ground.</p>
+    </>
+  ),
+  whenToUse: ['Code a reader will copy or read closely: an install line, a snippet, a config file.'],
+  whenNot: [{ situation: 'A word or a value inside a sentence', to: '/components/kbd', label: 'Kbd or inline code' }, { situation: 'Output a person reads as prose', to: '/components/text', label: 'Text' }],
+  variants: { na: 'CodeBlock has one look; the language picks how the code is read, not how the block looks (see Modifiers).' },
+  anatomy: { render: <Wide><CodeBlock label="TSX" code={SAMPLE.tsx} /></Wide>, parts: [{ part: 'Bar', selector: '[data-component="CodeBlock"] > div', what: 'The label and the actions, parted from the code by a hairline.' }, { part: 'Code', selector: '[data-component="CodeBlock"] pre', what: 'The code in the mono face on its opaque ground.' }, { part: 'Role', selector: '[data-syntax="keyword"]', what: 'One run of a syntax role in its hue.' }] },
+  sizes: NA_S('CodeBlock'),
+  emphasis: { na: 'A code block is read closely, never loud; its colour is in the code, not around it.' },
+  placement: { rows: [['Under the sentence that explains it', 'Say what the code does first.'], ['Inside a pane', 'It nests like any inner surface.']], examples: [{ title: 'Under its sentence', render: <Wide><Text as="p">Install the tarball.</Text><CodeBlock label="Terminal" language="bash" code={SAMPLE.bash} /></Wide> }] },
+  combinations: { good: [['CodeBlock + Text', 'A sentence says what the code does.']], avoid: [{ title: 'a screenshot of code', why: 'It cannot be copied or read by a screen reader.', render: <Wide><Text as="p">Use the block, never an image of it.</Text></Wide> }] },
+  content: { formula: <p>The label says what the code is, TSX or Terminal. Keep a snippet to what the reader needs; put the rest behind Show all.</p>, pair: { do: <Wide><CodeBlock label="CSS" language="css" code={SAMPLE.css} /></Wide>, doNote: 'The language set, so its roles read right.', dont: <Wide><CodeBlock label="CSS" language="text" code={SAMPLE.css} /></Wide>, dontNote: 'Left as text, CSS loses its roles.' }, overflow: { text: 'Long lines scroll sideways inside the block instead of wrapping, as in an editor.', render: <div data-overflow-demo="" className="overflow-probe"><Wide><CodeBlock label="TSX" code={"const total = prints.filter((p) => p.size === 'A3' && p.available).reduce((sum, p) => sum + p.price * p.quantity, 0);"} /></Wide></div> }, rtl: { text: 'Code stays left to right in a right-to-left page; the bar follows the page.', render: <div dir="rtl" lang="ar"><Wide><CodeBlock label="TSX" code={SAMPLE.js} /></Wide></div> }, expansion: { text: 'The bar takes the words from the catalog, so Copy and Show all follow the language.', render: <Wide><CodeBlock label="JSON" language="json" code={SAMPLE.json} /></Wide> } },
+  behaviours: { states: [['Rest', 'The code and its roles.', 'P6.'], ['Copied', 'Copy says Copied for a moment and tells a screen reader.', 'P6.']], interactions: [['Keyboard', 'Tab', 'Reaches the actions, then the code, which scrolls with the arrow keys.', 'CodeBlock: actions and code take focus'], ['Mouse', 'Copy', 'Copies the whole code.', 'CodeBlock: Copy copies all'], ['Touch', 'Copy', 'The same; 44px press area.', 'CodeBlock: 44px actions']], loading: <p>No loading state; the code is there when the block is.</p>, focus: <p>The ring is drawn inside the block so its corner never clips it.</p> },
+  deepDive: { na: 'CodeBlock has no variant prop; each language is shown under Modifiers.' },
+  modifiers: [
+    { name: 'language', rules: <p>{Object.keys(SAMPLE).map((l) => `${l} for ${LANG_WHY[l]}`).join('; ')}. Set the language the code is written in, so its roles are read right.</p>, pair: { do: <Wide><CodeBlock label="JSON" language="json" code={SAMPLE.json} /></Wide>, doNote: 'JSON read as JSON: keys apart from values.', dont: <Wide><CodeBlock label="JSON" language="text" code={SAMPLE.json} /></Wide>, dontNote: 'Left as text, it is one colour.' } },
+    { name: 'codeTheme', rules: <p>Names an IDE palette that is loaded as a sheet. Without one the block takes Pane's palette for the light or dark theme.</p>, pair: { do: <Wide><CodeBlock label="TSX" codeTheme="github-dark" code={SAMPLE.tsx} /></Wide>, doNote: 'GitHub Dark, loaded and named.', dont: <Wide><CodeBlock label="TSX" code={SAMPLE.tsx} /></Wide>, dontNote: 'Pane is the default, so leave codeTheme out unless the product wants an IDE look.' } },
+    { name: 'lineNumbers', rules: <p>Numbers the lines when the reader is told to look at one.</p>, pair: { do: <Wide><CodeBlock label="CSS" language="css" lineNumbers code={SAMPLE.css} /></Wide>, doNote: 'Numbers when the text points at a line.', dont: <Wide><CodeBlock label="Terminal" language="bash" lineNumbers code={SAMPLE.bash} /></Wide>, dontNote: 'Two lines need no numbers.' } },
+  ],
+  related: [['/components/kbd', 'Kbd', 'A key in a sentence.'], ['/foundations/color', 'Colour', 'The syntax tokens.']],
+  references: [ref('WCAG 1.4.3 · Contrast (Minimum)', 'https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html', 'Every role at 4.5:1 on the code ground.'), ref('GitHub Primer · Code', 'https://primer.style/', 'How a large system names its syntax roles.')],
 };

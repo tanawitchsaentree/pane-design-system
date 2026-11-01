@@ -11,6 +11,7 @@ export const DEPTH = lazyMap<Depth>({
   AgentStatus: () => import('./waveJ4').then((m) => m.AGENT_STATUS),
   HumanHandoff: () => import('./waveJ4').then((m) => m.HUMAN_HANDOFF),
   Citation: () => import('./waveJ4').then((m) => m.CITATION),
+  CodeBlock: () => import('./waveJ4').then((m) => m.CODE_BLOCK),
   ButtonGroup: () => import('./waveA').then((m) => m.BUTTON_GROUP),
   SplitButton: () => import('./waveA').then((m) => m.SPLIT_BUTTON),
   ConfidenceChip: () => import('./x11').then((m) => m.CONFIDENCE_CHIP),

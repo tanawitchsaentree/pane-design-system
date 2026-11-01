@@ -24,7 +24,7 @@ function Scenario({ title, story, built, states, children }: { title: string; st
         <Button variant="ghost" size="sm" onClick={() => setReset((n) => n + 1)}>Start again</Button>
         <p className="scenario-built">Built from {built}</p>
       </div>
-      <Stage className="scenario-stage" backdrop="scene"><div key={`${state}-${reset}`} className="scenario-screen">{children(state, reset)}</div></Stage>
+      <Stage className="scenario-stage" backdrop="scene" picker><div key={`${state}-${reset}`} className="scenario-screen">{children(state, reset)}</div></Stage>
     </section>
   );
 }

@@ -6,7 +6,6 @@
 import { useState } from 'react';
 import { Environment, SegmentedControl, Select, Tag } from 'pane-react';
 import { smooth } from './kit-core';
-import { BackdropPicker } from './kit';
 import meta from './meta.json';
 import { inline, WhyText, type Why, Code, CodeBlock, ConformanceList, DoDont, EvidenceTable, Example, Link, Page, Section, Stage, TokensUsed, useVerify, CSS_MODULES, cssModuleKey } from './kit';
 import type { ComponentChapter } from './components-data';
@@ -107,11 +106,10 @@ function LiveDemo({ c, m }: { c: ComponentChapter; m: Meta }) {
           ? <Select label={variantDim[0][0].toUpperCase() + variantDim[0].slice(1)} size="sm" value={picked[variantDim[0]]} onValueChange={(v) => setPicked({ ...picked, [variantDim[0]]: v })} options={variantDim[1].map((o) => ({ value: o, label: o }))} />
           : <Select label="Variant" size="sm" value="default" onValueChange={() => {}} options={[{ value: 'default', label: `${c.name} has one variant` }]} />}</div>
         {dims.slice(1).map(([k, opts]) => <div key={k} data-selector={k}><Select label={k[0].toUpperCase() + k.slice(1)} size="sm" value={picked[k]} onValueChange={(v) => setPicked({ ...picked, [k]: v })} options={opts.map((o) => ({ value: o, label: o }))} /></div>)}
-        <BackdropPicker className="live-demo-backdrop" />
       </div>
       {/* the stage and its code are one unit, held tighter than the steps above them */}
       <div className="live-demo-result">
-      <div data-theme={theme} className="live-demo-stage"><Stage>{!subject ? <c.hero.Render /> : subject.bare ? subject.render(picked) : <OnPane>{subject.render(picked)}</OnPane>}</Stage></div>
+      <div data-theme={theme} className="live-demo-stage"><Stage picker>{!subject ? <c.hero.Render /> : subject.bare ? subject.render(picked) : <OnPane>{subject.render(picked)}</OnPane>}</Stage></div>
       {subject && <CodeBlock code={subject.code(picked)} label="TSX" />}
       </div>
     </div>

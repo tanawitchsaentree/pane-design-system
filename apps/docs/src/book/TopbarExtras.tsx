@@ -58,14 +58,16 @@ export function GitHubLink() {
 /** The look of the book in one place (M1): material first, then brand, then the demo backdrop. The theme
  *  stays a visible control beside it because it is the one people change most. The button says the
  *  current choice, so the reader can see what the book is showing without opening it. */
-export function AppearanceMenu({ material, onMaterial, brand, onBrand, brands }: {
+export function AppearanceMenu({ material, onMaterial, brand, onBrand, brands, codeTheme, onCodeTheme, codeThemes }: {
   material: 'glass' | 'solid'; onMaterial: (m: 'glass' | 'solid') => void;
   brand: string; onBrand: (b: string) => void; brands: Array<{ id: string; name: string }>;
+  codeTheme: string; onCodeTheme: (c: string) => void; codeThemes: Array<{ id: string; name: string }>;
 }) {
   const brandName = brand === 'pane' ? 'Pane' : brands.find((b) => b.id === brand)?.name ?? brand;
   const summary = `${material === 'glass' ? 'Glass' : 'Solid'} · ${brandName}`;
   // the trigger names whatever is not the default, so a reader who set Solid or a brand can see it without opening the menu (R-038)
-  const changed = [material === 'solid' && 'Solid', brand !== 'pane' && brandName].filter(Boolean).join(' · ');
+  const codeName = codeThemes.find((c) => c.id === codeTheme)?.name;
+  const changed = [material === 'solid' && 'Solid', brand !== 'pane' && brandName, codeTheme !== 'pane' && codeName].filter(Boolean).join(' · ');
   return (
     <span className="tb-appearance" data-brand-control="" data-material-control="">
       <Popover title="Appearance" align="end"
@@ -74,6 +76,7 @@ export function AppearanceMenu({ material, onMaterial, brand, onBrand, brands }:
           <p className="tb-look-intro">How the examples in this book look. The backdrop is picked beside each example. In your own product these are one prop each, set in code.</p>
           <SegmentedControl label="Material" value={material} onValueChange={(v) => onMaterial(v as 'glass' | 'solid')} options={[{ value: 'glass', label: 'Glass' }, { value: 'solid', label: 'Solid' }]} />
           <Select label="Brand" size="sm" value={brand} onValueChange={onBrand} options={[{ value: 'pane', label: 'Pane' }, ...brands.map((b) => ({ value: b.id, label: b.name }))]} />
+          <Select label="Code theme" size="sm" value={codeTheme} onValueChange={onCodeTheme} options={[{ value: 'pane', label: 'Pane' }, ...codeThemes.map((c) => ({ value: c.id, label: c.name }))]} />
           <a className="tb-look-link" href="/getting-started/look" onClick={(e) => { e.preventDefault(); navigate('/getting-started/look'); }}>How to choose these for a product</a>
         </div>
       </Popover>

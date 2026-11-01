@@ -3,7 +3,17 @@
 // verify run writes. Prose is the only hand-written part.
 import { useState, type ReactNode } from 'react';
 import tokens from 'pane-tokens/json';
-import { Button, Card, Environment, Tag } from 'pane-react';
+import { Button, Card, Environment, Tag, highlight, type CodeLanguage } from 'pane-react';
+// the book's code blocks read their language from the label, as the component's language prop would
+const langOf = (label: string, code = ''): CodeLanguage => {
+  const l = label.toLowerCase();
+  if (l === 'css' || l === 'scss') return 'css'; if (l === 'json') return 'json'; if (/terminal|bash|shell|zsh/.test(l)) return 'bash'; if (l === 'html') return 'html';
+  // a block labelled only Code is read by its shape: declarations in braces are CSS, a leading { " is JSON
+  if (/^\s*[{[]\s*"/.test(code)) return 'json';
+  if (/^[^\n]*\{\s*\n\s*[a-z-]+\s*:[^;\n]+;/m.test(code) && !/\b(import|const|function|return)\b/.test(code)) return 'css';
+  if (/^\s*(npx|npm|pnpm|git|node|cd)\s/.test(code)) return 'bash';
+  return 'tsx';
+};
 import { SCENES, sceneById } from '../scenes';
 
 export type Why = { p: string | string[]; why: string };
@@ -89,7 +99,7 @@ export function CodeBlock({ code, label = 'Code', lines = 14 }: { code: string; 
           <button type="button" className="copy-btn" data-copy="" onClick={() => { navigator.clipboard?.writeText(body); setCopied(true); setTimeout(() => setCopied(false), 1600); }}>{copied ? 'Copied' : 'Copy'}</button>
         </span>
       </div>
-      <pre className={open ? 'code' : 'code clipped'} data-clipped={open ? undefined : ''} tabIndex={0} aria-label={`${label} snippet`}><code>{shown}</code></pre>
+      <pre className={open ? 'code' : 'code clipped'} data-clipped={open ? undefined : ''} tabIndex={0} aria-label={`${label} snippet`}><code>{highlight(shown, langOf(label, body)).map((r, k) => (r.role ? <span key={k} data-syntax={r.role}>{r.text}</span> : r.text))}</code></pre>
     </div>
   );
 }
@@ -110,7 +120,7 @@ export function BackdropPicker({ className = '' }: { className?: string }) {
 
 /** A demo stage: the one place glass appears in the docs. The current demo backdrop sits behind it,
  *  so a component is always seen the way it will be used, over a scene. */
-export function Stage({ children, plain, className = '', backdrop }: { children: ReactNode; plain?: boolean; className?: string; backdrop?: 'scene' | 'field' }) {
+export function Stage({ children, plain, className = '', backdrop, picker }: { children: ReactNode; plain?: boolean; className?: string; backdrop?: 'scene' | 'field'; picker?: boolean }) {
   const chosen = useScene();
   // diagrams pass backdrop="field": the subject is structure, so a photo would only compete with it
   const field = backdrop === 'field' || (backdrop !== 'scene' && chosen === 'field');
@@ -121,6 +131,8 @@ export function Stage({ children, plain, className = '', backdrop }: { children:
   return (
     <div className={`example-live${plain ? ' plain' : ''}${field ? ' stage-field' : ''}${studio ? ' stage-studio' : ''} ${className}`} data-example-live="" data-surface="" style={field || drawn ? undefined : { backgroundImage: `url(/scenes/${scene}.webp)` }}>
       <Environment brightness={sceneById(scene).brightness} className="stage-env">{children}</Environment>
+      {/* the backdrop is picked on the picture itself, where the component is shown (R-042) */}
+      {picker && !field && <BackdropPicker className="stage-backdrop" />}
     </div>
   );
 }
@@ -133,8 +145,7 @@ export function Example({ title, code, children, plain, backdrop }: { title: str
       {/* the caption sits in the stage's top-left corner, like a label on a studio plate */}
       <div className="example-plate">
         <figcaption className="example-bar"><span className="example-title">{title}</span></figcaption>
-        <BackdropPicker className="example-backdrop" />
-        <Stage plain={plain} backdrop={backdrop}>{children}</Stage>
+        <Stage plain={plain} backdrop={backdrop} picker={!plain}>{children}</Stage>
       </div>
       <CodeBlock code={body} label="TSX" />
     </figure>

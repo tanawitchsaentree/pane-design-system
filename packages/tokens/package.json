@@ -26,6 +26,8 @@
     "./package.json": "./package.json",
     "./css/brands/*": "./build/css/brands/*.css",
     "./brands.json": "./build/css/brands/brands.json",
+    "./css/code-themes/*": "./build/css/code-themes/*.css",
+    "./code-themes.json": "./build/css/code-themes/code-themes.json",
     "./brand-check": {
       "types": "./brand-check.d.mts",
       "default": "./brand-check.mjs"

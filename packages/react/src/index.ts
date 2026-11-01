@@ -171,6 +171,7 @@ export * from './components/ChatComposer';
 export * from './components/AgentStatus';
 export * from './components/HumanHandoff';
 export * from './components/Citation';
+export * from './components/CodeBlock';
 
 // Language (0.7.0): one catalog for every word a component shows or speaks, English by default, Thai included.
 

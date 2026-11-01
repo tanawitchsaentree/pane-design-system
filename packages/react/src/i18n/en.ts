@@ -85,6 +85,13 @@ const en = {
   notNow: 'Not now',
   sourceOf: (n: number, title: string) => `Source ${n}, ${title}`,
   openSource: 'Open source',
+  code: 'Code',
+  copy: 'Copy',
+  copied: 'Copied',
+  copyCode: (label: string) => `Copy the ${label}`,
+  showAllLines: (n: number) => `Show all ${n} lines`,
+  showLess: 'Show less',
+  codeSnippet: (label: string) => `${label} snippet`,
 };
 export type PaneMessages = typeof en;
 export default en;

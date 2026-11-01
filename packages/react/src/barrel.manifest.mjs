@@ -74,6 +74,10 @@ export const BARREL_MANIFEST = [
     components: ['ChatMessage', 'ChatComposer', 'AgentStatus', 'HumanHandoff', 'Citation'],
   },
   {
+    header: `Code (0.7.0): code in colour from the syntax tokens, with IDE palettes as code themes.`,
+    components: ['CodeBlock'],
+  },
+  {
     header: `Language (0.7.0): one catalog for every word a component shows or speaks, English by default, Thai included.`,
     components: ['PaneProvider'],
   },

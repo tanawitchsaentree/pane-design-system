@@ -512,15 +512,15 @@
         "$description": "level 1, a pane: smoked body at 78%"
       },
       "2": {
-        "$value": "#FFFFFF12",
+        "$value": "#FFFFFF0D",
         "$description": "level 2, a surface nested in a pane: +7% white, no second blur"
       },
       "3": {
-        "$value": "#1D1E22EB",
+        "$value": "#2B2C33F2",
         "$description": "level 3, an overlay such as a dialog: 92%"
       },
       "4": {
-        "$value": "#36373DF7",
+        "$value": "#3C3D45F7",
         "$description": "level 4, a popover or menu: 96%"
       },
       "1-light": {
@@ -530,10 +530,10 @@
         "$value": "#1112141F"
       },
       "3-light": {
-        "$value": "#EBECEFF0"
+        "$value": "#FFFFFFF2"
       },
       "4-light": {
-        "$value": "#FFFFFFFA"
+        "$value": "#FFFFFF"
       },
       "scrim": {
         "$value": "#00000080",
@@ -1015,6 +1015,90 @@
       "accent-muted-light": {
         "$value": "#8B5CF624"
       }
+    },
+    "syntax": {
+      "$type": "color",
+      "$description": "code colours (D-040): Pane's own syntax palette per theme, each role at 4.5:1 or more on its code ground",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "code is read closely, so each role is told apart by hue and still holds 4.5:1 on the code ground"
+        }
+      },
+      "bg-dark": {
+        "$value": "#16171C"
+      },
+      "fg-dark": {
+        "$value": "#E6E7EB"
+      },
+      "comment-dark": {
+        "$value": "#8C91A1"
+      },
+      "keyword-dark": {
+        "$value": "#C4A6FF"
+      },
+      "string-dark": {
+        "$value": "#9BE3A6"
+      },
+      "number-dark": {
+        "$value": "#F5C27A"
+      },
+      "function-dark": {
+        "$value": "#8CC8FF"
+      },
+      "type-dark": {
+        "$value": "#7FD6E8"
+      },
+      "tag-dark": {
+        "$value": "#FF9DB0"
+      },
+      "attr-dark": {
+        "$value": "#F7D58B"
+      },
+      "property-dark": {
+        "$value": "#7FD6E8"
+      },
+      "punctuation-dark": {
+        "$value": "#A7ABB8"
+      },
+      "bg-light": {
+        "$value": "#F4F4F7"
+      },
+      "fg-light": {
+        "$value": "#1C1D22"
+      },
+      "comment-light": {
+        "$value": "#5F6474"
+      },
+      "keyword-light": {
+        "$value": "#6A3FD6"
+      },
+      "string-light": {
+        "$value": "#1D7333"
+      },
+      "number-light": {
+        "$value": "#8F5200"
+      },
+      "function-light": {
+        "$value": "#0A58B5"
+      },
+      "type-light": {
+        "$value": "#0A6577"
+      },
+      "tag-light": {
+        "$value": "#AC1F55"
+      },
+      "attr-light": {
+        "$value": "#7F5300"
+      },
+      "property-light": {
+        "$value": "#0A6577"
+      },
+      "punctuation-light": {
+        "$value": "#4E5363"
+      }
     }
   },
   "blur": {
@@ -1339,6 +1423,17 @@
         "kiln.why": {
           "p": "P1",
           "why": "the platform system face, the same one visionOS uses, so the glass reads as part of the device rather than a website on top of it"
+        }
+      },
+      "mono": {
+        "$value": "'SF Mono', ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace",
+        "$extensions": {
+          "kiln.why": {
+            "p": [
+              "P6"
+            ],
+            "why": "code is set in a mono face so columns, indents and characters line up the way they do in an editor"
+          }
         }
       }
     },

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T17:20:33.023Z",
+  "generatedAt": "2026-11-01T02:17:33.152Z",
   "version": "0.7.0",
   "components": {
     "Accordion": {
@@ -172,9 +172,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 48829,
-        "cssMin": 4942,
-        "gzip": 18623
+        "jsMin": 48986,
+        "cssMin": 5164,
+        "gzip": 18736
       }
     },
     "AgentStatus": {
@@ -245,9 +245,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 7657,
+        "jsMin": 7814,
         "cssMin": 2460,
-        "gzip": 4084
+        "gzip": 4153
       }
     },
     "AppShell": {
@@ -328,9 +328,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6511,
+        "jsMin": 6668,
         "cssMin": 1771,
-        "gzip": 3461
+        "gzip": 3531
       }
     },
     "AspectRatio": {
@@ -490,9 +490,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 17294,
+        "jsMin": 17451,
         "cssMin": 17436,
-        "gzip": 9531
+        "gzip": 9600
       }
     },
     "Autocomplete": {
@@ -622,9 +622,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 77969,
+        "jsMin": 78126,
         "cssMin": 5974,
-        "gzip": 29689
+        "gzip": 29759
       }
     },
     "Avatar": {
@@ -870,9 +870,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 7551,
+        "jsMin": 7708,
         "cssMin": 2555,
-        "gzip": 4194
+        "gzip": 4263
       }
     },
     "BarChart": {
@@ -976,9 +976,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 12285,
+        "jsMin": 12442,
         "cssMin": 3924,
-        "gzip": 6348
+        "gzip": 6419
       }
     },
     "BottomNav": {
@@ -1055,9 +1055,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 6497,
+        "jsMin": 6654,
         "cssMin": 2391,
-        "gzip": 3645
+        "gzip": 3713
       }
     },
     "Box": {
@@ -1210,9 +1210,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6395,
+        "jsMin": 6552,
         "cssMin": 1482,
-        "gzip": 3391
+        "gzip": 3460
       }
     },
     "Button": {
@@ -1355,9 +1355,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 8073,
+        "jsMin": 8230,
         "cssMin": 5638,
-        "gzip": 4873
+        "gzip": 4943
       }
     },
     "ButtonGroup": {
@@ -1540,9 +1540,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 11530,
+        "jsMin": 11687,
         "cssMin": 6530,
-        "gzip": 6525
+        "gzip": 6596
       }
     },
     "Card": {
@@ -1624,8 +1624,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 578,
-        "cssMin": 2747,
-        "gzip": 1254
+        "cssMin": 2969,
+        "gzip": 1301
       }
     },
     "Carousel": {
@@ -1683,9 +1683,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 9026,
+        "jsMin": 9183,
         "cssMin": 5748,
-        "gzip": 5467
+        "gzip": 5538
       }
     },
     "Center": {
@@ -1815,9 +1815,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 9959,
+        "jsMin": 10116,
         "cssMin": 8045,
-        "gzip": 6303
+        "gzip": 6373
       }
     },
     "ChatMessage": {
@@ -1948,9 +1948,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 7630,
+        "jsMin": 7787,
         "cssMin": 2855,
-        "gzip": 4251
+        "gzip": 4319
       }
     },
     "Checkbox": {
@@ -2171,9 +2171,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 7018,
+        "jsMin": 7175,
         "cssMin": 4640,
-        "gzip": 4234
+        "gzip": 4301
       }
     },
     "Citation": {
@@ -2245,9 +2245,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 75388,
-        "cssMin": 4785,
-        "gzip": 28732
+        "jsMin": 75545,
+        "cssMin": 5007,
+        "gzip": 28843
       }
     },
     "CoachMark": {
@@ -2362,9 +2362,95 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 79428,
-        "cssMin": 9798,
-        "gzip": 30972
+        "jsMin": 79585,
+        "cssMin": 10020,
+        "gzip": 31080
+      }
+    },
+    "CodeBlock": {
+      "source": "packages/react/src/components/CodeBlock/CodeBlock.tsx",
+      "kinds": {},
+      "sizes": [],
+      "exports": [
+        {
+          "displayName": "CodeBlock",
+          "props": [
+            {
+              "name": "code",
+              "type": "string",
+              "required": true,
+              "default": null,
+              "description": "The code, as text. It is shown, never run.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "language",
+              "type": "\"tsx\" | \"ts\" | \"jsx\" | \"js\" | \"css\" | \"json\" | \"bash\" | \"html\" | \"text\"",
+              "required": false,
+              "default": "tsx",
+              "description": "Picks the highlighting rules. `text` shows the code in one colour.",
+              "enum": true,
+              "options": [
+                "tsx",
+                "ts",
+                "jsx",
+                "js",
+                "css",
+                "json",
+                "bash",
+                "html",
+                "text"
+              ]
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "What the code is, such as TSX or Terminal; shown in the bar and used to name the copy button.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "lines",
+              "type": "number",
+              "required": false,
+              "default": "14",
+              "description": "Longer code shows this many lines with \"Show all\"; Copy always copies everything.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "codeTheme",
+              "type": "string",
+              "required": false,
+              "default": null,
+              "description": "An IDE palette loaded from `pane-react/tokens/code-themes/<id>.css`, such as `github-dark`. Without one, the code takes Pane's palette for the theme.",
+              "enum": false,
+              "options": null
+            },
+            {
+              "name": "lineNumbers",
+              "type": "boolean",
+              "required": false,
+              "default": "false",
+              "description": "Numbers each line in the gutter.",
+              "enum": false,
+              "options": null
+            }
+          ]
+        }
+      ],
+      "variantDimensions": [
+        "language"
+      ],
+      "variantCount": 1,
+      "demoFloor": 4,
+      "bundle": {
+        "jsMin": 9631,
+        "cssMin": 2820,
+        "gzip": 5185
       }
     },
     "ColorPicker": {
@@ -2456,9 +2542,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 42506,
+        "jsMin": 42663,
         "cssMin": 10596,
-        "gzip": 17534
+        "gzip": 17610
       }
     },
     "Combobox": {
@@ -2597,9 +2683,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 78024,
+        "jsMin": 78181,
         "cssMin": 5974,
-        "gzip": 29710
+        "gzip": 29781
       }
     },
     "CommandPalette": {
@@ -2680,9 +2766,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 50666,
-        "cssMin": 8150,
-        "gzip": 20001
+        "jsMin": 50823,
+        "cssMin": 8372,
+        "gzip": 20113
       }
     },
     "ConfidenceChip": {
@@ -2736,9 +2822,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6464,
+        "jsMin": 6621,
         "cssMin": 917,
-        "gzip": 3225
+        "gzip": 3293
       }
     },
     "Container": {
@@ -2965,9 +3051,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 26425,
+        "jsMin": 26582,
         "cssMin": 6142,
-        "gzip": 11684
+        "gzip": 11755
       }
     },
     "DatePicker": {
@@ -3128,9 +3214,9 @@
       "variantCount": 4,
       "demoFloor": 7,
       "bundle": {
-        "jsMin": 82532,
-        "cssMin": 15130,
-        "gzip": 33104
+        "jsMin": 82689,
+        "cssMin": 15352,
+        "gzip": 33218
       }
     },
     "DescriptionList": {
@@ -3308,8 +3394,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 42814,
-        "cssMin": 4221,
-        "gzip": 15904
+        "cssMin": 4443,
+        "gzip": 15951
       }
     },
     "Divider": {
@@ -3493,8 +3579,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 43514,
-        "cssMin": 5166,
-        "gzip": 16384
+        "cssMin": 5388,
+        "gzip": 16428
       }
     },
     "Dropzone": {
@@ -3605,9 +3691,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 7534,
+        "jsMin": 7691,
         "cssMin": 1944,
-        "gzip": 4115
+        "gzip": 4183
       }
     },
     "Editable": {
@@ -3706,9 +3792,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 10675,
+        "jsMin": 10832,
         "cssMin": 10103,
-        "gzip": 6794
+        "gzip": 6864
       }
     },
     "EmptyState": {
@@ -4013,9 +4099,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 7456,
+        "jsMin": 7613,
         "cssMin": 1613,
-        "gzip": 3863
+        "gzip": 3930
       }
     },
     "Fieldset": {
@@ -4062,9 +4148,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 7138,
+        "jsMin": 7295,
         "cssMin": 1188,
-        "gzip": 3530
+        "gzip": 3597
       }
     },
     "FileUpload": {
@@ -4202,9 +4288,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 13480,
+        "jsMin": 13637,
         "cssMin": 12806,
-        "gzip": 7910
+        "gzip": 7981
       }
     },
     "Flex": {
@@ -4358,9 +4444,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 7027,
+        "jsMin": 7184,
         "cssMin": 1646,
-        "gzip": 3688
+        "gzip": 3758
       }
     },
     "FormField": {
@@ -4457,9 +4543,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 7706,
+        "jsMin": 7863,
         "cssMin": 1119,
-        "gzip": 3678
+        "gzip": 3746
       }
     },
     "Grid": {
@@ -4667,9 +4753,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 10053,
+        "jsMin": 10210,
         "cssMin": 4485,
-        "gzip": 5523
+        "gzip": 5592
       }
     },
     "HelperText": {
@@ -4708,9 +4794,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 6582,
+        "jsMin": 6739,
         "cssMin": 788,
-        "gzip": 3220
+        "gzip": 3289
       }
     },
     "HumanHandoff": {
@@ -4798,9 +4884,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 9552,
+        "jsMin": 9709,
         "cssMin": 6796,
-        "gzip": 5596
+        "gzip": 5667
       }
     },
     "Icon": {
@@ -4947,9 +5033,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 7206,
+        "jsMin": 7363,
         "cssMin": 4054,
-        "gzip": 4309
+        "gzip": 4381
       }
     },
     "Image": {
@@ -5073,9 +5159,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 9428,
+        "jsMin": 9585,
         "cssMin": 8729,
-        "gzip": 6086
+        "gzip": 6155
       }
     },
     "InputGroup": {
@@ -5176,9 +5262,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 8895,
+        "jsMin": 9052,
         "cssMin": 2521,
-        "gzip": 4643
+        "gzip": 4712
       }
     },
     "Kbd": {
@@ -5224,9 +5310,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6043,
+        "jsMin": 6200,
         "cssMin": 218,
-        "gzip": 2749
+        "gzip": 2818
       }
     },
     "LineChart": {
@@ -5325,9 +5411,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 11476,
+        "jsMin": 11633,
         "cssMin": 4001,
-        "gzip": 6058
+        "gzip": 6128
       }
     },
     "Link": {
@@ -5373,9 +5459,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 6142,
+        "jsMin": 6299,
         "cssMin": 973,
-        "gzip": 3100
+        "gzip": 3167
       }
     },
     "List": {
@@ -5835,9 +5921,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6884,
+        "jsMin": 7041,
         "cssMin": 1282,
-        "gzip": 3567
+        "gzip": 3634
       }
     },
     "MultiSelect": {
@@ -5967,9 +6053,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 79630,
+        "jsMin": 79787,
         "cssMin": 10613,
-        "gzip": 31202
+        "gzip": 31273
       }
     },
     "Navbar": {
@@ -6050,9 +6136,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6340,
+        "jsMin": 6497,
         "cssMin": 1932,
-        "gzip": 3466
+        "gzip": 3535
       }
     },
     "NavigationMenu": {
@@ -6097,9 +6183,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 7267,
+        "jsMin": 7424,
         "cssMin": 2330,
-        "gzip": 4017
+        "gzip": 4084
       }
     },
     "NetworkGraph": {
@@ -6197,9 +6283,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 10631,
+        "jsMin": 10788,
         "cssMin": 4253,
-        "gzip": 5833
+        "gzip": 5904
       }
     },
     "NodeCard": {
@@ -6316,9 +6402,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 7430,
+        "jsMin": 7587,
         "cssMin": 3125,
-        "gzip": 4225
+        "gzip": 4298
       }
     },
     "NotificationCenter": {
@@ -6390,9 +6476,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 81388,
-        "cssMin": 16565,
-        "gzip": 32298
+        "jsMin": 81545,
+        "cssMin": 16787,
+        "gzip": 32401
       }
     },
     "NumberInput": {
@@ -6511,9 +6597,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 11455,
+        "jsMin": 11612,
         "cssMin": 9460,
-        "gzip": 6959
+        "gzip": 7028
       }
     },
     "OTPFlow": {
@@ -6585,9 +6671,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 11540,
+        "jsMin": 11697,
         "cssMin": 8598,
-        "gzip": 6919
+        "gzip": 6989
       }
     },
     "Pagination": {
@@ -6659,9 +6745,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 7461,
+        "jsMin": 7618,
         "cssMin": 1736,
-        "gzip": 3988
+        "gzip": 4058
       }
     },
     "PaneProvider": {
@@ -6673,9 +6759,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 22361,
+        "jsMin": 22948,
         "cssMin": 0,
-        "gzip": 5374
+        "gzip": 5520
       }
     },
     "PasswordInput": {
@@ -6744,9 +6830,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 10199,
+        "jsMin": 10356,
         "cssMin": 9258,
-        "gzip": 6426
+        "gzip": 6494
       }
     },
     "PinInput": {
@@ -6880,9 +6966,9 @@
       "variantCount": 4,
       "demoFloor": 7,
       "bundle": {
-        "jsMin": 7611,
+        "jsMin": 7768,
         "cssMin": 2153,
-        "gzip": 4180
+        "gzip": 4253
       }
     },
     "Popover": {
@@ -7003,8 +7089,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 69593,
-        "cssMin": 3670,
-        "gzip": 25979
+        "cssMin": 3892,
+        "gzip": 26028
       }
     },
     "Progress": {
@@ -7131,9 +7217,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 7200,
+        "jsMin": 7357,
         "cssMin": 1394,
-        "gzip": 3774
+        "gzip": 3843
       }
     },
     "RadarChart": {
@@ -7232,9 +7318,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 9434,
+        "jsMin": 9591,
         "cssMin": 4135,
-        "gzip": 5254
+        "gzip": 5322
       }
     },
     "Radio": {
@@ -7631,9 +7717,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 35789,
+        "jsMin": 35946,
         "cssMin": 4234,
-        "gzip": 14415
+        "gzip": 14484
       }
     },
     "Rating": {
@@ -7726,9 +7812,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 35331,
+        "jsMin": 35488,
         "cssMin": 998,
-        "gzip": 13407
+        "gzip": 13477
       }
     },
     "RichTextEditor": {
@@ -7831,9 +7917,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 9057,
+        "jsMin": 9214,
         "cssMin": 3194,
-        "gzip": 5041
+        "gzip": 5109
       }
     },
     "Scale": {
@@ -7923,9 +8009,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 7203,
+        "jsMin": 7360,
         "cssMin": 2198,
-        "gzip": 3953
+        "gzip": 4023
       }
     },
     "SearchInput": {
@@ -8026,9 +8112,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 10583,
+        "jsMin": 10740,
         "cssMin": 9359,
-        "gzip": 6577
+        "gzip": 6647
       }
     },
     "SegmentedControl": {
@@ -8331,9 +8417,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 7210,
+        "jsMin": 7367,
         "cssMin": 3423,
-        "gzip": 4057
+        "gzip": 4124
       }
     },
     "SettingsLayout": {
@@ -8577,8 +8663,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 43358,
-        "cssMin": 5166,
-        "gzip": 16340
+        "cssMin": 5388,
+        "gzip": 16384
       }
     },
     "Sidebar": {
@@ -8650,9 +8736,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6733,
+        "jsMin": 6890,
         "cssMin": 2191,
-        "gzip": 3676
+        "gzip": 3745
       }
     },
     "Skeleton": {
@@ -9072,9 +9158,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 6090,
+        "jsMin": 6247,
         "cssMin": 620,
-        "gzip": 2968
+        "gzip": 3036
       }
     },
     "SplitButton": {
@@ -9191,9 +9277,9 @@
       "variantCount": 4,
       "demoFloor": 7,
       "bundle": {
-        "jsMin": 97868,
+        "jsMin": 98025,
         "cssMin": 8609,
-        "gzip": 36685
+        "gzip": 36756
       }
     },
     "Stack": {
@@ -9341,9 +9427,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 6837,
+        "jsMin": 6994,
         "cssMin": 1427,
-        "gzip": 3537
+        "gzip": 3608
       }
     },
     "Stepper": {
@@ -9411,9 +9497,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 6763,
+        "jsMin": 6920,
         "cssMin": 2738,
-        "gzip": 3822
+        "gzip": 3891
       }
     },
     "Switch": {
@@ -9649,9 +9735,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 7673,
+        "jsMin": 7830,
         "cssMin": 3155,
-        "gzip": 4403
+        "gzip": 4472
       }
     },
     "TableOfContents": {
@@ -9705,9 +9791,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 6837,
+        "jsMin": 6994,
         "cssMin": 1516,
-        "gzip": 3671
+        "gzip": 3737
       }
     },
     "Tabs": {
@@ -9924,9 +10010,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 8758,
+        "jsMin": 8915,
         "cssMin": 7485,
-        "gzip": 5607
+        "gzip": 5673
       }
     },
     "Text": {
@@ -10082,9 +10168,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 7228,
+        "jsMin": 7385,
         "cssMin": 2747,
-        "gzip": 4093
+        "gzip": 4161
       }
     },
     "TimePicker": {
@@ -10231,9 +10317,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 98355,
+        "jsMin": 98512,
         "cssMin": 5091,
-        "gzip": 36377
+        "gzip": 36446
       }
     },
     "Timeline": {
@@ -10382,9 +10468,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 47446,
+        "jsMin": 47603,
         "cssMin": 5649,
-        "gzip": 17588
+        "gzip": 17660
       }
     },
     "Tooltip": {
@@ -10519,9 +10605,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 12337,
+        "jsMin": 12494,
         "cssMin": 10681,
-        "gzip": 7428
+        "gzip": 7498
       }
     },
     "TreeView": {
@@ -10806,9 +10892,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 10324,
+        "jsMin": 10481,
         "cssMin": 9500,
-        "gzip": 6415
+        "gzip": 6485
       }
     }
   }

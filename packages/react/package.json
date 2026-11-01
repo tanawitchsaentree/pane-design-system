@@ -51,6 +51,11 @@
       "default": "./dist/tokens/brands/*.css"
     },
     "./tokens/brands.json": "./dist/tokens/brands/brands.json",
+    "./tokens/code-themes/*": {
+      "style": "./dist/tokens/code-themes/*.css",
+      "default": "./dist/tokens/code-themes/*.css"
+    },
+    "./tokens/code-themes.json": "./dist/tokens/code-themes/code-themes.json",
     "./skill": "./skill/SKILL.md"
   },
   "peerDependencies": {
@@ -58,7 +63,7 @@
     "react-dom": ">=18"
   },
   "scripts": {
-    "build": "(test ! -f ../../tooling/kiln/i18n-lint.mjs || node ../../tooling/kiln/i18n-lint.mjs) && vite build && PANE_NODE=1 vite build && rm -rf dist/node/*.css dist/node/css && vite build -c vite.cjs.config.ts && rm -f dist/cjs-unused.css && tsc -p tsconfig.build.json && node ../../tooling/bundle-tokens.mjs && cp ../tokens/build/css/core.css ../tokens/build/css/colour.css dist/tokens/ && mkdir -p dist/tokens/brands && cp ../tokens/build/css/brands/* dist/tokens/brands/ && node ../../tooling/pane-knowledge.mjs",
+    "build": "(test ! -f ../../tooling/kiln/i18n-lint.mjs || node ../../tooling/kiln/i18n-lint.mjs) && vite build && PANE_NODE=1 vite build && rm -rf dist/node/*.css dist/node/css && vite build -c vite.cjs.config.ts && rm -f dist/cjs-unused.css && tsc -p tsconfig.build.json && node ../../tooling/bundle-tokens.mjs && cp ../tokens/build/css/core.css ../tokens/build/css/colour.css dist/tokens/ && mkdir -p dist/tokens/brands && cp ../tokens/build/css/brands/* dist/tokens/brands/ && mkdir -p dist/tokens/code-themes && cp ../tokens/build/css/code-themes/* dist/tokens/code-themes/ && node ../../tooling/pane-knowledge.mjs",
     "typecheck": "tsc --noEmit -p .",
     "barrel:check": "node ../../tooling/generate-barrel.mjs --check",
     "prepack": "pnpm run build"

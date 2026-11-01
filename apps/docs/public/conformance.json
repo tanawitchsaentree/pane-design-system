@@ -1,2561 +1,3335 @@
 {
-  "generatedAt": "2026-10-31T02:14:55.993Z",
-  "passed": 459,
-  "total": 459,
+  "generatedAt": "2026-11-01T02:04:57.357Z",
+  "partial": true,
+  "stale": 214,
+  "passed": 467,
+  "total": 468,
   "checks": [
     {
-      "component": "Container",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "1 props"
-    },
-    {
-      "component": "Grid",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "4 props"
-    },
-    {
-      "component": "Stack",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "3 props"
-    },
-    {
-      "component": "Box",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "5 props"
-    },
-    {
-      "component": "Flex",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "5 props"
-    },
-    {
-      "component": "Center",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "1 props"
-    },
-    {
-      "component": "Spacer",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "1 props"
-    },
-    {
-      "component": "Divider",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "3 props"
-    },
-    {
-      "component": "AspectRatio",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "1 props"
-    },
-    {
-      "component": "VisuallyHidden",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "1 props"
-    },
-    {
-      "component": "Text",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "5 props"
-    },
-    {
-      "component": "Heading",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "2 props"
-    },
-    {
-      "component": "Icon",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "3 props"
-    },
-    {
-      "component": "Link",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "2 props"
-    },
-    {
-      "component": "Spinner",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "2 props"
-    },
-    {
-      "component": "Skeleton",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "2 props"
-    },
-    {
-      "component": "Kbd",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "no props of its own (pass-through only)"
-    },
-    {
-      "component": "Image",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "3 props"
-    },
-    {
-      "component": "Dialog",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "11 props"
-    },
-    {
-      "component": "Sheet",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "12 props"
-    },
-    {
-      "component": "Drawer",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "12 props"
-    },
-    {
-      "component": "ActionSheet",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "9 props"
-    },
-    {
-      "component": "Popover",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "10 props"
-    },
-    {
-      "component": "Tooltip",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "4 props"
-    },
-    {
-      "component": "Toast",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "9 props"
-    },
-    {
-      "component": "Snackbar",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "7 props"
-    },
-    {
-      "component": "FAB",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "4 props"
-    },
-    {
-      "component": "PullToRefresh",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "2 props"
-    },
-    {
-      "component": "Environment",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "2 props"
-    },
-    {
-      "component": "Card",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "4 props"
-    },
-    {
-      "component": "Avatar",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "4 props"
-    },
-    {
-      "component": "IconButton",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "6 props"
-    },
-    {
-      "component": "Tabs",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "no props of its own (pass-through only)"
-    },
-    {
-      "component": "Tag",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "1 props"
-    },
-    {
-      "component": "Mesh",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "6 props"
-    },
-    {
-      "component": "Badge",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "3 props"
-    },
-    {
-      "component": "Chip",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "6 props"
-    },
-    {
-      "component": "Select",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "13 props"
-    },
-    {
-      "component": "Listbox",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "9 props"
-    },
-    {
-      "component": "Combobox",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "13 props"
-    },
-    {
-      "component": "Autocomplete",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "12 props"
-    },
-    {
-      "component": "MultiSelect",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "12 props"
-    },
-    {
-      "component": "Menu",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "4 props"
-    },
-    {
-      "component": "ContextMenu",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "3 props"
-    },
-    {
-      "component": "RadioCards",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "10 props"
-    },
-    {
-      "component": "Rating",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "8 props"
-    },
-    {
-      "component": "TagInput",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "12 props"
-    },
-    {
-      "component": "Progress",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "7 props"
-    },
-    {
-      "component": "Meter",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "7 props"
-    },
-    {
-      "component": "Stat",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "6 props"
-    },
-    {
-      "component": "EmptyState",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "6 props"
-    },
-    {
-      "component": "Timeline",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "2 props"
-    },
-    {
-      "component": "DescriptionList",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "3 props"
-    },
-    {
-      "component": "List",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "9 props"
-    },
-    {
-      "component": "Table",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "12 props"
-    },
-    {
-      "component": "PasswordInput",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "5 props"
-    },
-    {
-      "component": "SearchInput",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "9 props"
-    },
-    {
-      "component": "NumberInput",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "11 props"
-    },
-    {
-      "component": "RangeSlider",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "11 props"
-    },
-    {
-      "component": "Editable",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "8 props"
-    },
-    {
-      "component": "Dropzone",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "10 props"
-    },
-    {
-      "component": "ColorPicker",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "8 props"
-    },
-    {
-      "component": "OTPFlow",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "6 props"
-    },
-    {
-      "component": "Calendar",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "12 props"
-    },
-    {
-      "component": "DatePicker",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "15 props"
-    },
-    {
-      "component": "TimePicker",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "14 props"
-    },
-    {
-      "component": "TreeView",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "7 props"
-    },
-    {
-      "component": "Carousel",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "4 props"
-    },
-    {
-      "component": "VirtualList",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "9 props"
-    },
-    {
-      "component": "TransferList",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "6 props"
-    },
-    {
-      "component": "DataGrid",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "13 props"
-    },
-    {
-      "component": "BarChart",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "9 props"
-    },
-    {
-      "component": "LineChart",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "9 props"
-    },
-    {
-      "component": "Sparkline",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "5 props"
-    },
-    {
-      "component": "Heatmap",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "8 props"
-    },
-    {
-      "component": "Scale",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "8 props"
-    },
-    {
-      "component": "RadarChart",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "9 props"
-    },
-    {
-      "component": "ConfidenceChip",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "4 props"
-    },
-    {
-      "component": "NodeCard",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "11 props"
-    },
-    {
-      "component": "NetworkGraph",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "8 props"
-    },
-    {
-      "component": "SequenceDiagram",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "3 props"
-    },
-    {
-      "component": "Form",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "5 props"
-    },
-    {
-      "component": "Wizard",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "6 props"
-    },
-    {
-      "component": "AuthForm",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "11 props"
-    },
-    {
-      "component": "CommandPalette",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "7 props"
-    },
-    {
-      "component": "NotificationCenter",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "6 props"
-    },
-    {
-      "component": "CoachMark",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "10 props"
-    },
-    {
-      "component": "KanbanBoard",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "4 props"
-    },
-    {
-      "component": "Feed",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "10 props"
-    },
-    {
-      "component": "AppShell",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "7 props"
-    },
-    {
-      "component": "SettingsLayout",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "9 props"
-    },
-    {
-      "component": "RichTextEditor",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "9 props"
-    },
-    {
-      "component": "Slider",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "12 props"
-    },
-    {
-      "component": "Textarea",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "4 props"
-    },
-    {
-      "component": "Checkbox",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "11 props"
-    },
-    {
-      "component": "Radio",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "15 props"
-    },
-    {
-      "component": "Switch",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "9 props"
-    },
-    {
-      "component": "Label",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "1 props"
-    },
-    {
-      "component": "HelperText",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "1 props"
-    },
-    {
-      "component": "InputGroup",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "3 props"
-    },
-    {
-      "component": "PinInput",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "12 props"
-    },
-    {
-      "component": "Banner",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "6 props"
-    },
-    {
-      "component": "Container",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Grid",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Stack",
-      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
-      "ok": true,
-      "detail": "6 demos"
-    },
-    {
-      "component": "Box",
-      "name": "demo floor met (≥ variant dimensions + 3 = 8)",
-      "ok": true,
-      "detail": "8 demos"
-    },
-    {
-      "component": "Flex",
-      "name": "demo floor met (≥ variant dimensions + 3 = 7)",
-      "ok": true,
-      "detail": "7 demos"
-    },
-    {
-      "component": "Center",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "Spacer",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Divider",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "AspectRatio",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "VisuallyHidden",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "Text",
-      "name": "demo floor met (≥ variant dimensions + 3 = 7)",
-      "ok": true,
-      "detail": "7 demos"
-    },
-    {
-      "component": "Heading",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Icon",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Link",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Spinner",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Skeleton",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Kbd",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "Image",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "Dialog",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Sheet",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Drawer",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "ActionSheet",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "Popover",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "Tooltip",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Toast",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Snackbar",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "FAB",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "PullToRefresh",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "Environment",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "Card",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "Avatar",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "IconButton",
-      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
-      "ok": true,
-      "detail": "7 demos"
-    },
-    {
-      "component": "Tabs",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
       "component": "Tag",
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "Mesh",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
+      "detail": "3 demos",
+      "stale": true
     },
     {
       "component": "Badge",
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
-      "detail": "5 demos"
+      "detail": "5 demos",
+      "stale": true
     },
     {
       "component": "Chip",
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "Select",
-      "name": "demo floor met (≥ variant dimensions + 3 = 7)",
-      "ok": true,
-      "detail": "7 demos"
-    },
-    {
-      "component": "Listbox",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "Combobox",
-      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
-      "ok": true,
-      "detail": "6 demos"
-    },
-    {
-      "component": "Autocomplete",
-      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
-      "ok": true,
-      "detail": "6 demos"
-    },
-    {
-      "component": "MultiSelect",
-      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
-      "ok": true,
-      "detail": "6 demos"
-    },
-    {
-      "component": "Menu",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "ContextMenu",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "RadioCards",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "Rating",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "TagInput",
-      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
-      "ok": true,
-      "detail": "6 demos"
-    },
-    {
-      "component": "Progress",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Meter",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Stat",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "EmptyState",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Timeline",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "DescriptionList",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "List",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Table",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "PasswordInput",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "SearchInput",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "NumberInput",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "RangeSlider",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Editable",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "Dropzone",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "ColorPicker",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "OTPFlow",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "Calendar",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "DatePicker",
-      "name": "demo floor met (≥ variant dimensions + 3 = 7)",
-      "ok": true,
-      "detail": "7 demos"
-    },
-    {
-      "component": "TimePicker",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "TreeView",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "Carousel",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "VirtualList",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "TransferList",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "DataGrid",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "BarChart",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "LineChart",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "Sparkline",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "Heatmap",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "Scale",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "6 demos"
-    },
-    {
-      "component": "RadarChart",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "ConfidenceChip",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "NodeCard",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "6 demos"
-    },
-    {
-      "component": "NetworkGraph",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "SequenceDiagram",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Form",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "Wizard",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "AuthForm",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "CommandPalette",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "NotificationCenter",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "CoachMark",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "KanbanBoard",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "Feed",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "AppShell",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "SettingsLayout",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "RichTextEditor",
-      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
-      "ok": true,
-      "detail": "6 demos"
-    },
-    {
-      "component": "Slider",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "Textarea",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "Checkbox",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "Radio",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Switch",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "Label",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "HelperText",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "InputGroup",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "PinInput",
-      "name": "demo floor met (≥ variant dimensions + 3 = 7)",
-      "ok": true,
-      "detail": "7 demos"
-    },
-    {
-      "component": "Banner",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "8 demos"
+      "detail": "3 demos",
+      "stale": true
     },
     {
       "component": "Environment",
       "name": "each brightness wires its own backdrop dimming into the card (probe values)",
       "ok": true,
-      "detail": "dim→0.9 mid→0.6 bright→0.3"
+      "detail": "dim→0.9 mid→0.6 bright→0.3",
+      "stale": true
     },
     {
       "component": "Environment",
       "name": "reduced transparency turns every environment opaque, no dimming (D-005)",
       "ok": true,
-      "detail": "rgb(44, 44, 52)|blur(0px) saturate(1.8) brightness(1)"
+      "detail": "rgb(44, 44, 52)|blur(0px) saturate(1.8) brightness(1)",
+      "stale": true
     },
     {
       "component": "Environment",
       "name": "no declaration falls back to bright (the safe end)",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Environment",
       "name": "reduced motion zeroes every motion duration at the token level",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Card",
       "name": "glass card blurs, saturates and dims what is behind it",
       "ok": true,
-      "detail": "blur(64px) saturate(1.8) brightness(0.42)"
+      "detail": "blur(64px) saturate(1.8) brightness(0.42)",
+      "stale": true
     },
     {
       "component": "Card",
       "name": "inset variant adds no second glass layer",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Avatar",
       "name": "non-decorative avatars are role=\"img\" named after the person",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Avatar",
       "name": "decorative avatar beside a visible name is hidden from assistive tech",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "IconButton",
       "name": "reachable with Tab",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "IconButton",
       "name": "every button with no visible text, on every page of the book, has an accessible name",
       "ok": true,
-      "detail": "642 pages"
+      "detail": "642 pages",
+      "stale": true
     },
     {
       "component": "Tabs",
       "name": "one tab stop, so Tab lands on the selected tab and the next Tab leaves the list",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Tabs",
       "name": "arrow keys move focus and selection, and Home and End jump to the ends",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Tabs",
       "name": "each tab controls a tabpanel that exists",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Tabs",
       "name": "the selected tab keeps an underline in forced colours",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Tag",
       "name": "plain text with no role, small caps via CSS (source text stays readable)",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Docs page",
       "name": "G-D3, no literal backtick in rendered text on any of the 642 pages",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Grid",
       "name": "columns follow the breakpoint tokens, with 4 at 375px, 8 at 800px and 12 at 1280px",
       "ok": true,
-      "detail": "4 → 8 → 12"
+      "detail": "4 → 8 → 12",
+      "stale": true
     },
     {
       "component": "Grid",
       "name": "GridItem spans switch per breakpoint (full → md 4/8 → lg 4/12)",
       "ok": true,
-      "detail": "100% → 48% → 31%"
+      "detail": "100% → 48% → 31%",
+      "stale": true
     },
     {
       "component": "Container",
       "name": "xl caps at 1200px and the margin grows 16 → 32 → 48px",
       "ok": true,
-      "detail": "16px → 32px → 48px"
+      "detail": "16px → 32px → 48px",
+      "stale": true
     },
     {
       "component": "Stack",
       "name": "gap comes from the token scale (md = 16px, xl = 32px)",
       "ok": true,
-      "detail": "4px · 8px · 16px · 24px · 32px"
+      "detail": "4px · 8px · 16px · 24px · 32px",
+      "stale": true
     },
     {
       "component": "Badge",
       "name": "status is in the text, with no role (read in place)",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Chip",
       "name": "reachable with Tab",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Chip",
       "name": "Space and Enter toggle aria-pressed",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Chip",
       "name": "a check mark marks the selected chip as well as its colour",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Chip",
       "name": "an input chip’s remove button is named after the chip and removes it",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Select",
       "name": "reachable with Tab",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Select",
       "name": "Enter opens the list and Escape closes it",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Select",
       "name": "arrow keys and Enter choose a new value",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Slider",
       "name": "reachable with Tab",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Slider",
       "name": "arrow keys, Home and End change the value",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Slider",
       "name": "the press area is at least 44px tall",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Textarea",
       "name": "labelled by its FormField",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Checkbox",
       "name": "Space toggles it and the label is its name",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Checkbox",
       "name": "a mixed parent reports aria-checked=\"mixed\"",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Checkbox",
       "name": "the target is at least 44px tall",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Radio",
       "name": "one tab stop and arrow keys choose",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Switch",
       "name": "Space toggles it",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "PinInput",
       "name": "typing moves on and paste fills every cell",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Banner",
       "name": "dismiss is a named button and removes the banner",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Banner",
       "name": "live=\"polite\" appears as role=\"status\", live=\"assertive\" as role=\"alert\"",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Banner",
       "name": "the tone is spoken as prefix text",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Label",
       "name": "a native <label> tied to its control, and a click on it focuses the control",
       "ok": true,
-      "detail": "3 of 4 labels tied to a control"
+      "detail": "3 of 4 labels tied to a control",
+      "stale": true
     },
     {
       "component": "HelperText",
       "name": "the error tone says the word Error and carries a glyph, so it is not colour alone",
       "ok": true,
-      "detail": "5 errors of 6"
+      "detail": "5 errors of 6",
+      "stale": true
     },
     {
       "component": "InputGroup",
       "name": "one text input inside, with its adornments outside the input’s value and name",
       "ok": true,
-      "detail": "adornment \"NOK\""
+      "detail": "adornment \"NOK\"",
+      "stale": true
     },
     {
       "component": "Mesh",
       "name": "decorative by default, an img with its label when named, never focusable",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Mesh",
       "name": "forced colours drop the pools",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Box",
       "name": "padding and corner come from the scales and it draws no surface",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Flex",
       "name": "spacing is a gap from the scale, never a margin on the children",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Center",
       "name": "its content sits in the middle both ways",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Divider",
       "name": "a separator by default, no role when decorative, never focusable",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Spacer",
       "name": "hidden from assistive technology",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "VisuallyHidden",
       "name": "off screen but in the tree; focusable content shows on focus",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "AspectRatio",
       "name": "keeps its ratio at any width",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Text",
       "name": "sizes come from the type scale and secondary is the measured secondary tone",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Kbd",
       "name": "renders a kbd element that is not focusable",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Heading",
       "name": "renders the h level it is given, whatever its size",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Link",
       "name": "reachable with Tab, underlined inline, external says it opens a new tab",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Spinner",
       "name": "a status with a label",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Skeleton",
       "name": "hidden from assistive technology",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Image",
       "name": "every image has alt, loads lazily, and a failed one stays a recess",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Icon",
       "name": "decorative by default, an img with its label when named",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Dialog",
       "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Sheet",
       "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Drawer",
       "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "ActionSheet",
       "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Popover",
       "name": "opens on Enter, closes on Esc with focus back on the trigger",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Tooltip",
       "name": "shows on keyboard focus",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Toast",
       "name": "is announced as a status in a labelled region",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Snackbar",
       "name": "shows one line with its action reachable",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "FAB",
       "name": "has an accessible name and a 56px target",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "PullToRefresh",
       "name": "a Refresh button is reachable with Tab and shows on focus",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Listbox",
       "name": "one tab stop; arrow keys move, Space chooses, aria-selected follows",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Combobox",
       "name": "typing filters, arrow keys highlight while focus stays in the field, Enter chooses, Esc closes",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Autocomplete",
       "name": "keeps free text that matches no suggestion",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "MultiSelect",
       "name": "chosen values are chips with named remove buttons; Backspace removes the last",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Menu",
       "name": "opens from the keyboard on its first action and Esc returns focus",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "ContextMenu",
       "name": "opens from the keyboard menu key on a focused target",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "RadioCards",
       "name": "arrow keys choose like a radio group and the chosen card carries a check",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Rating",
       "name": "arrow keys change the score; read-only is one image with a spoken score",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "TagInput",
       "name": "Enter and a comma add, duplicates are ignored, Backspace removes",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Progress",
       "name": "a known amount is a progressbar with its value",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Progress",
       "name": "an unknown amount has no value",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Meter",
       "name": "a meter with its range and reading",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Meter",
       "name": "a high reading says Almost full and a full one says Full",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Stat",
       "name": "the change is read with its direction",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "EmptyState",
       "name": "the title is a heading at the level given",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Timeline",
       "name": "an ordered list with the current event marked",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "DescriptionList",
       "name": "terms and details in a dl",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "List",
       "name": "a list whose pressable rows are links or buttons",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Table",
       "name": "a captioned table in a focusable named region",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Table",
       "name": "a sortable header is a button and says its order",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Table",
       "name": "pressing a header sorts the rows",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "PasswordInput",
       "name": "the show button toggles what is typed and says its state",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "PasswordInput",
       "name": "it carries the autocomplete name password managers need",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "SearchInput",
       "name": "it is a search landmark with a named field",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "SearchInput",
       "name": "Esc clears the query and keeps focus in the field",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "SearchInput",
       "name": "the clear button shows with a query and puts focus back",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "NumberInput",
       "name": "arrow keys step and Home and End go to the limits",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "NumberInput",
       "name": "a typed number is held to the limits when the field is left",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "NumberInput",
       "name": "the steppers stop at the limits",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "RangeSlider",
       "name": "two sliders, each named for its end",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "RangeSlider",
       "name": "arrow keys move one end and the two never cross",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Editable",
       "name": "Enter saves and focus returns to the text",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Editable",
       "name": "Esc puts the words back",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Dropzone",
       "name": "the zone is a button that opens the file chooser",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Dropzone",
       "name": "a file of the wrong type is refused in words",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "ColorPicker",
       "name": "swatches are radios named for their colour",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "ColorPicker",
       "name": "a typed hex chooses that colour",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "OTPFlow",
       "name": "a wrong code is said in words and the cells clear",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "OTPFlow",
       "name": "a right code is accepted",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "OTPFlow",
       "name": "the resend button waits before it can be pressed",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Calendar",
       "name": "a month is a grid of day buttons named in full, with the chosen day selected",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Calendar",
       "name": "arrow keys move a day and a week, and Enter chooses",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Calendar",
       "name": "Page Down shows the next month",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Calendar",
       "name": "a range is chosen with two presses",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Calendar",
       "name": "unavailable days cannot be chosen",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "DatePicker",
       "name": "it opens the calendar, and choosing closes it with focus back on the field",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "DatePicker",
       "name": "Esc closes the calendar",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "TimePicker",
       "name": "times are offered at the step",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "TreeView",
       "name": "it is a tree with levels and open state",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "TreeView",
       "name": "arrow keys open, close and move between rows",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "TreeView",
       "name": "typing a letter finds the next row",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Carousel",
       "name": "slides are named groups and Next moves on",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Carousel",
       "name": "it never moves by itself",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "VirtualList",
       "name": "only rows in view are drawn and each says its place",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "VirtualList",
       "name": "scrolling draws the rows further down",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "TransferList",
       "name": "Add moves the chosen items and says how many",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "DataGrid",
       "name": "one tab stop, and arrow keys move between cells",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "DataGrid",
       "name": "choose all chooses every row",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "DataGrid",
       "name": "pressing a sortable header sorts the rows",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "BarChart",
       "name": "arrow keys read each category aloud",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "BarChart",
       "name": "the table view holds every value",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "BarChart",
       "name": "two or more series have a legend",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "LineChart",
       "name": "arrow keys walk the points and every series is read",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "LineChart",
       "name": "up to four series are labelled at their ends",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Sparkline",
       "name": "it is an image with its trend in words",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Heatmap",
       "name": "arrow keys read each cell aloud",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Heatmap",
       "name": "a scale says the lowest and the highest value",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Form",
       "name": "nothing in a form takes focus when the page opens",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Form",
       "name": "a failed submit shows a summary that takes focus and links to each field",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Wizard",
       "name": "Next moves on and the step heading takes focus",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Wizard",
       "name": "Back keeps what was typed",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Wizard",
       "name": "a step that fails its check stays",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "AuthForm",
       "name": "it carries the autocomplete names password managers need",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "AuthForm",
       "name": "errors are in the summary and under each field",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "CommandPalette",
       "name": "typing filters and focus stays in the field",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "CommandPalette",
       "name": "arrow keys move the highlight",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "CommandPalette",
       "name": "Ctrl+K opens it and Esc closes it",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "NotificationCenter",
       "name": "unread notices say New and the bell gives the count",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "CoachMark",
       "name": "the card says its step, with Skip tour and Next",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "CoachMark",
       "name": "Esc skips the tour",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "KanbanBoard",
       "name": "Space picks a card up, arrows carry it and Space drops it, said aloud",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "KanbanBoard",
       "name": "Esc puts a moved card back",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Feed",
       "name": "articles are in a feed and Page Down moves between them",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Feed",
       "name": "the end of a feed is said in words",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "AppShell",
       "name": "the skip link moves focus to the main content",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "AppShell",
       "name": "either the sidebar or the bottom bar shows, never both",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "SettingsLayout",
       "name": "each row names its control",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "RichTextEditor",
       "name": "the toolbar is one tab stop with arrow keys between tools",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "RichTextEditor",
       "name": "a mark says when it is on",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Scale",
       "name": "says its label, word, position and the comparison in one sentence",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Scale",
       "name": "a value between two steps sits between them and lights the steps up to the nearest",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Scale",
       "name": "a rise where lower is better takes the critical band and an up arrow",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Scale",
       "name": "in RTL the steps fill from the right",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "RadarChart",
       "name": "Show table gives every axis and series as a table, and back",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "RadarChart",
       "name": "arrow keys walk the axes and read every series there",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "PaneProvider",
       "name": "under the Thai catalog the components speak Thai",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "PaneProvider",
       "name": "th-TH writes the month in Thai and the year in the Buddhist era",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "PaneProvider",
       "name": "without a provider the components speak English, as before",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "ConfidenceChip",
       "name": "it is an image that says its level",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "ConfidenceChip",
       "name": "it says the level in words",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "NodeCard",
       "name": "each node is a tab stop",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "NodeCard",
       "name": "Enter picks the node",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "NodeCard",
       "name": "arrow keys move the node",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "NetworkGraph",
       "name": "the plot is one tab stop",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "NetworkGraph",
       "name": "arrow keys walk from node to node",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "NetworkGraph",
       "name": "Enter picks the node",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "SequenceDiagram",
       "name": "each step is spoken in order",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "SequenceDiagram",
       "name": "the lanes scroll with the keyboard",
-      "ok": true
-    },
-    {
-      "component": "SegmentedControl",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "8 props"
-    },
-    {
-      "component": "Navbar",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "7 props"
-    },
-    {
-      "component": "NavigationMenu",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "3 props"
-    },
-    {
-      "component": "Sidebar",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "6 props"
-    },
-    {
-      "component": "BottomNav",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "6 props"
-    },
-    {
-      "component": "Breadcrumb",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "3 props"
-    },
-    {
-      "component": "Pagination",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "6 props"
-    },
-    {
-      "component": "Stepper",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "5 props"
-    },
-    {
-      "component": "Accordion",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "5 props"
-    },
-    {
-      "component": "TableOfContents",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "4 props"
-    },
-    {
-      "component": "SegmentedControl",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "5 demos"
-    },
-    {
-      "component": "Navbar",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "NavigationMenu",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "Sidebar",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "BottomNav",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Breadcrumb",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "Pagination",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
-    },
-    {
-      "component": "Stepper",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "Accordion",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "4 demos"
-    },
-    {
-      "component": "TableOfContents",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos"
+      "stale": true
     },
     {
       "component": "SegmentedControl",
       "name": "one tab stop",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "SegmentedControl",
       "name": "arrow keys move",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "SegmentedControl",
       "name": "Space chooses",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "BottomNav",
       "name": "links in a nav with the current page marked",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Navbar",
       "name": "links in a nav with the current page marked",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Sidebar",
       "name": "links in a nav, groups named by their titles",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Breadcrumb",
       "name": "links in a nav, the current page announced and not a link",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Pagination",
       "name": "buttons in a nav",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Pagination",
       "name": "Next goes on",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Stepper",
       "name": "aria-current=\"step\" on one step, the rest say done or not started",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Accordion",
       "name": "each heading is a button",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "Accordion",
       "name": "Enter opens a section",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "NavigationMenu",
       "name": "Enter opens a panel",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "NavigationMenu",
       "name": "Esc closes and focus returns",
-      "ok": true
+      "ok": true,
+      "stale": true
     },
     {
       "component": "TableOfContents",
       "name": "a link moves focus to its heading",
-      "ok": true
+      "ok": true,
+      "stale": true
+    },
+    {
+      "component": "Button",
+      "name": "a toggle says pressed and flips on Enter",
+      "ok": true,
+      "stale": true
+    },
+    {
+      "component": "Button",
+      "name": "with href it is a link that looks like a button",
+      "ok": true,
+      "stale": true
+    },
+    {
+      "component": "Button",
+      "name": "a menu button says when its menu is open",
+      "ok": true,
+      "stale": true
+    },
+    {
+      "component": "ButtonGroup",
+      "name": "each button is its own tab stop",
+      "ok": true,
+      "stale": true
+    },
+    {
+      "component": "SplitButton",
+      "name": "the action and the chevron are two tab stops",
+      "ok": true,
+      "stale": true
+    },
+    {
+      "component": "SplitButton",
+      "name": "the chevron opens the menu",
+      "ok": true,
+      "stale": true
+    },
+    {
+      "component": "Input",
+      "name": "the clear button empties the field and puts focus back",
+      "ok": true,
+      "stale": true
+    },
+    {
+      "component": "Input",
+      "name": "a counted field shows how many characters are used",
+      "ok": true,
+      "stale": true
+    },
+    {
+      "component": "FormField",
+      "name": "a warning says Warning and does not mark the field invalid",
+      "ok": true,
+      "stale": true
+    },
+    {
+      "component": "Fieldset",
+      "name": "a group error is read with the group and says Error",
+      "ok": true,
+      "stale": true
+    },
+    {
+      "component": "FileUpload",
+      "name": "each file says where its upload has got to",
+      "ok": true,
+      "stale": true
+    },
+    {
+      "component": "ChatMessage",
+      "name": "a turn says who wrote it",
+      "ok": true,
+      "stale": true
+    },
+    {
+      "component": "ChatMessage",
+      "name": "a step opens with Enter",
+      "ok": true,
+      "stale": true
+    },
+    {
+      "component": "ChatComposer",
+      "name": "Enter sends and Shift+Enter starts a new line",
+      "ok": true,
+      "stale": true
+    },
+    {
+      "component": "AgentStatus",
+      "name": "a change of state is announced once",
+      "ok": true,
+      "stale": true
+    },
+    {
+      "component": "HumanHandoff",
+      "name": "each change is announced once",
+      "ok": true,
+      "stale": true
+    },
+    {
+      "component": "Citation",
+      "name": "Enter opens the source",
+      "ok": true,
+      "stale": true
+    },
+    {
+      "component": "Container",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "d19581687dc4"
+    },
+    {
+      "component": "Grid",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "69d398528eb3"
+    },
+    {
+      "component": "Stack",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "20f7116ac4f7"
+    },
+    {
+      "component": "Box",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "5 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "67b86bba3c26"
+    },
+    {
+      "component": "Flex",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "5 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "ab9350c7383c"
+    },
+    {
+      "component": "Center",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "f70513df3318"
+    },
+    {
+      "component": "Spacer",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "041cb1b192e8"
+    },
+    {
+      "component": "Divider",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "6515e2e7185e"
+    },
+    {
+      "component": "AspectRatio",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "0e706ae34a96"
+    },
+    {
+      "component": "VisuallyHidden",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "8cbbd9f6cf11"
+    },
+    {
+      "component": "Text",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "5 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "4bb9fc206fe8"
+    },
+    {
+      "component": "Heading",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "2 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "bf9f81290e80"
+    },
+    {
+      "component": "Icon",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "1f0453387e0d"
+    },
+    {
+      "component": "Link",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "2 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b2f216112e7a"
+    },
+    {
+      "component": "Spinner",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "2 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "8dfe2066054d"
+    },
+    {
+      "component": "Skeleton",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "2 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "700e542918b2"
+    },
+    {
+      "component": "Kbd",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "no props of its own (pass-through only)",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "5b06214f2e0f"
+    },
+    {
+      "component": "CodeBlock",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b68751a76d51"
+    },
+    {
+      "component": "Image",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "ffadddd2d020"
+    },
+    {
+      "component": "Dialog",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "11 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "e0dcbc6acb66"
+    },
+    {
+      "component": "Sheet",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "12 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "3eeb63eb73a4"
+    },
+    {
+      "component": "Drawer",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "12 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "30d42d3ec15e"
+    },
+    {
+      "component": "ActionSheet",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "f6ec61733686"
+    },
+    {
+      "component": "Popover",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "10 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "efcfbec18162"
+    },
+    {
+      "component": "Tooltip",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "dc9874fcd46d"
+    },
+    {
+      "component": "Toast",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "ee9c9c658d1b"
+    },
+    {
+      "component": "Snackbar",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "92b4d3ce34e9"
+    },
+    {
+      "component": "FAB",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "cd365e06bd30"
     },
     {
       "component": "ButtonGroup",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "3 props"
+      "detail": "3 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "2ad634d8fc23"
     },
     {
       "component": "SplitButton",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "8 props"
+      "detail": "8 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "c93937aaf3c0"
+    },
+    {
+      "component": "PullToRefresh",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "2 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "313b1a0447f7"
+    },
+    {
+      "component": "Environment",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "2 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "c4e635c1be54"
+    },
+    {
+      "component": "Card",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "608680175ed1"
+    },
+    {
+      "component": "Avatar",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "3f37d2ceaae4"
     },
     {
       "component": "Button",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "11 props"
+      "detail": "11 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "c212dac75a86"
+    },
+    {
+      "component": "IconButton",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b0e92c399ef3"
+    },
+    {
+      "component": "Tabs",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "no props of its own (pass-through only)",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "a3349c3c7b26"
+    },
+    {
+      "component": "Tag",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "2 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "66a084234551"
+    },
+    {
+      "component": "Mesh",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "1fffdea33d66"
+    },
+    {
+      "component": "Badge",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "4f0a2251789f"
+    },
+    {
+      "component": "Chip",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "fa7ffc6400e7"
+    },
+    {
+      "component": "Select",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "13 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "fb6b621ed86a"
+    },
+    {
+      "component": "Listbox",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "8e0f5c0722ec"
+    },
+    {
+      "component": "Combobox",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "13 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "3c6cf3c94f13"
+    },
+    {
+      "component": "Autocomplete",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "12 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "f678a4fd3b50"
+    },
+    {
+      "component": "MultiSelect",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "12 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "862508083e07"
+    },
+    {
+      "component": "Menu",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "5 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "7684f449f56a"
+    },
+    {
+      "component": "ContextMenu",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "fe5dea54aa66"
+    },
+    {
+      "component": "RadioCards",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "10 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "816365ac4b67"
+    },
+    {
+      "component": "Rating",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "8 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "fe6424e80a05"
+    },
+    {
+      "component": "TagInput",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "12 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "08ae2a79fd50"
+    },
+    {
+      "component": "SegmentedControl",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "a847273c475b"
+    },
+    {
+      "component": "Navbar",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "4bb380d2ba02"
+    },
+    {
+      "component": "NavigationMenu",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b87996d1ff19"
+    },
+    {
+      "component": "Sidebar",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "7d892085d5cb"
+    },
+    {
+      "component": "BottomNav",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "015fde1a372e"
+    },
+    {
+      "component": "Breadcrumb",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "7cf66db543ce"
+    },
+    {
+      "component": "Pagination",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "0462b8ec0ce5"
+    },
+    {
+      "component": "Stepper",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "5 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "68f43b087d05"
+    },
+    {
+      "component": "Accordion",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "5 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "55fe9ff16e58"
+    },
+    {
+      "component": "TableOfContents",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "2a3a91808abe"
+    },
+    {
+      "component": "Progress",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "57ca2f1d7ba7"
+    },
+    {
+      "component": "Meter",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "0d32678199f1"
+    },
+    {
+      "component": "Stat",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "574de2541689"
+    },
+    {
+      "component": "EmptyState",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "84ab21d4b7b8"
+    },
+    {
+      "component": "Timeline",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "2 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "0f04f0f62a74"
+    },
+    {
+      "component": "DescriptionList",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "8ad949a90a43"
+    },
+    {
+      "component": "List",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "78556d5bd444"
+    },
+    {
+      "component": "Table",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "12 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "baa5bd7587d5"
+    },
+    {
+      "component": "PasswordInput",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "5 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b629c15c6a8e"
+    },
+    {
+      "component": "SearchInput",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "aa645885b440"
+    },
+    {
+      "component": "NumberInput",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "11 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "d868de231f11"
+    },
+    {
+      "component": "RangeSlider",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "11 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "dd1c46fc4254"
+    },
+    {
+      "component": "Editable",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "8 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "c7fb7ce964f5"
     },
     {
       "component": "FileUpload",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "13 props"
+      "detail": "13 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "175380f6ad9b"
+    },
+    {
+      "component": "Dropzone",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "10 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "6929edd271c5"
+    },
+    {
+      "component": "ColorPicker",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "8 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "16496ef0a826"
+    },
+    {
+      "component": "OTPFlow",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "a60e2b32f38d"
+    },
+    {
+      "component": "Calendar",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "12 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "0c0e513d8d0d"
+    },
+    {
+      "component": "DatePicker",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "15 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "6bc7ec57c61e"
+    },
+    {
+      "component": "TimePicker",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "14 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "fa6d6d31d050"
+    },
+    {
+      "component": "TreeView",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "285748105d34"
+    },
+    {
+      "component": "Carousel",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b0a1f23a18c6"
+    },
+    {
+      "component": "VirtualList",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "3c200de1c073"
+    },
+    {
+      "component": "TransferList",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "72543483ad57"
+    },
+    {
+      "component": "DataGrid",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "13 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "257df0cc17f7"
+    },
+    {
+      "component": "BarChart",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "d125d49626d1"
+    },
+    {
+      "component": "LineChart",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "5593ef9d3a3c"
+    },
+    {
+      "component": "Sparkline",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "5 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "9d03a3ef1dc5"
+    },
+    {
+      "component": "Heatmap",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "8 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "48b08accf26f"
+    },
+    {
+      "component": "Scale",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "8 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "40e0604e53ce"
+    },
+    {
+      "component": "RadarChart",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "66dd317b31e9"
+    },
+    {
+      "component": "ConfidenceChip",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b21de8dac6f8"
+    },
+    {
+      "component": "NodeCard",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "11 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "c8ea4729df9e"
+    },
+    {
+      "component": "NetworkGraph",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "8 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "22f76e0ee96e"
+    },
+    {
+      "component": "SequenceDiagram",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "0a2b78a9f62c"
+    },
+    {
+      "component": "ChatMessage",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "11 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "433d1c477145"
+    },
+    {
+      "component": "ChatComposer",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "e28a2e5b205a"
+    },
+    {
+      "component": "AgentStatus",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "5 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "3ccb28dc6afe"
+    },
+    {
+      "component": "HumanHandoff",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b787f2acc7a3"
+    },
+    {
+      "component": "Citation",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "96c5b943e85e"
+    },
+    {
+      "component": "Form",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "5 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "6c007a945452"
+    },
+    {
+      "component": "Wizard",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "da89852e5517"
+    },
+    {
+      "component": "AuthForm",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "11 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "ddde43b5da2a"
+    },
+    {
+      "component": "CommandPalette",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "2960cfa68dab"
+    },
+    {
+      "component": "NotificationCenter",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "7defcb11dd9d"
+    },
+    {
+      "component": "CoachMark",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "10 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "5ba87d9540da"
+    },
+    {
+      "component": "KanbanBoard",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "a207a5ba4d2f"
+    },
+    {
+      "component": "Feed",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "10 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "62ada8241712"
+    },
+    {
+      "component": "AppShell",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "7 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "04b408aa89b6"
+    },
+    {
+      "component": "SettingsLayout",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "4e6e5456cf3d"
+    },
+    {
+      "component": "RichTextEditor",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "2f517335b9db"
+    },
+    {
+      "component": "Slider",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "12 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "e560a11c2ab5"
     },
     {
       "component": "Input",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "4 props"
+      "detail": "4 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "df20412b5aeb"
+    },
+    {
+      "component": "Textarea",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "4 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "8fdde2707a14"
+    },
+    {
+      "component": "Checkbox",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "11 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "a57636c7ee21"
+    },
+    {
+      "component": "Radio",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "15 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "07b6d1c77c9f"
+    },
+    {
+      "component": "Switch",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "9 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "35a6dd074de9"
     },
     {
       "component": "FormField",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "8 props"
+      "detail": "8 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "3bae9734a4b2"
+    },
+    {
+      "component": "Label",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "4452d2435692"
+    },
+    {
+      "component": "HelperText",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "1 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "53bb1d6d16a9"
     },
     {
       "component": "Fieldset",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "3 props"
+      "detail": "3 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "fe0088089bc3"
+    },
+    {
+      "component": "InputGroup",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "3 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "8087f731687b"
+    },
+    {
+      "component": "PinInput",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "12 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "275d7cf65045"
+    },
+    {
+      "component": "Banner",
+      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
+      "ok": true,
+      "detail": "6 props",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "cb83c85fb869"
+    },
+    {
+      "component": "Container",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "d19581687dc4"
+    },
+    {
+      "component": "Grid",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "69d398528eb3"
+    },
+    {
+      "component": "Stack",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
+      "ok": true,
+      "detail": "6 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "20f7116ac4f7"
+    },
+    {
+      "component": "Box",
+      "name": "demo floor met (≥ variant dimensions + 3 = 8)",
+      "ok": true,
+      "detail": "8 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "67b86bba3c26"
+    },
+    {
+      "component": "Flex",
+      "name": "demo floor met (≥ variant dimensions + 3 = 7)",
+      "ok": true,
+      "detail": "7 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "ab9350c7383c"
+    },
+    {
+      "component": "Center",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "f70513df3318"
+    },
+    {
+      "component": "Spacer",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "041cb1b192e8"
+    },
+    {
+      "component": "Divider",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "6515e2e7185e"
+    },
+    {
+      "component": "AspectRatio",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "0e706ae34a96"
+    },
+    {
+      "component": "VisuallyHidden",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "8cbbd9f6cf11"
+    },
+    {
+      "component": "Text",
+      "name": "demo floor met (≥ variant dimensions + 3 = 7)",
+      "ok": true,
+      "detail": "7 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "4bb9fc206fe8"
+    },
+    {
+      "component": "Heading",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "bf9f81290e80"
+    },
+    {
+      "component": "Icon",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "1f0453387e0d"
+    },
+    {
+      "component": "Link",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b2f216112e7a"
+    },
+    {
+      "component": "Spinner",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "8dfe2066054d"
+    },
+    {
+      "component": "Skeleton",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "700e542918b2"
+    },
+    {
+      "component": "Kbd",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "5b06214f2e0f"
+    },
+    {
+      "component": "CodeBlock",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": false,
+      "detail": "3 demos across the tabs",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b68751a76d51"
+    },
+    {
+      "component": "Image",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "ffadddd2d020"
+    },
+    {
+      "component": "Dialog",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "e0dcbc6acb66"
+    },
+    {
+      "component": "Sheet",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "3eeb63eb73a4"
+    },
+    {
+      "component": "Drawer",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "30d42d3ec15e"
+    },
+    {
+      "component": "ActionSheet",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "f6ec61733686"
+    },
+    {
+      "component": "Popover",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "efcfbec18162"
+    },
+    {
+      "component": "Tooltip",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "dc9874fcd46d"
+    },
+    {
+      "component": "Toast",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "ee9c9c658d1b"
+    },
+    {
+      "component": "Snackbar",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "92b4d3ce34e9"
+    },
+    {
+      "component": "FAB",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "cd365e06bd30"
     },
     {
       "component": "ButtonGroup",
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
-      "detail": "4 demos"
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "2ad634d8fc23"
     },
     {
       "component": "SplitButton",
       "name": "demo floor met (≥ variant dimensions + 3 = 7)",
       "ok": true,
-      "detail": "7 demos"
+      "detail": "7 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "c93937aaf3c0"
+    },
+    {
+      "component": "PullToRefresh",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "313b1a0447f7"
+    },
+    {
+      "component": "Environment",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "c4e635c1be54"
+    },
+    {
+      "component": "Card",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "608680175ed1"
+    },
+    {
+      "component": "Avatar",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "3f37d2ceaae4"
     },
     {
       "component": "Button",
       "name": "demo floor met (≥ variant dimensions + 3 = 6)",
       "ok": true,
-      "detail": "12 demos"
+      "detail": "12 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "c212dac75a86"
+    },
+    {
+      "component": "IconButton",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
+      "ok": true,
+      "detail": "7 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b0e92c399ef3"
+    },
+    {
+      "component": "Tabs",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "a3349c3c7b26"
+    },
+    {
+      "component": "Tag",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "66a084234551"
+    },
+    {
+      "component": "Mesh",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "1fffdea33d66"
+    },
+    {
+      "component": "Badge",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "6 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "4f0a2251789f"
+    },
+    {
+      "component": "Chip",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "fa7ffc6400e7"
+    },
+    {
+      "component": "Select",
+      "name": "demo floor met (≥ variant dimensions + 3 = 7)",
+      "ok": true,
+      "detail": "7 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "fb6b621ed86a"
+    },
+    {
+      "component": "Listbox",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "8e0f5c0722ec"
+    },
+    {
+      "component": "Combobox",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
+      "ok": true,
+      "detail": "6 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "3c6cf3c94f13"
+    },
+    {
+      "component": "Autocomplete",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
+      "ok": true,
+      "detail": "6 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "f678a4fd3b50"
+    },
+    {
+      "component": "MultiSelect",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
+      "ok": true,
+      "detail": "6 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "862508083e07"
+    },
+    {
+      "component": "Menu",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "7684f449f56a"
+    },
+    {
+      "component": "ContextMenu",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "fe5dea54aa66"
+    },
+    {
+      "component": "RadioCards",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "816365ac4b67"
+    },
+    {
+      "component": "Rating",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "fe6424e80a05"
+    },
+    {
+      "component": "TagInput",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
+      "ok": true,
+      "detail": "6 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "08ae2a79fd50"
+    },
+    {
+      "component": "SegmentedControl",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "a847273c475b"
+    },
+    {
+      "component": "Navbar",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "4bb380d2ba02"
+    },
+    {
+      "component": "NavigationMenu",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b87996d1ff19"
+    },
+    {
+      "component": "Sidebar",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "7d892085d5cb"
+    },
+    {
+      "component": "BottomNav",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "015fde1a372e"
+    },
+    {
+      "component": "Breadcrumb",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "7cf66db543ce"
+    },
+    {
+      "component": "Pagination",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "0462b8ec0ce5"
+    },
+    {
+      "component": "Stepper",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "68f43b087d05"
+    },
+    {
+      "component": "Accordion",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "55fe9ff16e58"
+    },
+    {
+      "component": "TableOfContents",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "2a3a91808abe"
+    },
+    {
+      "component": "Progress",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "57ca2f1d7ba7"
+    },
+    {
+      "component": "Meter",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "0d32678199f1"
+    },
+    {
+      "component": "Stat",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "574de2541689"
+    },
+    {
+      "component": "EmptyState",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "84ab21d4b7b8"
+    },
+    {
+      "component": "Timeline",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "0f04f0f62a74"
+    },
+    {
+      "component": "DescriptionList",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "8ad949a90a43"
+    },
+    {
+      "component": "List",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "78556d5bd444"
+    },
+    {
+      "component": "Table",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "baa5bd7587d5"
+    },
+    {
+      "component": "PasswordInput",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b629c15c6a8e"
+    },
+    {
+      "component": "SearchInput",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "aa645885b440"
+    },
+    {
+      "component": "NumberInput",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "d868de231f11"
+    },
+    {
+      "component": "RangeSlider",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "dd1c46fc4254"
+    },
+    {
+      "component": "Editable",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "c7fb7ce964f5"
     },
     {
       "component": "FileUpload",
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
-      "detail": "6 demos"
+      "detail": "6 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "175380f6ad9b"
     },
     {
-      "component": "Input",
+      "component": "Dropzone",
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
-      "detail": "7 demos"
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "6929edd271c5"
     },
     {
-      "component": "FormField",
-      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
-      "ok": true,
-      "detail": "6 demos"
-    },
-    {
-      "component": "Fieldset",
+      "component": "ColorPicker",
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
-      "detail": "5 demos"
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "16496ef0a826"
     },
     {
-      "component": "Button",
-      "name": "a toggle says pressed and flips on Enter",
-      "ok": true
+      "component": "OTPFlow",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "a60e2b32f38d"
     },
     {
-      "component": "Button",
-      "name": "with href it is a link that looks like a button",
-      "ok": true
+      "component": "Calendar",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "0c0e513d8d0d"
     },
     {
-      "component": "Button",
-      "name": "a menu button says when its menu is open",
-      "ok": true
+      "component": "DatePicker",
+      "name": "demo floor met (≥ variant dimensions + 3 = 7)",
+      "ok": true,
+      "detail": "7 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "6bc7ec57c61e"
     },
     {
-      "component": "ButtonGroup",
-      "name": "each button is its own tab stop",
-      "ok": true
+      "component": "TimePicker",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "fa6d6d31d050"
     },
     {
-      "component": "SplitButton",
-      "name": "the action and the chevron are two tab stops",
-      "ok": true
+      "component": "TreeView",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "285748105d34"
     },
     {
-      "component": "SplitButton",
-      "name": "the chevron opens the menu",
-      "ok": true
+      "component": "Carousel",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b0a1f23a18c6"
     },
     {
-      "component": "Input",
-      "name": "the clear button empties the field and puts focus back",
-      "ok": true
+      "component": "VirtualList",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "3c200de1c073"
     },
     {
-      "component": "Input",
-      "name": "a counted field shows how many characters are used",
-      "ok": true
+      "component": "TransferList",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "72543483ad57"
     },
     {
-      "component": "FormField",
-      "name": "a warning says Warning and does not mark the field invalid",
-      "ok": true
+      "component": "DataGrid",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "257df0cc17f7"
     },
     {
-      "component": "Fieldset",
-      "name": "a group error is read with the group and says Error",
-      "ok": true
+      "component": "BarChart",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "d125d49626d1"
     },
     {
-      "component": "FileUpload",
-      "name": "each file says where its upload has got to",
-      "ok": true
+      "component": "LineChart",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "5593ef9d3a3c"
+    },
+    {
+      "component": "Sparkline",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "9d03a3ef1dc5"
+    },
+    {
+      "component": "Heatmap",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "48b08accf26f"
+    },
+    {
+      "component": "Scale",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "6 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "40e0604e53ce"
+    },
+    {
+      "component": "RadarChart",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "66dd317b31e9"
+    },
+    {
+      "component": "ConfidenceChip",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b21de8dac6f8"
+    },
+    {
+      "component": "NodeCard",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "6 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "c8ea4729df9e"
+    },
+    {
+      "component": "NetworkGraph",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "22f76e0ee96e"
+    },
+    {
+      "component": "SequenceDiagram",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "0a2b78a9f62c"
     },
     {
       "component": "ChatMessage",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "11 props"
-    },
-    {
-      "component": "ChatComposer",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "9 props"
-    },
-    {
-      "component": "AgentStatus",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "5 props"
-    },
-    {
-      "component": "HumanHandoff",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "7 props"
-    },
-    {
-      "component": "Citation",
-      "name": "props table is generated from TS and every own prop is documented (JSDoc)",
-      "ok": true,
-      "detail": "6 props"
-    },
-    {
-      "component": "ChatMessage",
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
-      "detail": "6 demos"
+      "detail": "6 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "433d1c477145"
     },
     {
       "component": "ChatComposer",
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
-      "detail": "5 demos"
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "e28a2e5b205a"
     },
     {
       "component": "AgentStatus",
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
-      "detail": "4 demos"
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "3ccb28dc6afe"
     },
     {
       "component": "HumanHandoff",
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
-      "detail": "4 demos"
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b787f2acc7a3"
     },
     {
       "component": "Citation",
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
-      "detail": "3 demos"
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "96c5b943e85e"
     },
     {
-      "component": "ChatMessage",
-      "name": "a turn says who wrote it",
-      "ok": true
+      "component": "Form",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "6c007a945452"
     },
     {
-      "component": "ChatMessage",
-      "name": "a step opens with Enter",
-      "ok": true
+      "component": "Wizard",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "da89852e5517"
     },
     {
-      "component": "ChatComposer",
-      "name": "Enter sends and Shift+Enter starts a new line",
-      "ok": true
+      "component": "AuthForm",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "ddde43b5da2a"
     },
     {
-      "component": "AgentStatus",
-      "name": "a change of state is announced once",
-      "ok": true
+      "component": "CommandPalette",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "2960cfa68dab"
     },
     {
-      "component": "HumanHandoff",
-      "name": "each change is announced once",
-      "ok": true
+      "component": "NotificationCenter",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "7defcb11dd9d"
     },
     {
-      "component": "Citation",
-      "name": "Enter opens the source",
-      "ok": true
+      "component": "CoachMark",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "5ba87d9540da"
+    },
+    {
+      "component": "KanbanBoard",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "a207a5ba4d2f"
+    },
+    {
+      "component": "Feed",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "62ada8241712"
+    },
+    {
+      "component": "AppShell",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "04b408aa89b6"
+    },
+    {
+      "component": "SettingsLayout",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "4e6e5456cf3d"
+    },
+    {
+      "component": "RichTextEditor",
+      "name": "demo floor met (≥ variant dimensions + 3 = 6)",
+      "ok": true,
+      "detail": "6 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "2f517335b9db"
+    },
+    {
+      "component": "Slider",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "e560a11c2ab5"
+    },
+    {
+      "component": "Input",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "7 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "df20412b5aeb"
+    },
+    {
+      "component": "Textarea",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "8fdde2707a14"
+    },
+    {
+      "component": "Checkbox",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "a57636c7ee21"
+    },
+    {
+      "component": "Radio",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "07b6d1c77c9f"
+    },
+    {
+      "component": "Switch",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "35a6dd074de9"
+    },
+    {
+      "component": "FormField",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "6 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "3bae9734a4b2"
+    },
+    {
+      "component": "Label",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "4452d2435692"
+    },
+    {
+      "component": "HelperText",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "53bb1d6d16a9"
+    },
+    {
+      "component": "Fieldset",
+      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
+      "ok": true,
+      "detail": "5 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "fe0088089bc3"
+    },
+    {
+      "component": "InputGroup",
+      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
+      "ok": true,
+      "detail": "3 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "8087f731687b"
+    },
+    {
+      "component": "PinInput",
+      "name": "demo floor met (≥ variant dimensions + 3 = 7)",
+      "ok": true,
+      "detail": "7 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "275d7cf65045"
+    },
+    {
+      "component": "Banner",
+      "name": "demo floor met (≥ variant dimensions + 3 = 5)",
+      "ok": true,
+      "detail": "8 demos",
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "cb83c85fb869"
+    },
+    {
+      "component": "CodeBlock",
+      "name": "actions and code take focus",
+      "ok": true,
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b68751a76d51"
+    },
+    {
+      "component": "CodeBlock",
+      "name": "Copy copies all",
+      "ok": true,
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b68751a76d51"
+    },
+    {
+      "component": "CodeBlock",
+      "name": "44px actions",
+      "ok": true,
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b68751a76d51"
+    },
+    {
+      "component": "CodeBlock",
+      "name": "roles are coloured and a code theme changes them",
+      "ok": true,
+      "ranAt": "2026-11-01T02:04:57.357Z",
+      "srcHash": "b68751a76d51"
     }
   ]
 }

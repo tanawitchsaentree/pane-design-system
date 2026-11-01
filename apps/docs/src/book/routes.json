@@ -294,6 +294,16 @@
           ]
         },
         {
+          "path": "/components/code-block",
+          "title": "CodeBlock",
+          "tabs": [
+            "usage",
+            "style",
+            "code",
+            "accessibility"
+          ]
+        },
+        {
           "path": "/components/image",
           "title": "Image",
           "tabs": [
@@ -1435,6 +1445,10 @@
         {
           "path": "/api/kbd",
           "title": "Kbd"
+        },
+        {
+          "path": "/api/code-block",
+          "title": "CodeBlock"
         },
         {
           "path": "/api/image",

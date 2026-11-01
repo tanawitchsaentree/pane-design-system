@@ -1,4 +1,5 @@
 import BRANDS from '../../../packages/tokens/build/css/brands/brands.json';
+import CODE_THEMES from '../../../packages/tokens/build/css/code-themes/code-themes.json';
 import { NavTree } from './book/NavTree';
 import { Announcement, AppearanceMenu, GitHubLink, SearchButton, VersionMenu } from './book/TopbarExtras';
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
@@ -51,6 +52,13 @@ export function App() {
   const asMaterial = (v: string | null) => (v === 'glass' || v === 'solid' ? v : null);
   const [material, setMaterial] = useState<'glass' | 'solid'>(() => asMaterial(new URLSearchParams(location.search).get('material')) ?? asMaterial(localStorage.getItem('pane-material')) ?? 'glass');
   useLayoutEffect(() => { if (material === 'glass') localStorage.removeItem('pane-material'); else localStorage.setItem('pane-material', material); }, [material]);
+  // Code theme (D-040): Pane's syntax palette by default; an IDE palette from Appearance, stored, in the address only when picked
+  const asCode = (v: string | null) => (v && CODE_THEMES.some((t) => t.id === v) ? v : null);
+  const [codeTheme, setCodeTheme] = useState(() => asCode(new URLSearchParams(location.search).get('code')) ?? asCode(localStorage.getItem('pane-code-theme')) ?? 'pane');
+  useLayoutEffect(() => {
+    if (codeTheme === 'pane') { delete document.documentElement.dataset.codeTheme; localStorage.removeItem('pane-code-theme'); }
+    else { document.documentElement.dataset.codeTheme = codeTheme; localStorage.setItem('pane-code-theme', codeTheme); }
+  }, [codeTheme]);
   const [q, setQ] = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
   // Theme: system follows prefers-color-scheme; the choice is stored; ?theme= overrides (tests).
@@ -96,8 +104,9 @@ export function App() {
     if (scene === 'studio') u.searchParams.delete('backdrop'); else u.searchParams.set('backdrop', scene);
     if (brand === 'pane') u.searchParams.delete('brand'); else u.searchParams.set('brand', brand);
     if (material === 'glass') u.searchParams.delete('material'); else u.searchParams.set('material', material);
+    if (codeTheme === 'pane') u.searchParams.delete('code'); else u.searchParams.set('code', codeTheme);
     history.replaceState(null, '', u);
-  }, [scene, brand, material]);
+  }, [scene, brand, material, codeTheme]);
   useEffect(() => {
     const pg = pageOf(path);
     const tab = pg?.tabs && path !== pg.path ? path.slice(pg.path.length + 1) : null;
@@ -130,7 +139,7 @@ export function App() {
                 <button key={t} type="button" className="seg-btn" aria-pressed={t === themePref} data-theme-value={t} onClick={() => smooth(() => setThemePref(t))}>{t[0].toUpperCase() + t.slice(1)}</button>
               ))}
             </div>
-            <AppearanceMenu material={material} onMaterial={(v) => smooth(() => setMaterial(v))} brand={brand} onBrand={(v) => smooth(() => setBrand(v))} brands={BRANDS} />
+            <AppearanceMenu material={material} onMaterial={(v) => smooth(() => setMaterial(v))} brand={brand} onBrand={(v) => smooth(() => setBrand(v))} brands={BRANDS} codeTheme={codeTheme} onCodeTheme={(v) => smooth(() => setCodeTheme(v))} codeThemes={CODE_THEMES} />
           </div>
           <button ref={menuButton} type="button" className="menu-btn" data-menu-toggle="" aria-expanded={menuOpen} aria-controls="book-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? 'Close' : 'Menu'}</button>
         </header>

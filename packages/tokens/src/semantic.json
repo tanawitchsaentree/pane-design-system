@@ -1285,6 +1285,18 @@
         "p": "P7",
         "why": "type roles mapped to the scale, so components ask for a role (label, body, title) and never a pixel size"
       }
+    },
+    "family-mono": {
+      "$value": "{font.family.mono}",
+      "$type": "fontFamily",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the face for code and anything read character by character"
+        }
+      }
     }
   },
   "motion": {
@@ -3434,6 +3446,188 @@
             "P3"
           ],
           "why": "the light from above on a crystal's top edge: one hairline along its own rim (R-021)"
+        }
+      }
+    }
+  },
+  "syntax": {
+    "bg": {
+      "$value": "{color.syntax.bg-dark}",
+      "$type": "color",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.syntax.bg-light}"
+        },
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the bg role in code, a hue of its own so the eye finds it, at 4.5:1 or more on the code ground"
+        }
+      }
+    },
+    "fg": {
+      "$value": "{color.syntax.fg-dark}",
+      "$type": "color",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.syntax.fg-light}"
+        },
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the fg role in code, a hue of its own so the eye finds it, at 4.5:1 or more on the code ground"
+        }
+      }
+    },
+    "comment": {
+      "$value": "{color.syntax.comment-dark}",
+      "$type": "color",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.syntax.comment-light}"
+        },
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the comment role in code, a hue of its own so the eye finds it, at 4.5:1 or more on the code ground"
+        }
+      }
+    },
+    "keyword": {
+      "$value": "{color.syntax.keyword-dark}",
+      "$type": "color",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.syntax.keyword-light}"
+        },
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the keyword role in code, a hue of its own so the eye finds it, at 4.5:1 or more on the code ground"
+        }
+      }
+    },
+    "string": {
+      "$value": "{color.syntax.string-dark}",
+      "$type": "color",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.syntax.string-light}"
+        },
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the string role in code, a hue of its own so the eye finds it, at 4.5:1 or more on the code ground"
+        }
+      }
+    },
+    "number": {
+      "$value": "{color.syntax.number-dark}",
+      "$type": "color",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.syntax.number-light}"
+        },
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the number role in code, a hue of its own so the eye finds it, at 4.5:1 or more on the code ground"
+        }
+      }
+    },
+    "function": {
+      "$value": "{color.syntax.function-dark}",
+      "$type": "color",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.syntax.function-light}"
+        },
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the function role in code, a hue of its own so the eye finds it, at 4.5:1 or more on the code ground"
+        }
+      }
+    },
+    "type": {
+      "$value": "{color.syntax.type-dark}",
+      "$type": "color",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.syntax.type-light}"
+        },
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the type role in code, a hue of its own so the eye finds it, at 4.5:1 or more on the code ground"
+        }
+      }
+    },
+    "tag": {
+      "$value": "{color.syntax.tag-dark}",
+      "$type": "color",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.syntax.tag-light}"
+        },
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the tag role in code, a hue of its own so the eye finds it, at 4.5:1 or more on the code ground"
+        }
+      }
+    },
+    "attr": {
+      "$value": "{color.syntax.attr-dark}",
+      "$type": "color",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.syntax.attr-light}"
+        },
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the attr role in code, a hue of its own so the eye finds it, at 4.5:1 or more on the code ground"
+        }
+      }
+    },
+    "property": {
+      "$value": "{color.syntax.property-dark}",
+      "$type": "color",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.syntax.property-light}"
+        },
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the property role in code, a hue of its own so the eye finds it, at 4.5:1 or more on the code ground"
+        }
+      }
+    },
+    "punctuation": {
+      "$value": "{color.syntax.punctuation-dark}",
+      "$type": "color",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.syntax.punctuation-light}"
+        },
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the punctuation role in code, a hue of its own so the eye finds it, at 4.5:1 or more on the code ground"
         }
       }
     }

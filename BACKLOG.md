@@ -127,6 +127,6 @@ Order, after wave A ships:
 - Glass look itself waits on the concept-check pick (R-032).
 - [ ] kiln gates from R-035: (a) a playground's starting values must equal the current tokens it models; (b) command palette results must not repeat a label within one query; (c) docs controls with ≤3 options must be segmented.
 - [ ] kiln gate from R-036: controls in one bar that do different jobs (field, button, link) must differ in look; an explicit prop beats any automatic fallback.
-- [ ] kiln gate from R-037: controls in one row (live demo, playground controls) share top and bottom edges.
-- [ ] kiln gates from R-038: focus ring inside the container's clip; a popup opened inside a popup stacks above it; a card is at least 2R + inset tall; a split menu aligns to the whole button.
+- [x] kiln gate from R-037: controls in one row share top and bottom edges (G-RW1, 2026-11-01).
+- [ ] kiln gates from R-038: focus ring inside the container's clip; a popup opened inside a popup stacks above it; a split menu aligns to the whole button. (card at least 2R + inset tall: done, G-CH1 2026-11-01)
 - [ ] kiln (docs-engine) rule from R-040: a showcase is a working flow, one per row, with ready/loading/empty/failing states; a grid of parts is not a showcase.

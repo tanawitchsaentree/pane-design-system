@@ -6,7 +6,7 @@ import { BarChart, Calendar, RadarChart, Scale, ConfidenceChip, NodeCard, Networ
 import { ColorPicker, Dropzone, Editable, FileUpload, NumberInput, OTPFlow, PasswordInput, RangeSlider, SearchInput } from 'pane-react';
 import { DescriptionList, EmptyState, List, ListItem, Meter, Progress, Stat, Table, Timeline } from 'pane-react';
 import { Accordion, BottomNav, Breadcrumb, Navbar, NavigationMenu, Pagination, SegmentedControl, Sidebar, Stepper, TableOfContents } from 'pane-react';
-import { ActionSheet, AspectRatio, Autocomplete, Combobox, ContextMenu, Listbox, Menu, MultiSelect, RadioCards, Rating, TagInput, Avatar, Badge, Box, Dialog, Drawer, FAB, Popover, PullToRefresh, Sheet, Snackbar, Toast, Tooltip, Heading, Icon, Image, Kbd, Link, Skeleton, Spinner, Text, Center, Divider, Flex, Mesh, Spacer, VisuallyHidden, Banner, Button, Card, Checkbox, Chip, Container, Environment, Fieldset, FormField, Grid, GridItem, HelperText, IconButton, Input, InputGroup, Label, PinInput, Radio, RadioGroup, Select, Slider, Stack, Switch, Tabs, Tag, Textarea } from 'pane-react';
+import { CodeBlock, ActionSheet, AspectRatio, Autocomplete, Combobox, ContextMenu, Listbox, Menu, MultiSelect, RadioCards, Rating, TagInput, Avatar, Badge, Box, Dialog, Drawer, FAB, Popover, PullToRefresh, Sheet, Snackbar, Toast, Tooltip, Heading, Icon, Image, Kbd, Link, Skeleton, Spinner, Text, Center, Divider, Flex, Mesh, Spacer, VisuallyHidden, Banner, Button, Card, Checkbox, Chip, Container, Environment, Fieldset, FormField, Grid, GridItem, HelperText, IconButton, Input, InputGroup, Label, PinInput, Radio, RadioGroup, Select, Slider, Stack, Switch, Tabs, Tag, Textarea } from 'pane-react';
 import { IconHome, IconInbox, IconPencil, IconPin, IconSearch, IconShare } from '../icons';
 
 function PagesSubject() {
@@ -57,6 +57,7 @@ export const SUBJECTS: Record<string, Subject> = {
   Link: { render: (p) => <Text>Read the <Link href="#guide" {...p}>shipping guide</Link></Text>, code: (p) => `<Link href="/guide"${attrs(p)}>shipping guide</Link>` },
   Spinner: { render: (p) => <Spinner {...p} />, code: (p) => `<Spinner${attrs(p)} />` },
   Skeleton: { render: (p) => <div className="demo-wide"><Skeleton {...p} /></div>, code: (p) => `<Skeleton${attrs(p)} />` },
+  CodeBlock: { render: () => <CodeBlock label="TSX" code={"import { Button } from 'pane-react';\n\nexport const Save = () => <Button>Save</Button>;"} />, code: () => '<CodeBlock label="TSX" code={code} />' },
   Kbd: { render: () => <Text>Press <Kbd>⌘</Kbd> <Kbd>K</Kbd> to search.</Text>, code: () => '<Text>Press <Kbd>⌘</Kbd> <Kbd>K</Kbd> to search.</Text>' },
   Image: { render: (p) => <Image src="/scenes/forest-sm.jpg" alt="Spruce forest in fog" className="demo-img" {...p} />, code: (p) => `<Image src="/photo.jpg" alt="…"${attrs(p)} />` },
   Dialog: { bare: true, render: (p) => <Dialog preview title="Discard this draft?" description="Your changes will be lost." actions={<><Button variant="glass">Keep editing</Button><Button>Discard</Button></>} {...p} />, code: (p) => `<Dialog title="Discard this draft?"${attrs(p)} … />` },

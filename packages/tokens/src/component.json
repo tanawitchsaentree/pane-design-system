@@ -145,6 +145,18 @@
           "why": "the card's bottom edge catches the light leaving through its thickness"
         }
       }
+    },
+    "l2-ring": {
+      "$value": "{line.rim-lo}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "a surface inside a pane is a tonal step with one faint hairline, never a second lit slab, so the levels read apart"
+        }
+      }
     }
   },
   "avatar": {
@@ -5336,6 +5348,188 @@
       "kiln.why": {
         "p": "P6",
         "why": "a source is a small numbered mark in the line, with the source in words one press away, so a claim can be checked before it is acted on"
+      }
+    }
+  },
+  "code-block": {
+    "bg": {
+      "$value": "{syntax.bg}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the code sits on an opaque ground so every role is measured against one colour"
+        }
+      }
+    },
+    "fg": {
+      "$value": "{syntax.fg}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "plain code takes the theme's code colour, so unmarked words still read at 4.5:1"
+        }
+      }
+    },
+    "ring": {
+      "$value": "{line.divider}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "a hairline frames the block and parts the bar from the code"
+        }
+      }
+    },
+    "radius": {
+      "$value": "{corner.inner}",
+      "$type": "dimension",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the block nests inside a pane like any inner surface"
+        }
+      }
+    },
+    "font": {
+      "$value": "{type.family-mono}",
+      "$type": "fontFamily",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "code lines up in the mono face, so indents and columns read the way an editor shows them"
+        }
+      }
+    },
+    "comment": {
+      "$value": "{syntax.comment}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the comment role from the syntax tokens, so a code theme changes it everywhere at once"
+        }
+      }
+    },
+    "keyword": {
+      "$value": "{syntax.keyword}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the keyword role from the syntax tokens, so a code theme changes it everywhere at once"
+        }
+      }
+    },
+    "string": {
+      "$value": "{syntax.string}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the string role from the syntax tokens, so a code theme changes it everywhere at once"
+        }
+      }
+    },
+    "number": {
+      "$value": "{syntax.number}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the number role from the syntax tokens, so a code theme changes it everywhere at once"
+        }
+      }
+    },
+    "function": {
+      "$value": "{syntax.function}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the function role from the syntax tokens, so a code theme changes it everywhere at once"
+        }
+      }
+    },
+    "type": {
+      "$value": "{syntax.type}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the type role from the syntax tokens, so a code theme changes it everywhere at once"
+        }
+      }
+    },
+    "tag": {
+      "$value": "{syntax.tag}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the tag role from the syntax tokens, so a code theme changes it everywhere at once"
+        }
+      }
+    },
+    "attr": {
+      "$value": "{syntax.attr}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the attr role from the syntax tokens, so a code theme changes it everywhere at once"
+        }
+      }
+    },
+    "property": {
+      "$value": "{syntax.property}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the property role from the syntax tokens, so a code theme changes it everywhere at once"
+        }
+      }
+    },
+    "punctuation": {
+      "$value": "{syntax.punctuation}",
+      "$type": "color",
+      "$extensions": {
+        "kiln.why": {
+          "p": [
+            "P6"
+          ],
+          "why": "the punctuation role from the syntax tokens, so a code theme changes it everywhere at once"
+        }
       }
     }
   }

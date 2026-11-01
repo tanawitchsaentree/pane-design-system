@@ -1,0 +1,189 @@
+{
+  "concept": "Code on an opaque code ground, set in the mono face, each syntax role in its own hue from the syntax tokens and at 4.5:1 or more on that ground, with a bar that names the code and keeps Copy in reach (D-040).",
+  "default_to_avoid": [
+    {
+      "pattern": "a code block on a grey ground with one colour, or a highlighter library that brings its own theme",
+      "kind": "code block, code snippet, syntax highlighting, pre",
+      "why_not": "a grey block hides the structure, and an outside theme ignores the tokens and the 4.5:1 floor"
+    }
+  ],
+  "references": [
+    {
+      "title": "WCAG 1.4.3 · Contrast (Minimum)",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html"
+    },
+    {
+      "title": "GitHub Primer · syntax colours",
+      "url": "https://primer.style/"
+    }
+  ],
+  "derivation": [
+    {
+      "p": "P6",
+      "axis": "colour",
+      "consequence": "status is spoken in text as well as shown in colour",
+      "form": "each syntax role takes its own hue at 4.5:1 or more on an opaque code ground, and the words still carry the code"
+    },
+    {
+      "p": "P6",
+      "axis": "interaction",
+      "consequence": "keyboard reaches everything a pointer can, with a visible focus ring on any backdrop",
+      "form": "Copy and Show all are buttons with 44px press areas, and the code is a focusable region"
+    },
+    {
+      "p": "P1",
+      "axis": "colour",
+      "consequence": "the scene supplies the hue; the system owns no hue of its own, only white at opacities and one ink, and colour appears only where it states a status or marks a diagram",
+      "form": "the code ground is the one opaque surface in the pane, so the scene never changes how a role reads"
+    },
+    {
+      "p": "P3",
+      "axis": "depth",
+      "consequence": "light falls from above, so every surface carries a rim brightest along its top edge and a soft shadow below that says where it floats, and a recess is the inverse, shaded under its top lip and lit on its bottom lip; a nested surface adds no second blur, because one sheet of glass is one layer",
+      "form": "the block nests in the pane like an inner surface, framed by a hairline"
+    }
+  ],
+  "variants": {
+    "lab": "apps/lab/codeblock/index.html",
+    "section": "codeblock",
+    "options": [
+      "A opaque code ground, roles in colour",
+      "B code on the glass, roles in colour",
+      "C opaque, one colour"
+    ],
+    "picked": "A",
+    "by": "agent",
+    "reason": "B lets the scene change every role's contrast, and C hides the structure; A measures every role against one known ground"
+  },
+  "parts": {
+    "root": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "an opaque code ground so every role is measured against one known colour"
+    },
+    "bar": {
+      "p": "P6",
+      "axis": "space",
+      "why": "the label and the actions sit above the code, parted by a hairline"
+    },
+    "label": {
+      "p": "P6",
+      "axis": "type",
+      "why": "says what the code is, in small caps like other labels"
+    },
+    "actions": {
+      "p": "P6",
+      "axis": "space",
+      "why": "Show all and Copy side by side at the bar's end"
+    },
+    "action": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "a quiet text button with a 44px press area"
+    },
+    "code": {
+      "p": "P6",
+      "axis": "type",
+      "why": "the mono face at caption size and body leading, scrolling sideways instead of wrapping"
+    },
+    "clipped": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "a long block fades out at its foot to say there is more"
+    },
+    "numbered": {
+      "p": "P6",
+      "axis": "type",
+      "why": "line numbers count from one in the gutter"
+    },
+    "line": {
+      "p": "P6",
+      "axis": "type",
+      "why": "each numbered line carries its number in the comment colour, outside the selection"
+    },
+    "hidden": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "says Copied to a screen reader when the copy has worked, without showing a second word"
+    }
+  },
+  "states": {
+    "hover": {
+      "p": "P4",
+      "axis": "colour",
+      "why": "an action answers the pointer with the quiet surface"
+    },
+    "focus-visible": {
+      "p": "P6",
+      "axis": "interaction",
+      "why": "the focus ring is drawn inside so the block's corner never clips it"
+    },
+    "@media forced-colors: active": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "in forced colours every role takes the system text colour and the block keeps an outline"
+    },
+    "data-syntax": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "each run of the code carries its role, and each role takes its own hue from the syntax tokens at 4.5:1 or more"
+    },
+    "data-syntax=comment": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "comments read in their own colour and in italic, quiet beside the code"
+    },
+    "data-syntax=keyword": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "keywords take their own hue so the shape of the code shows at a glance"
+    },
+    "data-syntax=string": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "strings take their own hue so values stand apart from names"
+    },
+    "data-syntax=number": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "numbers and colours take their own hue so values stand apart from names"
+    },
+    "data-syntax=function": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "calls take their own hue so what runs stands apart from what is read"
+    },
+    "data-syntax=type": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "components and types take their own hue so the parts of a screen stand out"
+    },
+    "data-syntax=tag": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "tags and selectors take their own hue so structure reads before detail"
+    },
+    "data-syntax=attr": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "attributes and flags take their own hue so options read apart from their values"
+    },
+    "data-syntax=property": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "properties and keys take their own hue so each setting is found by name"
+    },
+    "data-syntax=punctuation": {
+      "p": "P6",
+      "axis": "colour",
+      "why": "punctuation stays quiet so the words carry the code"
+    }
+  },
+  "motion": {
+    "background-color": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the action's hover fades over the hover duration"
+    }
+  }
+}
