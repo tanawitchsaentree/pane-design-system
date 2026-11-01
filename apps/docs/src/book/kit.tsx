@@ -138,16 +138,47 @@ export function Stage({ children, plain, className = '', backdrop, picker }: { c
 }
 
 /** Live example + the exact source file that renders it (imported with ?raw), code visible by default. */
+// the line "Edit in chat" copies: the example and the rules an agent needs to change it without breaking it
+const chatPrompt = (title: string, body: string) => `Using Pane (pane-react), change this example from the Pane book ("${title}", ${location.href}) for my project. Keep Pane's components and tokens, never hard-code a colour, size or duration, and keep text inside the glass at 4.5:1. Ask me what to change if I have not said.
+
+\`\`\`tsx
+${body}
+\`\`\``;
+
+const I = {
+  spark: <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5 11.6 8.4 17.5 10l-5.9 1.6L10 17.5l-1.6-5.9L2.5 10l5.9-1.6Z" fill="currentColor" /></svg>,
+  copy: <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="6.5" y="6.5" width="10" height="11" rx="2" fill="none" stroke="currentColor" strokeWidth="1.6" /><path d="M4 13V4.5A1.5 1.5 0 0 1 5.5 3H13" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>,
+  reset: <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 10a5.5 5.5 0 1 0 1.8-4.1M4.5 3.5v3.6h3.6" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+  theme: <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" strokeWidth="1.6" /><path d="M10 3.5a6.5 6.5 0 0 1 0 13Z" fill="currentColor" /></svg>,
+};
+
+/** A live demo with its toolbar (R-047, after MUI): Edit in chat, Show code, Copy, Reset and a light/dark
+ *  switch for this demo alone. The code is open by default; the toolbar only hides or copies it. */
 export function Example({ title, code, children, plain, backdrop }: { title: string; code: string; children: ReactNode; plain?: boolean; backdrop?: 'scene' | 'field' }) {
   const body = code.replace(/^\/\/ @example.*\n/m, '').trim();
+  const [open, setOpen] = useState(true);
+  const [run, setRun] = useState(0);
+  const [theme, setTheme] = useState<'page' | 'light' | 'dark'>('page');
+  const [said, setSaid] = useState('');
+  const flash = (t: string) => { setSaid(t); setTimeout(() => setSaid(''), 1800); };
+  const copy = async (text: string, done: string) => { try { await navigator.clipboard.writeText(text); flash(done); } catch { flash('Copying was blocked'); } };
+  const flip = () => setTheme((t) => (t === 'page' ? (document.documentElement.dataset.theme === 'light' ? 'dark' : 'light') : t === 'light' ? 'dark' : 'light'));
   return (
     <figure className="example" data-example="">
       {/* the caption sits in the stage's top-left corner, like a label on a studio plate */}
-      <div className="example-plate">
+      <div className="example-plate" data-theme={theme === 'page' ? undefined : theme}>
         <figcaption className="example-bar"><span className="example-title">{title}</span></figcaption>
-        <Stage plain={plain} backdrop={backdrop} picker={!plain}>{children}</Stage>
+        <Stage plain={plain} backdrop={backdrop} picker={!plain}><div key={run} className="example-run">{children}</div></Stage>
       </div>
-      <CodeBlock code={body} label="TSX" />
+      <div className="example-tools" role="toolbar" aria-label={`${title}: tools`}>
+        <button type="button" className="example-tool example-chat" onClick={() => copy(chatPrompt(title, body), 'Copied for your agent')}>{I.spark}<span>Edit in chat</span></button>
+        <span className="example-said" aria-live="polite">{said}</span>
+        <button type="button" className="example-tool example-show" aria-expanded={open} onClick={() => setOpen((o) => !o)}><span>{open ? 'Hide code' : 'Show code'}</span></button>
+        <button type="button" className="example-tool" aria-label="Copy the code" title="Copy the code" onClick={() => copy(body, 'Code copied')}>{I.copy}</button>
+        <button type="button" className="example-tool" aria-label="Reset the demo" title="Reset the demo" onClick={() => { setRun((n) => n + 1); flash('Demo reset'); }}>{I.reset}</button>
+        <button type="button" className="example-tool" aria-label={`Show this demo in ${theme === 'light' ? 'dark' : 'light'}`} title="Light or dark, for this demo only" aria-pressed={theme !== 'page'} onClick={flip}>{I.theme}</button>
+      </div>
+      {open && <CodeBlock code={body} label="TSX" />}
     </figure>
   );
 }
