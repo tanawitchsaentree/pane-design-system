@@ -833,3 +833,4 @@ What each one is, and the generic default it must not turn into.
 - D-040 สีของ code เป็น token และรองรับ theme แบบ IDE
 - D-041 anchor ใหม่คือกระจกแบบปัจจุบัน (ปิด E-004)
 - D-042 เกินกว่า React (token ทุกแพลตฟอร์ม + HTML ใต้ทุก demo)
+- D-043 วัสดุสามแบบสลับกันได้ (liquid / glass / solid) และ anchor knobs

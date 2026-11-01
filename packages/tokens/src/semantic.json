@@ -868,34 +868,64 @@
   "gap": {
     "$type": "dimension",
     "xs": {
-      "$value": "{space.1}"
+      "$value": "{space.1}",
+      "$extensions": {
+        "kiln.derive": "calc({space.1} * var(--ds-look-density, 1))"
+      }
     },
     "sm": {
-      "$value": "{space.1-5}"
+      "$value": "{space.1-5}",
+      "$extensions": {
+        "kiln.derive": "calc({space.1-5} * var(--ds-look-density, 1))"
+      }
     },
     "md": {
-      "$value": "{space.2}"
+      "$value": "{space.2}",
+      "$extensions": {
+        "kiln.derive": "calc({space.2} * var(--ds-look-density, 1))"
+      }
     },
     "lg": {
-      "$value": "{space.3}"
+      "$value": "{space.3}",
+      "$extensions": {
+        "kiln.derive": "calc({space.3} * var(--ds-look-density, 1))"
+      }
     },
     "xl": {
-      "$value": "{space.3-5}"
+      "$value": "{space.3-5}",
+      "$extensions": {
+        "kiln.derive": "calc({space.3-5} * var(--ds-look-density, 1))"
+      }
     },
     "2xl": {
-      "$value": "{space.4}"
+      "$value": "{space.4}",
+      "$extensions": {
+        "kiln.derive": "calc({space.4} * var(--ds-look-density, 1))"
+      }
     },
     "inset": {
-      "$value": "{space.5-5}"
+      "$value": "{space.5-5}",
+      "$extensions": {
+        "kiln.derive": "calc({space.5-5} * var(--ds-look-density, 1))"
+      }
     },
     "section": {
-      "$value": "{space.8}"
+      "$value": "{space.8}",
+      "$extensions": {
+        "kiln.derive": "calc({space.8} * var(--ds-look-density, 1))"
+      }
     },
     "page": {
-      "$value": "{space.12}"
+      "$value": "{space.12}",
+      "$extensions": {
+        "kiln.derive": "calc({space.12} * var(--ds-look-density, 1))"
+      }
     },
     "3xl": {
-      "$value": "{space.6}"
+      "$value": "{space.6}",
+      "$extensions": {
+        "kiln.derive": "calc({space.6} * var(--ds-look-density, 1))"
+      }
     },
     "none": {
       "$value": "{space.0}"
@@ -1163,16 +1193,32 @@
   "corner": {
     "$type": "dimension",
     "panel": {
-      "$value": "{radius.xl}"
+      "$value": "{radius.xl}",
+      "$extensions": {
+        "kiln.derive": "var(--ds-look-corner, {radius.xl})"
+      },
+      "$description": "the pane corner, the anchor knob: set --ds-look-corner and every corner below follows"
     },
     "inner": {
-      "$value": "{radius.lg}"
+      "$value": "{radius.lg}",
+      "$extensions": {
+        "kiln.derive": "max({radius.sm}, calc(var(--ds-corner-panel) - var(--ds-gap-2xl)))"
+      },
+      "$description": "a surface set 16px into a pane: the pane corner less that inset, so the curves stay parallel"
     },
     "media": {
-      "$value": "{radius.md}"
+      "$value": "{radius.md}",
+      "$extensions": {
+        "kiln.derive": "max({radius.sm}, calc(var(--ds-corner-panel) - var(--ds-gap-inset)))"
+      },
+      "$description": "media at the pane inset: the pane corner less the inset (G-NC1)"
     },
     "round": {
-      "$value": "{radius.pill}"
+      "$value": "{radius.pill}",
+      "$extensions": {
+        "kiln.derive": "var(--ds-look-control-corner, clamp(calc(var(--ds-corner-panel) * 0.5), calc((var(--ds-corner-panel) - 20px) * 999), {radius.pill}))"
+      },
+      "$description": "controls are pills while the pane corner is above 20px and take half of it below, so a square pane never holds round buttons"
     },
     "$extensions": {
       "kiln.why": {

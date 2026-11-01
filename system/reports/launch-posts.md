@@ -34,7 +34,7 @@ fails the build. Happy to talk about how the glass and contrast measurement work
 Title: I built a glass design system for React that measures every line of text for contrast
 
 Body: same as the HN text, plus the install line:
-`npm install https://pane-design-system.pages.dev/downloads/pane-react-0.7.0.tgz`
+`npm install https://pane-design-system.pages.dev/downloads/pane-react-0.8.0.tgz`
 
 ## Reddit r/web_design (Showcase flair)
 
@@ -87,7 +87,7 @@ https://pane-design-system.pages.dev
 - MIT ใช้ฟรี
 
 ดูได้ที่ https://pane-design-system.pages.dev
-ยังไม่ได้ขึ้น npm ให้ติดตั้งจาก `npm install https://pane-design-system.pages.dev/downloads/pane-react-0.7.0.tgz`
+ยังไม่ได้ขึ้น npm ให้ติดตั้งจาก `npm install https://pane-design-system.pages.dev/downloads/pane-react-0.8.0.tgz`
 ใครลองแล้วเจอพื้นหลังที่ตัวหนังสืออ่านยาก ส่งมาได้เลยครับ จะเอาไปแก้
 
 ---

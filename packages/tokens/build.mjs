@@ -24,7 +24,7 @@ function walk(node, tier, trail, inheritedType, inheritedWhy) {
   if ('$value' in node) {
     const key = trail.join('.');
     if (tokens.has(key)) collisions.push(`${key} is defined in both ${tokens.get(key).tier} and ${tier} — paths must be unique across tiers`);
-    tokens.set(trail.join('.'), { tier, type, raw: node.$value, description: node.$description, env: node.$extensions?.['pane.environment'], bp: node.$extensions?.['pane.breakpoint'], theme: node.$extensions?.['pane.theme'], state: node.$extensions?.['kiln.state'], reduced: node.$extensions?.['kiln.reduced'], why });
+    tokens.set(trail.join('.'), { tier, type, raw: node.$value, description: node.$description, env: node.$extensions?.['pane.environment'], bp: node.$extensions?.['pane.breakpoint'], theme: node.$extensions?.['pane.theme'], state: node.$extensions?.['kiln.state'], reduced: node.$extensions?.['kiln.reduced'], derive: node.$extensions?.['kiln.derive'], why });
     return;
   }
   for (const [k, v] of Object.entries(node)) {
@@ -72,6 +72,8 @@ const cssName = (p) => `--ds-${p.replace(/\./g, '-')}`;
 const format = (type, v) => (type === 'cubicBezier' ? `cubic-bezier(${v.join(', ')})` : String(v));
 const cssValue = (p) => {
   const t = tokens.get(p);
+  // kiln.derive: the token is a formula over the look's roots (--ds-look-*), with {refs} for other tokens
+  if (t.derive) return t.derive.replace(/\{([^}]+)\}/g, (_, r) => `var(${cssName(r)})`);
   const m = typeof t.raw === 'string' && t.raw.match(REF);
   return m ? `var(${cssName(m[1])})` : format(t.type, t.raw);
 };
@@ -175,6 +177,13 @@ const stateRule = (p, sel, on, off, pre = '') => {
   const deps = [...tokens.keys()].filter((d) => dependsOn(d, p)).map((d) => `${cssName(d)}: ${cssValue(d)};`).join(' ');
   return `${pre}:where(${SCOPE}${sel}) { ${cssName(p)}: ${on}; ${deps} }\n${pre}:where(${SCOPE}:not(${sel})) { ${cssName(p)}: ${off}; ${deps} }`;
 };
+// Look (anchor knobs): [data-look] re-derives every formula token and what depends on it, so setting
+// --ds-look-corner or --ds-look-density on any element reshapes that subtree with its symmetry kept.
+const derived = [...tokens].filter(([, t]) => t.derive).map(([p]) => p);
+const refsIn = (p) => [...String(tokens.get(p).derive ?? '').matchAll(/--ds-([a-z0-9-]+)|\{([^}]+)\}/g)].map((m) => m[2] ?? [...tokens.keys()].find((k) => cssName(k) === `--ds-${m[1]}`)).filter(Boolean);
+const lookSet = new Set(derived);
+for (let grew = true; grew;) { grew = false; for (const p of tokens.keys()) if (!lookSet.has(p) && ([refOf(p)].concat(tokens.get(p).derive ? refsIn(p) : [])).some((r) => r && lookSet.has(r))) { lookSet.add(p); grew = true; } }
+const lookCss = `\n/* Look (anchor knobs): set --ds-look-corner / --ds-look-density / --ds-look-control-corner on [data-look] */\n[data-look] {\n${[...lookSet].map((p) => `  ${cssName(p)}: ${cssValue(p)};`).join('\n')}\n}\n`;
 const stateCss = `\n/* State rhythm (R-044): fast into a state, slow out of it */\n${stated.flatMap(([p, t]) => Object.entries(t.state).map(([sel, ref]) => stateRule(p, sel, `var(${cssName(ref.slice(1, -1))})`, cssValue(p)))).join('\n')}\n`;
 // Themes (D-015): tokens with $extensions["pane.theme"] get a value per theme; $value is dark.
 // @scope gives proximity, so a [data-theme] element nested inside another theme wins for its own
@@ -229,7 +238,7 @@ const json = Object.fromEntries(
 
 mkdirSync(path.join(ROOT, 'build', 'css'), { recursive: true });
 mkdirSync(path.join(ROOT, 'build', 'json'), { recursive: true });
-const fullCss = css.replace('/* D-005', `/* D-015 themes: dark is the default ($value); light via [data-theme="light"] or prefers-color-scheme */\n${themeCss}\n\n/* D-005`) + motionCss + stateCss + '\n/* D-014 responsive layout */\n' + bpBlocks + '\n' + spanCss;
+const fullCss = css.replace('/* D-005', `/* D-015 themes: dark is the default ($value); light via [data-theme="light"] or prefers-color-scheme */\n${themeCss}\n\n/* D-005`) + motionCss + stateCss + lookCss + '\n/* D-014 responsive layout */\n' + bpBlocks + '\n' + spanCss;
 writeFileSync(path.join(ROOT, 'build', 'css', 'tokens.css'), fullCss);
 
 // Brands (D-033, white-label): a brand file overrides a short, fixed list of semantic tokens (the loud

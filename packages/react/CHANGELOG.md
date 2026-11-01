@@ -2,6 +2,10 @@
 
 Every entry names the component it touches, so each component page in the book can show its own history. The conformance run fails if a component has no entry.
 
+## 0.8.0 (2026-11-01)
+
+- Environment takes `look` (D-043): `corner`, `density` and `controls` are the anchor knobs, and every inner corner, media corner, control corner and gap follows them so nesting holds. The same knobs work in plain CSS as `--ds-look-*` on any `[data-look]` element, and any token can still be set after them.
+
 ## 0.7.0 (2026-10-30)
 
 - Environment takes `material="liquid"` (R-045). Every glass pane inside bends the scene at its rim and lifts its middle like a lens, from a map built for its own size and corner, with a clearer blur so the bend shows. Chrome and Edge run it, and other browsers show plain glass.
