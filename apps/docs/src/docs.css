@@ -894,3 +894,28 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .look-knobs-read { border-collapse: collapse; max-inline-size: var(--ds-type-measure); }
 .look-knobs-read caption { text-align: start; font-weight: var(--ds-type-weight-semibold); padding-block-end: var(--ds-gap-sm); }
 .look-knobs-read th, .look-knobs-read td { text-align: start; padding: var(--ds-gap-xs) var(--ds-gap-lg) var(--ds-gap-xs) 0; border-block-end: var(--ds-width-hairline) solid var(--ds-line-divider); font-variant-numeric: tabular-nums; }
+
+/* Demo toolbar (R-047, after MUI): one row under every live demo */
+.example-tools { display: flex; align-items: center; gap: var(--ds-gap-xs); padding: var(--ds-gap-sm) var(--ds-gap-sm); border-block-end: var(--ds-width-hairline) solid var(--ds-line-divider); }
+.example-tool { display: inline-flex; align-items: center; justify-content: center; gap: var(--ds-gap-sm); min-block-size: var(--ds-control-lg); min-inline-size: var(--ds-control-lg); padding-inline: var(--ds-gap-md); border: 0; border-radius: var(--ds-corner-round); background: transparent; color: var(--ds-text-secondary); font: inherit; font-size: var(--ds-type-caption); cursor: pointer; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing), color var(--ds-motion-hover) var(--ds-motion-easing); }
+.example-tool:hover { background: var(--ds-surface-quiet); color: var(--ds-text-primary); }
+.example-tool svg { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); }
+.example-tool[aria-pressed='true'] { color: var(--ds-text-primary); }
+.example-chat { color: var(--ds-text-primary); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); }
+.example-chat svg { color: var(--ds-action-accent); }
+.example-show { box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); color: var(--ds-text-primary); }
+.example-said { flex: 1; font-size: var(--ds-type-caption); color: var(--ds-text-secondary); }
+.example-run { display: contents; }
+
+/* Inline code in prose (R-047, after MUI): a small chip in the code colours, selected whole with one click */
+:where(main) :where(p, li, td, dd, figcaption, .lede) code:not(pre code) { padding: 0.08em 0.4em; border-radius: var(--ds-corner-mark); background: var(--ds-syntax-bg); color: var(--ds-syntax-fg); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); text-shadow: none; user-select: all; overflow-wrap: anywhere; }
+
+/* Component header (R-047, after Material 3): Resources pill, tabs with marks */
+.res-pill { display: inline-flex; align-items: center; gap: var(--ds-gap-md); min-block-size: var(--ds-control-lg); padding-inline: var(--ds-gap-lg); border: 0; border-radius: var(--ds-corner-round); background: var(--ds-surface-quiet); color: var(--ds-text-primary); font: inherit; font-size: var(--ds-type-caption); cursor: pointer; box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
+.res-pill:hover { background: var(--ds-surface-raised); }
+.res-marks { color: var(--ds-text-secondary); }
+.res-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--ds-gap-md); min-inline-size: var(--ds-control-menu-min); }
+.res-list li { display: grid; gap: var(--ds-gap-xs); }
+.res-list .muted { font-size: var(--ds-type-caption); }
+.tab-link { display: inline-flex; align-items: center; gap: var(--ds-gap-sm); }
+.tab-link svg { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); flex: none; }

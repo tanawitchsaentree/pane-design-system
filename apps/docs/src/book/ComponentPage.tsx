@@ -4,7 +4,7 @@
 // Usage is written per component in ../depth; Style is measured (spec-capture); Code and
 // Accessibility are generated from meta.json, the CSS module and the conformance run.
 import { useState, type ReactNode } from 'react';
-import { Environment, SegmentedControl, Select, Tag } from 'pane-react';
+import { Environment, Popover, SegmentedControl, Select, Tag } from 'pane-react';
 import { smooth } from './kit-core';
 import { renderToStaticMarkup } from 'react-dom/server';
 // static markup with each element on its own line, so it reads as HTML a person would write
@@ -21,6 +21,29 @@ export { TABS, HISTORY, STATUS_LABEL, EVIDENCE_GROUPS, type Tab } from './chapte
 import '../depth/depth.css';
 
 const TAB_LABEL: Record<Tab, string> = { usage: 'Usage', style: 'Style', code: 'Code', accessibility: 'Accessibility' };
+// tab marks (R-047, after Material 3): a page, a swatch, brackets and the access figure
+const TAB_ICON: Record<Tab, ReactNode> = {
+  usage: <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="4" y="2.5" width="12" height="15" rx="2" fill="none" stroke="currentColor" strokeWidth="1.6" /><path d="M7 7h6M7 10h6M7 13h4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>,
+  style: <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" strokeWidth="1.6" /><circle cx="7.5" cy="8" r="1.3" fill="currentColor" /><circle cx="12.5" cy="8" r="1.3" fill="currentColor" /><circle cx="10" cy="12.8" r="1.3" fill="currentColor" /></svg>,
+  code: <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 6-4 4 4 4M13 6l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+  accessibility: <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="4" r="1.7" fill="currentColor" /><path d="M4 7.5c2 .8 4 1 6 1s4-.2 6-1M10 8.5v4m0 0-3 4.5m3-4.5 3 4.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>,
+};
+
+/** Where else this component lives (R-047, after Material 3's Resources pill): code, HTML, other platforms, design files, agents. */
+function Resources({ c, base }: { c: ComponentChapter; base: string }) {
+  const rows: Array<[string, string, string]> = [
+    ['React', `${base}/code`, `import { ${c.name} } from 'pane-react'`],
+    ['HTML, Vue, Svelte', `${base}/code`, 'the HTML block under every demo, with all.css'],
+    ['Tailwind, SwiftUI, Compose, Flutter', '/getting-started/platforms', 'the same tokens, one build'],
+    ['Figma', '/getting-started/platforms', 'variables with Dark and Light modes'],
+    ['Your coding agent', '/getting-started/ai', 'MCP server, skill, llms.txt and DESIGN.md'],
+  ];
+  return (
+    <Popover title={`${c.name} resources`} trigger={<button type="button" className="res-pill" aria-label={`Resources for ${c.name}: React, HTML, other platforms, Figma and agents`}><span>Resources</span><span className="res-marks" aria-hidden="true">React · HTML · iOS · Android · Figma</span></button>}>
+      <ul className="res-list">{rows.map(([k, to, what]) => <li key={k}><Link to={to}><b>{k}</b></Link><span className="muted">{what}</span></li>)}</ul>
+    </Popover>
+  );
+}
 
 // The live demos (every component, so all of pane-react), the Style tab with its measured specs,
 // the reasons and the CSS text are loaded by the chapter's route, never by the first chunk.
@@ -218,10 +241,11 @@ export function ComponentPage({ c, tab }: { c: ComponentChapter; tab: Tab }) {
     <Page eyebrow={`Components · ${c.name}`} title={c.name} lede={
       <div data-component-header="">
         <p className="purpose">{c.purpose}</p>
+        <Resources c={c} base={base} />
         <Facts c={c} m={m} />
         <LiveDemo c={c} m={m} />
         <nav className="tab-nav" aria-label={`${c.name} sections`}>
-          {TABS.map((t) => <Link key={t} to={`${base}/${t}`} className="tab-link" aria-current={t === tab ? 'page' : undefined}>{TAB_LABEL[t]}</Link>)}
+          {TABS.map((t) => <Link key={t} to={`${base}/${t}`} className="tab-link" aria-current={t === tab ? 'page' : undefined}>{TAB_ICON[t]}<span>{TAB_LABEL[t]}</span></Link>)}
         </nav>
       </div>
     }>

@@ -373,3 +373,12 @@ One entry per criticism. The fix is a change to the step that produced the resul
 - **ขั้นที่ผิด:** recipe ของ glass (D-035, R-041) ออกแบบกระจกเป็นแผ่นเบลอที่มีขอบรับแสงและ bevel เท่านั้น ไม่มีแบบจำลองทางแสงเลย ของที่อยู่ข้างหลังไม่โค้งตรงขอบ ขอบไม่หยิบสีของสิ่งที่อยู่ใต้มัน ตรงกลางไม่ขยาย และสองชิ้นไม่มีทางเชื่อมเป็นชิ้นเดียว G-AN1 วัดแค่ความสว่าง สี และขอบเทียบกับ anchor จึงไม่มีวันจับเรื่องนี้ได้
 - **render:** `apps/lab/liquid/index.html` มีสามแบบบนพื้นสว่างและบนรูป ได้แก่ A liquid (displacement map จาก signed distance field + แยกสีตามช่อง R/G/B ที่ขอบ + ขอบรับแสงจากซ้ายบน), B liquid แบบไม่แยกสี และ C กระจกเดิม พร้อม demo การเชื่อมกัน (smooth union ของสอง SDF ทำให้เกิดคอเชื่อมก่อนชนกัน)
 - **รอ:** user เลือก A, B หรือคงแบบ C ไว้ เพราะเป็นการเปลี่ยน anchor ที่ล็อกไว้ใน D-041 หลังเลือกค่อยทำเป็น token และ recipe (backdrop-filter: url() ใช้ได้เฉพาะ Chromium ส่วน Safari/Firefox ใช้แบบ C) แล้วเพิ่ม gate ที่วัดการหักเหจริง
+
+## R-047: หน้า component ยังดูโล่งเมื่อเทียบกับ MUI และ Material 3
+- **User said:** ส่งภาพ MUI (แถบเครื่องมือใต้ demo ที่มี Edit in Chat และ Show code, code ในเนื้อความเป็นชิป) กับ Material 3 (ปุ่ม Resources ที่มีไอคอนแพลตฟอร์ม และ tab ที่มีไอคอน) มาให้ดู
+- **ขั้นที่ผิด:** docs-engine กำหนดแค่ว่าหน้า component ต้องมีอะไร (4 tab, demo, code) แต่ไม่ได้กำหนดเครื่องมือรอบ demo ส่วน inline code ในเนื้อความไม่มี style เลย
+- **แก้แล้ว:**
+  - ใต้ demo ทุกตัวมีแถบเครื่องมือ: Edit in chat (copy prompt ที่มี code และกฎของ Pane ไปให้ agent), Show/Hide code, Copy, Reset และสลับ light/dark เฉพาะ demo นั้น
+  - inline code เป็นชิปใช้สีของ syntax token (ผ่าน 4.5:1) คลิกครั้งเดียวเลือกได้ทั้งคำ
+  - หัวหน้า component มีปุ่ม Resources (React, HTML, platform อื่น, Figma, agent) และ tab มีไอคอน
+- **gate:** G-C1, G-FR1, G-TT1, G-BJ1, G-MO1 ผ่านบนหน้าที่เปลี่ยน
