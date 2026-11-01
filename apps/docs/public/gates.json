@@ -1,69 +1,17 @@
 {
-  "generatedAt": "2026-10-31T17:24:59.333Z",
-  "passed": 7,
-  "total": 8,
+  "generatedAt": "2026-11-01T00:21:57.216Z",
+  "passed": 1,
+  "total": 1,
   "partial": true,
   "advisory": {
     "G-AN1": "E-004: the card body measures L 0.29 against anchor A at 0.53 on forest in dark. D-035 dims the scene so text holds 4.5:1; anchor A had no dimming. Open for the user at milestone review: re-record the anchor from D-035, or move the body back toward A."
   },
   "results": [
     {
-      "id": "G-PF2",
-      "name": "page weight: no image over 300 kB, no page over 1.5 MB transferred (gzip counted)",
+      "id": "G-CH1",
+      "name": "a card is never shorter than its two corners and an inset, or it reads as a pill around its content",
       "ok": true,
-      "order": 9
-    },
-    {
-      "id": "G-SH1",
-      "name": "the docs chrome is plain and opaque: no blur or see-through surface outside demo stages",
-      "ok": true,
-      "order": 10
-    },
-    {
-      "id": "G-NT2",
-      "name": "every form control shows its boundary at least 3:1 against what it sits on, in every theme (WCAG 1.4.11)",
-      "ok": true,
-      "skipped": true,
-      "detail": "skipped: nothing it checks is in the limited routes",
-      "order": 37
-    },
-    {
-      "id": "G-EL1",
-      "name": "stacked glass reads as levels: each level differs from what is under it by a measured step, and a scrim dims the scene under an overlay",
-      "ok": true,
-      "detail": "14 levels and scrims in 2 themes",
-      "order": 38
-    },
-    {
-      "id": "G-GL1",
-      "name": "glow is declared and measured: in dark only [data-glow] parts give off light, each visibly (near ring vs ground) and within reach; text never glows; in light nothing glows",
-      "ok": true,
-      "skipped": true,
-      "detail": "skipped: nothing it checks is in the limited routes",
-      "order": 40
-    },
-    {
-      "id": "G-GR1",
-      "name": "every glass in a component uses the shared recipe: backdrop-filter is none or written through tokens, and what renders carries every recipe function",
-      "ok": true,
-      "detail": "31 glass elements on 2 pages carry blur + saturate + brightness",
-      "order": 44
-    },
-    {
-      "id": "G-AN1",
-      "name": "the card still looks like the anchor: body lightness, chroma and rim contrast on the anchor's backdrop stay within the allowed deltas",
-      "ok": false,
-      "detail": "1 drifts from the anchor: body lightness 0.3172 against the anchor's 0.5269 (Δ -0.210, allowed 0.05)",
-      "problems": [
-        "body lightness 0.3172 against the anchor's 0.5269 (Δ -0.210, allowed 0.05)"
-      ],
-      "order": 47
-    },
-    {
-      "id": "G-NC1",
-      "name": "a shape inside a rounded shape nests its corner wherever it sits near one: even inset and inner radius = outer radius − inset",
-      "ok": true,
-      "detail": "3 pages",
+      "detail": "124 pages",
       "order": 51
     }
   ]

@@ -860,3 +860,5 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .scenario-lamp { inline-size: var(--ds-space-10); block-size: var(--ds-space-10); border-radius: var(--ds-corner-round); box-shadow: 0 0 var(--ds-space-6) currentColor; transition: opacity var(--ds-motion-hover) var(--ds-motion-easing), background-color var(--ds-motion-hover) var(--ds-motion-easing); }
 .scenario-queue { margin: 0; padding-inline-start: var(--ds-gap-xl); display: flex; flex-direction: column; gap: var(--ds-gap-xs); font-size: var(--ds-type-label); }
 .scenario-queue [aria-current] { font-weight: var(--ds-type-weight-semibold); }
+/* G-CH1: every top-level pane in an example is at least its two corners and an inset tall, so none reads as a pill */
+.stage-env [data-pane-card]:not([data-pane-card] [data-pane-card]) { min-block-size: calc(var(--ds-corner-panel) * 2 + var(--ds-gap-inset)); }
