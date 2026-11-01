@@ -1,19 +1,30 @@
 # Pane
 
-A spatial-glass design system for React: clear, blurred glass panes over a real scene, with every
-line of text measured for contrast, per pixel, in light and dark.
+**Spatial glass for the web.** A React design system of clear, blurred glass over real photos, with
+every line of text measured for contrast, pixel by pixel, in light and dark.
 
-- **pane-react** — 26 React components (layout, actions, status, the forms set, Select, Slider,
-  Tabs, Banner and more). The tokens are bundled inside, so it is the only package you need.
-- **pane-tokens** — the design tokens on their own (CSS custom properties, JSON, ESM with types,
-  SCSS), three tiers from DTCG sources, for projects that are not React.
-- **The docs book** (`apps/docs`) — every component at depth (usage, style, code, accessibility),
-  the foundations with live playgrounds, patterns and the full token reference.
+[![Pane: a glass order card over a photo of a canal town](apps/docs/public/og.jpg)](https://pane-design-system.pages.dev)
 
-## Use it
+**[Open the book](https://pane-design-system.pages.dev)**: every component with live demos, the foundations
+with playgrounds, patterns, the accessibility evidence and the full token reference.
+
+- **126 components** in 17 families, from layout and forms to charts, a data grid, a command palette and
+  pieces for AI agents. The tokens come inside, so this is the only package you need.
+- **Measured, not guessed.** The book publishes its contrast evidence. At the last full run, 1,001,729 of
+  1,001,774 text checks passed in light and dark, in normal, reduced-transparency and forced-colours modes,
+  over the book's photo backdrops. The book lists the rest, with an exception record or as an open fix.
+- **English and Thai.** Every message comes in both languages, and the calendar writes the Buddhist year in Thai.
+- **Tokens for every platform** from one source. CSS, JS, SCSS, Tailwind, SwiftUI, Jetpack Compose, Flutter
+  and Figma variables, three tiers, with ten sample brands.
+- **Ready for coding agents.** There is an MCP server (`npx pane-mcp`), a skill, `llms.txt` and `DESIGN.md`,
+  and the home page has a one-line setup prompt for Claude Code, Cursor, Codex or Copilot.
+
+## Install
+
+Pane is not on the npm registry yet, so the package is installed from the tarball the site hosts:
 
 ```bash
-npm install pane-react
+npm install https://pane-design-system.pages.dev/downloads/pane-react-0.7.0.tgz
 ```
 
 ```tsx
@@ -34,12 +45,13 @@ export function App() {
 }
 ```
 
-Until the packages are published, build a tarball and install that file:
+React 18 or newer. Light and dark themes, glass or solid surfaces, and reduced motion and forced colours
+are all supported.
 
-```bash
-pnpm install
-pnpm run release:pack                      # → release/pane-react-<version>.tgz
-npm install /path/to/release/pane-react-<version>.tgz   # in the other project
+Or let your agent do it. Paste this into Claude Code, Cursor, Codex or Copilot:
+
+```text
+Fetch https://pane-design-system.pages.dev/agent-setup/prompt.md and follow it to set up Pane in this project. Ask me before you install anything.
 ```
 
 ## Work on it
@@ -58,9 +70,10 @@ pnpm run docs:build       # builds pane-react, then the book into apps/docs/dist
 | `apps/docs` | the docs book (Vite + React) |
 | `system/` | the concept, decisions, exceptions and the review log behind every choice |
 
-React 18 or newer. Light and dark themes; reduced motion and forced colours are supported.
+Pane was built with [kiln](https://github.com/tanawitchsaentree/Kiln), a factory for design systems that
+measures what it builds.
 
 ## Licence
 
-MIT, see [LICENSE](LICENSE). Scene photographs are from Unsplash and are credited in the book’s
+MIT, see [LICENSE](LICENSE). Scene photographs are from Unsplash and are credited in the book's
 Credits page.
