@@ -140,7 +140,8 @@
       "selector": "[data-example-live] [data-pane-card]",
       "reference": "system/anchor/anchor-likeness.json"
     },
-    "parallel": 4
+    "parallel": 4,
+    "showcaseRoute": "/"
   },
   "autonomy": {
     "picks": "agent",

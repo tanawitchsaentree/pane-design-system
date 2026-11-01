@@ -125,8 +125,8 @@ Order, after wave A ships:
 - AI: MCP `choose_appearance` (guidance and code), knowledge carries materials and brands, the skill and llms.txt say how to choose; check_usage flags glass with no Environment and mixed materials.
 - Evidence and gates under `KILN_MATERIAL=solid`; a gate that fails a screen mixing materials.
 - Glass look itself waits on the concept-check pick (R-032).
-- [ ] kiln gates from R-035: (a) a playground's starting values must equal the current tokens it models; (b) command palette results must not repeat a label within one query; (c) docs controls with ≤3 options must be segmented.
-- [ ] kiln gate from R-036: controls in one bar that do different jobs (field, button, link) must differ in look; an explicit prop beats any automatic fallback.
+- [x] (kiln 2.6.0: G-PG1, G-CP1; still open: ≤3 options segmented) kiln gates from R-035: (a) a playground's starting values must equal the current tokens it models; (b) command palette results must not repeat a label within one query; (c) docs controls with ≤3 options must be segmented.
+- [x] (kiln 2.6.0: G-BJ1) kiln gate from R-036: controls in one bar that do different jobs (field, button, link) must differ in look; an explicit prop beats any automatic fallback.
 - [x] kiln gate from R-037: controls in one row share top and bottom edges (G-RW1, 2026-11-01).
-- [ ] kiln gates from R-038: focus ring inside the container's clip; a popup opened inside a popup stacks above it; a split menu aligns to the whole button. (card at least 2R + inset tall: done, G-CH1 2026-11-01)
-- [ ] kiln (docs-engine) rule from R-040: a showcase is a working flow, one per row, with ready/loading/empty/failing states; a grid of parts is not a showcase.
+- [x] (kiln 2.6.0: G-FR1, G-SP1; still open: popup in popup stacks above) kiln gates from R-038: focus ring inside the container's clip; a popup opened inside a popup stacks above it; a split menu aligns to the whole button. (card at least 2R + inset tall: done, G-CH1 2026-11-01)
+- [x] (kiln 2.6.0: G-SC1 + docs-engine rule) kiln (docs-engine) rule from R-040: a showcase is a working flow, one per row, with ready/loading/empty/failing states; a grid of parts is not a showcase.
