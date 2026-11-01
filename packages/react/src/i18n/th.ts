@@ -87,5 +87,12 @@ const th: PaneMessages = {
   notNow: 'ไว้ก่อน',
   sourceOf: (n, title) => `แหล่งที่ ${n}, ${title}`,
   openSource: 'เปิดแหล่งที่มา',
+  code: 'โค้ด',
+  copy: 'คัดลอก',
+  copied: 'คัดลอกแล้ว',
+  copyCode: (label: string) => `คัดลอก ${label}`,
+  showAllLines: (n: number) => `แสดงทั้ง ${n} บรรทัด`,
+  showLess: 'แสดงน้อยลง',
+  codeSnippet: (label: string) => `โค้ด ${label}`,
 };
 export default th;

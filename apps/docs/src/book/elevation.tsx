@@ -6,7 +6,7 @@ import { Stage } from './kit';
 export function ElevationDemo() {
   return (
     <div className="elev-grid" data-elevation-demo="">
-      <Stage>
+      <Stage picker>
         <Card as="div" className="demo-card" data-level-sample="1">
           <p className="eyebrow flush">Level 1 · a pane</p>
           <div className="elev-tiles">
@@ -15,7 +15,7 @@ export function ElevationDemo() {
           </div>
         </Card>
       </Stage>
-      <Stage>
+      <Stage picker>
         <div className="elev-under" aria-hidden="true">
           <Card as="div" className="demo-card"><p className="flush">A pane under the overlay</p><p className="flush muted">Dimmed by the scrim</p></Card>
         </div>
@@ -24,8 +24,9 @@ export function ElevationDemo() {
           <p className="eyebrow flush">Level 3 · an overlay</p>
           <Card as="div" data-level-sample="2"><p className="flush">A surface inside the overlay</p></Card>
           <div className="elev-actions"><Button size="sm">Save</Button><Button size="sm" variant="glass">Cancel</Button></div>
-          <Card as="div" level={4} className="elev-popover" data-level-sample="4"><Chip>Level 4 · a popover</Chip></Card>
         </Card>
+        {/* the popover floats over the overlay, so it sits outside it and is never clipped by its corner */}
+        <Card as="div" level={4} className="elev-popover" data-level-sample="4" data-pill-ok=""><Chip>Level 4 · a popover</Chip></Card>
       </Stage>
     </div>
   );

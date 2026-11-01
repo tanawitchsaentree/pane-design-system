@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T00:21:57.216Z",
+  "generatedAt": "2026-11-01T02:34:27.973Z",
   "passed": 1,
   "total": 1,
   "partial": true,
@@ -8,11 +8,11 @@
   },
   "results": [
     {
-      "id": "G-CH1",
-      "name": "a card is never shorter than its two corners and an inset, or it reads as a pill around its content",
+      "id": "G-NT2",
+      "name": "every form control shows its boundary at least 3:1 against what it sits on, in every theme (WCAG 1.4.11)",
       "ok": true,
-      "detail": "124 pages",
-      "order": 51
+      "detail": "216 controls in 2 themes",
+      "order": 37
     }
   ]
 }

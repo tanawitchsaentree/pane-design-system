@@ -57,7 +57,7 @@ function BrandPlayground() {
           <Select label="Brand" size="sm" value={id} onValueChange={(v) => smooth(() => setId(v))} options={LIST.map((x) => ({ value: x.id, label: x.name }))} />
           <SegmentedControl label="Theme" showLabel size="sm" value={th} onValueChange={(v) => smooth(() => setTh(v as 'dark' | 'light'))} options={[{ value: 'dark', label: 'Dark' }, { value: 'light', label: 'Light' }]} />
         </div>
-        <div className="pg-preview" data-preview="" data-brand={id} data-theme={th}><Stage className="pg-stage"><Sample /></Stage></div>
+        <div className="pg-preview" data-preview="" data-brand={id} data-theme={th}><Stage className="pg-stage" picker><Sample /></Stage></div>
       </div>
       <div className="pg-note">Words on the action {a && tx ? ratio(a, tx).toFixed(2) : 'unchanged'}:1. Focus ring on the page {r ? ratio(r, PAGE[th]).toFixed(2) : 'unchanged'}:1.</div>
       <Code label={`${b.id}.json`}>{JSON.stringify({ name: b.name, description: b.description, ...(b.density && b.density !== 'regular' ? { density: b.density } : {}), ...(b.motion && b.motion !== 'steady' ? { motion: b.motion } : {}), tokens: b.tokens }, null, 2)}</Code>

@@ -202,3 +202,8 @@
 - **วันที่:** 2026-10-31 · **เลือกโดย:** agent หลัง user บอกว่า "ไม่มี animation transition เลย กดแล้วเปลี่ยนแบบดิบๆ static แทบทุก component"
 - **ปัญหา:** เดิมเมื่อตั้ง prefers-reduced-motion ทุก duration กลายเป็น 0 ทั้งหมด รวมถึงการเปลี่ยนสีตอน hover/press ด้วย ผู้ที่เปิด Reduce motion ใน macOS จึงเห็นทุก control เปลี่ยนแบบกระตุก และยังมี 15 component ที่มีส่วนให้กดแต่ไม่มี transition เลย
 - **ตัดสิน:** ภายใต้ reduced motion ให้ `motion.hover` และ `motion.press` เหลือ 100ms (เปลี่ยนแค่สีกับแสง) ส่วน travel, การเข้าฉาก, scene, loop เป็น 0 และ distance กับ press-scale ไม่มีเลย ไม่มีอะไรขยับตำแหน่ง ทั้ง 15 component (Navbar, Breadcrumb, NumberInput, PasswordInput, SearchInput, Stepper, TagInput, FileUpload, ChatComposer, Citation, Combobox, TransferList, Wizard, DataGrid, TableOfContents) ใช้ hover fade ร่วมกัน และ IconButton ค่อยๆ เฟดไอคอนตอนสลับ (เช่น play กับ pause)
+
+### D-040: สีของ code เป็น token และรองรับ theme แบบ IDE
+- **วันที่:** 2026-11-01 · **เลือกโดย:** user ("พัฒนา token สี หรือระบบ ui รองรับ theme IDE ด้วย")
+- **ตัดสิน:** semantic `syntax.*` 12 role (bg, fg, comment, keyword, string, number, function, type, tag, attr, property, punctuation) แยกค่า dark/light เป็น palette ของ Pane เอง, component ใหม่ CodeBlock (มี highlighter ในตัว ไม่พึ่ง library และไม่สร้าง HTML) อ่านสีจาก `code-block.*`, และ code theme แบบ IDE ห้าชุด (GitHub Dark/Light, One Dark, Dracula, Solarized Light) เป็น sheet `[data-code-theme]` ที่ build ตรวจว่าทุก role ได้ 4.5:1 บนพื้นของตัวเอง (One Dark ต้องยก comment กับ tag ขึ้นหนึ่งขั้น)
+- **หนังสือ:** code ทุกก้อนในเล่มใช้ token ชุดเดียวกัน และเลือก Code theme ได้ในเมนู Appearance

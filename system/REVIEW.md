@@ -121,3 +121,5 @@ Lab: `apps/lab/round5/index.html` (the user's OpenGlass-style reference beside P
 | AgentStatus (J4) | **A glyph, a word and the steps** | A says what and where without colour (P6). B rests on hue. C says nothing about the task. |
 | HumanHandoff (J4) | **A quiet row that names who** | A keeps calm and names the person and the wait (P2, P6). B alarms. C gives no way to accept or decline. |
 | Citation (J4) | **A round chip that opens a card** | A checks a claim in place (P6). B is a hue and a tiny target. C makes the reader match numbers by hand. |
+
+| CodeBlock (2026-11-01) | A opaque code ground, roles in colour · B code on the glass · C opaque, one colour | **A** | Every role is measured against one known ground (P6, P1); B lets the scene change each role's contrast and C hides the structure. Lab: `apps/lab/codeblock/index.html`. |
