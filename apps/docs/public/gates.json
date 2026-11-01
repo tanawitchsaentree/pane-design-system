@@ -1,35 +1,15 @@
 {
-  "generatedAt": "2026-11-01T05:33:27.912Z",
-  "passed": 4,
-  "total": 4,
+  "generatedAt": "2026-11-01T06:48:17.028Z",
+  "passed": 1,
+  "total": 1,
   "partial": true,
   "advisory": {},
   "results": [
     {
-      "id": "G-PF2",
-      "name": "page weight: no image over 300 kB, no page over 1.5 MB transferred (gzip counted)",
+      "id": "G-MO1",
+      "name": "every control on a component page answers hover and press in the rhythm: a transition, fast in, slow out, never the browser default",
       "ok": true,
-      "order": 9
-    },
-    {
-      "id": "G-C1",
-      "name": "every code block has a Copy button you can see",
-      "ok": true,
-      "detail": "20 code blocks",
-      "order": 11
-    },
-    {
-      "id": "G-BR1",
-      "name": "a subject shown as its own surface paints one, and no live example puts text straight on the photo",
-      "ok": true,
-      "detail": "3 pages, 0 photo stages (no stage showed a photo; set docs.photoScene to the brightest photo scene)",
-      "order": 45
-    },
-    {
-      "id": "G-NC1",
-      "name": "a shape inside a rounded shape nests its corner wherever it sits near one: even inset and inner radius = outer radius − inset",
-      "ok": true,
-      "detail": "1 pages",
+      "detail": "96 controls on 24 pages",
       "order": 53
     }
   ]

@@ -353,3 +353,17 @@ One entry per criticism. The fix is a change to the step that produced the resul
   - level 2 หลัง glass เป็นสีขาว 7% มีเส้นขอบคมและขอบบนรับแสง ส่วนหลัง solid เป็นสีทึบที่สว่างกว่าการ์ดหนึ่งขั้น (`level.2-solid`) ช่องกรอกยังเป็นร่องสีเข้มกว่าในทุกกรณี
   - popover ห้อยลงจากปุ่ม More ขอบเริ่มต้นตรงกับปุ่ม
   - ตัวเลือกฉากหลังแสดงอยู่ทุกฉาก รวมถึง Field
+
+## R-044: motion เนียนแต่ไม่มีจังหวะ และเร็วจนดูดิบ
+- **User said:** "motion ก็สำคัญมากๆ ไม่ใช่แค่ smooth แต่ต้องรู้จังหวะ เข้าเร็วออกช้า ไม่ใช่สักแต่จะ smooth เร็วเหี้ยๆแบบนี้ก็ไม่ได้"
+- **ขั้นที่ผิด:**
+  - token มี hover กับ press แค่ค่าเดียว จะเข้าหรือออกจาก state ก็ใช้เวลาเท่ากัน (420ms กับ 200ms)
+  - ถ้าเปิด Reduce motion ทุกอย่างจะเหลือ 100ms เท่ากันหมด (D-039) แถม primitive ที่ hover อ้างอิงยังถูกตั้งเป็น 0 ด้วย พอเปิดตรวจจริง control จึงกระตุกทุกตัว
+  - ActionSheet ใช้ token ของ press มาจับเวลาการ fade ตอน hover
+  - kiln อธิบายเรื่องจังหวะไว้ใน motion.md แต่ไม่มีอะไรวัด
+- **แก้แล้ว:**
+  - `kiln.state` ให้ token มีค่าตอนอยู่ใน state แยกออกมา hover เข้า 130ms ออก 380ms ส่วน press ลง 70ms ขึ้น 300ms ตัว build สร้าง rule ไว้ที่ root ของ component (`[data-component]`) ทำให้ component ไม่ต้องแก้ CSS เลย
+  - Reduce motion เก็บจังหวะนี้ไว้ (`kiln.reduced: "keep"`) รวมทั้ง primitive ที่ hover และ press อ้างอิง ส่วนการเคลื่อนที่ยังเป็น 0
+  - brand tempo ใช้เป็นค่าตอนออก ส่วนค่าตอนเข้าคิดจากอัตราส่วนเดิมของระบบ
+  - ActionSheet เปลี่ยนไปใช้ `motion.hover`
+- **gate ใหม่ (kiln):** G-MO2 ตรวจ token (ขาออกต้องยาว ≥ 1.6 × ขาเข้า, curve ของการเข้าต้องลดความเร็ว, ของที่ออกต้องเร่งความเร็วและสั้นกว่าการเข้า, ห้าม linear และห้ามเกิน 700ms) ส่วน G-MO1 ใช้ pointer จริง hover และกด control บนหน้า component 24 หน้า ทั้งในโหมดปกติและ Reduce motion พิสูจน์ด้วย `motion-probes.proof.mjs` (14 เคส แดง/เขียวตรงตามที่คาด) เจอปัญหาใน Pane แค่จุดเดียว คือ ActionSheet

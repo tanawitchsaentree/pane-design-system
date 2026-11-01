@@ -353,8 +353,8 @@ Values are given for dark and light. Component tokens point at these, and primit
 
 | token | dark | light | why |
 |---|---|---|---|
-| `--ds-motion-hover` | 420ms | 420ms | motion roles mapped to durations and distances, so hover, press and entry always feel the same across components |
-| `--ds-motion-press` | 200ms | 200ms | 〃 |
+| `--ds-motion-hover` | 380ms | 380ms | motion roles mapped to durations and distances, so hover, press and entry always feel the same across components |
+| `--ds-motion-press` | 300ms | 300ms | 〃 |
 | `--ds-motion-enter` | 640ms | 640ms | 〃 |
 | `--ds-motion-scene` | 640ms | 640ms | 〃 |
 | `--ds-motion-stagger` | 70ms | 70ms | 〃 |

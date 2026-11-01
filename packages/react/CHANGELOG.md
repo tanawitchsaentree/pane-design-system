@@ -4,6 +4,7 @@ Every entry names the component it touches, so each component page in the book c
 
 ## 0.7.0 (2026-10-30)
 
+- ActionSheet fades its rows on hover with the hover rhythm, light up in 130ms and fade over 380ms (R-044). Every hover and press in the system now enters fast and leaves slowly, through one token rule, and keeps that rhythm under Reduce motion, where only travel stops.
 - A CodeBlock under every live demo now holds the HTML of that demo, with the stable class names from all.css, so a Vue, Svelte, Angular or plain page can copy it (D-042). The tokens also build for Kotlin, Dart, Tailwind and Figma.
 - CodeBlock: new. Code in colour from the syntax tokens, every role at 4.5:1 on its code ground, with Copy always in reach, Show all for long files, line numbers and IDE palettes as code themes (GitHub Dark and Light, One Dark, Dracula, Solarized Light) (D-040).
 - Card: the glass has volume. A hairline rim lit at the top left and again along the foot where light leaves the slab, a bevel inside (a lit upper lip, a shaded lower one) and a deeper lift (R-041).
