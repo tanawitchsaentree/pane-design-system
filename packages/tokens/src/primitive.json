@@ -157,12 +157,12 @@
         "$value": "#26282D",
         "$description": "the lit top of the ink solid in the light theme (R-010)"
       },
+      "900": {
+        "$value": "#111214"
+      },
       "950": {
         "$value": "#050506",
         "$description": "the studio's ground in dark: deep enough that a level-1 pane steps at least 1.15:1 off it (G-EL1; #111214 gave 1.09, #0A0A0C 1.13)"
-      },
-      "900": {
-        "$value": "#111214"
       },
       "$extensions": {
         "kiln.why": {
@@ -803,8 +803,6 @@
       }
     },
     "violet": {
-      "$type": "color",
-      "$description": "a violet for the accent crystal (New, Featured); only small marks and crystal tints use it (D-038)",
       "100": {
         "$value": "#EDE9FE"
       },
@@ -828,7 +826,9 @@
       },
       "900": {
         "$value": "#2E1A63"
-      }
+      },
+      "$type": "color",
+      "$description": "a violet for the accent crystal (New, Featured); only small marks and crystal tints use it (D-038)"
     },
     "crystal": {
       "$type": "color",
@@ -1736,8 +1736,24 @@
   },
   "duration": {
     "$type": "duration",
+    "snap": {
+      "$value": "70ms",
+      "$description": "a press going down: the hand feels it at once"
+    },
+    "brisk": {
+      "$value": "130ms",
+      "$description": "a hover lighting up"
+    },
     "quick": {
       "$value": "200ms"
+    },
+    "release": {
+      "$value": "300ms",
+      "$description": "a press coming back up"
+    },
+    "linger": {
+      "$value": "380ms",
+      "$description": "a hover fading after the pointer leaves"
     },
     "gentle": {
       "$value": "420ms"

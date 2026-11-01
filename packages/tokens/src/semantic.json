@@ -1302,11 +1302,25 @@
   "motion": {
     "hover": {
       "$type": "duration",
-      "$value": "{duration.gentle}"
+      "$value": "{duration.linger}",
+      "$description": "R-044: light comes up fast on hover and fades slowly when the pointer leaves",
+      "$extensions": {
+        "kiln.state": {
+          ":hover": "{duration.brisk}"
+        },
+        "kiln.reduced": "keep"
+      }
     },
     "press": {
       "$type": "duration",
-      "$value": "{duration.quick}"
+      "$value": "{duration.release}",
+      "$description": "R-044: a press goes down at once and rises slowly, like a key",
+      "$extensions": {
+        "kiln.state": {
+          ":active": "{duration.snap}"
+        },
+        "kiln.reduced": "keep"
+      }
     },
     "enter": {
       "$type": "duration",

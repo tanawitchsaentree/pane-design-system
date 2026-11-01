@@ -24,7 +24,7 @@ function walk(node, tier, trail, inheritedType, inheritedWhy) {
   if ('$value' in node) {
     const key = trail.join('.');
     if (tokens.has(key)) collisions.push(`${key} is defined in both ${tokens.get(key).tier} and ${tier} — paths must be unique across tiers`);
-    tokens.set(trail.join('.'), { tier, type, raw: node.$value, description: node.$description, env: node.$extensions?.['pane.environment'], bp: node.$extensions?.['pane.breakpoint'], theme: node.$extensions?.['pane.theme'], why });
+    tokens.set(trail.join('.'), { tier, type, raw: node.$value, description: node.$description, env: node.$extensions?.['pane.environment'], bp: node.$extensions?.['pane.breakpoint'], theme: node.$extensions?.['pane.theme'], state: node.$extensions?.['kiln.state'], reduced: node.$extensions?.['kiln.reduced'], why });
     return;
   }
   for (const [k, v] of Object.entries(node)) {
@@ -149,9 +149,14 @@ ${fallback.replace(/^/gm, '  ')}
 // distances and the press scale go to nothing, so nothing moves.
 const QUICK = ['motion.hover', 'motion.press'];
 const quick = (p) => QUICK.includes(p) || QUICK.some((q) => dependsOn(p, q));
-const durations = [...tokens].filter(([, t]) => t.type === 'duration').map(([p]) => `    ${cssName(p)}: ${quick(p) ? '100ms' : '0ms'};`).join('\n');
+// and the primitives they read, in and out of each state, or var() would still resolve to a zeroed 0ms
+const KEEP = new Set(QUICK.flatMap((q) => [refOf(q), ...Object.values(tokens.get(q)?.state ?? {}).map((r) => r.slice(1, -1))]).filter(Boolean));
+const kept = (p) => quick(p) || KEEP.has(p);
+// R-044: hover and press keep their own rhythm (fast in, slow out) under reduced motion, since a fade of colour
+// and light moves nothing; the flat 100ms of D-039 made every control flick.
+const durations = [...tokens].filter(([p, t]) => t.type === 'duration' && !kept(p)).map(([p]) => `    ${cssName(p)}: 0ms;`).join('\n');
 const motionCss = `
-/* Reduced motion (D-039) — movement is gone: travel, entrances and loops are 0ms and distances 0; hover and press keep a 100ms fade. */
+/* Reduced motion (D-039, R-044) — movement is gone: travel, entrances and loops are 0ms and distances 0; hover and press keep their rhythm. */
 @media (prefers-reduced-motion: reduce) {
   :root, [data-environment] {
 ${durations}
@@ -161,6 +166,16 @@ ${durations}
   }
 }
 `;
+// State rhythm (R-044, kiln.state): a token takes another value while a component root is in a state, so a
+// transition into :hover or :active runs on the short value and the one out of it on the long one. Every token
+// that depends on it is declared again beside it, since a var() resolves where it is declared.
+const SCOPE = '[data-component]';
+const stated = [...tokens].filter(([, t]) => t.state);
+const stateRule = (p, sel, on, off, pre = '') => {
+  const deps = [...tokens.keys()].filter((d) => dependsOn(d, p)).map((d) => `${cssName(d)}: ${cssValue(d)};`).join(' ');
+  return `${pre}:where(${SCOPE}${sel}) { ${cssName(p)}: ${on}; ${deps} }\n${pre}:where(${SCOPE}:not(${sel})) { ${cssName(p)}: ${off}; ${deps} }`;
+};
+const stateCss = `\n/* State rhythm (R-044): fast into a state, slow out of it */\n${stated.flatMap(([p, t]) => Object.entries(t.state).map(([sel, ref]) => stateRule(p, sel, `var(${cssName(ref.slice(1, -1))})`, cssValue(p)))).join('\n')}\n`;
 // Themes (D-015): tokens with $extensions["pane.theme"] get a value per theme; $value is dark.
 // @scope gives proximity, so a [data-theme] element nested inside another theme wins for its own
 // subtree (the component pages put light and dark cells side by side). Environment-dependent tokens
@@ -209,12 +224,12 @@ const spanCss = `
 ${BPS.map((bp) => `@media (min-width: ${resolve(`breakpoint.${bp}`)}) { [data-pane-span-${bp}] { --pane-span: var(--pane-span-${bp}); } }`).join('\n')}
 `;
 const json = Object.fromEntries(
-  [...tokens].map(([p, t]) => [p, { tier: t.tier, type: t.type, value: format(t.type, resolve(p)), ref: typeof t.raw === 'string' && REF.test(t.raw) ? t.raw.slice(1, -1) : null, css: cssName(p), description: t.description ?? null, why: t.why ?? null, ...(t.bp ? { breakpoints: Object.fromEntries(Object.entries(t.bp).map(([bp, r]) => [bp, { ref: r.slice(1, -1), value: format(t.type, resolve(r.slice(1, -1))) }])) } : {}), ...(t.theme ? { themes: Object.fromEntries(Object.entries(t.theme).map(([th, r]) => [th, { ref: r.slice(1, -1), value: format(t.type, resolve(r.slice(1, -1))) }])) } : {}) }]),
+  [...tokens].map(([p, t]) => [p, { tier: t.tier, type: t.type, value: format(t.type, resolve(p)), ref: typeof t.raw === 'string' && REF.test(t.raw) ? t.raw.slice(1, -1) : null, css: cssName(p), description: t.description ?? null, why: t.why ?? null, ...(t.state ? { state: t.state } : {}), ...(t.bp ? { breakpoints: Object.fromEntries(Object.entries(t.bp).map(([bp, r]) => [bp, { ref: r.slice(1, -1), value: format(t.type, resolve(r.slice(1, -1))) }])) } : {}), ...(t.theme ? { themes: Object.fromEntries(Object.entries(t.theme).map(([th, r]) => [th, { ref: r.slice(1, -1), value: format(t.type, resolve(r.slice(1, -1))) }])) } : {}) }]),
 );
 
 mkdirSync(path.join(ROOT, 'build', 'css'), { recursive: true });
 mkdirSync(path.join(ROOT, 'build', 'json'), { recursive: true });
-const fullCss = css.replace('/* D-005', `/* D-015 themes: dark is the default ($value); light via [data-theme="light"] or prefers-color-scheme */\n${themeCss}\n\n/* D-005`) + motionCss + '\n/* D-014 responsive layout */\n' + bpBlocks + '\n' + spanCss;
+const fullCss = css.replace('/* D-005', `/* D-015 themes: dark is the default ($value); light via [data-theme="light"] or prefers-color-scheme */\n${themeCss}\n\n/* D-005`) + motionCss + stateCss + '\n/* D-014 responsive layout */\n' + bpBlocks + '\n' + spanCss;
 writeFileSync(path.join(ROOT, 'build', 'css', 'tokens.css'), fullCss);
 
 // Brands (D-033, white-label): a brand file overrides a short, fixed list of semantic tokens (the loud
@@ -245,11 +260,16 @@ for (const f of existsSync(brandDir) ? readdirSync(brandDir).filter((x) => x.end
   const deps = [...tokens.keys()].filter((p) => !mine.has(p) && own.some(([o]) => dependsOn(p, o)));
   const block = (th, indent) => [...own.map(([p, v]) => `${indent}${cssName(p)}: ${val(pick(v, th))};`), ...deps.map((p) => `${indent}${cssName(p)}: ${cssValue(p)};`)].join('\n');
   const S = `[data-brand="${id}"][data-brand]`;
+  // a brand's tempo for a stated token sets its way out; the way in keeps the system's ratio (R-044)
+  const brandState = own.filter(([p]) => tokens.get(p)?.state).flatMap(([p, v]) => Object.entries(tokens.get(p).state).map(([sel, ref]) => {
+    const off = parseFloat(val(pick(v, 'dark'))), base = parseFloat(resolve(p)), inn = parseFloat(resolve(ref.slice(1, -1)));
+    return Number.isFinite(off) ? stateRule(p, sel, `${Math.round(off * inn / base)}ms`, `${off}ms`, `${S} `) : '';
+  })).filter(Boolean).join('\n');
   const brandCss = `/* GENERATED by packages/tokens/build.mjs from src/brands/${f} (${b.name}). Load after tokens.css (or colour.css). */\n${S} {\n${block('dark', '  ')}\n}\n[data-theme="light"] ${S}, ${S}[data-theme="light"], ${S} [data-theme="light"] {\n${block('light', '  ')}\n}\n@media (prefers-color-scheme: light) {\n  :root:not([data-theme]) ${S}, :root:not([data-theme])${S} {\n${block('light', '    ')}\n  }\n}\n`;
   // a brand's own tempo still collapses under reduced motion; its block outranks the :root rule, so it repeats it
-  const tempo = own.filter(([p]) => tokens.get(p)?.type === 'duration').map(([p]) => `    ${cssName(p)}: ${quick(p) ? '100ms' : '0ms'};`);
+  const tempo = own.filter(([p]) => tokens.get(p)?.type === 'duration' && !quick(p)).map(([p]) => `    ${cssName(p)}: 0ms;`);
   const still = tempo.length ? `@media (prefers-reduced-motion: reduce) {\n  ${S}, ${S} * {\n${tempo.join('\n')}\n  }\n}\n` : '';
-  writeFileSync(path.join(ROOT, 'build', 'css', 'brands', `${id}.css`), brandCss + still);
+  writeFileSync(path.join(ROOT, 'build', 'css', 'brands', `${id}.css`), brandCss + (brandState ? `\n/* this brand's state rhythm */\n${brandState}\n` : '') + still);
   brandIndex.push({ id, name: b.name, description: b.description, tier: expert ? 'expert' : 'brand', density: b.density ?? 'regular', motion: b.motion ?? 'steady', tokens: Object.fromEntries(own) });
 }
 writeFileSync(path.join(ROOT, 'build', 'css', 'brands', 'brands.json'), JSON.stringify(brandIndex, null, 2) + '\n');
