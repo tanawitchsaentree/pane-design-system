@@ -919,19 +919,19 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .tab-link { display: inline-flex; align-items: center; gap: var(--ds-gap-sm); }
 .tab-link svg { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); flex: none; }
 
-/* The demo stage (B, 2026-11-02): one scene edge to edge, the same render on glass, liquid and solid side by
-   side. No slab around the stage: a small corner, no rim, and each pane hugs its content so the scene shows
-   between them. Three columns or one, never two and one; a wide render (.demo-wide) takes a row each. The
-   caption is an opaque label, not a specimen: it reads over any photo and no material changes it. */
-.material-stage { display: block; padding: 0; border-radius: var(--ds-corner-mark); overflow: hidden; container-type: inline-size; }
+/* The demo stage (B, 2026-11-02): one scene edge to edge, the same render on glass, liquid and solid. No slab
+   around the stage: a small corner, no rim, and each pane hugs its content so the scene shows between them.
+   Each material is a row with its label at the start, so every render keeps the full width it was designed
+   for; three columns only on a stage wide enough for any render (a third of the docs column clipped
+   Stepper and TreeView, 2026-11-02 verify). The caption is an opaque label, not a specimen. */
+.material-stage { display: block; padding: 0 0 calc(var(--ds-space-7) + var(--ds-gap-lg) * 2); border-radius: var(--ds-corner-mark); overflow: hidden; container-type: inline-size; }
 .material-grid-live { display: grid; grid-template-columns: minmax(0, 1fr); }
-@container (min-inline-size: 30rem) { .material-grid-live:not(:has(.demo-wide)) { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.material-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--ds-gap-lg); min-block-size: calc(var(--ds-space-32) * 2.5); padding: var(--ds-gap-2xl) var(--ds-gap-md) var(--ds-gap-section); }
+@container (min-inline-size: 60rem) { .material-grid-live:not(:has(.demo-wide)) { grid-template-columns: repeat(3, minmax(0, 1fr)); } .material-grid-live:not(:has(.demo-wide)) .material-cell { flex-direction: column; } .material-grid-live:not(:has(.demo-wide)) .material-cell + .material-cell { border-block-start: 0; border-inline-start: var(--ds-width-hairline) dashed var(--ds-line-divider); } }
+.material-cell { display: flex; align-items: center; gap: var(--ds-gap-xl); padding: var(--ds-gap-2xl) var(--ds-gap-xl); }
 .material-cell + .material-cell { border-block-start: var(--ds-width-hairline) dashed var(--ds-line-divider); }
-@container (min-inline-size: 30rem) { .material-grid-live:not(:has(.demo-wide)) .material-cell + .material-cell { border-block-start: 0; border-inline-start: var(--ds-width-hairline) dashed var(--ds-line-divider); } }
-.material-cell-body { display: flex; justify-content: center; max-inline-size: 100%; overflow-x: auto; }
-.material-cell-body > .demo-card { min-inline-size: 0; min-block-size: 0; inline-size: fit-content; max-inline-size: 100%; }
-.material-cell-caption { display: flex; flex-direction: column; align-items: center; gap: var(--ds-space-0-5); padding: var(--ds-space-1-5) var(--ds-space-3); border-radius: var(--ds-corner-mark); background: var(--ds-surface-raised); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); text-align: center; }
+.material-cell-body { order: 2; flex: 1 1 auto; min-inline-size: 0; display: flex; justify-content: center; }
+.material-cell-body > .demo-card { min-inline-size: min(100%, 360px); min-block-size: 0; inline-size: fit-content; max-inline-size: 100%; }
+.material-cell-caption { order: 1; flex: 0 0 calc(var(--ds-space-32) * 1.1); display: flex; flex-direction: column; align-items: flex-start; gap: var(--ds-space-0-5); padding: var(--ds-space-1-5) var(--ds-space-3); border-radius: var(--ds-corner-mark); background: var(--ds-surface-raised); box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-line-divider); }
 .material-cell-pick { padding: 0; border: 0; background: none; color: var(--ds-text-primary); font: inherit; font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); letter-spacing: var(--ds-type-tracking-caps); text-transform: uppercase; cursor: pointer; }
 .material-cell-pick[aria-pressed='true'] { text-decoration: underline; text-underline-offset: var(--ds-space-1); text-decoration-thickness: var(--ds-width-ring); }
 .material-cell-note { color: var(--ds-text-secondary); font-size: var(--ds-type-caption); }
