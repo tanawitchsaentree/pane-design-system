@@ -5,6 +5,27 @@
   "type": "module",
   "description": "Pane, spatial glass React components. One install and one import: import 'pane-react/all.css'.",
   "license": "MIT",
+  "homepage": "https://pane-design-system.pages.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanawitchsaentree/pane-design-system.git",
+    "directory": "packages/react"
+  },
+  "bugs": {
+    "url": "https://github.com/tanawitchsaentree/pane-design-system/issues"
+  },
+  "keywords": [
+    "react",
+    "design-system",
+    "components",
+    "glass",
+    "glassmorphism",
+    "liquid-glass",
+    "accessibility",
+    "wcag",
+    "thai",
+    "mcp"
+  ],
   "main": "./dist/index.cjs",
   "exports": {
     ".": {
