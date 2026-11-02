@@ -12,8 +12,10 @@ const num = (v: string) => parseFloat(String(v));
 
 // ---------- shared controls ----------
 // Playground controls are Pane's own Select and Slider: the docs use the system, never browser defaults.
-function Range({ label, min, max, step, value, onChange, unit = '' }: { label: string; min: number; max: number; step: number; value: number; onChange: (v: number) => void; unit?: string }) {
-  return <Slider label={label} min={min} max={max} step={step} value={value} onValueChange={onChange} format={(v) => `${v}${unit}`} />;
+// `token` names the custom property the control models, so G-PG1 can check it starts on that token's value
+function Range({ label, min, max, step, value, onChange, unit = '', token }: { label: string; min: number; max: number; step: number; value: number; onChange: (v: number) => void; unit?: string; token?: string }) {
+  const slider = <Slider label={label} min={min} max={max} step={step} value={value} onValueChange={onChange} format={(v) => `${v}${unit}`} />;
+  return token ? <span style={{ display: 'contents' }} data-playground-token={token} data-value={value}>{slider}</span> : slider;
 }
 // one rule for every docs control: two or three choices are a SegmentedControl, more are a Select (R-035)
 function Select<T extends string>({ label, value, options, onChange }: { label: string; value: T; options: Array<[T, string]>; onChange: (v: T) => void }) {
@@ -89,10 +91,10 @@ export function GlassPlayground({ scene: chosen }: { scene: string }) {
       bare
       title="Glass recipe"
       controls={<>
-        <Range label="Blur" min={0} max={96} step={4} value={blur} onChange={setBlur} unit="px" />
+        <Range label="Blur" min={0} max={96} step={4} value={blur} onChange={setBlur} unit="px" token="--ds-blur-clear" />
         <Range label="Brightness" min={0.2} max={1.4} step={0.02} value={bright} onChange={setBright} />
         <Range label="Body" min={0} max={0.95} step={0.02} value={tint} onChange={setTint} />
-        <Range label="Saturate" min={1} max={2.4} step={0.1} value={sat} onChange={setSat} />
+        <Range label="Saturate" min={1} max={2.4} step={0.1} value={sat} onChange={setSat} token="--ds-saturate-glass" />
         <Range label="Rim light" min={0} max={1} step={0.02} value={rim} onChange={setRim} />
         <Range label="Bevel" min={0} max={1} step={0.02} value={bevel} onChange={setBevel} />
         <Range label="Lift" min={0} max={1} step={0.02} value={lift} onChange={setLift} />
@@ -195,7 +197,7 @@ export function GridPlayground() {
       backdrop="field"
       title="Columns, gutter and span"
       controls={<>
-        <Range label="Columns" min={1} max={12} step={1} value={cols} onChange={setCols} />
+        <Range label="Columns" min={1} max={12} step={1} value={cols} onChange={setCols} token="--ds-layout-columns" />
         <Range label="Highlighted span" min={1} max={12} step={1} value={span} onChange={setSpan} />
         <Select label="Gutter" value={gutter} options={['space.4', 'space.6', 'space.8'].map((p) => [p, `${p} · ${TOKENS[p].value}`])} onChange={setGutter} />
       </>}
