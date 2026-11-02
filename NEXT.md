@@ -1,5 +1,11 @@
 # NEXT — handoff 2026-11-02 (context cleared by the user; read this first)
 
+## State 2026-11-02 afternoon (0.8.3 live)
+- **0.8.3 is deployed and on GitHub main** (ce49549). It has the demo stage B (glass, liquid and solid at once, the user's pick), nesting materials (a solid donut @scope, liquid that stops at a nested Environment, an unset material that inherits), an Overview without the card grid, the FAB spec frame fix, the New tag by release, and a default backdrop of Room. **npm still has 0.8.1**; the user publishes `release/pane-react-0.8.3.tgz`.
+- **Never gate a release on a full verify again** (the user was angry 2026-11-02, memory no-long-verify-runs). Ship on targeted `KILN_ROUTES` evidence + build. A full run, if any, goes in the background after the deploy.
+- The full verify killed twice was dial's `pkill -f "tooling/kiln/(verify|…)"`; dial now kills by PID. A third full run started 13:50 in the background. Its log is in the job tmp, and it is not a gate.
+- Open: Pane's "Pane at a glance" scenario stages still use the old rounded slab. kiln is building G-SH1 (shell convergence) and will ask the user who tells dial.
+
 ## State 2026-11-02 (after 0.8.2)
 - **0.8.2 is built, deployed and on GitHub** (2987444). Conformance is 468/468. G-C1, G-PUB1, G-MO1, G-MO3, G-MO4 and G-PC1 pass on the changed pages. **npm still has 0.8.1** until the user runs `npm publish ./release/pane-react-0.8.2.tgz --access public`.
 - kiln 2.7.0 is synced (072e569). **The next verify must be a full `pnpm run verify`** (new hash format; it records the manifest and reach map). After that, use `pnpm run verify:topup` for fixes. That full run will also refresh the stale evidence and verify from 2026-10-28.
