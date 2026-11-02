@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T04:30:50.333Z",
+ "generatedAt": "2026-11-02T06:45:25.612Z",
  "states": [
   "default",
   "hover",
@@ -17198,7 +17198,7 @@
         "token": "--ds-button-glass-fg"
        },
        "box-shadow": {
-        "value": "rgba(23, 23, 23, 0.263) 0px 0.953709px 1.90742px 0.0462911px, rgba(10, 10, 10, 0.396) 0px 3.81484px 10px -5.72225px, rgba(255, 255, 255, 0.016) 0px 0.370329px 1.38873px -0.185164px, rgba(0, 0, 0, 0.02) 0px 0.185164px 0.555493px 0px",
+        "value": "rgba(103, 103, 103, 0.314) 0px 0.746375px 1.49275px 0.253625px, rgba(58, 58, 58, 0.39) 0px 2.9855px 10px -4.47825px, rgba(255, 255, 255, 0.09) 0px 2.029px 7.60874px -1.0145px, rgba(0, 0, 0, 0.1) 0px 1.0145px 3.0435px 0px",
         "token": null
        },
        "opacity": {
@@ -19610,8 +19610,8 @@
         "token": "--ds-button-accent-bg"
        },
        "box-shadow": {
-        "value": "rgba(255, 255, 255, 0.9) 0px 0px 0px 9px",
-        "token": "--ds-line-rim-foot"
+        "value": "rgba(0, 0, 0, 0.25) 0px 1px 2px 0px, rgba(0, 0, 0, 0.4) 0px 4px 10px -6px",
+        "token": "--ds-button-accent-cast-press"
        },
        "opacity": {
         "value": "1",
@@ -42913,7 +42913,7 @@
         "token": "--ds-text-primary"
        },
        "box-shadow": {
-        "value": "rgba(0, 0, 0, 0.55) 0px 2px 4px 0px inset, rgba(255, 255, 255, 0.2) 0px -1px 0px 0px inset, rgba(255, 255, 255, 0.56) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.275) 0px 0px 0px 0.9077px inset",
+        "value": "rgba(0, 0, 0, 0.55) 0px 2px 4px 0px inset, rgba(255, 255, 255, 0.2) 0px -1px 0px 0px inset, rgba(255, 255, 255, 0.56) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.235) 0px 0px 0px 0.775462px inset",
         "token": "--ds-action-glint + --ds-color-white-a-56 + --ds-surface-well-deep + --ds-dropzone-groove + --ds-shadow-ring"
        },
        "opacity": {
@@ -42947,7 +42947,7 @@
         "token": "--ds-surface-light"
        },
        "box-shadow": {
-        "value": "rgba(0, 0, 0, 0.55) 0px 2px 4px 0px inset, rgba(255, 255, 255, 0.2) 0px -1px 0px 0px inset, rgba(255, 255, 255, 0.56) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.17) 0px 0px 0px 0.554955px inset",
+        "value": "rgba(0, 0, 0, 0.55) 0px 2px 4px 0px inset, rgba(255, 255, 255, 0.2) 0px -1px 0px 0px inset, rgba(255, 255, 255, 0.56) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.13) 0px 0px 0px 0.431342px inset",
         "token": "--ds-action-glint + --ds-color-white-a-56 + --ds-surface-well-deep + --ds-dropzone-groove + --ds-shadow-ring"
        },
        "opacity": {
@@ -43161,8 +43161,8 @@
         "token": "--ds-surface-light"
        },
        "box-shadow": {
-        "value": "rgba(17, 18, 20, 0.3) 0px 2px 4px 0px inset, rgba(255, 255, 255, 0.6) 0px -1px 0px 0px inset, rgba(17, 18, 20, 0.56) 0px 0px 0px 1px inset, rgba(17, 18, 20, 0.027) 0px 0px 0px 0.102917px inset",
-        "token": "--ds-level-scrim + --ds-line-edge + --ds-dropzone-groove"
+        "value": "rgba(17, 18, 20, 0.3) 0px 2px 4px 0px inset, rgba(255, 255, 255, 0.6) 0px -1px 0px 0px inset, rgba(17, 18, 20, 0.56) 0px 0px 0px 1px inset, rgba(17, 18, 20, 0.08) 0px 0px 0px 0.312723px inset",
+        "token": "--ds-level-scrim + --ds-line-edge + --ds-dropzone-bg + --ds-dropzone-groove"
        },
        "opacity": {
         "value": "1",

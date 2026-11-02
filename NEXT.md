@@ -4,6 +4,11 @@
 - **0.8.3 is deployed and on GitHub main** (ce49549). It has the demo stage B (glass, liquid and solid at once, the user's pick), nesting materials (a solid donut @scope, liquid that stops at a nested Environment, an unset material that inherits), an Overview without the card grid, the FAB spec frame fix, the New tag by release, and a default backdrop of Room. **npm still has 0.8.1**; the user publishes `release/pane-react-0.8.3.tgz`.
 - **Never gate a release on a full verify again** (the user was angry 2026-11-02, memory no-long-verify-runs). Ship on targeted `KILN_ROUTES` evidence + build. A full run, if any, goes in the background after the deploy.
 - The full verify killed twice was dial's `pkill -f "tooling/kiln/(verify|…)"`; dial now kills by PID. A third full run started 13:50 in the background. Its log is in the job tmp, and it is not a gate.
+- **Full verify (third run) finished: 17/21 steps.** The material stage clipped renders in narrow columns, which caused about 130 evidence reds. Fixed and deployed (2f1b336): the stage is now one row per material. Still red:
+  - **evidence:** 15 reds already in the 11-01 run (DescriptionList on studio, PullToRefresh "Inbox", Wizard "Size") and 10 new ones on VirtualList's faded last row ("Order 100004", mostly in the liquid column).
+  - **conformance 472/478:** Environment reduced-motion .38s, Button hover 0.38s vs 420ms, Image no failed example, DatePicker Esc, PaneProvider Thai ×2.
+  - **gates:** G-R1 (onboard caption 13px), G-PF2 (17 pages over 1.5 MB), G-F1 (3 foundations with no playground control), G-NT2 (57 control edges under 3:1), G-GL1 (3), G-BR1 (Carousel "1 of 3" on the photo); tone also red.
+  - Fix these from targeted runs (`KILN_ROUTES`), never another full run.
 - Open: Pane's "Pane at a glance" scenario stages still use the old rounded slab. kiln is building G-SH1 (shell convergence) and will ask the user who tells dial.
 
 ## State 2026-11-02 (after 0.8.2)

@@ -1,1314 +1,16 @@
 {
-  "generatedAt": "2026-11-01T02:04:57.357Z",
-  "partial": true,
-  "stale": 214,
-  "passed": 467,
-  "total": 468,
+  "generatedAt": "2026-11-02T10:10:16.961Z",
+  "partial": false,
+  "stale": 0,
+  "passed": 472,
+  "total": 478,
   "checks": [
-    {
-      "component": "Tag",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos",
-      "stale": true
-    },
-    {
-      "component": "Badge",
-      "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": true,
-      "detail": "5 demos",
-      "stale": true
-    },
-    {
-      "component": "Chip",
-      "name": "demo floor met (≥ variant dimensions + 3 = 3)",
-      "ok": true,
-      "detail": "3 demos",
-      "stale": true
-    },
-    {
-      "component": "Environment",
-      "name": "each brightness wires its own backdrop dimming into the card (probe values)",
-      "ok": true,
-      "detail": "dim→0.9 mid→0.6 bright→0.3",
-      "stale": true
-    },
-    {
-      "component": "Environment",
-      "name": "reduced transparency turns every environment opaque, no dimming (D-005)",
-      "ok": true,
-      "detail": "rgb(44, 44, 52)|blur(0px) saturate(1.8) brightness(1)",
-      "stale": true
-    },
-    {
-      "component": "Environment",
-      "name": "no declaration falls back to bright (the safe end)",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Environment",
-      "name": "reduced motion zeroes every motion duration at the token level",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Card",
-      "name": "glass card blurs, saturates and dims what is behind it",
-      "ok": true,
-      "detail": "blur(64px) saturate(1.8) brightness(0.42)",
-      "stale": true
-    },
-    {
-      "component": "Card",
-      "name": "inset variant adds no second glass layer",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Avatar",
-      "name": "non-decorative avatars are role=\"img\" named after the person",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Avatar",
-      "name": "decorative avatar beside a visible name is hidden from assistive tech",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "IconButton",
-      "name": "reachable with Tab",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "IconButton",
-      "name": "every button with no visible text, on every page of the book, has an accessible name",
-      "ok": true,
-      "detail": "642 pages",
-      "stale": true
-    },
-    {
-      "component": "Tabs",
-      "name": "one tab stop, so Tab lands on the selected tab and the next Tab leaves the list",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Tabs",
-      "name": "arrow keys move focus and selection, and Home and End jump to the ends",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Tabs",
-      "name": "each tab controls a tabpanel that exists",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Tabs",
-      "name": "the selected tab keeps an underline in forced colours",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Tag",
-      "name": "plain text with no role, small caps via CSS (source text stays readable)",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Docs page",
-      "name": "G-D3, no literal backtick in rendered text on any of the 642 pages",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Grid",
-      "name": "columns follow the breakpoint tokens, with 4 at 375px, 8 at 800px and 12 at 1280px",
-      "ok": true,
-      "detail": "4 → 8 → 12",
-      "stale": true
-    },
-    {
-      "component": "Grid",
-      "name": "GridItem spans switch per breakpoint (full → md 4/8 → lg 4/12)",
-      "ok": true,
-      "detail": "100% → 48% → 31%",
-      "stale": true
-    },
-    {
-      "component": "Container",
-      "name": "xl caps at 1200px and the margin grows 16 → 32 → 48px",
-      "ok": true,
-      "detail": "16px → 32px → 48px",
-      "stale": true
-    },
-    {
-      "component": "Stack",
-      "name": "gap comes from the token scale (md = 16px, xl = 32px)",
-      "ok": true,
-      "detail": "4px · 8px · 16px · 24px · 32px",
-      "stale": true
-    },
-    {
-      "component": "Badge",
-      "name": "status is in the text, with no role (read in place)",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Chip",
-      "name": "reachable with Tab",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Chip",
-      "name": "Space and Enter toggle aria-pressed",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Chip",
-      "name": "a check mark marks the selected chip as well as its colour",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Chip",
-      "name": "an input chip’s remove button is named after the chip and removes it",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Select",
-      "name": "reachable with Tab",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Select",
-      "name": "Enter opens the list and Escape closes it",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Select",
-      "name": "arrow keys and Enter choose a new value",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Slider",
-      "name": "reachable with Tab",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Slider",
-      "name": "arrow keys, Home and End change the value",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Slider",
-      "name": "the press area is at least 44px tall",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Textarea",
-      "name": "labelled by its FormField",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Checkbox",
-      "name": "Space toggles it and the label is its name",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Checkbox",
-      "name": "a mixed parent reports aria-checked=\"mixed\"",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Checkbox",
-      "name": "the target is at least 44px tall",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Radio",
-      "name": "one tab stop and arrow keys choose",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Switch",
-      "name": "Space toggles it",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "PinInput",
-      "name": "typing moves on and paste fills every cell",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Banner",
-      "name": "dismiss is a named button and removes the banner",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Banner",
-      "name": "live=\"polite\" appears as role=\"status\", live=\"assertive\" as role=\"alert\"",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Banner",
-      "name": "the tone is spoken as prefix text",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Label",
-      "name": "a native <label> tied to its control, and a click on it focuses the control",
-      "ok": true,
-      "detail": "3 of 4 labels tied to a control",
-      "stale": true
-    },
-    {
-      "component": "HelperText",
-      "name": "the error tone says the word Error and carries a glyph, so it is not colour alone",
-      "ok": true,
-      "detail": "5 errors of 6",
-      "stale": true
-    },
-    {
-      "component": "InputGroup",
-      "name": "one text input inside, with its adornments outside the input’s value and name",
-      "ok": true,
-      "detail": "adornment \"NOK\"",
-      "stale": true
-    },
-    {
-      "component": "Mesh",
-      "name": "decorative by default, an img with its label when named, never focusable",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Mesh",
-      "name": "forced colours drop the pools",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Box",
-      "name": "padding and corner come from the scales and it draws no surface",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Flex",
-      "name": "spacing is a gap from the scale, never a margin on the children",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Center",
-      "name": "its content sits in the middle both ways",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Divider",
-      "name": "a separator by default, no role when decorative, never focusable",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Spacer",
-      "name": "hidden from assistive technology",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "VisuallyHidden",
-      "name": "off screen but in the tree; focusable content shows on focus",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "AspectRatio",
-      "name": "keeps its ratio at any width",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Text",
-      "name": "sizes come from the type scale and secondary is the measured secondary tone",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Kbd",
-      "name": "renders a kbd element that is not focusable",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Heading",
-      "name": "renders the h level it is given, whatever its size",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Link",
-      "name": "reachable with Tab, underlined inline, external says it opens a new tab",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Spinner",
-      "name": "a status with a label",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Skeleton",
-      "name": "hidden from assistive technology",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Image",
-      "name": "every image has alt, loads lazily, and a failed one stays a recess",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Icon",
-      "name": "decorative by default, an img with its label when named",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Dialog",
-      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Sheet",
-      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Drawer",
-      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "ActionSheet",
-      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Popover",
-      "name": "opens on Enter, closes on Esc with focus back on the trigger",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Tooltip",
-      "name": "shows on keyboard focus",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Toast",
-      "name": "is announced as a status in a labelled region",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Snackbar",
-      "name": "shows one line with its action reachable",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "FAB",
-      "name": "has an accessible name and a 56px target",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "PullToRefresh",
-      "name": "a Refresh button is reachable with Tab and shows on focus",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Listbox",
-      "name": "one tab stop; arrow keys move, Space chooses, aria-selected follows",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Combobox",
-      "name": "typing filters, arrow keys highlight while focus stays in the field, Enter chooses, Esc closes",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Autocomplete",
-      "name": "keeps free text that matches no suggestion",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "MultiSelect",
-      "name": "chosen values are chips with named remove buttons; Backspace removes the last",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Menu",
-      "name": "opens from the keyboard on its first action and Esc returns focus",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "ContextMenu",
-      "name": "opens from the keyboard menu key on a focused target",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "RadioCards",
-      "name": "arrow keys choose like a radio group and the chosen card carries a check",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Rating",
-      "name": "arrow keys change the score; read-only is one image with a spoken score",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "TagInput",
-      "name": "Enter and a comma add, duplicates are ignored, Backspace removes",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Progress",
-      "name": "a known amount is a progressbar with its value",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Progress",
-      "name": "an unknown amount has no value",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Meter",
-      "name": "a meter with its range and reading",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Meter",
-      "name": "a high reading says Almost full and a full one says Full",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Stat",
-      "name": "the change is read with its direction",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "EmptyState",
-      "name": "the title is a heading at the level given",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Timeline",
-      "name": "an ordered list with the current event marked",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "DescriptionList",
-      "name": "terms and details in a dl",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "List",
-      "name": "a list whose pressable rows are links or buttons",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Table",
-      "name": "a captioned table in a focusable named region",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Table",
-      "name": "a sortable header is a button and says its order",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Table",
-      "name": "pressing a header sorts the rows",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "PasswordInput",
-      "name": "the show button toggles what is typed and says its state",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "PasswordInput",
-      "name": "it carries the autocomplete name password managers need",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "SearchInput",
-      "name": "it is a search landmark with a named field",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "SearchInput",
-      "name": "Esc clears the query and keeps focus in the field",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "SearchInput",
-      "name": "the clear button shows with a query and puts focus back",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "NumberInput",
-      "name": "arrow keys step and Home and End go to the limits",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "NumberInput",
-      "name": "a typed number is held to the limits when the field is left",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "NumberInput",
-      "name": "the steppers stop at the limits",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "RangeSlider",
-      "name": "two sliders, each named for its end",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "RangeSlider",
-      "name": "arrow keys move one end and the two never cross",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Editable",
-      "name": "Enter saves and focus returns to the text",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Editable",
-      "name": "Esc puts the words back",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Dropzone",
-      "name": "the zone is a button that opens the file chooser",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Dropzone",
-      "name": "a file of the wrong type is refused in words",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "ColorPicker",
-      "name": "swatches are radios named for their colour",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "ColorPicker",
-      "name": "a typed hex chooses that colour",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "OTPFlow",
-      "name": "a wrong code is said in words and the cells clear",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "OTPFlow",
-      "name": "a right code is accepted",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "OTPFlow",
-      "name": "the resend button waits before it can be pressed",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Calendar",
-      "name": "a month is a grid of day buttons named in full, with the chosen day selected",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Calendar",
-      "name": "arrow keys move a day and a week, and Enter chooses",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Calendar",
-      "name": "Page Down shows the next month",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Calendar",
-      "name": "a range is chosen with two presses",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Calendar",
-      "name": "unavailable days cannot be chosen",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "DatePicker",
-      "name": "it opens the calendar, and choosing closes it with focus back on the field",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "DatePicker",
-      "name": "Esc closes the calendar",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "TimePicker",
-      "name": "times are offered at the step",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "TreeView",
-      "name": "it is a tree with levels and open state",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "TreeView",
-      "name": "arrow keys open, close and move between rows",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "TreeView",
-      "name": "typing a letter finds the next row",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Carousel",
-      "name": "slides are named groups and Next moves on",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Carousel",
-      "name": "it never moves by itself",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "VirtualList",
-      "name": "only rows in view are drawn and each says its place",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "VirtualList",
-      "name": "scrolling draws the rows further down",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "TransferList",
-      "name": "Add moves the chosen items and says how many",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "DataGrid",
-      "name": "one tab stop, and arrow keys move between cells",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "DataGrid",
-      "name": "choose all chooses every row",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "DataGrid",
-      "name": "pressing a sortable header sorts the rows",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "BarChart",
-      "name": "arrow keys read each category aloud",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "BarChart",
-      "name": "the table view holds every value",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "BarChart",
-      "name": "two or more series have a legend",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "LineChart",
-      "name": "arrow keys walk the points and every series is read",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "LineChart",
-      "name": "up to four series are labelled at their ends",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Sparkline",
-      "name": "it is an image with its trend in words",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Heatmap",
-      "name": "arrow keys read each cell aloud",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Heatmap",
-      "name": "a scale says the lowest and the highest value",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Form",
-      "name": "nothing in a form takes focus when the page opens",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Form",
-      "name": "a failed submit shows a summary that takes focus and links to each field",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Wizard",
-      "name": "Next moves on and the step heading takes focus",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Wizard",
-      "name": "Back keeps what was typed",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Wizard",
-      "name": "a step that fails its check stays",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "AuthForm",
-      "name": "it carries the autocomplete names password managers need",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "AuthForm",
-      "name": "errors are in the summary and under each field",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "CommandPalette",
-      "name": "typing filters and focus stays in the field",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "CommandPalette",
-      "name": "arrow keys move the highlight",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "CommandPalette",
-      "name": "Ctrl+K opens it and Esc closes it",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "NotificationCenter",
-      "name": "unread notices say New and the bell gives the count",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "CoachMark",
-      "name": "the card says its step, with Skip tour and Next",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "CoachMark",
-      "name": "Esc skips the tour",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "KanbanBoard",
-      "name": "Space picks a card up, arrows carry it and Space drops it, said aloud",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "KanbanBoard",
-      "name": "Esc puts a moved card back",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Feed",
-      "name": "articles are in a feed and Page Down moves between them",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Feed",
-      "name": "the end of a feed is said in words",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "AppShell",
-      "name": "the skip link moves focus to the main content",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "AppShell",
-      "name": "either the sidebar or the bottom bar shows, never both",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "SettingsLayout",
-      "name": "each row names its control",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "RichTextEditor",
-      "name": "the toolbar is one tab stop with arrow keys between tools",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "RichTextEditor",
-      "name": "a mark says when it is on",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Scale",
-      "name": "says its label, word, position and the comparison in one sentence",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Scale",
-      "name": "a value between two steps sits between them and lights the steps up to the nearest",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Scale",
-      "name": "a rise where lower is better takes the critical band and an up arrow",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Scale",
-      "name": "in RTL the steps fill from the right",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "RadarChart",
-      "name": "Show table gives every axis and series as a table, and back",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "RadarChart",
-      "name": "arrow keys walk the axes and read every series there",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "PaneProvider",
-      "name": "under the Thai catalog the components speak Thai",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "PaneProvider",
-      "name": "th-TH writes the month in Thai and the year in the Buddhist era",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "PaneProvider",
-      "name": "without a provider the components speak English, as before",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "ConfidenceChip",
-      "name": "it is an image that says its level",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "ConfidenceChip",
-      "name": "it says the level in words",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "NodeCard",
-      "name": "each node is a tab stop",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "NodeCard",
-      "name": "Enter picks the node",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "NodeCard",
-      "name": "arrow keys move the node",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "NetworkGraph",
-      "name": "the plot is one tab stop",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "NetworkGraph",
-      "name": "arrow keys walk from node to node",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "NetworkGraph",
-      "name": "Enter picks the node",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "SequenceDiagram",
-      "name": "each step is spoken in order",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "SequenceDiagram",
-      "name": "the lanes scroll with the keyboard",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "SegmentedControl",
-      "name": "one tab stop",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "SegmentedControl",
-      "name": "arrow keys move",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "SegmentedControl",
-      "name": "Space chooses",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "BottomNav",
-      "name": "links in a nav with the current page marked",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Navbar",
-      "name": "links in a nav with the current page marked",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Sidebar",
-      "name": "links in a nav, groups named by their titles",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Breadcrumb",
-      "name": "links in a nav, the current page announced and not a link",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Pagination",
-      "name": "buttons in a nav",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Pagination",
-      "name": "Next goes on",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Stepper",
-      "name": "aria-current=\"step\" on one step, the rest say done or not started",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Accordion",
-      "name": "each heading is a button",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Accordion",
-      "name": "Enter opens a section",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "NavigationMenu",
-      "name": "Enter opens a panel",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "NavigationMenu",
-      "name": "Esc closes and focus returns",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "TableOfContents",
-      "name": "a link moves focus to its heading",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Button",
-      "name": "a toggle says pressed and flips on Enter",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Button",
-      "name": "with href it is a link that looks like a button",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Button",
-      "name": "a menu button says when its menu is open",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "ButtonGroup",
-      "name": "each button is its own tab stop",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "SplitButton",
-      "name": "the action and the chevron are two tab stops",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "SplitButton",
-      "name": "the chevron opens the menu",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Input",
-      "name": "the clear button empties the field and puts focus back",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Input",
-      "name": "a counted field shows how many characters are used",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "FormField",
-      "name": "a warning says Warning and does not mark the field invalid",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Fieldset",
-      "name": "a group error is read with the group and says Error",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "FileUpload",
-      "name": "each file says where its upload has got to",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "ChatMessage",
-      "name": "a turn says who wrote it",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "ChatMessage",
-      "name": "a step opens with Enter",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "ChatComposer",
-      "name": "Enter sends and Shift+Enter starts a new line",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "AgentStatus",
-      "name": "a change of state is announced once",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "HumanHandoff",
-      "name": "each change is announced once",
-      "ok": true,
-      "stale": true
-    },
-    {
-      "component": "Citation",
-      "name": "Enter opens the source",
-      "ok": true,
-      "stale": true
-    },
     {
       "component": "Container",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "1 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "d19581687dc4"
     },
     {
@@ -1316,7 +18,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "4 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "69d398528eb3"
     },
     {
@@ -1324,7 +26,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "3 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "20f7116ac4f7"
     },
     {
@@ -1332,7 +34,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "5 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "67b86bba3c26"
     },
     {
@@ -1340,7 +42,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "5 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "ab9350c7383c"
     },
     {
@@ -1348,7 +50,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "1 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "f70513df3318"
     },
     {
@@ -1356,7 +58,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "1 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "041cb1b192e8"
     },
     {
@@ -1364,7 +66,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "3 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "6515e2e7185e"
     },
     {
@@ -1372,7 +74,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "1 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "0e706ae34a96"
     },
     {
@@ -1380,7 +82,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "1 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "8cbbd9f6cf11"
     },
     {
@@ -1388,7 +90,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "5 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "4bb9fc206fe8"
     },
     {
@@ -1396,7 +98,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "2 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "bf9f81290e80"
     },
     {
@@ -1404,7 +106,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "3 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "1f0453387e0d"
     },
     {
@@ -1412,7 +114,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "2 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "b2f216112e7a"
     },
     {
@@ -1420,7 +122,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "2 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "8dfe2066054d"
     },
     {
@@ -1428,7 +130,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "2 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "700e542918b2"
     },
     {
@@ -1436,7 +138,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "no props of its own (pass-through only)",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "5b06214f2e0f"
     },
     {
@@ -1444,15 +146,15 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "6 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "b68751a76d51"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b29390cec823"
     },
     {
       "component": "Image",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "3 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "ffadddd2d020"
     },
     {
@@ -1460,7 +162,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "11 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "e0dcbc6acb66"
     },
     {
@@ -1468,7 +170,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "12 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "3eeb63eb73a4"
     },
     {
@@ -1476,7 +178,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "12 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "30d42d3ec15e"
     },
     {
@@ -1484,15 +186,15 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "9 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "f6ec61733686"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b047d96cda32"
     },
     {
       "component": "Popover",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "10 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "efcfbec18162"
     },
     {
@@ -1500,7 +202,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "4 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "dc9874fcd46d"
     },
     {
@@ -1508,7 +210,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "9 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "ee9c9c658d1b"
     },
     {
@@ -1516,7 +218,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "7 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "92b4d3ce34e9"
     },
     {
@@ -1524,7 +226,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "4 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "cd365e06bd30"
     },
     {
@@ -1532,47 +234,47 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "3 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "2ad634d8fc23"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "9eb92a31d9d5"
     },
     {
       "component": "SplitButton",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "8 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "c93937aaf3c0"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "7355b65cbbac"
     },
     {
       "component": "PullToRefresh",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "2 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "313b1a0447f7"
     },
     {
       "component": "Environment",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
-      "detail": "2 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "c4e635c1be54"
+      "detail": "3 props",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "83b5b777c025"
     },
     {
       "component": "Card",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "4 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "608680175ed1"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "628ab1e215b8"
     },
     {
       "component": "Avatar",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "4 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "3f37d2ceaae4"
     },
     {
@@ -1580,31 +282,31 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "11 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "c212dac75a86"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "f083aafa79ac"
     },
     {
       "component": "IconButton",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "6 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "b0e92c399ef3"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "fd620dbf9542"
     },
     {
       "component": "Tabs",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "no props of its own (pass-through only)",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "a3349c3c7b26"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "8cb0f3e48d82"
     },
     {
       "component": "Tag",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "2 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "66a084234551"
     },
     {
@@ -1612,7 +314,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "6 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "1fffdea33d66"
     },
     {
@@ -1620,7 +322,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "4 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "4f0a2251789f"
     },
     {
@@ -1628,23 +330,23 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "7 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "fa7ffc6400e7"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "58fbd9b06d0a"
     },
     {
       "component": "Select",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "13 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "fb6b621ed86a"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "2e071e098aa6"
     },
     {
       "component": "Listbox",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "9 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "8e0f5c0722ec"
     },
     {
@@ -1652,7 +354,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "13 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "3c6cf3c94f13"
     },
     {
@@ -1660,7 +362,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "12 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "f678a4fd3b50"
     },
     {
@@ -1668,7 +370,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "12 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "862508083e07"
     },
     {
@@ -1676,15 +378,15 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "5 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "7684f449f56a"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b4805eaca05c"
     },
     {
       "component": "ContextMenu",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "3 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "fe5dea54aa66"
     },
     {
@@ -1692,15 +394,15 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "10 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "816365ac4b67"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "a78e5d76b88e"
     },
     {
       "component": "Rating",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "8 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "fe6424e80a05"
     },
     {
@@ -1708,7 +410,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "12 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "08ae2a79fd50"
     },
     {
@@ -1716,15 +418,15 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "9 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "a847273c475b"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "eacbc0e6ffa5"
     },
     {
       "component": "Navbar",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "7 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "4bb380d2ba02"
     },
     {
@@ -1732,7 +434,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "3 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "b87996d1ff19"
     },
     {
@@ -1740,7 +442,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "6 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "7d892085d5cb"
     },
     {
@@ -1748,7 +450,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "6 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "015fde1a372e"
     },
     {
@@ -1756,7 +458,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "3 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "7cf66db543ce"
     },
     {
@@ -1764,7 +466,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "6 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "0462b8ec0ce5"
     },
     {
@@ -1772,7 +474,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "5 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "68f43b087d05"
     },
     {
@@ -1780,7 +482,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "5 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "55fe9ff16e58"
     },
     {
@@ -1788,7 +490,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "4 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "2a3a91808abe"
     },
     {
@@ -1796,7 +498,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "7 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "57ca2f1d7ba7"
     },
     {
@@ -1804,7 +506,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "7 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "0d32678199f1"
     },
     {
@@ -1812,7 +514,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "6 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "574de2541689"
     },
     {
@@ -1820,7 +522,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "6 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "84ab21d4b7b8"
     },
     {
@@ -1828,7 +530,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "2 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "0f04f0f62a74"
     },
     {
@@ -1836,7 +538,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "3 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "8ad949a90a43"
     },
     {
@@ -1844,7 +546,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "9 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "78556d5bd444"
     },
     {
@@ -1852,7 +554,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "12 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "baa5bd7587d5"
     },
     {
@@ -1860,7 +562,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "5 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "b629c15c6a8e"
     },
     {
@@ -1868,7 +570,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "9 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "aa645885b440"
     },
     {
@@ -1876,7 +578,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "11 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "d868de231f11"
     },
     {
@@ -1884,7 +586,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "11 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "dd1c46fc4254"
     },
     {
@@ -1892,7 +594,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "8 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "c7fb7ce964f5"
     },
     {
@@ -1900,7 +602,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "13 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "175380f6ad9b"
     },
     {
@@ -1908,7 +610,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "10 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "6929edd271c5"
     },
     {
@@ -1916,7 +618,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "8 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "16496ef0a826"
     },
     {
@@ -1924,7 +626,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "6 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "a60e2b32f38d"
     },
     {
@@ -1932,15 +634,15 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "12 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "0c0e513d8d0d"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0c9d182e19dd"
     },
     {
       "component": "DatePicker",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "15 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "6bc7ec57c61e"
     },
     {
@@ -1948,7 +650,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "14 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "fa6d6d31d050"
     },
     {
@@ -1956,15 +658,15 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "7 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "285748105d34"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "e4cceab39c9b"
     },
     {
       "component": "Carousel",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "4 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "b0a1f23a18c6"
     },
     {
@@ -1972,7 +674,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "9 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "3c200de1c073"
     },
     {
@@ -1980,7 +682,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "6 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "72543483ad57"
     },
     {
@@ -1988,15 +690,15 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "13 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "257df0cc17f7"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0ce29dc06737"
     },
     {
       "component": "BarChart",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "9 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "d125d49626d1"
     },
     {
@@ -2004,7 +706,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "9 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "5593ef9d3a3c"
     },
     {
@@ -2012,7 +714,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "5 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "9d03a3ef1dc5"
     },
     {
@@ -2020,7 +722,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "8 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "48b08accf26f"
     },
     {
@@ -2028,7 +730,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "8 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "40e0604e53ce"
     },
     {
@@ -2036,7 +738,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "9 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "66dd317b31e9"
     },
     {
@@ -2044,7 +746,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "4 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "b21de8dac6f8"
     },
     {
@@ -2052,7 +754,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "11 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "c8ea4729df9e"
     },
     {
@@ -2060,15 +762,15 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "8 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "22f76e0ee96e"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "68148d854571"
     },
     {
       "component": "SequenceDiagram",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "3 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "0a2b78a9f62c"
     },
     {
@@ -2076,15 +778,15 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "11 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "433d1c477145"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "f2cb9253e97e"
     },
     {
       "component": "ChatComposer",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "9 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "e28a2e5b205a"
     },
     {
@@ -2092,7 +794,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "5 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "3ccb28dc6afe"
     },
     {
@@ -2100,7 +802,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "7 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "b787f2acc7a3"
     },
     {
@@ -2108,7 +810,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "6 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "96c5b943e85e"
     },
     {
@@ -2116,7 +818,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "5 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "6c007a945452"
     },
     {
@@ -2124,7 +826,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "6 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "da89852e5517"
     },
     {
@@ -2132,7 +834,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "11 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "ddde43b5da2a"
     },
     {
@@ -2140,7 +842,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "7 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "2960cfa68dab"
     },
     {
@@ -2148,7 +850,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "6 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "7defcb11dd9d"
     },
     {
@@ -2156,7 +858,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "10 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "5ba87d9540da"
     },
     {
@@ -2164,7 +866,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "4 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "a207a5ba4d2f"
     },
     {
@@ -2172,7 +874,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "10 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "62ada8241712"
     },
     {
@@ -2180,7 +882,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "7 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "04b408aa89b6"
     },
     {
@@ -2188,7 +890,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "9 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "4e6e5456cf3d"
     },
     {
@@ -2196,15 +898,15 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "9 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "2f517335b9db"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "c3b1084d1c95"
     },
     {
       "component": "Slider",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "12 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "e560a11c2ab5"
     },
     {
@@ -2212,7 +914,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "4 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "df20412b5aeb"
     },
     {
@@ -2220,7 +922,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "4 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "8fdde2707a14"
     },
     {
@@ -2228,15 +930,15 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "11 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "a57636c7ee21"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "ad3baea1a71c"
     },
     {
       "component": "Radio",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "15 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "07b6d1c77c9f"
     },
     {
@@ -2244,15 +946,15 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "9 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "35a6dd074de9"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "afa5704e40ac"
     },
     {
       "component": "FormField",
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "8 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "3bae9734a4b2"
     },
     {
@@ -2260,7 +962,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "1 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "4452d2435692"
     },
     {
@@ -2268,7 +970,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "1 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "53bb1d6d16a9"
     },
     {
@@ -2276,7 +978,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "3 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "fe0088089bc3"
     },
     {
@@ -2284,7 +986,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "3 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "8087f731687b"
     },
     {
@@ -2292,7 +994,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "12 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "275d7cf65045"
     },
     {
@@ -2300,7 +1002,7 @@
       "name": "props table is generated from TS and every own prop is documented (JSDoc)",
       "ok": true,
       "detail": "6 props",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "cb83c85fb869"
     },
     {
@@ -2308,7 +1010,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "d19581687dc4"
     },
     {
@@ -2316,7 +1018,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "69d398528eb3"
     },
     {
@@ -2324,7 +1026,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 6)",
       "ok": true,
       "detail": "6 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "20f7116ac4f7"
     },
     {
@@ -2332,7 +1034,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 8)",
       "ok": true,
       "detail": "8 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "67b86bba3c26"
     },
     {
@@ -2340,7 +1042,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 7)",
       "ok": true,
       "detail": "7 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "ab9350c7383c"
     },
     {
@@ -2348,7 +1050,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "f70513df3318"
     },
     {
@@ -2356,7 +1058,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "041cb1b192e8"
     },
     {
@@ -2364,7 +1066,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "6515e2e7185e"
     },
     {
@@ -2372,7 +1074,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "0e706ae34a96"
     },
     {
@@ -2380,7 +1082,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "8cbbd9f6cf11"
     },
     {
@@ -2388,7 +1090,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 7)",
       "ok": true,
       "detail": "7 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "4bb9fc206fe8"
     },
     {
@@ -2396,7 +1098,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "bf9f81290e80"
     },
     {
@@ -2404,7 +1106,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "1f0453387e0d"
     },
     {
@@ -2412,7 +1114,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "b2f216112e7a"
     },
     {
@@ -2420,7 +1122,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "8dfe2066054d"
     },
     {
@@ -2428,7 +1130,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "700e542918b2"
     },
     {
@@ -2436,23 +1138,23 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "5b06214f2e0f"
     },
     {
       "component": "CodeBlock",
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
-      "ok": false,
-      "detail": "3 demos across the tabs",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "b68751a76d51"
+      "ok": true,
+      "detail": "4 demos",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b29390cec823"
     },
     {
       "component": "Image",
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "ffadddd2d020"
     },
     {
@@ -2460,7 +1162,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "e0dcbc6acb66"
     },
     {
@@ -2468,7 +1170,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "3eeb63eb73a4"
     },
     {
@@ -2476,7 +1178,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "30d42d3ec15e"
     },
     {
@@ -2484,15 +1186,15 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "f6ec61733686"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b047d96cda32"
     },
     {
       "component": "Popover",
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "efcfbec18162"
     },
     {
@@ -2500,7 +1202,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "dc9874fcd46d"
     },
     {
@@ -2508,7 +1210,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "ee9c9c658d1b"
     },
     {
@@ -2516,7 +1218,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "92b4d3ce34e9"
     },
     {
@@ -2524,7 +1226,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "cd365e06bd30"
     },
     {
@@ -2532,23 +1234,23 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "2ad634d8fc23"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "9eb92a31d9d5"
     },
     {
       "component": "SplitButton",
       "name": "demo floor met (≥ variant dimensions + 3 = 7)",
       "ok": true,
       "detail": "7 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "c93937aaf3c0"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "7355b65cbbac"
     },
     {
       "component": "PullToRefresh",
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "313b1a0447f7"
     },
     {
@@ -2556,23 +1258,23 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "c4e635c1be54"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "83b5b777c025"
     },
     {
       "component": "Card",
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "608680175ed1"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "628ab1e215b8"
     },
     {
       "component": "Avatar",
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "3f37d2ceaae4"
     },
     {
@@ -2580,31 +1282,31 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 6)",
       "ok": true,
       "detail": "12 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "c212dac75a86"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "f083aafa79ac"
     },
     {
       "component": "IconButton",
       "name": "demo floor met (≥ variant dimensions + 3 = 6)",
       "ok": true,
       "detail": "7 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "b0e92c399ef3"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "fd620dbf9542"
     },
     {
       "component": "Tabs",
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "a3349c3c7b26"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "8cb0f3e48d82"
     },
     {
       "component": "Tag",
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "66a084234551"
     },
     {
@@ -2612,7 +1314,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "1fffdea33d66"
     },
     {
@@ -2620,7 +1322,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "6 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "4f0a2251789f"
     },
     {
@@ -2628,23 +1330,23 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "fa7ffc6400e7"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "58fbd9b06d0a"
     },
     {
       "component": "Select",
       "name": "demo floor met (≥ variant dimensions + 3 = 7)",
       "ok": true,
       "detail": "7 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "fb6b621ed86a"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "2e071e098aa6"
     },
     {
       "component": "Listbox",
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "8e0f5c0722ec"
     },
     {
@@ -2652,7 +1354,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 6)",
       "ok": true,
       "detail": "6 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "3c6cf3c94f13"
     },
     {
@@ -2660,7 +1362,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 6)",
       "ok": true,
       "detail": "6 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "f678a4fd3b50"
     },
     {
@@ -2668,7 +1370,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 6)",
       "ok": true,
       "detail": "6 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "862508083e07"
     },
     {
@@ -2676,15 +1378,15 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "7684f449f56a"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b4805eaca05c"
     },
     {
       "component": "ContextMenu",
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "fe5dea54aa66"
     },
     {
@@ -2692,15 +1394,15 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "816365ac4b67"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "a78e5d76b88e"
     },
     {
       "component": "Rating",
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "fe6424e80a05"
     },
     {
@@ -2708,7 +1410,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 6)",
       "ok": true,
       "detail": "6 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "08ae2a79fd50"
     },
     {
@@ -2716,15 +1418,15 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "a847273c475b"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "eacbc0e6ffa5"
     },
     {
       "component": "Navbar",
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "4bb380d2ba02"
     },
     {
@@ -2732,7 +1434,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "b87996d1ff19"
     },
     {
@@ -2740,7 +1442,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "7d892085d5cb"
     },
     {
@@ -2748,7 +1450,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "015fde1a372e"
     },
     {
@@ -2756,7 +1458,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "7cf66db543ce"
     },
     {
@@ -2764,7 +1466,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "0462b8ec0ce5"
     },
     {
@@ -2772,7 +1474,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "68f43b087d05"
     },
     {
@@ -2780,7 +1482,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "55fe9ff16e58"
     },
     {
@@ -2788,7 +1490,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "2a3a91808abe"
     },
     {
@@ -2796,7 +1498,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "57ca2f1d7ba7"
     },
     {
@@ -2804,7 +1506,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "0d32678199f1"
     },
     {
@@ -2812,7 +1514,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "574de2541689"
     },
     {
@@ -2820,7 +1522,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "84ab21d4b7b8"
     },
     {
@@ -2828,7 +1530,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "0f04f0f62a74"
     },
     {
@@ -2836,7 +1538,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "8ad949a90a43"
     },
     {
@@ -2844,7 +1546,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "78556d5bd444"
     },
     {
@@ -2852,7 +1554,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "baa5bd7587d5"
     },
     {
@@ -2860,7 +1562,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "b629c15c6a8e"
     },
     {
@@ -2868,7 +1570,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "aa645885b440"
     },
     {
@@ -2876,7 +1578,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "d868de231f11"
     },
     {
@@ -2884,7 +1586,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "dd1c46fc4254"
     },
     {
@@ -2892,7 +1594,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "c7fb7ce964f5"
     },
     {
@@ -2900,7 +1602,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "6 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "175380f6ad9b"
     },
     {
@@ -2908,7 +1610,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "6929edd271c5"
     },
     {
@@ -2916,7 +1618,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "16496ef0a826"
     },
     {
@@ -2924,7 +1626,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "a60e2b32f38d"
     },
     {
@@ -2932,15 +1634,15 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "0c0e513d8d0d"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0c9d182e19dd"
     },
     {
       "component": "DatePicker",
       "name": "demo floor met (≥ variant dimensions + 3 = 7)",
       "ok": true,
       "detail": "7 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "6bc7ec57c61e"
     },
     {
@@ -2948,7 +1650,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "fa6d6d31d050"
     },
     {
@@ -2956,15 +1658,15 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "285748105d34"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "e4cceab39c9b"
     },
     {
       "component": "Carousel",
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "b0a1f23a18c6"
     },
     {
@@ -2972,7 +1674,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "3c200de1c073"
     },
     {
@@ -2980,7 +1682,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "72543483ad57"
     },
     {
@@ -2988,15 +1690,15 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "257df0cc17f7"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0ce29dc06737"
     },
     {
       "component": "BarChart",
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "d125d49626d1"
     },
     {
@@ -3004,7 +1706,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "5593ef9d3a3c"
     },
     {
@@ -3012,7 +1714,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "9d03a3ef1dc5"
     },
     {
@@ -3020,7 +1722,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "48b08accf26f"
     },
     {
@@ -3028,7 +1730,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "6 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "40e0604e53ce"
     },
     {
@@ -3036,7 +1738,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "66dd317b31e9"
     },
     {
@@ -3044,7 +1746,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "b21de8dac6f8"
     },
     {
@@ -3052,7 +1754,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "6 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "c8ea4729df9e"
     },
     {
@@ -3060,15 +1762,15 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "22f76e0ee96e"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "68148d854571"
     },
     {
       "component": "SequenceDiagram",
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "0a2b78a9f62c"
     },
     {
@@ -3076,15 +1778,15 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "6 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "433d1c477145"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "f2cb9253e97e"
     },
     {
       "component": "ChatComposer",
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "e28a2e5b205a"
     },
     {
@@ -3092,7 +1794,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "3ccb28dc6afe"
     },
     {
@@ -3100,7 +1802,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "b787f2acc7a3"
     },
     {
@@ -3108,7 +1810,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "96c5b943e85e"
     },
     {
@@ -3116,7 +1818,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "6c007a945452"
     },
     {
@@ -3124,7 +1826,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "da89852e5517"
     },
     {
@@ -3132,7 +1834,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "ddde43b5da2a"
     },
     {
@@ -3140,7 +1842,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "2960cfa68dab"
     },
     {
@@ -3148,7 +1850,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "7defcb11dd9d"
     },
     {
@@ -3156,7 +1858,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "5ba87d9540da"
     },
     {
@@ -3164,7 +1866,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "a207a5ba4d2f"
     },
     {
@@ -3172,7 +1874,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "62ada8241712"
     },
     {
@@ -3180,7 +1882,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "04b408aa89b6"
     },
     {
@@ -3188,7 +1890,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "4e6e5456cf3d"
     },
     {
@@ -3196,15 +1898,15 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 6)",
       "ok": true,
       "detail": "6 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "2f517335b9db"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "c3b1084d1c95"
     },
     {
       "component": "Slider",
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "e560a11c2ab5"
     },
     {
@@ -3212,7 +1914,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "7 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "df20412b5aeb"
     },
     {
@@ -3220,7 +1922,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "8fdde2707a14"
     },
     {
@@ -3228,15 +1930,15 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "a57636c7ee21"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "ad3baea1a71c"
     },
     {
       "component": "Radio",
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "07b6d1c77c9f"
     },
     {
@@ -3244,15 +1946,15 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "35a6dd074de9"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "afa5704e40ac"
     },
     {
       "component": "FormField",
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "6 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "3bae9734a4b2"
     },
     {
@@ -3260,7 +1962,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "4452d2435692"
     },
     {
@@ -3268,7 +1970,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "4 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "53bb1d6d16a9"
     },
     {
@@ -3276,7 +1978,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 4)",
       "ok": true,
       "detail": "5 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "fe0088089bc3"
     },
     {
@@ -3284,7 +1986,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 3)",
       "ok": true,
       "detail": "3 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "8087f731687b"
     },
     {
@@ -3292,7 +1994,7 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 7)",
       "ok": true,
       "detail": "7 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "275d7cf65045"
     },
     {
@@ -3300,36 +2002,1624 @@
       "name": "demo floor met (≥ variant dimensions + 3 = 5)",
       "ok": true,
       "detail": "8 demos",
-      "ranAt": "2026-11-01T02:04:57.357Z",
+      "ranAt": "2026-11-02T10:10:16.961Z",
       "srcHash": "cb83c85fb869"
+    },
+    {
+      "component": "Environment",
+      "name": "each brightness wires its own backdrop dimming into the card (probe values)",
+      "ok": true,
+      "detail": "dim→0.9 mid→0.6 bright→0.3",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "83b5b777c025"
+    },
+    {
+      "component": "Environment",
+      "name": "reduced transparency turns every environment opaque, no dimming (D-005)",
+      "ok": true,
+      "detail": "rgb(44, 44, 52)|blur(0px) saturate(1.8) brightness(1)",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "83b5b777c025"
+    },
+    {
+      "component": "Environment",
+      "name": "no declaration falls back to bright (the safe end)",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "83b5b777c025"
+    },
+    {
+      "component": "Environment",
+      "name": "reduced motion zeroes every motion duration at the token level",
+      "ok": false,
+      "detail": ".38s, 0ms, 0ms",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "83b5b777c025"
+    },
+    {
+      "component": "Card",
+      "name": "glass card blurs, saturates and dims what is behind it",
+      "ok": true,
+      "detail": "blur(32px) saturate(1.8) brightness(0.48)",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "628ab1e215b8"
+    },
+    {
+      "component": "Card",
+      "name": "inset variant adds no second glass layer",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "628ab1e215b8"
+    },
+    {
+      "component": "Avatar",
+      "name": "non-decorative avatars are role=\"img\" named after the person",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "3f37d2ceaae4"
+    },
+    {
+      "component": "Avatar",
+      "name": "decorative avatar beside a visible name is hidden from assistive tech",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "3f37d2ceaae4"
+    },
+    {
+      "component": "Button",
+      "name": "native <button type=\"button\">",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "f083aafa79ac"
+    },
+    {
+      "component": "Button",
+      "name": "reachable with Tab",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "f083aafa79ac"
+    },
+    {
+      "component": "Button",
+      "name": "Enter and Space activate it",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "f083aafa79ac"
+    },
+    {
+      "component": "Button",
+      "name": "keyboard focus draws a 2px white ring with a dark halo",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "f083aafa79ac"
+    },
+    {
+      "component": "Button",
+      "name": "disabled is the native attribute",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "f083aafa79ac"
+    },
+    {
+      "component": "Button",
+      "name": "hover motion uses the soft tokens (420ms, cubic-bezier(0.22, 1, 0.36, 1))",
+      "ok": false,
+      "detail": "0.38s, 0.38s / cubic-bezier(0.22, 1, 0.36, 1), cubic-bezier(0.22, 1, 0.36, 1)",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "f083aafa79ac"
+    },
+    {
+      "component": "IconButton",
+      "name": "reachable with Tab",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "fd620dbf9542"
+    },
+    {
+      "component": "IconButton",
+      "name": "every button with no visible text, on every page of the book, has an accessible name",
+      "ok": true,
+      "detail": "676 pages",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "fd620dbf9542"
+    },
+    {
+      "component": "Tabs",
+      "name": "one tab stop, so Tab lands on the selected tab and the next Tab leaves the list",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "8cb0f3e48d82"
+    },
+    {
+      "component": "Tabs",
+      "name": "arrow keys move focus and selection, and Home and End jump to the ends",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "8cb0f3e48d82"
+    },
+    {
+      "component": "Tabs",
+      "name": "each tab controls a tabpanel that exists",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "8cb0f3e48d82"
+    },
+    {
+      "component": "Tabs",
+      "name": "the selected tab keeps an underline in forced colours",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "8cb0f3e48d82"
+    },
+    {
+      "component": "Tag",
+      "name": "plain text with no role, small caps via CSS (source text stays readable)",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "66a084234551"
+    },
+    {
+      "component": "Docs page",
+      "name": "G-D3, no literal backtick in rendered text on any of the 676 pages",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": null
+    },
+    {
+      "component": "Grid",
+      "name": "columns follow the breakpoint tokens, with 4 at 375px, 8 at 800px and 12 at 1280px",
+      "ok": true,
+      "detail": "4 → 8 → 12",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "69d398528eb3"
+    },
+    {
+      "component": "Grid",
+      "name": "GridItem spans switch per breakpoint (full → md 4/8 → lg 4/12)",
+      "ok": true,
+      "detail": "100% → 48% → 31%",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "69d398528eb3"
+    },
+    {
+      "component": "Container",
+      "name": "xl caps at 1200px and the margin grows 16 → 32 → 48px",
+      "ok": true,
+      "detail": "16px → 32px → 48px",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "d19581687dc4"
+    },
+    {
+      "component": "Stack",
+      "name": "gap comes from the token scale (md = 16px, xl = 32px)",
+      "ok": true,
+      "detail": "4px · 8px · 16px · 24px · 32px",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "20f7116ac4f7"
+    },
+    {
+      "component": "Badge",
+      "name": "status is in the text, with no role (read in place)",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "4f0a2251789f"
+    },
+    {
+      "component": "Chip",
+      "name": "reachable with Tab",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "58fbd9b06d0a"
+    },
+    {
+      "component": "Chip",
+      "name": "Space and Enter toggle aria-pressed",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "58fbd9b06d0a"
+    },
+    {
+      "component": "Chip",
+      "name": "a check mark marks the selected chip as well as its colour",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "58fbd9b06d0a"
+    },
+    {
+      "component": "Chip",
+      "name": "an input chip’s remove button is named after the chip and removes it",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "58fbd9b06d0a"
+    },
+    {
+      "component": "Select",
+      "name": "reachable with Tab",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "2e071e098aa6"
+    },
+    {
+      "component": "Select",
+      "name": "Enter opens the list and Escape closes it",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "2e071e098aa6"
+    },
+    {
+      "component": "Select",
+      "name": "arrow keys and Enter choose a new value",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "2e071e098aa6"
+    },
+    {
+      "component": "Slider",
+      "name": "reachable with Tab",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "e560a11c2ab5"
+    },
+    {
+      "component": "Slider",
+      "name": "arrow keys, Home and End change the value",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "e560a11c2ab5"
+    },
+    {
+      "component": "Slider",
+      "name": "the press area is at least 44px tall",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "e560a11c2ab5"
+    },
+    {
+      "component": "Input",
+      "name": "reachable with Tab and labelled by its FormField",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "df20412b5aeb"
+    },
+    {
+      "component": "Input",
+      "name": "an error marks the field invalid and is read with it",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "df20412b5aeb"
+    },
+    {
+      "component": "Textarea",
+      "name": "labelled by its FormField",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "8fdde2707a14"
+    },
+    {
+      "component": "Checkbox",
+      "name": "Space toggles it and the label is its name",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "ad3baea1a71c"
+    },
+    {
+      "component": "Checkbox",
+      "name": "a mixed parent reports aria-checked=\"mixed\"",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "ad3baea1a71c"
+    },
+    {
+      "component": "Checkbox",
+      "name": "the target is at least 44px tall",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "ad3baea1a71c"
+    },
+    {
+      "component": "Radio",
+      "name": "one tab stop and arrow keys choose",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "07b6d1c77c9f"
+    },
+    {
+      "component": "Switch",
+      "name": "Space toggles it",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "afa5704e40ac"
+    },
+    {
+      "component": "PinInput",
+      "name": "typing moves on and paste fills every cell",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "275d7cf65045"
+    },
+    {
+      "component": "Banner",
+      "name": "dismiss is a named button and removes the banner",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "cb83c85fb869"
+    },
+    {
+      "component": "Banner",
+      "name": "live=\"polite\" appears as role=\"status\", live=\"assertive\" as role=\"alert\"",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "cb83c85fb869"
+    },
+    {
+      "component": "Banner",
+      "name": "the tone is spoken as prefix text",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "cb83c85fb869"
+    },
+    {
+      "component": "FormField",
+      "name": "the label names the control and the help text describes it",
+      "ok": true,
+      "detail": "\"Email\"",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "3bae9734a4b2"
+    },
+    {
+      "component": "FormField",
+      "name": "an error marks the control invalid and is read before the help",
+      "ok": true,
+      "detail": "2 fields with errors",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "3bae9734a4b2"
+    },
+    {
+      "component": "Label",
+      "name": "a native <label> tied to its control, and a click on it focuses the control",
+      "ok": true,
+      "detail": "3 of 6 labels tied to a control",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "4452d2435692"
+    },
+    {
+      "component": "HelperText",
+      "name": "the error tone says the word Error and carries a glyph, so it is not colour alone",
+      "ok": true,
+      "detail": "7 errors of 8",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "53bb1d6d16a9"
+    },
+    {
+      "component": "Fieldset",
+      "name": "a native <fieldset> whose <legend> names the group",
+      "ok": true,
+      "detail": "\"Shipping address\"",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "fe0088089bc3"
+    },
+    {
+      "component": "InputGroup",
+      "name": "one text input inside, with its adornments outside the input’s value and name",
+      "ok": true,
+      "detail": "adornment \"NOK\"",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "8087f731687b"
+    },
+    {
+      "component": "Mesh",
+      "name": "decorative by default, an img with its label when named, never focusable",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "1fffdea33d66"
+    },
+    {
+      "component": "Mesh",
+      "name": "forced colours drop the pools",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "1fffdea33d66"
+    },
+    {
+      "component": "Box",
+      "name": "padding and corner come from the scales and it draws no surface",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "67b86bba3c26"
+    },
+    {
+      "component": "Flex",
+      "name": "spacing is a gap from the scale, never a margin on the children",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "ab9350c7383c"
+    },
+    {
+      "component": "Center",
+      "name": "its content sits in the middle both ways",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "f70513df3318"
+    },
+    {
+      "component": "Divider",
+      "name": "a separator by default, no role when decorative, never focusable",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "6515e2e7185e"
+    },
+    {
+      "component": "Spacer",
+      "name": "hidden from assistive technology",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "041cb1b192e8"
+    },
+    {
+      "component": "VisuallyHidden",
+      "name": "off screen but in the tree; focusable content shows on focus",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "8cbbd9f6cf11"
+    },
+    {
+      "component": "AspectRatio",
+      "name": "keeps its ratio at any width",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0e706ae34a96"
+    },
+    {
+      "component": "Text",
+      "name": "sizes come from the type scale and secondary is the measured secondary tone",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "4bb9fc206fe8"
+    },
+    {
+      "component": "Kbd",
+      "name": "renders a kbd element that is not focusable",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "5b06214f2e0f"
+    },
+    {
+      "component": "Heading",
+      "name": "renders the h level it is given, whatever its size",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "bf9f81290e80"
+    },
+    {
+      "component": "Link",
+      "name": "reachable with Tab, underlined inline, external says it opens a new tab",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b2f216112e7a"
+    },
+    {
+      "component": "Spinner",
+      "name": "a status with a label",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "8dfe2066054d"
+    },
+    {
+      "component": "Skeleton",
+      "name": "hidden from assistive technology",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "700e542918b2"
+    },
+    {
+      "component": "Image",
+      "name": "every image has alt, loads lazily, and a failed one stays a recess",
+      "ok": false,
+      "detail": "no failed image in the examples to check",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "ffadddd2d020"
+    },
+    {
+      "component": "Icon",
+      "name": "decorative by default, an img with its label when named",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "1f0453387e0d"
+    },
+    {
+      "component": "Dialog",
+      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "e0dcbc6acb66"
+    },
+    {
+      "component": "Sheet",
+      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "3eeb63eb73a4"
+    },
+    {
+      "component": "Drawer",
+      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "30d42d3ec15e"
+    },
+    {
+      "component": "ActionSheet",
+      "name": "opens from its trigger, holds focus inside, closes on Esc and returns focus",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b047d96cda32"
+    },
+    {
+      "component": "Popover",
+      "name": "opens on Enter, closes on Esc with focus back on the trigger",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "efcfbec18162"
+    },
+    {
+      "component": "Tooltip",
+      "name": "shows on keyboard focus",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "dc9874fcd46d"
+    },
+    {
+      "component": "Toast",
+      "name": "is announced as a status in a labelled region",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "ee9c9c658d1b"
+    },
+    {
+      "component": "Snackbar",
+      "name": "shows one line with its action reachable",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "92b4d3ce34e9"
+    },
+    {
+      "component": "FAB",
+      "name": "has an accessible name and a 56px target",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "cd365e06bd30"
+    },
+    {
+      "component": "PullToRefresh",
+      "name": "a Refresh button is reachable with Tab and shows on focus",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "313b1a0447f7"
+    },
+    {
+      "component": "Listbox",
+      "name": "one tab stop; arrow keys move, Space chooses, aria-selected follows",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "8e0f5c0722ec"
+    },
+    {
+      "component": "Combobox",
+      "name": "typing filters, arrow keys highlight while focus stays in the field, Enter chooses, Esc closes",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "3c6cf3c94f13"
+    },
+    {
+      "component": "Autocomplete",
+      "name": "keeps free text that matches no suggestion",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "f678a4fd3b50"
+    },
+    {
+      "component": "MultiSelect",
+      "name": "chosen values are chips with named remove buttons; Backspace removes the last",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "862508083e07"
+    },
+    {
+      "component": "Menu",
+      "name": "opens from the keyboard on its first action and Esc returns focus",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b4805eaca05c"
+    },
+    {
+      "component": "ContextMenu",
+      "name": "opens from the keyboard menu key on a focused target",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "fe5dea54aa66"
+    },
+    {
+      "component": "RadioCards",
+      "name": "arrow keys choose like a radio group and the chosen card carries a check",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "a78e5d76b88e"
+    },
+    {
+      "component": "Rating",
+      "name": "arrow keys change the score; read-only is one image with a spoken score",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "fe6424e80a05"
+    },
+    {
+      "component": "TagInput",
+      "name": "Enter and a comma add, duplicates are ignored, Backspace removes",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "08ae2a79fd50"
+    },
+    {
+      "component": "SegmentedControl",
+      "name": "one tab stop",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "eacbc0e6ffa5"
+    },
+    {
+      "component": "SegmentedControl",
+      "name": "arrow keys move",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "eacbc0e6ffa5"
+    },
+    {
+      "component": "SegmentedControl",
+      "name": "Space chooses",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "eacbc0e6ffa5"
+    },
+    {
+      "component": "BottomNav",
+      "name": "links in a nav with the current page marked",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "015fde1a372e"
+    },
+    {
+      "component": "Navbar",
+      "name": "links in a nav with the current page marked",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "4bb380d2ba02"
+    },
+    {
+      "component": "Sidebar",
+      "name": "links in a nav, groups named by their titles",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "7d892085d5cb"
+    },
+    {
+      "component": "Breadcrumb",
+      "name": "links in a nav, the current page announced and not a link",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "7cf66db543ce"
+    },
+    {
+      "component": "Pagination",
+      "name": "buttons in a nav",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0462b8ec0ce5"
+    },
+    {
+      "component": "Pagination",
+      "name": "Next goes on",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0462b8ec0ce5"
+    },
+    {
+      "component": "Stepper",
+      "name": "aria-current=\"step\" on one step, the rest say done or not started",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "68f43b087d05"
+    },
+    {
+      "component": "Accordion",
+      "name": "each heading is a button",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "55fe9ff16e58"
+    },
+    {
+      "component": "Accordion",
+      "name": "Enter opens a section",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "55fe9ff16e58"
+    },
+    {
+      "component": "NavigationMenu",
+      "name": "Enter opens a panel",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b87996d1ff19"
+    },
+    {
+      "component": "NavigationMenu",
+      "name": "Esc closes and focus returns",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b87996d1ff19"
+    },
+    {
+      "component": "TableOfContents",
+      "name": "a link moves focus to its heading",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "2a3a91808abe"
+    },
+    {
+      "component": "Progress",
+      "name": "a known amount is a progressbar with its value",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "57ca2f1d7ba7"
+    },
+    {
+      "component": "Progress",
+      "name": "an unknown amount has no value",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "57ca2f1d7ba7"
+    },
+    {
+      "component": "Meter",
+      "name": "a meter with its range and reading",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0d32678199f1"
+    },
+    {
+      "component": "Meter",
+      "name": "a high reading says Almost full and a full one says Full",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0d32678199f1"
+    },
+    {
+      "component": "Stat",
+      "name": "the change is read with its direction",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "574de2541689"
+    },
+    {
+      "component": "EmptyState",
+      "name": "the title is a heading at the level given",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "84ab21d4b7b8"
+    },
+    {
+      "component": "Timeline",
+      "name": "an ordered list with the current event marked",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0f04f0f62a74"
+    },
+    {
+      "component": "DescriptionList",
+      "name": "terms and details in a dl",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "8ad949a90a43"
+    },
+    {
+      "component": "List",
+      "name": "a list whose pressable rows are links or buttons",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "78556d5bd444"
+    },
+    {
+      "component": "Table",
+      "name": "a captioned table in a focusable named region",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "baa5bd7587d5"
+    },
+    {
+      "component": "Table",
+      "name": "a sortable header is a button and says its order",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "baa5bd7587d5"
+    },
+    {
+      "component": "Table",
+      "name": "pressing a header sorts the rows",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "baa5bd7587d5"
+    },
+    {
+      "component": "PasswordInput",
+      "name": "the show button toggles what is typed and says its state",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b629c15c6a8e"
+    },
+    {
+      "component": "PasswordInput",
+      "name": "it carries the autocomplete name password managers need",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b629c15c6a8e"
+    },
+    {
+      "component": "SearchInput",
+      "name": "it is a search landmark with a named field",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "aa645885b440"
+    },
+    {
+      "component": "SearchInput",
+      "name": "Esc clears the query and keeps focus in the field",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "aa645885b440"
+    },
+    {
+      "component": "SearchInput",
+      "name": "the clear button shows with a query and puts focus back",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "aa645885b440"
+    },
+    {
+      "component": "NumberInput",
+      "name": "arrow keys step and Home and End go to the limits",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "d868de231f11"
+    },
+    {
+      "component": "NumberInput",
+      "name": "a typed number is held to the limits when the field is left",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "d868de231f11"
+    },
+    {
+      "component": "NumberInput",
+      "name": "the steppers stop at the limits",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "d868de231f11"
+    },
+    {
+      "component": "RangeSlider",
+      "name": "two sliders, each named for its end",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "dd1c46fc4254"
+    },
+    {
+      "component": "RangeSlider",
+      "name": "arrow keys move one end and the two never cross",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "dd1c46fc4254"
+    },
+    {
+      "component": "Editable",
+      "name": "Enter saves and focus returns to the text",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "c7fb7ce964f5"
+    },
+    {
+      "component": "Editable",
+      "name": "Esc puts the words back",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "c7fb7ce964f5"
+    },
+    {
+      "component": "FileUpload",
+      "name": "a chosen file is listed with its size and a remove button",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "175380f6ad9b"
+    },
+    {
+      "component": "FileUpload",
+      "name": "a refused file is said in words",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "175380f6ad9b"
+    },
+    {
+      "component": "Dropzone",
+      "name": "the zone is a button that opens the file chooser",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "6929edd271c5"
+    },
+    {
+      "component": "Dropzone",
+      "name": "a file of the wrong type is refused in words",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "6929edd271c5"
+    },
+    {
+      "component": "ColorPicker",
+      "name": "swatches are radios named for their colour",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "16496ef0a826"
+    },
+    {
+      "component": "ColorPicker",
+      "name": "a typed hex chooses that colour",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "16496ef0a826"
+    },
+    {
+      "component": "OTPFlow",
+      "name": "a wrong code is said in words and the cells clear",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "a60e2b32f38d"
+    },
+    {
+      "component": "OTPFlow",
+      "name": "a right code is accepted",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "a60e2b32f38d"
+    },
+    {
+      "component": "OTPFlow",
+      "name": "the resend button waits before it can be pressed",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "a60e2b32f38d"
+    },
+    {
+      "component": "Calendar",
+      "name": "a month is a grid of day buttons named in full, with the chosen day selected",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0c9d182e19dd"
+    },
+    {
+      "component": "Calendar",
+      "name": "arrow keys move a day and a week, and Enter chooses",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0c9d182e19dd"
+    },
+    {
+      "component": "Calendar",
+      "name": "Page Down shows the next month",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0c9d182e19dd"
+    },
+    {
+      "component": "Calendar",
+      "name": "a range is chosen with two presses",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0c9d182e19dd"
+    },
+    {
+      "component": "Calendar",
+      "name": "unavailable days cannot be chosen",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0c9d182e19dd"
+    },
+    {
+      "component": "DatePicker",
+      "name": "it opens the calendar, and choosing closes it with focus back on the field",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "6bc7ec57c61e"
+    },
+    {
+      "component": "DatePicker",
+      "name": "Esc closes the calendar",
+      "ok": false,
+      "detail": "Esc did not close",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "6bc7ec57c61e"
+    },
+    {
+      "component": "TimePicker",
+      "name": "times are offered at the step",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "fa6d6d31d050"
+    },
+    {
+      "component": "TreeView",
+      "name": "it is a tree with levels and open state",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "e4cceab39c9b"
+    },
+    {
+      "component": "TreeView",
+      "name": "arrow keys open, close and move between rows",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "e4cceab39c9b"
+    },
+    {
+      "component": "TreeView",
+      "name": "typing a letter finds the next row",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "e4cceab39c9b"
+    },
+    {
+      "component": "Carousel",
+      "name": "slides are named groups and Next moves on",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b0a1f23a18c6"
+    },
+    {
+      "component": "Carousel",
+      "name": "it never moves by itself",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b0a1f23a18c6"
+    },
+    {
+      "component": "VirtualList",
+      "name": "only rows in view are drawn and each says its place",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "3c200de1c073"
+    },
+    {
+      "component": "VirtualList",
+      "name": "scrolling draws the rows further down",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "3c200de1c073"
+    },
+    {
+      "component": "TransferList",
+      "name": "Add moves the chosen items and says how many",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "72543483ad57"
+    },
+    {
+      "component": "DataGrid",
+      "name": "one tab stop, and arrow keys move between cells",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0ce29dc06737"
+    },
+    {
+      "component": "DataGrid",
+      "name": "choose all chooses every row",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0ce29dc06737"
+    },
+    {
+      "component": "DataGrid",
+      "name": "pressing a sortable header sorts the rows",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0ce29dc06737"
+    },
+    {
+      "component": "BarChart",
+      "name": "arrow keys read each category aloud",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "d125d49626d1"
+    },
+    {
+      "component": "BarChart",
+      "name": "the table view holds every value",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "d125d49626d1"
+    },
+    {
+      "component": "BarChart",
+      "name": "two or more series have a legend",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "d125d49626d1"
+    },
+    {
+      "component": "LineChart",
+      "name": "arrow keys walk the points and every series is read",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "5593ef9d3a3c"
+    },
+    {
+      "component": "LineChart",
+      "name": "up to four series are labelled at their ends",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "5593ef9d3a3c"
+    },
+    {
+      "component": "Sparkline",
+      "name": "it is an image with its trend in words",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "9d03a3ef1dc5"
+    },
+    {
+      "component": "Heatmap",
+      "name": "arrow keys read each cell aloud",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "48b08accf26f"
+    },
+    {
+      "component": "Heatmap",
+      "name": "a scale says the lowest and the highest value",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "48b08accf26f"
+    },
+    {
+      "component": "Form",
+      "name": "nothing in a form takes focus when the page opens",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "6c007a945452"
+    },
+    {
+      "component": "Form",
+      "name": "a failed submit shows a summary that takes focus and links to each field",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "6c007a945452"
+    },
+    {
+      "component": "Wizard",
+      "name": "Next moves on and the step heading takes focus",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "da89852e5517"
+    },
+    {
+      "component": "Wizard",
+      "name": "Back keeps what was typed",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "da89852e5517"
+    },
+    {
+      "component": "Wizard",
+      "name": "a step that fails its check stays",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "da89852e5517"
+    },
+    {
+      "component": "AuthForm",
+      "name": "it carries the autocomplete names password managers need",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "ddde43b5da2a"
+    },
+    {
+      "component": "AuthForm",
+      "name": "errors are in the summary and under each field",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "ddde43b5da2a"
+    },
+    {
+      "component": "CommandPalette",
+      "name": "typing filters and focus stays in the field",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "2960cfa68dab"
+    },
+    {
+      "component": "CommandPalette",
+      "name": "arrow keys move the highlight",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "2960cfa68dab"
+    },
+    {
+      "component": "CommandPalette",
+      "name": "Ctrl+K opens it and Esc closes it",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "2960cfa68dab"
+    },
+    {
+      "component": "NotificationCenter",
+      "name": "unread notices say New and the bell gives the count",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "7defcb11dd9d"
+    },
+    {
+      "component": "CoachMark",
+      "name": "the card says its step, with Skip tour and Next",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "5ba87d9540da"
+    },
+    {
+      "component": "CoachMark",
+      "name": "Esc skips the tour",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "5ba87d9540da"
+    },
+    {
+      "component": "KanbanBoard",
+      "name": "Space picks a card up, arrows carry it and Space drops it, said aloud",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "a207a5ba4d2f"
+    },
+    {
+      "component": "KanbanBoard",
+      "name": "Esc puts a moved card back",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "a207a5ba4d2f"
+    },
+    {
+      "component": "Feed",
+      "name": "articles are in a feed and Page Down moves between them",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "62ada8241712"
+    },
+    {
+      "component": "Feed",
+      "name": "the end of a feed is said in words",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "62ada8241712"
+    },
+    {
+      "component": "AppShell",
+      "name": "the skip link moves focus to the main content",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "04b408aa89b6"
+    },
+    {
+      "component": "AppShell",
+      "name": "either the sidebar or the bottom bar shows, never both",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "04b408aa89b6"
+    },
+    {
+      "component": "SettingsLayout",
+      "name": "each row names its control",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "4e6e5456cf3d"
+    },
+    {
+      "component": "RichTextEditor",
+      "name": "the toolbar is one tab stop with arrow keys between tools",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "c3b1084d1c95"
+    },
+    {
+      "component": "RichTextEditor",
+      "name": "a mark says when it is on",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "c3b1084d1c95"
+    },
+    {
+      "component": "Scale",
+      "name": "says its label, word, position and the comparison in one sentence",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "40e0604e53ce"
+    },
+    {
+      "component": "Scale",
+      "name": "a value between two steps sits between them and lights the steps up to the nearest",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "40e0604e53ce"
+    },
+    {
+      "component": "Scale",
+      "name": "a rise where lower is better takes the critical band and an up arrow",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "40e0604e53ce"
+    },
+    {
+      "component": "Scale",
+      "name": "in RTL the steps fill from the right",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "40e0604e53ce"
+    },
+    {
+      "component": "RadarChart",
+      "name": "Show table gives every axis and series as a table, and back",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "66dd317b31e9"
+    },
+    {
+      "component": "RadarChart",
+      "name": "arrow keys walk the axes and read every series there",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "66dd317b31e9"
+    },
+    {
+      "component": "PaneProvider",
+      "name": "under the Thai catalog the components speak Thai",
+      "ok": false,
+      "detail": "Calendar previous-month button is not Thai",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "8e4a47f2a712"
+    },
+    {
+      "component": "PaneProvider",
+      "name": "th-TH writes the month in Thai and the year in the Buddhist era",
+      "ok": false,
+      "detail": "locator.innerText: Timeout 30000ms exceeded.",
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "8e4a47f2a712"
+    },
+    {
+      "component": "PaneProvider",
+      "name": "without a provider the components speak English, as before",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "8e4a47f2a712"
+    },
+    {
+      "component": "ConfidenceChip",
+      "name": "it is an image that says its level",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b21de8dac6f8"
+    },
+    {
+      "component": "ConfidenceChip",
+      "name": "it says the level in words",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b21de8dac6f8"
+    },
+    {
+      "component": "NodeCard",
+      "name": "each node is a tab stop",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "c8ea4729df9e"
+    },
+    {
+      "component": "NodeCard",
+      "name": "Enter picks the node",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "c8ea4729df9e"
+    },
+    {
+      "component": "NodeCard",
+      "name": "arrow keys move the node",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "c8ea4729df9e"
+    },
+    {
+      "component": "NetworkGraph",
+      "name": "the plot is one tab stop",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "68148d854571"
+    },
+    {
+      "component": "NetworkGraph",
+      "name": "arrow keys walk from node to node",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "68148d854571"
+    },
+    {
+      "component": "NetworkGraph",
+      "name": "Enter picks the node",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "68148d854571"
+    },
+    {
+      "component": "SequenceDiagram",
+      "name": "each step is spoken in order",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0a2b78a9f62c"
+    },
+    {
+      "component": "SequenceDiagram",
+      "name": "the lanes scroll with the keyboard",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "0a2b78a9f62c"
+    },
+    {
+      "component": "Button",
+      "name": "a toggle says pressed and flips on Enter",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "f083aafa79ac"
+    },
+    {
+      "component": "Button",
+      "name": "with href it is a link that looks like a button",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "f083aafa79ac"
+    },
+    {
+      "component": "Button",
+      "name": "a menu button says when its menu is open",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "f083aafa79ac"
+    },
+    {
+      "component": "ButtonGroup",
+      "name": "each button is its own tab stop",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "9eb92a31d9d5"
+    },
+    {
+      "component": "SplitButton",
+      "name": "the action and the chevron are two tab stops",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "7355b65cbbac"
+    },
+    {
+      "component": "SplitButton",
+      "name": "the chevron opens the menu",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "7355b65cbbac"
+    },
+    {
+      "component": "Input",
+      "name": "the clear button empties the field and puts focus back",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "df20412b5aeb"
+    },
+    {
+      "component": "Input",
+      "name": "a counted field shows how many characters are used",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "df20412b5aeb"
+    },
+    {
+      "component": "FormField",
+      "name": "a warning says Warning and does not mark the field invalid",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "3bae9734a4b2"
+    },
+    {
+      "component": "Fieldset",
+      "name": "a group error is read with the group and says Error",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "fe0088089bc3"
+    },
+    {
+      "component": "FileUpload",
+      "name": "each file says where its upload has got to",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "175380f6ad9b"
+    },
+    {
+      "component": "ChatMessage",
+      "name": "a turn says who wrote it",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "f2cb9253e97e"
+    },
+    {
+      "component": "ChatMessage",
+      "name": "a step opens with Enter",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "f2cb9253e97e"
+    },
+    {
+      "component": "ChatComposer",
+      "name": "Enter sends and Shift+Enter starts a new line",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "e28a2e5b205a"
+    },
+    {
+      "component": "AgentStatus",
+      "name": "a change of state is announced once",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "3ccb28dc6afe"
+    },
+    {
+      "component": "HumanHandoff",
+      "name": "each change is announced once",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b787f2acc7a3"
+    },
+    {
+      "component": "Citation",
+      "name": "Enter opens the source",
+      "ok": true,
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "96c5b943e85e"
     },
     {
       "component": "CodeBlock",
       "name": "actions and code take focus",
       "ok": true,
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "b68751a76d51"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b29390cec823"
     },
     {
       "component": "CodeBlock",
       "name": "Copy copies all",
       "ok": true,
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "b68751a76d51"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b29390cec823"
     },
     {
       "component": "CodeBlock",
       "name": "44px actions",
       "ok": true,
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "b68751a76d51"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b29390cec823"
     },
     {
       "component": "CodeBlock",
       "name": "roles are coloured and a code theme changes them",
       "ok": true,
-      "ranAt": "2026-11-01T02:04:57.357Z",
-      "srcHash": "b68751a76d51"
+      "ranAt": "2026-11-02T10:10:16.961Z",
+      "srcHash": "b29390cec823"
     }
   ]
 }
