@@ -15,7 +15,7 @@
 .text > :first-child { margin-block-start: 0; }
 .text > :last-child { margin-block-end: 0; }
 /* the caret blinks at the end of an answer that is still arriving; under reduced motion it stays lit */
-.caret { display: inline-block; inline-size: var(--ds-width-ring); block-size: 1em; margin-inline-start: var(--ds-space-0-5); vertical-align: text-bottom; background: currentColor; animation: blink var(--ds-chat-caret) steps(1) infinite; }
+.caret { display: inline-block; inline-size: var(--ds-width-ring); block-size: 1lh; margin-inline-start: var(--ds-space-0-5); vertical-align: text-bottom; background: currentColor; animation: blink var(--ds-chat-caret) steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .caret { animation: none; } }
 .actions { display: flex; gap: var(--ds-gap-xs); margin-inline-start: calc(var(--ds-gap-sm) * -1); }

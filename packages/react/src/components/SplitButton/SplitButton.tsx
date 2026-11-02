@@ -30,7 +30,7 @@ export function SplitButton({ children, onClick, menuLabel, items, variant = 'li
   // the menu opens under the whole button, its start edge on the action's start, not hanging off the chevron
   const group = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState(0);
-  useLayoutEffect(() => { const g = group.current; const last = g?.lastElementChild as HTMLElement | null; if (!g || !last) return; const G = g.getBoundingClientRect(), L = last.getBoundingClientRect(); setOffset(getComputedStyle(g).direction === 'rtl' ? L.right - G.right : G.left - L.left); }, [children, size]);
+  useLayoutEffect(() => { const g = group.current; const last = g?.lastElementChild as HTMLElement | null; if (!g || !last) return; const G = g.getBoundingClientRect(), L = last.getBoundingClientRect(); setOffset(getComputedStyle(g).direction === 'rtl' ? (L.right - G.right) : (G.left - L.left)); }, [children, size]);
   return (
     <ButtonGroup ref={group} label={menuLabel} className={styles.split} data-component="SplitButton">
       <Button variant={variant} size={size} disabled={disabled} loading={loading} onClick={onClick}>{children}</Button>

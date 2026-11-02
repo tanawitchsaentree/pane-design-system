@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-02T04:12:48.240Z",
-  "version": "0.8.2",
+  "generatedAt": "2026-11-02T06:25:31.727Z",
+  "version": "0.8.3",
   "components": {
     "Accordion": {
       "source": "packages/react/src/components/Accordion/Accordion.tsx",
@@ -173,8 +173,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 48986,
-        "cssMin": 5235,
-        "gzip": 18738
+        "cssMin": 5331,
+        "gzip": 18754
       }
     },
     "AgentStatus": {
@@ -1624,8 +1624,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 578,
-        "cssMin": 3040,
-        "gzip": 1300
+        "cssMin": 3136,
+        "gzip": 1319
       }
     },
     "Carousel": {
@@ -2246,8 +2246,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 75545,
-        "cssMin": 5078,
-        "gzip": 28844
+        "cssMin": 5174,
+        "gzip": 28862
       }
     },
     "CoachMark": {
@@ -2363,8 +2363,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 79664,
-        "cssMin": 10284,
-        "gzip": 31143
+        "cssMin": 10380,
+        "gzip": 31163
       }
     },
     "CodeBlock": {
@@ -2767,8 +2767,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 50823,
-        "cssMin": 8443,
-        "gzip": 20115
+        "cssMin": 8539,
+        "gzip": 20136
       }
     },
     "ConfidenceChip": {
@@ -3215,8 +3215,8 @@
       "demoFloor": 7,
       "bundle": {
         "jsMin": 82769,
-        "cssMin": 15900,
-        "gzip": 33317
+        "cssMin": 15996,
+        "gzip": 33337
       }
     },
     "DescriptionList": {
@@ -3394,8 +3394,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 42814,
-        "cssMin": 4514,
-        "gzip": 15954
+        "cssMin": 4610,
+        "gzip": 15972
       }
     },
     "Divider": {
@@ -3579,8 +3579,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 43514,
-        "cssMin": 5459,
-        "gzip": 16431
+        "cssMin": 5555,
+        "gzip": 16445
       }
     },
     "Dropzone": {
@@ -3908,8 +3908,8 @@
               "name": "material",
               "type": "\"glass\" | \"liquid\" | \"solid\"",
               "required": false,
-              "default": "glass",
-              "description": "`glass` (default) blurs and dims the scene behind every pane. `liquid` is the same glass, and each pane\nalso bends what is behind its rim and lifts its middle like a lens (R-045); it needs Chromium, and other\nbrowsers show `glass`. `solid` swaps every pane inside for the opaque surface and turns the backdrop\nfilter off (D-021), for a live backdrop such as a 3D scene or video, where re-blurring each frame costs\nthe frame rate. Text contrast is the same measured fallback used for reduced transparency.",
+              "default": null,
+              "description": "`glass` (default) blurs and dims the scene behind every pane. `liquid` is the same glass, and each pane\nalso bends what is behind its rim and lifts its middle like a lens (R-045); it needs Chromium, and other\nbrowsers show `glass`. `solid` swaps every pane inside for the opaque surface and turns the backdrop\nfilter off (D-021), for a live backdrop such as a 3D scene or video, where re-blurring each frame costs\nthe frame rate. Text contrast is the same measured fallback used for reduced transparency.\nUnset, it follows the Environment around it (glass at the top). Set, it starts its own world, so a\nglass, a liquid and a solid region can sit side by side.",
               "enum": true,
               "options": [
                 "glass",
@@ -3936,9 +3936,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 4334,
+        "jsMin": 4352,
         "cssMin": 0,
-        "gzip": 2109
+        "gzip": 2122
       }
     },
     "FAB": {
@@ -6293,9 +6293,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 10788,
-        "cssMin": 4253,
-        "gzip": 5904
+        "jsMin": 10754,
+        "cssMin": 4321,
+        "gzip": 5898
       }
     },
     "NodeCard": {
@@ -6487,8 +6487,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 81703,
-        "cssMin": 17246,
-        "gzip": 32472
+        "cssMin": 17342,
+        "gzip": 32491
       }
     },
     "NumberInput": {
@@ -7099,8 +7099,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 69593,
-        "cssMin": 3963,
-        "gzip": 26030
+        "cssMin": 4059,
+        "gzip": 26050
       }
     },
     "Progress": {
@@ -8673,8 +8673,8 @@
       "demoFloor": 4,
       "bundle": {
         "jsMin": 43358,
-        "cssMin": 5459,
-        "gzip": 16386
+        "cssMin": 5555,
+        "gzip": 16401
       }
     },
     "Sidebar": {

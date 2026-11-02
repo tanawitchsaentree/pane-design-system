@@ -5,13 +5,18 @@ import { useEffect, useState } from 'react';
 import { Badge } from 'pane-react';
 import { CATEGORIES } from './categories';
 import { HISTORY } from './chapter-facts';
+import changelog from '../../../../packages/react/CHANGELOG.md?raw';
 
 type Page = { path: string; title: string };
 type Part = { title: string; pages: Page[] };
-const latest = HISTORY[0]?.version;
-const NEW_COMPONENTS = new Set(HISTORY.filter((h) => h.version === latest && /^new\b/i.test(h.text)).map((h) => h.component));
-// chapters (not components) added in the current release
-const NEW_PAGES = new Set(['/getting-started/platforms', '/getting-started/look', '/foundations/materials', '/foundations/brands', '/getting-started/ai', '/getting-started/language', '/getting-started/install-app', '/getting-started/ios', '/patterns/states']);
+// New means new in the current minor line (0.8.x), read from the changelog's top heading, so the tag
+// drops by itself at the next minor release instead of sticking to the last block with component lines
+const minor = (v?: string) => v?.split('.').slice(0, 2).join('.');
+const current = minor(changelog.match(/^## (\S+)/m)?.[1]);
+const NEW_COMPONENTS = new Set(HISTORY.filter((h) => minor(h.version) === current && /^new\b/i.test(h.text)).map((h) => h.component));
+// chapters (not components), with the release that added them
+const CHAPTERS_ADDED: Record<string, string> = { '/getting-started/look': '0.8.0', '/getting-started/platforms': '0.7.0', '/foundations/materials': '0.7.0', '/foundations/brands': '0.7.0', '/getting-started/ai': '0.7.0', '/getting-started/language': '0.7.0', '/getting-started/install-app': '0.7.0', '/getting-started/ios': '0.7.0', '/patterns/states': '0.7.0' };
+const NEW_PAGES = new Set(Object.keys(CHAPTERS_ADDED).filter((path) => minor(CHAPTERS_ADDED[path]) === current));
 const isNew = (p: Page) => NEW_PAGES.has(p.path) || NEW_COMPONENTS.has(p.title);
 
 function Fold({ id, title, open, onToggle, level, children }: { id: string; title: string; open: boolean; onToggle: () => void; level: 1 | 2; children: React.ReactNode }) {

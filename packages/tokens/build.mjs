@@ -130,12 +130,16 @@ ${fallback.replace(/^/gm, '  ')}
 }
 /* D-021 — the app may choose the opaque surface itself (<Environment material="solid">), for a live
    backdrop such as a 3D scene where re-blurring every frame costs the frame rate. Same fallback values
-   as D-005, and the backdrop filter is removed outright so the compositor does no backdrop work. */
-:root [data-material='solid'], :root [data-material='solid'] [data-environment], :root [data-material='solid'] [data-theme], :root [data-environment][data-material='solid'] {
-${fallback.replace(/^/gm, '  ')}
+   as D-005, and the backdrop filter is removed outright so the compositor does no backdrop work. The scope ends at
+   a nested Environment of another material, so glass, liquid and solid can sit side by side. Selectors are
+   tripled to outrank the theme scopes, which sit nearer to a nested [data-theme]. */
+@scope ([data-material='solid']) to ([data-material]:not([data-material='solid'])) {
+  :scope:scope:scope, [data-environment][data-environment][data-environment], [data-theme][data-theme][data-theme] {
+${fallback.replace(/^/gm, '    ')}
 ${solidDeps}
+  }
+  * { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
 }
-:root [data-material='solid'] * { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   :root:root, :root [data-environment], :root [data-theme] {
 ${fallback.replace(/^/gm, '  ')}

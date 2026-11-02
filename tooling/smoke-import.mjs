@@ -35,7 +35,7 @@
 // fallbacks — see the comment on that check for why only no-fallback vars are a hard dependency.
 
 import { spawnSync } from 'node:child_process';
-import { mkdtempSync, rmSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
+import { mkdtempSync, rmSync, writeFileSync, readFileSync, existsSync, readdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -180,7 +180,17 @@ try {
   const subpaths = Object.keys(tokensInstalled.exports ?? {});
   record(subpaths.length > 0, `${T} declares exports subpaths`, `${subpaths.length} subpaths`);
   for (const sub of subpaths) {
-    const spec = T + sub.slice(1);
+    // a pattern subpath ("./css/brands/*") is checked through one real file its target pattern matches
+    let key = sub;
+    if (sub.includes('*')) {
+      const target = tokensInstalled.exports[sub];
+      const [pre, post] = (typeof target === 'string' ? target : target.default ?? '').split('*');
+      const dir = join(nm(T), dirname(pre + 'x'));
+      const hit = existsSync(dir) ? readdirSync(dir).find((f) => join(dir, f).endsWith(post) && join(dir, f).startsWith(join(nm(T), pre))) : undefined;
+      if (!hit) { record(false, `${T}${sub.slice(1)}`, 'pattern matches no built file'); continue; }
+      key = sub.replace('*', join(dir, hit).slice(join(nm(T), pre).length, -post.length || undefined));
+    }
+    const spec = T + key.slice(1);
     const r = probe(
       `const p = require.resolve('${spec}');\nconst s = require('node:fs').readFileSync(p, 'utf8');\n` +
         `if (!s.length) { console.error('0 bytes'); process.exit(1); }\nconsole.log(s.length + ' bytes');`,

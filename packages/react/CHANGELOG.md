@@ -2,6 +2,13 @@
 
 Every entry names the component it touches, so each component page in the book can show its own history. The conformance run fails if a component has no entry.
 
+## 0.8.3 (2026-11-02)
+
+- Environment: materials nest. An Environment with `material` set starts its own world inside another one, so glass, liquid and solid can sit side by side; leave `material` unset and it follows the Environment around it. Solid now ends at a nested Environment of another material, and liquid no longer lenses the panes of a nested one.
+- Card: the solid fill stops at a nested Environment of another material.
+- NetworkGraph: edge weight moves to CSS (`--edge-weight`), the same width as before.
+- ChatMessage: the streaming caret is one line tall.
+
 ## 0.8.2 (2026-11-02)
 
 - Button and IconButton toggles, Calendar days, TreeView and DataGrid rows, RichTextEditor tools and Checkbox marks change state smoothly (R-048). A toggle's on-glass is its own layer that fades in, fills move as two registered colours, and the check stays mounted and scales in. RadioCards keeps one shadow layer order, so its shadow moves instead of swapping.

@@ -34,6 +34,8 @@ export interface EnvironmentProps extends HTMLAttributes<HTMLDivElement> {
    * browsers show `glass`. `solid` swaps every pane inside for the opaque surface and turns the backdrop
    * filter off (D-021), for a live backdrop such as a 3D scene or video, where re-blurring each frame costs
    * the frame rate. Text contrast is the same measured fallback used for reduced transparency.
+   * Unset, it follows the Environment around it (glass at the top). Set, it starts its own world, so a
+   * glass, a liquid and a solid region can sit side by side.
    */
   material?: EnvironmentMaterial;
   /**
@@ -43,7 +45,7 @@ export interface EnvironmentProps extends HTMLAttributes<HTMLDivElement> {
   look?: EnvironmentLook;
 }
 
-export const Environment = forwardRef<HTMLDivElement, EnvironmentProps>(function Environment({ brightness = 'bright', material = 'glass', look, style, ...rest }, ref) {
+export const Environment = forwardRef<HTMLDivElement, EnvironmentProps>(function Environment({ brightness = 'bright', material, look, style, ...rest }, ref) {
   const own = useRef<HTMLDivElement | null>(null);
   // liquid gives each glass surface its own lens; every other material leaves the surfaces as they are
   useEffect(() => (material === 'liquid' && own.current ? enableLiquid(own.current) : undefined), [material]);
@@ -51,5 +53,5 @@ export const Environment = forwardRef<HTMLDivElement, EnvironmentProps>(function
     own.current = node;
     if (typeof ref === 'function') ref(node); else if (ref) ref.current = node;
   };
-  return <div ref={setRef} data-environment={brightness} data-material={material === 'glass' ? undefined : material} data-look={look ? '' : undefined} style={look ? { ...lookStyle(look), ...style } : style} {...rest} />;
+  return <div ref={setRef} data-environment={brightness} data-material={material} data-look={look ? '' : undefined} style={look ? { ...lookStyle(look), ...style } : style} {...rest} />;
 });

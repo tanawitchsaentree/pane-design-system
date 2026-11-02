@@ -69,7 +69,7 @@ export const NetworkGraph = forwardRef<HTMLElement, NetworkGraphProps>(function 
     <div ref={box} className={c.plot} tabIndex={0} role="group" aria-roledescription={t.chart} aria-label={t.graphSummary(label, nodes.length, edges.length)} onKeyDown={key} onBlur={() => setAt(null)}>
       {width > 0 && (
         <svg className={c.svg} width={width} height={H} aria-hidden="true">
-          {edges.map((e, i) => { const a = pos.get(e.from), b = pos.get(e.to); if (!a || !b) return null; const on = at && (e.from === at || e.to === at); return <line key={i} x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} className={cx(styles.edge, at && !on && styles.faded, on && styles.on)} style={{ strokeWidth: `calc(var(--ds-width-hairline) * ${Math.min(4, 1 + (e.weight ?? 0))})` }} />; })}
+          {edges.map((e, i) => { const a = pos.get(e.from), b = pos.get(e.to); if (!a || !b) return null; const on = at && (e.from === at || e.to === at); return <line key={i} x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} className={cx(styles.edge, at && !on && styles.faded, on && styles.on)} style={{ ['--edge-weight' as string]: Math.min(4, 1 + (e.weight ?? 0)) }} />; })}
           {nodes.map((nd) => { const [x, y] = pos.get(nd.id)!; const on = nd.id === at, rel = near.has(nd.id); return (
             <g key={nd.id} className={cx(styles.node, at && !on && !rel && styles.faded)} onPointerEnter={() => setAt(nd.id)} onClick={() => onSelect?.(nd.id)}>
               <circle cx={x} cy={y} r={mini ? 4 : 7} className={styles.dot} data-on={on || undefined} style={{ fill: seriesVar(nd.group ?? 0) }} />

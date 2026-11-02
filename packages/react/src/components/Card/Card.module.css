@@ -60,12 +60,13 @@
 /* levels read apart by tone and edge (R-042, R-043): a surface inside a pane is one raised step, lighter, with
    a crisp hairline and a lit top edge; behind solid it is an opaque lighter step; only a pane that floats (1, 3, 4) carries the lit rim, the bevel and a lift of its own */
 .glass .glass:not(.l3):not(.l4), .l2 { box-shadow: var(--ds-card-l2-edge); }
-:global([data-material='solid']) .glass .glass:not(.l3):not(.l4), :global([data-material='solid']) .l2 { background: var(--ds-card-level2-solid); }
+@scope ([data-material='solid']) to ([data-material]:not([data-material='solid'])) { .glass.glass .glass:not(.l3):not(.l4), .l2.l2 { background: var(--ds-card-level2-solid); } }
 .glass .glass:not(.l3):not(.l4)::before, .glass .glass:not(.l3):not(.l4)::after, .l2::before, .l2::after { display: none; }
 .l3 { --level-bg: var(--ds-card-level3); --level-shadow: var(--ds-card-shadow-3); }
 .l4 { --level-bg: var(--ds-card-level4); --level-shadow: var(--ds-card-shadow-4); border-radius: var(--ds-corner-inner); }
 @media (prefers-reduced-transparency: reduce) { .glass, .glass .glass { background: var(--ds-surface-solid); } }
-:global([data-material='solid']) .glass { background: var(--ds-surface-solid); }
+/* solid reaches until a nested Environment of another material (selectors doubled to keep the old weight) */
+@scope ([data-material='solid']) to ([data-material]:not([data-material='solid'])) { .glass.glass { background: var(--ds-surface-solid); } }
 /* the cover is the first child: pull it to the edges instead of padding it */
 .glass:has(> .cover:first-child) { padding-block-start: 0; }
 

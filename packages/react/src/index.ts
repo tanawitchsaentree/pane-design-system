@@ -22,8 +22,6 @@ export * from './components/Environment';
 export * from './components/Card';
 export * from './components/Avatar';
 export * from './components/Button';
-export * from './components/ButtonGroup';
-export * from './components/SplitButton';
 export * from './components/IconButton';
 export * from './components/Tabs';
 export * from './components/Tag';
@@ -162,15 +160,29 @@ export * from './components/RichTextEditor';
 
 export * from './components/Scale';
 export * from './components/RadarChart';
+
+// Diagrams and evidence (0.7.0): a confidence chip on the sequential ramp, a canvas node, a network graph and a sequence diagram.
+
 export * from './components/ConfidenceChip';
 export * from './components/NodeCard';
 export * from './components/NetworkGraph';
 export * from './components/SequenceDiagram';
+
+// Button family (0.7.0): buttons that belong together, and one action with its alternatives.
+
+export * from './components/ButtonGroup';
+export * from './components/SplitButton';
+
+// Working with AI (0.7.0): the conversation, the composer, an agent's status, the hand-over to a person and the source behind a claim.
+
 export * from './components/ChatMessage';
 export * from './components/ChatComposer';
 export * from './components/AgentStatus';
 export * from './components/HumanHandoff';
 export * from './components/Citation';
+
+// Code (0.7.0): code in colour from the syntax tokens, with IDE palettes as code themes.
+
 export * from './components/CodeBlock';
 
 // Language (0.7.0): one catalog for every word a component shows or speaks, English by default, Thai included.

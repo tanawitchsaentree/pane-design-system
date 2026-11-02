@@ -80,6 +80,8 @@ export function enableLiquid(root: HTMLElement): () => void {
   const scan = () => {
     queued = false;
     for (const el of Array.from(root.querySelectorAll<HTMLElement>('*'))) {
+      // a nested Environment of another material is its own world: its glass stays as that material makes it
+      if (el.closest('[data-material]') !== root) continue;
       const bf = getComputedStyle(el).backdropFilter;
       if ((bf && bf !== 'none') || el.hasAttribute(MARK)) { apply(el); if (!seen.has(el)) { seen.add(el); ro.observe(el); } }
     }

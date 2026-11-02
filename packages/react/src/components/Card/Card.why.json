@@ -48,6 +48,11 @@
       "axis": "depth",
       "why": "an app that asks for solid panes gets the opaque surface, so a live backdrop is never blurred every frame (D-021)"
     },
+    "data-material": {
+      "p": "P1",
+      "axis": "depth",
+      "why": "solid reaches only until a nested Environment of another material, so a glass or liquid region inside a solid app keeps showing its scene"
+    },
     "@media prefers-reduced-transparency: reduce": {
       "p": "P6",
       "axis": "depth",

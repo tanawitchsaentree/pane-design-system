@@ -39,7 +39,7 @@ export function App() {
   }, [route]);
   const evidence = validEvidence(verifyFile<Evidence>('evidence'));
   const conformance = validConformance(verifyFile<Conformance>('conformance'));
-  const [scene, setScene] = useState(sceneById(new URLSearchParams(location.search).get('backdrop') ?? 'studio').id);
+  const [scene, setScene] = useState(sceneById(new URLSearchParams(location.search).get('backdrop') ?? 'room').id);
   // Brand (D-033): Pane by default; a sample white-label brand from the header, stored, and named in the
   // address only when one is picked (G-ST1). A brand the book no longer knows falls back to Pane.
   const asBrand = (v: string | null) => (v && BRANDS.some((b) => b.id === v) ? v : null);
