@@ -145,7 +145,7 @@ export function MaterialStage({ render, chosen, onChoose }: { render: (m: DemoMa
   const chosenScene = useScene();
   const scene = chosenScene === 'studio' || chosenScene === 'field' ? 'room' : chosenScene;
   return (
-    <div className="example-live material-stage" data-example-live="" data-surface="" style={{ backgroundImage: `url(/scenes/${scene}.webp)` }}>
+    <div className="example-live material-stage" data-example-live="" data-material-compare="" data-surface="" style={{ backgroundImage: `url(/scenes/${scene}.webp)` }}>
       <div className="material-grid-live" role="group" aria-label="The same component on each material">
         {(['glass', 'liquid', 'solid'] as const).map((m) => (
           <Environment key={m} material={m} brightness={sceneById(scene).brightness} className="material-cell">
