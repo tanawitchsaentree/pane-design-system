@@ -362,19 +362,6 @@ export function ConformanceList({ component }: { component: string }) {
   );
 }
 
-export function VerifiedTags() {
-  const { evidence, conformance } = useVerify();
-  const tier = (t: string) => Object.values(TOKENS).filter((x) => x.tier === t).length;
-  return (
-    <ul className="stats flush" aria-label="Verification summary">
-      <li><Tag>{evidence ? `${evidence.summary.gatingChecks - evidence.summary.gatingFailures - (evidence.summary.excepted ?? 0)}/${evidence.summary.gatingChecks} text checks pass` : 'glass: unverified'}</Tag></li>
-      {evidence?.summary.excepted ? <li><Tag>{`${evidence.summary.excepted} excepted (E-001)`}</Tag></li> : null}
-      <li><Tag>{conformance ? `${conformance.passed}/${conformance.total} conformance` : 'conformance: unverified'}</Tag></li>
-      <li><Tag>{`${tier('primitive')} · ${tier('semantic')} · ${tier('component')} tokens`}</Tag></li>
-    </ul>
-  );
-}
-
 // ---------- minimal markdown (for DECISIONS.md / EXCEPTIONS.md, rendered as-is) ----------
 export const inline = (s: string) => s.split(/(\*\*[^*]+\*\*|`[^`]+`)/g).map((part, i) =>
   part.startsWith('**') ? <strong key={i}>{part.slice(2, -2)}</strong> : part.startsWith('`') ? <code key={i}>{part.slice(1, -1)}</code> : part);

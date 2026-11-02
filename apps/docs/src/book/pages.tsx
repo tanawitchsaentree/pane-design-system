@@ -1,5 +1,5 @@
 import { useRef, useState, type ReactElement, type ReactNode } from 'react';
-import { Button, Card, Environment, Select, Slider, Stack, Switch, Tag } from 'pane-react';
+import { Avatar, Button, Card, Environment, Select, Slider, Stack, Switch, Tag, Text } from 'pane-react';
 import decisionsMd from '../../../../system/DECISIONS.md?raw';
 import exceptionsMd from '../../../../system/EXCEPTIONS.md?raw';
 import creditsMd from '../../public/scenes/CREDITS.md?raw';
@@ -27,7 +27,7 @@ import * as Icons from '../icons';
 import { PaletteGrid, RoleTabs, TokenBrowser } from './color-page';
 import { ElevationDemo } from './elevation';
 import { ThemePlayground, GlassPlayground, ContrastPlayground, TypePlayground, SpacingPlayground, GridPlayground, ShapePlayground, MotionPlayground, IconBrowser, TouchTargetPlayground } from './playgrounds';
-import { inline, useScene, Stage, PRINCIPLES, CONCEPT_INTRO, Callout, Code, CodeBlock, CopyButton, ConformanceList, EvidenceTable, Example, Link, Markdown, Page, Section, TOKENS, TokenTable, VerifiedTags, useVerify } from './kit';
+import { inline, useScene, Stage, MaterialStage, type DemoMaterial, PRINCIPLES, CONCEPT_INTRO, Callout, Code, CodeBlock, CopyButton, ConformanceList, EvidenceTable, Example, Link, Markdown, Page, Section, TOKENS, TokenTable, useVerify } from './kit';
 import { CATEGORIES, COMPONENTS, preloadExamples } from './components-data';
 import { GridLayoutPage } from './grid-page';
 import { ComponentPage, preloadChapter, EVIDENCE_GROUPS, HISTORY, STATUS_LABEL, TABS, type Tab } from './ComponentPage';
@@ -46,6 +46,8 @@ import meta from './meta.json';
 
 const PART_BLURB: Record<string, string> = {
   Introduction: 'What Pane is, how to start, the rules behind every trade-off.',
+  'Getting started': 'Install it, choose a look, then build for the web, iOS or another framework.',
+  'Component API': 'The props, types and defaults of every component, generated from the source.',
   Foundations: 'Glass, colour, type, space, shape, motion and icons. Each with live values.',
   Components: 'Every component in depth, with demos, usage, a generated API, and tested keyboard and contrast.',
   Patterns: 'Whole screens assembled from the components, with the reasoning.',
@@ -111,7 +113,32 @@ function Gallery() {
   );
 }
 
+// The overview's hero pane: a slice of the anchor profile card, small enough to stand three abreast.
+function HeroPane() {
+  return (
+    <Card as="div" className="demo-card hero-pane">
+      <Stack direction="row" gap="md" align="center"><Avatar name="Mara Lind" size="md" /><div><Text as="p" className="flush"><b>Mara Lind</b></Text><Text as="p" className="flush muted small">Landscape photographer</Text></div></Stack>
+      <Button size="sm">Follow</Button>
+    </Card>
+  );
+}
+
+// What the last verify run measured, as a readout of figures rather than a row of pills.
+function Readout() {
+  const { evidence, conformance } = useVerify();
+  const tier = (t: string) => Object.values(TOKENS).filter((x) => x.tier === t).length;
+  const rows: Array<[string, string]> = [
+    ['Text checks', evidence ? `${evidence.summary.gatingChecks - evidence.summary.gatingFailures - (evidence.summary.excepted ?? 0)} / ${evidence.summary.gatingChecks}` : 'unverified'],
+    ...(evidence?.summary.excepted ? [['Excepted', `${evidence.summary.excepted} (E-001)`] as [string, string]] : []),
+    ['Conformance', conformance ? `${conformance.passed} / ${conformance.total}` : 'unverified'],
+    ['Tokens', `${tier('primitive')} · ${tier('semantic')} · ${tier('component')}`],
+    ['Components', String(Object.keys(meta.components).length)],
+  ];
+  return <dl className="readout" aria-label="Verification summary">{rows.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>;
+}
+
 function Overview() {
+  const [heroMaterial, setHeroMaterial] = useState<DemoMaterial>('glass');
   return (
     <Page
       eyebrow="Pane · design system"
@@ -119,31 +146,33 @@ function Overview() {
       lede={<p>Pane is a design system of clear, blurred glass panes floating over a real scene. It brings the look of visionOS to the browser and holds it to WCAG contrast at every pixel it can measure. Kiln built it from one anchor component you picked, the profile card below, and every part of that card is a Pane component.</p>}
     >
       <AgentOnboard />
-      <section className="hero" aria-label="The anchor card">
-        <div className="hero-copy">
-          <div className="panel" data-surface="">
-            <h2 className="flush">What is in the box</h2>
-            <ul>
-              <li><b>pane-tokens</b>. {Object.keys(TOKENS).length} design tokens in three tiers (primitive → semantic → component), shipped as CSS, JS (+ types), SCSS and JSON.</li>
-              <li><b>pane-react</b>. {Object.keys(meta.components).length} components in {CATEGORIES.length} families. Open a family to see its components, or open the gallery below to see them all at once.</li>
-              <li><b>This book</b>. Foundations, every component in depth, patterns, accessibility evidence and the full token reference.</li>
-            </ul>
-            <ul className="family-links" aria-label="Component families">
-              {CATEGORIES.map((c) => <li key={c.title}><Link to={`/components/${COMPONENTS.find((x) => x.name === c.names[0])?.slug ?? ''}`}>{c.title}</Link> <span className="muted">{c.names.length}</span></li>)}
-            </ul>
-            <VerifiedTags />
-          </div>
-          <div className="panel" data-surface="">
-            <h2 className="flush">Read this first</h2>
-            <ol>
-              <li><Link to="/getting-started">Getting started</Link>. Install, wrap a screen in an Environment, place your first Card.</li>
-              <li><Link to="/getting-started/look">Choose your look</Link>. Glass or solid, then theme, brand and environment.</li>
-              <li><Link to="/foundations/glass">Glass & environment</Link>. Why glass needs to know what is behind it.</li>
-              <li><Link to="/components/card">Card</Link>. The surface everything else sits on.</li>
-            </ol>
-          </div>
+      {/* the hero is the lesson of the demo stage (B): one scene, the same pane on each material, no box around it */}
+      <section className="overview-hero" aria-label="One pane on three materials">
+        <MaterialStage render={() => <HeroPane />} chosen={heroMaterial} onChoose={setHeroMaterial} />
+      </section>
+      <section className="overview-facts" aria-label="What is in the box">
+        <div>
+          <h2 className="flush">What is in the box</h2>
+          <ul>
+            <li><b>pane-tokens</b>. {Object.keys(TOKENS).length} design tokens in three tiers (primitive → semantic → component), shipped as CSS, JS (+ types), SCSS and JSON.</li>
+            <li><b>pane-react</b>. {Object.keys(meta.components).length} components in {CATEGORIES.length} families. Open a family to see its components, or open the gallery below to see them all at once.</li>
+            <li><b>This book</b>. Foundations, every component in depth, patterns, accessibility evidence and the full token reference.</li>
+          </ul>
+          <ul className="family-links" aria-label="Component families">
+            {CATEGORIES.map((c) => <li key={c.title}><Link to={`/components/${COMPONENTS.find((x) => x.name === c.names[0])?.slug ?? ''}`}>{c.title}</Link> <span className="muted">{c.names.length}</span></li>)}
+          </ul>
+        </div>
+        <div>
+          <h2 className="flush">Read this first</h2>
+          <ol>
+            <li><Link to="/getting-started">Getting started</Link>. Install, wrap a screen in an Environment, place your first Card.</li>
+            <li><Link to="/getting-started/look">Choose your look</Link>. Glass, liquid or solid, then theme, brand and environment.</li>
+            <li><Link to="/foundations/glass">Glass & environment</Link>. Why glass needs to know what is behind it.</li>
+            <li><Link to="/components/card">Card</Link>. The surface everything else sits on.</li>
+          </ol>
         </div>
       </section>
+      <Readout />
 
       <Section id="glance" title="Pane at a glance" wide>
         <p>Three small products built only from Pane, one per row, and they work. Press, drag and type as you would in an app. Each has a switch for what a real screen meets, so you can see it loading, empty and failing as well as ready, and each names the parts it is made of.</p>
@@ -156,19 +185,23 @@ function Overview() {
       </Section>
 
       <Section id="chapters" title="The book" wide>
-        <div className="category-grid">
-          {PARTS.map((part) => (
-            <div key={part.title} className="panel" data-surface="">
-              <Link to={part.pages[0].path}><span className="card-link">{part.title}</span></Link>
-              <p className="flush muted">{PART_BLURB[part.title]}</p>
-              <p className="flush small muted">{part.pages.length} chapter{part.pages.length === 1 ? '' : 's'}: {part.pages.map((p) => p.title).join(' · ')}</p>
-            </div>
+        {/* an index, not a grid of cards: number, part, what it holds, its chapters */}
+        <ol className="book-index">
+          {PARTS.map((part, i) => (
+            <li key={part.title}>
+              <span className="book-index-n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <Link to={part.pages[0].path}><span className="book-index-title">{part.title}</span></Link>
+                <p className="flush muted">{PART_BLURB[part.title]}</p>
+                <p className="flush small muted">{part.pages.length} chapter{part.pages.length === 1 ? '' : 's'}: {part.pages.slice(0, 8).map((p) => p.title).join(' · ')}{part.pages.length > 8 ? ` and ${part.pages.length - 8} more` : ''}</p>
+              </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </Section>
 
       <Section id="status" title="Status">
-        <p>Pane is a <b>pilot</b> with {Object.keys(meta.components).length} components, verified in Chromium only. It can lay out a profile, a feed, a dashboard of cards and a settings screen. Text inputs, dialogs and menus are still missing, so it is short of a general application kit. What is and is not proven is listed plainly on the <Link to="/accessibility">accessibility page</Link>, and every open compromise is in the <Link to="/reference/exceptions">exceptions register</Link>, which has {OPEN_EXCEPTIONS} open today.</p>
+        <p>Pane is a <b>pilot</b> with {Object.keys(meta.components).length} components. Its components cover a general app: forms and inputs, dialogs, menus and sheets, navigation, data display and charts, and the parts for working with AI. It is verified in Chromium only, so other browsers are untested rather than known to fail. What is and is not proven is listed plainly on the <Link to="/accessibility">accessibility page</Link>, and every open compromise is in the <Link to="/reference/exceptions">exceptions register</Link>, which has {OPEN_EXCEPTIONS} open today.</p>
         <Callout tone="note" title="How this book stays honest">
           <p>Numbers on these pages are not typed by hand. Token tables come from <code>pane-tokens/json</code>, “tokens used” lists from each component’s CSS, contrast tables from <code>evidence.json</code> and test results from <code>conformance.json</code>, all written by <code>pnpm run verify</code>. If a file is missing the page says UNVERIFIED instead of showing a number.</p>
         </Callout>
