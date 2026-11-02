@@ -5,6 +5,25 @@
   "type": "module",
   "description": "Pane design tokens — CSS custom properties, JSON, ESM (+types) and SCSS, built from DTCG in three tiers.",
   "license": "MIT",
+  "homepage": "https://pane-design-system.pages.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanawitchsaentree/pane-design-system.git",
+    "directory": "packages/tokens"
+  },
+  "bugs": {
+    "url": "https://github.com/tanawitchsaentree/pane-design-system/issues"
+  },
+  "keywords": [
+    "design-tokens",
+    "dtcg",
+    "css-variables",
+    "tailwind",
+    "swiftui",
+    "jetpack-compose",
+    "flutter",
+    "figma"
+  ],
   "exports": {
     "./css": {
       "types": "./css.d.ts",
