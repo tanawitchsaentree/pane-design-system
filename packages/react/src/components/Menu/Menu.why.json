@@ -97,6 +97,11 @@
       "p": "P6",
       "axis": "colour",
       "why": "forced colours outline the sheet and the highlighted row"
+    },
+    "data-state=closed": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "closing is an exit the reader sees (G-MO4): the sheet stays until its exit ends instead of vanishing in a frame"
     }
   },
   "motion": {
@@ -104,6 +109,11 @@
       "p": "P3",
       "axis": "motion",
       "why": "the sheet drops a short way from its trigger and settles"
+    },
+    "@sheet-out": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the exit runs 220ms, accelerating away, half the lift of its entrance, so leaving is quicker than arriving and still seen"
     }
   }
 }

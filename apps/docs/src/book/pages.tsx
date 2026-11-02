@@ -231,13 +231,9 @@ function GettingStarted() {
   return (
     <Page eyebrow="Getting started" title="Getting started" lede={<p>Install the two packages and load the token stylesheet once. Then wrap the screen in an Environment that matches its backdrop and put your content on Cards.</p>}>
       <Section id="install" title="1 · Install">
-        <p>Pane is not on the npm registry yet, so installing <code>pane-react</code> by name fails with a 404. This site hosts the tarball, so the line below works from any project, and once the package is published the same import lines work unchanged. A coding agent can do all of it for you from the line on the home page.</p>
+        <p>Install <code>pane-react</code> from npm. A coding agent can do the whole setup for you from the line on the home page.</p>
         <p>One package and one import are enough. <code>pane-react</code> carries the tokens inside it, so a React app installs nothing else and loads one stylesheet. It needs React 18 or newer.</p>
-        <Code label="Install">{`# in this repo
-pnpm run release:pack
-
-# in your project
-npm install https://pane-design-system.pages.dev/downloads/pane-react-${meta.version}.tgz`}</Code>
+        <Code label="Install">{'npm install pane-react'}</Code>
         <Code label="main.tsx">{"import 'pane-react/all.css';\nimport { Environment, Card, Button } from 'pane-react';"}</Code>
         <p>The tokens are also on their own as <code>pane-tokens</code>, for projects that are not React. The React package includes them as <code>pane-react/tokens.css</code> and <code>pane-react/tokens</code>, so you never need both.</p>
         <p>If a page uses only a few components, it can load less CSS. Import <code>pane-react/tokens/core.css</code> and <code>pane-react/tokens/colour.css</code> in place of <code>pane-react/tokens.css</code>, and import components from <code>pane-react</code> or <code>pane-react/Button</code> through a bundler such as Vite or Next.js. Each component then brings its own component tokens along with its styles, so a page with only a Button pays for the Button tokens and nothing else. The core sheet holds spacing, sizes, corners, type, motion, layers and layout. The colour sheet holds colours, shadows, themes and environments, and a product with its own palette can skip it and define those colour tokens itself. The split relies on the per-component styles, so keep <code>tokens.css</code> if you link <code>pane-react/styles.css</code>. The <code>all.css</code> file already contains every token.</p>

@@ -5,18 +5,18 @@ export default async function (t) {
 
   await go('/components/segmented-control/code');
   await check('SegmentedControl', 'one tab stop', async () => {
-    const root = main().locator('[data-component="SegmentedControl"]').first();
+    const root = main().locator('[data-example-live] [data-component="SegmentedControl"]').first();
     // the roving group is one stop: the group itself until a segment has been focused, then that segment
     const stops = await root.evaluate((r) => [r, ...r.querySelectorAll('button')].filter((e) => e.tabIndex === 0).length);
     expect(stops === 1, `${stops} tab stops`);
   });
   await check('SegmentedControl', 'arrow keys move', async () => {
-    const root = main().locator('[data-component="SegmentedControl"]').first();
+    const root = main().locator('[data-example-live] [data-component="SegmentedControl"]').first();
     await root.locator('[data-state="on"]').focus(); await page.keyboard.press('ArrowRight'); await page.waitForTimeout(100);
     expect(await focused() === 'List', `focus on ${await focused()}`);
   });
   await check('SegmentedControl', 'Space chooses', async () => {
-    const root = main().locator('[data-component="SegmentedControl"]').first();
+    const root = main().locator('[data-example-live] [data-component="SegmentedControl"]').first();
     await page.keyboard.press('Space'); await page.waitForTimeout(100);
     expect((await root.locator('button[data-state="on"]').first().textContent()) === 'List', 'Space did not choose');
   });

@@ -830,6 +830,9 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .bd-picker { display: flex; gap: var(--ds-gap-lg); align-items: center; }
 .bd-swatch { position: relative; inline-size: var(--ds-space-8); block-size: var(--ds-space-8); padding: 0; border: 0; border-radius: var(--ds-corner-round); background: center / cover var(--ds-surface-sunken); border: var(--ds-width-hairline) solid var(--ds-text-secondary); cursor: pointer; }
 .bd-swatch::after { content: ''; position: absolute; inset: 50% auto auto 50%; inline-size: var(--ds-layout-touch); block-size: var(--ds-layout-touch); translate: -50% -50%; }
+/* R-048: the chosen ring grows in on the press rhythm; unchosen holds the same layer at zero width so it interpolates */
+.bd-swatch { box-shadow: 0 0 0 0 transparent; transition: box-shadow var(--ds-motion-press) var(--ds-motion-easing), transform var(--ds-motion-press) var(--ds-motion-easing); }
+.bd-swatch:active { transform: scale(var(--ds-motion-press-scale)); }
 .bd-swatch[aria-checked='true'] { box-shadow: 0 0 0 var(--ds-width-ring) var(--ds-text-primary); }
 .bd-swatch:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-width-ring); }
 .bd-studio { background: radial-gradient(circle at 30% 25%, var(--ds-color-graphite-600), var(--ds-surface-page)); }

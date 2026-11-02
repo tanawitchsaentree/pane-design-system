@@ -38,7 +38,7 @@ export interface DataGridProps<Row extends { id: string | number }> {
 function Check(p: { label: string; checked: boolean | 'indeterminate'; onChange: () => void; tabIndex: number }) {
   return (
     <RC.Root className={cb.box} aria-label={p.label} checked={p.checked} onCheckedChange={p.onChange} tabIndex={p.tabIndex}>
-      <RC.Indicator className={cb.indicator}>
+      <RC.Indicator forceMount className={cb.indicator}>
         <svg viewBox="0 0 16 16" aria-hidden="true" className={cb.check}><path d="M3.5 8.5l3 3 6-7" /></svg>
         <svg viewBox="0 0 16 16" aria-hidden="true" className={cb.dash}><path d="M4 8h8" /></svg>
       </RC.Indicator>

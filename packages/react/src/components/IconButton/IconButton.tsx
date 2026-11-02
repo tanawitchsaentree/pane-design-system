@@ -34,6 +34,8 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(functio
   return (
     <button ref={ref} type={type} data-component="IconButton" data-glow={variant === 'loud' ? 'strong' : undefined} className={cx(styles.root, styles[variant], styles[size], loading && styles.loading, pressed != null && styles.toggle, className)} onPointerMove={glint}
       aria-pressed={pressed} aria-busy={loading || undefined} aria-disabled={loading || rest['aria-disabled'] || undefined} onClick={(e) => { if (loading) { e.preventDefault(); return; } onClick?.(e); }} {...rest}>
+      {/* R-048: the on-glass is its own layer that fades in instead of a gradient swapped in one frame */}
+      {pressed != null && <span className={styles.pressFill} aria-hidden="true" />}
       <span className={styles.content}>{pressed && pressedIcon != null ? pressedIcon : children}</span>
       {loading && <span className={styles.spinner}><Spinner size="sm" aria-hidden="true" /></span>}
       <span data-hit className={styles.hit} aria-hidden="true" />

@@ -5,10 +5,12 @@
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--ds-radio-cards-min)), 1fr)); gap: var(--ds-gap-md); }
 .c2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .c3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.card { display: flex; flex-direction: column; gap: var(--ds-gap-xs); padding: var(--ds-gap-xl); border: 0; border-radius: var(--ds-corner-media); --pane-fill-top: var(--ds-radio-cards-bg); --pane-fill-foot: var(--ds-radio-cards-bg); background: linear-gradient(180deg, var(--pane-fill-top), var(--pane-fill-foot)); box-shadow: var(--ds-radio-cards-edge), var(--ds-radio-cards-ring); color: var(--ds-text-primary); font: inherit; text-align: start; cursor: pointer; transition: --pane-fill-top var(--ds-motion-press) var(--ds-motion-easing), --pane-fill-foot var(--ds-motion-press) var(--ds-motion-easing), box-shadow var(--ds-motion-press) var(--ds-motion-easing); }
+.card { display: flex; flex-direction: column; gap: var(--ds-gap-xs); padding: var(--ds-gap-xl); border: 0; border-radius: var(--ds-corner-media); --pane-fill-top: var(--ds-radio-cards-bg); --pane-fill-foot: var(--ds-radio-cards-bg); background: linear-gradient(180deg, var(--pane-fill-top), var(--pane-fill-foot)); box-shadow: var(--ds-radio-cards-edge), var(--ds-radio-cards-ring), 0 0 0 0 transparent; color: var(--ds-text-primary); font: inherit; text-align: start; cursor: pointer; transition: --pane-fill-top var(--ds-motion-press) var(--ds-motion-easing), --pane-fill-foot var(--ds-motion-press) var(--ds-motion-easing), box-shadow var(--ds-motion-press) var(--ds-motion-easing); }
 /* R-048: rest, hover and chosen move only the two registered fill colours, so choosing a card fades in */
 .card:hover:not([data-disabled]) { --pane-fill-top: var(--ds-radio-cards-hover); --pane-fill-foot: var(--ds-radio-cards-hover); }
-.card[data-state='checked'][data-state] { --pane-fill-top: var(--ds-radio-cards-on-top); --pane-fill-foot: var(--ds-radio-cards-on-foot); box-shadow: var(--ds-radio-cards-on-edge), var(--ds-radio-cards-ring); }
+.card[data-state='checked'][data-state] { --pane-fill-top: var(--ds-radio-cards-on-top); --pane-fill-foot: var(--ds-radio-cards-on-foot); box-shadow: var(--ds-radio-cards-edge), var(--ds-radio-cards-ring), var(--ds-radio-cards-on-edge); }
+/* R-048: both states list the same layers in the same order (edge insets, ring, outer cast), so the shadow
+   interpolates; unchecked carries the cast as a transparent layer. Before, [inset…] → [outer, inset] swapped. */
 .card[data-disabled] { opacity: var(--ds-opacity-disabled); cursor: not-allowed; }
 .card:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
 .head { display: flex; align-items: center; justify-content: space-between; gap: var(--ds-gap-md); }

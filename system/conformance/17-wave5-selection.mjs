@@ -46,7 +46,7 @@ export default async function (t) {
   });
   await go('/components/context-menu/code');
   await check('ContextMenu', 'opens from the keyboard menu key on a focused target', async () => {
-    const target = main().locator('[data-component="ContextMenu"], [tabindex="0"]').first();
+    const target = main().locator('[data-example-live] :is([data-component="ContextMenu"], [tabindex="0"])').first();
     await target.focus(); await page.keyboard.press('Shift+F10'); await page.waitForTimeout(200);
     const open = await page.locator('[role="menu"]').count() > 0;
     if (open) await page.keyboard.press('Escape');

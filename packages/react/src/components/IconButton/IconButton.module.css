@@ -74,7 +74,10 @@
 .spinner { position: absolute; inset: 0; display: grid; place-items: center; color: currentColor; }
 @media (forced-colors: active) { .root { border: var(--ds-focus-ring-width) solid ButtonText; } .root::before, .root::after { display: none; } }
 /* a toggle that is on is chosen glass with a ring, as Button's (P3); aria-pressed says it */
-.toggle[aria-pressed='true'] { background: linear-gradient(180deg, var(--ds-icon-button-pressed-top), var(--ds-icon-button-pressed-foot)); color: var(--ds-text-primary); box-shadow: 0 0 0 var(--ds-width-ring) var(--ds-icon-button-pressed-ring); }
+.toggle[aria-pressed='true'] { color: var(--ds-text-primary); box-shadow: 0 0 0 var(--ds-width-ring) var(--ds-icon-button-pressed-ring); }
+/* R-048: the on-glass fades in over the variant's own fill, and back out, on the press's way up */
+.pressFill { position: absolute; z-index: -1; inset: 0; border-radius: inherit; background: linear-gradient(180deg, var(--ds-icon-button-pressed-top), var(--ds-icon-button-pressed-foot)); opacity: 0; transition: opacity var(--ds-motion-press) var(--ds-motion-easing); pointer-events: none; }
+.toggle[aria-pressed='true'] .pressFill { opacity: 1; }
 @media (forced-colors: active) { .toggle[aria-pressed='true'] { outline: var(--ds-width-ring) solid Highlight; } }
 /* D-039: a new glyph (play to pause) fades in over the press duration instead of snapping */
 .root svg { animation: icon-in var(--ds-motion-press) var(--ds-motion-easing); }

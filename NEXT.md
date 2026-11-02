@@ -1,4 +1,14 @@
-# NEXT — handoff 2026-11-01 (session closed by the user; everything below is committed and pushed)
+# NEXT — handoff 2026-11-02 (context cleared by the user; read this first)
+
+## In flight when the context was cleared
+- **pane-react 0.8.1 is on npm** (the user published it 2026-11-02). Install lines now say `npm install pane-react` (README, Getting started, component pages, agent prompt); kiln.config docs.published = ["pane-react"]. pane-tokens is NOT on npm yet. These changes are committed but **not deployed**.
+- **Uncommitted→committed in this handoff:** R-048 rest of the toggles (Button/IconButton pressFill layer, Calendar, TreeView, RichTextEditor, DataGrid rows, Checkbox mark forceMount + fade, RadioCards shadow layer order), Menu exit (motion.exit 220ms + easing-exit, kept under reduced motion, G-MO4), Select open uses press rhythm, scene picker is data-component="BackdropPicker" with a ring transition, conformance tests 17/18 now target `[data-example-live]` (they grabbed the header's Dark/Light switch since 31 Oct).
+- **Was running:** `KILN_CHECKS=10,17,18` conformance. Rerun: `for k in 10 17 18; do KILN_CHECKS=$k nice -n 19 node tooling/kiln/conformance.mjs --no-build; done`. Expect green except maybe **Select "ArrowDown then Enter"** (check if real). Then `git checkout apps/docs/public/conformance.json` if the limited run polluted it.
+- **Then release 0.8.2:** bump packages/react + packages/tokens to 0.8.2, CHANGELOG entry (toggles R-048 rest, Menu exit, Checkbox), `pnpm -s release:pack`, replace 0.8.1 in README/kiln.config agentSetup is name-only now, deploy with the release recipe (memory pane-scope-calls), then tell the user to run `npm publish ./release/pane-react-0.8.2.tgz --access public` (the ./ matters; without it npm treats it as a GitHub repo).
+- Gates that passed on the changed pages: G-MO1, G-MO2, G-MO3, G-MO4, G-C1, G-NC1, G-PUB1, rationale.
+- **kiln** is owned by the session "Kiln กับ AI design skills อื่น ๆ" (was kiln-48). It has 2.6.5 synced here (81fed77). It is working on K-13 incremental verify (2.7) and the user's token-waste spec. Its pushes need the user's permission in its own window. Never edit kiln from Pane; ask it.
+- Other sessions waiting on the user's permission: PEG (peg-c4) and lego builder (lego-builder-91), both told to move to pane-react 0.8.1. They can now simply `npm install pane-react@latest`.
+
 
 ## Where things stand
 - **Pane 0.7.0 live** at https://pane-design-system.pages.dev (main = release-0.7, deployed with wrangler).

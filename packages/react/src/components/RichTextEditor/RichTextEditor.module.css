@@ -2,10 +2,11 @@
    and pasted text arrives as plain text so it takes the field's own type (P2). */
 .root { display: flex; flex-direction: column; gap: var(--ds-gap-xs); min-inline-size: 0; font-family: var(--ds-type-family); }
 .toolbar { display: flex; flex-wrap: wrap; gap: var(--ds-gap-xs); }
-.tool { position: relative; display: inline-grid; place-items: center; inline-size: var(--ds-rich-text-editor-tool); block-size: var(--ds-rich-text-editor-tool); padding: 0; border: 0; border-radius: var(--ds-corner-inner); background: transparent; color: var(--ds-text-primary); cursor: pointer; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
-.tool:hover:not(:disabled) { background: var(--ds-rich-text-editor-hover); }
+.tool { position: relative; display: inline-grid; place-items: center; inline-size: var(--ds-rich-text-editor-tool); block-size: var(--ds-rich-text-editor-tool); padding: 0; border: 0; border-radius: var(--ds-corner-inner); background: linear-gradient(180deg, var(--pane-fill-top), var(--pane-fill-foot)); color: var(--ds-text-primary); cursor: pointer; transition: --pane-fill-top var(--ds-motion-press) var(--ds-motion-easing), --pane-fill-foot var(--ds-motion-press) var(--ds-motion-easing); }
+/* R-048: hover and on move only the two registered fill colours, so turning bold on fades in */
+.tool:hover:not(:disabled) { --pane-fill-top: var(--ds-rich-text-editor-hover); --pane-fill-foot: var(--ds-rich-text-editor-hover); }
 .tool:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
-.on { background: linear-gradient(180deg, var(--ds-rich-text-editor-on-top), var(--ds-rich-text-editor-on-foot)); }
+.on, .on:hover:not(:disabled) { --pane-fill-top: var(--ds-rich-text-editor-on-top); --pane-fill-foot: var(--ds-rich-text-editor-on-foot); }
 .glyph { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; }
 .box { padding: var(--ds-rich-text-editor-padding); border-radius: var(--ds-corner-media); background: var(--ds-rich-text-editor-bg); box-shadow: var(--ds-rich-text-editor-groove); color: var(--ds-text-primary); font-size: var(--ds-type-body); line-height: var(--ds-type-leading-body); overflow-wrap: anywhere; outline: 0; }
 .box:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }

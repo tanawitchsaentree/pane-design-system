@@ -21,8 +21,7 @@ and reads the worst pixel behind each line of text. At the last full run 1,001,7
 passed, and the docs list the rest.
 
 It is 126 React components (forms, data grid, charts, command palette, chat and agent pieces), tokens
-for CSS, Tailwind, SwiftUI, Compose, Flutter and Figma, and English and Thai throughout. MIT. It is
-not on npm yet; the site hosts the tarball.
+for CSS, Tailwind, SwiftUI, Compose, Flutter and Figma, and English and Thai throughout. MIT.
 
 It was built with kiln, a design-system factory I made, which turns every complaint into a gate that
 fails the build. Happy to talk about how the glass and contrast measurement work.
@@ -34,7 +33,7 @@ fails the build. Happy to talk about how the glass and contrast measurement work
 Title: I built a glass design system for React that measures every line of text for contrast
 
 Body: same as the HN text, plus the install line:
-`npm install https://pane-design-system.pages.dev/downloads/pane-react-0.8.1.tgz`
+`npm install pane-react`
 
 ## Reddit r/web_design (Showcase flair)
 
@@ -87,7 +86,7 @@ https://pane-design-system.pages.dev
 - MIT ใช้ฟรี
 
 ดูได้ที่ https://pane-design-system.pages.dev
-ยังไม่ได้ขึ้น npm ให้ติดตั้งจาก `npm install https://pane-design-system.pages.dev/downloads/pane-react-0.8.1.tgz`
+ติดตั้งด้วย `npm install pane-react`
 ใครลองแล้วเจอพื้นหลังที่ตัวหนังสืออ่านยาก ส่งมาได้เลยครับ จะเอาไปแก้
 
 ---

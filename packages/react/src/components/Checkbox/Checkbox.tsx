@@ -40,7 +40,8 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(function Ch
   return (
     <div data-component="Checkbox" className={cx(styles.root, className)}>
       <RC.Root ref={ref} id={id} className={styles.box} aria-describedby={description != null ? `${id}-d` : undefined} aria-invalid={bad || undefined} {...rest}>
-        <RC.Indicator className={styles.indicator}>
+        {/* R-048: kept mounted so the mark scales and fades in instead of appearing in one frame */}
+        <RC.Indicator forceMount className={styles.indicator}>
           <svg viewBox="0 0 16 16" aria-hidden="true" className={styles.check}><path d="M3.5 8.5l3 3 6-7" /></svg>
           <svg viewBox="0 0 16 16" aria-hidden="true" className={styles.dash}><path d="M4 8h8" /></svg>
         </RC.Indicator>

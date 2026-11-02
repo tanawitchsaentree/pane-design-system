@@ -21,10 +21,8 @@ with playgrounds, patterns, the accessibility evidence and the full token refere
 
 ## Install
 
-Pane is not on the npm registry yet, so the package is installed from the tarball the site hosts:
-
 ```bash
-npm install https://pane-design-system.pages.dev/downloads/pane-react-0.8.1.tgz
+npm install pane-react
 ```
 
 ```tsx

@@ -141,7 +141,10 @@
       "reference": "system/anchor/anchor-likeness.json"
     },
     "parallel": 4,
-    "showcaseRoute": "/"
+    "showcaseRoute": "/",
+    "published": [
+      "pane-react"
+    ]
   },
   "autonomy": {
     "picks": "agent",
@@ -158,8 +161,7 @@
     "site": "https://pane-design-system.pages.dev",
     "packages": [
       {
-        "name": "pane-react",
-        "tarball": "/downloads/pane-react-0.8.1.tgz"
+        "name": "pane-react"
       }
     ],
     "stylesheet": "pane-react/all.css",

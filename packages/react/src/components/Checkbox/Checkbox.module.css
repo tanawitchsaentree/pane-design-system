@@ -13,9 +13,11 @@
 .box:active:not(:disabled) { transform: scale(var(--ds-motion-press-scale)); }
 .box:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: var(--ds-focus-ring-width); }
 .box:disabled { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
-.indicator { display: grid; place-items: center; }
+/* R-048: the mark is always mounted; checking scales and fades it in on the press's way up, unchecking out */
+.indicator { display: grid; place-items: center; opacity: 0; transform: scale(var(--ds-motion-press-scale)); transition: opacity var(--ds-motion-press) var(--ds-motion-easing), transform var(--ds-motion-press) var(--ds-motion-easing); }
+.indicator[data-state='checked'], .indicator[data-state='indeterminate'] { opacity: 1; transform: none; }
 .check, .dash { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; animation: mark-in var(--ds-motion-hover) var(--ds-motion-easing); }
-.box[data-state='checked'] .dash, .box[data-state='indeterminate'] .check { display: none; }
+.box:not([data-state='indeterminate']) .dash, .box[data-state='indeterminate'] .check { display: none; }
 @keyframes mark-in { from { opacity: 0; transform: scale(var(--ds-motion-press-scale)); } }
 .text { display: flex; flex-direction: column; justify-content: center; min-block-size: var(--ds-check-hit); }
 .label { font-size: var(--ds-type-body); color: var(--ds-text-primary); cursor: pointer; }

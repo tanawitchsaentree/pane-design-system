@@ -23,8 +23,12 @@
 .trigger:disabled { cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
 .trigger[data-placeholder] { color: var(--ds-text-secondary); }
 .icon { display: inline-flex; flex: none; }
-.chevron { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); transition: transform var(--ds-motion-hover) var(--ds-motion-easing); }
+.chevron { inline-size: var(--ds-control-icon-sm); block-size: var(--ds-control-icon-sm); transition: transform var(--ds-motion-press) var(--ds-motion-easing); }
+/* the list opens on the press, so the chevron turns with the press rhythm: fast as it goes down, back over 300ms */
 .trigger[data-state='open'] .chevron { transform: rotate(180deg); }
+/* the list opens on the press and covers the pointer, so going into open takes the press rhythm (fast while it
+   is held); hover keeps its own fast-in, slow-out, and closing falls back to it */
+.trigger[data-state='open'] { transition-duration: var(--ds-motion-press); }
 
 .menu {
   /* the same layer as menus and popovers, so a Select opened inside a popover lies above it (R-038) */

@@ -14,11 +14,12 @@
 .end { background: linear-gradient(90deg, var(--ds-calendar-band) 50%, transparent 50%); }
 :global([dir='rtl']) .start { background: linear-gradient(-90deg, transparent 50%, var(--ds-calendar-band) 50%); }
 :global([dir='rtl']) .end { background: linear-gradient(-90deg, var(--ds-calendar-band) 50%, transparent 50%); }
-.day { display: inline-grid; place-items: center; inline-size: var(--ds-calendar-day); block-size: var(--ds-calendar-day); padding: 0; border: 0; border-radius: var(--ds-corner-round); background: transparent; color: var(--ds-text-primary); font: inherit; font-size: var(--ds-type-label); font-variant-numeric: tabular-nums; cursor: pointer; transition: background-color var(--ds-motion-hover) var(--ds-motion-easing); }
-.day:hover:not([aria-disabled]) { background: var(--ds-calendar-hover); }
+.day { display: inline-grid; place-items: center; inline-size: var(--ds-calendar-day); block-size: var(--ds-calendar-day); padding: 0; border: 0; border-radius: var(--ds-corner-round); background: linear-gradient(180deg, var(--pane-fill-top), var(--pane-fill-foot)); color: var(--ds-text-primary); font: inherit; font-size: var(--ds-type-label); font-variant-numeric: tabular-nums; cursor: pointer; transition: --pane-fill-top var(--ds-motion-press) var(--ds-motion-easing), --pane-fill-foot var(--ds-motion-press) var(--ds-motion-easing), color var(--ds-motion-press) var(--ds-motion-easing); }
+/* R-048: hover and chosen move only the two registered fill colours, so choosing a day fades in */
+.day:hover:not([aria-disabled]) { --pane-fill-top: var(--ds-calendar-hover); --pane-fill-foot: var(--ds-calendar-hover); }
 .day:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: calc(var(--ds-focus-ring-width) * -1); }
 .out { color: var(--ds-text-secondary); }
 .today { box-shadow: inset 0 0 0 var(--ds-width-hairline) var(--ds-calendar-today-ring); font-weight: var(--ds-type-weight-semibold); }
-.chosen, .chosen:hover:not([aria-disabled]) { background: linear-gradient(180deg, var(--ds-calendar-chosen-top), var(--ds-calendar-chosen-foot)); color: var(--ds-calendar-chosen-fg); font-weight: var(--ds-type-weight-semibold); }
+.chosen, .chosen:hover:not([aria-disabled]) { --pane-fill-top: var(--ds-calendar-chosen-top); --pane-fill-foot: var(--ds-calendar-chosen-foot); color: var(--ds-calendar-chosen-fg); font-weight: var(--ds-type-weight-semibold); }
 .off { color: var(--ds-text-secondary); text-decoration: line-through; cursor: not-allowed; opacity: var(--ds-opacity-disabled); }
 @media (forced-colors: active) { .chosen { background: Highlight; color: HighlightText; } .mid, .start, .end { background: Canvas; outline: var(--ds-width-hairline) solid Highlight; } .today { border: var(--ds-width-hairline) solid CanvasText; } }
