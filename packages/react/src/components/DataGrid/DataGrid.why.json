@@ -76,6 +76,16 @@
       "p": "P4",
       "axis": "motion",
       "why": "opacity fades over the hover duration, never snaps"
+    },
+    "--pane-fill-top": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the fill is two registered colours (R-048), so rest, hover and chosen fade into each other on the press's way back up instead of swapping a gradient in one frame"
+    },
+    "--pane-fill-foot": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the foot of the same fill moves with its top, so the light across the glass stays one piece mid-change"
     }
   }
 }

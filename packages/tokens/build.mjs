@@ -152,7 +152,7 @@ ${fallback.replace(/^/gm, '  ')}
 // D-039: reduced motion removes movement, not feedback. Hover and press keep a short fade of colour and light
 // (100ms), so a control still answers; every travel, entrance, scene change and loop goes to 0, and the
 // distances and the press scale go to nothing, so nothing moves.
-const QUICK = ['motion.hover', 'motion.press'];
+const QUICK = ['motion.hover', 'motion.press', 'motion.exit']; // fades that move nothing once distances are 0 (D-039, R-044, G-MO4)
 const quick = (p) => QUICK.includes(p) || QUICK.some((q) => dependsOn(p, q));
 // and the primitives they read, in and out of each state, or var() would still resolve to a zeroed 0ms
 const KEEP = new Set(QUICK.flatMap((q) => [refOf(q), ...Object.values(tokens.get(q)?.state ?? {}).map((r) => r.slice(1, -1))]).filter(Boolean));

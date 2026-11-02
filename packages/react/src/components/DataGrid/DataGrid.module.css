@@ -3,7 +3,10 @@
 .root { position: relative; }
 .check { inline-size: var(--ds-data-grid-check); text-align: center; }
 .cell:focus-visible { outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color); outline-offset: calc(var(--ds-focus-ring-width) * -1); }
-.chosen, .chosen:hover { background: linear-gradient(180deg, var(--ds-data-grid-chosen-top), var(--ds-data-grid-chosen-foot)); }
+/* R-048: a row's fill is two registered colours, so choosing a row fades its glass in */
+.root tr[role='row'] { background: linear-gradient(180deg, var(--pane-fill-top), var(--pane-fill-foot)); transition: --pane-fill-top var(--ds-motion-press) var(--ds-motion-easing), --pane-fill-foot var(--ds-motion-press) var(--ds-motion-easing); }
+.root tr[role='row']:hover { --pane-fill-top: var(--ds-table-highlight); --pane-fill-foot: var(--ds-table-highlight); }
+.root tr.chosen, .root tr.chosen:hover { --pane-fill-top: var(--ds-data-grid-chosen-top); --pane-fill-foot: var(--ds-data-grid-chosen-foot); }
 .stick { position: sticky; inset-inline-start: 0; z-index: 1; background: var(--ds-data-grid-stick-bg); }
 .loading { position: absolute; inset: 0; display: grid; place-items: center; background: var(--ds-data-grid-scrim); color: var(--ds-text-primary); font-size: var(--ds-type-label); }
 @media (forced-colors: active) { .chosen { outline: var(--ds-width-ring) solid Highlight; } }

@@ -47,6 +47,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   const cls = cx(styles.root, styles[variant], styles[size], loading && styles.loading, fullWidth && styles.full, pressed != null && styles.toggle, className);
   const inner = (
     <>
+      {/* R-048: a toggle's on-glass is its own layer that fades in, since each variant's resting fill is a
+          gradient of its own and a gradient swap happens in one frame */}
+      {pressed != null && <span className={styles.pressFill} aria-hidden="true" />}
       <span className={styles.content}>{icon && <span className={styles.icon} aria-hidden="true">{icon}</span>}{children}{iconEnd && <span className={styles.icon} aria-hidden="true">{iconEnd}</span>}{chevron && <span className={cx(styles.icon, styles.chevron)} aria-hidden="true">{CHEVRON}</span>}</span>
       {loading && <span className={styles.spinner}><Spinner size="sm" aria-hidden="true" /></span>}
       <span data-hit className={styles.hit} aria-hidden="true" />

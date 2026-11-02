@@ -1777,6 +1777,10 @@
     "breathe": {
       "$value": "1400ms",
       "$description": "half a breath of a skeleton: slow enough to read as waiting, not flashing"
+    },
+    "exit": {
+      "$value": "220ms",
+      "$description": "an overlay leaving: shorter than any entrance, because nobody watches a thing go"
     }
   },
   "easing": {
@@ -1803,6 +1807,15 @@
         "p": "P4",
         "why": "a long ease-out that lands softly for things arriving or responding, and a symmetric curve for crossfades where nothing arrives"
       }
+    },
+    "depart": {
+      "$value": [
+        0.4,
+        0,
+        1,
+        1
+      ],
+      "$description": "accelerates away, for exits"
     }
   },
   "brightness": {

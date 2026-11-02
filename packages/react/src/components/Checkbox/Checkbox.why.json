@@ -185,6 +185,11 @@
       "p": "P4",
       "axis": "motion",
       "why": "press and travel move by transform over the soft curve, so nothing shifts the layout"
+    },
+    "opacity": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "the mark stays mounted and fades and scales in on the press's way up (R-048), so checking never pops a glyph in one frame"
     }
   }
 }

@@ -85,6 +85,11 @@
       "p": "P6",
       "axis": "shape",
       "why": "a menu button ends in a chevron that turns while its menu is open, so the reader sees what the press will do"
+    },
+    "pressFill": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "a toggle's on-glass is its own layer that fades in over the variant's fill (R-048); each variant rests on its own gradient, and a gradient swap happens in one frame"
     }
   },
   "states": {

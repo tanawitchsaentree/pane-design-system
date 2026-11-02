@@ -98,7 +98,10 @@
 @media (forced-colors: active) { .root { border: var(--ds-focus-ring-width) solid ButtonText; } .root::before, .root::after { display: none; } }
 /* A toggle that is on is chosen glass with a ring, the system's one way to say "this is on" without a hue
    (P3); aria-pressed says it. Off it keeps its variant's look. */
-.toggle[aria-pressed='true'] { background: linear-gradient(180deg, var(--ds-button-pressed-top), var(--ds-button-pressed-foot)); color: var(--ds-text-primary); box-shadow: var(--ds-button-edge), 0 0 0 var(--ds-width-ring) var(--ds-button-pressed-ring); }
+.toggle[aria-pressed='true'] { color: var(--ds-text-primary); box-shadow: var(--ds-button-edge), 0 0 0 var(--ds-width-ring) var(--ds-button-pressed-ring); }
+/* R-048: the on-glass fades in over the variant's own fill, and back out, on the press's way up */
+.pressFill { position: absolute; z-index: -1; inset: 0; border-radius: inherit; background: linear-gradient(180deg, var(--ds-button-pressed-top), var(--ds-button-pressed-foot)); opacity: 0; transition: opacity var(--ds-motion-press) var(--ds-motion-easing); pointer-events: none; }
+.toggle[aria-pressed='true'] .pressFill { opacity: 1; }
 /* a menu button's chevron turns while its menu is open, and the button stays lit as the menu's source */
 .chevron svg { fill: none; stroke: currentColor; stroke-width: var(--ds-width-ring); stroke-linecap: round; stroke-linejoin: round; transition: transform var(--ds-motion-hover) var(--ds-motion-easing); }
 .root[aria-expanded='true'] .chevron svg { transform: rotate(180deg); }

@@ -356,10 +356,12 @@ Values are given for dark and light. Component tokens point at these, and primit
 | `--ds-motion-hover` | 380ms | 380ms | motion roles mapped to durations and distances, so hover, press and entry always feel the same across components |
 | `--ds-motion-press` | 300ms | 300ms | 〃 |
 | `--ds-motion-enter` | 640ms | 640ms | 〃 |
+| `--ds-motion-exit` | 220ms | 220ms | 〃 |
 | `--ds-motion-scene` | 640ms | 640ms | 〃 |
 | `--ds-motion-stagger` | 70ms | 70ms | 〃 |
 | `--ds-motion-easing` | cubic-bezier(0.22, 1, 0.36, 1) | cubic-bezier(0.22, 1, 0.36, 1) | 〃 |
 | `--ds-motion-easing-inout` | cubic-bezier(0.45, 0, 0.2, 1) | cubic-bezier(0.45, 0, 0.2, 1) | 〃 |
+| `--ds-motion-easing-exit` | cubic-bezier(0.4, 0, 1, 1) | cubic-bezier(0.4, 0, 1, 1) | 〃 |
 | `--ds-motion-rise` | 16px | 16px | 〃 |
 | `--ds-motion-lift` | 2px | 2px | 〃 |
 | `--ds-motion-press-scale` | 0.97 | 0.97 | 〃 |
@@ -833,3 +835,4 @@ What each one is, and the generic default it must not turn into.
 - D-040 สีของ code เป็น token และรองรับ theme แบบ IDE
 - D-041 anchor ใหม่คือกระจกแบบปัจจุบัน (ปิด E-004)
 - D-042 เกินกว่า React (token ทุกแพลตฟอร์ม + HTML ใต้ทุก demo)
+- D-043 วัสดุสามแบบสลับกันได้ (liquid / glass / solid) และ anchor knobs

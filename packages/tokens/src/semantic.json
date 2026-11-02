@@ -1372,6 +1372,11 @@
       "$type": "duration",
       "$value": "{duration.slow}"
     },
+    "exit": {
+      "$type": "duration",
+      "$value": "{duration.exit}",
+      "$description": "G-MO4: an overlay leaves in 220ms, under 0.6 of its entrance, accelerating, so closing is quick and still seen"
+    },
     "scene": {
       "$type": "duration",
       "$value": "{duration.slow}"
@@ -1387,6 +1392,10 @@
     "easing-inout": {
       "$type": "cubicBezier",
       "$value": "{easing.inout}"
+    },
+    "easing-exit": {
+      "$type": "cubicBezier",
+      "$value": "{easing.depart}"
     },
     "rise": {
       "$type": "dimension",

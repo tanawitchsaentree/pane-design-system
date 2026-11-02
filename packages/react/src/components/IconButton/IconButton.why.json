@@ -55,6 +55,11 @@
       "p": "P3",
       "axis": "colour",
       "why": "a toggle icon button that is on takes the chosen glass and a ring, as Button does"
+    },
+    "pressFill": {
+      "p": "P4",
+      "axis": "motion",
+      "why": "a toggle's on-glass is its own layer that fades in over the variant's fill (R-048); each variant rests on its own gradient, and a gradient swap happens in one frame"
     }
   },
   "states": {

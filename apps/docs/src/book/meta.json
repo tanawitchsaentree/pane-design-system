@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-01T16:47:54.109Z",
-  "version": "0.8.1",
+  "generatedAt": "2026-11-02T04:12:48.240Z",
+  "version": "0.8.2",
   "components": {
     "Accordion": {
       "source": "packages/react/src/components/Accordion/Accordion.tsx",
@@ -490,9 +490,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 17451,
-        "cssMin": 17436,
-        "gzip": 9600
+        "jsMin": 17609,
+        "cssMin": 17824,
+        "gzip": 9668
       }
     },
     "Autocomplete": {
@@ -1355,9 +1355,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 8230,
-        "cssMin": 5638,
-        "gzip": 4943
+        "jsMin": 8308,
+        "cssMin": 5831,
+        "gzip": 4992
       }
     },
     "ButtonGroup": {
@@ -1540,9 +1540,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 11687,
-        "cssMin": 6530,
-        "gzip": 6596
+        "jsMin": 11765,
+        "cssMin": 6943,
+        "gzip": 6677
       }
     },
     "Card": {
@@ -1683,9 +1683,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 9183,
-        "cssMin": 5748,
-        "gzip": 5538
+        "jsMin": 9261,
+        "cssMin": 5941,
+        "gzip": 5587
       }
     },
     "Center": {
@@ -1815,9 +1815,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 10116,
-        "cssMin": 8045,
-        "gzip": 6373
+        "jsMin": 10194,
+        "cssMin": 8238,
+        "gzip": 6420
       }
     },
     "ChatMessage": {
@@ -2070,9 +2070,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 17460,
-        "cssMin": 3113,
-        "gzip": 7344
+        "jsMin": 17474,
+        "cssMin": 3381,
+        "gzip": 7384
       }
     },
     "Chip": {
@@ -2362,9 +2362,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 79585,
-        "cssMin": 10091,
-        "gzip": 31086
+        "jsMin": 79664,
+        "cssMin": 10284,
+        "gzip": 31143
       }
     },
     "CodeBlock": {
@@ -2542,9 +2542,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 42663,
-        "cssMin": 10596,
-        "gzip": 17610
+        "jsMin": 42743,
+        "cssMin": 10789,
+        "gzip": 17650
       }
     },
     "Combobox": {
@@ -2912,9 +2912,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 89494,
-        "cssMin": 1593,
-        "gzip": 31955
+        "jsMin": 89510,
+        "cssMin": 1755,
+        "gzip": 32000
       }
     },
     "DataGrid": {
@@ -3051,9 +3051,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 26582,
-        "cssMin": 6142,
-        "gzip": 11755
+        "jsMin": 26596,
+        "cssMin": 6761,
+        "gzip": 11858
       }
     },
     "DatePicker": {
@@ -3214,9 +3214,9 @@
       "variantCount": 4,
       "demoFloor": 7,
       "bundle": {
-        "jsMin": 82689,
-        "cssMin": 15423,
-        "gzip": 33227
+        "jsMin": 82769,
+        "cssMin": 15900,
+        "gzip": 33317
       }
     },
     "DescriptionList": {
@@ -3792,9 +3792,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 10832,
-        "cssMin": 10103,
-        "gzip": 6864
+        "jsMin": 10910,
+        "cssMin": 10296,
+        "gzip": 6903
       }
     },
     "EmptyState": {
@@ -4298,9 +4298,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 13637,
-        "cssMin": 12806,
-        "gzip": 7981
+        "jsMin": 13795,
+        "cssMin": 13194,
+        "gzip": 8055
       }
     },
     "Flex": {
@@ -4894,9 +4894,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 9709,
-        "cssMin": 6796,
-        "gzip": 5667
+        "jsMin": 9787,
+        "cssMin": 6989,
+        "gzip": 5716
       }
     },
     "Icon": {
@@ -5043,9 +5043,9 @@
       "variantCount": 3,
       "demoFloor": 6,
       "bundle": {
-        "jsMin": 7363,
-        "cssMin": 4054,
-        "gzip": 4381
+        "jsMin": 7441,
+        "cssMin": 4247,
+        "gzip": 4427
       }
     },
     "Image": {
@@ -5169,9 +5169,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 9585,
-        "cssMin": 8729,
-        "gzip": 6155
+        "jsMin": 9663,
+        "cssMin": 8922,
+        "gzip": 6200
       }
     },
     "InputGroup": {
@@ -5760,9 +5760,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 88590,
-        "cssMin": 1593,
-        "gzip": 31599
+        "jsMin": 88606,
+        "cssMin": 1755,
+        "gzip": 31639
       }
     },
     "Mesh": {
@@ -6486,9 +6486,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 81545,
-        "cssMin": 16858,
-        "gzip": 32411
+        "jsMin": 81703,
+        "cssMin": 17246,
+        "gzip": 32472
       }
     },
     "NumberInput": {
@@ -6607,9 +6607,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 11612,
-        "cssMin": 9460,
-        "gzip": 7028
+        "jsMin": 11690,
+        "cssMin": 9653,
+        "gzip": 7071
       }
     },
     "OTPFlow": {
@@ -6681,9 +6681,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 11697,
-        "cssMin": 8598,
-        "gzip": 6989
+        "jsMin": 11775,
+        "cssMin": 8791,
+        "gzip": 7038
       }
     },
     "Pagination": {
@@ -6840,9 +6840,9 @@
       "variantCount": 2,
       "demoFloor": 5,
       "bundle": {
-        "jsMin": 10356,
-        "cssMin": 9258,
-        "gzip": 6494
+        "jsMin": 10434,
+        "cssMin": 9451,
+        "gzip": 6539
       }
     },
     "PinInput": {
@@ -7607,8 +7607,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 32831,
-        "cssMin": 4626,
-        "gzip": 12554
+        "cssMin": 4673,
+        "gzip": 12561
       }
     },
     "RangeSlider": {
@@ -7928,8 +7928,8 @@
       "demoFloor": 6,
       "bundle": {
         "jsMin": 9214,
-        "cssMin": 3194,
-        "gzip": 5109
+        "cssMin": 3393,
+        "gzip": 5135
       }
     },
     "Scale": {
@@ -8122,9 +8122,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 10740,
-        "cssMin": 9359,
-        "gzip": 6647
+        "jsMin": 10818,
+        "cssMin": 9552,
+        "gzip": 6692
       }
     },
     "SegmentedControl": {
@@ -8381,8 +8381,8 @@
       "demoFloor": 7,
       "bundle": {
         "jsMin": 91988,
-        "cssMin": 5091,
-        "gzip": 33665
+        "cssMin": 5154,
+        "gzip": 33682
       }
     },
     "SequenceDiagram": {
@@ -9287,9 +9287,9 @@
       "variantCount": 4,
       "demoFloor": 7,
       "bundle": {
-        "jsMin": 98025,
-        "cssMin": 9018,
-        "gzip": 36817
+        "jsMin": 98121,
+        "cssMin": 9373,
+        "gzip": 36904
       }
     },
     "Stack": {
@@ -10328,8 +10328,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 98512,
-        "cssMin": 5091,
-        "gzip": 36446
+        "cssMin": 5154,
+        "gzip": 36463
       }
     },
     "Timeline": {
@@ -10615,9 +10615,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 12494,
-        "cssMin": 10681,
-        "gzip": 7498
+        "jsMin": 12572,
+        "cssMin": 10874,
+        "gzip": 7548
       }
     },
     "TreeView": {
@@ -10699,8 +10699,8 @@
       "demoFloor": 3,
       "bundle": {
         "jsMin": 2623,
-        "cssMin": 1729,
-        "gzip": 1977
+        "cssMin": 1978,
+        "gzip": 2016
       }
     },
     "VirtualList": {
@@ -10902,9 +10902,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 10481,
-        "cssMin": 9500,
-        "gzip": 6485
+        "jsMin": 10559,
+        "cssMin": 9693,
+        "gzip": 6536
       }
     }
   }

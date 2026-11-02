@@ -109,7 +109,7 @@ export function CodeBlock({ code, label = 'Code', lines = 14 }: { code: string; 
 export function BackdropPicker({ className = '' }: { className?: string }) {
   const scene = useScene(); const set = useSetScene();
   return (
-    <div className={`bd-picker ${className}`} role="radiogroup" aria-label="Demo backdrop" data-scene-control="">
+    <div className={`bd-picker ${className}`} role="radiogroup" aria-label="Demo backdrop" data-scene-control="" data-component="BackdropPicker">
       {SCENES.map((s) => (
         <button key={s.id} type="button" role="radio" aria-checked={s.id === scene} aria-label={s.label} title={s.label}
           className={`bd-swatch bd-${s.id}`} data-value={s.id} onClick={() => set(s.id)} />

@@ -19,6 +19,7 @@
     "conformance": "node tooling/conformance.mjs",
     "typecheck": "pnpm --filter pane-react typecheck && pnpm --filter pane-docs exec tsc --noEmit -p .",
     "verify": "node tooling/kiln/verify.mjs",
+    "verify:topup": "node tooling/kiln/verify.mjs --topup",
     "react:build": "pnpm --filter pane-react build",
     "release:pack": "node tooling/release-pack.mjs",
     "tone": "node tooling/tone-gate.mjs",

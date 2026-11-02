@@ -21,10 +21,10 @@ If there is no package.json, offer to start one, and do nothing until the person
 
 ## 2. Install
 
-Pane is installed from the tarball its site hosts, so the line works before the package is on a registry:
+Install it with your package manager:
 
 ```sh
-<package manager> add https://pane-design-system.pages.dev/downloads/pane-react-0.8.1.tgz
+<package manager> add pane-react
 ```
 
 Then import the stylesheet once, in the app's entry file (main.tsx, _app.tsx, layout.tsx or the like), before the app's own CSS:
