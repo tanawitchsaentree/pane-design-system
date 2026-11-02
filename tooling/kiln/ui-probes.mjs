@@ -61,6 +61,32 @@ export function focusClipProbe() {
   return out;
 }
 
+/** Every open popup (listbox, menu, dialog, tooltip, an open [popover]) is whole: no clipping ancestor
+ *  (overflow hidden, clip, auto or scroll) and no viewport edge cuts it. dial K-13: a Select panel inside a
+ *  demo frame with overflow hidden lost its last options, and every gate passed it. */
+export function popupClipProbe({ popups = '[role=listbox], [role=menu], [role=dialog], [role=alertdialog], [role=tooltip], [popover]:popover-open', min = 1 } = {}) {
+  const out = [];
+  const vw = document.documentElement.clientWidth, vh = document.documentElement.clientHeight;
+  for (const el of document.querySelectorAll(popups)) {
+    const r = el.getBoundingClientRect(), cs = getComputedStyle(el);
+    if (r.width < 2 || r.height < 2 || cs.visibility === 'hidden' || Number(cs.opacity) === 0) continue;
+    const name = `${el.closest('[data-component]')?.dataset.component ?? el.getAttribute('role') ?? 'popover'} ${el.getAttribute('role') ?? 'popover'}`;
+    let parentCut = false;
+    for (let p = el.parentElement; p && p !== document.body && p !== document.documentElement; p = p.parentElement) {
+      const pc = getComputedStyle(p);
+      if (pc.overflowX === 'visible' && pc.overflowY === 'visible' && pc.clipPath === 'none' && !/paint|strict|content/.test(pc.contain)) continue;
+      const q = p.getBoundingClientRect();
+      const cut = Math.max(q.left - r.left, q.top - r.top, r.right - q.right, r.bottom - q.bottom);
+      if (cut > min) { parentCut = true; out.push(`${name}: ${Math.round(cut)}px of it is cut by a clipping parent (${p.tagName.toLowerCase()}${p.className && typeof p.className === 'string' ? '.' + p.className.split(/\s+/)[0] : ''}, overflow ${pc.overflowX}/${pc.overflowY}); portal it or let the frame show it`); break; }
+    }
+    // the cause that names a parent comes first; then the screen edge (a dialog or sheet taller than the screen
+    // scrolls inside itself, so only menus, lists and tips must fit)
+    const vcut = Math.max(-r.left, -r.top, r.right - vw, r.bottom - vh);
+    if (!parentCut && vcut > min && !/dialog/.test(el.getAttribute('role') ?? '')) out.push(`${name}: ${Math.round(vcut)}px of it is off the screen`);
+  }
+  return out;
+}
+
 /** The open menu of a split button starts at the button's start edge (or ends at its end edge). */
 export function splitAlignProbe({ root, menu }) {
   const a = document.querySelector(root), m = document.querySelector(menu);

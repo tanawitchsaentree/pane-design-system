@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-// Gate proof for G-CP1, G-BJ1, G-FR1, G-SP1, G-SC1 and G-PG1: each violation planted on a small page must read
+// Gate proof for G-CP1, G-BJ1, G-FR1, G-SP1, G-SC1, G-PG1 and G-PC1: each violation planted on a small page must read
 // red and its repair green. Usage: node tooling/engine/ui-probes.proof.mjs   (exit 1 when any case is wrong)
 import { chromium } from 'playwright';
-import { duplicateOptionsProbe, barJobsProbe, focusClipProbe, splitAlignProbe, showcaseProbe, playgroundProbe } from './ui-probes.mjs';
+import { duplicateOptionsProbe, barJobsProbe, focusClipProbe, splitAlignProbe, showcaseProbe, playgroundProbe, popupClipProbe } from './ui-probes.mjs';
 
 const opts = (labels) => `<div role="listbox">${labels.map((l) => `<div role="option">${l}</div>`).join('')}</div>`;
 const pill = 'background:#3a3a3e;border:1px solid #555;border-radius:999px;color:#fff;padding:6px 12px';
@@ -21,6 +21,12 @@ const cases = [
   { gate: 'G-SC1', want: 'green', html: scen(4, 4), probe: showcaseProbe, arg: { scenario: '[data-scenario]' } },
   { gate: 'G-PG1', want: 'red', html: '<div style="--ds-x-size:32px"><div role="slider" aria-valuenow="20" data-playground-token="--ds-x-size"></div></div>', probe: playgroundProbe, pick: (r) => r.problems },
   { gate: 'G-PG1', want: 'green', html: '<div style="--ds-x-size:32px"><div role="slider" aria-valuenow="32" data-playground-token="--ds-x-size"></div></div>', probe: playgroundProbe, pick: (r) => r.problems },
+  // G-PC1: dial's Select panel cut by its demo frame; portalled, or in a frame that shows it, it is whole
+  { gate: 'G-PC1 cut by its frame', want: 'red', html: '<div style="overflow:hidden;height:120px;position:relative"><button>Theme</button><div role=\"listbox\" style=\"position:absolute;top:36px;left:0;width:160px;height:180px;background:#222;color:#fff\"><div role=\"option\">One</div></div></div>', probe: popupClipProbe },
+  { gate: 'G-PC1 frame shows it', want: 'green', html: '<div style="overflow:visible;height:120px;position:relative"><button>Theme</button><div role=\"listbox\" style=\"position:absolute;top:36px;left:0;width:160px;height:180px;background:#222;color:#fff\"><div role=\"option\">One</div></div></div>', probe: popupClipProbe },
+  { gate: 'G-PC1 portalled', want: 'green', html: '<div style="overflow:hidden;height:120px"><button>Theme</button></div><div role="listbox" style="position:fixed;top:60px;left:16px;width:160px;height:180px;background:#222"></div>', probe: popupClipProbe },
+  { gate: 'G-PC1 off the screen', want: 'red', html: '<div role="menu" style="position:fixed;top:300px;left:16px;width:160px;height:180px;background:#222"></div>', probe: popupClipProbe },
+  { gate: 'G-PC1 a tall dialog scrolls', want: 'green', html: '<div role="dialog" style="position:fixed;top:0;left:16px;width:300px;height:900px;background:#222"></div>', probe: popupClipProbe },
 ];
 
 const browser = await chromium.launch();
