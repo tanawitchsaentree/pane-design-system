@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-02T03:13:06.581Z",
-  "version": "0.8.1",
+  "generatedAt": "2026-11-02T04:12:48.240Z",
+  "version": "0.8.2",
   "components": {
     "Accordion": {
       "source": "packages/react/src/components/Accordion/Accordion.tsx",
@@ -2912,9 +2912,9 @@
       "variantCount": 0,
       "demoFloor": 3,
       "bundle": {
-        "jsMin": 89494,
-        "cssMin": 1593,
-        "gzip": 31955
+        "jsMin": 89510,
+        "cssMin": 1755,
+        "gzip": 32000
       }
     },
     "DataGrid": {
@@ -3215,8 +3215,8 @@
       "demoFloor": 7,
       "bundle": {
         "jsMin": 82769,
-        "cssMin": 15837,
-        "gzip": 33311
+        "cssMin": 15900,
+        "gzip": 33317
       }
     },
     "DescriptionList": {
@@ -5760,9 +5760,9 @@
       "variantCount": 1,
       "demoFloor": 4,
       "bundle": {
-        "jsMin": 88590,
-        "cssMin": 1593,
-        "gzip": 31599
+        "jsMin": 88606,
+        "cssMin": 1755,
+        "gzip": 31639
       }
     },
     "Mesh": {
@@ -8381,8 +8381,8 @@
       "demoFloor": 7,
       "bundle": {
         "jsMin": 91988,
-        "cssMin": 5091,
-        "gzip": 33665
+        "cssMin": 5154,
+        "gzip": 33682
       }
     },
     "SequenceDiagram": {
@@ -9287,9 +9287,9 @@
       "variantCount": 4,
       "demoFloor": 7,
       "bundle": {
-        "jsMin": 98105,
-        "cssMin": 9211,
-        "gzip": 36861
+        "jsMin": 98121,
+        "cssMin": 9373,
+        "gzip": 36904
       }
     },
     "Stack": {
@@ -10328,8 +10328,8 @@
       "demoFloor": 5,
       "bundle": {
         "jsMin": 98512,
-        "cssMin": 5091,
-        "gzip": 36446
+        "cssMin": 5154,
+        "gzip": 36463
       }
     },
     "Timeline": {

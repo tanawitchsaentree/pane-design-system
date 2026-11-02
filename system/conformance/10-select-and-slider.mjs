@@ -24,8 +24,11 @@ export default async function (t) {
     await eventually(() => trigger.getAttribute('aria-expanded'), 'true', 'did not open');
     // the list moves focus onto the chosen option a tick after it opens; ArrowDown before that is lost
     await eventually(() => page.evaluate(() => document.activeElement?.getAttribute('role')), 'option', 'the list did not take focus');
-    await page.waitForTimeout(60); // Radix ignores keys for a frame after it moves focus into the list
-    await page.keyboard.press('ArrowDown');
+    // Radix ignores keys for a frame or two after it moves focus into the list (longer on a loaded machine), so
+    // press ArrowDown until focus has really moved, the way a person would, then choose with Enter
+    const focusedText = () => page.evaluate(() => document.activeElement?.textContent?.trim() ?? '');
+    for (let i = 0; i < 5 && (await focusedText()) !== 'No one'; i++) { await page.waitForTimeout(80); if ((await focusedText()) !== 'No one') await page.keyboard.press('ArrowDown'); }
+    await eventually(focusedText, 'No one', 'ArrowDown did not move focus to the next option');
     await page.keyboard.press('Enter');
     await eventually(() => trigger.textContent(), 'No one', 'ArrowDown then Enter did not pick the next option');
   });

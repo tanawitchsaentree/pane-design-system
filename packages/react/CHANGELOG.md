@@ -2,6 +2,12 @@
 
 Every entry names the component it touches, so each component page in the book can show its own history. The conformance run fails if a component has no entry.
 
+## 0.8.2 (2026-11-02)
+
+- Button and IconButton toggles, Calendar days, TreeView and DataGrid rows, RichTextEditor tools and Checkbox marks change state smoothly (R-048). A toggle's on-glass is its own layer that fades in, fills move as two registered colours, and the check stays mounted and scales in. RadioCards keeps one shadow layer order, so its shadow moves instead of swapping.
+- Menu leaves with an exit, 220ms and accelerating, instead of vanishing (G-MO4), from the new `motion.exit` and `motion.easing-exit` tokens. Under reduced motion it still fades.
+- Select's trigger and chevron open on the press rhythm, since the list opens on the press.
+
 ## 0.8.1 (2026-11-01)
 
 - SegmentedControl, Switch, RadioCards and ButtonGroup fade into their chosen state (R-048). Each fill is now two registered colours (`--pane-fill-top`, `--pane-fill-foot`), so the browser can move between rest, hover and chosen. Before, a gradient swapped in one frame. The change settles on the press's 300ms way back up. Tabs keeps its sliding indicator.
