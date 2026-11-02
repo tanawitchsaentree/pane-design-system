@@ -10,7 +10,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 // static markup with each element on its own line, so it reads as HTML a person would write
 const htmlOf = (node: ReactNode) => { try { return renderToStaticMarkup(<>{node}</>).replace(/></g, '>\n<'); } catch { return '<!-- this one needs its behaviour from React -->'; } };
 import meta from './meta.json';
-import { inline, WhyText, type Why, Code, CodeBlock, ConformanceList, DoDont, EvidenceTable, Example, Link, Page, Section, Stage, TokensUsed, useVerify, CSS_MODULES, cssModuleKey } from './kit';
+import { inline, WhyText, type Why, Code, CodeBlock, ConformanceList, DoDont, EvidenceTable, Example, Link, Page, Section, MaterialStage, type DemoMaterial, TokensUsed, useVerify, CSS_MODULES, cssModuleKey } from './kit';
 import type { ComponentChapter } from './components-data';
 import { DEPTH } from '../depth';
 import { UsageTab } from '../depth/UsageTab';
@@ -122,10 +122,14 @@ function LiveDemo({ c, m }: { c: ComponentChapter; m: Meta }) {
   const dims: Array<[string, string[]]> = [...Object.entries(m.kinds), ...(m.sizes.length ? [['size', m.sizes] as [string, string[]]] : [])];
   const [theme, setTheme] = useState<'dark' | 'light'>(() => (document.documentElement.dataset.theme as 'dark' | 'light') ?? 'dark');
   const [picked, setPicked] = useState<Record<string, string>>(() => Object.fromEntries(dims.map(([k, o]) => [k, (m.exports[0].props.find((p) => p.name === k)?.default as string | null) ?? o[0]])));
+  const [material, setMaterial] = useState<DemoMaterial>(() => (document.querySelector('.page[data-material]')?.getAttribute('data-material') as DemoMaterial | null) ?? 'glass');
   const variantDim = dims[0];
+  const show = () => !subject ? <c.hero.Render /> : subject.bare ? subject.render(picked) : <OnPane>{subject.render(picked)}</OnPane>;
+  // the code names the material only when it is not the default, the way an app would write it
+  const code = subject && (material === 'glass' ? subject.code(picked) : `<Environment material="${material}">\n  ${subject.code(picked).replace(/\n/g, '\n  ')}\n</Environment>`);
   return (
     <div className="live-demo" data-live-demo="" data-registry="U1">
-      <p className="flush muted small">Live demo. Pick a theme and {variantDim ? `a ${variantDim[0]}` : 'a variant'}{dims.length > 1 ? ` or ${dims.slice(1).map(([k]) => k).join(' and ')}` : ''} and the component and its code below update together.</p>
+      <p className="flush muted small">Live demo, on glass, liquid and solid at once over one scene. Pick a material to see its code, a theme and {variantDim ? `a ${variantDim[0]}` : 'a variant'}{dims.length > 1 ? ` or ${dims.slice(1).map(([k]) => k).join(' and ')}` : ''} and the component and its code below update together.</p>
       <div className="live-demo-controls">
         <div data-selector="theme"><SegmentedControl label="Theme" showLabel size="sm" value={theme} onValueChange={(v) => smooth(() => setTheme(v as 'dark' | 'light'))} options={[{ value: 'dark', label: 'Dark' }, { value: 'light', label: 'Light' }]} /></div>
         <div data-selector="variant">{variantDim
@@ -135,8 +139,8 @@ function LiveDemo({ c, m }: { c: ComponentChapter; m: Meta }) {
       </div>
       {/* the stage and its code are one unit, held tighter than the steps above them */}
       <div className="live-demo-result">
-      <div data-theme={theme} className="live-demo-stage"><Stage picker>{!subject ? <c.hero.Render /> : subject.bare ? subject.render(picked) : <OnPane>{subject.render(picked)}</OnPane>}</Stage></div>
-      {subject && <CodeBlock code={subject.code(picked)} label="TSX" />}
+      <div data-theme={theme} className="live-demo-stage"><MaterialStage render={show} chosen={material} onChoose={setMaterial} /></div>
+      {code && <CodeBlock code={code} label="TSX" />}
       {/* D-042: the same render as plain HTML with Pane's stable class names, for Vue, Svelte, Angular or a page
           with no framework; load pane-react/all.css. Behaviour (keys, open and close) is React's and is not in it. */}
       {subject && <CodeBlock code={htmlOf(subject.render(picked))} label="HTML" lines={10} />}

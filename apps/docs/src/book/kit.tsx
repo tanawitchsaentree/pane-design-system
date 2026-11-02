@@ -137,6 +137,31 @@ export function Stage({ children, plain, className = '', backdrop, picker }: { c
   );
 }
 
+export type DemoMaterial = 'glass' | 'liquid' | 'solid';
+const MATERIAL_NOTE: Record<DemoMaterial, string> = { glass: 'Blurs and dims the scene', liquid: 'Bends the scene at the rim', solid: 'Opaque, no backdrop work' };
+/** One scene, the same render on each material side by side (the demo stage, picked B on 2026-11-02): the
+ *  difference between the materials is the lesson. Columns wrap to rows when the stage is too narrow (docs.css). */
+export function MaterialStage({ render, chosen, onChoose }: { render: (m: DemoMaterial) => ReactNode; chosen: DemoMaterial; onChoose: (m: DemoMaterial) => void }) {
+  const chosenScene = useScene();
+  const scene = chosenScene === 'studio' || chosenScene === 'field' ? 'room' : chosenScene;
+  return (
+    <div className="example-live material-stage" data-example-live="" data-surface="" style={{ backgroundImage: `url(/scenes/${scene}.webp)` }}>
+      <div className="material-grid-live" role="group" aria-label="The same component on each material">
+        {(['glass', 'liquid', 'solid'] as const).map((m) => (
+          <Environment key={m} material={m} brightness={sceneById(scene).brightness} className="material-cell">
+            <div className="material-cell-body">{render(m)}</div>
+            <div className="material-cell-caption">
+              <button type="button" className="material-cell-pick" aria-pressed={m === chosen} onClick={() => onChoose(m)}>{m[0].toUpperCase() + m.slice(1)}</button>
+              <p className="material-cell-note flush">{MATERIAL_NOTE[m]}</p>
+            </div>
+          </Environment>
+        ))}
+      </div>
+      <BackdropPicker className="stage-backdrop" />
+    </div>
+  );
+}
+
 /** Live example + the exact source file that renders it (imported with ?raw), code visible by default. */
 // the line "Edit in chat" copies: the example and the rules an agent needs to change it without breaking it
 const chatPrompt = (title: string, body: string) => `Using Pane (pane-react), change this example from the Pane book ("${title}", ${location.href}) for my project. Keep Pane's components and tokens, never hard-code a colour, size or duration, and keep text inside the glass at 4.5:1. Ask me what to change if I have not said.

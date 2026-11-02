@@ -37,6 +37,8 @@ main a.tab-link:hover { color: var(--ds-text-primary); }
 .spec-subjects { display: flex; flex-direction: column; gap: var(--ds-gap-2xl); margin-block: var(--ds-gap-3xl); }
 .spec-row { gap: var(--ds-gap-xl); }
 .spec-cell { display: inline-flex; }
+/* a phone frame in a shrink-to-fit cell has no width to take 100% of, so it takes its own (FAB) */
+.spec-cell .demo-phone { inline-size: calc(var(--ds-space-32) * 2.25); }
 .redlines { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: var(--ds-gap-2xl); margin-block: var(--ds-gap-3xl); }
 .redline { margin: 0; display: flex; flex-direction: column; gap: var(--ds-gap-md); }
 .redline-host { position: relative; display: inline-flex; padding-block: var(--ds-gap-2xl); padding-inline: var(--ds-gap-2xl) var(--ds-gap-section); }

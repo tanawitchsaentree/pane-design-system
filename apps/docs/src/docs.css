@@ -922,3 +922,21 @@ main a, .on-page a, .rail a { color: var(--ds-text-primary); }
 .res-list .muted { font-size: var(--ds-type-caption); }
 .tab-link { display: inline-flex; align-items: center; gap: var(--ds-gap-sm); }
 .tab-link svg { inline-size: var(--ds-control-icon-md); block-size: var(--ds-control-icon-md); flex: none; }
+
+/* The demo stage (B, 2026-11-02): one scene edge to edge, the same render on glass, liquid and solid side by
+   side. No slab around the stage: a small corner, no rim, and each pane hugs its content so the scene shows
+   between them. Three columns or one, never two and one; a wide render (.demo-wide) takes a row each. The
+   caption sits on its own small pane so it reads over any photo. */
+.material-stage { display: block; padding: 0; border-radius: var(--ds-corner-mark); overflow: hidden; container-type: inline-size; }
+.material-grid-live { display: grid; grid-template-columns: minmax(0, 1fr); }
+@container (min-inline-size: 30rem) { .material-grid-live:not(:has(.demo-wide)) { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.material-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--ds-gap-lg); min-block-size: calc(var(--ds-space-32) * 2.5); padding: var(--ds-gap-2xl) var(--ds-gap-md) var(--ds-gap-section); }
+.material-cell + .material-cell { border-block-start: var(--ds-width-hairline) dashed var(--ds-line-divider); }
+@container (min-inline-size: 30rem) { .material-grid-live:not(:has(.demo-wide)) .material-cell + .material-cell { border-block-start: 0; border-inline-start: var(--ds-width-hairline) dashed var(--ds-line-divider); } }
+.material-cell-body { display: flex; justify-content: center; max-inline-size: 100%; overflow-x: auto; }
+.material-cell-body > .demo-card { min-inline-size: 0; min-block-size: 0; inline-size: fit-content; max-inline-size: 100%; }
+.material-cell-caption { display: flex; flex-direction: column; align-items: center; gap: var(--ds-space-0-5); padding: var(--ds-space-1-5) var(--ds-space-3); border-radius: var(--ds-corner-mark); background: var(--ds-surface-glass); -webkit-backdrop-filter: blur(var(--ds-glass-blur)) brightness(var(--ds-glass-brightness)); backdrop-filter: blur(var(--ds-glass-blur)) brightness(var(--ds-glass-brightness)); text-align: center; }
+.material-cell-pick { padding: 0; border: 0; background: none; color: var(--ds-text-primary); font: inherit; font-size: var(--ds-type-label); font-weight: var(--ds-type-weight-semibold); letter-spacing: var(--ds-type-tracking-caps); text-transform: uppercase; cursor: pointer; }
+.material-cell-pick[aria-pressed='true'] { text-decoration: underline; text-underline-offset: var(--ds-space-1); text-decoration-thickness: var(--ds-width-ring); }
+.material-cell-note { color: var(--ds-text-secondary); font-size: var(--ds-type-caption); }
+.material-stage .stage-backdrop { position: absolute; inset-block-end: var(--ds-gap-md); inset-inline-start: var(--ds-gap-lg); }
