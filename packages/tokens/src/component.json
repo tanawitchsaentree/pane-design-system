@@ -3025,7 +3025,7 @@
       }
     },
     "on-top": {
-      "$value": "{surface.chosen-top}",
+      "$value": "{surface.lit-chosen-top}",
       "$type": "color",
       "$extensions": {
         "kiln.why": {
@@ -3037,7 +3037,7 @@
       }
     },
     "on-foot": {
-      "$value": "{surface.chosen-foot}",
+      "$value": "{surface.lit-chosen-foot}",
       "$type": "color",
       "$extensions": {
         "kiln.why": {
@@ -3049,7 +3049,7 @@
       }
     },
     "on-edge": {
-      "$value": "{elevation.chosen-cast}",
+      "$value": "{elevation.chosen-ring}",
       "$type": "shadow",
       "$extensions": {
         "kiln.why": {

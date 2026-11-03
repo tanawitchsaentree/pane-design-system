@@ -932,6 +932,20 @@
           "why": "a pane that is itself a control, such as a radio card, carries the groove ring as its 3:1 edge, where a level-2 pane alone reads under 1.5:1 in either theme"
         }
       }
+    },
+    "chosen-ring": {
+      "$value": "{shadow.chosen-ring}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{shadow.chosen-ring-light}"
+        },
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "on flat glass a chosen card is told apart by a ring in the text colour, since the fills are a step apart at most"
+        }
+      }
     }
   },
   "width": {
@@ -3627,7 +3641,7 @@
       }
     },
     "facet": {
-      "$value": "{color.white-a.25}",
+      "$value": "{color.white-a.45}",
       "$type": "color",
       "$extensions": {
         "pane.theme": {
