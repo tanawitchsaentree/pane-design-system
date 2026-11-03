@@ -1,4 +1,5 @@
 import { forwardRef, useState, type KeyboardEvent } from 'react';
+import { cx } from '../../cx';
 import { Input, type InputProps } from '../Input';
 import { InputGroup } from '../InputGroup';
 import { IconButton } from '../IconButton';
@@ -56,7 +57,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(functi
   const field = useField();
   const off = disabled ?? field?.disabled ?? false;
   return (
-    <InputGroup data-component="NumberInput" className={className}
+    <InputGroup data-component="NumberInput" className={cx(styles.root, className)}
       start={<IconButton variant="ghost" aria-label={t.decrease(lower)} tabIndex={-1} disabled={off || atMin} onClick={() => by(-1)}><svg viewBox="0 0 24 24" aria-hidden="true" className={styles.glyph}><path d="M6 12h12" /></svg></IconButton>}
       end={<span className={styles.end}>{unit && <span className={styles.unit} aria-hidden="true">{unit}</span>}<IconButton variant="ghost" aria-label={t.increase(lower)} tabIndex={-1} disabled={off || atMax} onClick={() => by(1)}><svg viewBox="0 0 24 24" aria-hidden="true" className={styles.glyph}><path d="M6 12h12M12 6v12" /></svg></IconButton></span>}>
       <Input ref={ref} type="text" inputMode={step % 1 === 0 && (min ?? 0) >= 0 ? 'numeric' : 'decimal'} role="spinbutton" disabled={off} aria-label={rest['aria-label'] ?? (field ? undefined : label)}

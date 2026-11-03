@@ -2,6 +2,12 @@
 
 Every entry names the component it touches, so each component page in the book can show its own history. The conformance run fails if a component has no entry.
 
+## 0.8.5 (2026-11-04)
+
+- RadioCards: the chosen card carries a full ring in the text colour and a lighter fill, so on flat glass it reads apart from the rest at a glance.
+- NumberInput: the group hugs minus, the number and plus, so the two buttons sit either side of the value instead of at the far ends of a wide bar.
+- Badge: a crystal in dark has a fuller tinted body and a brighter facet along its top edge, so it reads as a piece of glass on the pane.
+
 ## 0.8.4 (2026-11-03)
 
 - Button: flat. The loud button is a flat fill and the quiet one a flat tint, with no gloss, top streak, glint or cast shadow, so a white button no longer swells off the glass.

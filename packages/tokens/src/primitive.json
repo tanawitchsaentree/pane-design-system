@@ -845,13 +845,13 @@
         }
       },
       "neutral-top-dark": {
-        "$value": "#D0D0D53D"
+        "$value": "#D0D0D557"
       },
       "neutral-top-light": {
         "$value": "#B7B7BBB2"
       },
       "neutral-foot-dark": {
-        "$value": "#98989C24"
+        "$value": "#98989C3D"
       },
       "neutral-foot-light": {
         "$value": "#B7B7BB61"
@@ -875,13 +875,13 @@
         "$value": "#5D5D6124"
       },
       "info-top-dark": {
-        "$value": "#C1DDFF3D"
+        "$value": "#C1DDFF57"
       },
       "info-top-light": {
         "$value": "#C1DDFFB2"
       },
       "info-foot-dark": {
-        "$value": "#4DA3FF24"
+        "$value": "#4DA3FF3D"
       },
       "info-foot-light": {
         "$value": "#C1DDFF61"
@@ -905,13 +905,13 @@
         "$value": "#0071E324"
       },
       "positive-top-dark": {
-        "$value": "#C7E3CC3D"
+        "$value": "#C7E3CC57"
       },
       "positive-top-light": {
         "$value": "#C7E3CCB2"
       },
       "positive-foot-dark": {
-        "$value": "#3FCB7724"
+        "$value": "#3FCB773D"
       },
       "positive-foot-light": {
         "$value": "#C7E3CC61"
@@ -935,13 +935,13 @@
         "$value": "#13803C24"
       },
       "warning-top-dark": {
-        "$value": "#EDD8B53D"
+        "$value": "#EDD8B557"
       },
       "warning-top-light": {
         "$value": "#EDD8B5B2"
       },
       "warning-foot-dark": {
-        "$value": "#F5B00024"
+        "$value": "#F5B0003D"
       },
       "warning-foot-light": {
         "$value": "#EDD8B561"
@@ -965,13 +965,13 @@
         "$value": "#BF860024"
       },
       "critical-top-dark": {
-        "$value": "#FFCDC43D"
+        "$value": "#FFCDC457"
       },
       "critical-top-light": {
         "$value": "#FFCDC4B2"
       },
       "critical-foot-dark": {
-        "$value": "#FF6B5E24"
+        "$value": "#FF6B5E3D"
       },
       "critical-foot-light": {
         "$value": "#FFCDC461"
@@ -995,13 +995,13 @@
         "$value": "#C42B1C24"
       },
       "accent-top-dark": {
-        "$value": "#DDD6FE3D"
+        "$value": "#DDD6FE57"
       },
       "accent-top-light": {
         "$value": "#DDD6FEB2"
       },
       "accent-foot-dark": {
-        "$value": "#A78BFA24"
+        "$value": "#A78BFA3D"
       },
       "accent-foot-light": {
         "$value": "#DDD6FE61"
@@ -1735,6 +1735,13 @@
     },
     "step-light": {
       "$value": "inset 0 0 0 1px #11121414, inset 0 1px 0 #FFFFFF"
+    },
+    "chosen-ring": {
+      "$value": "inset 0 0 0 2px #FFFFFFE6",
+      "$description": "the chosen one of a set: a full ring in the text colour, not a shade of fill"
+    },
+    "chosen-ring-light": {
+      "$value": "inset 0 0 0 2px #111214E6"
     }
   },
   "duration": {
