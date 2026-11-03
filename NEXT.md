@@ -1,5 +1,15 @@
 # NEXT — handoff 2026-11-02 (context cleared by the user; read this first)
 
+## State 2026-11-03 (0.8.4 live)
+- **0.8.4 flat glass is deployed** (user: white buttons on glass looked swollen and clashing). I picked variant 1 "Flat" from the anchor round (`~/.claude/jobs/61286bac/tmp/anchor/btn-all.png`) after the user said to decide. All the changes are at the token level:
+  - These go transparent: the shadows cast, bead, lift, quiet-cast, chosen-cast, loud-glow, bloom, level-1 and level-2, plus gloss, glint, streak and sheen.
+  - carve, groove, etch, well, track and edge become single hairlines.
+  - Every lit top/foot pair is one flat value.
+  - Card and button rims are even.
+  - Overlays (levels 3 and 4) keep their shadow.
+  - Targeted evidence on 8 routes: 130692/130692. npm is still 0.8.1.
+- Expect gates that measured the dome (G-GL1 glow, anchor likeness, G-NT2 edges) to move; check them targeted, not with a full run.
+
 ## State 2026-11-02 afternoon (0.8.3 live)
 - **0.8.3 is deployed and on GitHub main** (ce49549). It has the demo stage B (glass, liquid and solid at once, the user's pick), nesting materials (a solid donut @scope, liquid that stops at a nested Environment, an unset material that inherits), an Overview without the card grid, the FAB spec frame fix, the New tag by release, and a default backdrop of Room. **npm still has 0.8.1**; the user publishes `release/pane-react-0.8.3.tgz`.
 - **Never gate a release on a full verify again** (the user was angry 2026-11-02, memory no-long-verify-runs). Ship on targeted `KILN_ROUTES` evidence + build. A full run, if any, goes in the background after the deploy.
