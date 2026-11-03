@@ -147,7 +147,12 @@ thead th { font-weight: var(--ds-type-weight-semibold); }
 .book-section { scroll-margin-block-start: var(--ds-gap-section); }
 .prose { gap: var(--ds-gap-lg); max-inline-size: 100%; }
 /* every reading line is capped, wherever it sits (ledes, callouts, notes, list items) */
-main p, main li { max-inline-size: var(--ds-type-measure); }
+/* one reading column (2026-11-03): text runs to about 75 characters, and the code and callouts that sit
+   between its paragraphs stop at the same edge, so a page has one width, not a half-width text beside
+   full-width boxes. Stages and wide sections keep the full column. */
+main { --docs-measure: calc(var(--ds-type-measure) * 1.05); }
+main p, main li { max-inline-size: var(--docs-measure); }
+.book-section:not(.wide) .prose > :is([data-codeblock], .callout, .table-wrap) { max-inline-size: var(--docs-measure); }
 main td p, main [data-example-live] p { max-inline-size: none; }
 /* reading text: 16px / 1.6 (type.reading), the size Carbon, Material and Apple use for long-form docs */
 .prose :is(p, li):not(:is([data-component], [data-example-live]) *), .page-head .lede p:not(:is([data-component], [data-example-live]) *) { font-size: var(--ds-type-reading); line-height: var(--ds-type-leading-reading); }
