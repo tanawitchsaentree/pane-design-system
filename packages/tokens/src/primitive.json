@@ -5,6 +5,9 @@
       "$value": "#FFFFFF"
     },
     "white-a": {
+      "00": {
+        "$value": "#FFFFFF00"
+      },
       "10": {
         "$value": "#FFFFFF1A"
       },
@@ -1539,7 +1542,7 @@
       "$value": "0 30px 60px -20px #00000059"
     },
     "lift": {
-      "$value": "0 8px 20px -8px #00000066"
+      "$value": "0 0 0 0 #00000000"
     },
     "halo": {
       "$value": "0 0 14px #00000073, 0 1px 2px #00000059",
@@ -1558,56 +1561,56 @@
       }
     },
     "well": {
-      "$value": "inset 0 0 0 1px #FFFFFF0D, inset 0 2px 6px #000000B3",
+      "$value": "inset 0 0 0 1px #FFFFFF14",
       "$description": "a recessed track holding its choices"
     },
     "well-light": {
-      "$value": "inset 0 0 0 1px #11121414, inset 0 2px 6px #11121426"
+      "$value": "inset 0 0 0 1px #11121414"
     },
     "cast": {
-      "$value": "0 1px 2px #00000040, 0 10px 22px -10px #00000080",
+      "$value": "0 0 0 0 #00000000",
       "$description": "a solid control resting on a pane: a tight contact shadow and a soft one below"
     },
     "cast-light": {
-      "$value": "0 1px 2px #0000004D, 0 10px 22px -10px #00000073"
+      "$value": "0 0 0 0 #00000000"
     },
     "cast-press": {
-      "$value": "0 1px 2px #00000040, 0 4px 10px -6px #00000066",
+      "$value": "0 0 0 0 #00000000",
       "$description": "pushed back toward the pane, the soft shadow tightens"
     },
     "cast-accent": {
-      "$value": "0 1px 2px #001E5066, 0 12px 26px -8px #0071E3CC",
+      "$value": "0 0 0 0 #00000000",
       "$description": "the accent sheet lets blue light fall on the pane under it"
     },
     "cast-accent-hover": {
-      "$value": "0 2px 4px #001E504D, 0 16px 30px -10px #0071E3D9"
+      "$value": "0 0 0 0 #00000000"
     },
     "cast-accent-press": {
-      "$value": "0 1px 2px #001E5059, 0 4px 10px -6px #0071E399"
+      "$value": "0 0 0 0 #00000000"
     },
     "bead": {
-      "$value": "0 1px 2px #00000066, 0 6px 12px -4px #00000080",
+      "$value": "0 0 0 1px #11121433",
       "$description": "a switch knob is a bead sitting in its recess"
     },
     "carve": {
-      "$value": "inset 0 2px 4px #0000008C, inset 0 -2px 0 #FFFFFF8C, inset 0 0 0 1px #FFFFFF85",
+      "$value": "inset 0 0 0 1px #FFFFFF33",
       "$description": "a recess cut into glass: shade under the top lip, light on the bottom lip, a faint edge"
     },
     "carve-light": {
-      "$value": "inset 0 2px 3px #11121452, inset 0 -1px 0 #FFFFFFF2, inset 0 0 0 1px #1112149E"
+      "$value": "inset 0 0 0 1px #11121433"
     },
     "carve-on": {
-      "$value": "inset 0 2px 4px #00143C8C, inset 0 -1px 0 #AAD2FF80"
+      "$value": "inset 0 0 0 1px #AAD2FF40"
     },
     "carve-on-light": {
-      "$value": "inset 0 2px 3px #00143C73, inset 0 0 0 1px #003C8C80"
+      "$value": "inset 0 0 0 1px #003C8C40"
     },
     "groove": {
-      "$value": "inset 0 2px 4px #0000008C, inset 0 -1px 0 #FFFFFF33, inset 0 0 0 1px #FFFFFF8F",
+      "$value": "inset 0 0 0 1px #FFFFFF33",
       "$description": "a field is a groove in the glass: shade under its top lip, a faint light on its bottom lip, and an edge all round that carries the 3:1 boundary"
     },
     "groove-light": {
-      "$value": "inset 0 2px 4px #1112144D, inset 0 -1px 0 #FFFFFF99, inset 0 0 0 1px #1112148F"
+      "$value": "inset 0 0 0 1px #11121433"
     },
     "lens": {
       "$value": "inset 0 1px 0 #FFFFFF29, inset 0 0 0 1px #FFFFFF0D",
@@ -1617,64 +1620,64 @@
       "$value": "inset 0 0 0 1px #1112140D"
     },
     "etch": {
-      "$value": "inset 0 1px 2px #00000073, inset 0 -1px 0 #FFFFFF47",
+      "$value": "inset 0 0 0 1px #FFFFFF1F",
       "$description": "a label etched into glass: shade under its top edge, light along its bottom edge"
     },
     "etch-light": {
-      "$value": "inset 0 1px 2px #1112144D, inset 0 -1px 0 #FFFFFF"
+      "$value": "inset 0 0 0 1px #1112141F"
     },
     "portrait": {
-      "$value": "inset 0 0 0 1px #FFFFFF47, inset 0 1px 0 #FFFFFF73, inset 0 -8px 14px -10px #0000008C",
+      "$value": "inset 0 0 0 1px #FFFFFF33",
       "$description": "a portrait behind a lens: a rim of light, brightest at the top, and shade at the foot"
     },
     "track": {
-      "$value": "inset 0 1px 3px #00000080",
+      "$value": "inset 0 0 0 1px #FFFFFF1A",
       "$description": "a track is a shallow recess: light from above leaves a shade under its top edge"
     },
     "track-light": {
-      "$value": "inset 0 1px 3px #1112142E"
+      "$value": "inset 0 0 0 1px #1112141A"
     },
     "loud-glow": {
-      "$value": "0 0 0 1px #FFFFFF4D, 0 8px 26px -6px #FFFFFF61, 0 2px 6px #00000059",
+      "$value": "0 0 0 0 #00000000",
       "$description": "the promoted solid glows with its own light onto the pane"
     },
     "loud-glow-light": {
-      "$value": "inset 0 1px 0 #FFFFFF38, 0 10px 22px -8px #1112148C"
+      "$value": "0 0 0 0 #00000000"
     },
     "quiet-cast": {
-      "$value": "0 6px 14px -8px #00000099",
+      "$value": "0 0 0 0 #00000000",
       "$description": "a quiet glass object resting on the pane"
     },
     "quiet-cast-light": {
-      "$value": "0 6px 14px -8px #1112144D"
+      "$value": "0 0 0 0 #00000000"
     },
     "chosen-cast": {
-      "$value": "0 4px 10px -4px #00000099",
+      "$value": "0 0 0 0 #00000000",
       "$description": "a chosen pane resting in its track"
     },
     "chosen-cast-light": {
-      "$value": "0 4px 10px -4px #1112144D"
+      "$value": "0 0 0 0 #00000000"
     },
     "on-glow": {
-      "$value": "inset 0 1px 2px #00000040, 0 0 6px #FFFFFF59, 0 0 18px #FFFFFF40",
+      "$value": "0 0 0 0 #00000000",
       "$description": "a switch that is on is lit, and its light spills a little onto the pane"
     },
     "on-glow-light": {
-      "$value": "inset 0 1px 2px #00000066"
+      "$value": "0 0 0 0 #00000000"
     },
     "level-1": {
-      "$value": "0 14px 30px -10px #000000BF, 0 2px 6px #00000080",
+      "$value": "0 0 0 0 #00000000",
       "$description": "a pane floats well off the scene"
     },
     "level-1-light": {
-      "$value": "0 14px 30px -12px #11121440, 0 2px 6px #11121414"
+      "$value": "0 0 0 0 #00000000"
     },
     "level-2": {
-      "$value": "0 6px 14px -8px #000000A6",
+      "$value": "0 0 0 0 #00000000",
       "$description": "a nested surface rests on its pane"
     },
     "level-2-light": {
-      "$value": "0 6px 14px -8px #11121426"
+      "$value": "0 0 0 0 #00000000"
     },
     "level-3": {
       "$value": "0 30px 80px -20px #000000E6, 0 8px 24px #00000080",
@@ -1690,18 +1693,18 @@
       "$value": "0 18px 40px -12px #1112144D, 0 4px 12px #1112141A"
     },
     "edge": {
-      "$value": "inset 0 1px 0 #FFFFFF33, inset 1.5px 2px 6px -2px #FFFFFF26, inset -1px -6px 14px -6px #000000B3",
+      "$value": "inset 0 0 0 1px #FFFFFF1F",
       "$description": "a slab of glass: a faint edge all round and shade gathering at its foot"
     },
     "edge-light": {
-      "$value": "inset 0 1px 0 #FFFFFFE6, inset 1.5px 2px 6px -2px #FFFFFF99, inset -1px -6px 14px -6px #0000002E, inset 0 0 0 1px #11121414"
+      "$value": "inset 0 0 0 1px #FFFFFFCC"
     },
     "bloom": {
-      "$value": "0 0 0 1px #FFFFFF80, 0 0 10px #FFFFFF59, 0 8px 30px -4px #FFFFFF59, 0 4px 12px #00000066",
+      "$value": "0 0 0 0 #00000000",
       "$description": "the loud solid blooms with its own light"
     },
     "bloom-light": {
-      "$value": "inset 0 1px 0 #FFFFFF38, 0 10px 22px -8px #1112148C"
+      "$value": "0 0 0 0 #00000000"
     },
     "glow-soft": {
       "$value": "0 0 6px #FFFFFF59, 0 0 18px #FFFFFF40",

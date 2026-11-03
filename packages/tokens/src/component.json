@@ -34,7 +34,7 @@
     },
     "rim-hi": {
       "$type": "color",
-      "$value": "{line.rim-hi}"
+      "$value": "{line.rim-mid}"
     },
     "rim-mid": {
       "$type": "color",
@@ -42,7 +42,7 @@
     },
     "rim-lo": {
       "$type": "color",
-      "$value": "{line.rim-lo}"
+      "$value": "{line.rim-mid}"
     },
     "divider": {
       "$type": "color",
@@ -135,7 +135,7 @@
       "$value": "{level.scrim}"
     },
     "rim-foot": {
-      "$value": "{line.rim-foot}",
+      "$value": "{line.rim-mid}",
       "$type": "color",
       "$extensions": {
         "kiln.why": {
@@ -306,7 +306,7 @@
     },
     "rim-hi": {
       "$type": "color",
-      "$value": "{line.rim-hi}"
+      "$value": "{line.rim-mid}"
     },
     "rim-mid": {
       "$type": "color",
@@ -314,7 +314,7 @@
     },
     "rim-lo": {
       "$type": "color",
-      "$value": "{line.rim-lo}"
+      "$value": "{line.rim-mid}"
     },
     "cast": {
       "$type": "shadow",

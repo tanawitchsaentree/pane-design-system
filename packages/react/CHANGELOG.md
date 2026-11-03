@@ -2,6 +2,13 @@
 
 Every entry names the component it touches, so each component page in the book can show its own history. The conformance run fails if a component has no entry.
 
+## 0.8.4 (2026-11-03)
+
+- Button: flat. The loud button is a flat fill and the quiet one a flat tint, with no gloss, top streak, glint or cast shadow, so a white button no longer swells off the glass.
+- Card: flat. A pane is one thin sheet with an even hairline rim, with no bevel, top streak or lift shadow. Overlays (levels 3 and 4) keep their shadow.
+- Switch: the track and the knob are flat fills; the knob keeps a hairline so it reads on a lit track.
+- SegmentedControl: the chosen segment and the track are flat, with no carve or cast.
+
 ## 0.8.3 (2026-11-02)
 
 - Environment: materials nest. An Environment with `material` set starts its own world inside another one, so glass, liquid and solid can sit side by side; leave `material` unset and it follows the Environment around it. Solid now ends at a nested Environment of another material, and liquid no longer lenses the panes of a nested one.

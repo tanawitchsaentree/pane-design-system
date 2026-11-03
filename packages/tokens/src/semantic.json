@@ -72,23 +72,27 @@
       }
     },
     "sheen-top": {
-      "$value": "{color.white-a.10}",
+      "$value": "{color.white-a.00}",
       "$extensions": {
         "pane.theme": {
           "light": "{color.white-a.70}"
         },
         "kiln.why": {
-          "p": "P3",
-          "why": "a faint light at the top of a pane, as on a real sheet of glass lit from above"
+          "p": [
+            "P3"
+          ],
+          "why": "flat glass (2026-11-02): one thin sheet; controls on it are flat fills with a hairline, never domed, glossed or cast"
         }
       }
     },
     "sheen-bottom": {
-      "$value": "{color.white-a.03}",
+      "$value": "{color.white-a.00}",
       "$extensions": {
         "kiln.why": {
-          "p": "P3",
-          "why": "the sheen fades out lower down, so it reads as light catching the top edge"
+          "p": [
+            "P3"
+          ],
+          "why": "flat glass (2026-11-02): one thin sheet; controls on it are flat fills with a hairline, never domed, glossed or cast"
         }
       }
     },
@@ -182,54 +186,72 @@
       }
     },
     "lit-quiet-top": {
-      "$value": "{color.white-a.14}",
+      "$value": "{color.white-a.12}",
       "$extensions": {
         "pane.theme": {
-          "light": "{color.white-a.95}"
+          "light": "{color.white-a.55}"
         },
         "kiln.why": {
-          "p": "P3",
-          "why": "a quiet glass object is lit from above, brighter at its top"
+          "p": [
+            "P3"
+          ],
+          "why": "flat glass (2026-11-02): one thin sheet; controls on it are flat fills with a hairline, never domed, glossed or cast"
         }
       }
     },
     "lit-quiet-foot": {
-      "$value": "{color.white-a.05}",
+      "$value": "{color.white-a.12}",
       "$extensions": {
         "pane.theme": {
           "light": "{color.white-a.55}"
+        },
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "flat glass (2026-11-02): one thin sheet; controls on it are flat fills with a hairline, never domed, glossed or cast"
         }
       }
     },
     "lit-chosen-top": {
-      "$value": "{color.white-a.30}",
+      "$value": "{color.white-a.20}",
       "$extensions": {
         "pane.theme": {
-          "light": "{color.white}"
+          "light": "{color.paper.50}"
         },
         "kiln.why": {
-          "p": "P6",
-          "why": "a chosen item is a lighter pane of glass resting where it was chosen, so choice reads as a raised object as well as a word"
+          "p": [
+            "P3"
+          ],
+          "why": "flat glass (2026-11-02): one thin sheet; controls on it are flat fills with a hairline, never domed, glossed or cast"
         }
       }
     },
     "lit-chosen-foot": {
-      "$value": "{color.white-a.12}",
+      "$value": "{color.white-a.20}",
       "$extensions": {
         "pane.theme": {
           "light": "{color.paper.50}"
+        },
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "flat glass (2026-11-02): one thin sheet; controls on it are flat fills with a hairline, never domed, glossed or cast"
         }
       }
     },
     "lit-on-top": {
-      "$value": "{color.white-a.70}",
+      "$value": "{color.white-a.90}",
       "$extensions": {
         "pane.theme": {
-          "light": "{color.ink.700}"
+          "light": "{color.ink.900}"
         },
         "kiln.why": {
-          "p": "P3",
-          "why": "a switch that is on is lit from within, a bright track in dark and a dark one in light"
+          "p": [
+            "P3"
+          ],
+          "why": "flat glass (2026-11-02): one thin sheet; controls on it are flat fills with a hairline, never domed, glossed or cast"
         }
       }
     },
@@ -238,6 +260,12 @@
       "$extensions": {
         "pane.theme": {
           "light": "{color.ink.900}"
+        },
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "flat glass (2026-11-02): one thin sheet; controls on it are flat fills with a hairline, never domed, glossed or cast"
         }
       }
     },
@@ -262,14 +290,16 @@
       }
     },
     "chosen-top": {
-      "$value": "{color.chosen.top}",
+      "$value": "{color.chosen.foot}",
       "$extensions": {
         "pane.theme": {
-          "light": "{color.chosen.top-light}"
+          "light": "{color.chosen.foot-light}"
         },
         "kiln.why": {
-          "p": "P6",
-          "why": "a chosen item is a lighter pane of grey glass in dark and white in light"
+          "p": [
+            "P3"
+          ],
+          "why": "flat glass (2026-11-02): one thin sheet; controls on it are flat fills with a hairline, never domed, glossed or cast"
         }
       }
     },
@@ -398,35 +428,86 @@
       }
     },
     "gloss": {
-      "$value": "{color.white-a.26}"
-    },
-    "gloss-quiet": {
-      "$value": "{color.white-a.12}",
+      "$value": "{color.white-a.00}",
       "$extensions": {
         "pane.theme": {
-          "light": "{color.white-a.45}"
+          "light": "{color.white-a.00}"
+        },
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "flat glass (2026-11-02): one thin sheet; controls on it are flat fills with a hairline, never domed, glossed or cast"
+        }
+      }
+    },
+    "gloss-quiet": {
+      "$value": "{color.white-a.00}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.00}"
+        },
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "flat glass (2026-11-02): one thin sheet; controls on it are flat fills with a hairline, never domed, glossed or cast"
         }
       }
     },
     "gloss-solid": {
-      "$value": "{color.white-a.03}",
+      "$value": "{color.white-a.00}",
       "$extensions": {
         "pane.theme": {
-          "light": "{color.white-a.16}"
+          "light": "{color.white-a.00}"
+        },
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "flat glass (2026-11-02): one thin sheet; controls on it are flat fills with a hairline, never domed, glossed or cast"
         }
       }
     },
     "foot-solid": {
-      "$value": "{color.ink-a.08}"
-    },
-    "glint": {
-      "$value": "{color.white-a.20}"
-    },
-    "glint-solid": {
-      "$value": "{color.ink-a.06}",
+      "$value": "{color.white-a.00}",
       "$extensions": {
         "pane.theme": {
-          "light": "{color.white-a.16}"
+          "light": "{color.white-a.00}"
+        },
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "flat glass (2026-11-02): one thin sheet; controls on it are flat fills with a hairline, never domed, glossed or cast"
+        }
+      }
+    },
+    "glint": {
+      "$value": "{color.white-a.00}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.00}"
+        },
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "flat glass (2026-11-02): one thin sheet; controls on it are flat fills with a hairline, never domed, glossed or cast"
+        }
+      }
+    },
+    "glint-solid": {
+      "$value": "{color.white-a.00}",
+      "$extensions": {
+        "pane.theme": {
+          "light": "{color.white-a.00}"
+        },
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "flat glass (2026-11-02): one thin sheet; controls on it are flat fills with a hairline, never domed, glossed or cast"
         }
       }
     },
@@ -450,15 +531,27 @@
       "$value": "{color.loud.top}",
       "$extensions": {
         "pane.theme": {
-          "light": "{color.ink.700}"
+          "light": "{color.ink.900}"
+        },
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "flat glass (2026-11-02): one thin sheet; controls on it are flat fills with a hairline, never domed, glossed or cast"
         }
       }
     },
     "loud-foot": {
-      "$value": "{color.loud.foot}",
+      "$value": "{color.loud.top}",
       "$extensions": {
         "pane.theme": {
           "light": "{color.ink.900}"
+        },
+        "kiln.why": {
+          "p": [
+            "P3"
+          ],
+          "why": "flat glass (2026-11-02): one thin sheet; controls on it are flat fills with a hairline, never domed, glossed or cast"
         }
       }
     }
@@ -1836,7 +1929,7 @@
       }
     },
     "streak": {
-      "$value": "{color.white-a.85}",
+      "$value": "{color.white-a.00}",
       "$extensions": {
         "pane.theme": {
           "light": "{color.white}"
@@ -1850,7 +1943,7 @@
       }
     },
     "sheen": {
-      "$value": "{color.white-a.06}",
+      "$value": "{color.white-a.00}",
       "$extensions": {
         "pane.theme": {
           "light": "{color.white-a.70}"
